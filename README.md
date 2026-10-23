@@ -29,6 +29,17 @@ If you enable GitHub Pages for this repo, the dashboard is:
 https://montasaa.github.io/morning-brief/
 ```
 
+**Current status (2026-10-23):** Pages is enabled on `main` / root, but the account's
+custom domain `montasaa.me` has no DNS A/CNAME records. GitHub therefore redirects
+both `montasaa.github.io/morning-brief/` and `montasaa.me/morning-brief/` to a host
+that does not resolve. The raw JSON URL above is unaffected.
+
+A working preview while that DNS is fixed:
+
+```
+https://htmlpreview.github.io/?https://github.com/Montasaa/morning-brief/blob/main/index.html
+```
+
 ## Shape
 
 ```json

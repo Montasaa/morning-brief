@@ -72,10 +72,21 @@
   const app = document.getElementById("app");
   const sub = document.getElementById("sub");
   let brief;
+  const RAW_URL = "https://raw.githubusercontent.com/Montasaa/morning-brief/main/brief.json";
+  async function loadBrief() {
+    const urls = [RAW_URL + "?ts=" + Date.now(), "brief.json"];
+    let lastErr;
+    for (const u of urls) {
+      try {
+        const res = await fetch(u, { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return await res.json();
+      } catch (e) { lastErr = e; }
+    }
+    throw lastErr;
+  }
   try {
-    const res = await fetch("brief.json", { cache: "no-store" });
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    brief = await res.json();
+    brief = await loadBrief();
   } catch (err) {
     sub.textContent = "could not load brief.json";
     app.innerHTML = '<div class="err">Could not fetch <code>brief.json</code> (' +
