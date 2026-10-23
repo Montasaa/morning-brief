@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Montasaa/morning-brief/main/brief.schema.json",
+  "title": "Morning Brief",
+  "description": "Machine-readable daily news brief published by the Morning Brief bot. Stable item ids let a reader replace items instead of duplicating them.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "date", "edition", "timezone", "sections", "top_stories"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp of this build."
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Riyadh calendar date this edition covers."
+    },
+    "edition": {
+      "type": "string",
+      "enum": ["morning", "evening"]
+    },
+    "timezone": {
+      "type": "string",
+      "const": "Asia/Riyadh"
+    },
+    "next_build_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/section" }
+    },
+    "top_stories": {
+      "type": "array",
+      "maxItems": 6,
+      "items": { "$ref": "#/$defs/topStory" }
+    }
+  },
+  "$defs": {
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "items", "watch"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": ["trending_repos", "middle_east", "us_markets", "liverpool"]
+        },
+        "title": { "type": "string" },
+        "items": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 8,
+          "items": { "$ref": "#/$defs/item" }
+        },
+        "watch": {
+          "type": "array",
+          "maxItems": 3,
+          "items": { "$ref": "#/$defs/video" }
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "section",
+        "title",
+        "summary",
+        "sources",
+        "published_at",
+        "status",
+        "updated"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Stable slug. Reuse the same id on later builds when the story continues."
+        },
+        "section": {
+          "type": "string",
+          "enum": ["trending_repos", "middle_east", "us_markets", "liverpool"]
+        },
+        "title": { "type": "string", "maxLength": 140 },
+        "summary": {
+          "type": "string",
+          "description": "Exactly two lines separated by \\n; each line is one sentence.",
+          "pattern": "^[^\\n]+\\n[^\\n]+$"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "items": { "$ref": "#/$defs/source" }
+        },
+        "published_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["new", "updated", "steady"],
+          "description": "new = first appearance, updated = changed since the previous build, steady = unchanged."
+        },
+        "updated": {
+          "type": "boolean",
+          "description": "True when the item is new or changed in this build."
+        },
+        "change": {
+          "type": "string",
+          "description": "Required for middle_east: the one thing that changed since yesterday."
+        },
+        "meta": {
+          "type": "object",
+          "description": "Section-specific facts, e.g. stars_today, ticker, score, kickoff, reliability.",
+          "additionalProperties": true
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url"],
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "video": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "url", "channel"],
+      "properties": {
+        "title": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "channel": { "type": "string" },
+        "published_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "topStory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["section", "id"],
+      "properties": {
+        "section": { "type": "string" },
+        "id": { "type": "string" }
+      }
+    }
+  }
+}

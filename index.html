@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>morning brief</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c232c; --text:#e6edf3; --muted:#8b949e;
+    --line:#30363d; --accent:#58a6ff; --new:#3fb950; --updated:#d29922; --change:#1f6feb;
+    --radius:14px; --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: light){
+    :root{--bg:#f6f8fa;--panel:#ffffff;--panel2:#f0f3f6;--text:#1f2328;--muted:#59636e;--line:#d0d7de;--accent:#0969da;--change:#0969da}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.5}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 18px 80px}
+  header.top{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:18px}
+  h1{font-size:clamp(28px,4vw,44px);letter-spacing:-.04em;margin:0;font-weight:750}
+  .sub{color:var(--muted);font-size:14px;margin-top:4px}
+  .badge{display:inline-block;padding:2px 9px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted)}
+  .topstories{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:26px}
+  .topstories h2{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 10px}
+  .topstories ol{margin:0;padding-left:20px}
+  .topstories li{margin:5px 0}
+  section.block{margin:34px 0}
+  .sechead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .sechead h2{font-size:22px;letter-spacing:-.02em;margin:0;text-transform:lowercase}
+  .sechead .count{color:var(--muted);font-size:13px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:12px}
+  article.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 13px;display:flex;flex-direction:column;gap:9px}
+  article.card:target{outline:2px solid var(--accent);outline-offset:2px}
+  .cardhead{display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+  .card h3{font-size:16.5px;line-height:1.35;margin:0;letter-spacing:-.01em}
+  .tag{flex:0 0 auto;font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;padding:2px 7px;border-radius:999px;border:1px solid currentColor}
+  .tag.new{color:var(--new)} .tag.updated{color:var(--updated)} .tag.steady{color:var(--muted)}
+  .summary{white-space:pre-line;color:var(--text);font-size:14.5px;margin:0}
+  .change{border-left:3px solid var(--change);background:var(--panel2);padding:7px 10px;border-radius:0 8px 8px 0;font-size:13.5px;color:var(--muted)}
+  .change b{color:var(--text);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-size:11.5px;background:var(--panel2);border:1px solid var(--line);color:var(--muted);padding:2px 8px;border-radius:999px}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted)}
+  .sources{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12.5px}
+  .sources span{color:var(--muted)}
+  footer.cardfoot{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:9px;font-size:12px;color:var(--muted)}
+  .watch{margin-top:12px;border-top:1px dashed var(--line);padding-top:12px}
+  .watch h4{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 7px}
+  .watch ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+  .watch li{font-size:13.5px}
+  .watch .ch{color:var(--muted);font-size:12px}
+  .empty{color:var(--muted);font-size:13px;font-style:italic}
+  .err{background:#3d1d1d;border:1px solid #8b3a3a;padding:14px 16px;border-radius:10px}
+  @media (max-width:600px){.wrap{padding:20px 12px 60px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>morning brief</h1>
+      <div class="sub" id="sub">loading…</div>
+    </div>
+    <div class="sub"><a id="raw" href="brief.json">brief.json</a> · <a href="brief.schema.json">schema</a></div>
+  </header>
+  <div id="app"></div>
+</div>
+<script>
+(async () => {
+  const app = document.getElementById("app");
+  const sub = document.getElementById("sub");
+  let brief;
+  try {
+    const res = await fetch("brief.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    brief = await res.json();
+  } catch (err) {
+    sub.textContent = "could not load brief.json";
+    app.innerHTML = '<div class="err">Could not fetch <code>brief.json</code> (' +
+      String(err.message).replace(/[<>&]/g, "") +
+      '). Serve this folder over HTTP, or open the raw JSON link above.</div>';
+    return;
+  }
+
+  const when = new Date(brief.generated_at);
+  sub.textContent = brief.date + " · " + brief.edition + " edition · built " +
+    when.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }) +
+    " · " + brief.timezone;
+
+  const el = (tag, cls, text) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  };
+  const fmt = iso => {
+    const d = new Date(iso);
+    if (isNaN(d)) return "";
+    return d.toLocaleString(undefined, { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+  };
+  const slug = s => s.replace(/[^a-z0-9]+/gi, "-").toLowerCase();
+
+  const byId = {};
+  for (const s of brief.sections) for (const it of s.items) byId[s.id + "/" + it.id] = it;
+
+  if (brief.top_stories?.length) {
+    const box = el("div", "topstories");
+    box.appendChild(el("h2", null, "top stories"));
+    const ol = el("ol");
+    for (const t of brief.top_stories) {
+      const it = byId[t.section + "/" + t.id];
+      if (!it) continue;
+      const li = el("li");
+      const a = el("a", null, it.title);
+      a.href = "#" + slug(t.section + "-" + t.id);
+      li.appendChild(a);
+      li.appendChild(document.createTextNode(" "));
+      li.appendChild(el("span", "badge", t.section.replace("_", " ")));
+      ol.appendChild(li);
+    }
+    box.appendChild(ol);
+    app.appendChild(box);
+  }
+
+  const metaChips = meta => {
+    const skip = new Set(["reliability", "injuries"]);
+    const chips = [];
+    for (const [k, v] of Object.entries(meta || {})) {
+      if (skip.has(k) || v == null) continue;
+      if (Array.isArray(v)) { chips.push(k.replace(/_/g, " ") + ": " + v.join(", ")); continue; }
+      if (typeof v === "object") continue;
+      chips.push(k.replace(/_/g, " ") + ": " + v);
+    }
+    return chips;
+  };
+
+  for (const s of brief.sections) {
+    const sec = el("section", "block");
+    const head = el("div", "sechead");
+    head.appendChild(el("h2", null, s.title));
+    head.appendChild(el("span", "count", s.items.length + " items"));
+    sec.appendChild(head);
+
+    const grid = el("div", "grid");
+    for (const it of s.items) {
+      const card = el("article", "card");
+      card.id = slug(s.id + "-" + it.id);
+
+      const ch = el("div", "cardhead");
+      ch.appendChild(el("h3", null, it.title));
+      ch.appendChild(el("span", "tag " + (it.status || "steady"), it.status || "steady"));
+      card.appendChild(ch);
+
+      card.appendChild(el("p", "summary", it.summary));
+
+      if (it.change) {
+        const c = el("div", "change");
+        c.appendChild(el("b", null, "what changed: "));
+        c.appendChild(document.createTextNode(it.change));
+        card.appendChild(c);
+      }
+
+      const chips = metaChips(it.meta);
+      if (chips.length) {
+        const box = el("div", "chips");
+        for (const c of chips) box.appendChild(el("span", "chip", c));
+        card.appendChild(box);
+      }
+
+      if (it.sources?.length) {
+        const src = el("div", "sources");
+        for (const so of it.sources) {
+          const a = el("a", null, so.name);
+          a.href = so.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+          src.appendChild(a);
+        }
+        card.appendChild(src);
+      }
+
+      const foot = el("footer", "cardfoot");
+      foot.appendChild(el("span", null, fmt(it.published_at)));
+      if (it.meta?.reliability) foot.appendChild(el("span", null, "reliability: " + it.meta.reliability));
+      card.appendChild(foot);
+      grid.appendChild(card);
+    }
+    sec.appendChild(grid);
+
+    if (s.watch?.length) {
+      const w = el("div", "watch");
+      w.appendChild(el("h4", null, "watch"));
+      const ul = el("ul");
+      for (const v of s.watch) {
+        const li = el("li");
+        const a = el("a", null, v.title);
+        a.href = v.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+        li.appendChild(a);
+        li.appendChild(document.createTextNode(" "));
+        li.appendChild(el("span", "ch", "· " + v.channel));
+        ul.appendChild(li);
+      }
+      w.appendChild(ul);
+      sec.appendChild(w);
+    }
+    app.appendChild(sec);
+  }
+})();
+</script>
+</body>
+</html>
