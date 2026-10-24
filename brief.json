@@ -1,50 +1,20 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-23T20:24:32Z",
-  "date": "2026-10-23",
-  "edition": "evening",
+  "generated_at": "2026-10-24T03:43:05Z",
+  "date": "2026-10-24",
+  "edition": "morning",
   "timezone": "Asia/Riyadh",
-  "next_build_at": "2026-10-24T03:30:00Z",
+  "next_build_at": "2026-10-24T16:00:00Z",
   "sections": [
     {
       "id": "trending_repos",
       "title": "trending repos",
       "items": [
         {
-          "id": "nvidia-openshell",
-          "section": "trending_repos",
-          "title": "NVIDIA/OpenShell - a locked-down runtime for ai agents",
-          "summary": "nvidia's open-source sandbox for running autonomous agents without handing them your whole machine.\n1,240 stars today; rust; apache-2.0; 18.6k total.",
-          "sources": [
-            {
-              "name": "GitHub",
-              "url": "https://github.com/NVIDIA/OpenShell"
-            },
-            {
-              "name": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily"
-            }
-          ],
-          "published_at": "2026-10-23T20:00:00Z",
-          "status": "new",
-          "updated": true,
-          "meta": {
-            "stars_today": 1240,
-            "stars_total": 18666,
-            "language": "Rust",
-            "license": "Apache-2.0"
-          },
-          "tags": [
-            "agents",
-            "security",
-            "rust"
-          ]
-        },
-        {
           "id": "cloudflare-security-audit-skill",
           "section": "trending_repos",
           "title": "cloudflare/security-audit-skill - an audit agent with receipts",
-          "summary": "a coding-agent skill that runs multi-phase security audits and verifies each finding before reporting it.\n2,706 stars today, the top gainer on github trending; javascript; mit; 41.8k total.",
+          "summary": "a coding-agent skill that runs multi-phase security audits and verifies each finding before reporting it.\n2,716 stars today, still the top gainer on github trending; javascript; mit; 42.3k total.",
           "sources": [
             {
               "name": "GitHub",
@@ -56,11 +26,11 @@
             }
           ],
           "published_at": "2026-10-23T20:00:00Z",
-          "status": "new",
-          "updated": true,
+          "status": "steady",
+          "updated": false,
           "meta": {
-            "stars_today": 2706,
-            "stars_total": 41820,
+            "stars_today": 2716,
+            "stars_total": 42340,
             "language": "JavaScript",
             "license": "MIT"
           },
@@ -71,10 +41,40 @@
           ]
         },
         {
+          "id": "nvidia-openshell",
+          "section": "trending_repos",
+          "title": "NVIDIA/OpenShell - a locked-down runtime for ai agents",
+          "summary": "nvidia's open-source sandbox for running autonomous agents without handing them your whole machine.\n1,119 stars today; rust; apache-2.0; 18.9k total.",
+          "sources": [
+            {
+              "name": "GitHub",
+              "url": "https://github.com/NVIDIA/OpenShell"
+            },
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            }
+          ],
+          "published_at": "2026-10-23T20:00:00Z",
+          "status": "steady",
+          "updated": false,
+          "meta": {
+            "stars_today": 1119,
+            "stars_total": 18880,
+            "language": "Rust",
+            "license": "Apache-2.0"
+          },
+          "tags": [
+            "agents",
+            "security",
+            "rust"
+          ]
+        },
+        {
           "id": "php-src",
           "section": "trending_repos",
           "title": "php/php-src - trending for the worst reason",
-          "summary": "php's core repo drew 722 stars today as teams raced to patch critical flaws dubbed 'black october'.\nnearly 70% of websites run php, per cnbc; the fixes land in this repo.",
+          "summary": "php's core repo drew 716 stars today as teams raced to patch critical flaws dubbed 'black october'.\nnearly 70% of websites run php, per cnbc; the fixes land in this repo.",
           "sources": [
             {
               "name": "GitHub",
@@ -86,11 +86,11 @@
             }
           ],
           "published_at": "2026-10-23T20:00:00Z",
-          "status": "new",
-          "updated": true,
+          "status": "steady",
+          "updated": false,
           "meta": {
-            "stars_today": 722,
-            "stars_total": 41530,
+            "stars_today": 716,
+            "stars_total": 41589,
             "language": "C",
             "license": "BSD-3-Clause"
           },
@@ -104,7 +104,7 @@
           "id": "anthropics-knowledge-work-plugins",
           "section": "trending_repos",
           "title": "anthropics/knowledge-work-plugins - claude cowork plugins",
-          "summary": "anthropic's open plugin pack for knowledge workers using claude cowork.\n643 stars today; python; apache-2.0; 32.1k total.",
+          "summary": "anthropic's open plugin pack for knowledge workers using claude cowork.\n635 stars today; python; apache-2.0; 32.3k total.",
           "sources": [
             {
               "name": "GitHub",
@@ -116,11 +116,11 @@
             }
           ],
           "published_at": "2026-10-23T20:00:00Z",
-          "status": "new",
-          "updated": true,
+          "status": "steady",
+          "updated": false,
           "meta": {
-            "stars_today": 643,
-            "stars_total": 32131,
+            "stars_today": 635,
+            "stars_total": 32287,
             "language": "Python",
             "license": "Apache-2.0"
           },
@@ -134,7 +134,7 @@
           "id": "ziwei-doushu",
           "section": "trending_repos",
           "title": "Renhuai123/ziwei-doushu - a complete chinese astrology engine",
-          "summary": "a zi wei dou shu charting engine with the full chart algorithm, four transformations system, pattern library and source texts.\n547 stars today; typescript; mit; 6.8k total.",
+          "summary": "a zi wei dou shu charting engine with the full chart algorithm, four transformations system, pattern library and source texts.\n546 stars today; typescript; mit; 6.9k total.",
           "sources": [
             {
               "name": "GitHub",
@@ -146,11 +146,11 @@
             }
           ],
           "published_at": "2026-10-23T20:00:00Z",
-          "status": "new",
-          "updated": true,
+          "status": "steady",
+          "updated": false,
           "meta": {
-            "stars_today": 547,
-            "stars_total": 6816,
+            "stars_today": 546,
+            "stars_total": 6949,
             "language": "TypeScript",
             "license": "MIT"
           },
@@ -164,7 +164,7 @@
           "id": "claude-red",
           "section": "trending_repos",
           "title": "SnailSploit/Claude-Red - offensive-security skills for claude",
-          "summary": "a curated library of attack-surface skills, from sqli to edr evasion, packaged as claude SKILL.md files.\n209 stars today; python; dual-use and worth treating carefully.",
+          "summary": "a curated library of attack-surface skills, from sqli to edr evasion, packaged as claude SKILL.md files.\n226 stars today; python; mit; 8.6k total.",
           "sources": [
             {
               "name": "GitHub",
@@ -176,11 +176,11 @@
             }
           ],
           "published_at": "2026-10-23T20:00:00Z",
-          "status": "new",
-          "updated": true,
+          "status": "steady",
+          "updated": false,
           "meta": {
-            "stars_today": 209,
-            "stars_total": 8334,
+            "stars_today": 226,
+            "stars_total": 8560,
             "language": "Python",
             "license": "MIT"
           },
@@ -194,7 +194,7 @@
           "id": "voxcpm",
           "section": "trending_repos",
           "title": "OpenBMB/VoxCPM - tokenizer-free multilingual tts",
-          "summary": "voxcpm2 does speech generation, voice design and cloning without a tokenizer.\n144 stars today; python; apache-2.0; 40.2k total.",
+          "summary": "voxcpm2 does speech generation, voice design and cloning without a tokenizer.\n150 stars today; python; apache-2.0; 40.3k total.",
           "sources": [
             {
               "name": "GitHub",
@@ -206,11 +206,11 @@
             }
           ],
           "published_at": "2026-10-23T20:00:00Z",
-          "status": "new",
-          "updated": true,
+          "status": "steady",
+          "updated": false,
           "meta": {
-            "stars_today": 144,
-            "stars_total": 40183,
+            "stars_today": 150,
+            "stars_total": 40317,
             "language": "Python",
             "license": "Apache-2.0"
           },
@@ -233,12 +233,6 @@
           "url": "https://www.youtube.com/watch?v=3EB16ZFkRhw",
           "channel": "DW News",
           "published_at": "2026-10-22T00:00:00Z"
-        },
-        {
-          "title": "Emergency Livestream - PHP Vulnerabilities: What You Need to Know Today",
-          "url": "https://www.youtube.com/watch?v=OrfwyFVkzqY",
-          "channel": "SANS Institute",
-          "published_at": "2026-10-21T00:00:00Z"
         }
       ]
     },
@@ -247,56 +241,99 @@
       "title": "middle east",
       "items": [
         {
-          "id": "jordan-karak-church-shooting",
+          "id": "saudi-riyadh-missile-intercept",
           "section": "middle_east",
-          "title": "seven killed in a gun attack on a church funeral in jordan",
-          "summary": "gunmen opened fire on a funeral at a church in hmoud, karak, killing seven and wounding at least 34 before fleeing.\nno group has claimed it; jordan's interior minister called the attackers 'a group of extremists'.",
+          "title": "saudi air defences down a houthi missile aimed at riyadh",
+          "summary": "the saudi-led coalition says it intercepted and destroyed a ballistic missile fired toward riyadh overnight.\nit follows this week's attacks on dammam's king fahd airport and the shaybah oil field, which killed four people.",
           "sources": [
             {
-              "name": "BBC",
-              "url": "https://www.bbc.co.uk/news/articles/ck87zlpzny15o"
-            },
-            {
               "name": "Al Jazeera",
-              "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNWDJEUlpqMVFqM21NUFNVNzdrTHlkNlJIT2FwbExlZm5FR01ZWEpFdGRFMWltUDRPSHlseFpSanVYc0EtU3ZZcjJoR3dfMnJuN0drRkx4UlZzQ1RtOUFsd2h1NWtZQmdiYmNCU256VzFTakYydExHOGRoTGg5ZzBCcDM5NVA1LUtkcHNuV1JCcDB4WXM4ZnBqY3V6Y0x3NkF6ak9KbVpqVzFHQdIBrwFBVV95cUxNbm5hVF9hZnBmYnBCS2haUGJ6akNiOVdnSEl0ekdmYUlTbnZZOEpHakE3ZWhvTnNXRHM4R0JHQUVIUkJPdmJsY0NSckdxclZiRGtaVS1tdXQtTkNCUExKdXZTandkWUNzTjdTak5iNmwyQmp1aXJQRENpbGtIUmxQaVpvbTRMX2FTamZNeG9fR2xZXzV2cUFwbVJPWXRYLTdfR3JzRUNSRlZ0RllWZXdB?oc=5"
+              "url": "https://www.aljazeera.com/news/liveblog/2026/10/24/iran-war-live-israel-launches-targeted-hebron-operation-after-attack"
             },
             {
-              "name": "Arab News",
-              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPR19FbjNpSWpYRkF1S1poNloyTE50RTNtMlZQWEVObE1Sb1pMNGNYY2h3TGpqRVRNX2lkTHFQS0FNZlV2R2FYV1ZWRDNkMmQ1QzVwUnoxTy05VFdFYm9RcU1jQXFXQXJHTHR5TG9tQWl5NXUtUjNIMnV2aFlNeTkwY3NaNFNlcGJKeXREeUl1eFBPeWRCTlN2TTE2YXFqRmVBQnFFbkpiTUxudG8?oc=5"
+              "name": "Saudi Gazette",
+              "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBUQVM1bmpWLUhxRFotRXFIQmdOVXZPalhKbk1ReWxKbWhIczNaVHVQOU5sNW56SkhFQzdLRGFodi1WX0cxWFNaQW55OEd3bGJoV1FOMw?oc=5"
             }
           ],
-          "published_at": "2026-10-23T19:46:00Z",
+          "published_at": "2026-10-24T02:40:00Z",
           "status": "new",
           "updated": true,
-          "change": "death toll was revised from six to seven within hours; cctv verified by the bbc shows three gunmen walking toward the church.",
+          "change": "air defences brought it down over the capital; it follows a week of drone and missile attacks on saudi airports and oil sites.",
           "tags": [
-            "jordan",
-            "attack"
+            "saudi-arabia",
+            "houthis",
+            "missile"
+          ]
+        },
+        {
+          "id": "iran-assassination-plots",
+          "section": "middle_east",
+          "title": "us spies warn iran's plots against american officials are 'advanced'",
+          "summary": "a dni memo to marco rubio says iranian lethal plotting against us citizens has reached 'advanced stages' in the middle east and other countries.\nrubio's state department is also cutting staff at four embassies in the region, ap reports.",
+          "sources": [
+            {
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/middle-east/iran-news/article-912677"
+            },
+            {
+              "name": "AP",
+              "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZDNtSXd5ZFJ3emQ3V0MxamwycEVtX0dlNTZsaUpHRzROR3hYbEhNLXpwSE9CS1ltMUdPQ3RZbmpROGhiZFlkVFdmTS1Qb0wyMnlvRHFBNXlYTEVQU3F2REdndlJkaVNKbWt0cWNoVFRJblFjM1AzU1JSRTVxSkd6bDViZzk1amxEUlNGbDR0ZFNLcmtDZDJyS1F5MEZiWkN3VlhF?oc=5"
+            }
+          ],
+          "published_at": "2026-10-24T02:44:00Z",
+          "status": "new",
+          "updated": true,
+          "change": "the october 23 memorandum is new; the embassy drawdown now covers four countries, not just saudi arabia.",
+          "tags": [
+            "iran",
+            "us",
+            "intelligence"
+          ]
+        },
+        {
+          "id": "trump-epic-fury",
+          "section": "middle_east",
+          "title": "trump floats 'another little epic fury' against iran",
+          "summary": "at a florida rally trump said the us 'may do another little epic fury' and did not elaborate.\nthe new york times reports washington and israel have plans for short, intense strikes after the midterms.",
+          "sources": [
+            {
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/international/article-912674"
+            },
+            {
+              "name": "Reuters",
+              "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNOWlIdzFDR0xNQ01RZzhsaXVtMXYtbWU3U3RvejE4NzV3TFZPXzI5SUpGTG9jLUxxbEhiNGFVMTZyUU84MVhTZGJaWkxtZ2cwaG9OTlJiYmFLTzFLLXZFQURzNUE5M05Lcjc5UXQ4Q1RIaVNWOFZlSlA2MTBLUFYtSVdLcGI3V3lCN216QQ"
+            }
+          ],
+          "published_at": "2026-10-23T20:05:00Z",
+          "status": "new",
+          "updated": true,
+          "change": "the rally remark is new; it lands as us officials brief plans for post-midterm strikes on energy and nuclear sites.",
+          "tags": [
+            "iran",
+            "us",
+            "strikes"
           ]
         },
         {
           "id": "hebron-west-bank-lockdown",
           "section": "middle_east",
-          "title": "israel seals off hebron and the west bank after two soldiers killed",
-          "summary": "netanyahu ordered a full closure of the occupied west bank and demolitions in hebron after gunmen killed two soldiers at a checkpoint.\nisrael's defence minister promised mass displacement, explicitly invoking the jenin camp and gaza.",
+          "title": "israel widens its hebron operation into a multi-day manhunt",
+          "summary": "the idf and shin bet are searching hebron for weapons and militant infrastructure, questioning dozens of suspects and letting residents out through three checkpoints.\nparallel raids are under way in jenin and nablus; the two soldiers killed were named as ron yonatan roytman, 23, and yuval shai svilem, 20.",
           "sources": [
+            {
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/israel-news/defense-news/article-912675"
+            },
             {
               "name": "BBC",
               "url": "https://www.bbc.co.uk/news/articles/cq4g1p974wxko"
-            },
-            {
-              "name": "The Guardian",
-              "url": "https://www.theguardian.com/world/2026/oct/23/netanyahu-orders-very-extensive-operation-west-bank-two-israeli-soldiers-killed"
-            },
-            {
-              "name": "The Jerusalem Post",
-              "url": "https://www.jpost.com/israel-news/defense-news/article-912642"
             }
           ],
-          "published_at": "2026-10-23T17:57:00Z",
-          "status": "new",
+          "published_at": "2026-10-24T00:41:00Z",
+          "status": "updated",
           "updated": true,
-          "change": "the closure was ordered this morning and diggers began demolishing buildings by the afternoon; netanyahu floated the largest west bank operation since 1967.",
+          "change": "the operation has moved from sealing hebron to a multi-day search, with raids spreading to jenin and nablus overnight.",
           "tags": [
             "israel",
             "west-bank",
@@ -304,132 +341,48 @@
           ]
         },
         {
-          "id": "saudi-houthi-strikes-aramco",
+          "id": "jordan-karak-church-shooting",
           "section": "middle_east",
-          "title": "houthi strikes hit a saudi airport and aramco as the war widens",
-          "summary": "two people were killed at dammam's king fahd airport and two more by drone debris at the shaybah oil field this week.\naramco told staff to leave its dhahran headquarters; the saudi-led coalition says it downed a missile bound for riyadh.",
+          "title": "seven killed in a gun attack on a church funeral in jordan",
+          "summary": "gunmen opened fire on a funeral at a church in hmoud, karak, killing seven and wounding at least 34 before fleeing.\nno group has claimed it; king abdullah vowed the 'harshest penalties' and the interior minister called the attackers 'a group of extremists'.",
           "sources": [
             {
               "name": "BBC",
-              "url": "https://www.bbc.co.uk/news/articles/cqwy71ww156ro"
+              "url": "https://www.bbc.co.uk/news/articles/ck87zlpzny15o"
             },
             {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/23/oil-price-brent-wti-iran-war-saudi-arabia.html"
-            },
-            {
-              "name": "Arab News",
-              "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNTloxbk9QZFZTMjNsNmJWMFN0MU1GZHBRZlUyMG9vQjVuLVBfQW84dDhabVgwWFNCakRyb3ZsWDBTS1I0cmlDbGxHczQ5dUR0Wk1lRE8zcHIzbElpZUNucVhhLUxMM0pXVkVyMFc2NVpHMnRocmd1RDlzbERHbWRMeDE4dktDUlpfSERMck1heGFyQWMyQ09mOHhZOWs4ZzlOellkVmZPTlN2cFd4QUlDay1tX0dLTC1aSFBOQWVPeTNIX1piSXIwUm5maWtubUV5UVlDSFhiWG0?oc=5"
+              "name": "The Washington Post",
+              "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNRzFxMmE4dWx3blk3Yy1MSGJTOXI4NC1URUM3OFBTdzdKUGRWWWRLLXl2bXJfNmoxLXJ6dmN3RFdmU0pRanZsN3dMXzZWaDRpbFhhdm1wanFDQ2FkdUxGcFoyaW41MjkwMER1RDVfRF9MLTgxcTlCMl9tTGgzOFNWV2NublFLUkM2VjBDU3A5Wm9SdVZfeEFyQlRjc09yc0pocTF1emZPMlJ2dVUzRkE?oc=5"
             }
           ],
-          "published_at": "2026-10-23T13:46:00Z",
-          "status": "new",
+          "published_at": "2026-10-23T19:46:00Z",
+          "status": "updated",
           "updated": true,
-          "change": "the airport toll was confirmed today; aramco's evacuation order and the riyadh intercept are both new since yesterday's strikes.",
+          "change": "the toll settled at seven dead and 34 wounded after officials revised it twice; police are still hunting the gunmen seen on cctv.",
           "tags": [
-            "saudi-arabia",
-            "houthis",
-            "oil"
+            "jordan",
+            "attack"
           ]
         },
         {
-          "id": "us-diplomats-uk-jets",
+          "id": "yemen-taiz-siege",
           "section": "middle_east",
-          "title": "us pulls non-essential diplomats from saudi arabia; uk sends typhoons",
-          "summary": "the state department ordered non-essential staff out of saudi arabia as houthi attacks on airports and energy sites continue.\nbritain is deploying raf typhoons to help defend the kingdom.",
-          "sources": [
-            {
-              "name": "The Guardian",
-              "url": "https://www.theguardian.com/world/2026/oct/22/us-diplomats-told-to-leave-saudi-arabia-amid-houthi-attacks"
-            },
-            {
-              "name": "BBC",
-              "url": "https://www.bbc.co.uk/news/articles/ckr5yqe1r1llo"
-            }
-          ],
-          "published_at": "2026-10-22T13:05:00Z",
-          "status": "new",
-          "updated": true,
-          "change": "the drawdown follows this week's airport and oil-field strikes; the uk jet deployment was confirmed on tuesday.",
-          "tags": [
-            "saudi-arabia",
-            "us",
-            "uk"
-          ]
-        },
-        {
-          "id": "istanbul-iran-diplomacy",
-          "section": "middle_east",
-          "title": "eight-nation summit warns washington against a new iran strike",
-          "summary": "foreign ministers from the e3, turkiye, saudi arabia, pakistan, egypt and italy met in istanbul and said another attack would 'create nothing but losers'.\nthe us ambassador to turkiye said washington could 'absolutely' strike iran this weekend.",
+          "title": "the un says yemen's taiz is being strangled after 20 days",
+          "summary": "the un says 20 days of houthi encirclement have cut off taiz and its 800,000 people, with trucked water now costing three times as much.\ngovernment forces say they 'neutralised' 620 houthi fighters in 24 hours of counterattacks.",
           "sources": [
             {
               "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/10/23/european-middle-east-ministers-urge-us-iran-diplomacy-not-new-attacks"
+              "url": "https://www.aljazeera.com/news/2026/10/23/time-running-out-to-reach-yemens-taiz-amid-deepening-crisis-un-says"
             },
             {
-              "name": "The Guardian",
-              "url": "https://www.theguardian.com/world/2026/oct/23/european-middle-eastern-ministers-summit-iran-us-israel"
+              "name": "UN News",
+              "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1kUUtYTW0zVS13YnAwbWkwS2s3ZncwcVBJblVTMDhQZGlZY2ZXSXdHcTRRRTFDTEN3SmcxUjZ0bkFobEh6YzdmNlpjbEFHdWFKWkxEVkpMdw?oc=5"
             }
           ],
-          "published_at": "2026-10-23T18:04:00Z",
+          "published_at": "2026-10-23T20:44:00Z",
           "status": "new",
           "updated": true,
-          "change": "the bloc met for the first time today; the us envoy's weekend-strike comment raised the stakes hours later.",
-          "tags": [
-            "iran",
-            "diplomacy",
-            "oil"
-          ]
-        },
-        {
-          "id": "brent-six-month-high",
-          "section": "middle_east",
-          "title": "brent settles at $116.72, the highest since april",
-          "summary": "brent rose 3.1% and wti 3.8% as traders priced in fresh us strikes on iran and continued houthi attacks on saudi output.\nbrent is up 6.2% on the week, its third straight weekly gain.",
-          "sources": [
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/23/oil-price-brent-wti-iran-war-saudi-arabia.html"
-            },
-            {
-              "name": "The Guardian",
-              "url": "https://www.theguardian.com/business/2026/oct/23/oil-five-month-high-fears-us-renews-strikes-iran"
-            }
-          ],
-          "published_at": "2026-10-23T19:00:00Z",
-          "status": "new",
-          "updated": true,
-          "change": "the settlement is the highest since april 29; the weekly gain accelerated after reports that israel and the us plan post-midterm strikes.",
-          "tags": [
-            "oil",
-            "markets",
-            "iran"
-          ]
-        },
-        {
-          "id": "yemen-strikes-hunger",
-          "section": "middle_east",
-          "title": "yemen's military claims 780 strikes as the hunger crisis deepens",
-          "summary": "the saudi-backed yemeni military says it hit 780 houthi targets and 'neutralised' 512 fighters in 24 hours.\nthe bbc reports newborn twins fighting for survival as the conflict drives yemen's hunger crisis.",
-          "sources": [
-            {
-              "name": "Arab News",
-              "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPc05PTFktSnFEc3daZ2VfamNoLVRaU3A4UGJwR3ZUOTJ3S0VXbFhyWllDVTJXcHpGU3R2WHlYQlZTSi1HUXZQYlR5OEZBaS1GS0ZWMnJVX2NjakNwOWpYSmFQNXgxUVVrQjVuU2ZvTDYxXy1YTnFvN2d1RVkzTzZCOGkzdE1wUVF6ZXV1WjBBSkxOVDhydjZFTkNRUkRDb3FjZGxYVXZYUWp6dWUxcWxlVlljdXQ?oc=5"
-            },
-            {
-              "name": "Al Arabiya English",
-              "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOSFhkN3pVQlJzMW9TOVRXU08zdWFESzBscUwtUmw1eUZCdGo1YzRVQzdVR25idmhYTFRVWFdxNWFFVjBiVVZid0lLaUM4bVl4NmdlY1dfakU0SzN5M2k2Y19VS3NOZHVPbHVJa0psZ0tpYXg5U19wU0FsaGc2d1VSQjIyaDYwNUk0di1ZMC10VUNVMW5FdDUxVVJ2bjl3Wld0X3NGS1Q2V3RxM0czSTk1ZlZHT0lIU2FZSm5jbVFOenZnSTdQVVlvZ09TNNIB0AFBVV95cUxPVWJuZThWSVdwY1Rhd19KeUt5dHdNZGNSWWtrcDRSRmZTYV9WWVV6ODlWUkhyYnZCRXdJUFROYXNCZlpJcDRnRGtPTmdKX0RveDN2WkNscFZlTnlVakZfWG1qNjFlTGwtT0VrYXBHY2hiQjJhb2w2Z2tpdm9SeDRrWE9YNThGOHBiX2ZzVTRqVFF6MVNUNS1WNDBGMFV3VU5lUjYwbDFaRmh5SjNCWEtxMnZTdW43TmwwNGx4dkVkSnM5ZUFVOGQ2V2p1a0RNeVpO?oc=5"
-            },
-            {
-              "name": "BBC",
-              "url": "https://www.bbc.co.uk/news/articles/cr5ynl63v0pyo"
-            }
-          ],
-          "published_at": "2026-10-23T12:00:00Z",
-          "status": "new",
-          "updated": true,
-          "change": "the 24-hour strike count is new today; aid agencies say the humanitarian squeeze is worsening, not easing.",
+          "change": "the siege is now 20 days old; the un says the clock is running out and fighting has spread to jabal han and dhubab.",
           "tags": [
             "yemen",
             "houthis",
@@ -439,22 +392,22 @@
         {
           "id": "israel-election-poll",
           "section": "middle_east",
-          "title": "netanyahu's bloc trails four days before israel's election",
-          "summary": "a new poll puts netanyahu's bloc at 48 seats against 54 for the opposition, with arab parties potentially holding the balance.\nthe vote lands in the middle of the hebron escalation and the iran war debate.",
+          "title": "last polls put eisenkot ahead as israel votes on tuesday",
+          "summary": "final polls show gadi eisenkot's opposition on 54 seats to netanyahu's 48, with neither bloc able to govern alone.\nthe ballot is on tuesday and lands in the middle of the hebron operation.",
           "sources": [
+            {
+              "name": "The Times of Israel",
+              "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNOEIyZUFYREN0bkpkNWNDdkJlUFpsdVRfQXhGaFJSejMxRE9UMFJydURHNkhyQlJycXktWUI4ZXNJckF4NDdQVkYyUVhLczFnaG9tTVRtaXhGN3dOdUtDanltRFRkNGhhOENEOEdsQ1pvVHJrTGdOay1vODN2cUpRcThSeTNNWVB3eUFOZm9WdGRSZUFGenJRRXZka0Vlb0FLU3dhTmVTam9SWExJeElPVTI0elRUci1ucUtYLUFB0gHDAUFVX3lxTE5tNm54Y1B2d2M4RXNHTzVWcTdDT041NVZTZExVdUN6LXNocmQxUzd0NjN2NHB3UVc2TGo5VERWS2NRX05UX1lwUUdpc3hEdVh6SGNaYzZncGdKakdsc0FoaVJGUWc3Wk1sX28yZm5GMzdGQTFLS1ZsTzgzUlJtTWwxV094ZXV4MXBhRmlmRjViZFNFNTcwWm9sMVp3TkhXbUVtUWUxWDVYU242STJPMGwxVXB2YTdvYUs5MWZ2SnVhQmNHWQ?oc=5"
+            },
             {
               "name": "The Jerusalem Post",
               "url": "https://www.jpost.com/israel-election-2026/article-912649"
-            },
-            {
-              "name": "BBC",
-              "url": "https://www.bbc.co.uk/news/articles/cx8dzrp768j8o"
             }
           ],
-          "published_at": "2026-10-23T13:27:00Z",
-          "status": "new",
+          "published_at": "2026-10-23T19:43:00Z",
+          "status": "updated",
           "updated": true,
-          "change": "the poll is new today; it shows the opposition gaining as the west bank operation dominates the final stretch.",
+          "change": "these are the last polls before the ballot; the hebron attack has pushed security back to the centre of the campaign.",
           "tags": [
             "israel",
             "election"
@@ -463,22 +416,22 @@
       ],
       "watch": [
         {
-          "title": "Netanyahu orders closure of entire occupied West Bank after shooting",
-          "url": "https://www.youtube.com/watch?v=E8zFh4i0AaE",
-          "channel": "BBC News",
-          "published_at": "2026-10-23T12:00:00Z"
+          "title": "War in the Middle East: Israel launches West Bank operations",
+          "url": "https://www.youtube.com/watch?v=qRYjgfK6Ncg",
+          "channel": "FRANCE 24 English",
+          "published_at": "2026-10-23T16:00:00Z"
         },
         {
-          "title": "Yemen's humanitarian crisis deepens following Houthi strikes on Saudi Arabia",
-          "url": "https://www.youtube.com/watch?v=_pW4vIdJsU0",
-          "channel": "BBC News",
-          "published_at": "2026-10-22T23:00:00Z"
+          "title": "Trump at Florida rally: 'Iran is FINISHED'",
+          "url": "https://www.youtube.com/watch?v=BqVJ3a63cnM",
+          "channel": "Fox News",
+          "published_at": "2026-10-23T23:00:00Z"
         },
         {
-          "title": "Iran threatens US bases as US and Israel reportedly consider new strikes",
-          "url": "https://www.youtube.com/watch?v=92BM5e8I9hA",
-          "channel": "DW News",
-          "published_at": "2026-10-23T15:00:00Z"
+          "title": "Yemen's Taiz under siege as fighting between forces and Houthis intensifies",
+          "url": "https://www.youtube.com/watch?v=JoR6fSdL0J4",
+          "channel": "Al Jazeera English",
+          "published_at": "2026-10-19T00:00:00Z"
         }
       ]
     },
@@ -489,8 +442,8 @@
         {
           "id": "wall-street-close",
           "section": "us_markets",
-          "title": "wall street closes lower as oil and ai doubts weigh",
-          "summary": "the s&p 500 fell 0.52% to 7,623.68 and the nasdaq 0.21% to 25,955.34; the dow dropped 1.24% to 52,215.16.\nvix rose 3.3% to 19.66, and futures stayed soft after the bell (es -0.5%, nq flat).",
+          "title": "wall street ends the week lower as the ai trade wobbles",
+          "summary": "the s&p fell 0.52% to 7,623.68 on friday and 0.47% on the week; the nasdaq lost 0.21% to 25,955.34 and 0.71% on the week.\nthe dow slipped 1.24% on friday but still gained 0.41% for the week; the vix closed at 19.45.",
           "sources": [
             {
               "name": "Yahoo Finance",
@@ -507,32 +460,52 @@
             {
               "name": "Yahoo Finance",
               "url": "https://finance.yahoo.com/quote/%5EVIX/"
-            },
-            {
-              "name": "Yahoo Finance",
-              "url": "https://finance.yahoo.com/quote/ES%3DF/"
             }
           ],
-          "published_at": "2026-10-23T20:05:00Z",
-          "status": "new",
+          "published_at": "2026-10-23T20:15:00Z",
+          "status": "updated",
           "updated": true,
           "meta": {
             "spx": 7623.68,
             "spx_pct": -0.519,
+            "spx_week_pct": -0.47,
             "nasdaq": 25955.34,
             "nasdaq_pct": -0.206,
+            "nasdaq_week_pct": -0.71,
             "dow": 52215.16,
             "dow_pct": -1.235,
-            "vix": 19.66,
-            "vix_pct": 3.3,
-            "es_futures": 7663.5,
-            "es_pct": -0.532,
-            "nq_futures": 29139.0,
-            "nq_pct": -0.01
+            "dow_week_pct": 0.41,
+            "vix": 19.45
           },
           "tags": [
             "equities",
-            "close"
+            "week"
+          ]
+        },
+        {
+          "id": "ai-neocloud-turmoil",
+          "section": "us_markets",
+          "title": "the ai buildout is cracking: neoclouds, credit and a pulled ipo",
+          "summary": "coreweave, nebius and iren are down more than 30% in october, and coreweave's credit default swaps have widened past 11%.\nsk hynix pulled solidigm's ipo and alphabet fell 6% into next week's earnings.",
+          "sources": [
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/10/23/ai-turmoil-neoclouds-struggle-credit-risks-jump-solidigm-pulls-ipo.html"
+            }
+          ],
+          "published_at": "2026-10-24T01:57:00Z",
+          "status": "new",
+          "updated": true,
+          "meta": {
+            "coreweave_cds_pct": 11,
+            "msft": -1,
+            "amzn": -1,
+            "googl_week_pct": -6
+          },
+          "tags": [
+            "ai",
+            "credit",
+            "big-tech"
           ]
         },
         {
@@ -551,8 +524,8 @@
             }
           ],
           "published_at": "2026-10-23T19:00:00Z",
-          "status": "new",
-          "updated": true,
+          "status": "steady",
+          "updated": false,
           "meta": {
             "brent": 116.72,
             "brent_pct": 3.1,
@@ -562,6 +535,100 @@
           "tags": [
             "oil",
             "commodities"
+          ]
+        },
+        {
+          "id": "week-ahead-fed-earnings",
+          "section": "us_markets",
+          "title": "a fed decision and three megacap reports land this week",
+          "summary": "the fed decides on wednesday, with q3 gdp and september pce due thursday and microsoft, alphabet and amazon reporting wednesday and thursday.\nalphabet enters its print down 6%; exxon and chevron close the week on friday.",
+          "sources": [
+            {
+              "name": "Federal Reserve",
+              "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+            },
+            {
+              "name": "BEA",
+              "url": "https://www.bea.gov/news/schedule"
+            },
+            {
+              "name": "Nasdaq",
+              "url": "https://www.nasdaq.com/market-activity/earnings"
+            },
+            {
+              "name": "Reuters",
+              "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNOWlIdzFDR0xNQ01RZzhsaXVtMXYtbWU3U3RvejE4NzV3TFZPXzI5SUpGTG9jLUxxbEhiNGFVMTZyUU84MVhTZGJaWkxtZ2cwaG9OTlJiYmFLTzFLLXZFQURzNUE5M05Lcjc5UXQ4Q1RIaVNWOFZlSlA2MTBLUFYtSVdLcGI3V3lCN216QQ"
+            }
+          ],
+          "published_at": "2026-10-24T03:00:00Z",
+          "status": "new",
+          "updated": true,
+          "meta": {
+            "fomc": "2026-10-27/28",
+            "gdp_pce": "2026-10-29",
+            "msft_googl": "2026-10-28",
+            "amzn": "2026-10-29"
+          },
+          "tags": [
+            "macro",
+            "earnings",
+            "fed"
+          ]
+        },
+        {
+          "id": "robert-half-surge",
+          "section": "us_markets",
+          "title": "robert half jumps 22% on its first talent-solutions growth since 2022",
+          "summary": "the staffing firm beat q3 estimates and guided q4 higher, sending the stock up 21.7% to $45.87.\ntalent solutions grew for the first time since 2022, a read on white-collar hiring.",
+          "sources": [
+            {
+              "name": "Yahoo Finance",
+              "url": "https://finance.yahoo.com/quote/RHI/"
+            },
+            {
+              "name": "TIKR",
+              "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQV0dJLWF1U3ZEdVdCSGdlZHNqZDJoZzRuTUdhSks2V0xnQTEtM1JXQkN0blhRbVJIRm1HZ2x5QWtYbWQ2Y3NTWGtENktsU1U5X2hISTY5Ykd3akFOR2oxMS1rY2JRZTk3WkRaX2lVOWppT1JBQkdtNkxZdlNiOGxPWk5LVFhFMmQ0T192c1VKN3ZxTzRYTDdfUUdR?oc=5"
+            }
+          ],
+          "published_at": "2026-10-23T20:23:00Z",
+          "status": "new",
+          "updated": true,
+          "meta": {
+            "ticker": "RHI",
+            "move_pct": 21.74,
+            "close": 45.87
+          },
+          "tags": [
+            "earnings",
+            "movers"
+          ]
+        },
+        {
+          "id": "lkq-plunge",
+          "section": "us_markets",
+          "title": "lkq drops 22% on weak preliminary results and a leadership shake-up",
+          "summary": "the auto-parts distributor closed at $17.42, down 22.5%, after preliminary third-quarter figures came in soft.\nit also announced leadership and operational changes, one of the session's worst large-cap moves.",
+          "sources": [
+            {
+              "name": "Yahoo Finance",
+              "url": "https://finance.yahoo.com/quote/LKQ/"
+            },
+            {
+              "name": "Yahoo Finance",
+              "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOSEUtZzNNbFVWelBSUHVQd2cyR2RTVHFJSnI5b2ZnT0lINGI5SDZIQ3ZMRVpLU1JIZmFDaGVYQmRXbDlJS21QYmVjOUtWTDVHUmZNQXZRU2xLR0RyM3N4X1pPT1dJTUZ6TWJCTzZXS1lTdXlQU3lvUXYwVnRQVlRsUzFEblNnd0szaUkzcUk2MUNXbU1E?oc=5"
+            }
+          ],
+          "published_at": "2026-10-23T20:00:00Z",
+          "status": "new",
+          "updated": true,
+          "meta": {
+            "ticker": "LKQ",
+            "move_pct": -22.47,
+            "close": 17.42
+          },
+          "tags": [
+            "earnings",
+            "movers"
           ]
         },
         {
@@ -580,8 +647,8 @@
             }
           ],
           "published_at": "2026-10-23T19:57:00Z",
-          "status": "new",
-          "updated": true,
+          "status": "steady",
+          "updated": false,
           "meta": {
             "ticker": "AXP",
             "move_pct": -3.733,
@@ -594,134 +661,23 @@
           ]
         },
         {
-          "id": "slb-q3-beat",
+          "id": "trump-canada-tariffs",
           "section": "us_markets",
-          "title": "slb jumps 7% on a q3 beat and a stronger 2027 outlook",
-          "summary": "schlumberger beat estimates and pointed to a middle east drilling rebound for 2027 growth.\nthe stock closed up 7.1%, one of the s&p's best moves on a risk-off day.",
-          "sources": [
-            {
-              "name": "Reuters",
-              "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPOVFTelJLT0RLMUpoVkFUUEJPdU13dmFDQkUzcFBWX1V2TGZBcXhSRTVZMTJ6RUVKU1pSZTRSZXdEeHA1bmwxYVROc1d5bW83bWh6Xzc0QzJ0cjVwLU9FVVNsUklWX3ZJVVAxZkx0cUNGT3BIRlNRRlotNDV5ZXdlOWsxZmo5OXlJX0FGR3FwSHFiSkhjM3BZNnJmTlZLRVZTUHNIZEpRWElHRE1JSkw1NDczUm44UQ?oc=5"
-            },
-            {
-              "name": "Yahoo Finance",
-              "url": "https://finance.yahoo.com/quote/SLB/"
-            }
-          ],
-          "published_at": "2026-10-23T17:30:00Z",
-          "status": "new",
-          "updated": true,
-          "meta": {
-            "ticker": "SLB",
-            "move_pct": 7.084,
-            "close": 53.06
-          },
-          "tags": [
-            "earnings",
-            "energy"
-          ]
-        },
-        {
-          "id": "bloom-energy-record-quarter",
-          "section": "us_markets",
-          "title": "bloom energy sinks 11% even after a record quarter",
-          "summary": "bloom energy fell 11.2% despite reporting a record quarter, as investors sold the news.\nthe move made it one of the day's worst large-cap performers.",
-          "sources": [
-            {
-              "name": "Opening Bell Daily",
-              "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQRDI3YUtvQ3RWclFESkdlUjFfaWxydkhiWkxac2NxRlBnZHJmY0tYLTZBSWhYdDNRRHpVbFpmUG1XdGdBWXVMYWl6LWgyQ3dFanN5THV4R0w1UFJUdnItWUprSm9iVjFKRlZRU3hvRVVQZ3FkdlJ2aG1UN2lhcTI3TGRBWDJYWkk?oc=5"
-            },
-            {
-              "name": "Yahoo Finance",
-              "url": "https://finance.yahoo.com/quote/BE/"
-            }
-          ],
-          "published_at": "2026-10-23T18:00:00Z",
-          "status": "new",
-          "updated": true,
-          "meta": {
-            "ticker": "BE",
-            "move_pct": -11.237,
-            "close": 193.3
-          },
-          "tags": [
-            "earnings",
-            "energy"
-          ]
-        },
-        {
-          "id": "consumer-sentiment-low",
-          "section": "us_markets",
-          "title": "consumer sentiment near a record low before the midterms",
-          "summary": "the university of michigan's final october index dropped as petrol and grocery prices stayed high.\nindependents' sentiment fell to 42.4, just above the all-time low of 40.6.",
-          "sources": [
-            {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/economy/2026/10/23/us-consumer-sentiment-hits-a-near-record-low-before-midterm-elections"
-            }
-          ],
-          "published_at": "2026-10-23T17:26:00Z",
-          "status": "new",
-          "updated": true,
-          "meta": {
-            "independents_index": 42.4,
-            "record_low": 40.6,
-            "inflation_expectations_5y": 3.5
-          },
-          "tags": [
-            "macro",
-            "consumer",
-            "midterms"
-          ]
-        },
-        {
-          "id": "mortgage-executive-order",
-          "section": "us_markets",
-          "title": "trump orders agencies to cut mortgage insurance and refinance costs",
-          "summary": "the executive order directs agencies to cancel mortgage insurance on eligible future loans and expand cheaper refinancing.\nit lands less than two weeks before the midterms, with housing affordability a top voter concern.",
+          "title": "white house swaps some canada tariffs for new ones",
+          "summary": "the white house dropped tariffs on some canadian goods and added others, effective october 30, four days before the midterms.\nthe swap came an hour after senator susan collins touted the exemptions for maine.",
           "sources": [
             {
               "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/23/trump-mortgage-executive-order-costs.html"
+              "url": "https://www.cnbc.com/2026/10/23/trump-tariffs-canada-susan-collins.html"
             }
           ],
-          "published_at": "2026-10-23T19:53:00Z",
+          "published_at": "2026-10-23T21:26:00Z",
           "status": "new",
           "updated": true,
           "tags": [
-            "housing",
-            "policy",
+            "trade",
+            "tariffs",
             "midterms"
-          ]
-        },
-        {
-          "id": "meta-ai-repricing",
-          "section": "us_markets",
-          "title": "meta's 9% weekly slide shows the ai trade is being repriced",
-          "summary": "meta lost about $135bn in market value over four sessions as investors questioned its ai buildout spending.\nnext week's microsoft, alphabet and amazon results are the next test, with flash pmis and a fed decision also due.",
-          "sources": [
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/23/meta-shares-rough-week-mike-khouw-is-buying.html"
-            },
-            {
-              "name": "Stock Titan",
-              "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxObzRpZ1F6YW9oLVp0WnJacm1TcFh4dkZWa2Z3UzJmamIzTmpkRi14N1BfNlQ1dGpHV2xOcElKTG9mWnJpRGl6TlFIM1MwamRvOHo2Q2t3SzBHbUVZYnVXd3EzYU1UMENKOU90bFlPY3lndzVVX0d6TTZCN1Q5WHdPWk5qNA?oc=5"
-            }
-          ],
-          "published_at": "2026-10-23T19:25:00Z",
-          "status": "new",
-          "updated": true,
-          "meta": {
-            "ticker": "META",
-            "move_pct": -0.96,
-            "week_pct": -9,
-            "value_lost_usd_bn": 135
-          },
-          "tags": [
-            "earnings",
-            "ai",
-            "big-tech"
           ]
         }
       ],
@@ -732,37 +688,70 @@
       "title": "liverpool",
       "items": [
         {
-          "id": "villarreal-comeback",
+          "id": "brighton-preview",
           "section": "liverpool",
-          "title": "liverpool came from two down to beat villarreal 4-3",
-          "summary": "mac allister scored twice, with wirtz and araujo also on target as liverpool overturned a 2-0 deficit at anfield.\nngumoha was player of the match; oluwaseyi pulled one back late for villarreal.",
+          "title": "brighton at anfield sunday, with six players missing",
+          "summary": "liverpool host brighton at 14:00 uk time on sunday (17:00 riyadh), still without szoboszlai, frimpong and with munoz a doubt.\nbarcola trained normally and is fit; gravenberch is banned after his red against man city was upheld.",
           "sources": [
             {
               "name": "BBC Sport",
-              "url": "https://www.bbc.co.uk/sport/football/videos/cmvg6qxp6lj7o"
+              "url": "https://www.bbc.co.uk/sport/football/teams/liverpool"
             },
             {
-              "name": "Sky Sports",
-              "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNckxpYlVyVTQzY3Y3SWF6S3ltRDZZbndRZjRpejJlOW80eElsTGlSamVvRVJxZi1WbzFTaUlZZVIzdGljamw5eXVTT1RYNldSNWV4dnJCeWJBWWhzWVlRVEUzTEl4VEJNR2JvX1pKbWtHcGtvU2ZsNDhWUS1CNGNrSVdnTXdiOVJYN0RBMWhKTXNwblpQeHdBMFBKdnp4empUOGppcmhyRXFybEFSeFJnMFgtVEpYMlFrZzItTm9tUkJ0U3c3RE5ocFA5Unl5TDJJMXpPWkdiUVk?oc=5"
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-injury-news-latest-brighton-34810377"
+            },
+            {
+              "name": "This Is Anfield",
+              "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNQnRqb2tBcmU3TWxWb3NsSmJKNUVMc2VGRUxjdnRzRWhRRUlxYzFaT1A5YTQ5ZUpSWFhpcmxPUXZhdmQ4QVpKM082WXVFMFJrcXFiQk5OWElvN01iMnBpMkpaWUc2YTMwX2hGTUNadGlzaTdxdWoxSE1JTjUyY1VxTnRobzFPcjJ4Zm1VQ2NrTGhFWHM?oc=5"
             }
           ],
-          "published_at": "2026-10-20T22:56:00Z",
+          "published_at": "2026-10-23T18:33:00Z",
+          "status": "updated",
+          "updated": true,
+          "meta": {
+            "kickoff": "2026-10-25T14:00:00Z",
+            "venue": "Anfield",
+            "injuries": [
+              "Szoboszlai",
+              "Frimpong",
+              "Munoz",
+              "Gravenberch (suspended)"
+            ]
+          },
+          "tags": [
+            "fixture",
+            "team-news"
+          ]
+        },
+        {
+          "id": "liverpool-injury-list",
+          "section": "liverpool",
+          "title": "frimpong is out until after the november break",
+          "summary": "iraola says frimpong's muscle injury will keep him out until after the november international break, with palace away on november 8 the target.\nszoboszlai is back in personal training but not available; munoz has a knee knock and is a doubt.",
+          "sources": [
+            {
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-injury-news-latest-brighton-34810377"
+            }
+          ],
+          "published_at": "2026-10-23T18:33:00Z",
           "status": "new",
           "updated": true,
           "meta": {
-            "score": "4-3",
-            "competition": "UEFA Champions League"
+            "frimpong_return": "2026-11-08",
+            "reliability": "club press conference via Liverpool Echo"
           },
           "tags": [
-            "match",
-            "champions-league"
+            "injuries",
+            "team-news"
           ]
         },
         {
           "id": "gravenberch-red-upheld",
           "section": "liverpool",
           "title": "panel backs gravenberch's red card, so brighton is a no-go",
-          "summary": "the premier league's key match incidents panel said chris kavanagh was right to send off ryan gravenberch against man city.\ntwo yellows mean he misses the brighton game; iraola called the first caution 'never a yellow'.",
+          "summary": "the premier league's key match incidents panel said chris kavanagh was right to send off ryan gravenberch against man city, by a 4-1 vote.\ntwo yellows mean he misses the brighton game; iraola called the first caution 'never a yellow'.",
           "sources": [
             {
               "name": "BBC Sport",
@@ -770,8 +759,8 @@
             }
           ],
           "published_at": "2026-10-21T16:28:00Z",
-          "status": "new",
-          "updated": true,
+          "status": "steady",
+          "updated": false,
           "meta": {
             "player": "Ryan Gravenberch",
             "suspension": "1 match"
@@ -782,71 +771,37 @@
           ]
         },
         {
-          "id": "brighton-preview",
+          "id": "ngumoha-breakout",
           "section": "liverpool",
-          "title": "brighton at anfield sunday, with six players missing",
-          "summary": "liverpool host brighton at 2pm gmt on sunday (5pm riyadh), still without szoboszlai, frimpong, bradley and others.\nbarcola is fit but trained alone; munoz is a doubt, and storm boelo has put the fixture under review.",
+          "title": "iraola tells everyone to slow down on ngumoha",
+          "summary": "iraola warned against overhyping rio ngumoha, saying he is 'very coachable', while the club negotiates a new deal with his representatives.\nngumoha, 18, set up two goals against villarreal and is now playing off the right after barcola's arrival.",
           "sources": [
             {
-              "name": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/andoni-iraola-press-conference-liverpool-brighton-premier-league"
-            },
-            {
               "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-injury-news-latest-brighton-34810377"
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/andoni-iraola-warns-against-rio-34809663"
             },
             {
-              "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/bradley-barcola-passed-fit-liverpool-34807852"
-            },
-            {
-              "name": "Yahoo Sports",
-              "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOM2gxbzhRQ29ESlZaZFpvR3JQSWxzaFZQUktpNWN6MUdEaHRRazlkUWlhQWFQMTVKMjdvUVgwVXRoUlAwQ1JiZTFQZlEtc2pLeUV2UGhyQVNUMVJ0Wm42bzhqZVdaTGluR1JyblNJSUF3VmYxaWg3THNyR2VrQjh1aDFGQVdjS1k0?oc=5"
+              "name": "BBC Sport",
+              "url": "https://www.bbc.co.uk/sport/football/articles/ck0e0zydv33go"
             }
           ],
-          "published_at": "2026-10-23T14:54:00Z",
-          "status": "new",
+          "published_at": "2026-10-23T21:30:00Z",
+          "status": "updated",
           "updated": true,
           "meta": {
-            "kickoff": "2026-10-25T14:00:00Z",
-            "venue": "Anfield",
-            "injuries": [
-              "Szoboszlai",
-              "Frimpong",
-              "Bradley",
-              "Munoz",
-              "Barcola workload"
-            ]
+            "age": "18",
+            "reliability": "contract talks confirmed by Liverpool Echo"
           },
           "tags": [
-            "fixture",
-            "team-news"
-          ]
-        },
-        {
-          "id": "home-win-drought",
-          "section": "liverpool",
-          "title": "iraola is still waiting for his first home league win",
-          "summary": "liverpool have not won any of their three premier league home games under iraola this season.\nthe next two are at anfield, starting with brighton, and iraola says 'i want to win games'.",
-          "sources": [
-            {
-              "name": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/andoni-iraola-press-conference-liverpool-brighton-premier-league"
-            }
-          ],
-          "published_at": "2026-10-23T17:00:00Z",
-          "status": "new",
-          "updated": true,
-          "tags": [
-            "form",
-            "analysis"
+            "player",
+            "contract"
           ]
         },
         {
           "id": "elliott-valencia-loan",
           "section": "liverpool",
           "title": "liverpool check in on elliott's valencia loan",
-          "summary": "club officials met valencia to review elliott's season; he has five substitute appearances and has not started a la liga game.\nboth clubs want more from him, but there is no agreement to cut the loan short.",
+          "summary": "club officials met valencia to review elliott's season; he has five substitute appearances and has not started a la liga game.\nboth clubs agreed he needs to 'step up', but there is no plan to cut the loan short.",
           "sources": [
             {
               "name": "Liverpool Echo",
@@ -854,7 +809,7 @@
             }
           ],
           "published_at": "2026-10-23T12:59:00Z",
-          "status": "new",
+          "status": "updated",
           "updated": true,
           "meta": {
             "reliability": "reported - Liverpool Echo, no club confirmation"
@@ -865,75 +820,87 @@
           ]
         },
         {
-          "id": "transfer-rumours-roundup",
+          "id": "chelsea-league-cup",
           "section": "liverpool",
-          "title": "midfield rumours: nmecha contact, endrick enquiry, ndukwe meeting",
-          "summary": "liverpool have reportedly contacted felix nmecha's camp; bulinews says dortmund's stance is the blocker (low-tier rumour).\nseparately, the echo reports an endrick enquiry and a meeting over ifeanyi ndukwe (both unconfirmed).",
+          "title": "chelsea visit in the league cup on wednesday",
+          "summary": "liverpool host chelsea at 20:00 uk time on wednesday in the league cup, three days after brighton.\nit is the second home game in four days, after brighton on sunday.",
           "sources": [
             {
-              "name": "Bulinews",
-              "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQWFlLcExyOGlYQzZ2NFNoQlBSZ1RUS2NQV1gzTmw5YmpjZE9iYmpvLUF5SzZFcWhpaF9oR1hnYjlBcU9lRDg0dDU0a0dsUUdnNE9Pckc3d2htcHVkRVp1UnhjVVhjNHBpM0NRY0xpbHZHM0c3ZGlnQkE0OVhnZHBZRnpNLU1uaDFMRUpIVE5hWnY0ZWM?oc=5"
-            },
-            {
-              "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/endrick-liverpool-transfer-news-iraola-34806362"
-            },
-            {
-              "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-ifeanyi-ndukwe-levante-talks-34804684"
+              "name": "BBC Sport",
+              "url": "https://www.bbc.co.uk/sport/football/teams/liverpool"
             }
           ],
-          "published_at": "2026-10-23T12:00:00Z",
+          "published_at": "2026-10-24T03:00:00Z",
           "status": "new",
           "updated": true,
           "meta": {
-            "reliability": "nmecha: low (Bulinews); endrick and ndukwe: Liverpool Echo reports"
+            "kickoff": "2026-10-28T20:00:00Z",
+            "competition": "League Cup"
+          },
+          "tags": [
+            "fixture",
+            "league-cup"
+          ]
+        },
+        {
+          "id": "mac-allister-form",
+          "section": "liverpool",
+          "title": "mac allister is liverpool's form player again",
+          "summary": "iraola says he cannot explain last season's dip but calls mac allister one of the smartest players he has, after two goals against villarreal.\nmac allister also scored the winner against atletico madrid last month.",
+          "sources": [
+            {
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/andoni-iraola-makes-honest-alexis-34809945"
+            }
+          ],
+          "published_at": "2026-10-24T00:00:00Z",
+          "status": "new",
+          "updated": true,
+          "meta": {
+            "goals_vs_villarreal": 2
+          },
+          "tags": [
+            "player",
+            "form"
+          ]
+        },
+        {
+          "id": "otorbi-release-clause",
+          "section": "liverpool",
+          "title": "liverpool move for valencia's otorbi and his £25m clause",
+          "summary": "liverpool have reportedly made a £25m move for valencia winger david otorbi, meeting his release clause.\nthe report says valencia responded immediately; there is no confirmation from either club.",
+          "sources": [
+            {
+              "name": "This Is Anfield",
+              "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNQnRqb2tBcmU3TWxWb3NsSmJKNUVMc2VGRUxjdnRzRWhRRUlxYzFaT1A5YTQ5ZUpSWFhpcmxPUXZhdmQ4QVpKM082WXVFMFJrcXFiQk5OWElvN01iMnBpMkpaWUc2YTMwX2hGTUNadGlzaTdxdWoxSE1JTjUyY1VxTnRobzFPcjJ4Zm1VQ2NrTGhFWHM?oc=5"
+            }
+          ],
+          "published_at": "2026-10-23T15:24:00Z",
+          "status": "new",
+          "updated": true,
+          "meta": {
+            "reliability": "rumour - spanish reports via This Is Anfield; no club confirmation",
+            "clause_gbp_m": 25,
+            "clause_eur_m": 60
           },
           "tags": [
             "transfer",
             "rumour"
           ]
-        },
-        {
-          "id": "ngumoha-breakout",
-          "section": "liverpool",
-          "title": "ngumoha's villarreal night was a coming-of-age moment",
-          "summary": "at 18 years and 52 days, ngumoha became liverpool's youngest player to score or assist in the champions league.\nhe won player of the match and anfield chanted his name; liverpool are reportedly working on a new contract.",
-          "sources": [
-            {
-              "name": "BBC Sport",
-              "url": "https://www.bbc.co.uk/sport/football/articles/ck0e0zydv33go"
-            },
-            {
-              "name": "The Liverpool Offside",
-              "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxObG83UEd0TU5RN1ZWVVN4bk1nbUU4RjUxM1V4ZkE4Wnk0OUZLb0tfeDJPMEtUXzJzQlppWTV6Q250UEtYWUhuY3NwdW5BUFEtbi00T0RRY255SV9RRms5NXVzYU9NRC14RzF6OU56N1FZV21QOWJCeDYzOXIwcnJlLXpnWVEzQzc1cG9FQ2pXbGVEbmhoMEJFMkNEdVFQOE9sRTM3V2FjYTF6NGdIaWVxRFFZanBiR3I0cHc?oc=5"
-            }
-          ],
-          "published_at": "2026-10-20T22:56:00Z",
-          "status": "new",
-          "updated": true,
-          "meta": {
-            "age": "18y 52d",
-            "reliability": "contract: low-tier rumour (Liverpool Offside)"
-          },
-          "tags": [
-            "player",
-            "contract"
-          ]
         }
       ],
       "watch": [
         {
-          "title": "Highlights: Liverpool 4-3 Villarreal | Champions League comeback win",
-          "url": "https://www.youtube.com/watch?v=iSPDVKdWoJU",
+          "title": "Press Conference: Liverpool vs Brighton | Andoni Iraola | Pre-match update",
+          "url": "https://www.youtube.com/watch?v=UXEyn4cjLoE",
           "channel": "Liverpool FC",
-          "published_at": "2026-10-21T00:00:00Z"
+          "published_at": "2026-10-23T12:00:00Z"
         },
         {
-          "title": "Anfield Inspires Reds Comeback | Liverpool 4-3 Villarreal | Champions League Highlights",
-          "url": "https://www.youtube.com/watch?v=TFfRuvrPxlA",
-          "channel": "TNT Sports",
-          "published_at": "2026-10-21T00:00:00Z"
+          "title": "Liverpool vs. Brighton: Premier League PREVIEW | Who's in BETTER FORM?",
+          "url": "https://www.youtube.com/watch?v=XIboU5LRReA",
+          "channel": "CBS Sports Golazo",
+          "published_at": "2026-10-23T17:00:00Z"
         }
       ]
     }
@@ -941,7 +908,11 @@
   "top_stories": [
     {
       "section": "middle_east",
-      "id": "jordan-karak-church-shooting"
+      "id": "saudi-riyadh-missile-intercept"
+    },
+    {
+      "section": "middle_east",
+      "id": "iran-assassination-plots"
     },
     {
       "section": "middle_east",
@@ -949,15 +920,11 @@
     },
     {
       "section": "us_markets",
-      "id": "oil-six-month-high"
-    },
-    {
-      "section": "us_markets",
-      "id": "wall-street-close"
+      "id": "ai-neocloud-turmoil"
     },
     {
       "section": "liverpool",
-      "id": "villarreal-comeback"
+      "id": "brighton-preview"
     }
   ]
 }
