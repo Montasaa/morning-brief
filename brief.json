@@ -1,614 +1,842 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-29T16:55:00Z",
-  "date": "2026-10-29",
-  "edition": "evening",
+  "generated_at": "2026-10-30T03:38:45Z",
+  "date": "2026-10-30",
+  "edition": "morning",
   "timezone": "Asia/Riyadh",
-  "next_build_at": "2026-10-30T03:30:00Z",
+  "next_build_at": "2026-10-30T16:00:00Z",
   "sections": [
     {
       "id": "trending_repos",
-      "title": "GitHub trending today",
+      "title": "trending repos",
       "items": [
         {
           "id": "pbakaus-impeccable",
           "section": "trending_repos",
-          "status": "updated",
-          "title": "pbakaus/impeccable takes the top spot with 2,881 stars today",
-          "summary": "the design vocabulary for a coding agent, with commands like polish, bolder, critique and audit, shipped as a rust cli.\n2,881 stars today takes it to 94,692, up from 1,472 this morning when it sat sixth on the page.",
-          "published_at": "2026-10-29T16:30:00Z",
+          "title": "pbakaus/impeccable holds the top spot with 2,870 stars today",
+          "summary": "the design vocabulary for a coding agent: polish, bolder, critique and audit shipped as a rust cli.\n2,870 stars today and 95,616 total, its second straight day at number one on the page.",
           "sources": [
             {
               "name": "GitHub Trending",
               "url": "https://github.com/trending?since=daily"
             },
             {
-              "name": "GitHub API",
-              "url": "https://api.github.com/repos/pbakaus/impeccable"
+              "name": "GitHub",
+              "url": "https://github.com/pbakaus/impeccable"
             }
           ],
+          "published_at": "2026-10-30T03:20:00Z",
+          "status": "updated",
+          "updated": true,
           "meta": {
             "repo": "pbakaus/impeccable",
-            "stars_today": 2881,
-            "stars_total": 94692,
+            "stars_today": 2870,
+            "stars_total": 95616,
             "language": "Rust",
             "license": "Apache-2.0",
             "rank": 1
           },
           "tags": [
-            "ai",
-            "design"
-          ],
-          "updated": true
+            "agents",
+            "design",
+            "rust"
+          ]
         },
         {
           "id": "hkuds-deeptutor",
           "section": "trending_repos",
-          "status": "updated",
-          "title": "hkuds/deeptutor - 1,926 stars today for a tutor that remembers each student",
-          "summary": "an open-source tutor that keeps a model of each student and carries it across sessions, in python under apache-2.0.\n1,926 stars today and 49,466 total, still the biggest education repo on the page but no longer the top riser.",
-          "published_at": "2026-10-29T16:30:00Z",
+          "title": "hkuds/deeptutor adds 1,930 stars for a tutor that remembers each student",
+          "summary": "an open-source tutor that keeps a model of each learner and carries it across sessions, python under apache-2.0.\n1,930 stars today and 50,409 total, past fifty thousand a day after it entered the top two.",
           "sources": [
             {
               "name": "GitHub Trending",
               "url": "https://github.com/trending?since=daily"
             },
             {
-              "name": "GitHub API",
-              "url": "https://api.github.com/repos/HKUDS/DeepTutor"
+              "name": "GitHub",
+              "url": "https://github.com/HKUDS/DeepTutor"
             }
           ],
+          "published_at": "2026-10-30T03:20:00Z",
+          "status": "updated",
+          "updated": true,
           "meta": {
             "repo": "HKUDS/DeepTutor",
-            "stars_today": 1926,
-            "stars_total": 49466,
+            "stars_today": 1930,
+            "stars_total": 50409,
             "language": "Python",
             "license": "Apache-2.0",
             "rank": 2
           },
           "tags": [
-            "ai",
-            "education"
-          ],
-          "updated": true
+            "education",
+            "python",
+            "agents"
+          ]
         },
         {
           "id": "togg53192-jailbreaks",
           "section": "trending_repos",
-          "status": "updated",
-          "title": "togg53192-cmd/jailbreaks - 1,610 stars for a bare list of prompts",
-          "summary": "a plain list of jailbreak prompts with no code, no licence and almost no description.\n1,610 stars in the last 24 hours and 8,321 total, up from 7,320 this morning and past several repos that ship real software.",
-          "published_at": "2026-10-29T16:30:00Z",
+          "title": "togg53192-cmd/jailbreaks draws 1,594 stars for a bare list of prompts",
+          "summary": "a plain list of jailbreak prompts with no code, no licence and almost no description.\n1,594 stars in 24 hours and 9,259 total, more than most repos on the page that actually ship software.",
           "sources": [
             {
               "name": "GitHub Trending",
               "url": "https://github.com/trending?since=daily"
             },
             {
-              "name": "GitHub API",
-              "url": "https://api.github.com/repos/togg53192-cmd/jailbreaks"
+              "name": "GitHub",
+              "url": "https://github.com/togg53192-cmd/jailbreaks"
             }
           ],
+          "published_at": "2026-10-30T03:20:00Z",
+          "status": "updated",
+          "updated": true,
           "meta": {
             "repo": "togg53192-cmd/jailbreaks",
-            "stars_today": 1610,
-            "stars_total": 8321,
+            "stars_today": 1594,
+            "stars_total": 9259,
             "language": null,
             "license": null,
             "rank": 3
           },
           "tags": [
-            "llm"
-          ],
-          "updated": true
+            "prompts",
+            "dual-use"
+          ]
         },
         {
           "id": "milind-soni-openmausbot",
           "section": "trending_repos",
-          "status": "updated",
-          "title": "milind-soni/openmausbot - 1,190 stars for a roster of bots with their own vm",
-          "summary": "an open-source take on grok bot: several ai agents with their own workspaces, task queues and a shared virtual machine.\n1,190 stars today and 7,220 total, and it is the only agent-workspace project in the top five.",
-          "published_at": "2026-10-29T16:30:00Z",
+          "title": "milind-soni/openmausbot adds 1,199 stars for a roster of bots with their own vm",
+          "summary": "an open-source take on grok bot: several ai agents with their own workspaces, task queues and a shared virtual machine.\n1,199 stars today and 7,585 total, with commits landing within the last few hours.",
           "sources": [
             {
               "name": "GitHub Trending",
               "url": "https://github.com/trending?since=daily"
             },
             {
-              "name": "GitHub API",
-              "url": "https://api.github.com/repos/milind-soni/OpenMausBot"
+              "name": "GitHub",
+              "url": "https://github.com/milind-soni/OpenMausBot"
             }
           ],
+          "published_at": "2026-10-30T03:20:00Z",
+          "status": "updated",
+          "updated": true,
           "meta": {
             "repo": "milind-soni/OpenMausBot",
-            "stars_today": 1190,
-            "stars_total": 7220,
+            "stars_today": 1199,
+            "stars_total": 7585,
             "language": "TypeScript",
             "license": "Apache-2.0",
             "rank": 4
           },
           "tags": [
-            "ai",
-            "agents"
-          ],
-          "updated": true
+            "agents",
+            "workspace",
+            "typescript"
+          ]
         },
         {
           "id": "elayadesign-ai-design-skills",
           "section": "trending_repos",
-          "status": "updated",
-          "title": "elayadesign/ai-design-skills - 1,178 stars for one skill per design job",
-          "summary": "a pack of agent skills split by design task, so a coding agent loads only the one it needs instead of a giant prompt.\n1,178 stars today and 11,868 total for a repo that still has no description.",
-          "published_at": "2026-10-29T16:30:00Z",
+          "title": "elayadesign/ai-design-skills adds 1,187 stars for one skill per design job",
+          "summary": "a pack of agent skills split by design task, so a coding agent loads only the one it needs instead of a giant prompt.\n1,187 stars today and 12,302 total for a repo that still has no description at all.",
           "sources": [
             {
               "name": "GitHub Trending",
               "url": "https://github.com/trending?since=daily"
             },
             {
-              "name": "GitHub API",
-              "url": "https://api.github.com/repos/elayadesign/ai-design-skills"
+              "name": "GitHub",
+              "url": "https://github.com/elayadesign/ai-design-skills"
             }
           ],
+          "published_at": "2026-10-30T03:20:00Z",
+          "status": "updated",
+          "updated": true,
           "meta": {
             "repo": "elayadesign/ai-design-skills",
-            "stars_today": 1178,
-            "stars_total": 11868,
+            "stars_today": 1187,
+            "stars_total": 12302,
             "language": null,
             "license": "MIT",
             "rank": 5
           },
           "tags": [
-            "ai",
-            "design"
-          ],
-          "updated": true
+            "agents",
+            "design",
+            "skills"
+          ]
         },
         {
           "id": "jetbrains-thinkrail",
           "section": "trending_repos",
-          "status": "updated",
-          "title": "jetbrains/thinkrail - 1,116 stars for an ide that reshapes itself around you",
-          "summary": "an editor from jetbrains that rearranges its panels around how you work and runs pi for vibe coding.\n1,116 stars today and 5,794 total, the only editor on the page.",
-          "published_at": "2026-10-29T16:30:00Z",
+          "title": "jetbrains/thinkrail adds 1,117 stars for an ide that reshapes itself around you",
+          "summary": "an editor from jetbrains that rearranges its panels around how you work and runs pi for vibe coding.\n1,117 stars today and 6,092 total, the only editor on the page and the only one from a big vendor.",
           "sources": [
             {
               "name": "GitHub Trending",
               "url": "https://github.com/trending?since=daily"
             },
             {
-              "name": "GitHub API",
-              "url": "https://api.github.com/repos/JetBrains/thinkrail"
+              "name": "GitHub",
+              "url": "https://github.com/JetBrains/thinkrail"
             }
           ],
+          "published_at": "2026-10-30T03:20:00Z",
+          "status": "updated",
+          "updated": true,
           "meta": {
             "repo": "JetBrains/thinkrail",
-            "stars_today": 1116,
-            "stars_total": 5794,
+            "stars_today": 1117,
+            "stars_total": 6092,
             "language": "TypeScript",
             "license": "Apache-2.0",
             "rank": 6
           },
           "tags": [
-            "tooling",
-            "ai"
-          ],
-          "updated": true
+            "editor",
+            "typescript"
+          ]
         },
         {
           "id": "obra-superpowers",
           "section": "trending_repos",
-          "status": "updated",
-          "title": "obra/superpowers - 1,037 stars for a whole development method as skills",
-          "summary": "a skills framework that walks an agent through brainstorming, planning, tests and review instead of one-shot code.\n1,037 stars today and 308,147 total, the biggest project on the list and still adding about a thousand a day.",
-          "published_at": "2026-10-29T16:30:00Z",
+          "title": "obra/superpowers adds 1,034 stars for a whole development method as skills",
+          "summary": "a skills framework that walks an agent through brainstorming, planning, tests and review instead of one-shot code.\n1,034 stars today and 308,692 total, the biggest project on the page and still gaining about a thousand a day.",
           "sources": [
             {
               "name": "GitHub Trending",
               "url": "https://github.com/trending?since=daily"
             },
             {
-              "name": "GitHub API",
-              "url": "https://api.github.com/repos/obra/superpowers"
+              "name": "GitHub",
+              "url": "https://github.com/obra/superpowers"
             }
           ],
+          "published_at": "2026-10-30T03:20:00Z",
+          "status": "updated",
+          "updated": true,
           "meta": {
             "repo": "obra/superpowers",
-            "stars_today": 1037,
-            "stars_total": 308147,
+            "stars_today": 1034,
+            "stars_total": 308692,
             "language": "Shell",
             "license": "MIT",
             "rank": 7
           },
           "tags": [
-            "ai",
-            "engineering"
-          ],
-          "updated": true
+            "agents",
+            "skills",
+            "methodology"
+          ]
         },
         {
-          "id": "donchitos-game-studios",
+          "id": "nightly-labs-openbot",
           "section": "trending_repos",
-          "status": "new",
-          "title": "donchitos/claude-code-game-studios - 538 stars for 49 agents as a game studio",
-          "summary": "forty-nine agent roles and seventy-two workflow skills arranged as a studio, from design and art to qa and release.\n538 stars today and 28,817 total, a reminder that the skills-pack format is still where the attention is.",
-          "published_at": "2026-10-29T16:30:00Z",
+          "title": "nightly-labs/openbot is the third open bot workspace on the page",
+          "summary": "a local-first desktop workspace that runs codex, claude and grok side by side with separate task queues and memory.\n709 stars today and 3,949 total, joining openmausbot and copilotkit's openbot in the same wave.",
           "sources": [
             {
               "name": "GitHub Trending",
               "url": "https://github.com/trending?since=daily"
             },
             {
-              "name": "GitHub API",
-              "url": "https://api.github.com/repos/Donchitos/Claude-Code-Game-Studios"
+              "name": "GitHub",
+              "url": "https://github.com/nightly-labs/openbot"
             }
           ],
+          "published_at": "2026-10-30T03:20:00Z",
+          "status": "new",
+          "updated": true,
           "meta": {
-            "repo": "Donchitos/Claude-Code-Game-Studios",
-            "stars_today": 538,
-            "stars_total": 28817,
-            "language": "Shell",
-            "license": "MIT",
+            "repo": "nightly-labs/openbot",
+            "stars_today": 709,
+            "stars_total": 3949,
+            "language": "TypeScript",
+            "license": "NOASSERTION",
             "rank": 8
           },
           "tags": [
-            "ai",
-            "gaming"
-          ],
-          "updated": true
+            "agents",
+            "workspace",
+            "local-first"
+          ]
         }
       ],
       "watch": [
         {
-          "title": "Impeccable Makes Claude Build Sites That Don't Look Like AI",
-          "url": "https://www.youtube.com/watch?v=Ln11hm7jieM",
-          "channel": "Better Stack",
-          "published_at": "2026-05-20T00:00:00Z"
+          "title": "OpenBot: Build Your Own Open-Source AI Coworker (Webinar)",
+          "url": "https://www.youtube.com/watch?v=fDAEOFllIMM",
+          "channel": "CopilotKit",
+          "published_at": "2026-10-23T00:00:00Z"
         },
         {
           "title": "DeepTutor: The Open-Source Tutor That Checks Your Work",
           "url": "https://www.youtube.com/watch?v=kmxC_jS3HtE",
           "channel": "Full Stack",
-          "published_at": "2026-10-28T00:00:00Z"
+          "published_at": "2026-10-27T00:00:00Z"
         },
         {
-          "title": "OpenMausBot: Running Claude, Codex & Grok Locally in One Chat Roster",
-          "url": "https://www.youtube.com/watch?v=GNMm8Z1myvA",
-          "channel": "Zero2GeniusAI",
-          "published_at": "2026-10-28T00:00:00Z"
+          "title": "Impeccable Makes Claude Build Sites That Don't Look Like AI",
+          "url": "https://www.youtube.com/watch?v=Ln11hm7jieM",
+          "channel": "Better Stack",
+          "published_at": "2026-10-26T00:00:00Z"
         }
       ]
     },
     {
       "id": "middle_east",
-      "title": "Middle East",
+      "title": "middle east",
       "items": [
+        {
+          "id": "houthi-six-attacks-saudi",
+          "section": "middle_east",
+          "title": "houthis claim six attacks on saudi airports and oil sites in one night",
+          "summary": "houthi spokesman yahya saree said the strikes hit ras tanura refinery, an aramco site at abqaiq, riyadh and dammam airports, the rabigh refinery and a base in najran.\nsaudi air defences intercepted two ballistic missiles over riyadh and one citizen was hurt by falling shrapnel; no independent confirmation of the target list.",
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/2026/10/30/houthi-forces-claim-six-attacks-on-saudi-airports-oil-facilities"
+            },
+            {
+              "name": "Arab News",
+              "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWndzc1FjWWhCZ0NIcXBOb0x3LUM0c1JEZDZraUIxTFlPMjRsTmdoMG80bzNrel9uRU02R3pVellZc3pBdXBTLWdxLUZjMHBpR2xBYzE5MUVGNVZzcUg3cWgyU0ZzakUzeEZ3dmpER29jeFRmeEVxOGFZemJydEQ5aVItNkF0VjFLeGc5a1dTMHF5U3V3dEhSYjBLVklrVTdTN3B2Um5Hckg3bEdLWkVSY2diZ0Jfal83?oc=5"
+            },
+            {
+              "name": "Reuters",
+              "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOWE5IUkRJTVJvTFE5SUdOdFFCM2tVN1lKcDI3ci01cjlleVVuXzB1SjI0MDhuWkhwakZFSzl3SGNUZk9uUUYwdHNfMGJOUXExaW1RdmRRVy1Cd0tHb3RqblJCQWczeXdORDVKbVMxMGFrbnVMM3FCY2h5Xzl6T0ZoeTBtbGdnbW9jdWF6VEtqNi14ZnlFaVVpb0xZcHlGTDhtM0ZmY2RYZ2Q?oc=5"
+            }
+          ],
+          "published_at": "2026-10-30T00:11:20Z",
+          "status": "new",
+          "updated": true,
+          "change": "first time the houthis have claimed six separate targets in one statement, a day after the mecca-pact talks in tehran.",
+          "tags": [
+            "saudi-arabia",
+            "houthis",
+            "energy"
+          ]
+        },
+        {
+          "id": "iran-hormuz-tankers",
+          "section": "middle_east",
+          "title": "iran now says four vessels hit mines in hormuz, one of them in the east",
+          "summary": "the revolutionary guards navy says three tankers caught fire after hitting mines and a fourth vessel struck mines in the eastern part of the strait.\nukmto logged a ship on fire northeast of oman; the cause is still unconfirmed and oil rose 1.2% on the risk.",
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/liveblog/2026/10/30/iran-war-live-irgc-says-four-tankers-struck-mines-in-strait-of-hormuz"
+            },
+            {
+              "name": "Arab News",
+              "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPdE9OTGhCd0tJTGIySXJRQ0V5bDZ4S2ptdHF5RDBXb0YzOEVmQ3FaZVpsTW5yTnNJVHA5dEYzVEJ5Qm43UGJzYUtNbExSSmIzc2JMbndDZHl4QW1wWU1udjVKeHlzMmVUMlBxaDhwT1dhZ1o3TDhXQXdRNkVQYmYwa2J6V2ZJU2RXM3JteXpKNS1uLVpOMURWUGhfek9PT2g1enI5MEE5ZVN6Ym15Zmlz?oc=5"
+            },
+            {
+              "name": "UKMTO via Arab News",
+              "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQaXFDSnRCZi1CMm42RDBLa2tveGtoQVJTUmlPUXZmdnoxX0RWeHhpaU1RcWN1b0x5X0dLTlhsSGlvWUpxeUJCMTNFM29qWnlaU29KR3ZwNGFaWHRsMUpaM2ZoUmZpRUhSSEtsMER1UGdGdVBLZjRnZGpsalNOYnh1TVFtUWFScEgzcmhmQ2t1YTlKS1VvVTRmRVhoWVpWVHpmcnhnUHptcFdRdUJ6RlhKNFZqX0hXMkJfYzZ0NTBEc3Z3ZUM3RFdr?oc=5"
+            },
+            {
+              "name": "AP",
+              "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPODlXY2RDRGVPYkNGQ20xbjVsN01Vdzl0NWItMlVkOFJzTnRjNU1GRW9vdzBOckdWVjNhdHdfa3RLV0VETGxWOVVCVWFSbVUxSUJnQ2lKaUFrdFNoU1gyNHdyQVhoc3h4MFNTaXRoOEl0aHRmZGpfb2txSEpXS1M1WWR3UmoxZXVwNWV3Y080emJWX1pNSWJLMlYxNXhVOHNPeUNOV0ZWT0oxZ3pMYUN2c2VlR1Y?oc=5"
+            }
+          ],
+          "published_at": "2026-10-30T00:00:00Z",
+          "status": "updated",
+          "updated": true,
+          "change": "the count moved from three to four overnight and ukmto logged a fresh fire near oman, so the strait is still closing in practice.",
+          "meta": {
+            "tankers": 4,
+            "reliability": "IRGC claim; UKMTO confirms a fire, not the cause"
+          },
+          "tags": [
+            "iran",
+            "hormuz",
+            "shipping",
+            "oil"
+          ]
+        },
+        {
+          "id": "us-warns-iran-strikes",
+          "section": "middle_east",
+          "title": "ten us transports land in israel while the pentagon plans a short war",
+          "summary": "kan reports ten us air force transports from fort bliss landed at ovda and nevatim, probably carrying thaad and patriot interceptors.\ncentcom's chief briefed trump on the military options on thursday, and a carrier plus a marine unit are reported to be heading to the region.",
+          "sources": [
+            {
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/israel-news/defense-news/article-913312"
+            },
+            {
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/middle-east/iran-news/article-913297"
+            },
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/10/29/us-iran-war-trump-hormuz.html"
+            }
+          ],
+          "published_at": "2026-10-30T01:48:25Z",
+          "status": "updated",
+          "updated": true,
+          "change": "the aircraft and the centcom briefing are both new; yesterday the warning was still only verbal.",
+          "meta": {
+            "reliability": "KAN report via JPost; US officials unnamed"
+          },
+          "tags": [
+            "iran",
+            "us",
+            "israel",
+            "military"
+          ]
+        },
+        {
+          "id": "saudi-tehran-talks",
+          "section": "middle_east",
+          "title": "saudis ask trump for more time and get no iran guarantee on their oil",
+          "summary": "senior saudi officials asked washington for more time before any strike, worried iran would hit water, power and oil sites in reply.\nin tehran the saudis asked iran to spare oil and gas facilities if war resumes, and iranian officials refused to commit, per jpost sources.",
+          "sources": [
+            {
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/middle-east/iran-news/article-913309"
+            },
+            {
+              "name": "Arab News",
+              "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWm9Sd05jUzZZNHFudmFuY3VjQndfcVFJQkdoSVRYcHpJNks1MG5pdm9Dd3hrYXRVdGNuVldJRFkybEJpR29sX0VFMjdkY2phSXFsS3VzQXpHWUNHUG9qRGJ0R3Yxb09VM2VCZVl0QlhydWlua0hja3NUQmZ3UDV6dGpEREg2RTZLZVhXRDR3RnpMTXRSX1g1TXVYVEhzblE?oc=5"
+            }
+          ],
+          "published_at": "2026-10-30T00:23:14Z",
+          "status": "updated",
+          "updated": true,
+          "change": "the request for delay is new, and it is the first sign riyadh is lobbying against the strike rather than bracing for it.",
+          "meta": {
+            "reliability": "JPost sources, unnamed; Arab News on the mecca-pact mediation"
+          },
+          "tags": [
+            "saudi-arabia",
+            "iran",
+            "diplomacy"
+          ]
+        },
         {
           "id": "israel-election-poll",
           "section": "middle_east",
-          "status": "updated",
-          "title": "israel's count reaches 99% and still lands on 53-48-19",
-          "summary": "with 99% of ballots counted netanyahu's bloc is on 53 seats, eisenkot's opposition on 48 and the arab parties on a record 19, short of the 61 needed.\nofficials are now counting up to 480,000 double-envelope ballots from soldiers, diplomats and hospital patients, and herzog only opens consultations once the result is official.",
-          "published_at": "2026-10-29T15:47:20Z",
+          "title": "final count: likud 27, netanyahu bloc 53, opposition 48, arab parties 19",
+          "summary": "the central elections committee finished the double-envelope ballots and confirmed likud as the largest party with 27 seats.\nneither bloc reaches 61, so herzog's consultations decide who tries first; a jpost poll says most opposition voters would accept eisenkot backed by ra'am.",
           "sources": [
             {
-              "name": "BBC News",
-              "url": "https://www.bbc.co.uk/news/articles/cmdx3knq1xexo"
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/israel-election-2026/article-913237"
             },
             {
-              "name": "Jerusalem Post",
-              "url": "https://www.jpost.com/israel-election-2026/article-913164"
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/10/30/israel-election-netanyahu-eisenkot-coalition-talks-.html"
             },
             {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/10/29/no-clear-winner-in-israeli-election-with-nearly-90-percent-of-votes-counted"
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/israel-election-2026/article-913294"
             }
           ],
-          "change": "the count moved from about 90% to 99% and the absentee ballots are being counted, with the seat split unchanged.",
-          "tags": [
-            "israel",
-            "election"
-          ],
+          "published_at": "2026-10-29T19:25:31Z",
+          "status": "updated",
           "updated": true,
+          "change": "the count is final at 53-48-19, replacing yesterday's 99% projection, and the last ballots did not move a seat.",
           "meta": {
             "bloc_seats": {
               "netanyahu": 53,
               "eisenkot": 48,
               "arab_parties": 19
             },
-            "counted": "99%",
-            "absentee_ballots": 480000
-          }
+            "largest_party": {
+              "likud": 27
+            }
+          },
+          "tags": [
+            "israel",
+            "election"
+          ]
         },
         {
           "id": "israel-interference-claims",
           "section": "middle_east",
-          "status": "new",
-          "title": "likud cries fraud, the police see no evidence, and qatar denies meddling",
-          "summary": "the election committee chief asked shin bet to examine suspected foreign funding behind the record arab turnout, while likud demanded a fraud investigation and the police said they had found no evidence.\nqatar called the allegations ridiculous and dangerous, ra'am's abbas denied any qatari links, and eisenkot accused netanyahu of trying to delegitimise the result.",
-          "published_at": "2026-10-29T14:35:30Z",
+          "title": "netanyahu's chief of staff supplied the intel behind the ra'am arrests",
+          "summary": "jpost reports the prime minister's chief of staff passed on the information that led to arrests in the ra'am vote-buying case.\nlikud says the election was 'stolen' without offering evidence, qatar denies funding anyone, and the opposition says netanyahu is delegitimising the result.",
           "sources": [
             {
-              "name": "Jerusalem Post",
-              "url": "https://www.jpost.com/israel-election-2026/article-913187"
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/israel-election-2026/article-913308"
             },
             {
-              "name": "Jerusalem Post",
-              "url": "https://www.jpost.com/israel-election-2026/article-913238"
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/10/30/israel-election-netanyahu-eisenkot-coalition-talks-.html"
             },
             {
-              "name": "Jerusalem Post",
-              "url": "https://www.jpost.com/israel-election-2026/article-913268"
-            },
-            {
-              "name": "AP News",
-              "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPUlRWdElCT21MdGllQ29QbmxreHhfeTJvaUQ5Rjd2VndKSFRqSmJVMEhKY1VpOTNYWm1zZklsVWVjY0FHbDZxenZUa2NFaWQ0NEluY1ZXV1lqSWNPOWVyMXZ4eGhuQnkxLWVha01PVlhLb2l4Y2RzdENjSTQ0c3UweG5qTFZiOWE1MHFoVllsQjdqeURjUUxfSHpCWnlwNFdnR0N1Y2h1dUw5VElo?oc=5"
+              "name": "BBC",
+              "url": "https://www.bbc.co.uk/news/articles/ckdd8qdl9e0eo"
             }
           ],
-          "change": "new: the fraud and foreign-funding fight is now the main story of the post-election week.",
+          "published_at": "2026-10-30T00:14:09Z",
+          "status": "updated",
+          "updated": true,
+          "change": "the chief-of-staff link is new and puts the prime minister's office directly inside the investigation.",
+          "meta": {
+            "reliability": "JPost report, unnamed sources; police and Qatar statements on the record"
+          },
           "tags": [
             "israel",
-            "election"
-          ],
-          "updated": true,
-          "meta": {
-            "reliability": "Shin Bet probe confirmed by JP; fraud claim rejected by police; Qatar denial official"
-          }
-        },
-        {
-          "id": "us-warns-iran-strikes",
-          "section": "middle_east",
-          "status": "updated",
-          "title": "washington tells the gulf to brace for a short, intense campaign",
-          "summary": "trump has told gulf allies to prepare for a brief high-intensity campaign against iran after next week's midterms, and vance sent iran's security chief a letter proposing a framework for talks.\nthe journal says the letter was received well and the new york times says it proposed a meeting soon, which is the one thread standing between washington and a final strike order.",
-          "published_at": "2026-10-29T15:41:44Z",
-          "sources": [
-            {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/10/29/what-we-know-of-vances-letter-to-rezaei-as-trump-warns-gulf-to-prepare"
-            },
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/29/us-iran-war-trump-hormuz.html"
-            },
-            {
-              "name": "AP News",
-              "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZmVIdU1FSEwxZkxoSnhpcWZPNHFqM0NfT2ZOTDZvQW5XUlVSSGYwTmlaRlhKdXMyRlk1ZVJ2SHpVeVhaTkhiX0FWWHhLdUs4bDU4WjNlV2Z0Vno4VzEzTlRoUkJOeTA5eTVvT3hsY3I4aGswSmVNbWJNTkZzalpUMXhmVTJSVDZEakxodkJLeExNaDh6UHBuVkVvUjZzbEE3?oc=5"
-            }
-          ],
-          "change": "the vance letter is now reported in detail: a framework rather than terms, and a proposed meeting with vance leading the us side.",
-          "tags": [
-            "iran",
-            "us"
-          ],
-          "updated": true,
-          "meta": {
-            "reliability": "WSJ and NYT reports via Al Jazeera; officials unnamed"
-          }
-        },
-        {
-          "id": "hegseth-sylvia",
-          "section": "middle_east",
-          "status": "new",
-          "title": "hegseth fires the pentagon's top planner while strikes are still on the table",
-          "summary": "defence secretary pete hegseth removed lieutenant general brett sylvia as head of strategy, plans and policy on the joint chiefs of staff.\nfox news reports the removal followed an accusation of leaking classified material on iran and ukraine, and it lands in the week trump is weighing another campaign against iran.",
-          "published_at": "2026-10-29T13:08:37Z",
-          "sources": [
-            {
-              "name": "AP News",
-              "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZmVIdU1FSEwxZkxoSnhpcWZPNHFqM0NfT2ZOTDZvQW5XUlVSSGYwTmlaRlhKdXMyRlk1ZVJ2SHpVeVhaTkhiX0FWWHhLdUs4bDU4WjNlV2Z0Vno4VzEzTlRoUkJOeTA5eTVvT3hsY3I4aGswSmVNbWJNTkZzalpUMXhmVTJSVDZEakxodkJLeExNaDh6UHBuVkVvUjZzbEE3?oc=5"
-            },
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/29/us-iran-war-trump-hormuz.html"
-            }
-          ],
-          "change": "new: the pentagon's strategy chief is out days before a possible strike decision.",
-          "tags": [
-            "iran",
-            "us",
-            "pentagon"
-          ],
-          "updated": true,
-          "meta": {
-            "name": "Lt Gen Brett Sylvia",
-            "role": "strategy, plans and policy, Joint Chiefs"
-          }
-        },
-        {
-          "id": "iran-hormuz-tankers",
-          "section": "middle_east",
-          "status": "new",
-          "title": "iran says three tankers hit mines in hormuz and caught fire",
-          "summary": "the revolutionary guards navy says three tankers caught fire after hitting mines over the past 24 hours off the southern coast of the strait of hormuz.\nno independent source has confirmed the mines, and iran described the vessels as violators of its blockade, which has kept most shipping out of the strait.",
-          "published_at": "2026-10-29T14:59:37Z",
-          "sources": [
-            {
-              "name": "Arab News",
-              "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQS28zR1N2NV9UZE0xSU1CXzUyNTlOX2U4Y2xEQ0dISE9MeG43clhDMXV3ZC02NmM0Q1Y1TkFQSzh2MHo2UlgxVkVNM1dDWUxnZGJGNkNfWXpTeDRLME1OYTVTN25wWUJwdGsyalJGaTAyOU92NmxvYl9SZ1lIbU9rU2xMb0FqcDloMWszN3ZqRkNTdkRNQ0h1azJfbmtsbmJJTWdwN3RxZmhtVEt0VVdlRElCaE1jOGJzV3BLZUoza3g?oc=5"
-            },
-            {
-              "name": "AP News",
-              "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPODlXY2RDRGVPYkNGQ20xbjVsN01Vdzl0NWItMlVkOFJzTnRjNU1GRW9vdzBOckdWVjNhdHdfa3RLV0VETGxWOVVCVWFSbVUxSUJnQ2lKaUFrdFNoU1gyNHdyQVhoc3h4MFNTaXRoOEl0aHRmZGpfb2txSEpXS1M1WWR3UmoxZXVwNWV3Y080emJWX1pNSWJLMlYxNXhVOHNPeUNOV0ZWT0oxZ3pMYUN2c2VlR1Y?oc=5"
-            }
-          ],
-          "change": "new: tehran's first account of tankers hit inside the strait since the blockade closed it.",
-          "tags": [
-            "iran",
-            "oil",
-            "hormuz"
-          ],
-          "updated": true,
-          "meta": {
-            "tankers": 3,
-            "reliability": "IRGC claim; UKMTO confirms a burning ship, not the cause"
-          }
+            "election",
+            "investigation"
+          ]
         },
         {
           "id": "yemen-taiz-fighting",
           "section": "middle_east",
-          "status": "new",
-          "title": "fighting flares south of taiz while the un presses for access",
-          "summary": "government forces and the houthis are fighting on the al-aqroudh and al-masrakh fronts south of taiz, and houthi media report air strikes on the city and port of mocha.\na government spokesman told al jazeera his forces ran 749 operations in 24 hours, a claim with no independent count, as the un asked for humanitarian access.",
-          "published_at": "2026-10-29T12:46:29Z",
+          "title": "yemen's hospitals buckle as taiz fighting spreads and gas claims surface",
+          "summary": "reuters reports hospitals overwhelmed as the fighting escalates, with the un pressing both sides for humanitarian access.\na un agency counts nearly 1,700 killed and 7,000 wounded since august, and taiz authorities want a un probe into suspected toxic gas use.",
           "sources": [
             {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/10/29/fighting-rages-near-yemens-taiz-as-un-urges-humanitarian-access"
+              "name": "Reuters",
+              "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPQ2FrR3hGTjlic3RtRHdHQWtvbjJ5cXNPNFExeWlSMGRpOFpIOFk1WFBUX3VoUEs5MWhkMXVIcFlmc3BaMkE0NnlWbXdacUNZRXg0emVrUjhJTENacVRqY2M5aGpvY08wQmhVYWJxbkdOZlB6dzUwZGNLY3ZkUGFQOVJZekxCM19qdVAtajNOdmdrU2JIc0M5QXZuN1M?oc=5"
+            },
+            {
+              "name": "Arab News",
+              "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQRGZVa0VnYUdfYUtOMnlNRGxVUGc5TTVtZnVJQ1A0bjZ5STJvbFpSWTZBUEhuRkk2MGRaU0lKTkhLT2tBQWJoM3BWZ3o3VlY5NXN3d3hfcC1VNTcwNFpxUEdocFcybnUxWnNjV2VtdWNoalAzRnVCeGRTaTZKZGpNVk9KVHlNSURGVVRNSE9BVFBzX2dmVEdPVEN6UWx2VnpMSnpaeV9NRXF5d29lSnk0UWVzNjNoOTMxYXZyQWdTT3c2Y0F5c3Zr?oc=5"
+            },
+            {
+              "name": "Anadolu",
+              "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOYXRYY3Itd2Y1QmRkVXVqdUNqRXZWN2g0M0lsMDItNXpPVWFlWWFoX1NZU2ZCR1Nka1JTelhBc3MtMVFlNHFBSVB6ajFWU3NGcHBLYVBVUG5zYVBQM1pwQ1hSU2Q0YlZwbk8xUFFiWVVfSXBWUFgzT01mZDlYcVJudkVqVUR4X3UyUVNleGhIREE2MFBuMjBHRjkxcVFhelZHMnpBQmF0dXJ1bXFNcGY5T1VfNi1MVnpWcEdjU3BWN3A?oc=5"
             }
           ],
-          "change": "new: the front has moved south of taiz after the houthi advance on jabal sabr.",
+          "published_at": "2026-10-29T20:16:56Z",
+          "status": "updated",
+          "updated": true,
+          "change": "the un toll and the toxic-gas allegation are both new today, and neither side has allowed a neutral inspection.",
+          "meta": {
+            "reliability": "Reuters reporting; gas claim from local authorities, denied by Houthis",
+            "un_killed_since_august": 1700,
+            "un_wounded_since_august": 7000
+          },
           "tags": [
             "yemen",
-            "taiz"
-          ],
-          "updated": true,
-          "meta": {
-            "reliability": "Al Jazeera reporting both sides' claims; tolls unverified"
-          }
+            "taiz",
+            "humanitarian"
+          ]
         },
         {
-          "id": "yemen-aden-airport-strike",
+          "id": "hegseth-sylvia",
           "section": "middle_east",
-          "status": "updated",
-          "title": "flights resume at aden a day after the missile strike",
-          "summary": "aden international airport reopened on thursday, a day after two ballistic missiles hit the al-nasr camp next to the runway and services were suspended.\nthe houthis had warned the airport to empty before firing, and the missiles hit the al-nasr camp beside the runway, where coastguard and interior ministry units are based.",
-          "published_at": "2026-10-29T15:20:00Z",
+          "title": "the pentagon formally accuses its fired planner of leaking",
+          "summary": "the pentagon has formally accused the general it removed on thursday of leaking sensitive information to the media.\nseparately, reports say the building is drafting a $1.1trn budget, $400bn under the white house request, with iran strikes still on the table.",
           "sources": [
             {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/10/29/fighting-rages-near-yemens-taiz-as-un-urges-humanitarian-access"
+              "name": "AP",
+              "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPQWpkZDRsY1U1UjJVdGNuQks1NldOM2R5VFFqM2ZNYzFoMG0xX1k5VFNrWm43cko1cjhMVlh4S1pybEN1VUdnU3VFXzJUMGEwemRHdzRHekRzNDI4eUxDUlhvSnc3SW1sdVAyeVMySzNhVGY3QlBIcHJQSGR2aEJ2bGxBV3ZDRlY0eWltVzJOTmE0MlVROVZESklDYkF5Zw?oc=5"
             },
             {
               "name": "Reuters",
-              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQQWktallhRGk5Y3p6WmxxWktmYm5sVm5fUlRlWmE3S0t4ZE05QzNxRGFFanQ3c3pTSHpjZ1IzcDY2RUlSSlhaTjFENVExUzJ2Q0UxOGxieGlWZDVadnVsd3N0M0dBWjIxYUcwUGNfQlNVQW0wQjYyUFVubDgwY2JZV3BKa3JHRExXNW00T3lRWDVxLUJwRWVLay1HUjVVcU5wTU5xWlY5dGFxSFE?oc=5"
-            }
-          ],
-          "change": "flights are running again, where yesterday the runway was damaged and the airport closed.",
-          "tags": [
-            "yemen",
-            "aden"
-          ],
-          "updated": true,
-          "meta": {
-            "airport": "aden international",
-            "status": "flights resumed"
-          }
-        },
-        {
-          "id": "saudi-tehran-talks",
-          "section": "middle_east",
-          "status": "updated",
-          "title": "the makkah pact opens its first mediation to pause the iran war",
-          "summary": "the makkah pact countries have begun their first mediation effort to pause the iran war, with saudi arabia pushing tehran to call off the houthis as part of any deal.\nriyadh's condition is that iran stops the houthi attacks on saudi infrastructure, the same attacks that hit riyadh airport and saudi oil sites this week.",
-          "published_at": "2026-10-29T13:59:10Z",
-          "sources": [
-            {
-              "name": "Arab News",
-              "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWm9Sd05jUzZZNHFudmFuY3VjQndfcVFJQkdoSVRYcHpJNks1MG5pdm9Dd3hrYXRVdGNuVldJRFkybEJpR29sX0VFMjdkY2phSXFsS3VzQXpHWUNHUG9qRGJ0R3Yxb09VM2VCZVl0QlhydWlua0hja3NUQmZ3UDV6dGpEREg2RTZLZVhXRDR3RnpMTXRSX1g1TXVYVEhzblE?oc=5"
+              "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxORlFfOG1ZdV9STERPRzJZR1dTMFQ0MzhzLWtkUkhXSEFlYm9WOEx1Y2lXMDRKRnpvOF91TWp2a2x5UFhvOVEwTUNtZDQ4TEZvY21GVlZEWTJvT2V3V2JyVGp1WVoxVEIxTVlvX2FScG1vd0o0eko4MkxjeHliaXd0Yzh1ZXJWRlpiNVRoUHFEaXM0WU5Ec1ZsYXhPNzYzWEV2X1RMSVhBdTFJN0ZfdHhMVjc3V3JzUQ?oc=5"
             },
             {
-              "name": "The Economist",
-              "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxObXc2aUV1VGhZcVRTRjBkY0VfTUM3dEJYYkdWaXhFRVlXTHMxN0ZkTTVySWlFaV9McFUtS1NZTl82TTZzUmEtQmRUZGgxZmpWNjB4M25ta2Jma1Y1Rk4wWDRvRWg2cEpjQ3JXR292Tk1vaV9PTFpEMW9UQVJscDdsVWh5WEhpX1A1MzVMN21sb1RKSkxyeVpfMmRXajV0bm5pM1FWakNoMzVINDQtTUZReXEwYndlczBCR3ZCZ0d2cldyLVpwMFhTZVRqMkRuVnFzV1E?oc=5"
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/international/article-913313"
             }
           ],
-          "change": "the mediation now carries a saudi condition: tehran has to rein in the houthis, not just reopen hormuz.",
-          "tags": [
-            "saudi",
-            "iran"
-          ],
+          "published_at": "2026-10-30T02:02:12Z",
+          "status": "updated",
           "updated": true,
+          "change": "the formal leak accusation and the budget numbers are both new; yesterday it was only the removal.",
           "meta": {
-            "blockade": "hormuz",
-            "condition": "iran reins in the houthis"
-          }
+            "name": "Lt Gen Brett Sylvia",
+            "budget_usd_trn": 1.1,
+            "cut_usd_bn": 400
+          },
+          "tags": [
+            "pentagon",
+            "iran",
+            "budget"
+          ]
         }
       ],
       "watch": [
         {
-          "title": "Israel election: Record turnout leaves Netanyahu and opposition short of a majority",
-          "url": "https://www.youtube.com/watch?v=vnjqosII1Yg",
-          "channel": "Al Jazeera English",
-          "published_at": "2026-10-28T00:00:00Z"
+          "title": "Ships on fire after hitting mines in Strait of Hormuz",
+          "url": "https://www.youtube.com/watch?v=dY2bN41apdc",
+          "channel": "BBC News",
+          "published_at": "2026-10-30T00:00:00Z"
         },
         {
-          "title": "Iran says diplomacy remains possible as mediators discuss plan to end war with US",
-          "url": "https://www.youtube.com/watch?v=lmRUwRqRXx8",
-          "channel": "Al Jazeera English",
-          "published_at": "2026-10-29T00:00:00Z"
-        },
-        {
-          "title": "IRAN WARNING: US reportedly considering renewed strikes after 2026 midterm elections",
-          "url": "https://www.youtube.com/watch?v=_QQWNkSK0qY",
-          "channel": "Fox News",
-          "published_at": "2026-10-29T10:00:00Z"
+          "title": "How Arab parties could decide Israel's election and Netanyahu's fate",
+          "url": "https://www.youtube.com/watch?v=XSRge_71CMk",
+          "channel": "BBC News",
+          "published_at": "2026-10-30T00:00:00Z"
         }
       ]
     },
     {
       "id": "us_markets",
-      "title": "US markets",
+      "title": "us markets",
       "items": [
         {
           "id": "session-thursday",
           "section": "us_markets",
-          "status": "new",
-          "title": "the s&p slips 0.4% and the nasdaq 1.2% as the ai trade cracks",
-          "summary": "three hours into the session the s&p 500 is at 7,717, down 0.4%, the nasdaq-100 at 29,451, down 1.2%, and the dow at 52,254, down 0.4%, with the vix at 16.5.\nalphabet is down 11.8% and caterpillar 8%, the two biggest weights, while meta, apple, lilly and boeing are all higher.",
-          "published_at": "2026-10-29T16:30:00Z",
+          "title": "the s&p ends 0.3% lower and the nasdaq 100 1.4% as the ai trade cracks",
+          "summary": "the s&p 500 closed at 7,720.39, down 0.30%, the nasdaq 100 at 29,402.51, down 1.38%, and the dow at 52,342.56, down 0.25%.\nvix closed at 17.20 and futures are far weaker now, es -1.0% and nq -2.3%, after amazon and intel reported.",
           "sources": [
-            {
-              "name": "TradingView S&P 500",
-              "url": "https://www.tradingview.com/symbols/SPX/"
-            },
-            {
-              "name": "TradingView Nasdaq 100",
-              "url": "https://www.tradingview.com/symbols/NASDAQ-NDX/"
-            },
             {
               "name": "CNBC",
               "url": "https://www.cnbc.com/quotes/.SPX"
+            },
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/quotes/.NDX"
+            },
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/quotes/.DJI"
+            },
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/quotes/.VIX"
+            },
+            {
+              "name": "TradingView",
+              "url": "https://www.tradingview.com/symbols/CME_MINI-ES1!/"
             }
           ],
+          "published_at": "2026-10-30T03:25:00Z",
+          "status": "updated",
+          "updated": true,
           "meta": {
-            "spx": 7717.64,
-            "spx_pct": -0.34,
-            "ndx": 29450.68,
-            "ndx_pct": -1.22,
-            "dji": 52253.84,
-            "dji_pct": -0.42,
-            "vix": 16.48
+            "spx": 7720.39,
+            "spx_pct": -0.3,
+            "ndx": 29402.51,
+            "ndx_pct": -1.38,
+            "dji": 52342.56,
+            "dji_pct": -0.25,
+            "vix": 17.2,
+            "vix_pct": 1.71,
+            "es_futures": 7673.25,
+            "es_pct": -1.04,
+            "nq_futures": 28891.5,
+            "nq_pct": -2.27
           },
           "tags": [
-            "markets"
+            "equities",
+            "close",
+            "futures"
+          ]
+        },
+        {
+          "id": "earnings-thursday",
+          "section": "us_markets",
+          "title": "amazon and intel get hammered after the bell",
+          "summary": "amazon is down 7.3% premarket after negative free cash flow of $42.4bn and quarterly capex of $77.3bn, far above the $58.7bn expected.\nintel is down 23% on guidance of $15-16bn against $17.1bn expected, blaming the pc slowdown and a fatal fab explosion in israel.",
+          "sources": [
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/10/29/amazon-amzn-q3-earnings-report-2026.html"
+            },
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/10/29/intel-intc-q3-earnings-report-2026-.html"
+            },
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/10/29/reddit-rddt-q3-2026.html"
+            }
           ],
-          "updated": true
+          "published_at": "2026-10-29T22:24:49Z",
+          "status": "updated",
+          "updated": true,
+          "meta": {
+            "amzn_pct": -7.3,
+            "intc_pct": -23.0,
+            "rddt_pct": -18.2,
+            "amzn_fcf_usd_bn": -42.4,
+            "amzn_capex_q_usd_bn": 77.3
+          },
+          "tags": [
+            "earnings",
+            "ai",
+            "chips"
+          ]
+        },
+        {
+          "id": "alphabet-microsoft",
+          "section": "us_markets",
+          "title": "alphabet's 12.6% drop was its worst day ever, and microsoft is borrowing $25bn",
+          "summary": "alphabet closed at $283.82, down 12.64% and about $500bn of market value, on its first negative free cash flow and a search miss.\nmicrosoft fell 0.2% to $530.14, cut 2026 capex to $170bn from $175bn, and is raising $25bn in debt to keep building.",
+          "sources": [
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/10/29/alphabet-google-microsoft-msft-shares-today-earnings.html"
+            },
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/10/29/microsoft-25-billion-debt-offering.html"
+            }
+          ],
+          "published_at": "2026-10-29T20:15:19Z",
+          "status": "updated",
+          "updated": true,
+          "meta": {
+            "googl": 283.82,
+            "googl_pct": -12.64,
+            "msft": 530.14,
+            "msft_pct": -0.16,
+            "value_lost_usd_bn": 500,
+            "msft_debt_usd_bn": 25
+          },
+          "tags": [
+            "earnings",
+            "ai",
+            "big-tech"
+          ]
+        },
+        {
+          "id": "servicenow-ai-fears",
+          "section": "us_markets",
+          "title": "servicenow's 27% plunge is the worst day in its history",
+          "summary": "servicenow closed down about 27% after a third-quarter sales outlook that revived the fear that ai agents will eat software budgets.\nit was the s&p's biggest loser, and the split between software and the hyperscalers selling the buildout got wider.",
+          "sources": [
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/10/29/servicenow-now-earnings-q3-2026.html"
+            }
+          ],
+          "published_at": "2026-10-29T20:02:32Z",
+          "status": "updated",
+          "updated": true,
+          "meta": {
+            "ticker": "NOW",
+            "drop_pct": -27
+          },
+          "tags": [
+            "earnings",
+            "software",
+            "ai"
+          ]
+        },
+        {
+          "id": "earnings-friday-big-oil",
+          "section": "us_markets",
+          "title": "exxon, chevron and abbvie report into a market that wants cash, not capex",
+          "summary": "exxon (eps $3.90 expected), chevron ($4.78), abbvie ($3.74) and bp ($2.66) all report before the open, with brent above $112.\nthe employment cost index (0.8% expected) lands at 15:30 riyadh and chicago pmi (56.1) at 16:45, the last macro prints of the week.",
+          "sources": [
+            {
+              "name": "Nasdaq",
+              "url": "https://www.nasdaq.com/market-activity/earnings"
+            },
+            {
+              "name": "TradingView",
+              "url": "https://www.tradingview.com/economic-calendar/"
+            }
+          ],
+          "published_at": "2026-10-30T03:20:00Z",
+          "status": "new",
+          "updated": true,
+          "meta": {
+            "premarket": [
+              "XOM",
+              "CVX",
+              "ABBV",
+              "BP",
+              "AZN",
+              "GD"
+            ],
+            "macro": {
+              "eci_qoq_fc": 0.8,
+              "chicago_pmi_fc": 56.1
+            }
+          },
+          "tags": [
+            "earnings",
+            "energy",
+            "macro"
+          ]
+        },
+        {
+          "id": "crypto-binance-hack",
+          "section": "us_markets",
+          "title": "binance says a laptop hack cost $6.3bn, the biggest crypto theft yet",
+          "summary": "binance says a compromised devops engineer's laptop let an attacker submit unauthorised withdrawals, and about $3bn has been frozen.\nbitcoin fell 4% to $77,995 and circle dropped 5% after hours; binance says it will cover losses from its user fund.",
+          "sources": [
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/10/29/circle-tether-freeze-funds-impacted-by-potential-binance-security-issue.html"
+            }
+          ],
+          "published_at": "2026-10-30T03:01:44Z",
+          "status": "new",
+          "updated": true,
+          "meta": {
+            "impact_usd_bn": 6.3,
+            "frozen_usd_bn": 3.0,
+            "btc": 77994.96,
+            "btc_pct": -4
+          },
+          "tags": [
+            "crypto",
+            "security",
+            "movers"
+          ]
+        },
+        {
+          "id": "oil-hormuz-slick",
+          "section": "us_markets",
+          "title": "oil turns back up 1.2% as houthi strikes outweigh the vance letter",
+          "summary": "brent is at $112.16, up 1.23%, and wti at $103.36, up 1.33%, after six claimed houthi attacks on saudi sites overnight.\nyesterday's 2% slide on talk of talks has reversed, and traders are pricing the risk to ras tanura and abqaiq again.",
+          "sources": [
+            {
+              "name": "TradingView",
+              "url": "https://www.tradingview.com/symbols/ICEEUR-BRN1!/"
+            },
+            {
+              "name": "TradingView",
+              "url": "https://www.tradingview.com/symbols/NYMEX-CL1!/"
+            },
+            {
+              "name": "Reuters",
+              "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOWE5IUkRJTVJvTFE5SUdOdFFCM2tVN1lKcDI3ci01cjlleVVuXzB1SjI0MDhuWkhwakZFSzl3SGNUZk9uUUYwdHNfMGJOUXExaW1RdmRRVy1Cd0tHb3RqblJCQWczeXdORDVKbVMxMGFrbnVMM3FCY2h5Xzl6T0ZoeTBtbGdnbW9jdWF6VEtqNi14ZnlFaVVpb0xZcHlGTDhtM0ZmY2RYZ2Q?oc=5"
+            }
+          ],
+          "published_at": "2026-10-30T03:25:00Z",
+          "status": "updated",
+          "updated": true,
+          "meta": {
+            "brent": 112.16,
+            "brent_pct": 1.23,
+            "wti": 103.36,
+            "wti_pct": 1.33
+          },
+          "tags": [
+            "oil",
+            "commodities",
+            "hormuz"
+          ]
         },
         {
           "id": "macro-gdp-pce",
           "section": "us_markets",
-          "status": "updated",
-          "title": "gdp beats at 3.4% and the fed's inflation gauge runs at 3.6%",
+          "title": "gdp beat at 3.4% and the fed's inflation gauge ran at 3.6%",
           "summary": "the advance third-quarter gdp estimate came in at 3.4% against 3.2% expected, up from 2.2% in the second quarter.\nseptember pce prices rose 0.5% on the month and 3.6% on the year, core 0.3% and 3.1%, and jobless claims came in at 194,000.",
-          "published_at": "2026-10-29T12:30:00Z",
           "sources": [
             {
-              "name": "BEA personal income",
+              "name": "BEA",
               "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-september-2026"
-            },
-            {
-              "name": "BEA GDP",
-              "url": "https://www.bea.gov/data/gdp/gross-domestic-product"
             },
             {
               "name": "CNBC",
               "url": "https://www.cnbc.com/2026/10/29/pce-inflation-report-september-2026-.html"
             },
             {
-              "name": "TradingView calendar",
+              "name": "TradingView",
               "url": "https://www.tradingview.com/economic-calendar/"
             }
           ],
+          "published_at": "2026-10-29T12:30:00Z",
+          "status": "steady",
+          "updated": false,
           "meta": {
             "gdp_q3": 3.4,
             "gdp_forecast": 3.2,
@@ -617,207 +845,23 @@
             "claims": 194000
           },
           "tags": [
-            "macro"
-          ],
-          "updated": true
-        },
-        {
-          "id": "alphabet-microsoft",
-          "section": "us_markets",
-          "status": "updated",
-          "title": "alphabet falls 11.8% in its worst day after results",
-          "summary": "alphabet is down 11.8% at $286.65 after negative free cash flow of $9.07bn and a revenue miss in search, on course for its biggest post-earnings drop.\nmicrosoft is 1.6% lower at $522.73 after holding capex guidance, and both companies' capex came in below estimates, which is what cracked the ai trade.",
-          "published_at": "2026-10-29T15:55:00Z",
-          "sources": [
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/29/alphabet-google-microsoft-msft-shares-today-earnings.html"
-            },
-            {
-              "name": "CNBC capex",
-              "url": "https://www.cnbc.com/2026/10/29/microsoft-google-ai-capex-estimates.html"
-            }
-          ],
-          "meta": {
-            "googl": 286.65,
-            "googl_pct": -11.77,
-            "msft": 522.73,
-            "msft_pct": -1.56,
-            "googl_fcf": "-9.07bn"
-          },
-          "tags": [
-            "earnings"
-          ],
-          "updated": true
-        },
-        {
-          "id": "servicenow-ai-fears",
-          "section": "us_markets",
-          "status": "new",
-          "title": "servicenow has its worst day ever, down about 24%",
-          "summary": "servicenow fell about 24% after a third-quarter sales outlook that revived the fear that ai agents will eat software budgets.\nfortinet and other software names slid with it, the clearest sign yet that the ai trade is splitting the companies selling it from the ones it disrupts.",
-          "published_at": "2026-10-29T15:54:12Z",
-          "sources": [
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/29/servicenow-now-earnings-q3-2026.html"
-            },
-            {
-              "name": "Reuters",
-              "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOQXYxUGkybjhZNGUydzJvN0pjTjROMkF2djdManFSLWgxZmtYZW96c0RfRjZMOTItME8taHdxeHpubG9KMUpzX09yS2VGTjVDQVJEUVJ3YWtMU2NIYnFBbnNGNW81eWZTYTBEdFAtNllDS2ZxNUtzNkt5dTJNb2djVUZ5LUhacFNfZkI0VFpRZXJzZF9GSk5PQWFsa2p1ak9WQ24zajN5TWpwSWxESHRQUWtuQ1oxanBMeTE3RTNHdFpoWXIt?oc=5"
-            }
-          ],
-          "meta": {
-            "ticker": "NOW",
-            "drop_pct": -24
-          },
-          "tags": [
-            "earnings",
-            "software"
-          ],
-          "updated": true
-        },
-        {
-          "id": "caterpillar-miss",
-          "section": "us_markets",
-          "status": "new",
-          "title": "caterpillar drops 8% on a revenue miss and an unchanged outlook",
-          "summary": "caterpillar beat on profit but missed on revenue and left its growth target unchanged, and the shares are down 8% at $656.\nit is one of the biggest drags on the dow, and the result lands the same morning investors started questioning the size of the ai build-out.",
-          "published_at": "2026-10-29T13:34:57Z",
-          "sources": [
-            {
-              "name": "Reuters",
-              "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOS21ocmJBakxUZmFUVWdxWExLS0gtcmNiVDFGb24zbTBUa25wd1I3MVBrOVVzNm9jSFFFVktiaTRXay1yOEhsWWd5ZlBhRU9EQVNJZlhtRVVySzVoNUZqajZ0MnNLeF9sZ1N3QTY2MEZHeUlKaUJnUlR4NkQ4ODh5Nmx0MWxiYm54aWphcXhpcTNTMVl3TUw3TFpQeGltQU5iRy1sLXVvME5fQQ?oc=5"
-            },
-            {
-              "name": "TradingView",
-              "url": "https://www.tradingview.com/symbols/NYSE-CAT/"
-            }
-          ],
-          "meta": {
-            "ticker": "CAT",
-            "price": 656.43,
-            "pct": -7.98
-          },
-          "tags": [
-            "earnings",
-            "industrials"
-          ],
-          "updated": true
-        },
-        {
-          "id": "doordash-instacart",
-          "section": "us_markets",
-          "status": "updated",
-          "title": "doordash buys instacart for $17bn",
-          "summary": "doordash agreed to buy instacart's parent maplebear for $17 billion, uniting restaurant delivery with instacart's grocery partners.\ndoordash is up 5.8% at $179.23 and instacart 1.5% lower at $57.58, with the deal confirmed a day after reports it was close.",
-          "published_at": "2026-10-29T15:53:12Z",
-          "sources": [
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/28/doordash-instacart-maplebear.html"
-            }
-          ],
-          "meta": {
-            "ticker": "DASH",
-            "target": "CART",
-            "price_usd": "17bn"
-          },
-          "tags": [
-            "deals"
-          ],
-          "updated": true
-        },
-        {
-          "id": "oil-hormuz-slick",
-          "section": "us_markets",
-          "status": "updated",
-          "title": "oil falls 2% as the vance letter outweighs burning tankers in hormuz",
-          "summary": "wti is down 2.1% at $100.62 and brent 1.7% lower at $109.76, even after iran's guards said three tankers burned on mines in the strait.\ntraders are treating the vance letter as the first real chance of talks, and the mine claim has no independent confirmation.",
-          "published_at": "2026-10-29T16:20:00Z",
-          "sources": [
-            {
-              "name": "TradingView WTI",
-              "url": "https://www.tradingview.com/symbols/NYMEX-CL1!/"
-            },
-            {
-              "name": "TradingView Brent",
-              "url": "https://www.tradingview.com/symbols/ICEEUR-BRN1!/"
-            },
-            {
-              "name": "Reuters",
-              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQdy1kTGwzTi1ZWVpiLUFTbF9HS0VGbXFnVWhMVzBfOUhieU95OGhLZnpZLTB3ckdrOEFMZms2UU1qYUMyY01yd3VOQmNhNGU4MmZvNE1uUzdqcXc0OWxLYlRRSk5NaU85cUdZYTd0a1d0QU93S0JfaTNMdlpVa3pMeVBUZnFtd0ZMVXhMWGhHejZOVjQtZlN2ekVsaTdWU2hCVE8xaTlpamEzXzQ?oc=5"
-            }
-          ],
-          "meta": {
-            "wti": 100.62,
-            "wti_pct": -2.1,
-            "brent": 109.76,
-            "brent_pct": -1.68,
-            "us10y": 5.0
-          },
-          "tags": [
-            "oil"
-          ],
-          "updated": true
-        },
-        {
-          "id": "earnings-thursday",
-          "section": "us_markets",
-          "status": "updated",
-          "title": "amazon and intel report after the bell to close the week",
-          "summary": "amazon, intel, starbucks and gilead report after the close, after lilly rose 6.2% on a raised outlook and merck 4.5% on a profit beat.\nexxon, chevron and abbvie lead friday's pre-market slate, with the employment cost index and chicago pmi the last macro prints of the week.",
-          "published_at": "2026-10-29T16:10:00Z",
-          "sources": [
-            {
-              "name": "Nasdaq earnings calendar",
-              "url": "https://www.nasdaq.com/market-activity/earnings"
-            },
-            {
-              "name": "CNBC Lilly",
-              "url": "https://www.cnbc.com/2026/10/29/eli-lilly-lly-earnings-q3-2026.html"
-            },
-            {
-              "name": "CNBC Merck",
-              "url": "https://www.cnbc.com/2026/10/29/merck-mrk-earnings-q3-2026.html"
-            }
-          ],
-          "meta": {
-            "after_close": [
-              "AMZN",
-              "INTC",
-              "SBUX",
-              "GILD"
-            ],
-            "friday_premarket": [
-              "XOM",
-              "CVX",
-              "ABBV"
-            ],
-            "friday_macro": [
-              "ECI",
-              "Chicago PMI"
-            ]
-          },
-          "tags": [
-            "earnings"
-          ],
-          "updated": true
+            "macro",
+            "inflation",
+            "growth"
+          ]
         }
       ],
       "watch": []
     },
     {
       "id": "liverpool",
-      "title": "Liverpool",
+      "title": "liverpool",
       "items": [
         {
           "id": "chelsea-league-cup",
           "section": "liverpool",
-          "status": "updated",
           "title": "five wins in a row and anfield feels different again, van dijk says",
           "summary": "liverpool have won five straight in all competitions after the 6-5 shootout win over chelsea, and van dijk says the crowd energy is coming back.\nmamardashvili and gomez were the heroes of the shootout, and iraola called it another significant win for a side still fourth in the league.",
-          "published_at": "2026-10-29T12:00:00Z",
           "sources": [
             {
               "name": "Liverpool Echo",
@@ -832,6 +876,9 @@
               "url": "https://www.bbc.co.uk/sport/football/articles/cmp3g8vxd258o"
             }
           ],
+          "published_at": "2026-10-29T12:00:00Z",
+          "status": "steady",
+          "updated": false,
           "meta": {
             "score": "1-1",
             "pens": "6-5",
@@ -839,17 +886,15 @@
             "run": 5
           },
           "tags": [
-            "result"
-          ],
-          "updated": true
+            "match",
+            "carabao-cup"
+          ]
         },
         {
           "id": "carabao-cup-draw",
           "section": "liverpool",
-          "status": "updated",
-          "title": "bournemouth at home in the quarter-finals",
-          "summary": "liverpool were drawn at home to bournemouth in the week of december 14, with fleetwood hosting everton or newcastle in the other tie.\niraola called bournemouth the only team he did not want, and the exact date and ticket details are still to be confirmed.",
-          "published_at": "2026-10-29T08:35:00Z",
+          "title": "bournemouth at home in the quarter-finals, fleetwood host everton",
+          "summary": "liverpool were drawn at home to bournemouth in the week commencing december 14, with league two fleetwood hosting everton at highbury in the other tie.\nfleetwood knocked out arsenal on penalties on tuesday, everton beat newcastle 3-1, and man city host bradford with palace taking sunderland.",
           "sources": [
             {
               "name": "Liverpool FC",
@@ -858,106 +903,141 @@
             {
               "name": "Liverpool Echo",
               "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/carabao-cup-draw-live-time-34830540"
+            },
+            {
+              "name": "BBC Sport",
+              "url": "https://www.bbc.co.uk/sport/football/articles/cmp3glnle0wdo"
             }
           ],
+          "published_at": "2026-10-29T21:42:29Z",
+          "status": "updated",
+          "updated": true,
+          "change": "everton's 3-1 win over newcastle settled the last tie, so the quarter-final line-up is complete.",
           "meta": {
             "opponent": "Bournemouth",
             "venue": "Anfield",
             "window": "week of 14 December"
           },
           "tags": [
-            "cup"
-          ],
-          "updated": true
+            "cup",
+            "draw"
+          ]
         },
         {
           "id": "arsenal-sunday-fixture",
           "section": "liverpool",
-          "status": "updated",
-          "title": "madley gets the arsenal game, with saka out and arsenal short",
-          "summary": "andy madley will referee sunday's game at anfield, his first premier league big-six match in two and a half years.\narsenal arrive top on 21 points to liverpool's 15, with three players already ruled out and four more doubtful, though arteta could get a couple back.",
-          "published_at": "2026-10-29T14:00:00Z",
+          "title": "arsenal at anfield on sunday at 19:30 riyadh, with madley in charge",
+          "summary": "liverpool host the leaders on sunday at 16:30 gmt, 19:30 riyadh, with andy madley refereeing his first big-six game in over two years.\narsenal are on 21 points to liverpool's 15, six clear, and iraola speaks to the press at the axa today before the fourth straight home game.",
           "sources": [
+            {
+              "name": "BBC Sport",
+              "url": "https://www.bbc.co.uk/sport/football/teams/liverpool/scores-fixtures"
+            },
             {
               "name": "Liverpool Echo",
               "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-arsenal-referee-premier-league-34832731"
             },
             {
-              "name": "BBC Sport table",
-              "url": "https://www.bbc.co.uk/sport/football/premier-league/table"
-            },
-            {
-              "name": "Football London",
-              "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQcnNBa3F1b042bGgyOXJBODlhVHU3VFptNFZocm9zcjlxWEkwZHVKS0VTWjkySWlvVzUzUEtucURCUWFOek9aTWNBQ0lwbFdHUlhtYTRqeGxYazBSUDBabU93ZHpWOWxtbUowN0c0Z1NxVmVncF9XYkRDUG5NMzdDNzc4Z0FoS09NVHBydVE2VjQzaE1zSTJrNkVB0gGaAUFVX3lxTFByc0FrcXVvTjZsaDI5ckE4OWFUdTdUWm00Vmhyb3NyOXFYSTBkdUpLRVNaOTJJaW9XNTNQS25xREJRYU56T1pNY0FDSXBsV0dSWG1hNGp4bFhrMFJQMFptT3dkelY5bG1tSjA3RzRnU3FWZWdwX1diRENQbk0zN0M3NzhnQWhLT01UcHJ1UTZWNDNoTXNJMms2RUE?oc=5"
+              "name": "Liverpool FC",
+              "url": "https://www.liverpoolfc.com/news/referee-and-match-officials-for-liverpool-v-arsenal-confirmed"
             }
           ],
+          "published_at": "2026-10-29T15:36:53Z",
+          "status": "updated",
+          "updated": true,
+          "change": "the kickoff is confirmed at 16:30 gmt and madley is named, with arsenal still six points clear.",
           "meta": {
             "opponent": "Arsenal",
             "venue": "Anfield",
-            "date": "2026-11-01",
+            "kickoff": "2026-11-01T16:30:00Z",
             "referee": "Andy Madley",
             "lfc_points": 15,
             "ars_points": 21
           },
           "tags": [
-            "fixture"
-          ],
-          "updated": true
+            "fixture",
+            "premier-league"
+          ]
         },
         {
           "id": "liverpool-injury-list",
           "section": "liverpool",
-          "status": "updated",
-          "title": "wirtz is in the frame for sunday, frimpong is not",
-          "summary": "wirtz missed chelsea with an ankle problem and is in the frame for sunday, with isak also pushing for a recall.\nfrimpong is unlikely to be back before the international break, and szoboszlai and munoz remain out.",
-          "published_at": "2026-10-29T06:15:05Z",
+          "title": "szoboszlai could return for arsenal, frimpong and ekitike cannot",
+          "summary": "szoboszlai has missed three games with a hamstring problem but could make sunday, while munoz is the bigger doubt with a knock.\nfrimpong is out until after the november break, bradley is still recovering from knee surgery and ekitike is out until the end of the calendar year.",
           "sources": [
             {
-              "name": "London Evening Standard",
-              "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPTkRfQkpZVm5sQzVBMDFwbVplYXk5czBQWDBQOWtSSmgxU3VXSFh4bUVZNzB6T0JaQ2VGd2VIUGNrUl9OeUtyTGdMLXotbldOX2lHeFBjWk1uVXNNM3F1anBLbEZHeW14RlhHMEIwMVVuTnJ0SWxTcFdncWVMUXJ5aDRJZTZPRFA3T0p0TF9vcEFoUFhkZGVRMFhTTUFVOFd3VFJ1VmFJTFJEU3B2eGFIWm10MTUtbDdzWFN4Und5VjYxNDdXN1ZRZkFJb3dGZw?oc=5"
-            },
-            {
-              "name": "The False 9",
-              "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9faWxoSVFVTS1XMTVlNHhXLXdCT3ZZbUhqeFZZMFRBS3FodGt5VTIxUkhxYUx5cVZpeDhZbUpEcGloZXRMdURpM1otSEppYWpNeEdLOExMVkpFNk1IS05RMWFkc0VoSFM3WEhVbGpWN2NONTdCbmExZQ?oc=5"
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-arsenal-injuries-premier-league-34836843"
             },
             {
               "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/match-reports/impressive-andoni-iraola-restoring-what-34831329"
-            },
-            {
-              "name": "ESPN",
-              "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPdkJkUEVLMms3d3d4YzlxMEJVVXdhVndtVk56VDBfcTV1eVFnanZEZGFXandiUlZORVRmSHZ0cUNIZ3BBV1dtRUlPeC1sVXplZTdYbHZPdDJTQVFKaElTcEVyNVZibjlzdENqQlBFVE8wSlFkTGN5c2xoeUhkQ05qbWJBeFFGWDBheFpSajhULTg4dXEzTmpWQXVKeUJYbGRYSHc?oc=5"
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/andoni-iraola-faces-major-ryan-34833972"
             }
           ],
+          "published_at": "2026-10-29T19:00:38Z",
+          "status": "updated",
+          "updated": true,
+          "change": "szoboszlai has moved from out to a possible return, and ekitike's achilles is now confirmed as a calendar-year problem.",
           "meta": {
             "out": [
+              "Frimpong",
+              "Bradley",
+              "Ekitike"
+            ],
+            "doubt": [
               "Szoboszlai",
               "Munoz"
             ],
-            "doubt": [
+            "returning": [
               "Wirtz",
-              "Isak"
-            ],
-            "frimpong": "unlikely before the international break"
+              "Leoni (mid-November)"
+            ]
           },
           "tags": [
-            "injury"
+            "team-news",
+            "injuries"
+          ]
+        },
+        {
+          "id": "arsenal-lineup-rotation",
+          "section": "liverpool",
+          "title": "ninth game in 29 days, so iraola rotates again and gravenberch is on notice",
+          "summary": "alisson comes back for mamardashvili, jacquet should return beside van dijk and wirtz is expected to replace mcconnell at number 10.\ngravenberch had a poor night against chelsea and teenager trey nyoni is pushing, while tsimikas or kerkez is a straight call at left-back.",
+          "sources": [
+            {
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/andoni-iraola-faces-major-ryan-34833972"
+            },
+            {
+              "name": "Liverpool FC",
+              "url": "https://www.liverpoolfc.com/news/watch-andoni-iraola-liverpool-arsenal-press-conference"
+            }
           ],
-          "updated": true
+          "published_at": "2026-10-30T01:00:00Z",
+          "status": "new",
+          "updated": true,
+          "meta": {
+            "reliability": "Echo preview, not club confirmation"
+          },
+          "tags": [
+            "lineup",
+            "rotation"
+          ]
         },
         {
           "id": "transfer-mac-allister",
           "section": "liverpool",
-          "status": "updated",
           "title": "mac allister's people are already shopping him around",
           "summary": "sky sports switzerland, via the echo, says liverpool will not extend mac allister and his representatives have begun offering him to la liga, serie a and saudi clubs.\nhis deal runs to 2028, so any move would be a sale this summer as part of the rebuild rather than a free transfer.",
-          "published_at": "2026-10-29T06:00:00Z",
           "sources": [
             {
               "name": "Liverpool Echo",
               "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-news-dirk-kuyt-alexis-34830416"
             }
           ],
+          "published_at": "2026-10-29T06:00:00Z",
+          "status": "steady",
+          "updated": false,
           "meta": {
             "reliability": "single outlet (Sky Sports Switzerland via Echo), not confirmed by the club",
             "contract_until": "2028"
@@ -965,16 +1045,13 @@
           "tags": [
             "transfer",
             "rumour"
-          ],
-          "updated": true
+          ]
         },
         {
           "id": "kuyt-fenerbahce",
           "section": "liverpool",
-          "status": "steady",
-          "title": "kuyt takes interim charge of fenerbahce before facing liverpool next week",
+          "title": "kuyt takes interim charge of fenerbahce before facing liverpool",
           "summary": "liverpool confirmed the former forward has been put in interim charge of fenerbahce, who meet the reds in the champions league next week.\nkuyt was assistant to ismail kartal and made 285 appearances for liverpool between 2006 and 2012.",
-          "published_at": "2026-10-29T01:14:30Z",
           "sources": [
             {
               "name": "Liverpool FC",
@@ -985,51 +1062,32 @@
               "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/dirk-kuyt-liverpool-champions-league-34828268"
             }
           ],
+          "published_at": "2026-10-29T01:14:30Z",
+          "status": "steady",
+          "updated": false,
           "meta": {
             "opponent": "Fenerbahce",
             "competition": "Champions League",
             "when": "next week"
           },
           "tags": [
-            "champions-league"
-          ],
-          "updated": false
-        },
-        {
-          "id": "uefa-warning",
-          "section": "liverpool",
-          "status": "steady",
-          "title": "uefa warned liverpool over medical cover at a youth league game",
-          "summary": "uefa's disciplinary board issued a formal warning after liverpool did not meet the minimum ambulance requirement for the youth league tie with atletico madrid.\nthe game on september 9 still went ahead, and the warning carries no fine or stand closure.",
-          "published_at": "2026-10-28T18:51:10Z",
-          "sources": [
-            {
-              "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/uefa-liverpool-warning-atletico-madrid-34831295"
-            }
-          ],
-          "meta": {
-            "competition": "UEFA Youth League",
-            "sanction": "formal warning"
-          },
-          "tags": [
-            "uefa"
-          ],
-          "updated": false
+            "champions-league",
+            "former-player"
+          ]
         }
       ],
       "watch": [
         {
-          "title": "Liverpool vs Chelsea | Full penalty shootout | 6-5 | Carabao Cup",
-          "url": "https://www.youtube.com/watch?v=XwZmyMvOtyw",
+          "title": "Highlights: Liverpool 1-1 Chelsea | Reds win on penalties!",
+          "url": "https://www.youtube.com/watch?v=6Pn5qnuCVg8",
           "channel": "Liverpool FC",
-          "published_at": "2026-10-29T12:00:00Z"
+          "published_at": "2026-10-29T00:00:00Z"
         },
         {
-          "title": "Extended Highlights: Liverpool 1-1 Chelsea | Penalty shootout win!",
-          "url": "https://www.youtube.com/watch?v=hn3fpfByQCc",
-          "channel": "Liverpool FC",
-          "published_at": "2026-10-29T10:00:00Z"
+          "title": "CHAOTIC penalty shootout at Anfield! | Liverpool 1-1 (6-5) Chelsea | Carabao Cup Highlights",
+          "url": "https://www.youtube.com/watch?v=Dyol4pE7cVk",
+          "channel": "Sky Sports Football",
+          "published_at": "2026-10-29T00:00:00Z"
         }
       ]
     }
@@ -1037,23 +1095,23 @@
   "top_stories": [
     {
       "section": "middle_east",
-      "id": "israel-election-poll"
-    },
-    {
-      "section": "middle_east",
-      "id": "iran-hormuz-tankers"
+      "id": "houthi-six-attacks-saudi"
     },
     {
       "section": "middle_east",
       "id": "us-warns-iran-strikes"
     },
     {
+      "section": "middle_east",
+      "id": "israel-election-poll"
+    },
+    {
       "section": "us_markets",
-      "id": "alphabet-microsoft"
+      "id": "earnings-thursday"
     },
     {
       "section": "liverpool",
-      "id": "chelsea-league-cup"
+      "id": "arsenal-sunday-fixture"
     }
   ]
 }
