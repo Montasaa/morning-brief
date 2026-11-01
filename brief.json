@@ -1,211 +1,527 @@
 {
-  "version": 2,
-  "sample": false,
-  "generated_at": "2026-11-01T06:31:32+03:00",
+  "schema_version": "1.0",
+  "generated_at": "2026-11-01T08:03:43Z",
+  "date": "2026-11-01",
+  "edition": "morning",
   "timezone": "Asia/Riyadh",
+  "next_build_at": "2026-11-01T16:00:00Z",
   "top_stories": [
     {
       "section": "middle_east",
       "id": "qatar-tehran-ceasefire"
     },
     {
-      "section": "us_markets",
-      "id": "session-friday"
+      "section": "middle_east",
+      "id": "us-warns-iran-strikes"
+    },
+    {
+      "section": "middle_east",
+      "id": "yemen-un-staffer-death"
     },
     {
       "section": "liverpool",
       "id": "arsenal-sunday-fixture"
+    },
+    {
+      "section": "us_markets",
+      "id": "oil-hormuz-roll"
     }
   ],
-  "sections": {
-    "middle_east": {
-      "what_changed": "araghchi says talks with qatar are under way on a 2-day plan to reopen hormuz if the us accepts iran's conditions; the supreme leader still ordered a 'maximum' response to any attack; oman rescued 25 crew from a burning tanker in hormuz.",
+  "sections": [
+    {
+      "id": "trending_repos",
+      "title": "trending repos",
+      "items": [
+        {
+          "id": "thedotmack-claude-mem",
+          "section": "trending_repos",
+          "title": "claude-mem holds #1 on github trending with 1,723 stars today",
+          "summary": "claude-mem gives coding agents memory that survives between sessions, capturing work and compressing it for later.\n108,229 stars total, +1,723 today, TypeScript, and the repo was pushed this morning.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/thedotmack/claude-mem"
+            }
+          ],
+          "published_at": "2026-11-01T07:30:00Z",
+          "status": "updated",
+          "meta": {
+            "stars_gained": 1723,
+            "stars_total": 108229,
+            "language": "TypeScript",
+            "rank_today": 1
+          },
+          "tags": [
+            "ai",
+            "agents"
+          ],
+          "updated": true
+        },
+        {
+          "id": "pbakaus-impeccable",
+          "section": "trending_repos",
+          "title": "impeccable adds 1,338 stars as the design skill keeps climbing",
+          "summary": "impeccable is a design vocabulary for coding agents that steers output away from generic ai layouts.\n98,605 stars total, +1,338 today, Rust, #7 on the daily chart.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/pbakaus/impeccable"
+            }
+          ],
+          "published_at": "2026-11-01T07:30:00Z",
+          "status": "steady",
+          "meta": {
+            "stars_gained": 1338,
+            "stars_total": 98605,
+            "language": "Rust",
+            "rank_today": 7
+          },
+          "tags": [
+            "design",
+            "agents"
+          ],
+          "updated": false
+        },
+        {
+          "id": "milind-soni-openmausbot",
+          "section": "trending_repos",
+          "title": "openmausbot adds 1,303 stars for a self-hosted bot team",
+          "summary": "openmausbot is an open-source grok bot alternative that gives bots a virtual machine to work in.\n9,936 stars total, +1,303 today, TypeScript, #6 on trending.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/milind-soni/OpenMausBot"
+            }
+          ],
+          "published_at": "2026-11-01T07:30:00Z",
+          "status": "steady",
+          "meta": {
+            "stars_gained": 1303,
+            "stars_total": 9936,
+            "language": "TypeScript",
+            "rank_today": 6
+          },
+          "tags": [
+            "agents",
+            "self-hosted"
+          ],
+          "updated": false
+        },
+        {
+          "id": "pingdotgg-t3code",
+          "section": "trending_repos",
+          "title": "t3code picks up 1,148 stars and lands #6 on trendshift",
+          "summary": "t3code is a code-first chat app from the t3 stack crowd, resurfacing on both trending lists.\n36,133 stars total, +1,148 today, TypeScript, #4 on github trending.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "trendshift",
+              "url": "https://trendshift.io/"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/pingdotgg/t3code"
+            }
+          ],
+          "published_at": "2026-11-01T07:30:00Z",
+          "status": "steady",
+          "meta": {
+            "stars_gained": 1148,
+            "stars_total": 36133,
+            "language": "TypeScript",
+            "rank_today": 4
+          },
+          "tags": [
+            "devtools"
+          ],
+          "updated": false
+        },
+        {
+          "id": "deepseek-dsh-superagent",
+          "section": "trending_repos",
+          "title": "deepseek's dsh-superagent tops trendshift one day after launch",
+          "summary": "deepseek-ai published dsh-superagent-prototype, a TypeScript push toward a more autonomous agent system.\n4,291 stars total, #1 on trendshift, and it has not shown up in github's daily chart yet.",
+          "sources": [
+            {
+              "name": "trendshift",
+              "url": "https://trendshift.io/"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+            }
+          ],
+          "published_at": "2026-11-01T07:30:00Z",
+          "status": "new",
+          "meta": {
+            "stars_total": 4291,
+            "language": "TypeScript",
+            "rank_trendshift": 1
+          },
+          "tags": [
+            "ai",
+            "deepseek"
+          ],
+          "updated": true
+        },
+        {
+          "id": "lightpanda-io-browser",
+          "section": "trending_repos",
+          "title": "lightpanda adds 929 stars for an ai-first headless browser",
+          "summary": "lightpanda is a headless browser built for agents and automation rather than rendering pages for people.\n39,445 stars total, +929 today, Zig, #9 on trending.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/lightpanda-io/browser"
+            }
+          ],
+          "published_at": "2026-11-01T07:30:00Z",
+          "status": "steady",
+          "meta": {
+            "stars_gained": 929,
+            "stars_total": 39445,
+            "language": "Zig",
+            "rank_today": 9
+          },
+          "tags": [
+            "browser",
+            "agents"
+          ],
+          "updated": false
+        },
+        {
+          "id": "mattpocock-skills",
+          "section": "trending_repos",
+          "title": "mattpocock's skills repo hits #2 with 883 stars today",
+          "summary": "matt pocock published the skills he actually uses, straight from his .agents directory.\n308,674 stars total, +883 today, Shell, #2 on github trending.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/mattpocock/skills"
+            }
+          ],
+          "published_at": "2026-11-01T07:30:00Z",
+          "status": "new",
+          "meta": {
+            "stars_gained": 883,
+            "stars_total": 308674,
+            "language": "Shell",
+            "rank_today": 2
+          },
+          "tags": [
+            "skills",
+            "agents"
+          ],
+          "updated": true
+        },
+        {
+          "id": "donchitos-claude-code-game-studios",
+          "section": "trending_repos",
+          "title": "claude-code-game-studios adds 742 stars for a 49-agent studio",
+          "summary": "the repo turns claude code into a game studio with 49 agents and 72 workflow skills.\n31,423 stars total, +742 today, Shell, #3 on trending.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/Donchitos/Claude-Code-Game-Studios"
+            }
+          ],
+          "published_at": "2026-11-01T07:30:00Z",
+          "status": "steady",
+          "meta": {
+            "stars_gained": 742,
+            "stars_total": 31423,
+            "language": "Shell",
+            "rank_today": 3
+          },
+          "tags": [
+            "gamedev",
+            "agents"
+          ],
+          "updated": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "claude-mem Setup: Give Claude Code a Persistent Memory",
+          "url": "https://www.youtube.com/watch?v=HNXvkn33h1k",
+          "channel": "GENZ TECH"
+        },
+        {
+          "title": "OpenMausBot: An Open Source Alternative to Grok Bot",
+          "url": "https://www.youtube.com/watch?v=K0IPUqNtpHc",
+          "channel": "What's this repo"
+        },
+        {
+          "title": "Impeccable Makes Claude Build Sites That Don't Look Like AI",
+          "url": "https://www.youtube.com/watch?v=Ln11hm7jieM",
+          "channel": "Better Stack"
+        }
+      ]
+    },
+    {
+      "id": "middle_east",
+      "title": "middle east",
       "items": [
         {
           "id": "qatar-tehran-ceasefire",
-          "title": "araghchi says iran and qatar have a 2-day plan to reopen hormuz if the us meets its terms",
-          "summary": "iran's foreign minister told al jazeera that talks with qatari mediators are under way on reopening the strait within two days, conditional on washington accepting tehran's terms. security chief mohsen rezaei says the tone of the vance letter 'changed completely'. araghchi still rules out meeting us officials for now.",
+          "section": "middle_east",
+          "title": "iran says qatar has a two-day plan to reopen hormuz if washington moves",
+          "summary": "araghchi told al jazeera tehran and qatari mediators have a proposal to reopen the strait within two days, with an iranian delegation now in doha.\ntehran wants the us maritime blockade lifted, oil sanctions waivers and a truce before any meeting, while trump says talks are going fine.",
           "sources": [
             {
-              "title": "Al Jazeera live blog",
-              "url": "https://www.aljazeera.com/news/liveblog/2026/11/1/iran-war-live-araghchi-says-talks-under-way-on-2-day-plan-to-reopen-hormuz",
-              "type": "independent"
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/2026/10/31/iran-fm-says-us-outreach-a-positive-step-as-delegation-in-qatar-for-talks"
             },
             {
-              "title": "The Guardian",
-              "url": "https://www.theguardian.com/world/2026/oct/29/jd-vance-letter-may-offer-last-chance-to-avert-fresh-conflict-between-us-and-iran",
-              "type": "independent"
+              "name": "Al Jazeera live",
+              "url": "https://www.aljazeera.com/news/liveblog/2026/11/1/iran-war-live-araghchi-says-talks-under-way-on-2-day-plan-to-reopen-hormuz"
             },
             {
-              "title": "Press TV (Iranian state media)",
-              "url": "https://www.presstv.co.uk/Detail/2026/10/31/779619/iran-has-studied-letter-from-vance-has-no-plans-to-meet-us-officials-araghchi",
-              "type": "official"
+              "name": "Reuters (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPMjFnYWtnU1ZZVGZaaGJaNzNSQVpBUFA5dzFCbW44Tk83SVo2dHJkbmwtYXh5anBEbjlTU2pOemI5OE1vRUFaM3FmQnduX1M0U3FpZXpkYW5aMlh1aEtiZ1J3U3JPMmFyY3hBOVRjY2JfOXdWaXdqOGVKU0pGY1MtcTZzNERVbVhFaEVpVXhMNllEYnNEbzR0eGlWeko3UE50RlphYlJpYW15WGRtVG5MRVphczA4WU1YdGFOMmNSN0lLTmpz?oc=5"
             }
           ],
-          "time": "2026-11-01T03:00:00+03:00",
-          "section": "middle_east",
+          "published_at": "2026-10-31T18:30:00Z",
           "status": "updated",
-          "image": "https://i.guim.co.uk/img/media/f8cc60575da517f1b807ca56c7a46e06e0e98032/224_0_2998_2398/master/2998.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=7aa83a020b3bb264d2bff191992aafeb"
+          "change": "araghchi put a two-day timeline on the hormuz plan and sent an aide to doha, but ruled out meeting us officials for now.",
+          "meta": {
+            "region": "iran",
+            "mediators": "qatar, pakistan"
+          },
+          "tags": [
+            "iran",
+            "hormuz",
+            "diplomacy"
+          ],
+          "updated": true
         },
         {
           "id": "iran-khamenei-retaliation",
-          "title": "supreme leader mojtaba khamenei orders 'maximum' response to any us attack",
-          "summary": "al jazeera says he sent a strongly worded message to the armed forces while qatari diplomats held talks in tehran on friday, with more expected saturday. nti's eric brewer says there is no military solution for the remaining nuclear sites and expects iran to hit back across the region if attacked.",
+          "section": "middle_east",
+          "title": "khamenei orders a response 'without geographical restriction'",
+          "summary": "the supreme leader's office said mojtaba khamenei told commanders to prepare an immediate response to any attack, with no limit on where it lands.\nseparately, security council chief mohsen rezaei said tehran is weighing ending its ban on nuclear weapons but has made no decision.",
           "sources": [
             {
-              "title": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/10/31/iran-warns-of-unfettered-retaliation-if-attacked-as-mediators-try-for-peace",
-              "type": "independent"
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/2026/10/31/iran-warns-of-unfettered-retaliation-if-attacked-as-mediators-try-for-peace"
             },
             {
-              "title": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/10/31/iran-lawmakers-call-for-withdrawal-from-npt-will-we-have-war-or-peace",
-              "type": "independent"
+              "name": "The Jerusalem Post (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBsZUF3ajRlbTgwb1Zqc0U0TF92VWxraHpYSHVmOEpzc1lteXJWaGJ4N2oxeVJNZzkwOVExXy0xbXVITWdZLVVyRHJiVENTeWM1ZjRUMVBsa3RoTTBXekg0QUh1a0hCWm41X0E?oc=5"
             }
           ],
-          "time": "2026-10-31T15:13:42+03:00",
+          "published_at": "2026-10-31T12:13:42Z",
+          "status": "updated",
+          "change": "rezaei's nuclear remark is new, and khamenei's order now explicitly drops any geographic limit on retaliation.",
+          "meta": {
+            "region": "iran"
+          },
+          "tags": [
+            "iran",
+            "nuclear"
+          ],
+          "updated": true
+        },
+        {
+          "id": "us-warns-iran-strikes",
           "section": "middle_east",
-          "status": "",
-          "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/afp_6adf96615801-1793037921.jpg?resize=1920%2C1440",
-          "voices": [
+          "title": "rubio says no decision on new iran strikes as washington clears saudi posts",
+          "summary": "rubio said the us has not decided whether to strike iran again, while trump said talks with tehran are going fine.\nthe state department has ordered non-emergency staff and families out of saudi arabia as the threat persists.",
+          "sources": [
             {
-              "platform": "reddit",
-              "handle": "r/worldnews",
-              "text": "Iran's supreme leader orders \"maximum\" response to any U.S. attack",
-              "url": "https://www.reddit.com/r/worldnews/comments/1xk9g93/irans_supreme_leader_orders_maximum_response_to/"
+              "name": "Al Arabiya English (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxObEFOblBhb0dEbXZ2VWlUUUktbTRHOUhlU25nd0pveHJzODZRQW8zalV0TTVySlBNMWQwcWtLUDRwVWE3S2R4eE83UmZ4ZEFUYTZYR0ZNbDRoZUtFVjRQaWdhMXplajdlLXhUSkluTkRQRGRoWDFrU1QxSnphaTlrT0p6YUJnVkFFVWRzQTBhWnVQNnFoR1Zr?oc=5"
+            },
+            {
+              "name": "Reuters (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxORW01d2dWQjEzQi1rNHpxb1hPYlE4b1dBMFgtUkxRQTZDY2RrNGlkeXpXNHNhUVU1MVRjVW9xY1lvbnpuSEFzNnZBaDM4ZkdGbEQwSUJ2Z0d0cms5bHVYcGhwYm5mZ3dIcU8zOXRlWFhFajVoMmtGRnA2cHQxdG1xQjdHMHJheWxyZ3dIMC12c0JyYzhScUZOOUdEd25UV3JEZ2ZNMl90ODJ4cnF2c09XUVFISEN5X2x1X0twYklBZw?oc=5"
             }
-          ]
+          ],
+          "published_at": "2026-10-31T16:48:00Z",
+          "status": "updated",
+          "change": "rubio's no-decision line landed after the state department ordered dependents out of saudi arabia, a sign the threat is being taken seriously.",
+          "meta": {
+            "region": "us-iran"
+          },
+          "tags": [
+            "iran",
+            "us",
+            "saudi"
+          ],
+          "updated": true
         },
         {
           "id": "iran-hormuz-tankers",
-          "title": "tankers burn in hormuz as oman rescues 25 crew from the riti",
-          "summary": "oman evacuated 25 sailors from the panama-flagged riti on friday after it was targeted and caught fire. iran's guards say four tankers hit mines on 'unauthorised routes', which has not been independently verified, and us central command says the main routes are clear of mines.",
+          "section": "middle_east",
+          "title": "four tankers burn in hormuz as oil reaches the uae coast",
+          "summary": "iran's irgc navy says four tankers hit mines and caught fire in the strait, and a report says oil from the attacks has reached the uae coastline.\nshipping data cited by the national says october attacks on hormuz transits were the highest since the war began.",
           "sources": [
             {
-              "title": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/10/30/oman-rescues-25-from-burning-oil-tanker-in-strait-of-hormuz",
-              "type": "independent"
+              "name": "Reuters (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPMzdWakFCLTEzM2pYaGh6ZHpxZE9KMjh2QjkzcE1ieWVwa0dmRFZZWUlOamZJUlpwN0M1ajJuZ3dNRFJ4ZzJwSmFJaGl4cGFWTEZPYmI0UllLZ1lCRzIzWVpNSlhkQnpCejl4RFltVXJvV3QtcXhqY1JiUF91TjZmSU5XYXFHM05CcE1fbzV6dVNmOFFUNEExZm1qVTFQWnhBYnVyZkUxYmlRTnEtTHlla3l0RGxncHgwbDRyVVVuMjU?oc=5"
             },
             {
-              "title": "ABC News (Australia)",
-              "url": "https://www.abc.net.au/news/2026-10-31/four-tankers-strike-mines-in-strait-of-hormuz/107332392",
-              "type": "independent"
+              "name": "Middle East Eye (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOdzNWTjAzOGNFaHFtV2prSlhrNFVWMjJkYURxRzVfbG5CczFRX1FXMnhJQW5OSzhvc1kwdmVUTTFyXzl6Y2ZjeS00SldoY25jUjNNa3JPYjBRU21TQUJYQ3NSbHI3VGJsdGQzVEFRVldWY3JNdW43QUhKbWJtM092aXRVWFNaVHVQLUNvdEFZYXJzenZ5dEExY2hhNE8weHFuU3FRbVZXdk56dF9VMjVPNFg4Ykc3UF94R3hkWVNJOFUtVl96bHlr?oc=5"
             },
             {
-              "title": "Arab News",
-              "url": "https://www.arabnews.com/middle-east/oman-rescues-crew-from-burning-ship-as-iran-guards-claim-3-tankers-halted-in-hormuz-3008990",
-              "type": "independent"
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/liveblog/2026/11/1/iran-war-live-araghchi-says-talks-under-way-on-2-day-plan-to-reopen-hormuz"
             }
           ],
-          "time": "2026-10-31T16:00:26+03:00",
-          "section": "middle_east",
+          "published_at": "2026-10-30T20:40:06Z",
           "status": "updated",
-          "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/reuters_6ade0e68-1792937577.jpg?resize=1920%2C1440"
+          "change": "the spill has now reached the uae coast, widening the environmental cost beyond the ships.",
+          "meta": {
+            "region": "hormuz"
+          },
+          "tags": [
+            "hormuz",
+            "oil",
+            "shipping"
+          ],
+          "updated": true
         },
         {
           "id": "houthi-six-attacks-saudi",
-          "title": "saudi air defences down another drone over riyadh region",
-          "summary": "the coalition says air defences destroyed a hostile drone in the riyadh region on saturday and debris fell without injuries, and the spokesman did not say who launched it. riyadh airport closed for two weeks after earlier houthi strikes this month.",
+          "section": "middle_east",
+          "title": "saudi air defences down another drone over the riyadh region",
+          "summary": "the saudi-led coalition says it intercepted a hostile drone over the riyadh region, the second such downing in two days.\nhouthi launches have kept coming despite coalition strikes on launch sites in yemen.",
           "sources": [
             {
-              "title": "The Hindu (AFP)",
-              "url": "https://www.thehindu.com/news/international/saudi-arabia-shoots-down-drone-in-riyadh-houthis-yemen-october-31-2026/article71648572.ece",
-              "type": "wire"
+              "name": "Al Arabiya English (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNNFB4d09TUE5RVW9QbS1tZHFocmh3WXZCR21DWUVEWjN6Ulo1NzhEcUhDVjRyZjZRZTBJX2x2cS1vV3JhcGQxdDhkb0NyUlVSbi00YWk2cWRKTDVXMVBGWFl1RFpYdXhTeXNjbHF2Q01pZzRCNUFIY0V6Ni1VOF9TT1JYRjFiOEU1SllCMXJsQTVDbEpHcHF3VG5nSGU0LWhRbXNuVkgxQlRDOHlWQmVFS1R4MnpVNFgwdGdrM9IBvAFBVV95cUxNNFB4d09TUE5RVW9QbS1tZHFocmh3WXZCR21DWUVEWjN6Ulo1NzhEcUhDVjRyZjZRZTBJX2x2cS1vV3JhcGQxdDhkb0NyUlVSbi00YWk2cWRKTDVXMVBGWFl1RFpYdXhTeXNjbHF2Q01pZzRCNUFIY0V6Ni1VOF9TT1JYRjFiOEU1SllCMXJsQTVDbEpHcHF3VG5nSGU0LWhRbXNuVkgxQlRDOHlWQmVFS1R4MnpVNFgwdGdrMw?oc=5"
             },
             {
-              "title": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/10/30/saudi-arabia-reports-interception-of-houthi-drone-targeting-mecca",
-              "type": "independent"
-            },
-            {
-              "title": "Arab News",
-              "url": "https://www.arabnews.com/saudi-arabia/saudi-arabias-security-linked-to-regional-stability-manama-forum-told-3009110",
-              "type": "independent"
+              "name": "Reuters (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxORW01d2dWQjEzQi1rNHpxb1hPYlE4b1dBMFgtUkxRQTZDY2RrNGlkeXpXNHNhUVU1MVRjVW9xY1lvbnpuSEFzNnZBaDM4ZkdGbEQwSUJ2Z0d0cms5bHVYcGhwYm5mZ3dIcU8zOXRlWFhFajVoMmtGRnA2cHQxdG1xQjdHMHJheWxyZ3dIMC12c0JyYzhScUZOOUdEd25UV3JEZ2ZNMl90ODJ4cnF2c09XUVFISEN5X2x1X0twYklBZw?oc=5"
             }
           ],
-          "time": "2026-10-31T15:45:49+03:00",
-          "section": "middle_east",
+          "published_at": "2026-10-31T06:51:54Z",
           "status": "updated",
-          "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/afp_6ae44c952b71-1793346709.jpg?resize=1920%2C1440"
-        },
-        {
-          "id": "houthi-russian-satellites",
-          "title": "investigation: russian satellites watched houthi strike zones in saudi arabia",
-          "summary": "an investigation by aurorah geosignal intelligence says russian satellites surveyed the area around saudi arabia's east-west pipeline days before houthi strikes on its pumping stations. analysts quoted by al jazeera say the houthis have also grown stronger through seized state arsenals and outside backing.",
-          "sources": [
-            {
-              "title": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/10/31/are-houthis-using-russian-satellites-as-saudi-arabia-faces-hits",
-              "type": "independent"
-            }
+          "change": "a second consecutive day of intercepts over the capital region, after a drone over mecca earlier in the week.",
+          "meta": {
+            "region": "saudi"
+          },
+          "tags": [
+            "houthis",
+            "saudi"
           ],
-          "time": "2026-10-31T03:00:00+03:00",
-          "section": "middle_east",
-          "status": "",
-          "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/AFP__20261021__D3ZD9ZQ__v1__HighRes__YemenSaudiIranUsIsraelWar-1793111925.jpg?resize=1920%2C1440"
+          "updated": true
         },
         {
-          "id": "yemen-taiz-fighting",
-          "title": "un: 290,000 displaced in yemen; taiz governor says houthis are wrecking the city",
-          "summary": "ocha counts at least 290,000 people displaced since fighting resumed, including about 6,100 pregnant women. taiz governor nabil shamsan told the guardian oxygen, food and water are running low in the besieged city.",
+          "id": "yemen-un-staffer-death",
+          "section": "middle_east",
+          "title": "un demands a probe after its staffer dies in houthi custody",
+          "summary": "mohammad el-shami, an ohchr staffer held since june 2024, died more than a month ago and his family was only recently told.\nvolker turk wants full transparency and an independent investigation, and seven other ohchr detainees are still held.",
           "sources": [
             {
-              "title": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/10/31/new-yemen-fighting-displaces-290000-says-un-with-pregnant-women-at-risk",
-              "type": "independent"
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/2026/11/1/un-demands-investigation-after-staffers-death-in-houthi-custody-in-yemen"
             },
             {
-              "title": "The Guardian",
-              "url": "https://www.theguardian.com/world/2026/oct/30/houthis-taiz-stone-age-yemen-city-siege",
-              "type": "independent"
-            },
-            {
-              "title": "Arab News",
-              "url": "https://www.arabnews.com/middle-east/displacement-in-yemen-tops-290000-including-hundreds-of-women-about-to-give-birth-un-warns-3009048",
-              "type": "independent"
+              "name": "Reuters (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPVjU5VUNuY25Gb0FFSjFteXRhNE1EeTJkZk53dUxJOEpmNmpqZzZ0Nm1nZFdiMXU1cmI5ODVDa3ZYVTRuZDVkQTdfRWFZd3hVTm1EMXNYalp5NHctOGpLM0RDYVVreHFmN1VLa293VzZNZG1iX2cxZFNsOFVYSUlaN0Z1MTR3OWZMelRZLXBkb3RQOW16NUc0d2t0Y0tfZndpalVKZ245U01HU1V0OVdGbk5MNjJIOExSeVV2QkZzT1c?oc=5"
             }
           ],
-          "time": "2026-10-31T15:45:49+03:00",
-          "section": "middle_east",
-          "status": "",
-          "image": "https://assets.maestronewsroom.com/media/shared/wires/ap/20260922/7602f1bbdc01-Mideast_Wars_Yemen_62379--438ae.jpg"
-        },
-        {
-          "id": "israel-election-poll",
-          "title": "israel's vote leaves no clear winner as likud claims arab parties 'stole' it",
-          "summary": "likud alleges foreign interference after netanyahu's coalition lost its majority, and the bbc says all signs point to an impasse with new elections the likeliest outcome. the guardian reports palestinian-led parties won an unprecedented 19 seats, and qatar rejects the interference claim.",
-          "sources": [
-            {
-              "title": "BBC News",
-              "url": "https://www.bbc.co.uk/news/articles/ckdd8qdl9e0eo",
-              "type": "independent"
-            },
-            {
-              "title": "BBC News",
-              "url": "https://www.bbc.co.uk/news/articles/cm62y46d97wwo",
-              "type": "independent"
-            }
-          ],
-          "time": "2026-10-31T16:35:51+03:00",
-          "section": "middle_east",
-          "status": "",
-          "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/213a/live/ecf64a00-d3d3-11f1-9c32-1532a6164171.jpg"
-        },
-        {
-          "id": "gulf-defence-iiss",
-          "title": "gulf states urged to rethink trillion-dollar defence after us-iran war",
-          "summary": "an iiss study questions the gulf's reliance on american support and its 'overdependence on expensive, high-end systems'. the report says states will have to reconfigure their multi-billion-dollar defence spending.",
-          "sources": [
-            {
-              "title": "The Guardian",
-              "url": "https://www.theguardian.com/world/2026/oct/30/gulf-states-rethink-trillion-dollar-defence-us-iran-war-iiss-report",
-              "type": "independent"
-            }
-          ],
-          "time": "2026-10-30T15:00:00+03:00",
-          "section": "middle_east",
+          "published_at": "2026-11-01T04:49:00Z",
           "status": "new",
-          "image": "https://i.guim.co.uk/img/media/08682fee386a7fd0564b3e9c5c78d005c78d486d/500_0_5000_4000/master/5000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=99f88cf7505d2b93e009f4b43c62d4cf"
+          "change": "first confirmation of a un staffer's death in houthi detention since the february 2025 wfp case.",
+          "meta": {
+            "region": "yemen"
+          },
+          "tags": [
+            "yemen",
+            "un",
+            "houthis"
+          ],
+          "updated": true
+        },
+        {
+          "id": "saudi-g20-rubio",
+          "section": "middle_east",
+          "title": "saudi and us foreign ministers meet at the g20 in atlanta",
+          "summary": "prince faisal bin farhan met rubio at the g20 in atlanta as the region's wars and the hormuz closure hung over the summit.\nwashington also signed an expo 2030 riyadh participation deal during the trip.",
+          "sources": [
+            {
+              "name": "Al Arabiya English (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQMC12M3JCUFBtb05aWTl3c3BRN20zWlUzTElZblZGb1Q0anVDOFUyelQ1a28yM0JsUlpXbFNCYlFzdGhoVUYtMXRKT3QzVmgtMUVXVjJNZGk1aXJtLXlObkVaejZDTlpnQ0tJQVdXU1UwUFQ5T0FPOEZmVTU5cGM4RDM3b2t4OEhtdDJneHBHUEZ1MTRhRmZQdTR3TmhiV01XR0RtR1RvaFQ3S1RUOFlCbUlobE5ublhFMVJhSjBJcTJUZGfSAcgBQVVfeXFMTmhLc28xSDQ0TVBpMlZZV203bmdOSlFQYlpZM25lc1FCMzB3bDZzMW5zOTNEZV9tOHhfYlNaeGpWUEpqT3EwdlUwOTZPUF9ic1Z4a1NLSXh3Q0tQeFV1dmYzM0ZyY3dQTXB3Y25Wb0xQYWlFTFdxYmFpUEQ1WDE0UUFnMnZTbFIwdnBEeFdDdWRsZ0dfSDRhYnVjT0VhU3hIU1FCcUFobV9TbWZYczVLZXQ4M3d5WTQ5Y0R2S2JqaFZ5UU5Rdk5pemU?oc=5"
+            },
+            {
+              "name": "Arabian Business (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOVERZTnJ5djM3MTlTZDBiWndUMkN5czdXdEo5MlJTY3puNnhjQmdXLVVlSmsteW9vbl9GRUxDOE5iay1mYlg1Y1FBUDdUbXo0Nm5DcW5CSlZ5YWwtd0hiVlVmMnBDdjV3SXJ1cUdackw4X1VVb0VPTVFQbDAxQjZXVXd6TVBBUDFwTVNvSTVBcVdJYng3bWZ6dGpQWGhZc21lZjZYa0NTNFI0Ny0wcWNBUW1KYU1ZOWM4ZTMxZFpQREg?oc=5"
+            }
+          ],
+          "published_at": "2026-10-31T07:28:00Z",
+          "status": "new",
+          "change": "the expo 2030 deal was signed the same day, linking the security talks to a long-run investment win for riyadh.",
+          "meta": {
+            "region": "saudi"
+          },
+          "tags": [
+            "saudi",
+            "diplomacy"
+          ],
+          "updated": true
+        },
+        {
+          "id": "israel-election-rally",
+          "section": "middle_east",
+          "title": "thousands rally in tel aviv for a jewish-arab coalition",
+          "summary": "protesters urged gadi eisenkot to cut a deal with arab parties and end the deadlock, while netanyahu supporters counter-protested against any coalition that would rely on arab parties.\nnetanyahu's bloc has 53 seats, eisenkot's 48 and the three arab-led parties 19, which would give a coalition 67.",
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/2026/11/1/thousands-rally-in-israel-urging-eisenkot-arab-deal-to-remove-netanyahu"
+            },
+            {
+              "name": "Arab News (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPVTh1U1pUeW9GRk1HY3NlZy1nZ2phUEMycTE1TTV5QkZwYi1BX0tHLXR6UUl1Nk45OTV0aWU5WWd5allGZHBKRGZ0RlZ5MUJzbGNiSm05NXE0V2ZwekVJOVdobVlZSVo3a01NSm15dmhSRUZxOFVHWDZmdGFKWGNlU055LW0wVlhpSW80ZWVuWGllTEVjcHdMeTJRWGVVbjl3TWVDMy1vZ0tCRzVuZ0JxVmFWRWdVbGY4ZE1CYTNKVQ?oc=5"
+            }
+          ],
+          "published_at": "2026-11-01T02:05:00Z",
+          "status": "updated",
+          "change": "street pressure is now aimed at eisenkot, after he had ruled out governing with arab parties.",
+          "meta": {
+            "region": "israel",
+            "seats": {
+              "netanyahu": 53,
+              "eisenkot": 48,
+              "arab": 19
+            }
+          },
+          "tags": [
+            "israel",
+            "elections"
+          ],
+          "updated": true
         }
       ],
       "watch": [
@@ -215,765 +531,450 @@
           "channel": "DW News"
         },
         {
-          "title": "New clues on US-Iran diplomacy",
-          "url": "https://www.youtube.com/watch?v=8YPtPR7mJdE",
-          "channel": "BBC News"
-        },
-        {
-          "title": "Senators briefed on Trump's 'insane' plan to restart war on Iran",
-          "url": "https://www.youtube.com/watch?v=I9rmfC6I6x4",
-          "channel": "Al Jazeera English"
+          "title": "Iran's leader threatens response to a potential attack without 'geographic limits'",
+          "url": "https://www.youtube.com/watch?v=r0hzf7UGW78",
+          "channel": "Associated Press"
         }
       ]
     },
-    "us_markets": {
-      "what_changed": "weekend, us markets closed. friday: s&p 500 -1.8% (worst day since june), nasdaq -2.9%, october -5.3% for the nasdaq; futures reopen sunday evening new york time.",
+    {
+      "id": "us_markets",
+      "title": "us markets",
       "items": [
         {
           "id": "session-friday",
-          "title": "s&p 500 drops 1.8% for its worst day since june; nasdaq sheds 2.9%",
-          "summary": "the s&p 500 closed at 7,580.07, the nasdaq composite at 25,437.00 and the dow at 51,770.31 (-1.1%), per ap. yahoo finance says the nasdaq lost 5.3% in october, its worst month since march 2025; markets are closed until monday.",
+          "section": "us_markets",
+          "title": "s&p 500 falls 1.8% and the nasdaq 2.9% to end a rough october",
+          "summary": "the s&p 500 closed at 7,580.07, down 1.82%, and the nasdaq at 25,437.00, down 2.86%, while the dow lost 1.09% to 51,770.31.\nthe vix jumped 12.9% to 19.42 as tech led the selling.",
           "sources": [
             {
-              "title": "AP",
-              "url": "https://apnews.com/article/wall-street-stocks-dow-nasdaq-a01d3551e794fed1a0c317c20bc3f0a2",
-              "type": "wire"
+              "name": "CNBC quote",
+              "url": "https://www.cnbc.com/quotes/.SPX"
             },
             {
-              "title": "Yahoo Finance",
-              "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-30-dow-sp-500-nasdaq-amazon-intel-ai-sell-off-191429143.html",
-              "type": "independent"
+              "name": "Yahoo Finance",
+              "url": "https://finance.yahoo.com/quote/%5EGSPC"
             }
           ],
-          "time": "2026-10-30T23:00:00+03:00",
-          "section": "us_markets",
-          "status": "",
-          "image": "https://s.yimg.com/lo/mysterio/api/abd6d02b3b18cceff8bea46f331b48f5f577e795a06d9ebd0ad62d06faaf5195/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2F2026-08%2F30c37b1b-860e-46e4-95a2-6e33368a9f3f",
-          "tag": "MOVERS"
+          "published_at": "2026-10-30T20:00:00Z",
+          "status": "steady",
+          "meta": {
+            "ticker": "SPX",
+            "close": 7580.07,
+            "change_pct": -1.82,
+            "vix": 19.42
+          },
+          "tags": [
+            "markets",
+            "indices"
+          ],
+          "updated": false
         },
         {
           "id": "intel-collapse",
-          "title": "intel sinks about 29%, its worst day since 1974",
-          "summary": "intel fell 28.6% on friday after a profit forecast below expectations amid weak pc sales, ap reports. cnbc says several analysts cut price targets and that buying the dip needs a long horizon.",
+          "section": "us_markets",
+          "title": "intel closes down 28.6% in its worst day since 1974",
+          "summary": "intel fell to $65.76 after weak fourth-quarter guidance, losing nearly 30% of its market value in a session.\nthe drop is the stock's worst single day in 52 years.",
           "sources": [
             {
-              "title": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/31/intel-not-a-buy-after-drop.html",
-              "type": "independent"
+              "name": "Yahoo Finance screener",
+              "url": "https://finance.yahoo.com/markets/stocks/losers/"
             },
             {
-              "title": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/30/intel-guidance-analyst-price-targets.html",
-              "type": "independent"
-            },
-            {
-              "title": "TechCrunch",
-              "url": "https://techcrunch.com/2026/10/30/intels-stock-crashes-knocking-12b-from-governments-stake/",
-              "type": "independent"
+              "name": "TechSpot (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPeUtaM01lbVBWbFJtNmFqWDNJZVdZaEowc0VqMjN2c1BkR2FsSnpwcVhDZ3d4cFRrUE1tMS1yTHJnbDhzX2ZORU1wdWNpWmVLamhaZ0ZoeWU2Z3pJUncxeUx5WDByQ2pJXzJfV1h1eXc1OXRHXzc2UTFwME5EODVNV2E0M2tPLWdGTzZnXw?oc=5"
             }
           ],
-          "time": "2026-10-31T16:02:22+03:00",
-          "section": "us_markets",
-          "status": "",
-          "image": "https://image.cnbcfm.com/api/v1/image/108477591-1793228651801-gettyimages-2278665792-AFP_B4P96JT.jpeg?v=1793228835&w=1920&h=1080",
-          "tag": "EARNINGS"
+          "published_at": "2026-10-30T20:05:00Z",
+          "status": "steady",
+          "meta": {
+            "ticker": "INTC",
+            "close": 65.76,
+            "change_pct": -28.58
+          },
+          "tags": [
+            "markets",
+            "semis"
+          ],
+          "updated": false
         },
         {
-          "id": "oil-hormuz-slick",
-          "title": "brent settles at $117.64, a six-month high, as hormuz attacks mount",
-          "summary": "wti settled at $104.12 (+2.1%) and december brent at $117.64 (+2.4%); brent gained 13.6% in october and wti 15.2%, per reuters-based reports. investing.com counts at least 35 shipping attacks in the gulf and hormuz in october, the most in a month since the war began.",
+          "id": "reddit-collapse",
+          "section": "us_markets",
+          "title": "reddit drops 29% as google's ai search cuts referrals",
+          "summary": "reddit closed at $91.73, down 29.2%, after a weak fourth-quarter forecast and a report that google's ai search cut more than a million weekly referrals.\nanalysts said the traffic hit is not fully priced in yet.",
           "sources": [
             {
-              "title": "EnergyNow (Reuters data)",
-              "url": "https://energynow.ca/2026/10/oil-climbs-more-than-2-friday-as-middle-east-attacks-intensify-wti-and-brent-finish-week-higher-october-gains-exceed-13",
-              "type": "wire"
+              "name": "Yahoo Finance screener",
+              "url": "https://finance.yahoo.com/markets/stocks/losers/"
             },
             {
-              "title": "Investing.com",
-              "url": "https://uk.investing.com/news/economy-news/oil-hits-sixmonth-highs-as-hormuz-attacks-threaten-iran-peace-efforts-4947028",
-              "type": "independent"
-            }
-          ],
-          "time": "2026-10-30T23:00:00+03:00",
-          "section": "us_markets",
-          "status": "",
-          "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/reuters_6ade0e68-1792937577.jpg?resize=1920%2C1440",
-          "tag": "GLOBAL"
-        },
-        {
-          "id": "oil-majors-record",
-          "title": "exxon and chevron hit all-time highs as war refining profits double",
-          "summary": "exxon earned $15.4bn, double last year, and chevron $9.9bn, up nearly 200%, both beating estimates on diesel margins. us diesel averaged $6.32 a gallon, more than 70% above a year ago, as attacks on refineries cut global capacity.",
-          "sources": [
-            {
-              "title": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/30/chevron-exxon-cvx-xom-earnings-q3-2026.html",
-              "type": "independent"
-            }
-          ],
-          "time": "2026-10-30T19:01:00+03:00",
-          "section": "us_markets",
-          "status": "",
-          "image": "https://image.cnbcfm.com/api/v1/image/108373938-1791375909497-gettyimages-2291635421-AFP_C6KY7DL.jpeg?v=1793358679&w=1920&h=1080",
-          "tag": "EARNINGS"
-        },
-        {
-          "id": "macro-gdp-fed",
-          "title": "q3 gdp beats at 3.4% as inflation quickens; warsh keeps december hike open",
-          "summary": "cnbc reports third-quarter us gdp rose a better-than-expected 3.4% while september inflation accelerated. its analysis says new fed chair kevin warsh leans toward higher rates but kept his options open for december.",
-          "sources": [
-            {
-              "title": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/29/pce-inflation-report-september-2026-.html",
-              "type": "independent"
+              "name": "CNBC (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5IcldZOUlkTDhYTUQxTnk4alA0SkthQ0ZVUzF5ajcxQmFUMWhuTmxtUDBJNTE1a1NxR3hHOERYYXZqc050bjVSejlYa1RmVS1GQTl5TFJnb2l6T1QwTVlnOXkzZC1pQjhWOTRLNTJR0gFzQVVfeXFMTVBFWEZBQkFQblpPRjVJMjJ4cDRKd2s0eWstNW9pTjhYVkRyYWJNZ2lBTlNKX0k1ZEYtM1ZBSDNFZklZR2VFNE55YWhIM2NhWWt6UEQzY0t2djRzTDU5UVlmbEF3alBBYmc4ZlVMUElWRHc3NA?oc=5"
             },
             {
-              "title": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/29/kevin-warsh-fed-october-rate-decision-december-hike.html",
-              "type": "independent"
+              "name": "Yahoo Finance (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNZXZqYUV3MjJPM243UXB4MWotVHN1Q29iYWFsWnQ3bjkydGpIYkJPaWZIUlVuVzhLTmZNeTBmN20tR2NyWkR0ckRZZXNXd1dZQ2hEWDdkVm1MUFNJV05Mc3NZU0MzNXFRX1pQbzZfSEh1NDd0dERVS3JIWlZGcktTNEptUllBb0pjSTAta3h6MWRXcVZ4QjdZUkQ4dw?oc=5"
             }
           ],
-          "time": "2026-10-29T21:00:00+03:00",
-          "section": "us_markets",
+          "published_at": "2026-10-30T20:10:00Z",
           "status": "new",
-          "image": "https://image.cnbcfm.com/api/v1/image/108476071-1793213743711-gettyimages-2302418579-aw1a9798_mrowkbqv.jpeg?v=1793213760&w=1920&h=1080",
-          "tag": "FED"
+          "meta": {
+            "ticker": "RDDT",
+            "close": 91.73,
+            "change_pct": -29.22
+          },
+          "tags": [
+            "markets",
+            "social"
+          ],
+          "updated": true
         },
         {
-          "id": "macro-week-ahead",
-          "title": "week ahead: apple and palantir report monday, midterms tuesday, jobs report friday",
-          "summary": "apple and palantir report monday after the close, amd on tuesday, and uber on wednesday. tuesday brings the us midterms, and the october jobs report lands friday.",
+          "id": "oil-hormuz-roll",
+          "section": "us_markets",
+          "title": "brent's december contract expires at $117.64, a six-month high",
+          "summary": "the december contract settled up about 2% at $117.64 on friday, with the new front month trading near $113.43 and wti at $104.12.\noctober still added roughly 11% as hormuz attacks kept supply fears alive, and opec+ meets today.",
           "sources": [
             {
-              "title": "The Globe and Mail (Reuters)",
-              "url": "https://www.theglobeandmail.com/investing/article-wall-streets-week-ahead-midterm-elections-earnings-jobs-data-loom-for/",
-              "type": "wire"
+              "name": "Reuters (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOWE5IUkRJTVJvTFE5SUdOdFFCM2tVN1lKcDI3ci01cjlleVVuXzB1SjI0MDhuWkhwakZFSzl3SGNUZk9uUUYwdHNfMGJOUXExaW1RdmRRVy1Cd0tHb3RqblJCQWczeXdORDVKbVMxMGFrbnVMM3FCY2h5Xzl6T0ZoeTBtbGdnbW9jdWF6VEtqNi14ZnlFaVVpb0xZcHlGTDhtM0ZmY2RYZ2Q?oc=5"
+            },
+            {
+              "name": "Yahoo Finance",
+              "url": "https://finance.yahoo.com/quote/BZ=F"
             }
           ],
-          "time": "2026-10-30T23:00:00+03:00",
-          "section": "us_markets",
-          "status": "",
-          "image": "https://i.ytimg.com/vi/TfeNUrqjXQY/hqdefault.jpg",
-          "tag": "MACRO"
+          "published_at": "2026-10-30T19:37:00Z",
+          "status": "updated",
+          "meta": {
+            "brent_close": 117.64,
+            "wti_close": 104.12,
+            "next_front": 113.43
+          },
+          "tags": [
+            "markets",
+            "oil"
+          ],
+          "updated": true
         },
         {
           "id": "gold-one-year-low",
-          "title": "gold drops 3.3% to a one-year low with the 10-year yield near 4.93%",
-          "summary": "yahoo finance's market wrap has gold futures at their lowest level in about a year and the 10-year treasury yield at 4.93%. the same wrap shows bitcoin sliding as the tech sell-off spread.",
+          "section": "us_markets",
+          "title": "gold falls 3.3% to a one-year low as the 10-year yield holds near 4.93%",
+          "summary": "gold futures settled at $3,898.90, down 3.3%, its lowest in a year, as oil-driven inflation lifted bets on a fed hike.\nthe 10-year treasury yield ended at 4.93%, near its highest since july.",
           "sources": [
             {
-              "title": "Yahoo Finance (Investopedia)",
-              "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nasdaq-p-123540419.html",
-              "type": "independent"
+              "name": "Yahoo Finance",
+              "url": "https://finance.yahoo.com/quote/GC=F"
+            },
+            {
+              "name": "CNBC quote",
+              "url": "https://www.cnbc.com/quotes/@GC.1"
             }
           ],
-          "time": "2026-10-30T23:00:00+03:00",
+          "published_at": "2026-10-31T04:39:00Z",
+          "status": "steady",
+          "meta": {
+            "gold_close": 3898.9,
+            "change_pct": -3.29,
+            "us10y": 4.93
+          },
+          "tags": [
+            "markets",
+            "gold",
+            "rates"
+          ],
+          "updated": false
+        },
+        {
+          "id": "macro-week-ahead",
           "section": "us_markets",
-          "status": "",
-          "image": "https://s.yimg.com/lo/mysterio/api/38cd5092af5bc067832cb44352f5951d962240aa2f523cab37cc5fa48b06ab93/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Finvestopedia_245%2F4ccfeb3b14eed4659150ec3e10dca4dd.jpg",
-          "tag": "MACRO"
+          "title": "week ahead: apple and palantir monday, midterms tuesday, payrolls friday",
+          "summary": "apple and palantir report after the close on monday, ism manufacturing lands first, and americans vote in the midterms on tuesday.\nfriday brings nonfarm payrolls, with forecasters looking for 65,000 jobs and unemployment at 4.2%.",
+          "sources": [
+            {
+              "name": "Nasdaq earnings calendar",
+              "url": "https://www.nasdaq.com/market-activity/earnings"
+            },
+            {
+              "name": "TradingView economic calendar",
+              "url": "https://www.tradingview.com/economic-calendar/"
+            },
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/liveblog/2026/11/1/iran-war-live-araghchi-says-talks-under-way-on-2-day-plan-to-reopen-hormuz"
+            }
+          ],
+          "published_at": "2026-10-31T14:00:00Z",
+          "status": "updated",
+          "meta": {
+            "earnings": [
+              "AAPL",
+              "PLTR",
+              "VRTX",
+              "MAR"
+            ],
+            "macro": [
+              "ISM manufacturing",
+              "midterms",
+              "JOLTS",
+              "ISM services",
+              "nonfarm payrolls"
+            ]
+          },
+          "tags": [
+            "markets",
+            "calendar"
+          ],
+          "updated": true
         },
         {
           "id": "crypto-binance-hack",
-          "title": "fbi blames north korea for the $6.3bn binance hack, the biggest crypto theft on record",
-          "summary": "the fbi says north korea's tradertraitor group is laundering the stolen assets, mostly into ethereum. binance says it has replaced 90% of the loss from its safu fund and treasury and expects to reopen withdrawals on sunday.",
-          "sources": [
-            {
-              "title": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/11/1/fbi-blames-north-korea-for-record-6-3bn-crypto-heist",
-              "type": "independent"
-            },
-            {
-              "title": "CNBC",
-              "url": "https://www.cnbc.com/2026/10/29/circle-tether-freeze-funds-impacted-by-potential-binance-security-issue.html",
-              "type": "independent"
-            }
-          ],
-          "time": "2026-11-01T05:28:00+03:00",
           "section": "us_markets",
+          "title": "fbi blames north korea for the $6.3bn binance hack",
+          "summary": "the fbi attributed the record crypto theft to north korean state hackers, and binance says it has covered about 90% of customer losses.\nthe exchange is still working through withdrawals and has not given a full timeline for the rest.",
+          "sources": [
+            {
+              "name": "AP (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOTUkxSDBiNW1iUUNrbFllcXBwVzdtTEs0aWZWdTVqSVFDcmp0TWEwVWVaR1poUnBnajZobUdFWERERHJJdDFEeFFSVWdualVPRzdUNW43NDliVnozSmRHQlZHRlR1UVlyZktpb2tYUzF3NV9hVUtSQzZsSGw3QlZkc2dSQ1lhQmg2WE9iYXo1MjdBRkhDYzMxT2tybWQ2LTJMQm14Rk9ZSlNGMHh3RTZqcnhFVlFxemJLaXZ2aUR3?oc=5"
+            },
+            {
+              "name": "The Guardian",
+              "url": "https://www.theguardian.com/business/2026/nov/01/binance-losses-covered-hack-fbi-north-korea-cryptocurrency"
+            }
+          ],
+          "published_at": "2026-11-01T02:28:00Z",
           "status": "updated",
-          "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/2026-10-30T080136Z_484047327_RC2JDOAHBGKT_RTRMADP_3_FINTECH-CRYPTO-BINANCE-HACK-1793491721.jpg?resize=770%2C513&quality=80"
+          "meta": {
+            "loss_usd_bn": 6.3,
+            "covered_pct": 90
+          },
+          "tags": [
+            "crypto"
+          ],
+          "updated": true
+        },
+        {
+          "id": "oil-majors-record",
+          "section": "us_markets",
+          "title": "exxon and chevron close at record highs on war refining margins",
+          "summary": "the two oil majors hit all-time highs after beating profit forecasts on war-driven refining margins.\nbig oil booked about $56bn in windfall profit this quarter, according to bloomberg.",
+          "sources": [
+            {
+              "name": "Bloomberg (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPSThtNVFEM3B0RE52Ujl2M1B0ajNVOURZS1k4RGNWUnVKamNiZU1hUU5nUXRjc2RoRVZ0eUZidl9aX1RyYkpHck81ZktvbnRKdHYwOUF5ZXFVcFBCUWE3WWpkSWh2RDQtWHdZZ3RFR0c4SVBQYk0tSWlFWWw3ODhyT3pQcXZxUWRGV195OHJPUUh5ZEc1ZTd2ZWtjWTBrM0c0dERfS2RITDVwT2g3dFc2QTFiX3laZTVfaXVhWW1aeGwxM1h0Y3c?oc=5"
+            },
+            {
+              "name": "Livemint (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOeGNVQ2lGMVEwR0MyeG5xTlhUMnQ1enQxbEwxd2c1bTJDSUlpMWZZXzBCWmRRSHBOVVI1Qm9EQnZVTzJrd3J0TXV0dmw5djQxLURpd0g1TE9LeWJkNi1nMmZwNktLTmJ1aWJhaHd4NS1vRm94ci10bEdscm15Zy1iVGlldTdBOWlkdEVfNVdxZVZxMWJIR0hoSm0tNHNOT2hYUkdCWjZWTUxfSEljQlA0ZEQtTVhJMlV4OVFIR1VzQk45UE9oMVRIZ2RjZ1NjR3EtQW83MHN4VTJ1ZEhneHdnbnpXTmMzUFNBYXpkMkYyRlV3aWI40gH6AUFVX3lxTE9yam84bWViQU51U1Juc3Z5QUp0VUtMQjBiQ1VOcmh1bGhrczhLaUlOSlNtMkZrYnRUR29BVmpncmxpLWE1ckw0TDJWNUlnd3lkRnFqTUZ0NHhLbXdYZU93UV9qY3dtTHVvNkxVQUlZNFZoSVRHOVQxWUlTV3pIVTFpa1BTWnJza193S2tmTzBiTS1nU2taWl9fc3pOcEQ3eUxSZFZZallTMjFYd3dlV2JjbzY0SFl0VzJFUl9KbDMxRHdoeE80ZXdQWnd4OGZpRnVJVFYxLTR5TzQ5Nm1KVHM4cWFCV0FHWl9hbTRpc3hMcEtDTzBhVHhzT0E?oc=5"
+            }
+          ],
+          "published_at": "2026-10-30T20:15:00Z",
+          "status": "steady",
+          "meta": {
+            "tickers": [
+              "XOM",
+              "CVX"
+            ],
+            "windfall_usd_bn": 56
+          },
+          "tags": [
+            "markets",
+            "oil"
+          ],
+          "updated": false
         }
       ],
-      "watch": [
-        {
-          "title": "Next week's tape could be more volatile and emotional, says Jim Cramer",
-          "url": "https://www.youtube.com/watch?v=TfeNUrqjXQY",
-          "channel": "CNBC Television"
-        },
-        {
-          "title": "Tech Stocks Tank, Final Countdown to Midterm Elections",
-          "url": "https://www.youtube.com/watch?v=tRcFJBbWoxI",
-          "channel": "Bloomberg Television"
-        },
-        {
-          "title": "Bitwise's Matt Hougan: $6.3 billion Binance hack won't hurt Bitcoin long-term",
-          "url": "https://www.youtube.com/watch?v=QykWuUwcKpo",
-          "channel": "CNBC Television"
-        }
-      ]
+      "watch": []
     },
-    "ai": {
-      "what_changed": "",
-      "items": [
-        {
-          "id": "ai-deepseek-v4-1-flash",
-          "title": "deepseek-v4.1-flash is #2 on hugging face trending",
-          "summary": "an image-text-to-text model from deepseek-ai, uploaded 17 october, with 4,098 likes and about 156k downloads. open weights you can pull from the model page.",
-          "sources": [
-            {
-              "title": "Hugging Face",
-              "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "ai",
-          "status": "new",
-          "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/deepseek-ai/DeepSeek-V4.1-Flash-1017.png",
-          "kind": "MODEL",
-          "try_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-          "pricing": "Open weights",
-          "metric": "#2 trending · 4,114 likes"
-        },
-        {
-          "id": "ai-lfm3-1-7b",
-          "title": "liquid ai's lfm3-1.7b, a small text model, is #3 trending",
-          "summary": "a 1.7b-parameter text-generation model from liquidai, created 23 october, with 626 likes and about 33k downloads. small enough to try locally.",
-          "sources": [
-            {
-              "title": "Hugging Face",
-              "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "ai",
-          "status": "new",
-          "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/LiquidAI/LFM3-1.7B.png",
-          "kind": "MODEL",
-          "try_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-          "pricing": "Open weights",
-          "metric": "#3 trending · 639 likes"
-        },
-        {
-          "id": "ai-nemotron-transcribe",
-          "title": "nvidia's nemotron 3.5 transcribe speech model is #4 trending",
-          "summary": "an automatic-speech-recognition model from nvidia (30b total, 4b active per its name) with 540 likes and about 24k downloads. useful if you want to test open speech-to-text.",
-          "sources": [
-            {
-              "title": "Hugging Face",
-              "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "ai",
-          "status": "new",
-          "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B.png",
-          "kind": "MODEL",
-          "try_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-          "pricing": "Open weights",
-          "metric": "#4 trending · 545 likes"
-        },
-        {
-          "id": "ai-mistral-large-4",
-          "title": "mistral-large-4 (1t total, 52b active) keeps trending",
-          "summary": "an image-text-to-text model from mistral, created 30 september, with 1,400 likes. its name lists 1t total and 52b active parameters, so it is a hosted-or-big-hardware try.",
-          "sources": [
-            {
-              "title": "Hugging Face",
-              "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "ai",
-          "status": "new",
-          "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/mistralai/Mistral-Large-4-1T-A52B.png",
-          "kind": "MODEL",
-          "try_url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
-          "pricing": "Open weights",
-          "metric": "#5 trending · 1,407 likes"
-        },
-        {
-          "id": "ai-unlimited-ocr-2",
-          "title": "baidu's unlimited-ocr-2 climbs hugging face trending",
-          "summary": "an image-text-to-text ocr model from baidu, created 26 october, with 473 likes and about 69k downloads in under a week.",
-          "sources": [
-            {
-              "title": "Hugging Face",
-              "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "ai",
-          "status": "new",
-          "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/baidu/Unlimited-OCR-2.png",
-          "kind": "MODEL",
-          "try_url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-          "pricing": "Open weights",
-          "metric": "#6 trending · 474 likes"
-        },
-        {
-          "id": "ai-fibo-editing-space",
-          "title": "bria's fibo-2.0 image-editing demo is a top trending space",
-          "summary": "a gradio space from briaai, created 19 october, with 151 likes. a hosted demo you can open in the browser, no install.",
-          "sources": [
-            {
-              "title": "Hugging Face Spaces",
-              "url": "https://huggingface.co/spaces/briaai/Fibo-2.0-editing",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "ai",
-          "status": "new",
-          "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/spaces/briaai/Fibo-2.0-editing.png",
-          "kind": "TOOL",
-          "try_url": "https://huggingface.co/spaces/briaai/Fibo-2.0-editing",
-          "pricing": "Free demo",
-          "metric": "#4 trending space · 156 likes"
-        }
-      ],
-      "watch": [
-        {
-          "title": "Did the AI bubble just pop?",
-          "url": "https://www.youtube.com/watch?v=nEaJMdM1djM",
-          "channel": "Fireship"
-        },
-        {
-          "title": "AI News: The Only 6 Stories Worth Knowing This Week",
-          "url": "https://www.youtube.com/watch?v=eDiQNFa-zYg",
-          "channel": "Matt Wolfe"
-        },
-        {
-          "title": "DeepSeek's New AI Is An Absolute Monster",
-          "url": "https://www.youtube.com/watch?v=pryCaGv8wuo",
-          "channel": "Two Minute Papers"
-        }
-      ]
-    },
-    "trending": {
-      "what_changed": "",
-      "items": [
-        {
-          "id": "thedotmack-claude-mem",
-          "title": "claude-mem: #1 today on github trending",
-          "summary": "persistent context across sessions: it captures what an agent does, compresses it with ai and injects it back later.\n107,994 stars total, +1,723 today, TypeScript.",
-          "sources": [
-            {
-              "title": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily",
-              "type": "official"
-            },
-            {
-              "title": "GitHub",
-              "url": "https://github.com/thedotmack/claude-mem",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "trending",
-          "status": "",
-          "image": "https://opengraph.githubassets.com/1/thedotmack/claude-mem",
-          "rank": 1,
-          "period": "today",
-          "stars_gained": 1723,
-          "stars_total": 107994,
-          "language": "TypeScript",
-          "why_it_matters": "gives coding agents memory that survives between sessions."
-        },
-        {
-          "id": "mattpocock-skills",
-          "title": "skills: #2 today on github trending",
-          "summary": "a skills collection pulled from matt pocock's .agents directory.\n308,511 stars total, +883 today, Shell.",
-          "sources": [
-            {
-              "title": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily",
-              "type": "official"
-            },
-            {
-              "title": "GitHub",
-              "url": "https://github.com/mattpocock/skills",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "trending",
-          "status": "new",
-          "image": "https://opengraph.githubassets.com/1/mattpocock/skills",
-          "rank": 2,
-          "period": "today",
-          "stars_gained": 883,
-          "stars_total": 308511,
-          "language": "Shell",
-          "why_it_matters": "a ready-made skills set for coding agents."
-        },
-        {
-          "id": "donchitos-claude-code-game-studios",
-          "title": "Claude-Code-Game-Studios: #3 today on github trending",
-          "summary": "turns claude code into a game dev studio with 49 agents and 72 workflow skills.\n31,260 stars total, +742 today, Shell.",
-          "sources": [
-            {
-              "title": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily",
-              "type": "official"
-            },
-            {
-              "title": "GitHub",
-              "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "trending",
-          "status": "",
-          "image": "https://opengraph.githubassets.com/1/Donchitos/Claude-Code-Game-Studios",
-          "rank": 3,
-          "period": "today",
-          "stars_gained": 742,
-          "stars_total": 31260,
-          "language": "Shell",
-          "why_it_matters": "a template for running a whole game studio with agents."
-        },
-        {
-          "id": "milind-soni-openmausbot",
-          "title": "OpenMausBot: #6 today on github trending",
-          "summary": "an open-source grok bot alternative where each bot gets a virtual machine it can use.\n9,747 stars total, +1,303 today, TypeScript.",
-          "sources": [
-            {
-              "title": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily",
-              "type": "official"
-            },
-            {
-              "title": "GitHub",
-              "url": "https://github.com/milind-soni/OpenMausBot",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "trending",
-          "status": "",
-          "image": "https://opengraph.githubassets.com/1/milind-soni/OpenMausBot",
-          "rank": 6,
-          "period": "today",
-          "stars_gained": 1303,
-          "stars_total": 9747,
-          "language": "TypeScript",
-          "why_it_matters": "an open take on a bot that can use its own computer."
-        },
-        {
-          "id": "pbakaus-impeccable",
-          "title": "impeccable: #7 today on github trending",
-          "summary": "a design vocabulary for coding agents: polish, bolder, critique and audit commands that catch ai slop.\n98,406 stars total, +1,338 today, Rust.",
-          "sources": [
-            {
-              "title": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily",
-              "type": "official"
-            },
-            {
-              "title": "GitHub",
-              "url": "https://github.com/pbakaus/impeccable",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "trending",
-          "status": "",
-          "image": "https://opengraph.githubassets.com/1/pbakaus/impeccable",
-          "rank": 7,
-          "period": "today",
-          "stars_gained": 1338,
-          "stars_total": 98406,
-          "language": "Rust",
-          "why_it_matters": "steers agent-built interfaces away from generic ai looks."
-        },
-        {
-          "id": "lightpanda-io-browser",
-          "title": "browser: #9 today on github trending",
-          "summary": "a headless browser designed for ai and automation.\n39,321 stars total, +929 today, Zig.",
-          "sources": [
-            {
-              "title": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily",
-              "type": "official"
-            },
-            {
-              "title": "GitHub",
-              "url": "https://github.com/lightpanda-io/browser",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "trending",
-          "status": "new",
-          "image": "https://opengraph.githubassets.com/1/lightpanda-io/browser",
-          "rank": 9,
-          "period": "today",
-          "stars_gained": 929,
-          "stars_total": 39321,
-          "language": "Zig",
-          "why_it_matters": "a lightweight browser built for agents and scraping."
-        },
-        {
-          "id": "nutlope-hallmark",
-          "title": "hallmark: #1 this week on github trending",
-          "summary": "an anti-ai-slop design skill for claude code, cursor and codex.\n44,013 stars total, +12,062 this week, CSS.",
-          "sources": [
-            {
-              "title": "GitHub Trending",
-              "url": "https://github.com/trending?since=weekly",
-              "type": "official"
-            },
-            {
-              "title": "GitHub",
-              "url": "https://github.com/Nutlope/hallmark",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "trending",
-          "status": "new",
-          "image": "https://opengraph.githubassets.com/1/Nutlope/hallmark",
-          "rank": 1,
-          "period": "week",
-          "stars_gained": 12062,
-          "stars_total": 44013,
-          "language": "CSS",
-          "why_it_matters": "the week's fastest-growing design skill for coding agents."
-        },
-        {
-          "id": "cloudflare-security-audit-skill",
-          "title": "security-audit-skill: #2 this week on github trending",
-          "summary": "a coding-agent skill for multi-phase security audits with independently verified, machine-readable findings.\n55,442 stars total, +11,908 this week, JavaScript.",
-          "sources": [
-            {
-              "title": "GitHub Trending",
-              "url": "https://github.com/trending?since=weekly",
-              "type": "official"
-            },
-            {
-              "title": "GitHub",
-              "url": "https://github.com/cloudflare/security-audit-skill",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "trending",
-          "status": "new",
-          "image": "https://opengraph.githubassets.com/1/cloudflare/security-audit-skill",
-          "rank": 2,
-          "period": "week",
-          "stars_gained": 11908,
-          "stars_total": 55442,
-          "language": "JavaScript",
-          "why_it_matters": "an agent skill that produces verified security findings."
-        }
-      ],
-      "watch": [
-        {
-          "title": "OpenMausBot: An Open Source Alternative to Grok Bot",
-          "url": "https://www.youtube.com/watch?v=K0IPUqNtpHc",
-          "channel": "milind-soni/OpenMausBot"
-        },
-        {
-          "title": "Claude Code + Impeccable: How to set it up in 7 minutes",
-          "url": "https://www.youtube.com/watch?v=D9i95a79ozw",
-          "channel": "OverClocked"
-        },
-        {
-          "title": "claude-mem Setup: Give Claude Code a Persistent Memory",
-          "url": "https://www.youtube.com/watch?v=HNXvkn33h1k",
-          "channel": "GENZ TECH"
-        }
-      ]
-    },
-    "liverpool": {
-      "what_changed": "kickoff against arsenal is sunday 19:30 riyadh; szoboszlai and munoz are still doubts, and sports mole and this is anfield have the same predicted xi.",
+    {
+      "id": "liverpool",
+      "title": "liverpool",
       "items": [
         {
           "id": "arsenal-sunday-fixture",
-          "title": "liverpool host arsenal sunday 19:30 riyadh; saka, saliba out and dowman banned",
-          "summary": "liverpool are chasing a sixth straight win in all competitions, and the club says szoboszlai and munoz 'have a chance' while frimpong, bradley, ekitike and leoni are out. arsenal are without saka and the suspended max dowman, with madueke's ankle in doubt and rice, calafiori and tzolis back in training.",
+          "section": "liverpool",
+          "title": "liverpool host arsenal at anfield today, 19:30 riyadh",
+          "summary": "liverpool are going for a sixth straight win in all competitions and a third in a row in the league, with victory cutting arsenal's lead to three points.\narsenal arrive after losing to league two fleetwood on penalties in the carabao cup and have not won at anfield in the league since 2012.",
           "sources": [
             {
-              "title": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/liverpool-v-arsenal-team-news-premier-league",
-              "type": "official"
+              "name": "Liverpool FC",
+              "url": "https://www.liverpoolfc.com/news/liverpool-v-arsenal-team-news-premier-league"
             },
             {
-              "title": "The Guardian",
-              "url": "https://www.theguardian.com/football/2026/oct/30/premier-league-team-news-predicted-lineups-for-the-weekend-action",
-              "type": "independent"
-            },
-            {
-              "title": "BBC Sport",
-              "url": "https://www.bbc.co.uk/sport/football/articles/cm8xzw55k2xpo",
-              "type": "independent"
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-arsenal-injury-news-latest-34845908"
             }
           ],
-          "time": "2026-10-31T11:00:36+03:00",
-          "section": "liverpool",
-          "status": "",
-          "image": "https://images.ctfassets.net/rm6ms1yxue4m/44EOhiFYqOvsC1Nk53bzI/209e9a2c9b4f2b2f9c93ef07bc42cad7/arsenal-team-news-30102026.jpg?w=1200&h=630&fit=crop&f=face",
-          "reliability": "Official"
-        },
-        {
-          "id": "predicted-xi-arsenal",
-          "title": "predicted xi: isak up front, wirtz and barcola back",
-          "summary": "sports mole and this is anfield project alisson; araujo, jacquet, van dijk, kerkez; mac allister, gravenberch; barcola, wirtz, gakpo; isak. predicted, not official; the club names its team on matchday.",
-          "sources": [
-            {
-              "title": "Sports Mole",
-              "url": "https://www.sportsmole.co.uk/football/liverpool/predicted-lineups/will-szoboszlai-start-predicted-liverpool-xi-vs-arsenal_608061.html",
-              "type": "independent"
-            },
-            {
-              "title": "This Is Anfield",
-              "url": "https://www.thisisanfield.com/2026/10/liverpool-predicted-xi-vs-arsenal-7-changes-2-tough-choices/",
-              "type": "independent"
-            }
+          "published_at": "2026-11-01T06:00:00Z",
+          "status": "updated",
+          "meta": {
+            "competition": "premier league",
+            "kickoff_riyadh": "2026-11-01T19:30:00+03:00",
+            "venue": "anfield"
+          },
+          "tags": [
+            "fixture"
           ],
-          "time": "2026-10-31T12:00:00+03:00",
-          "section": "liverpool",
-          "status": "",
-          "image": "https://media.thisisanfield.com/Slot-Arteta-Guardiola-Maresca-9.jpg",
-          "reliability": "Tier 2"
+          "updated": true
         },
         {
           "id": "liverpool-injury-list",
-          "title": "szoboszlai and munoz both have a chance of making sunday",
-          "summary": "iraola said the pair, who sustained minor injuries at brentford a fortnight ago, could be involved but he is not certain. frimpong is out until after the november break.",
+          "section": "liverpool",
+          "title": "szoboszlai and munoz have a chance; saka and saliba miss out",
+          "summary": "iraola said dominik szoboszlai and victor munoz could feature after minor injuries, but frimpong, bradley, ekitike and leoni are out.\narsenal are without saka and saliba, while rice, calafiori and tzolis are back and dowman starts a three-match ban.",
           "sources": [
             {
-              "title": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/liverpool-v-arsenal-team-news-premier-league",
-              "type": "official"
+              "name": "Liverpool FC",
+              "url": "https://www.liverpoolfc.com/news/liverpool-v-arsenal-team-news-premier-league"
             },
             {
-              "title": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/andoni-iraola-issues-double-liverpool-34839046",
-              "type": "independent"
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-arsenal-injury-news-latest-34845908"
             }
           ],
-          "time": "2026-10-30T17:23:00+03:00",
+          "published_at": "2026-10-31T09:20:00Z",
+          "status": "updated",
+          "meta": {
+            "out": [
+              "Frimpong",
+              "Bradley",
+              "Ekitike",
+              "Leoni"
+            ],
+            "doubtful": [
+              "Szoboszlai",
+              "Munoz",
+              "Jacquet"
+            ]
+          },
+          "tags": [
+            "injuries"
+          ],
+          "updated": true
+        },
+        {
+          "id": "predicted-xi-arsenal",
           "section": "liverpool",
-          "status": "",
-          "image": "https://i2-prod.liverpoolecho.co.uk/article34840760.ece/ALTERNATES/s1200d/0_iraola.jpg",
-          "reliability": "Official"
+          "title": "predicted xi: isak up front, wirtz and barcola behind",
+          "summary": "the echo's line-up has alisson in goal, araujo at right-back, jacquet and van dijk in the middle and kerkez on the left.\nmac allister and gravenberch sit deep, with barcola, wirtz and gakpo behind isak.",
+          "sources": [
+            {
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-line-ups-vs-arsenal-34841720"
+            }
+          ],
+          "published_at": "2026-11-01T06:00:00Z",
+          "status": "updated",
+          "meta": {
+            "formation": "4-2-3-1",
+            "xi": [
+              "Alisson",
+              "Araujo",
+              "Jacquet",
+              "Van Dijk",
+              "Kerkez",
+              "Mac Allister",
+              "Gravenberch",
+              "Barcola",
+              "Wirtz",
+              "Gakpo",
+              "Isak"
+            ]
+          },
+          "tags": [
+            "lineup"
+          ],
+          "updated": true
         },
         {
           "id": "transfer-mac-allister",
-          "title": "iraola says mac allister 'wants to stay' while the contract question stays open",
-          "summary": "the guardian says mac allister has become indispensable in midfield, and iraola called him a top player who has made his intentions clear. goal reports no extension has been offered; the guardian is reporting quotes, goal is a secondary summary.",
+          "section": "liverpool",
+          "title": "mac allister says his future is still open as the contract wait drags",
+          "summary": "the midfielder, out of contract in 2028, said nothing has changed since he admitted he was sad not to be offered a new deal.\nhe pointed to the new sporting director and incoming minority ownership as reasons an extension could still happen.",
           "sources": [
             {
-              "title": "The Guardian",
-              "url": "https://www.theguardian.com/football/2026/oct/31/how-alexis-mac-allister-shook-off-contract-doubts-liverpool-revival",
-              "type": "independent"
-            },
-            {
-              "title": "Goal",
-              "url": "https://www.goal.com/en/team/liverpool/c8h9bw1l82s06h77xxrelzhur",
-              "type": "independent"
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/alexis-mac-allister-drops-new-34843635"
             }
           ],
-          "time": "2026-10-31T11:00:36+03:00",
-          "section": "liverpool",
-          "status": "",
-          "image": "https://i.guim.co.uk/img/media/4d79eebb869add31c28b2d268e4200befc0b7159/294_0_2952_2362/master/2952.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=cc34c763fb2a89e1676df567f9472ab6",
-          "reliability": "Tier 1",
-          "voices": [
-            {
-              "platform": "reddit",
-              "handle": "r/LiverpoolFC",
-              "text": "No big deal: how Mac Allister shook off contract doubts to fire Liverpool's revival.",
-              "url": "https://www.reddit.com/r/LiverpoolFC/comments/1xk66o8/no_big_deal_how_mac_allister_shook_off_contract/"
-            }
-          ]
+          "published_at": "2026-10-31T10:47:00Z",
+          "status": "updated",
+          "meta": {
+            "reliability": "high (player quotes)"
+          },
+          "tags": [
+            "transfers",
+            "contract"
+          ],
+          "updated": true
         },
         {
-          "id": "transfer-camara",
-          "title": "liverpool reportedly step up interest in monaco's lamine camara",
-          "summary": "the sun says liverpool asked the senegal midfielder's camp to keep them informed, and goal says they are ahead of chelsea. sports mole says a january deal faces complications, so this is a tabloid report relayed by goal and unconfirmed.",
+          "id": "transfer-roundup",
+          "section": "liverpool",
+          "title": "paper talk: a mac allister swap and progress on araujo's option",
+          "summary": "liverpool.com's roundup says a mac allister swap has been floated and that the araujo option is moving toward completion.\nneither is confirmed by the club, so treat both as paper talk for now.",
           "sources": [
             {
-              "title": "Goal",
-              "url": "https://goal.com/en/news/liverpool-step-up-pursuit-monaco-lamine-camara-january-chelsea-alex-scott/blt2b221541a1b0c070",
-              "type": "independent"
-            },
-            {
-              "title": "Sports Mole",
-              "url": "https://sportsmole.co.uk/football/liverpool/transfer-talk/news/liverpool-make-contact-over-camara-swoop-but-january-move-faces-complications_608083.html",
-              "type": "independent"
+              "name": "Liverpool.com (via Google News)",
+              "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQUlQyUjRpay1yRDhiZFhQQktLSXZqbHVnU0hfNl9IYlJ2QlRZVUtmM0FCOWkxSThCbFcwRi1RYTBmdlBYZ29FM2lVQnBDWjFzMGZCbWI3SEl0dkl5RHQ1ZG5fUjlYcDJMUmQtaUpwcWxpN3FFamRLVjJQLVVHOTd1Y2U0NldlQWp5TUsxbVpUQW96bVBXQTRIZlB5NW83Z0pWZHdDY2E0NzE?oc=5"
             }
           ],
-          "time": "2026-10-31T10:32:29+03:00",
-          "section": "liverpool",
-          "status": "",
-          "image": "https://assets.goal.com/images/v3/getty-2289744223/crop/MM5DGMZXGY5DCOBZHE5G433XMU5DIOBZHIYTAMQ=/GettyImages-2289744223.jpg",
-          "reliability": "Rumour"
+          "published_at": "2026-11-01T05:08:00Z",
+          "status": "updated",
+          "meta": {
+            "reliability": "low (aggregated paper talk)"
+          },
+          "tags": [
+            "transfers",
+            "rumour"
+          ],
+          "updated": true
         },
         {
           "id": "carabao-cup-draw",
-          "title": "liverpool get bournemouth at home in the carabao cup quarter-finals",
-          "summary": "liverpool host bournemouth in the week starting december 14, after beating chelsea 6-5 on penalties. fleetwood town, who knocked arsenal out, host everton.",
+          "section": "liverpool",
+          "title": "bournemouth at home in the carabao cup quarter-finals",
+          "summary": "liverpool will host bournemouth in the last eight after beating chelsea on penalties in the previous round.\narsenal are already out after losing to fleetwood.",
           "sources": [
             {
-              "title": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/liverpool-to-play-bournemouth-in-carabao-cup-quarter-finals",
-              "type": "official"
+              "name": "Liverpool FC",
+              "url": "https://www.liverpoolfc.com/news"
             }
           ],
-          "time": "2026-10-30T00:42:29+03:00",
-          "section": "liverpool",
-          "status": "",
-          "image": "https://images.ctfassets.net/rm6ms1yxue4m/39vEkBCIFhrh4OERqjPe3O/11963022df8cdddcd871e793f94c0eb3/carabao-cup-trophy-25102024.jpg?w=1200&h=630&fit=crop",
-          "reliability": "Official"
+          "published_at": "2026-10-29T21:42:29Z",
+          "status": "steady",
+          "meta": {
+            "competition": "carabao cup",
+            "opponent": "bournemouth",
+            "venue": "anfield"
+          },
+          "tags": [
+            "cup"
+          ],
+          "updated": false
         },
         {
-          "id": "transfer-araujo",
-          "title": "araujo's option looks a formality and johnson says wait on a right-back",
-          "summary": "the uruguayan has played every game on loan from barcelona, mostly at right-back with frimpong and bradley out. glen johnson says liverpool should see how bradley returns before buying a specialist right-back.",
+          "id": "alisson-brazil",
+          "section": "liverpool",
+          "title": "ancelotti leaves alisson out of brazil's november squad again",
+          "summary": "brazil coach carlo ancelotti said he does not need to test alisson and will call him for the copa america instead.\nalisson will sit out the november friendlies against japan and singapore.",
           "sources": [
             {
-              "title": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/ronald-araujo-surprise-explained-liverpool-34838385",
-              "type": "independent"
-            },
-            {
-              "title": "The Guardian",
-              "url": "https://www.theguardian.com/football/2026/oct/30/araujo-key-factor-in-liverpools-improvement-at-set-pieces-says-iraola",
-              "type": "independent"
+              "name": "Liverpool FC",
+              "url": "https://www.liverpoolfc.com/news/alisson-becker-omitted-brazil-squad-november-internationals"
             }
           ],
-          "time": "2026-10-30T14:54:00+03:00",
-          "section": "liverpool",
-          "status": "",
-          "image": "https://i2-prod.liverpoolecho.co.uk/article34838651.ece/ALTERNATES/s1200d/0_GettyImages-2301995211.jpg",
-          "reliability": "Tier 2"
-        },
-        {
-          "id": "kuyt-fenerbahce",
-          "title": "kuyt takes interim charge of fenerbahce before facing liverpool",
-          "summary": "liverpool confirmed the former forward has been put in interim charge of fenerbahce, who meet the reds in the champions league. kuyt made 285 appearances for liverpool between 2006 and 2012.",
-          "sources": [
-            {
-              "title": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/dirk-kuyt-takes-interim-charge-of-fenerbahce-ahead-of-clash-with-liverpool",
-              "type": "official"
-            }
+          "published_at": "2026-10-30T19:04:00Z",
+          "status": "new",
+          "meta": {
+            "competition": "international"
+          },
+          "tags": [
+            "brazil"
           ],
-          "time": "2026-10-29T04:14:30+03:00",
-          "section": "liverpool",
-          "status": "",
-          "image": "https://images.ctfassets.net/rm6ms1yxue4m/FamXumOotfyGv1elroYak/104372deae53baddf84ae11752002c12/dirk-kuyt-fenerbahce-28102026.jpg?w=1200&h=630&fit=crop",
-          "reliability": "Official"
+          "updated": true
         }
       ],
       "watch": [
@@ -983,447 +984,11 @@
           "channel": "Liverpool FC"
         },
         {
-          "title": "Top 10: BEST Liverpool vs Arsenal Premier League games at Anfield",
-          "url": "https://www.youtube.com/watch?v=r9UcOBrPqPo",
-          "channel": "Liverpool FC"
-        },
-        {
-          "title": "Bobby Firmino's 11 goals vs Arsenal",
-          "url": "https://www.youtube.com/watch?v=rllriAV9MXI",
-          "channel": "Liverpool FC"
+          "title": "Who has the EDGE? | Liverpool vs Arsenal MATCH PREVIEW",
+          "url": "https://www.youtube.com/watch?v=GNiVlyeI6ss",
+          "channel": "CBS Sports Golazo"
         }
       ]
-    },
-    "games": {
-      "what_changed": "",
-      "items": [
-        {
-          "id": "game-ff-resonance",
-          "title": "final fantasy resonance leads steam's popular new rpg list",
-          "summary": "a pixel-art final fantasy where you travel with companions and call on visions in battle, released 22 october. first in steam's popular-new search for the rpg tags.",
-          "sources": [
-            {
-              "title": "Steam",
-              "url": "https://store.steampowered.com/app/3259780/",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "games",
-          "status": "new",
-          "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3259780/710da43babb2043f9f6ad0e50023e31167d94708/header.jpg?t=1793031418",
-          "kind": "TRENDING",
-          "genres": [
-            "RPG"
-          ],
-          "platforms": [
-            "Windows"
-          ],
-          "price": "190.00 SR",
-          "discount": 0,
-          "release_date": "22 Oct, 2026",
-          "store_url": "https://store.steampowered.com/app/3259780/"
-        },
-        {
-          "id": "game-sw-zero-company",
-          "title": "star wars: zero company, a clone wars turn-based tactics game",
-          "summary": "a single-player turn-based tactics game where you command an elite squad in the twilight of the clone wars. released 27 august and still high on steam's popular-new lists.",
-          "sources": [
-            {
-              "title": "Steam",
-              "url": "https://store.steampowered.com/app/2075800/",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "games",
-          "status": "new",
-          "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2075800/2c7d5dad080c4888faaa03c4a955136c50f5bfae/header.jpg?t=1790340688",
-          "kind": "PICK",
-          "genres": [
-            "Turn-based tactics",
-            "Strategy"
-          ],
-          "platforms": [
-            "Windows"
-          ],
-          "price": "189.00 SR",
-          "discount": 0,
-          "release_date": "27 Aug, 2026",
-          "store_url": "https://store.steampowered.com/app/2075800/"
-        },
-        {
-          "id": "game-hom-olden-era",
-          "title": "heroes of might and magic: olden era is in early access",
-          "summary": "the official prequel to the turn-based strategy series: raise armies and cast spells. early access since 30 april and still showing up on steam's popular-new lists.",
-          "sources": [
-            {
-              "title": "Steam",
-              "url": "https://store.steampowered.com/app/3105440/",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "games",
-          "status": "new",
-          "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3105440/e2e5d0b727a89e836985c9a05d410033a2d349d9/capsule_616x353.jpg?t=1793358152",
-          "kind": "PICK",
-          "genres": [
-            "Turn-based strategy",
-            "Early Access"
-          ],
-          "platforms": [
-            "Windows"
-          ],
-          "price": "149.95 SR",
-          "discount": 0,
-          "release_date": "30 Apr, 2026",
-          "store_url": "https://store.steampowered.com/app/3105440/"
-        },
-        {
-          "id": "game-mhs3-deal",
-          "title": "monster hunter stories 3 is 30% off on steam",
-          "summary": "the third monster hunter stories rpg, where you raise and ride monsters, is 165.34 SR after a 30% discount. released 12 march.",
-          "sources": [
-            {
-              "title": "Steam",
-              "url": "https://store.steampowered.com/app/2852190/",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "games",
-          "status": "new",
-          "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2852190/de3717096a093d7bf9ab504563621bc17e37ccf4/header.jpg?t=1790900261",
-          "kind": "DEAL",
-          "genres": [
-            "RPG"
-          ],
-          "platforms": [
-            "Windows"
-          ],
-          "price": "165.34 SR",
-          "discount": 30,
-          "release_date": "12 Mar, 2026",
-          "store_url": "https://store.steampowered.com/app/2852190/"
-        },
-        {
-          "id": "game-balatro-deal",
-          "title": "balatro is 20% off at 26.36 sr",
-          "summary": "the poker roguelike deckbuilder where you play illegal hands and chase joker combos. 20% off on steam right now.",
-          "sources": [
-            {
-              "title": "Steam",
-              "url": "https://store.steampowered.com/app/2379780/",
-              "type": "official"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "games",
-          "status": "new",
-          "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/7a85430784e4d613cdb0547414d8cf16ffa45747/header.jpg?t=1790693638",
-          "kind": "DEAL",
-          "genres": [
-            "Roguelike deckbuilder",
-            "Strategy"
-          ],
-          "platforms": [
-            "Windows",
-            "Mac"
-          ],
-          "price": "26.36 SR",
-          "discount": 20,
-          "release_date": "20 Feb, 2024",
-          "store_url": "https://store.steampowered.com/app/2379780/"
-        },
-        {
-          "id": "game-ffxiv-evercold",
-          "title": "final fantasy 14: evercold delayed to february, preorders next week",
-          "summary": "pc gamer says the expansion slips to february; gamespot's trailer lists the launch as 23 february 2027. preorders start next week.",
-          "sources": [
-            {
-              "title": "PC Gamer",
-              "url": "https://www.pcgamer.com/games/final-fantasy/final-fantasy-14-evercold-delayed-to-february-preorders-start-next-week/",
-              "type": "independent"
-            },
-            {
-              "title": "GameSpot (YouTube)",
-              "url": "https://www.youtube.com/watch?v=QSJYzsQRXoI",
-              "type": "social"
-            }
-          ],
-          "time": "2026-10-31T07:32:00+03:00",
-          "section": "games",
-          "status": "new",
-          "image": "https://cdn.mos.cms.futurecdn.net/mZCpwjMoH624NpBRgk9CL4-2000-80.jpg",
-          "kind": "NEWS",
-          "genres": [
-            "MMORPG"
-          ],
-          "platforms": [
-            "Windows"
-          ],
-          "release_date": "23 Feb, 2027"
-        },
-        {
-          "id": "game-world-of-horror-update",
-          "title": "world of horror gets a free update with extra gods, locations and wounds",
-          "summary": "rock paper shotgun says the junji ito-inspired rpg is now 20% more horrible thanks to a free pc update. good timing for halloween.",
-          "sources": [
-            {
-              "title": "Rock Paper Shotgun",
-              "url": "https://www.rockpapershotgun.com/splendid-junji-ito-inspired-rpg-world-of-horror-is-now-20-more-horrible-thanks-to-a-free-pc-update-with-extra-gods-locations-and-wounds",
-              "type": "independent"
-            }
-          ],
-          "time": "2026-11-01T00:49:42+03:00",
-          "section": "games",
-          "status": "new",
-          "image": "https://assetsio.gnwcdn.com/world-of-horror-as-below-so-above.png?width=1200&height=630&fit=crop",
-          "kind": "UPDATE",
-          "genres": [
-            "Horror RPG"
-          ],
-          "platforms": [
-            "Windows"
-          ]
-        }
-      ],
-      "watch": [
-        {
-          "title": "Black Lake - Official Gameplay Teaser Trailer",
-          "url": "https://www.youtube.com/watch?v=zCFZbcO-1HU",
-          "channel": "IGN"
-        },
-        {
-          "title": "Final Fantasy XIV: Evercold - Full Cinematic Trailer | Launches February 23, 2027",
-          "url": "https://www.youtube.com/watch?v=QSJYzsQRXoI",
-          "channel": "GameSpot"
-        },
-        {
-          "title": "Phantom Blade Zero - Weeping Creek Valley 100% Collectibles Guide",
-          "url": "https://www.youtube.com/watch?v=H2aOYCISwlQ",
-          "channel": "IGN"
-        }
-      ]
-    },
-    "social": {
-      "what_changed": "x skipped: not connected. tiktok and instagram have no readable public feed from this server, so this section uses youtube view counts and reddit.",
-      "items": [
-        {
-          "id": "social-mrbeast-robot-chores",
-          "title": "mrbeast: 'can a robot do my chores?' passes 38m views",
-          "summary": "his 30 october video has about 38.7m views on youtube, the biggest of the week's creator uploads we checked.",
-          "sources": [
-            {
-              "title": "YouTube",
-              "url": "https://www.youtube.com/watch?v=41UzbuW6wJs",
-              "type": "social"
-            }
-          ],
-          "time": "2026-10-30T20:00:00+03:00",
-          "section": "social",
-          "status": "new",
-          "image": "https://i.ytimg.com/vi/41UzbuW6wJs/hqdefault.jpg",
-          "platform": "youtube",
-          "creator": "MrBeast",
-          "metric": "38.7M views"
-        },
-        {
-          "id": "social-mrbeast-lebron",
-          "title": "mrbeast: 'beat lebron, win $100,000' hits 11m views in a day",
-          "summary": "uploaded saturday afternoon and already past 11.4m views on youtube.",
-          "sources": [
-            {
-              "title": "YouTube",
-              "url": "https://www.youtube.com/watch?v=_c2e1NcI3Sc",
-              "type": "social"
-            }
-          ],
-          "time": "2026-10-31T19:00:00+03:00",
-          "section": "social",
-          "status": "new",
-          "image": "https://i.ytimg.com/vi/_c2e1NcI3Sc/hqdefault.jpg",
-          "platform": "youtube",
-          "creator": "MrBeast",
-          "metric": "11.5M views"
-        },
-        {
-          "id": "social-mkbhd-macbook-proled",
-          "title": "mkbhd's macbook proled xdr impressions pass 10m views",
-          "summary": "marques brownlee's 29 october impressions video has about 10.1m views on youtube.",
-          "sources": [
-            {
-              "title": "YouTube",
-              "url": "https://www.youtube.com/watch?v=2reQut8WNGc",
-              "type": "social"
-            }
-          ],
-          "time": "2026-10-29T05:50:00+03:00",
-          "section": "social",
-          "status": "new",
-          "image": "https://i.ytimg.com/vi/2reQut8WNGc/hqdefault.jpg",
-          "platform": "youtube",
-          "creator": "Marques Brownlee",
-          "metric": "10.1M views"
-        },
-        {
-          "id": "social-fireship-ai-bubble",
-          "title": "fireship asks 'did the ai bubble just pop?' as tech sells off",
-          "summary": "the 28 october video is past 2.1m views and lines up with friday's nasdaq drop on ai-spending worries.",
-          "sources": [
-            {
-              "title": "YouTube",
-              "url": "https://www.youtube.com/watch?v=nEaJMdM1djM",
-              "type": "social"
-            }
-          ],
-          "time": "2026-10-28T16:31:00+03:00",
-          "section": "social",
-          "status": "new",
-          "image": "https://i.ytimg.com/vi/nEaJMdM1djM/hqdefault.jpg",
-          "platform": "youtube",
-          "creator": "Fireship",
-          "metric": "2.2M views"
-        },
-        {
-          "id": "social-villa-carragher",
-          "title": "aston villa says it will sue carragher; he apologises a day later",
-          "summary": "villa's chairman posted on x that the club will 'initiate legal action' over carragher's podcast insults about the club and its fans, and carragher replied on saturday that his language was 'clumsy & wrong'. one of the r/liverpoolfc threads is quoted below.",
-          "sources": [
-            {
-              "title": "ABC News (AP)",
-              "url": "https://abcnews.com/Entertainment/wireStory/carragher-comments-aston-villa-sparked-club-taking-legal-137733182",
-              "type": "wire"
-            },
-            {
-              "title": "Aston Villa on X",
-              "url": "https://x.com/AstonVilla/status/2116293295278285299",
-              "type": "official"
-            }
-          ],
-          "time": "2026-10-31T16:17:00+03:00",
-          "section": "social",
-          "status": "new",
-          "image": "https://i.abcnewsfe.com/a/e4f77038-707b-4035-bce3-d82d17eee471/wirestory_c81930def785f9029fc18c83c2ce2231_16x9.jpg?w=1600",
-          "platform": "x",
-          "creator": "@AstonVilla / @Carra23",
-          "metric": "",
-          "voices": [
-            {
-              "platform": "reddit",
-              "handle": "r/LiverpoolFC",
-              "text": "Aston Villa will initiate legal action against Jamie Carragher for his unacceptable insults about the Club and its fans",
-              "url": "https://www.reddit.com/r/LiverpoolFC/comments/1xjtxt0/aston_villa_will_initiate_legal_action_against/"
-            }
-          ]
-        },
-        {
-          "id": "social-reddit-finland-google",
-          "title": "r/worldnews top post: finland opens criminal probe into google's forest clearing",
-          "summary": "a top post on r/worldnews on saturday: finland has launched a criminal investigation into google's clearing of forest for a datacentre site.",
-          "sources": [
-            {
-              "title": "Reddit r/worldnews",
-              "url": "https://www.reddit.com/r/worldnews/comments/1xkbqdz/finland_launches_criminal_investigation_into/",
-              "type": "social"
-            }
-          ],
-          "time": "2026-10-31T17:32:00+03:00",
-          "section": "social",
-          "status": "new",
-          "image": "https://external-preview.redd.it/Ri-YyPzdcJzMpKBPg0zi7fwNhnKXmJ4Y16N_4d592aI.jpeg?width=640&crop=smart&auto=webp&s=43139319a8cfeca0d360e521a7d6ae5e800ea6c0",
-          "platform": "reddit",
-          "creator": "r/worldnews",
-          "metric": ""
-        }
-      ],
-      "watch": [
-        {
-          "title": "Beat LeBron, Win $100,000",
-          "url": "https://www.youtube.com/watch?v=_c2e1NcI3Sc",
-          "channel": "MrBeast"
-        },
-        {
-          "title": "This can SEE Sound!",
-          "url": "https://www.youtube.com/watch?v=ai1gIWacf0I",
-          "channel": "Marques Brownlee"
-        },
-        {
-          "title": "Glasses That Make You Telepathic",
-          "url": "https://www.youtube.com/watch?v=_9R7QOhJh-o",
-          "channel": "Matt Wolfe"
-        }
-      ]
-    },
-    "graphic": {
-      "warning": "Content warning: war and violence news. Text only, outlet logos instead of images.",
-      "what_changed": "",
-      "items": [
-        {
-          "id": "graphic-taiz-siege",
-          "title": "taiz governor says the houthi siege is killing civilians",
-          "summary": "the guardian reports the governor of besieged taiz describing massacres and dwindling oxygen, food and water. coverage of civilian deaths and sieges; no images shown.",
-          "sources": [
-            {
-              "title": "The Guardian",
-              "url": "https://www.theguardian.com/world/2026/oct/30/houthis-taiz-stone-age-yemen-city-siege",
-              "type": "independent"
-            },
-            {
-              "title": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/10/31/new-yemen-fighting-displaces-290000-says-un-with-pregnant-women-at-risk",
-              "type": "independent"
-            }
-          ],
-          "time": "2026-10-30T15:00:00+03:00",
-          "section": "graphic",
-          "status": "new",
-          "image": "https://www.aljazeera.com/apple-touch-icon.png",
-          "warning": "war, civilian deaths"
-        },
-        {
-          "id": "graphic-west-bank-olives",
-          "title": "west bank olive harvest turns deadly for palestinian farmers",
-          "summary": "al jazeera says settlers have turned olive harvesting in the occupied west bank into a deadly activity for palestinians. text summary only, no footage embedded.",
-          "sources": [
-            {
-              "title": "Al Jazeera",
-              "url": "https://www.aljazeera.com/video/newsfeed/2026/10/31/palestinians-stealing-their-own",
-              "type": "independent"
-            }
-          ],
-          "time": "2026-10-31T15:00:00+03:00",
-          "section": "graphic",
-          "status": "new",
-          "image": "https://www.aljazeera.com/apple-touch-icon.png",
-          "warning": "violence against civilians"
-        },
-        {
-          "id": "graphic-hormuz-fires",
-          "title": "hormuz tankers explode and burn, two fishermen missing",
-          "summary": "abc news reports four tankers caught fire in the strait according to iran's guards, 25 crew were rescued by oman, and an iranian official says two fishermen are missing after an attack on boats. iran's claims are unverified.",
-          "sources": [
-            {
-              "title": "ABC News (Australia)",
-              "url": "https://www.abc.net.au/news/2026-10-31/four-tankers-strike-mines-in-strait-of-hormuz/107332392",
-              "type": "independent"
-            }
-          ],
-          "time": "2026-10-31T16:00:00+03:00",
-          "section": "graphic",
-          "status": "new",
-          "image": "https://www.abc.net.au/favicon.ico",
-          "warning": "explosions, missing people"
-        }
-      ],
-      "watch": []
-    },
-    "adult_trending": {
-      "warning": "Content warning: 18+ news. Mainstream-outlet reporting only, no links to adult sites.",
-      "what_changed": "nothing new",
-      "items": [],
-      "watch": []
     }
-  }
+  ]
 }
