@@ -1,50 +1,20 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-02T16:25:00Z",
-  "date": "2026-11-02",
-  "edition": "evening",
+  "generated_at": "2026-11-03T03:36:39Z",
+  "date": "2026-11-03",
+  "edition": "morning",
   "timezone": "Asia/Riyadh",
-  "next_build_at": "2026-11-03T03:30:00Z",
+  "next_build_at": "2026-11-03T16:00:00Z",
   "sections": [
     {
       "id": "trending_repos",
       "title": "trending repos",
       "items": [
         {
-          "id": "pingdotgg-t3code",
-          "section": "trending_repos",
-          "title": "t3code adds 3,216 stars to run every coding agent from one app",
-          "summary": "t3code is an agent control surface that drives claude code, codex, cursor, grok build and opencode from one mobile, web or desktop app.\nit added 3,216 stars today to reach 40,672 and sits #7 on github trending and #3 on trendshift.",
-          "sources": [
-            {
-              "name": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily"
-            },
-            {
-              "name": "trendshift",
-              "url": "https://trendshift.io/"
-            },
-            {
-              "name": "GitHub",
-              "url": "https://github.com/pingdotgg/t3code"
-            }
-          ],
-          "published_at": "2026-11-02T15:56:00Z",
-          "status": "updated",
-          "updated": true,
-          "meta": {
-            "stars_today": 3216,
-            "stars_total": 40672,
-            "language": "TypeScript",
-            "trending_rank": 7,
-            "trendshift_rank": 3
-          }
-        },
-        {
           "id": "vercel-labs-agent-desktop",
           "section": "trending_repos",
-          "title": "vercel's agent-desktop takes #1 with 2,243 stars for desktop computer use",
-          "summary": "agent-desktop gives any agent reliable computer use by reading a desktop app's accessibility tree instead of guessing from pixels.\nit led github trending with 2,243 stars today, holds 8,571 in total and is #5 on trendshift, written in rust.",
+          "title": "vercel's agent-desktop leads github trending with 2,275 stars",
+          "summary": "agent-desktop gives agents reliable control of desktop apps by reading each app's accessibility tree instead of guessing from screenshots.\nit added 2,275 stars today to reach 10,243 and sits first on github trending, with rust underneath and computer-use cli as the pitch.",
           "sources": [
             {
               "name": "GitHub Trending",
@@ -59,22 +29,21 @@
               "url": "https://github.com/vercel-labs/agent-desktop"
             }
           ],
-          "published_at": "2026-11-02T09:39:00Z",
-          "status": "new",
-          "updated": true,
+          "published_at": "2026-11-03T02:40:00Z",
+          "status": "steady",
+          "updated": false,
           "meta": {
-            "stars_today": 2243,
-            "stars_total": 8571,
+            "stars_today": 2275,
+            "stars_total": 10243,
             "language": "Rust",
-            "trending_rank": 1,
-            "trendshift_rank": 5
+            "trending_rank": 1
           }
         },
         {
           "id": "thedotmack-claude-mem",
           "section": "trending_repos",
-          "title": "claude-mem adds 1,799 stars as the memory layer for coding agents",
-          "summary": "claude-mem gives coding agents persistent memory by compressing every session and injecting the useful context back into later ones.\nit added 1,799 stars today to reach 110,398 and held #2 on github trending, with #11 on trendshift.",
+          "title": "claude-mem adds 1,803 stars as the memory layer for coding agents",
+          "summary": "claude-mem captures what an agent does in a session, compresses it with a model and injects the useful parts into later sessions.\nit added 1,803 stars today to reach 110,878 and sits second on github trending, with a palette of hooks for claude code, codex and other agents.",
           "sources": [
             {
               "name": "GitHub Trending",
@@ -89,72 +58,21 @@
               "url": "https://github.com/thedotmack/claude-mem"
             }
           ],
-          "published_at": "2026-11-02T15:48:00Z",
-          "status": "updated",
-          "updated": true,
+          "published_at": "2026-11-03T01:49:00Z",
+          "status": "steady",
+          "updated": false,
           "meta": {
-            "stars_today": 1799,
-            "stars_total": 110398,
+            "stars_today": 1803,
+            "stars_total": 110878,
             "language": "TypeScript",
-            "trending_rank": 2,
-            "trendshift_rank": 11
-          }
-        },
-        {
-          "id": "donchitos-claude-code-game-studios",
-          "section": "trending_repos",
-          "title": "claude-code-game-studios adds 1,380 stars for a 49-agent studio",
-          "summary": "the repo turns claude code into a game studio with 49 agents and 72 workflow skills wired into one coordination system.\nit added 1,380 stars today to reach 33,183 and held #5 on github trending, its best showing this week.",
-          "sources": [
-            {
-              "name": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily"
-            },
-            {
-              "name": "GitHub",
-              "url": "https://github.com/Donchitos/Claude-Code-Game-Studios"
-            }
-          ],
-          "published_at": "2026-11-02T10:00:00Z",
-          "status": "updated",
-          "updated": true,
-          "meta": {
-            "stars_today": 1380,
-            "stars_total": 33183,
-            "language": "Shell",
-            "trending_rank": 5
-          }
-        },
-        {
-          "id": "mattpocock-skills",
-          "section": "trending_repos",
-          "title": "mattpocock's skills repo adds 970 stars for agent skills from his own folder",
-          "summary": "skills is matt pocock's collection of agent skills taken straight from his .agents directory, written for working engineers.\nit added 970 stars today to reach 309,920, the largest total of any repo on the trending page.",
-          "sources": [
-            {
-              "name": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily"
-            },
-            {
-              "name": "GitHub",
-              "url": "https://github.com/mattpocock/skills"
-            }
-          ],
-          "published_at": "2026-11-01T11:42:00Z",
-          "status": "new",
-          "updated": true,
-          "meta": {
-            "stars_today": 970,
-            "stars_total": 309920,
-            "language": "Shell",
-            "trending_rank": 11
+            "trending_rank": 2
           }
         },
         {
           "id": "d4vinci-scrapling",
           "section": "trending_repos",
-          "title": "scrapling adds 858 stars for scraping from one request to a full crawl",
-          "summary": "scrapling is a python scraping framework that adapts to site changes and scales from a single request to a full crawl.\nit added 858 stars today to reach 92,433 and sits #3 on github trending.",
+          "title": "scrapling adds 706 stars for scraping everything from one request to a full crawl",
+          "summary": "scrapling is a python scraping framework that handles a single fetch, stealth browser sessions and full crawls behind one api.\nit added 706 stars today to reach 93,116 and sits third on github trending, with its last push on monday evening.",
           "sources": [
             {
               "name": "GitHub Trending",
@@ -165,21 +83,125 @@
               "url": "https://github.com/D4Vinci/Scrapling"
             }
           ],
-          "published_at": "2026-11-02T14:39:00Z",
-          "status": "new",
+          "published_at": "2026-11-02T20:16:00Z",
+          "status": "updated",
           "updated": true,
           "meta": {
-            "stars_today": 858,
-            "stars_total": 92433,
+            "stars_today": 706,
+            "stars_total": 93116,
             "language": "Python",
             "trending_rank": 3
           }
         },
         {
+          "id": "hyprwm-hyprland",
+          "section": "trending_repos",
+          "title": "hyprland returns to trending with 509 stars for the independent wayland compositor",
+          "summary": "hyprland is a tiling wayland compositor built independently of the big desktop projects, known for animation and heavy customisation.\nit added 509 stars today to reach 40,002, the only non-ai repo in the top five and a reminder that desktop tooling still moves fast.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/hyprwm/Hyprland"
+            }
+          ],
+          "published_at": "2026-11-02T17:57:00Z",
+          "status": "new",
+          "updated": true,
+          "meta": {
+            "stars_today": 509,
+            "stars_total": 40002,
+            "language": "C++",
+            "trending_rank": 4
+          }
+        },
+        {
+          "id": "donchitos-claude-code-game-studios",
+          "section": "trending_repos",
+          "title": "claude-code-game-studios adds 1,379 stars for a 49-agent studio",
+          "summary": "the repo turns claude code into a game studio: 49 agents, 72 workflow skills and a coordination layer modelled on real studio roles.\nit added 1,379 stars today to reach 33,712 and held fifth on github trending even though it was last pushed in mid-october.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/Donchitos/Claude-Code-Game-Studios"
+            }
+          ],
+          "published_at": "2026-10-19T02:43:00Z",
+          "status": "steady",
+          "updated": false,
+          "meta": {
+            "stars_today": 1379,
+            "stars_total": 33712,
+            "language": "Shell",
+            "trending_rank": 5
+          }
+        },
+        {
+          "id": "flashml-freetoken",
+          "section": "trending_repos",
+          "title": "freetoken adds 653 stars for datacenter-scale model serving on a desktop",
+          "summary": "freetoken is a serving stack from flashml that aims to run large models locally at datacenter speeds instead of renting gpu time.\nit added 653 stars today to reach 16,165 and entered the trending page at sixth, with a commit as recently as 02:05 riyadh.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/FlashML-org/FreeToken"
+            }
+          ],
+          "published_at": "2026-11-02T23:05:00Z",
+          "status": "new",
+          "updated": true,
+          "meta": {
+            "stars_today": 653,
+            "stars_total": 16165,
+            "language": "Python",
+            "trending_rank": 6
+          }
+        },
+        {
+          "id": "pingdotgg-t3code",
+          "section": "trending_repos",
+          "title": "t3code has the biggest star gain of the day at 3,229",
+          "summary": "t3code is an agent control surface that drives claude code, codex, cursor, grok build and opencode from one app.\nit added 3,229 stars today to reach 42,242; github lists it seventh on the page despite the largest daily gain.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "trendshift",
+              "url": "https://trendshift.io/"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/pingdotgg/t3code"
+            }
+          ],
+          "published_at": "2026-11-03T03:31:00Z",
+          "status": "updated",
+          "updated": true,
+          "meta": {
+            "stars_today": 3229,
+            "stars_total": 42242,
+            "language": "TypeScript",
+            "trending_rank": 7
+          }
+        },
+        {
           "id": "shiyu-coder-kronos",
           "section": "trending_repos",
-          "title": "kronos adds 855 stars for a foundation model of financial markets",
-          "summary": "kronos is an open foundation model trained on market data to forecast price series rather than read news or fundamentals.\nit added 855 stars today to reach 45,834 and sits #8 on github trending, the only finance model in the top ten.",
+          "title": "kronos adds 857 stars for a foundation model of financial markets",
+          "summary": "kronos is a foundation model trained on market data that treats price series as a language, aimed at forecasting and regime work.\nit added 857 stars today to reach 46,059, still drawing traffic months after its last push in april.",
           "sources": [
             {
               "name": "GitHub Trending",
@@ -190,12 +212,12 @@
               "url": "https://github.com/shiyu-coder/Kronos"
             }
           ],
-          "published_at": "2026-11-02T12:38:00Z",
-          "status": "new",
-          "updated": true,
+          "published_at": "2026-04-13T12:38:00Z",
+          "status": "steady",
+          "updated": false,
           "meta": {
-            "stars_today": 855,
-            "stars_total": 45834,
+            "stars_today": 857,
+            "stars_total": 46059,
             "language": "Python",
             "trending_rank": 8
           }
@@ -203,22 +225,22 @@
       ],
       "watch": [
         {
-          "title": "T3 Code broke me",
-          "url": "https://www.youtube.com/watch?v=uLGxb4F3SyI",
-          "channel": "Theo - t3.gg",
-          "published_at": "2026-10-30T00:00:00Z"
+          "title": "T3 Code Review, but I Respect Your Time (November 2026)",
+          "url": "https://www.youtube.com/watch?v=atyZsZ4W9ag",
+          "channel": "Your Average Tech Bro",
+          "published_at": "2026-11-02T20:00:00Z"
         },
         {
-          "title": "Vercel Agent Desktop: Your AI Can Use the App It Built",
-          "url": "https://www.youtube.com/watch?v=14GQmIzvOgI",
-          "channel": "DanManREAL",
-          "published_at": "2026-11-02T06:00:00Z"
+          "title": "Agent Desktop: Free Open Source Computer Use, 40x Faster",
+          "url": "https://www.youtube.com/watch?v=iEhCLn9utDU",
+          "channel": "Prism Labs",
+          "published_at": "2026-11-02T21:00:00Z"
         },
         {
-          "title": "claude-mem Setup: Give Claude Code a Persistent Memory (Full Tutorial)",
-          "url": "https://www.youtube.com/watch?v=HNXvkn33h1k",
-          "channel": "GENZ TECH",
-          "published_at": "2026-10-05T00:00:00Z"
+          "title": "This Tool Lets You Run LLMs Locally at Scale | Colibri",
+          "url": "https://www.youtube.com/watch?v=0lsENDNZbjE",
+          "channel": "AI Everday",
+          "published_at": "2026-10-01T00:00:00Z"
         }
       ]
     },
@@ -227,190 +249,159 @@
       "title": "middle east",
       "items": [
         {
-          "id": "qatar-tehran-ceasefire",
+          "id": "us-qeshm-strikes",
           "section": "middle_east",
-          "title": "doha talks end without a deal but iran says they could restart soon",
-          "summary": "three days of qatari-mediated talks ended without a breakthrough, and iran said negotiations could resume 'within a short period' if washington meets its terms.\ntehran wants sanctions lifted, us forces back to earlier levels and the blockade ended, while rubio says trump has not decided on new strikes.",
+          "title": "us strikes iran's qeshm island in what officials call a defensive hit",
+          "summary": "us officials told the wall street journal that american aircraft hit targets on qeshm island on monday, and fox news said it came after iran fired at a us aircraft.\niranian state media reported explosions on qeshm and at bandar lengeh, while centcom did not respond to requests for comment.",
           "sources": [
             {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/video/newsfeed/2026/11/2/iran-says-us-talks-could-resume-within-a-short-period-if-demands-are-met"
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/11/03/iran-us-vance-trump-strikes.html"
             },
             {
               "name": "The Jerusalem Post",
-              "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE4zZG1Tam11dWtiZE1OZ3IzbTB2eGluTXNucmpwbVNLTWZEM3NNUjRUazZmUDhnM0ZKZEhqV2M1UkRfT2F0dFZ5eURjSUIxd09rWW84OHNJcjlZTVVhdlFKcGNIcEt1ajZEVUE?oc=5"
+              "url": "https://www.jpost.com/middle-east/iran-news/article-913644"
+            },
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/2026/11/3/explosions-hit-irans-qeshm-island-as-us-media-report-us-strikes-in-hormuz"
+            }
+          ],
+          "published_at": "2026-11-03T02:51:00Z",
+          "status": "new",
+          "updated": true,
+          "change": "the first confirmed us strike on iranian territory since the doha round began, after weeks of signals that washington would wait until after the midterms.",
+          "meta": {
+            "location": "Qeshm Island",
+            "actor": "US"
+          }
+        },
+        {
+          "id": "trump-no-new-strikes",
+          "section": "middle_east",
+          "title": "trump says no to more strikes on iran and says a deal could happen",
+          "summary": "asked on monday whether he was considering new strikes after the midterms, trump said no, and that an agreement with iran could happen.\nhe repeated that tehran will never be allowed a nuclear weapon, while vance said the two sides had good conversations and no deadline was set.",
+          "sources": [
+            {
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/middle-east/iran-news/article-913632"
             },
             {
               "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/02/oil-prices-fall-as-iran-us-pursue-diplomacy.html"
+              "url": "https://www.cnbc.com/2026/11/03/iran-us-vance-trump-strikes.html"
             }
           ],
-          "published_at": "2026-11-02T15:43:00Z",
-          "status": "updated",
-          "updated": true,
-          "change": "the doha round closed with no deal, but tehran kept the channel open and oil markets read it as de-escalation."
-        },
-        {
-          "id": "iran-hormuz-tankers",
-          "section": "middle_east",
-          "title": "irgc says 11 tankers have caught fire or sunk in hormuz in nine days",
-          "summary": "the irgc navy said 11 tankers have caught fire or sunk in the strait over nine days, and iran's army reported another tanker hitting a mine east of hormuz on monday.\nthe count is iranian state media's own and has not been independently verified, while ukmto has logged a tanker hit twice off ras al-khafji.",
-          "sources": [
-            {
-              "name": "Tasnim (via Google News)",
-              "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQZzA0VEpOMElHZXA0ZHZob0xPOVlaczA3MDJ5cC1YTFd4eDJlU2hRS1NJWHAwX1ljOFVYSU54ZFpFUUpqQ3dORnR2bXhzV19rNDhPOFY5eUY2Qmlzd2VkQkVLTzRaMVRnY3NvQ2Q0ZmtNYS1lczh6czVMUXJvWTF6dmZLTXlPTDdxd3pYYzVzUE5rZVlwUEl1LVI2NE0wYldlX1VIdGhHU0bSAa4BQVVfeXFMUHVuVklvNzBoTnZOZmhSYnh5NUlrbzZmS3d6REN6YmdnQ1Njby1fd1hYUDV6dlNUb1hsZEFYaWw2bTBjZnBYdTBKX05vRXBLWDI4YVhYcEdBV1BpYlIxQ0ZlU1lyVElvdm45X19LWHY3S2xfLU0tdEgtd3ZvNER3R3hFeXJROG1oQ2hHQTdMVVoxcldKa0RLX1BRRS1YMDVzaEhzdFpCR2J5LWEwa01B?oc=5"
-            },
-            {
-              "name": "Anadolu Agency (via Google News)",
-              "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPMk9abTd1ajFtSUlLU2NQOXFWYTJKaC1XZnpIUmlGUFhCQ0FWWUw1UDVnY2NoeGJwbzdCbWp6YUd1dWlRcTk0blBvbHprRGx4Q3EtLUZHWjJlN3NrTWdrWXdaeDZDRlFULS1Nc2o0SWd2ckdCU2hrb3BkMEJqbFdkR3h3VElPUlEwV29UaW1za1dmMVlhU2czS084cUpJaDNWNUh0LV9jSDZuUlRrSGJ5SFAzR1lnbHppZFYyODR0NmwzcWRETGxhNy03ZGs1aWJKZWNTeEszT0FFSUE?oc=5"
-            },
-            {
-              "name": "AzerNews (via Google News)",
-              "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE90STBKWU9Bc094TW13WjRvc095ZUZrX2xVbVJ5bEV5bTd1SEhVWE9rMGxJQWVtZ0NHYnNKaTVzci1GUnFxaHRfOTdmX3dXRE9pekV1ag?oc=5"
-            }
-          ],
-          "published_at": "2026-11-02T14:40:00Z",
-          "status": "updated",
-          "updated": true,
-          "change": "the irgc put a cumulative number on the campaign for the first time, 11 vessels in nine days, as another ship hit a mine."
-        },
-        {
-          "id": "qatar-lng-carrier-hit",
-          "section": "middle_east",
-          "title": "qatar says one of its lng carriers was hit in the gulf and riyadh backs doha",
-          "summary": "nakilat's al mayeda was struck by 'unidentified objects' on friday evening, qatar said, with no injuries or spill and the vessel still operational.\ndoha called it a dangerous act against global energy supplies and saudi arabia said it stood with qatar, the first strike on qatari lng shipping in this round.",
-          "sources": [
-            {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/11/1/qatar-lng-carrier-struck-by-unidentified-objects-in-gulf"
-            }
-          ],
-          "published_at": "2026-11-01T22:36:00Z",
+          "published_at": "2026-11-02T23:52:00Z",
           "status": "new",
           "updated": true,
-          "change": "qatar confirmed a hit on its own lng carrier and both doha and riyadh condemned it, widening the list of energy exporters drawn in."
+          "change": "a direct walk-back of the post-midterm strike threat he had been hinting at for weeks, on the eve of the vote.",
+          "meta": {
+            "actor": "Donald Trump"
+          }
+        },
+        {
+          "id": "qatar-tehran-ceasefire",
+          "section": "middle_east",
+          "title": "doha talks stay alive as vance reports progress and iran says the ball is with washington",
+          "summary": "vance said the us and iran had a number of good conversations and that he and trump feel good about a negotiated settlement, with no deadline.\ntehran says washington must lift the blockade, ease sanctions and cut its regional force posture before any deal; qatar has not announced a new round.",
+          "sources": [
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/11/03/iran-us-vance-trump-strikes.html"
+            },
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/liveblog/2026/11/3/iran-war-live-vance-sees-progress-in-talks-tehran-says-ball-in-us-court"
+            },
+            {
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/middle-east/iran-news/article-913632"
+            }
+          ],
+          "published_at": "2026-11-03T01:05:00Z",
+          "status": "updated",
+          "updated": true,
+          "change": "the doha round ended without a deal, but washington now publicly calls the talks progress while tehran says the next move is american.",
+          "meta": {
+            "talks": "Doha",
+            "mediator": "Qatar"
+          }
         },
         {
           "id": "israel-coalition-talks",
           "section": "middle_east",
-          "title": "arab parties back eisenkot as herzog starts coalition talks with the smallest factions",
-          "summary": "ra'am and the joint list will recommend gadi eisenkot for prime minister, joining bennett, liberman and the democrats in a bloc that reaches 67 only with the 19 arab seats.\nherzog broke with precedent and will meet the smallest factions first from wednesday, ending with likud on thursday night, before deciding who gets the mandate.",
+          "title": "israel's opposition leaders meet jointly for the first time since the election",
+          "summary": "eisenkot, bennett, liberman, golan and lapid meet on tuesday morning, with the opposition bloc converging on eisenkot for prime minister.\nherzog begins consultations with the smallest knesset factions on wednesday; liberman also backed lapid for speaker.",
           "sources": [
             {
               "name": "The Jerusalem Post",
-              "url": "https://www.jpost.com/israel-election-2026/article-913577"
-            },
-            {
-              "name": "The Jerusalem Post",
-              "url": "https://www.jpost.com/israel-election-2026/article-913583"
+              "url": "https://www.jpost.com/israel-election-2026/article-913625"
             },
             {
               "name": "Al Jazeera",
               "url": "https://www.aljazeera.com/news/2026/11/2/arab-parties-back-eisenkot-whats-the-latest-in-israels-coalition-talks"
             }
           ],
-          "published_at": "2026-11-02T16:46:00Z",
-          "status": "new",
+          "published_at": "2026-11-02T21:03:00Z",
+          "status": "updated",
           "updated": true,
-          "change": "the arab parties moved from possible outside support to naming eisenkot, and herzog reversed the order of consultations to force new options."
+          "change": "the opposition bloc has now united behind eisenkot in public, one day before herzog's consultations formally begin.",
+          "meta": {
+            "candidate": "Gadi Eisenkot"
+          }
         },
         {
           "id": "yemen-jawf-offensive",
           "section": "middle_east",
-          "title": "yemen's government pushes into al-jawf and takes a ridge east of al-hazm",
-          "summary": "government forces and their allies took the huwaishan mountains east of al-hazm in a counteroffensive under operation dawn of yemen, a commander told al jazeera.\nal-jawf borders saudi arabia and shields marib, and the coalition said it intercepted a ballistic missile as the fighting ran into a second day.",
+          "title": "saudi air defences intercept a houthi missile as fighting grinds on in al-jawf",
+          "summary": "the saudi-led coalition said it destroyed a ballistic missile aimed at the kingdom's south on monday, after downing a drone on sunday night.\nhouthi media reported seven wounded in coalition strikes on hodeidah, while yemen's army says its al-jawf push killed about 500 fighters in 24 hours.",
           "sources": [
             {
               "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/11/2/al-jawf-becomes-new-hotspot-in-yemen-war-between-government-forces-houthis"
-            },
-            {
-              "name": "Al Jazeera (via Google News)",
-              "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQcDdybGI4VjV5MVJtOTMwR21NUVVYZnNDLUVSVW1va2VBOVpmeTZrR3lBUnVjb1ViN2xoeEFvMXhJanlLel9XWHY4Njl1MHpKX1U3c0h3S1VuTVRMTlhuYWtwZ1JjaTFVWk1Da2lqd09fTVdMNWF5X0kyXzVtZHhmU2ZBMlZlajFjSkZieFhmd092ckw5Ty1WZEtYd0VOa2U0dXVycVlhaFFNckd1RUVmaVV3T1RQMFpL0gG-AUFVX3lxTE1ReEZ6dGplTGlsSGk2V3lNZ3hMTEo1X00yYmwzc0RkUDVTcHByRUtCT3U5LTB0dUVCazY3UVhNaGtkdDRaVXRVaFFFdWt2R3VtM2lzbTJpZTJFMlRiOEo3N3hUY3BCNENxOWI0ZzR1TlhqRGZpQW42SUw0bjZ1amlxNDB1M0w5STVMRFBUaXIyZkp5VF9XaW94eXh1dGtudU1QSHA0R2dMWE0tYnRrZjRoM3BzXzBNNDAzR0V1aFE?oc=5"
+              "url": "https://www.aljazeera.com/news/2026/11/2/saudi-led-coalition-intercepts-a-missile-as-fighting-rages-in-yemens-al-jawf"
             }
           ],
-          "published_at": "2026-11-02T12:14:00Z",
-          "status": "new",
-          "updated": true,
-          "change": "the government opened a new front in al-jawf and claimed its first ridge, shifting the war's centre from the red sea coast."
-        },
-        {
-          "id": "saudi-alerts-intercept",
-          "section": "middle_east",
-          "title": "saudi arabia sounds alerts across the south then gives the all-clear",
-          "summary": "civil defence sirens went off in jazan, najran and abha on monday morning and were cleared within hours, with the coalition saying it intercepted a ballistic missile aimed at the southern region.\nhouthi media said the coalition carried out 75 strikes on houthi-held areas in the past day, and the eu and uk both condemned the escalation.",
-          "sources": [
-            {
-              "name": "Reuters (via Google News)",
-              "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOTmhEQmdqTzRHX3pXZXZRZC1WYXhvUHVtcTJEcS1UMUZWYnZUcTZtdS1fekpDdTNrWXJzSWp5LTBRUHpaTVdTOVlHeFZraWNiT1RnRmgtcTkxZ0pvaUR2VkRZV2d1ZVZTdjJMQklhcGlhbWR0aC1HV3I3bDdsRkN2dVpiZ1N5V3N1Z1pBSVExdlh1VldUSmNYWUV6SGhlV3UtMHZJMWtDRGR1ZkNWRWcyVTh6TlpCYmpxazc4?oc=5"
-            },
-            {
-              "name": "Anadolu Agency (via Google News)",
-              "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPNjYxOVVJdG1oR21iQkhsZkR0d0JCZHY5NE1xMHdJVFJVUy1rbWN6QzBJZk1naHRfRlJvVGptWklVTG1sV2o5Mm5PX2NRWUhSb2tYUlNsNlJ2cXB2bVVYOEdqdlhvcTJQN1Z5LUNOS2pQRnczWDdNV2hrOFc4bVBZclliaXNoQXVwY056MjBJcUNmN0lMdVV6c09SLU0tcjlzX3RBcVptdm9Fc2tCeUVndUtib1RSMDZRNWZ2TjNDclRrd1dPMnZSQ2wtbFB0MmZGZ1dlTA?oc=5"
-            },
-            {
-              "name": "Al Arabiya English (via Google News)",
-              "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPU1NFSll2R2N0YTJRcnZpVENyWU9WRHJJWVh0b0hkZFlUQWthanduZFhqemFrclIzaWdxbEVvbG9DT0tYOGEyd1JTXzItLXJlZW42MGxlS25MbkpPaEVhYWxONHdkMUlVZlNyek1DWlFlM0FoNmZ4blZGdVBicklLdWU3OEt4Rm1FQzN3SG5ZTXNhUnJVWkgwYnI5YnRuTGdhcUc1SDhtdlpPSFh1YkFxTEN0RFhvTFdSUzJLZDdudXlTUlRT0gHKAUFVX3lxTE1ybDZsT1I2S0xxRzVrcEIwNkpDbGdFRVhQWW0wV3N3ZS1pa2Ezd3NYWDRZOGJlVWxjU3g5eVVWYktCU1RiTVMyZGRrZEtJbjNVRDdxWlgxSHBtRFFxSnhpclI5NHVxSEU2dWZkSHdpbzFBZnNGdXJCTzZiYmh6N0ctWVc4MktQZndEMWMxQzgtbDBaelhMOWpsdUoybzNpemZQcEk2NnlYajJNcEtJUG9FWGM4MHJVRG9oOVh2d0VqNmxiVkVmRHNFNkE?oc=5"
-            }
-          ],
-          "published_at": "2026-11-02T12:33:00Z",
-          "status": "new",
-          "updated": true,
-          "change": "alerts reached three southern cities in one morning and the coalition said it intercepted a missile, a day after it announced an operation against houthi resources."
-        },
-        {
-          "id": "us-warns-iran-strikes",
-          "section": "middle_east",
-          "title": "iran's military says it has new weapons and a wider target list if war restarts",
-          "summary": "irgc and army commanders told al jazeera they expanded their target database and improved missile range and accuracy during the ceasefire, and would use undisclosed capabilities if attacked again.\nkhamenei has told the armed forces to answer any strike immediately and beyond the region, while trump says the war will end 'very soon one way or the other'.",
-          "sources": [
-            {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/11/2/how-would-tehran-respond-if-the-us-and-israel-bomb-iran"
-            },
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/02/oil-prices-fall-as-iran-us-pursue-diplomacy.html"
-            }
-          ],
-          "published_at": "2026-11-02T14:17:00Z",
+          "published_at": "2026-11-02T10:14:00Z",
           "status": "updated",
           "updated": true,
-          "change": "iran's commanders went public with specifics on what they would use in a third round, after khamenei authorised a response without geographic limits."
+          "change": "the coalition reported intercepts on two straight nights while the government's al-jawf campaign widened toward marib and al-bayda.",
+          "meta": {
+            "front": "al-Jawf"
+          }
         },
         {
-          "id": "un-houthi-detention",
+          "id": "hormuz-tanker-strikes",
           "section": "middle_east",
-          "title": "un chief condemns the death of a staff member in houthi detention",
-          "summary": "antonio guterres condemned the death of a un staff member held by the houthis in yemen, according to anadolu agency.\nthe staffer was mohammad el-shami of the un human rights office, whose death the un confirmed this weekend and wants investigated.",
+          "title": "two projectiles hit a tanker off ras al-khafji as hormuz attacks continue",
+          "summary": "ukmto says two unidentified projectiles struck a tanker's port side 72 nautical miles east of ras al-khafji late on sunday, with all crew accounted for.\nit followed a mayday from another vessel in the strait, and oman's navy has evacuated 25 crew from the burning panama-flagged riti.",
           "sources": [
             {
-              "name": "Anadolu Agency (via Google News)",
-              "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNNjl4Q2x4WUkzWHFQdTMwNzJ1UmlGZjhNSXNRWGI2REhveFBjSjlZX3NIdGhXcmRoUzJ3cEVIYnphU1g2T0pxY2FIMjZxV2VDVXZKU21JU0pOaGJwU09kY1M1c1NESTlDbW5qTEZKQ3NRSmFkakdfYTgwYjB6WWVEQnc0ay1xUnFoMk42MHBsaHc1eGxOWGtlaFpMTXo0MWhqRWRvU01vdVVzTFdkX0xFdWlwQQ?oc=5"
-            },
-            {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/11/1/un-demands-investigation-after-staffers-death-in-houthi-custody-in-yemen"
+              "name": "gCaptain",
+              "url": "https://gcaptain.com/new-wave-of-attacks-hits-tankers-and-lng-carrier-in-strait-of-hormuz-and-persian-gulf/"
             }
           ],
-          "published_at": "2026-11-02T02:37:00Z",
-          "status": "steady",
-          "updated": false,
-          "change": "no change since the morning build; the un is still waiting on the houthis to allow an investigation."
+          "published_at": "2026-11-02T16:00:00Z",
+          "status": "new",
+          "updated": true,
+          "change": "another night of strikes on commercial shipping despite the doha talks, this time close to the saudi coast and with a second vessel in distress.",
+          "meta": {
+            "location": "72nm east of Ras Al Khafji",
+            "reported_by": "UKMTO"
+          }
         }
       ],
       "watch": [
         {
-          "title": "Hormuz Reopening Talks Advance as Iran Warns of Wider Response if Attacked",
-          "url": "https://www.youtube.com/watch?v=kmTPeYQP8u4",
-          "channel": "Bloomberg Television",
-          "published_at": "2026-11-02T08:00:00Z"
+          "title": "Explosions reported on Iran's Qeshm Island amid fears of renewed war",
+          "url": "https://www.youtube.com/watch?v=LM5cN7R3yVs",
+          "channel": "Al Jazeera English",
+          "published_at": "2026-11-02T23:30:00Z"
         },
         {
-          "title": "Arab parties could play key role in Israeli election",
-          "url": "https://www.youtube.com/watch?v=p0SJIuzrM0A",
-          "channel": "DW News",
-          "published_at": "2026-10-22T00:00:00Z"
+          "title": "The next steps in Israel's inconclusive election",
+          "url": "https://www.youtube.com/watch?v=c6TXwJtjNB4",
+          "channel": "ABC News (Australia)",
+          "published_at": "2026-11-02T21:00:00Z"
         }
       ]
     },
@@ -421,39 +412,38 @@
         {
           "id": "session-monday",
           "section": "us_markets",
-          "title": "s&p 500 climbs 0.9% as oil's slide outweighs a heavy earnings week",
-          "summary": "the s&p 500 was at 7,640.93, up 0.80%, and the nasdaq-100 up 0.91% at 28,642 in early trading on monday.\nthe vix fell 4.1% to 18.61, with the oil collapse and tuesday's midterms setting the tone after friday's 1.8% drop.",
+          "title": "s&p 500 slips 0.5% and nasdaq drops 1.1% as the tech selloff resumes",
+          "summary": "the s&p 500 closed at 7,541.40 and the nasdaq composite at 25,164.36, while the dow rose 0.4% to 51,983.98 as money rotated out of tech.\nthe nasdaq-100 fell 1.4% to 27,989.82, its third correction this year, and the vix jumped 8.9% to 21.15.",
           "sources": [
             {
-              "name": "TradingView",
-              "url": "https://www.tradingview.com/symbols/SPX/"
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/11/02/stock-market-today-live-updates.html"
             },
             {
               "name": "Yahoo Finance",
-              "url": "https://finance.yahoo.com/quote/%5ENDX/"
+              "url": "https://finance.yahoo.com/quote/%5EGSPC/"
             },
             {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/02/wall-streets-fear-index-is-doing-something-strange-heres-what-it-means-for-stocks.html"
+              "name": "Yahoo Finance",
+              "url": "https://finance.yahoo.com/quote/%5EVIX/"
             }
           ],
-          "published_at": "2026-11-02T16:00:00Z",
+          "published_at": "2026-11-02T21:00:00Z",
           "status": "new",
           "updated": true,
           "meta": {
-            "spx": 7640.93,
-            "spx_pct": 0.8,
-            "ndx": 28642.19,
-            "ndx_pct": 0.91,
-            "vix": 18.61,
-            "vix_pct": -4.12
+            "spx": 7541.4,
+            "nasdaq": 25164.36,
+            "dow": 51983.98,
+            "vix": 21.15,
+            "ndx": 27989.82
           }
         },
         {
           "id": "oil-retreat",
           "section": "us_markets",
-          "title": "brent falls 6.4% to $106 as iran talks and rubio's diplomacy line drain the war premium",
-          "summary": "brent crude for january fell 6.4% to $106.17 and wti 6.4% to $97.42 after rubio said trump would prefer to end the iran war peacefully and araghchi said a deal was possible.\nthe move unwound most of the gain that took brent to $117.64 at friday's settlement, even as tankers kept burning in hormuz.",
+          "title": "brent falls 7.6% to $104.77 as traders price in an iran deal",
+          "summary": "brent settled at $104.77 and wti at $96.46, drops of 7.6% and 7.4%, after trump and pezeshkian both talked up a diplomatic path.\nwti's fall was its biggest daily loss since 27 july; brent edged back to $104.82 after the qeshm strike report.",
           "sources": [
             {
               "name": "CNBC",
@@ -464,154 +454,140 @@
               "url": "https://www.tradingview.com/symbols/ICEEUR-BRN1!/"
             }
           ],
-          "published_at": "2026-11-02T15:56:00Z",
+          "published_at": "2026-11-02T20:19:00Z",
           "status": "updated",
           "updated": true,
-          "change": "crude gave back about $11 from friday's settlement as washington and tehran both talked up diplomacy.",
           "meta": {
-            "brent": 106.17,
-            "brent_pct": -6.4,
-            "wti": 97.42,
-            "wti_pct": -6.43
+            "brent": 104.77,
+            "wti": 96.46,
+            "brent_change_pct": -7.6,
+            "wti_change_pct": -7.4
           }
         },
         {
-          "id": "marvell-lumentum-deal",
+          "id": "apple-earnings",
           "section": "us_markets",
-          "title": "marvell buys lumentum in an all-stock deal valued at $115bn for ai optics",
-          "summary": "marvell will pay 4.5 of its shares for each lumentum share, an implied enterprise value of $115bn, to combine electrical and optical gear for ai data centres.\nmarvell fell 6.5% and lumentum 10.5% as the fixed-ratio deal left both exposed to marvell's price, with closing targeted for the first half of 2028.",
+          "title": "apple beats but warns memory costs will squeeze the holiday quarter",
+          "summary": "apple beat fiscal fourth-quarter estimates on iphone and services and forecast its biggest revenue quarter ever.\nthe stock fell nearly 3% after hours after management said memory costs and siri ai spending will weigh on holiday margins.",
           "sources": [
             {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/02/marvell-lumentum-ai-deal.html"
+              "name": "9to5Mac",
+              "url": "https://9to5mac.com/2026/11/02/apple-stock-drops-nearly-3-after-hours-following-q4-2026-results/"
             },
             {
-              "name": "TradingView",
-              "url": "https://www.tradingview.com/symbols/NASDAQ-MRVL/"
+              "name": "9to5Mac",
+              "url": "https://9to5mac.com/2026/11/02/apple-says-memory-costs-and-siri-ai-will-weigh-on-holiday-quarter-profit-margins/"
+            },
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/investingclub/2026/11/02/apples-quarter-is-not-perfect-but-with-enough-to-like-we-raised-our-price-target.html"
             }
           ],
-          "published_at": "2026-11-02T14:23:00Z",
+          "published_at": "2026-11-03T01:07:00Z",
           "status": "new",
           "updated": true,
           "meta": {
-            "ticker": "MRVL",
-            "mrvl_pct": -6.53,
-            "lite_pct": -10.51
+            "ticker": "AAPL",
+            "after_hours_pct": -3.0
           }
         },
         {
-          "id": "oracle-raise",
+          "id": "palantir-earnings",
           "section": "us_markets",
-          "title": "oracle falls 5% after filing to sell $20bn of stock and bonds for ai buildout",
-          "summary": "oracle will sell $10bn of common stock and $10bn of senior notes, money it says may go to capital spending, debt repayment and future investments.\nthe shares fell 5.5% to $123.45 and are down 33% this year, with its 2031 bond yielding 7.27% as investors price the cost of the ai buildout.",
+          "title": "palantir's us commercial revenue overtakes government for the first time",
+          "summary": "palantir reported revenue above $2bn, nearly double a year ago, with net income of $1.13bn or 44 cents a share.\nus commercial revenue rose 148% to $984m against $953m from government, and the company guided to about $8.53bn for the full year.",
           "sources": [
             {
               "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/02/oracle-files-to-sell-20-billion-in-new-stock-bonds-to-finance-ai-buildout.html"
-            },
-            {
-              "name": "TradingView",
-              "url": "https://www.tradingview.com/symbols/NYSE-ORCL/"
+              "url": "https://www.cnbc.com/2026/11/02/palantir-pltr-earnings-q3-2026.html"
             }
           ],
-          "published_at": "2026-11-02T15:53:00Z",
+          "published_at": "2026-11-02T22:53:00Z",
           "status": "new",
           "updated": true,
           "meta": {
-            "ticker": "ORCL",
-            "close": 123.45,
-            "pct": -5.53
+            "ticker": "PLTR",
+            "revenue": "2.0bn+",
+            "eps": 0.44
           }
         },
         {
-          "id": "earnings-monday",
+          "id": "earnings-tuesday",
           "section": "us_markets",
-          "title": "apple and palantir report after the close with apple down into the print",
-          "summary": "apple, palantir, vertex and on semiconductor report after the us close, with marriott, estee lauder and tower semiconductor before the open.\napple was 0.8% lower at $341.96 ahead of consensus of $1.98 a share, and amd follows on tuesday after falling 10.9% on friday.",
+          "title": "amd and amgen headline a heavy tuesday earnings slate",
+          "summary": "shopify, pfizer, ferrari, marathon petroleum, eaton and apollo report before the open on midterm day.\namd, amgen, arista, booking, aig and block report after the close, with amd the main ai read-across.",
           "sources": [
             {
-              "name": "Nasdaq earnings calendar",
+              "name": "Nasdaq",
               "url": "https://www.nasdaq.com/market-activity/earnings"
-            },
-            {
-              "name": "TradingView",
-              "url": "https://www.tradingview.com/symbols/NASDAQ-AAPL/"
             }
           ],
-          "published_at": "2026-11-02T13:30:00Z",
-          "status": "updated",
+          "published_at": "2026-11-03T03:00:00Z",
+          "status": "new",
           "updated": true,
-          "change": "the names are unchanged but apple now trades slightly lower into the print after the morning rally faded in megacap chips."
+          "meta": {
+            "before_open": [
+              "SHOP",
+              "PFE",
+              "RACE",
+              "MPC",
+              "ETN",
+              "APO"
+            ],
+            "after_close": [
+              "AMD",
+              "AMGN",
+              "ANET",
+              "BKNG",
+              "AIG",
+              "XYZ"
+            ]
+          }
         },
         {
-          "id": "ism-manufacturing",
+          "id": "macro-tuesday",
           "section": "us_markets",
-          "title": "ism manufacturing beats at 55.5 as construction spending falls 1.9%",
-          "summary": "the ism manufacturing index rose to 55.5 for october from 54.5, ahead of the 54.6 consensus, with new orders at 55.5 and prices paid easing to 75.2.\nconstruction spending dropped 1.9% against a 0.4% gain expected, and goolsbee speaks at 19:15 riyadh before jolts on tuesday and payrolls on friday.",
+          "title": "midterms, jolts and factory orders fill tuesday's calendar",
+          "summary": "voters go to the polls while jolts job openings land at 18:00 riyadh, forecast at 7.13 million against 7.08 million last time.\nfactory orders are expected up 1.2% at the same hour, and the api publishes crude stocks after the close.",
           "sources": [
             {
-              "name": "TradingView economic calendar",
+              "name": "TradingView",
               "url": "https://www.tradingview.com/economic-calendar/"
             }
           ],
-          "published_at": "2026-11-02T15:00:00Z",
-          "status": "updated",
-          "updated": true,
-          "change": "the print came in at 55.5 against 54.6 expected, a stronger factory reading than the morning preview assumed.",
-          "meta": {
-            "ism": 55.5,
-            "consensus": 54.6,
-            "previous": 54.5,
-            "construction_pct": -1.9
-          }
-        },
-        {
-          "id": "anthropic-s1",
-          "section": "us_markets",
-          "title": "anthropic books $17bn in q3 revenue and $895bn of compute commitments",
-          "summary": "the amended s-1 shows $33.24bn of revenue for the first nine months, up about 1,200% from a year earlier, and a $104bn net loss mostly from convertible notes.\nq3 revenue growth slowed to 47% from 144% in q2, while committed spend on compute and infrastructure reached $895.4bn ahead of its roadshow.",
-          "sources": [
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html"
-            }
-          ],
-          "published_at": "2026-11-02T15:59:00Z",
+          "published_at": "2026-11-03T03:00:00Z",
           "status": "new",
           "updated": true,
           "meta": {
-            "q3_revenue_bn": 17,
-            "commitments_bn": 895.4
+            "jolts_forecast": 7.13,
+            "factory_orders_forecast": 1.2
           }
         },
         {
-          "id": "top-movers",
+          "id": "futures-overnight",
           "section": "us_markets",
-          "title": "megacap tech carries the tape while energy and ai financing names lag",
-          "summary": "tesla rose 3.5%, nvidia 1.4% and alphabet 1.9% in a broad tech bid, with the nasdaq-100 up 0.9%.\nexxon fell 2.4% and chevron 1.6% with crude, while oracle lost 5.5%, marvell 6.5% and lumentum 10.5% on funding and deal terms.",
+          "title": "futures edge higher after the selloff while oil holds near $105",
+          "summary": "s&p 500 futures were up 0.02% and nasdaq-100 futures up 0.4% at 06:30 riyadh, with brent at $104.82.\nthe dollar was flat at 101.8, gold slipped to $3,947 and the 10-year yield held at 4.91%.",
           "sources": [
             {
-              "name": "Yahoo Finance gainers",
-              "url": "https://finance.yahoo.com/markets/stocks/gainers/"
-            },
-            {
-              "name": "Yahoo Finance losers",
-              "url": "https://finance.yahoo.com/markets/stocks/losers/"
+              "name": "Yahoo Finance",
+              "url": "https://finance.yahoo.com/quote/ES%3DF/"
             },
             {
               "name": "TradingView",
-              "url": "https://www.tradingview.com/markets/stocks-usa/market-movers-large-cap/"
+              "url": "https://www.tradingview.com/markets/"
             }
           ],
-          "published_at": "2026-11-02T16:00:00Z",
+          "published_at": "2026-11-03T03:30:00Z",
           "status": "new",
           "updated": true,
           "meta": {
-            "tsla_pct": 3.51,
-            "nvda_pct": 1.4,
-            "googl_pct": 1.88,
-            "xom_pct": -2.39,
-            "cvx_pct": -1.55
+            "es_pct": 0.02,
+            "nq_pct": 0.4,
+            "brent": 104.82,
+            "dxy": 101.83,
+            "gold": 3947.4,
+            "us10y": 4.91
           }
         }
       ],
@@ -622,77 +598,151 @@
       "title": "liverpool",
       "items": [
         {
-          "id": "arsenal-anfield-defeat",
+          "id": "fenerbahce-champions-league",
           "section": "liverpool",
-          "title": "arsenal win at anfield for the first time since 2012 and leave liverpool fifth",
-          "summary": "kai havertz tapped in declan rice's low cross on 16 minutes after alisson's poor pass out put liverpool behind at anfield.\narsenal go top on 24 points, liverpool stay fifth and nine points back after a second league defeat of the season.",
+          "title": "liverpool take a perfect champions league record to fenerbahce",
+          "summary": "liverpool have won all three league-phase games and can move close to early qualification with a win in istanbul on wednesday.\nkick-off is 20:45 riyadh at sukru saracoglu, with clement turpin of france refereeing.",
           "sources": [
             {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/sports/2026/11/1/arsenal-go-top-after-narrow-win-at-liverpool"
+              "name": "Liverpool FC",
+              "url": "https://www.liverpoolfc.com/news/champions-league-who-is-the-referee-for-fenerbahce-v-liverpool"
+            },
+            {
+              "name": "Liverpool FC",
+              "url": "https://www.liverpoolfc.com/news/fenerbahce-v-liverpool-tv-channels-live-commentary-and-ucl-highlights-guide"
             },
             {
               "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/match-reports/andoni-iraola-needs-more-239m-34847084"
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/rio-ngumoha-liverpool-standby-andoni-34848648"
             }
           ],
-          "published_at": "2026-11-01T19:09:00Z",
+          "published_at": "2026-11-02T16:00:00Z",
+          "status": "updated",
+          "updated": true,
+          "meta": {
+            "kickoff": "2026-11-04T17:45:00Z",
+            "venue": "Sukru Saracoglu",
+            "referee": "Clement Turpin"
+          }
+        },
+        {
+          "id": "liverpool-team-news",
+          "section": "liverpool",
+          "title": "frimpong out and bradley still missing as iraola weighs another big rotation",
+          "summary": "frimpong is out until after the international break and bradley has been sidelined since january, while leoni is due back in training this month.\nalisson stays first choice despite his error against arsenal, and iraola is expected to rotate again for an eighth game in 29 days.",
+          "sources": [
+            {
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/rio-ngumoha-liverpool-standby-andoni-34848648"
+            }
+          ],
+          "published_at": "2026-11-03T01:00:00Z",
+          "status": "updated",
+          "updated": true,
+          "meta": {
+            "out": [
+              "Frimpong",
+              "Bradley"
+            ],
+            "returning": [
+              "Leoni"
+            ]
+          }
+        },
+        {
+          "id": "arsenal-anfield-defeat",
+          "section": "liverpool",
+          "title": "arsenal's first league win at anfield since 2012 leaves liverpool fifth",
+          "summary": "havertz scored the only goal after alisson's misplaced pass, and liverpool did not manage a shot on target.\nthe defeat ended a five-match winning run and left liverpool nine points behind the leaders.",
+          "sources": [
+            {
+              "name": "BBC Sport",
+              "url": "https://www.bbc.co.uk/sport/football/articles/cqj9kgyww478o"
+            },
+            {
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/three-reasons-liverpool-didnt-enough-34850929"
+            }
+          ],
+          "published_at": "2026-11-01T18:38:00Z",
           "status": "steady",
           "updated": false,
           "meta": {
-            "score": "Liverpool 0-1 Arsenal",
-            "scorer": "Kai Havertz 16'",
+            "score": "0-1",
             "position": 5
           }
         },
         {
           "id": "penalty-controversy",
           "section": "liverpool",
-          "title": "van dijk asks what 50 cameras are for as the var row runs into monday",
-          "summary": "van dijk said the pull on isak was 'a clear penalty' and asked why the forward had to complain when 50 cameras saw it, after madley and var waved both appeals away.\ncarragher and neville both said it was a penalty, and the echo's monday column said officiating under howard webb is getting worse.",
+          "title": "former ref keith hackett says timber should have been sent off at anfield",
+          "summary": "hackett, a former fifa and premier league referee, says jurrien timber's shirt pull on isak was a clear penalty and a red card.\nthe echo reports his view that var should have sent andy madley to the monitor; iraola called the isak incident a clear penalty.",
           "sources": [
             {
               "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/van-dijk-liverpool-var-arsenal-34847973"
-            },
-            {
-              "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/officiating-getting-worse-under-howard-34850078"
-            },
-            {
-              "name": "BBC Sport",
-              "url": "https://www.bbc.co.uk/sport/football/videos/c3x2wkkpr2veo"
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/premier-league-liverpool-var-arsenal-34852292"
             }
           ],
-          "published_at": "2026-11-02T13:15:00Z",
+          "published_at": "2026-11-02T17:19:00Z",
           "status": "updated",
           "updated": true,
-          "change": "the row moved from iraola's post-match comments to van dijk's tv interview and a wider attack on webb and var."
+          "meta": {
+            "reliability": "opinion - former official",
+            "referee": "Andy Madley"
+          }
         },
         {
-          "id": "alisson-mistake",
+          "id": "gravenberch-nyoni",
           "section": "liverpool",
-          "title": "alisson's second careless pass in a week hands arsenal the only goal",
-          "summary": "alisson's ball intended for jacquet went straight to arsenal and ended with havertz scoring, a week after a similar pass against brighton nearly cost liverpool.\nmamardashvili was solid in the carabao cup win over chelsea, and alisson is in the last year of his contract with the pressure now on his place.",
+          "title": "gravenberch's bench role grows as nyoni makes his case in midfield",
+          "summary": "gravenberch was an unused substitute against arsenal, the first time he has not played a minute in an available premier league game since april 2024.\nnyoni started his first premier league game and says iraola is deliberately moving him between the six and the eight.",
           "sources": [
             {
               "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/what-happened-after-trey-nyoni-34846476"
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/ryan-gravenberch-future-intrigue-grows-34848655"
             },
             {
-              "name": "BBC Sport",
-              "url": "https://www.bbc.co.uk/sport/football/articles/cqj9kgyww478o"
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/trey-nyoni-explains-new-liverpool-34852761"
             }
           ],
-          "published_at": "2026-11-02T05:00:00Z",
+          "published_at": "2026-11-02T18:43:00Z",
+          "status": "updated",
+          "updated": true,
+          "meta": {
+            "players": [
+              "Ryan Gravenberch",
+              "Trey Nyoni"
+            ]
+          }
+        },
+        {
+          "id": "ngumoha-standby",
+          "section": "liverpool",
+          "title": "ngumoha on standby for istanbul as iraola considers moving araujo to right-back",
+          "summary": "with frimpong out, gomez and szoboszlai are right-back options and araujo could shift there, which opens a rotation path for ngumoha.\ntsimikas, with three assists in his last two champions league starts, is pressing kerkez at left-back.",
+          "sources": [
+            {
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/rio-ngumoha-liverpool-standby-andoni-34848648"
+            }
+          ],
+          "published_at": "2026-11-03T01:00:00Z",
           "status": "new",
-          "updated": true
+          "updated": true,
+          "meta": {
+            "players": [
+              "Rio Ngumoha",
+              "Ronald Araujo",
+              "Kostas Tsimikas"
+            ]
+          }
         },
         {
           "id": "transfer-roundup",
           "section": "liverpool",
-          "title": "spanish media tell trent to accept third-choice status despite mourinho's praise",
-          "summary": "mundo deportivo called trent's display at racing santander 'fallon' even after mourinho said he dropped a masterclass in the 3-0 win.\ntrent has started four games this season, has not scored in 43 real madrid appearances, and spanish reports say he is behind dumfries and valverde.",
+          "title": "spanish media tell trent to accept a squad role at real madrid",
+          "summary": "spanish coverage argues trent alexander-arnold should settle for third-choice status, a line sourced to press opinion rather than anything from liverpool.\nno reliable outlet has linked liverpool with a replacement, so treat the story as low-reliability noise.",
           "sources": [
             {
               "name": "Liverpool Echo",
@@ -700,106 +750,38 @@
             }
           ],
           "published_at": "2026-11-02T11:34:00Z",
-          "status": "updated",
-          "updated": true,
-          "change": "the story moved from mourinho's rotation explanation to spanish media calling for trent to accept a backup role or leave.",
+          "status": "steady",
+          "updated": false,
           "meta": {
-            "reliability": "medium - spanish press opinion reported by the liverpool echo"
+            "reliability": "low - spanish press opinion"
           }
-        },
-        {
-          "id": "fenerbahce-champions-league",
-          "section": "liverpool",
-          "title": "liverpool go to fenerbahce on wednesday with the squad still to be named",
-          "summary": "liverpool play fenerbahce in istanbul on wednesday at 17:45 gmt, 20:45 riyadh, with tnt sports showing it in the uk and lfctv from 16:30 gmt.\niraola and a player speak on arrival in turkiye on tuesday, and the squad trains at 16:30 gmt before the champions league matchday four tie.",
-          "sources": [
-            {
-              "name": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/fenerbahce-v-liverpool-tv-channels-live-commentary-and-ucl-highlights-guide"
-            },
-            {
-              "name": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/watch-liverpool-fenerbahce-press-conference-champions-league"
-            },
-            {
-              "name": "BBC Sport fixtures",
-              "url": "https://www.bbc.co.uk/sport/football/teams/liverpool/scores-fixtures"
-            }
-          ],
-          "published_at": "2026-11-02T14:06:00Z",
-          "status": "updated",
-          "updated": true,
-          "change": "the club confirmed the broadcast and press timings, with no new injury update beyond the players who were fit for the bench on sunday.",
-          "meta": {
-            "kickoff": "2026-11-04T17:45:00Z",
-            "competition": "UEFA Champions League"
-          }
-        },
-        {
-          "id": "gravenberch-nyoni",
-          "section": "liverpool",
-          "title": "nyoni's 96% passing makes the case to keep his place after his first league start",
-          "summary": "trey nyoni had more touches than anyone on the pitch during his 60 minutes and passed at above 96%, starting ahead of gravenberch and szoboszlai.\nit was his 31st liverpool appearance but first league start, and carragher called the call a 'mighty blow' to gravenberch's confidence.",
-          "sources": [
-            {
-              "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/what-happened-after-trey-nyoni-34846476"
-            },
-            {
-              "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-jamie-carragher-arsenal-decision-34847415"
-            }
-          ],
-          "published_at": "2026-11-02T05:00:00Z",
-          "status": "updated",
-          "updated": true,
-          "change": "the morning read was the surprise of the selection; monday's numbers show nyoni justified it before coming off on the hour."
         },
         {
           "id": "crystal-palace-fixture",
           "section": "liverpool",
-          "title": "crystal palace away on sunday, then manchester united at anfield",
-          "summary": "liverpool go to crystal palace on sunday at 17:00 riyadh, then host manchester united on 22 november at 19:30.\neverton away follows on 29 november, with club brugge away in europe on 25 november.",
+          "title": "crystal palace away next in the league, then manchester united at anfield",
+          "summary": "liverpool go to selhurst park on sunday after istanbul, with the manchester united game at anfield to follow.\nthe carabao cup quarter-final against bournemouth at anfield is also in the diary.",
           "sources": [
             {
-              "name": "BBC Sport fixtures",
-              "url": "https://www.bbc.co.uk/sport/football/teams/liverpool/scores-fixtures"
+              "name": "Liverpool FC",
+              "url": "https://www.liverpoolfc.com/fixtures/mens"
             }
           ],
-          "published_at": "2026-11-02T03:00:00Z",
-          "status": "steady",
-          "updated": false,
-          "meta": {
-            "kickoff": "2026-11-08T14:00:00Z",
-            "competition": "Premier League"
-          }
-        },
-        {
-          "id": "carabao-cup-draw",
-          "section": "liverpool",
-          "title": "bournemouth at home in the carabao cup quarter-finals",
-          "summary": "liverpool will host bournemouth in the carabao cup quarter-finals after beating chelsea in the previous round.\nthe tie is liverpool's next cup fixture after the premier league run, with the quarter-final date not yet on the fixture list.",
-          "sources": [
-            {
-              "name": "BBC Sport",
-              "url": "https://www.bbc.co.uk/sport/football/teams/liverpool/scores-fixtures"
-            }
-          ],
-          "published_at": "2026-10-31T00:00:00Z",
+          "published_at": "2026-11-02T12:00:00Z",
           "status": "steady",
           "updated": false
         }
       ],
       "watch": [
         {
-          "title": "Havertz gets Gunners BIG Anfield win! | Liverpool 0-1 Arsenal | Premier League Highlights",
-          "url": "https://www.youtube.com/watch?v=RoX_MFDQn58",
-          "channel": "Sky Sports Premier League",
+          "title": "HAVERTZ GOAL EARNS VITAL WIN IN THE TITLE RACE | HIGHLIGHTS | Liverpool vs Arsenal (0-1)",
+          "url": "https://www.youtube.com/watch?v=Zt1VugPdwFw",
+          "channel": "Arsenal",
           "published_at": "2026-11-01T20:00:00Z"
         },
         {
-          "title": "Jamie Carragher, Ian Wright & Daniel Sturridge ANALYSE Liverpool 0-1 Arsenal",
-          "url": "https://www.youtube.com/watch?v=9x-_tlVFuv0",
+          "title": "Kai Havertz & Declan Rice FULL post-match reaction to Arsenal's 1-0 win at Liverpool",
+          "url": "https://www.youtube.com/watch?v=2mHR4BRbOuQ",
           "channel": "Sky Sports Premier League",
           "published_at": "2026-11-01T21:00:00Z"
         }
@@ -808,16 +790,16 @@
   ],
   "top_stories": [
     {
+      "section": "middle_east",
+      "id": "us-qeshm-strikes"
+    },
+    {
+      "section": "middle_east",
+      "id": "trump-no-new-strikes"
+    },
+    {
       "section": "us_markets",
       "id": "oil-retreat"
-    },
-    {
-      "section": "middle_east",
-      "id": "qatar-tehran-ceasefire"
-    },
-    {
-      "section": "middle_east",
-      "id": "israel-coalition-talks"
     },
     {
       "section": "us_markets",
@@ -825,7 +807,7 @@
     },
     {
       "section": "liverpool",
-      "id": "arsenal-anfield-defeat"
+      "id": "fenerbahce-champions-league"
     }
   ]
 }
