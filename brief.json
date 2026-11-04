@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-03T16:08:11Z",
-  "date": "2026-11-03",
-  "edition": "evening",
+  "generated_at": "2026-11-04T03:55:00Z",
+  "date": "2026-11-04",
+  "edition": "morning",
   "timezone": "Asia/Riyadh",
-  "next_build_at": "2026-11-04T03:30:00Z",
+  "next_build_at": "2026-11-04T16:00:00Z",
   "sections": [
     {
       "id": "trending_repos",
@@ -13,8 +13,8 @@
         {
           "id": "vercel-labs-agent-desktop",
           "section": "trending_repos",
-          "title": "vercel's agent-desktop takes today's biggest star gain at 3,792",
-          "summary": "agent-desktop gives agents a cli over desktop apps by reading each app's accessibility tree instead of guessing from screenshots.\nit added 3,792 stars today to reach 11,997, more than any other repo on github trending, and was pushed again this afternoon.",
+          "title": "agent-desktop is still the fastest riser at 3,791 stars today",
+          "summary": "vercel labs' cli lets an agent drive desktop apps by reading their accessibility trees instead of guessing from screenshots.\nit added 3,791 stars today and is now on 13,096 total, up about 1,100 since yesterday evening, with a push as recent as 23:16 utc.",
           "sources": [
             {
               "name": "GitHub Trending",
@@ -29,21 +29,146 @@
               "url": "https://github.com/vercel-labs/agent-desktop"
             }
           ],
-          "published_at": "2026-11-03T12:24:00Z",
+          "published_at": "2026-11-03T23:16:15Z",
           "status": "updated",
           "updated": true,
           "meta": {
-            "stars_today": 3792,
-            "stars_total": 11997,
+            "stars_today": 3791,
+            "stars_total": 13096,
             "language": "Rust",
             "trending_rank": 2
           }
         },
         {
+          "id": "d4vinci-scrapling",
+          "section": "trending_repos",
+          "title": "scrapling holds second place with 1,658 stars today",
+          "summary": "scrapling wraps a single request, a stealth browser session and a full crawl behind one python api.\nit added 1,658 stars today for 95,081 total and was pushed again late on tuesday night.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/D4Vinci/Scrapling"
+            }
+          ],
+          "published_at": "2026-11-03T20:21:08Z",
+          "status": "steady",
+          "updated": false,
+          "meta": {
+            "stars_today": 1658,
+            "stars_total": 95081,
+            "language": "Python",
+            "trending_rank": 11
+          }
+        },
+        {
+          "id": "donchitos-claude-code-game-studios",
+          "section": "trending_repos",
+          "title": "claude-code-game-studios keeps adding 1,182 stars for a 49-agent studio",
+          "summary": "the repo turns claude code into a pretend game studio with 49 agent roles, 72 workflow skills and a coordination layer.\nit added 1,182 stars today for 34,776 total, though its last push was back on 19 october.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/Donchitos/Claude-Code-Game-Studios"
+            }
+          ],
+          "published_at": "2026-11-03T03:40:00Z",
+          "status": "steady",
+          "updated": false,
+          "meta": {
+            "stars_today": 1182,
+            "stars_total": 34776,
+            "language": "Shell",
+            "trending_rank": 13
+          }
+        },
+        {
+          "id": "mattpocock-skills",
+          "section": "trending_repos",
+          "title": "mattpocock's skills repo sits on 1,164 stars today",
+          "summary": "it is a plain folder of agent skills copied straight from the author's own dot-agents directory.\nit added 1,164 stars for 311,622 total with no new commits since 1 november.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/mattpocock/skills"
+            }
+          ],
+          "published_at": "2026-11-01T11:42:33Z",
+          "status": "steady",
+          "updated": false,
+          "meta": {
+            "stars_today": 1164,
+            "stars_total": 311622,
+            "language": "Shell",
+            "trending_rank": 5
+          }
+        },
+        {
           "id": "thedotmack-claude-mem",
           "section": "trending_repos",
-          "title": "claude-mem holds the top trending slot with 1,138 stars",
-          "summary": "claude-mem captures what an agent does in a session, compresses it with a model and injects the useful parts into later sessions.\nit added 1,138 stars today to reach 111,510 and sits first on github trending, ahead of agent-desktop on raw stars but behind it on velocity.",
+          "title": "claude-mem stays at the top of trending with 1,139 stars today",
+          "summary": "claude-mem records what an agent does in a session, compresses it with a model and injects the useful parts later.\nit added 1,139 stars for 112,060 total and was pushed at 03:30 utc today.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/thedotmack/claude-mem"
+            }
+          ],
+          "published_at": "2026-11-04T03:30:54Z",
+          "status": "steady",
+          "updated": false,
+          "meta": {
+            "stars_today": 1139,
+            "stars_total": 112060,
+            "language": "TypeScript",
+            "trending_rank": 1
+          }
+        },
+        {
+          "id": "justvugg-colibri",
+          "section": "trending_repos",
+          "title": "colibri adds 802 stars for running frontier moe models on one box",
+          "summary": "colibri streams mixture-of-experts weights from nvme and ram so a single machine can run models far bigger than its vram.\nit added 802 stars today for 47,322 total and was pushed at 00:38 utc.",
+          "sources": [
+            {
+              "name": "GitHub Trending",
+              "url": "https://github.com/trending?since=daily"
+            },
+            {
+              "name": "GitHub",
+              "url": "https://github.com/JustVugg/colibri"
+            }
+          ],
+          "published_at": "2026-11-04T00:38:28Z",
+          "status": "steady",
+          "updated": false,
+          "meta": {
+            "stars_today": 802,
+            "stars_total": 47322,
+            "language": "C",
+            "trending_rank": 4
+          }
+        },
+        {
+          "id": "floci-io-floci",
+          "section": "trending_repos",
+          "title": "floci enters trending with 482 stars as a free aws emulator",
+          "summary": "floci is a local java emulator for aws services, pitched as a lighter drop-in for localstack-style testing.\nit added 482 stars to reach 28,907 and was pushed at 03:26 utc today.",
           "sources": [
             {
               "name": "GitHub Trending",
@@ -55,49 +180,24 @@
             },
             {
               "name": "GitHub",
-              "url": "https://github.com/thedotmack/claude-mem"
+              "url": "https://github.com/floci-io/floci"
             }
           ],
-          "published_at": "2026-11-03T03:52:00Z",
-          "status": "steady",
-          "updated": false,
-          "meta": {
-            "stars_today": 1138,
-            "stars_total": 111510,
-            "language": "TypeScript",
-            "trending_rank": 1
-          }
-        },
-        {
-          "id": "mattpocock-skills",
-          "section": "trending_repos",
-          "title": "mattpocock's agent skills repo enters with 1,164 stars",
-          "summary": "the repo is a plain directory of skills for coding agents, taken straight from the author's own dot-agents folder.\nit added 1,164 stars today and now sits on 311,055 total, with its last push on 1 november.",
-          "sources": [
-            {
-              "name": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily"
-            },
-            {
-              "name": "GitHub",
-              "url": "https://github.com/mattpocock/skills"
-            }
-          ],
-          "published_at": "2026-11-01T11:42:00Z",
+          "published_at": "2026-11-04T03:26:38Z",
           "status": "new",
           "updated": true,
           "meta": {
-            "stars_today": 1164,
-            "stars_total": 311055,
-            "language": "Shell",
-            "trending_rank": 5
+            "stars_today": 482,
+            "stars_total": 28907,
+            "language": "Java",
+            "trending_rank": 8
           }
         },
         {
-          "id": "d4vinci-scrapling",
+          "id": "shiyu-coder-kronos",
           "section": "trending_repos",
-          "title": "scrapling adds 1,658 stars for scraping everything from one request to a crawl",
-          "summary": "scrapling is a python scraping framework that handles a single fetch, stealth browser sessions and full crawls behind one api.\nit added 1,658 stars today to reach 94,053 and was last pushed on monday evening.",
+          "title": "kronos enters with 503 stars as a foundation model for market data",
+          "summary": "it is an open-source decoder-only model trained on candlestick data from more than 45 exchanges to forecast price series.\nit added 503 stars to reach 46,574, though the repo has not been pushed since april.",
           "sources": [
             {
               "name": "GitHub Trending",
@@ -105,135 +205,35 @@
             },
             {
               "name": "GitHub",
-              "url": "https://github.com/D4Vinci/Scrapling"
+              "url": "https://github.com/shiyu-coder/Kronos"
             }
           ],
-          "published_at": "2026-11-02T20:16:00Z",
-          "status": "steady",
-          "updated": false,
+          "published_at": "2026-11-03T12:00:00Z",
+          "status": "new",
+          "updated": true,
           "meta": {
-            "stars_today": 1658,
-            "stars_total": 94053,
+            "stars_today": 503,
+            "stars_total": 46574,
             "language": "Python",
-            "trending_rank": 11
-          }
-        },
-        {
-          "id": "justvugg-colibri",
-          "section": "trending_repos",
-          "title": "colibri adds 803 stars for running huge mixture-of-experts models on one box",
-          "summary": "colibri keeps hot experts on the gpu, warm ones in ram and cold ones on nvme, so a frontier moe model can run on hardware you own.\nit added 803 stars today to reach 47,045, is written in c and was pushed this afternoon.",
-          "sources": [
-            {
-              "name": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily"
-            },
-            {
-              "name": "GitHub",
-              "url": "https://github.com/JustVugg/colibri"
-            }
-          ],
-          "published_at": "2026-11-03T14:24:00Z",
-          "status": "new",
-          "updated": true,
-          "meta": {
-            "stars_today": 803,
-            "stars_total": 47045,
-            "language": "C",
-            "trending_rank": 4
-          }
-        },
-        {
-          "id": "p-e-w-heretic",
-          "section": "trending_repos",
-          "title": "heretic adds 699 stars for editing model behaviour without retraining",
-          "summary": "heretic is a training-free tool that edits a language model's weights to remove refusals, cut slop and reduce sycophancy.\nit added 699 stars today to reach 38,572, with a fresh push this afternoon and an agpl licence.",
-          "sources": [
-            {
-              "name": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily"
-            },
-            {
-              "name": "GitHub",
-              "url": "https://github.com/p-e-w/heretic"
-            }
-          ],
-          "published_at": "2026-11-03T12:23:00Z",
-          "status": "new",
-          "updated": true,
-          "meta": {
-            "stars_today": 699,
-            "stars_total": 38572,
-            "language": "Python",
-            "trending_rank": 6
-          }
-        },
-        {
-          "id": "max-sixty-worktrunk",
-          "section": "trending_repos",
-          "title": "worktrunk adds 437 stars for git worktrees aimed at parallel agents",
-          "summary": "worktrunk is a rust cli that makes git worktrees easy to create, list and clean up when several agents work in parallel.\nit added 437 stars today to reach 10,333 and was pushed again at 15:43 utc.",
-          "sources": [
-            {
-              "name": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily"
-            },
-            {
-              "name": "GitHub",
-              "url": "https://github.com/max-sixty/worktrunk"
-            }
-          ],
-          "published_at": "2026-11-03T15:43:00Z",
-          "status": "new",
-          "updated": true,
-          "meta": {
-            "stars_today": 437,
-            "stars_total": 10333,
-            "language": "Rust",
-            "trending_rank": 3
-          }
-        },
-        {
-          "id": "donchitos-claude-code-game-studios",
-          "section": "trending_repos",
-          "title": "claude-code-game-studios adds 1,181 stars for a 49-agent studio",
-          "summary": "the repo turns claude code into a game studio with 49 agents, 72 workflow skills and a studio-style coordination system.\nit added 1,181 stars today to reach 34,361, with no code push since 19 october.",
-          "sources": [
-            {
-              "name": "GitHub Trending",
-              "url": "https://github.com/trending?since=daily"
-            },
-            {
-              "name": "GitHub",
-              "url": "https://github.com/Donchitos/Claude-Code-Game-Studios"
-            }
-          ],
-          "published_at": "2026-10-19T02:43:00Z",
-          "status": "steady",
-          "updated": false,
-          "meta": {
-            "stars_today": 1181,
-            "stars_total": 34361,
-            "language": "Shell",
-            "trending_rank": 13
+            "trending_rank": 12
           }
         }
       ],
       "watch": [
+        {
+          "title": "Agent Desktop: Free Open Source Computer Use, 40x Faster",
+          "url": "https://www.youtube.com/watch?v=iEhCLn9utDU",
+          "channel": "Prism Labs"
+        },
         {
           "title": "Agent-desktop: Vercel Labs' Accessibility-Tree CLI",
           "url": "https://www.youtube.com/watch?v=2VObZNlIbdE",
           "channel": "Smalltech"
         },
         {
-          "title": "Claude Code Finally Has a Memory — claude-mem (Free & Open Source)",
+          "title": "Claude Code Finally Has a Memory - claude-mem (Free & Open Source)",
           "url": "https://www.youtube.com/watch?v=LifUx1lsBPI",
           "channel": "I Tech AI"
-        },
-        {
-          "title": "This Tiny Engine Runs Impossibly Big AI Models Locally! (colibrì)",
-          "url": "https://www.youtube.com/watch?v=3OqZHYNKc9A",
-          "channel": "Better Stack"
         }
       ]
     },
@@ -242,233 +242,209 @@
       "title": "middle east",
       "items": [
         {
-          "id": "us-qeshm-strikes",
-          "section": "middle_east",
-          "title": "us confirms 'defensive' strikes on iran's qeshm island",
-          "summary": "us officials told cbs and the bbc that the strikes were limited and defensive, answering irgc fire at a us aircraft over the strait.\nthe irgc says it shot down two mq-170 drones south of qeshm and an mq-9 east of hormuz, and trump says the target was an anti-aircraft site hit the night it was finished.",
-          "sources": [
-            {
-              "name": "BBC News",
-              "url": "https://www.bbc.co.uk/news/articles/cx240mrm3g8vo"
-            },
-            {
-              "name": "The Jerusalem Post",
-              "url": "https://www.jpost.com/middle-east/iran-news/article-913644"
-            },
-            {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/11/3/explosions-hit-irans-qeshm-island-as-us-media-report-us-strikes-in-hormuz"
-            }
-          ],
-          "published_at": "2026-11-03T11:33:00Z",
-          "status": "updated",
-          "updated": true,
-          "change": "the us account hardened: officials now say the strike answered irgc fire on a us aircraft, while iran says it downed three drones and trump called the target an anti-aircraft site.",
-          "meta": {
-            "location": "Qeshm island, Strait of Hormuz"
-          }
-        },
-        {
           "id": "trump-ends-israel-aid",
           "section": "middle_east",
-          "title": "trump says the us stops paying israel $4bn a year at the end of december",
-          "summary": "trump told fox news that he and netanyahu agreed months ago to end the $4bn annual payment by the end of this year, and that israel can still buy us weapons.\nthe white house gave no detail on which funds are meant, and netanyahu's office has not confirmed it, while the current $38bn memorandum runs to 2028.",
+          "title": "israeli officials say trump misspoke on ending aid by december",
+          "summary": "trump told fox on tuesday that he and netanyahu agreed months ago to stop paying israel $4bn a year by the end of 2026.\njerusalem post reports both staffs now say he misspoke, but they will not correct it on election day, and netanyahu's office still had no public comment.",
           "sources": [
             {
-              "name": "BBC News",
+              "name": "BBC",
               "url": "https://www.bbc.co.uk/news/articles/cmx2dlx86n9yo"
             },
             {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/11/3/trump-announces-that-us-will-stop-paying-israel-after-year-end"
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/israel-news/defense-news/article-913745"
             },
             {
-              "name": "The Jerusalem Post",
-              "url": "https://www.jpost.com/international/article-913711"
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/video/newsfeed/2026/11/4/scepticism-as-trump-says-hes-ending-israels-3-8-bn-military-aid-deal"
             }
           ],
           "published_at": "2026-11-03T15:09:00Z",
+          "status": "updated",
+          "updated": true,
+          "change": "officials now say trump misspoke and the correction is being held until after the midterms, while the 2018 mou still runs to 2028.",
+          "meta": {
+            "aid_per_year_usd_bn": 3.8,
+            "mou_expires": "2028"
+          }
+        },
+        {
+          "id": "iran-max-deterrence",
+          "section": "middle_east",
+          "title": "iran says a 'maximum deterrence' plan is ready for a new us attack",
+          "summary": "tehran says its military has updated target lists to cover us and israeli assets across a wider area and will respond immediately.\nthe irgc also claimed it downed two mqm-170 reconnaissance drones south of qeshm and an mq-9 east of hormuz.",
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/liveblog/2026/11/4/iran-war-live-tehran-prepares-maximum-deterrence-plan-for-any-new-attack"
+            },
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/2026/11/3/us-hits-qeshm-island-pezeshkian-signals-more-diplomacy-iran-war-latest"
+            }
+          ],
+          "published_at": "2026-11-04T00:00:00Z",
           "status": "new",
           "updated": true,
-          "change": "new: a sitting us president said on the record that direct aid to israel ends in december, a claim israel has not confirmed.",
-          "meta": {
-            "amount_usd_bn": 4,
-            "effective": "end of 2026"
-          }
+          "change": "tehran moved from promising a response to saying a named deterrence plan and expanded target lists are already in place.",
+          "tags": [
+            "iran",
+            "us"
+          ]
         },
         {
           "id": "trump-no-new-strikes",
           "section": "middle_east",
-          "title": "trump says there is 'no rush' on iran as voters go to the polls",
-          "summary": "trump told axios he is in no rush to widen the war because the us has 'crippled them financially', and told fox he could still hit pickaxe mountain in 'one hour'.\nus officials separately told the wall street journal that washington has run 'limited strikes' for weeks, kept quiet to avoid signalling a bigger campaign.",
+          "title": "trump says he has no immediate plan to strike iran",
+          "summary": "he told the financial times the us is 'not really in a war' with iran and that talks are 'getting everything we want'.\nhe still said the military is 'locked and loaded', while a senior iranian official told reuters the two sides are far from a deal.",
           "sources": [
             {
-              "name": "BBC News",
-              "url": "https://www.bbc.co.uk/news/articles/cx240mrm3g8vo"
-            },
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/03/apple-margin-oil-iran.html"
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/middle-east/iran-news/article-913766"
             },
             {
               "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/liveblog/2026/11/3/iran-war-live-vance-sees-progress-in-talks-tehran-says-ball-in-us-court"
+              "url": "https://www.aljazeera.com/news/2026/11/3/us-hits-qeshm-island-pezeshkian-signals-more-diplomacy-iran-war-latest"
             }
           ],
-          "published_at": "2026-11-03T15:34:00Z",
+          "published_at": "2026-11-04T01:52:00Z",
           "status": "updated",
           "updated": true,
-          "change": "the midterms are under way with no new strike ordered, but us officials now admit to a quiet run of limited strikes rather than a one-off.",
-          "meta": {
-            "target": "Pickaxe Mountain"
-          }
+          "change": "trump shifted from 'no rush' before the vote to saying there may be no reason to restart strikes at all.",
+          "tags": [
+            "iran",
+            "us"
+          ]
         },
         {
-          "id": "qatar-tehran-ceasefire",
+          "id": "us-iran-talks",
           "section": "middle_east",
-          "title": "qatar says washington and tehran are studying its proposals",
-          "summary": "qatar's spokesman said a delegation spent more than three hours in tehran on monday and both sides are now reviewing doha's proposal, with mediators trading drafts in real time.\niran's armed forces chief set five conditions, including an end to hostilities on all fronts, full sanctions relief, reparations and recognition of iranian sovereignty over hormuz.",
+          "title": "iran's security chief says the us reply is 'not convincing'",
+          "summary": "mohsen rezaei said washington has to answer all seven iranian conditions in full before the strait of hormuz reopens.\nthe demands run from ending the war on every front and lifting sanctions to compensation and recognition of iranian control of hormuz.",
           "sources": [
+            {
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/middle-east/article-913751"
+            },
             {
               "name": "Al Jazeera",
               "url": "https://www.aljazeera.com/news/2026/11/3/iran-commander-sets-out-five-conditions-for-regional-security"
-            },
-            {
-              "name": "Anadolu Agency",
-              "url": "https://www.aa.com.tr/en/middle-east/qatar-says-us-iran-studying-proposals-aimed-at-reaching-agreement/4109884"
-            },
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/03/oil-prices-climb-after-us-reportedly-strikes-irans-qeshm-island.html"
             }
           ],
-          "published_at": "2026-11-03T13:21:00Z",
+          "published_at": "2026-11-03T21:49:00Z",
           "status": "updated",
           "updated": true,
-          "change": "qatar went public with the shuttle: a delegation was in tehran for more than three hours and both capitals are reviewing the same text, while iran's military named its price.",
+          "change": "rezaei formally rejected the us counter-offer, and us cargo aircraft from fort bliss were tracked into israel with a third carrier due next week.",
           "meta": {
-            "mediators": [
-              "Qatar",
-              "Pakistan"
-            ]
+            "iran_conditions": 7
           }
         },
         {
           "id": "israel-coalition-talks",
           "section": "middle_east",
-          "title": "israel's opposition backs eisenkot, but shas stays with netanyahu",
-          "summary": "the five opposition leaders met in herzliya and agreed to recommend gadi eisenkot to president herzog, with negotiating teams starting on coalition terms immediately.\nshas then said it would recommend netanyahu, leaving the blocs at 53-48-19 before herzog opens consultations on wednesday and thursday.",
+          "title": "israel certifies its election result today with no bloc near 61 seats",
+          "summary": "likud's bloc has 53 seats, the eisenkot-led opposition 48 and the two arab lists 19, so herzog's consultations decide who tries first.\nthe opposition says it will act immediately to replace netanyahu, but it has not said how it gets past 60 without arab support.",
           "sources": [
             {
               "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/11/3/israeli-opposition-leaders-back-eisenkot-to-oust-netanyahu"
+              "url": "https://www.aljazeera.com/news/2026/11/3/israel-political-deadlock-leaves-netanyahus-future-hanging-in-the-balance"
             },
             {
-              "name": "Anadolu Agency",
-              "url": "https://www.aa.com.tr/en/middle-east/-israel-s-ultra-orthodox-shas-party-to-recommend-netanyahu-to-form-next-government/4110174"
-            },
-            {
-              "name": "The Jerusalem Post",
-              "url": "https://www.jpost.com/israel-election-2026/article-913678"
+              "name": "BBC",
+              "url": "https://www.bbc.co.uk/news/articles/cjy561y4pl56o"
             }
           ],
-          "published_at": "2026-11-03T15:00:00Z",
+          "published_at": "2026-11-03T18:00:00Z",
           "status": "updated",
           "updated": true,
-          "change": "the opposition formalised its pick of eisenkot and opened talks, but shas answered by backing netanyahu, so neither bloc has 61 seats.",
+          "change": "the count is certified today, which starts herzog's formal consultations and a new knesset on 10 november.",
           "meta": {
-            "seats": {
-              "coalition": 53,
-              "opposition": 48,
-              "arab_parties": 19
-            }
+            "likud_bloc": 53,
+            "opposition": 48,
+            "arab_lists": 19,
+            "majority": 61
           }
         },
         {
           "id": "yemen-jawf-offensive",
           "section": "middle_east",
-          "title": "saudi coalition intercepts a drone over mecca as taiz hospitals run short",
-          "summary": "the coalition's spokesman said it destroyed a drone over the makkah region, a day after it reported downing a ballistic missile and two drones fired from yemen.\nunfpa says only five of taiz's 27 emergency maternal hospitals are partly working, with 13,000 pregnant women short of care and about 300,000 displaced since august.",
+          "title": "yemen's government says 21 irgc and hezbollah experts run houthi operations",
+          "summary": "the interior minister listed 14 irgc and 7 hezbollah specialists spread across hodeidah, sanaa, saada, hajjah, amran and khokha.\nhe said their jobs now include planning missile and drone strikes, naval attacks and picking commercial ships as targets.",
           "sources": [
             {
-              "name": "Anadolu Agency",
-              "url": "https://www.aa.com.tr/en/middle-east/saudi-led-coalition-says-drone-intercepted-over-mecca-region-amid-escalation-with-houthis/4109714"
-            },
-            {
-              "name": "Anadolu Agency",
-              "url": "https://www.aa.com.tr/en/middle-east/un-population-fund-says-over-13-000-pregnant-women-lack-essential-healthcare-in-yemens-taiz/4109965"
-            },
-            {
               "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/11/2/saudi-led-coalition-intercepts-a-missile-as-fighting-rages-in-yemens-al-jawf"
+              "url": "https://www.aljazeera.com/news/2026/11/3/yemen-govt-accuses-irgc-hezbollah-of-sending-21-experts-to-back-houthis"
+            },
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.co.uk/news/world/middle_east"
             }
           ],
-          "published_at": "2026-11-03T10:03:00Z",
+          "published_at": "2026-11-03T19:13:00Z",
           "status": "updated",
           "updated": true,
-          "change": "the coalition reported another interception over makkah, this time a drone, while the un put numbers on the collapse of maternal care in taiz.",
+          "change": "sanaa put a number and a map on foreign involvement for the first time, naming 21 people and six cities.",
           "meta": {
-            "intercepted": "1 drone over Makkah region"
-          }
-        },
-        {
-          "id": "syria-homs-plot",
-          "section": "middle_east",
-          "title": "syria says it foiled a hezbollah-linked plot on the homs refinery",
-          "summary": "syria's general intelligence service said it arrested two men and seized explosives prepared to hit the homs oil refinery in a pre-emptive operation with internal security.\nhezbollah denied the charge and said it has no presence in syria, as damascus presses a wider case against the group after assad's fall.",
-          "sources": [
-            {
-              "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/11/3/syria-arrests-cell-it-links-to-isis-over-plot-against-oil-refinery"
-            }
-          ],
-          "published_at": "2026-11-03T15:47:00Z",
-          "status": "new",
-          "updated": true,
-          "change": "new: damascus announced a pre-emptive arrest over a refinery bombing plot and pointed at hezbollah, which denied it.",
-          "meta": {
-            "location": "Homs, Syria"
+            "irgc_experts": 14,
+            "hezbollah_experts": 7
           }
         },
         {
           "id": "hormuz-tanker-strikes",
           "section": "middle_east",
-          "title": "qatar calls hormuz navigation non-negotiable after the al-mayda hit",
-          "summary": "qatar's spokesman said freedom of navigation in the strait is non-negotiable and that any new attack, on iranian soil or on shipping, would hit the talks.\nhe restated qatar's condemnation of the attack on its lng carrier al-mayda, and crude fell for a second session as traders priced in the diplomacy.",
+          "title": "a tanker is hit by two unknown projectiles near hormuz",
+          "summary": "ukmto reported the strike as iran's parliament speaker said the ball is in america's court to prevent a wider war.\niran's parliament speaker says the ball is in america's court, and qatar says freedom of navigation there is non-negotiable.",
           "sources": [
             {
               "name": "Al Jazeera",
-              "url": "https://www.aljazeera.com/news/2026/11/3/iran-commander-sets-out-five-conditions-for-regional-security"
+              "url": "https://www.aljazeera.com/news/liveblog/2026/11/4/iran-war-live-tehran-prepares-maximum-deterrence-plan-for-any-new-attack"
             },
             {
               "name": "CNBC",
               "url": "https://www.cnbc.com/2026/11/03/oil-prices-climb-after-us-reportedly-strikes-irans-qeshm-island.html"
             }
           ],
-          "published_at": "2026-11-03T13:21:00Z",
+          "published_at": "2026-11-04T00:30:00Z",
           "status": "updated",
           "updated": true,
-          "change": "qatar turned the al-mayda attack into a public red line on hormuz navigation, and crude kept falling despite the risk.",
-          "meta": {
-            "strait": "Hormuz"
-          }
+          "change": "a fresh tanker was hit on tuesday night, and iran is now floating a two-day reopening rather than a seven-day one.",
+          "tags": [
+            "hormuz",
+            "shipping"
+          ]
+        },
+        {
+          "id": "israel-iran-chemical-warning",
+          "section": "middle_east",
+          "title": "israel warns washington that iran may use chemical weapons",
+          "summary": "a report cited by the jerusalem post says israeli intelligence passed the warning to the us in recent days.\nus officials are said to be sceptical of the intelligence, and the claim has no independent confirmation.",
+          "sources": [
+            {
+              "name": "The Jerusalem Post",
+              "url": "https://www.jpost.com/middle-east/iran-news/article-913753"
+            }
+          ],
+          "published_at": "2026-11-03T21:53:00Z",
+          "status": "new",
+          "updated": true,
+          "change": "a new israeli intelligence claim landed in washington, and us officials are reported to doubt it.",
+          "tags": [
+            "iran",
+            "israel"
+          ]
         }
       ],
       "watch": [
-        {
-          "title": "US military strikes Iran's Qeshm Island ahead of midterm elections",
-          "url": "https://www.youtube.com/watch?v=OloCnnm38Do",
-          "channel": "CNN"
-        },
         {
           "title": "Trump cuts Israeli military aid: $3.8 billion in security assistance slashed",
           "url": "https://www.youtube.com/watch?v=rKc3Lug33hs",
           "channel": "FRANCE 24 English"
         },
         {
-          "title": "US Midterm Elections 2026: Americans Gets to Vote on Trump's Second Term",
-          "url": "https://www.youtube.com/watch?v=GMUZLauv6Os",
-          "channel": "Bloomberg Television"
+          "title": "Trump says U.S. will stop sending $4 billion yearly military assistance to Israel by end of year",
+          "url": "https://www.youtube.com/watch?v=VV3B0KlzRps",
+          "channel": "CBS News"
         }
       ]
     },
@@ -477,193 +453,164 @@
       "title": "us markets",
       "items": [
         {
-          "id": "session-tuesday",
+          "id": "midterms-futures",
           "section": "us_markets",
-          "title": "tech steadies and the s&p 500 gains 0.5% as america votes",
-          "summary": "the s&p 500 rose 0.5% to 7,576 and the nasdaq-100 gained 0.8% to 28,214, a day after the index closed more than 10% below its october record.\nthe dow slipped 0.3%, the vix fell 3.8% to 20.3 and the 10-year yield rose to 4.94% as investors waited for the midterm results.",
+          "title": "stock futures fall as democrats are projected to take the house",
+          "summary": "s&p futures are down 1.2% and nasdaq-100 futures 2.0% after the election desk called the house for democrats.\ntraders read a blue wave as more data-centre restrictions: coreweave is down 6% overnight and the solar etf is up 3.5%.",
           "sources": [
             {
-              "name": "CNBC Markets",
-              "url": "https://www.cnbc.com/markets/"
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/11/03/stock-market-today-live-updates.html"
             },
             {
-              "name": "TradingView",
-              "url": "https://www.tradingview.com/symbols/SP-SPX/"
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/11/03/midterm-elections-2026-live-updates.html"
             },
             {
-              "name": "TradingView",
-              "url": "https://www.tradingview.com/symbols/TVC-VIX/"
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/2026/11/4/democrat-jon-ossoff-wins-georgia-us-senate-race"
             }
           ],
-          "published_at": "2026-11-03T16:20:00Z",
+          "published_at": "2026-11-04T01:49:00Z",
           "status": "new",
           "updated": true,
           "meta": {
-            "spx": 7576.1,
-            "spx_pct": 0.46,
-            "ndx": 28213.8,
-            "ndx_pct": 0.8,
-            "dji_pct": -0.25,
-            "vix": 20.33,
-            "vix_pct": -3.83,
-            "us10y": 4.94
+            "es_fut_pct": -1.16,
+            "nq_fut_pct": -2.0,
+            "ym_fut_pct": -0.76
+          }
+        },
+        {
+          "id": "session-tuesday",
+          "section": "us_markets",
+          "title": "the s&p 500 rose 0.4% on election day while the dow slipped",
+          "summary": "the index closed at 7,568.92 and the nasdaq-100 at 28,180.26, up 0.68%, with the dow off 0.38% at 51,786.72.\nthe vix closed at 20.83, down 1.5% on the day, before futures turned lower overnight.",
+          "sources": [
+            {
+              "name": "CNBC",
+              "url": "https://www.cnbc.com/2026/11/03/stock-market-today-live-updates.html"
+            }
+          ],
+          "published_at": "2026-11-03T21:00:00Z",
+          "status": "updated",
+          "updated": true,
+          "meta": {
+            "spx": 7568.92,
+            "spx_pct": 0.36,
+            "ndx": 28180.26,
+            "ndx_pct": 0.68,
+            "dji": 51786.72,
+            "dji_pct": -0.38,
+            "vix": 20.83
           }
         },
         {
           "id": "oil-retreat",
           "section": "us_markets",
-          "title": "brent falls a second day to about $103 on hopes of an iran deal",
-          "summary": "brent fell 1.6% to $103.14 and wti dropped 0.8% to $95.72, extending monday's 7% slide as traders bet on a diplomatic end to the war.\ncrude had jumped after the qeshm strike, then gave it back when qatar said washington and tehran were reviewing the same proposals.",
+          "title": "oil fell a second day and is flat overnight near $103 brent",
+          "summary": "brent settled at $103.60, down $1.17, and wti at $96.09, down 37 cents, as traders bet on a diplomatic settlement.\nbrent is at $103.28 this morning and wti at $95.61, with the eia reporting crude stocks at 18:30 riyadh.",
           "sources": [
             {
               "name": "CNBC",
               "url": "https://www.cnbc.com/2026/11/03/oil-prices-climb-after-us-reportedly-strikes-irans-qeshm-island.html"
-            },
-            {
-              "name": "TradingView",
-              "url": "https://www.tradingview.com/symbols/ICEEUR-BRN1!/"
             }
           ],
-          "published_at": "2026-11-03T16:01:00Z",
+          "published_at": "2026-11-03T20:02:00Z",
           "status": "updated",
           "updated": true,
           "meta": {
-            "brent": 103.14,
-            "brent_pct": -1.63,
-            "wti": 95.72,
-            "wti_pct": -0.77
+            "brent": 103.28,
+            "wti": 95.61,
+            "brent_settle": 103.6,
+            "wti_settle": 96.09
           }
         },
         {
-          "id": "apple-earnings",
+          "id": "amd-earnings",
           "section": "us_markets",
-          "title": "apple falls 2.7% after its holiday margin guide misses",
-          "summary": "apple guided december-quarter gross margin to 45-46%, below the 46.3% analysts expected, and the stock fell 2.7% to $329.\ncfo kevan parekh blamed higher memory costs and the siri ai ramp, which would make a third straight quarterly margin decline.",
+          "title": "amd beat and jumped 8% before the futures selloff dragged it back",
+          "summary": "third-quarter revenue and earnings came in above forecasts as data-centre revenue nearly doubled from a year earlier.\nthe stock was last up about 3% as index futures gave up their gains, so the beat is intact but the tape is not.",
           "sources": [
             {
               "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/03/apple-earnings-john-ternus-faces-first-test-amid-high-memory-costs.html"
+              "url": "https://www.cnbc.com/2026/11/03/amd-amd-q3-earnings-report-2026-.html"
             }
           ],
-          "published_at": "2026-11-03T14:38:00Z",
-          "status": "updated",
-          "updated": true,
-          "meta": {
-            "ticker": "AAPL",
-            "price": 329.11,
-            "pct": -2.72,
-            "margin_guide": "45-46%"
-          }
-        },
-        {
-          "id": "movers-tuesday",
-          "section": "us_markets",
-          "title": "shopify drops 7% and palantir 3.7% while ferrari and yum beat",
-          "summary": "shopify fell 7% after missing on gross merchandise volume and subscription profit, and palantir dropped 3.7% as analysts flagged slower contract-value growth.\nferrari rose 2.5% on a guidance raise, yum added 0.8% despite a cyclospora hit at taco bell, and disney slipped as it planned several thousand layoffs.",
-          "sources": [
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/03/shopify-q3-2026-earnings-gmv.html"
-            },
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/03/apple-palantir-stock-earnings.html"
-            },
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/03/ferrari-race-earnings-q3-2026.html"
-            },
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/03/disney-layoffs-cost-cuts.html"
-            }
-          ],
-          "published_at": "2026-11-03T15:58:00Z",
+          "published_at": "2026-11-03T23:04:00Z",
           "status": "new",
           "updated": true,
           "meta": {
-            "movers": {
-              "SHOP": -7.0,
-              "PLTR": -3.69,
-              "RACE": 2.52,
-              "YUM": 0.8
-            }
+            "ticker": "AMD",
+            "move_pct": 3.0
           }
         },
         {
-          "id": "macro-tuesday",
+          "id": "macro-wednesday",
           "section": "us_markets",
-          "title": "jolts beats at 7.52m openings and factory orders jump 1.8%",
-          "summary": "september job openings rose 333,000 to 7.52m, well above the 7.1m forecast, while quits hit their highest since march 2025 and layoffs fell.\nfactory orders rose 1.8% against 1.2% expected, and the next tests are wednesday's adp and ism services before friday's payrolls, seen at 59,000.",
+          "title": "adp and ism services headline today's us calendar",
+          "summary": "adp employment lands at 16:15 riyadh with a 69k forecast after 90k last month, and the trade gap at 16:30.\nism services follows at 18:00 with a 54.8 forecast against 54.9, then eia crude stocks at 18:30.",
           "sources": [
             {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/03/job-openings-posted-big-september-gain-in-positive-sign-for-labor-market-ahead-of-payrolls-report.html"
-            },
+              "name": "TradingView Economic Calendar",
+              "url": "https://www.tradingview.com/economic-calendar/"
+            }
+          ],
+          "published_at": "2026-11-04T03:00:00Z",
+          "status": "updated",
+          "updated": true,
+          "meta": {
+            "adp_forecast_k": 69,
+            "ism_services_forecast": 54.8,
+            "eia_crude_forecast_m": 1.75
+          }
+        },
+        {
+          "id": "earnings-wednesday",
+          "section": "us_markets",
+          "title": "mcdonald's and novo lead the morning, arm and qualcomm after the close",
+          "summary": "uber, cvs, emerson and datadog also report before the open, with mcdonald's the biggest name by market value.\narm, qualcomm, mckesson, mercadolibre and applovin report after the bell.",
+          "sources": [
+            {
+              "name": "Nasdaq Earnings Calendar",
+              "url": "https://www.nasdaq.com/market-activity/earnings"
+            }
+          ],
+          "published_at": "2026-11-04T03:00:00Z",
+          "status": "updated",
+          "updated": true,
+          "meta": {
+            "pre_market": [
+              "MCD",
+              "NVO",
+              "UBER",
+              "CVS",
+              "DDOG"
+            ],
+            "after_close": [
+              "ARM",
+              "QCOM",
+              "MCK",
+              "MELI",
+              "APP"
+            ]
+          }
+        },
+        {
+          "id": "treasury-yields",
+          "section": "us_markets",
+          "title": "the 10-year yield fell below 4.91% as futures sold off",
+          "summary": "the note had closed near 4.95% and dropped more than 4 basis points overnight as money moved into bonds.\nthat is the opposite of the equity move, which usually means the market is buying safety rather than growth.",
+          "sources": [
             {
               "name": "CNBC",
               "url": "https://www.cnbc.com/2026/11/03/us-treasury-yields-bonds.html"
             }
           ],
-          "published_at": "2026-11-03T15:37:00Z",
-          "status": "updated",
-          "updated": true,
-          "meta": {
-            "jolts_m": 7.523,
-            "jolts_forecast_m": 7.1,
-            "factory_orders_pct": 1.8,
-            "payrolls_forecast_k": 59
-          }
-        },
-        {
-          "id": "earnings-tuesday",
-          "section": "us_markets",
-          "title": "amd and amgen lead tonight's earnings queue after a mixed morning",
-          "summary": "amd reports after the close with a $1.68 consensus, joined by amgen, arista, booking and block.\nthe morning slate was split: pfizer raised its outlook, ferrari lifted guidance and yum beat, while shopify missed and apple's margin warning set the tone.",
-          "sources": [
-            {
-              "name": "Nasdaq",
-              "url": "https://www.nasdaq.com/market-activity/earnings"
-            },
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/03/pfizer-pfe-earnings-q3-2026.html"
-            }
-          ],
-          "published_at": "2026-11-03T15:30:00Z",
-          "status": "updated",
-          "updated": true,
-          "meta": {
-            "after_close": [
-              "AMD",
-              "AMGN",
-              "ANET",
-              "BKNG",
-              "XYZ"
-            ],
-            "amd_eps_est": 1.68
-          }
-        },
-        {
-          "id": "midterms-stocks",
-          "section": "us_markets",
-          "title": "a democratic sweep is the midterm result most likely to jolt stocks",
-          "summary": "control of congress is being decided today, and cnbc reports that a democratic sweep is the result most likely to move equities sharply.\nbill ackman warned the market has become a 'casino' as speculative trading grows, with the vix still above 20 going into the vote.",
-          "sources": [
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/03/midterm-election-stock-market.html"
-            },
-            {
-              "name": "CNBC",
-              "url": "https://www.cnbc.com/2026/11/03/bill-ackman-casino-stock-market.html"
-            }
-          ],
-          "published_at": "2026-11-03T13:28:00Z",
+          "published_at": "2026-11-04T02:00:00Z",
           "status": "new",
           "updated": true,
           "meta": {
-            "event": "US midterm elections"
+            "us10y": 4.904
           }
         }
       ],
@@ -677,193 +624,192 @@
           "id": "fenerbahce-champions-league",
           "section": "liverpool",
           "title": "liverpool take a perfect european record to kuyt's fenerbahce",
-          "summary": "liverpool have won all three champions league games and sit third in the league phase before facing a fenerbahce side now run by interim boss dirk kuyt.\nkick-off is 20:45 riyadh at sukru saracoglu, and the hosts lost 2-1 at home to goztepe on saturday and were beaten 6-0 at aston villa in europe.",
+          "summary": "liverpool have won all three league-phase games and sit second in the table before tonight's 20:45 riyadh kickoff in istanbul.\ndirk kuyt's fenerbahce have one win in five and lost his first match in charge, so the form book points one way.",
           "sources": [
             {
-              "name": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/liverpool-name-22-man-squad-for-champions-league-trip-to-fenerbahce"
+              "name": "BBC Sport",
+              "url": "https://www.bbc.co.uk/sport/football/teams/liverpool/scores-fixtures"
             },
             {
-              "name": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/the-opposition-lowdown-fenerbahce-champions-league"
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/andoni-iraola-wasting-no-more-34858771"
+            },
+            {
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/dirk-kuyt-sends-liverpool-warning-34856696"
             }
           ],
-          "published_at": "2026-11-03T09:47:00Z",
+          "published_at": "2026-11-03T20:28:00Z",
           "status": "updated",
           "updated": true,
           "meta": {
-            "kickoff": "2026-11-04T17:45:00Z",
-            "venue": "Sukru Saracoglu Stadium",
+            "kickoff_local": "20:45",
+            "kickoff_gmt": "17:45",
+            "venue": "Istanbul",
             "competition": "Champions League league phase"
           }
         },
         {
           "id": "gravenberch-injury",
           "section": "liverpool",
-          "title": "gravenberch misses istanbul with a heel injury",
-          "summary": "ryan gravenberch did not travel to turkey after a heel problem ruled him out, and he stayed at the axa training centre for treatment.\nthe echo counts seven absentees for istanbul, with frimpong, bradley, leoni and ekitike already out.",
+          "title": "gravenberch is out of istanbul with a heel injury",
+          "summary": "he did not travel after feeling the problem in the arsenal warm-up and iraola says it is a day-to-day pain issue.\nthe coach would not rule him out of sunday's trip to crystal palace, but said he had not improved much since the weekend.",
           "sources": [
             {
-              "name": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/ryan-gravenberch-injury-update"
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/ryan-gravenberch-not-fully-confident-34858349"
             },
             {
               "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/12-players-could-miss-fenerbahce-34854892"
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/gravenberch-frimpong-ekitike-leoni-liverpool-34857782"
             }
           ],
-          "published_at": "2026-11-03T10:30:00Z",
-          "status": "new",
+          "published_at": "2026-11-03T18:08:00Z",
+          "status": "updated",
           "updated": true,
+          "change": "he was a bench option on sunday and is now out of the squad entirely, with trey nyoni set to deputise again.",
           "meta": {
-            "player": "Ryan Gravenberch",
-            "injury": "heel"
+            "reliability": "high",
+            "return": "day to day"
           }
         },
         {
           "id": "liverpool-team-news",
           "section": "liverpool",
-          "title": "szoboszlai and munoz travel as liverpool name a 22-man squad",
-          "summary": "szoboszlai and munoz are in the squad after coming through their comebacks at arsenal, alongside ngumoha, danns, mcconnell, koumas and chambers.\nalisson, van dijk, wirtz, isak and gakpo also travel, while gravenberch, frimpong, bradley, leoni and ekitike stay behind.",
+          "title": "szoboszlai and munoz are back in a 22-man squad",
+          "summary": "both returned against arsenal and travelled to turkey, while frimpong, ekitike and leoni are still out.\niraola is expected to shuffle after sunday's defeat, with trey nyoni pushing to start again in midfield.",
           "sources": [
             {
-              "name": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/liverpool-name-22-man-squad-for-champions-league-trip-to-fenerbahce"
+              "name": "Liverpool Echo",
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/gravenberch-frimpong-ekitike-leoni-liverpool-34857782"
             },
             {
-              "name": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/liverpools-injury-list-suspensions-and-availability"
+              "name": "BBC Sport",
+              "url": "https://www.bbc.co.uk/sport/football/teams/liverpool"
             }
           ],
-          "published_at": "2026-11-03T09:47:00Z",
+          "published_at": "2026-11-03T17:27:00Z",
           "status": "updated",
           "updated": true,
           "meta": {
-            "squad_size": 22
+            "squad_size": 22,
+            "reliability": "high"
           }
         },
         {
-          "id": "kuyt-return",
+          "id": "barcola-identity",
           "section": "liverpool",
-          "title": "kuyt says facing liverpool is 'a very, very special occasion'",
-          "summary": "dirk kuyt, who made 285 appearances for liverpool and won the league with fenerbahce as a player, took interim charge last week after ismail kartal resigned.\nhe said the tie means a lot to him but 'i'm not the important person, it's the club', and called fenerbahce's first european campaign in 18 years a special achievement.",
+          "title": "barcola says liverpool still have no clear identity under iraola",
+          "summary": "the £123m winger told sky sports the side leans on long balls when he wants them playing through midfield.\nall three of his goals came in the 6-3 win over lask, and he says his best version has not arrived yet.",
           "sources": [
             {
-              "name": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/dirk-kuyt-fenerbahce-v-liverpool-is-a-very-very-special-occasion-for-me"
-            },
-            {
               "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/iraola-liverpool-press-conference-live-34856465"
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/bradley-barcola-liverpool-andoni-iraola-34858471"
             }
           ],
-          "published_at": "2026-11-03T14:00:00Z",
+          "published_at": "2026-11-03T19:53:00Z",
           "status": "new",
           "updated": true,
           "meta": {
-            "manager": "Dirk Kuyt",
-            "role": "interim"
+            "reliability": "high",
+            "source_type": "player interview"
           }
         },
         {
-          "id": "ngumoha-standby",
+          "id": "mac-allister-contract",
           "section": "liverpool",
-          "title": "ngumoha makes the istanbul squad with gravenberch out",
-          "summary": "rio ngumoha is in the 22-man travelling party after the echo reported he was on standby for istanbul.\niraola has rotated heavily through a run of nine games in 29 days and made seven changes for the arsenal defeat.",
+          "title": "mac allister says liverpool told him they did not plan to renew",
+          "summary": "he says the club made that clear last season, leaving him with a year and a half on a deal that runs to 2028.\nhe also said the new manager, new sporting director and incoming investors mean anything can happen; real madrid are the club linked.",
           "sources": [
             {
-              "name": "Liverpool FC",
-              "url": "https://www.liverpoolfc.com/news/liverpool-name-22-man-squad-for-champions-league-trip-to-fenerbahce"
-            },
-            {
               "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/rio-ngumoha-liverpool-standby-andoni-34848648"
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/alexis-mac-allister-liverpool-contract-34858398"
             }
           ],
-          "published_at": "2026-11-03T09:47:00Z",
+          "published_at": "2026-11-03T18:23:00Z",
           "status": "updated",
           "updated": true,
+          "change": "mac allister put the no-renewal message on record himself rather than leaving it to briefings.",
           "meta": {
-            "player": "Rio Ngumoha"
+            "reliability": "high",
+            "contract_until": 2028
           }
         },
         {
           "id": "transfer-roundup",
           "section": "liverpool",
-          "title": "real madrid are watching munoz, with mac allister's deal unresolved",
-          "summary": "a spanish report relayed by the echo says real madrid are tracking victor munoz, who came through their academy and has no buy-back clause at liverpool.\nthe echo frames it against alexis mac allister entering the final 12 months of his deal, so treat it as monitoring rather than a bid.",
+          "title": "ziege backs frimpong and kerkez to come good at liverpool",
+          "summary": "the former left-back says both full-backs need time, having seen his own anfield spell end after one season.\nthat is punditry rather than a transfer report, so treat it as opinion rather than a live move.",
           "sources": [
             {
               "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-victor-munoz-real-madrid-34854782"
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-transfer-bad-move-jeremie-34856611"
             }
           ],
-          "published_at": "2026-11-03T11:30:00Z",
+          "published_at": "2026-11-04T01:00:00Z",
           "status": "updated",
           "updated": true,
           "meta": {
-            "reliability": "medium - spanish report (AS) relayed by the echo",
-            "players": [
-              "Victor Munoz",
-              "Alexis Mac Allister"
-            ]
+            "reliability": "low",
+            "source_type": "pundit comment"
           }
         },
         {
           "id": "arsenal-anfield-defeat",
           "section": "liverpool",
-          "title": "arsenal's first league win at anfield since 2012 leaves liverpool fifth",
-          "summary": "kai havertz scored after alisson's pass went wrong and arsenal won 1-0 at anfield for the first time in the premier league since 2012.\nliverpool are fifth and nine points off the top after a first league defeat in six, with no shot on target at home.",
+          "title": "arsenal's 1-0 win was liverpool's first home league game without a shot on target in 442",
+          "summary": "havertz scored on 16 minutes and an alisson error decided it, leaving liverpool fifth and nine points off the top.\nit was arsenal's first league win at anfield since 2012.",
           "sources": [
             {
               "name": "BBC Sport",
-              "url": "https://www.bbc.co.uk/sport/football/articles/cqj9kgyww478o"
+              "url": "https://www.bbc.co.uk/sport/football/teams/liverpool"
             },
             {
               "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/three-reasons-liverpool-didnt-enough-34850929"
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/andoni-iraola-wasting-no-more-34858771"
             }
           ],
-          "published_at": "2026-11-01T18:38:00Z",
+          "published_at": "2026-11-01T20:00:00Z",
           "status": "steady",
           "updated": false,
           "meta": {
-            "score": "Liverpool 0-1 Arsenal"
+            "score": "0-1",
+            "position": 5
           }
         },
         {
           "id": "penalty-controversy",
           "section": "liverpool",
-          "title": "hackett says timber should have been sent off for the pull on isak",
-          "summary": "former referee keith hackett said jurrien timber should have been sent off as well as conceding the penalty for his shirt pull on alexander isak.\nthe echo reports his view that var should have sent andy madley to the monitor, and iraola said the isak incident was a clear penalty.",
+          "title": "iraola says he never asked for an explanation over the timber pull",
+          "summary": "he confirmed liverpool have had no word from the officials about the decision not to send off jurrien timber for dragging back isak.\nhe said he had two days between games and chose to prepare for fenerbahce instead.",
           "sources": [
             {
               "name": "Liverpool Echo",
-              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/premier-league-liverpool-var-arsenal-34852292"
+              "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/andoni-iraola-wasting-no-more-34858771"
             },
             {
               "name": "BBC Sport",
-              "url": "https://www.bbc.co.uk/sport/football/articles/cqj9kgyww478o"
+              "url": "https://www.bbc.co.uk/sport/football/videos/c5398e2yz0p8o"
             }
           ],
-          "published_at": "2026-11-02T17:19:00Z",
+          "published_at": "2026-11-03T20:28:00Z",
           "status": "steady",
           "updated": false,
           "meta": {
-            "referee": "Michael Oliver"
+            "referee": "Madley"
           }
         }
       ],
       "watch": [
         {
-          "title": "Champions League Press Conference: Fenerbahce vs Liverpool | Andoni Iraola",
+          "title": "Champions League Press Conference: Fenerbahce vs Liverpool | Andoni Iraola & Cody Gakpo",
           "url": "https://www.youtube.com/watch?v=OH02JuZeq44",
           "channel": "Liverpool FC"
         },
         {
-          "title": "Live Training: Fenerbahce vs Liverpool | UEFA Champions League preparation",
-          "url": "https://www.youtube.com/watch?v=Y9yFHJHWoCQ",
-          "channel": "Liverpool FC"
+          "title": "Are Liverpool players too meek?",
+          "url": "https://www.youtube.com/watch?v=c5398e2yz0p8o",
+          "channel": "BBC Sport"
         }
       ]
     }
@@ -874,16 +820,16 @@
       "id": "trump-ends-israel-aid"
     },
     {
-      "section": "middle_east",
-      "id": "us-qeshm-strikes"
-    },
-    {
-      "section": "middle_east",
-      "id": "qatar-tehran-ceasefire"
-    },
-    {
       "section": "us_markets",
-      "id": "oil-retreat"
+      "id": "midterms-futures"
+    },
+    {
+      "section": "middle_east",
+      "id": "iran-max-deterrence"
+    },
+    {
+      "section": "middle_east",
+      "id": "israel-coalition-talks"
     },
     {
       "section": "liverpool",
