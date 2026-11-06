@@ -2,39 +2,44 @@
  "version": 2,
  "schema_rev": "2.3",
  "sample": false,
- "generated_at": "2026-11-06T06:43:15+03:00",
+ "generated_at": "2026-11-06T19:13:06+03:00",
  "timezone": "Asia/Riyadh",
  "top_stories": [
   {
    "section": "us_markets",
-   "id": "us-chip-selloff"
+   "id": "us-jobs-report"
   },
   {
    "section": "middle_east",
-   "id": "me-turkey-mecca"
+   "id": "me-iran-deterrence"
   },
   {
    "section": "us_markets",
-   "id": "us-asia-rout"
+   "id": "us-friday-rebound"
   }
  ],
  "sections": {
   "middle_east": {
-   "what_changed": "turkiye ratified the mecca defence pact with saudi arabia and pakistan, 279-119, binding a nato member to the war with the houthis; iran's security chief delivered a letter from khamenei to putin in moscow and said tehran will not talk until seven conditions are met; and herzog opened coalition talks in jerusalem, with a decision due on sunday.",
-   "what_changed_ar": "أقرّت تركيا ميثاق مكة الدفاعي مع السعودية وباكستان بـ279 صوتًا مقابل 119، بما يُلزم دولة عضو في الناتو بحرب الحوثيين؛ وسلّم مسؤول الأمن الإيراني رسالة من خامنئي إلى بوتين في موسكو وقال إن طهران لن تتفاوض قبل تنفيذ سبعة شروط؛ وبدأ هرتسوغ مشاورات تشكيل الحكومة في القدس بقرار متوقع الأحد.",
+   "what_changed": "iran is talking while it rebuilds: a new proposal went to washington through qatar, a letter from khamenei reached putin, satellite images show fresh digging at two missile bases, and three more tankers were hit in hormuz on friday.",
+   "what_changed_ar": "إيران تفاوض وتبني في الوقت نفسه: مقترح جديد وصل واشنطن عبر قطر، ورسالة من خامنئي بلغت بوتين، وصور جوية تُظهر حفرًا جديدًا في قاعدتَي صواريخ، وثلاث ناقلات أخرى أصيبت في هرمز الجمعة.",
    "items": [
     {
      "id": "me-iran-deterrence",
      "section": "middle_east",
-     "time": "2026-11-06T03:05:00+03:00",
-     "title": "iran's security chief delivers a khamenei letter to putin in moscow",
-     "title_ar": "مسؤول الأمن الإيراني يسلّم بوتين رسالة من خامنئي في موسكو",
-     "summary": "mohsen rezaei, secretary of iran's supreme national security council, met putin at the senate palace on thursday and handed him a letter from supreme leader mojtaba khamenei, saying the trip had been planned a month earlier but postponed by the war. he said the talks covered post-war security arrangements and russian gas pipelines to iran, that tehran will neither reopen the strait of hormuz nor negotiate until washington meets seven conditions, and that he would not disclose the letter's contents.",
-     "summary_ar": "التقى محسن رضائي، أمين المجلس الأعلى للأمن القومي الإيراني، بوتين في قصر مجلس الشيوخ الخميس وسلّمه رسالة من المرشد الأعلى مجتبى خامنئي، وقال إن الزيارة كانت مقررة قبل شهر وأُرجئت بسبب الحرب. وأوضح أن المباحثات تناولت ترتيبات الأمن بعد الحرب وخطوط أنابيب الغاز الروسية إلى إيران، وأن طهران لن تعيد فتح مضيق هرمز ولن تتفاوض قبل تلبية واشنطن سبعة شروط، وأنه لن يكشف مضمون الرسالة.",
+     "time": "2026-11-06T18:40:00+03:00",
+     "title": "iran's diplomatic push: a proposal via qatar and seven conditions",
+     "title_ar": "دبلوماسية إيرانية مكثفة: مقترح عبر قطر وسبعة شروط",
+     "summary": "tehran sent a new nuclear and peace proposal to washington through qatari mediators on thursday, a senior iranian official told reuters, but says it will not discuss it until the us lifts sanctions, unfreezes its assets and ends the naval blockade of its ports. trump called qatar's emir sheikh tamim bin hamad al thani on friday, who stressed the need for continued dialogue, while axios reported centcom is preparing to resume major operations and is waiting for orders.",
+     "summary_ar": "أرسلت طهران مقترحًا نوويًا وسلاميًا جديدًا إلى واشنطن عبر وسطاء قطريين الخميس، بحسب مسؤول إيراني كبير لرويترز، لكنها تقول إنها لن تناقشه قبل أن ترفع الولايات المتحدة العقوبات وتفكّ تجميد أصولها وتنهي الحصار البحري على موانئها. واتصل ترامب الجمعة بأمير قطر الشيخ تميم بن حمد آل ثاني الذي شدد على ضرورة استمرار الحوار، فيما ذكر أكسيوس أن القيادة المركزية تستعد لاستئناف عمليات عسكرية واسعة وتنتظر الأوامر.",
      "sources": [
       {
        "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/2026/11/6/irans-security-chief-meets-putin-delivers-message-from-khamenei",
+       "url": "https://www.aljazeera.com/news/2026/11/6/russia-to-uae-iran-steps-up-diplomacy-amid-trump-threats-what-we-know",
+       "type": "independent"
+      },
+      {
+       "title": "Al Jazeera live blog",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/6/iran-war-live-trump-warns-us-may-have-to-destroy-rest-of-iran",
        "type": "independent"
       }
      ],
@@ -61,8 +66,25 @@
        "type": "social"
       }
      ],
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/14414821-1793917435.jpg?resize=1920%2C1440",
-     "status": "new"
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/14414821-1793917435.jpg?resize=1920%2C1440"
+    },
+    {
+     "id": "me-iran-missile-build",
+     "title": "satellite images show fresh digging at iran's missile bases",
+     "summary": "bbc verify, citing analysis by british intelligence firm maiar, says november satellite imagery shows significant excavation and new buildings at the garmdareh base in karaj and the shahroud base, and repairs at at least 12 other military sites including kermanshah and parchin. analysts say iran looks to be moving missile production underground before a possible new round of us strikes.",
+     "title_ar": "صور جوية تُظهر أعمال حفر جديدة في قواعد صواريخ إيران",
+     "summary_ar": "قالت بي بي سي فيريفاي نقلاً عن تحليل لشركة الاستخبارات البريطانية مايار إن صورًا جوية التُقطت في نوفمبر تُظهر حفرًا واسعًا ومبانٍ جديدة في قاعدة گرمدره في كرج وقاعدة شاهرود، وإصلاحات في 12 موقعًا عسكريًا آخر على الأقل بينها كرمانشاه وبارتشين. ويقول محللون إن إيران تبدو بصدد نقل إنتاج الصواريخ إلى تحت الأرض قبل جولة محتملة من الضربات الأمريكية.",
+     "sources": [
+      {
+       "title": "BBC News",
+       "url": "https://www.bbc.co.uk/news/articles/ckjrwx1r2d5ro",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-06T10:33:00+03:00",
+     "section": "middle_east",
+     "status": "new",
+     "image": "https://ichef.bbci.co.uk/ace/standard/1920/cpsprodpb/5589/live/461d3e00-d879-11f1-b441-2b33b063138f.jpg"
     },
     {
      "id": "me-turkey-mecca",
@@ -84,8 +106,7 @@
        "type": "independent"
       }
      ],
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/AP26219433507335-1791229441.jpg?resize=1920%2C1440",
-     "status": "new"
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/AP26219433507335-1791229441.jpg?resize=1920%2C1440"
     },
     {
      "id": "me-israel-coalition",
@@ -107,8 +128,7 @@
        "type": "independent"
       }
      ],
-     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/dc51/live/4104b7f0-d869-11f1-93e1-3b657b665bcf.jpg",
-     "status": "updated"
+     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/dc51/live/4104b7f0-d869-11f1-93e1-3b657b665bcf.jpg"
     },
     {
      "id": "me-yemen-reshuffle",
@@ -125,30 +145,33 @@
        "type": "independent"
       }
      ],
-     "image": "https://i.guim.co.uk/img/media/383606daa4f240ded1f7ec8a1b158003c8d3e84d/238_0_2383_1906/master/2383.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=86274af0b4538d5e1ffd1fa0d33bc351",
-     "status": "new"
+     "image": "https://i.guim.co.uk/img/media/383606daa4f240ded1f7ec8a1b158003c8d3e84d/238_0_2383_1906/master/2383.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=86274af0b4538d5e1ffd1fa0d33bc351"
     },
     {
-     "id": "me-russia-iran-launchers",
+     "id": "me-hormuz-tanker",
+     "status": "updated",
      "section": "middle_east",
-     "time": "2026-11-05T21:10:00+03:00",
-     "title": "leaked papers: russia agreed to send iran 90 helicopter-missile launchers",
-     "title_ar": "وثائق مسربة: روسيا وافقت على تزويد إيران بـ90 منصة إطلاق صواريخ مروحيات",
-     "summary": "documents obtained by dallas analytics, a ukrainian private intelligence firm, and shared with the guardian detail plans to supply iran with launchers for the LMUR, a guided missile russian attack helicopters have used extensively against ukrainian targets since 2022. the disclosure comes as washington weighs its next move in the war and as moscow and tehran deepen military ties.",
-     "summary_ar": "تُفصّل وثائق حصلت عليها شركة دالاس أناليتيكس الاستخباراتية الأوكرانية الخاصة وشاركتها مع الغارديان خططًا لتزويد إيران بمنصات إطلاق لصاروخ LMUR الموجّه، الذي استخدمته المروحيات الروسية الهجومية بكثافة ضد أهداف أوكرانية منذ 2022. ويأتي الكشف فيما تدرس واشنطن خطوتها التالية في الحرب وتعمّق موسكو وطهران تعاونهما العسكري.",
+     "time": "2026-11-06T19:00:00+03:00",
+     "title": "three more tankers hit in hormuz, at least seven this week",
+     "title_ar": "ثلاث ناقلات أخرى تُصاب في هرمز والسابعة خلال أسبوع",
+     "summary": "ukmto said a tanker reported an explosion off oman while transiting the strait on friday, after iran's revolutionary guard said two oil tankers caught fire when they struck mines on 'unauthorised' routes. the guard says at least seven tankers have been hit this week; the incidents have not been independently confirmed.",
+     "summary_ar": "قالت هيئة عمليات التجارة البحرية البريطانية إن ناقلة أبلغت عن انفجار قبالة عُمان أثناء عبورها المضيق الجمعة، بعد أن أعلن الحرس الثوري الإيراني أن ناقلتَي نفط اشتعلت فيهما النار بعد اصطدامهما بألغام على مسارات «غير مصرح بها». ويقول الحرس إن سبع ناقلات على الأقل أصيبت هذا الأسبوع؛ ولم يتم التحقق من الحوادث بشكل مستقل.",
      "sources": [
       {
-       "title": "The Guardian",
-       "url": "https://www.theguardian.com/world/2026/nov/05/russia-agreed-to-supply-iran-90-helicopter-missile-launchers",
+       "title": "Al Jazeera live blog",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/6/iran-war-live-trump-warns-us-may-have-to-destroy-rest-of-iran",
+       "type": "independent"
+      },
+      {
+       "title": "Al Jazeera explainer",
+       "url": "https://www.aljazeera.com/news/2026/11/6/russia-to-uae-iran-steps-up-diplomacy-amid-trump-threats-what-we-know",
        "type": "independent"
       }
      ],
-     "image": "https://i.guim.co.uk/img/media/e5f00525be6b69bce469257a0668f876bdf4d008/93_0_1519_1216/master/1519.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=da230f41a6d351f50f881ac51ee6e758",
-     "status": "new"
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/09/AA-20260909-42422213-42422190-IRANS_OIL_TANKERS_OFF_BANDAR_ABBAS_IN_STRAIT_OF_HORMUZ-1788948414.jpg?resize=1920%2C1440"
     },
     {
      "id": "me-saudi-alert",
-     "status": "",
      "section": "middle_east",
      "time": "2026-11-05T18:15:00+03:00",
      "title": "saudi air defences intercept a missile toward medina and a drone over the east",
@@ -168,29 +191,6 @@
       }
      ],
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/2026-09-15T161837Z_683006544_RC2SJNA85FI2_RTRMADP_3_IRAN-CRISIS-YEMEN-HOUTHI-1793607431.jpg?resize=770%2C432"
-    },
-    {
-     "id": "me-hormuz-tanker",
-     "status": "",
-     "section": "middle_east",
-     "time": "2026-11-05T18:05:00+03:00",
-     "title": "iran's navy says two more tankers hit mines in hormuz, five in 24 hours",
-     "title_ar": "البحرية الإيرانية: ناقلتان أخريان تصطدمان بألغام في هرمز والخمس خلال 24 ساعة",
-     "summary": "iran's navy said on thursday that two more oil tankers struck naval mines and caught fire in the strait of hormuz, state broadcaster irib reported, saying they had entered prohibited areas 'without coordination'. it has now reported blazes on at least five tankers using unauthorised routes in 24 hours; the claims could not be independently verified. ukmto earlier reported a tanker hit by two unknown projectiles near the strait, with both striking the engine room.",
-     "summary_ar": "قالت البحرية الإيرانية الخميس إن ناقلتَي نفط أخريين اصطدمتا بألغام بحرية واشتعلت فيهما النار في مضيق هرمز، بحسب التلفزيون الرسمي إيريب، وقالت إنهما دخلتا مناطق محظورة «دون تنسيق». وأعلنت حتى الآن عن حرائق في خمس ناقلات على الأقل عبر مسارات غير مصرح بها خلال 24 ساعة؛ ولم يتسن التحقق من المزاعم بشكل مستقل. وكانت هيئة عمليات التجارة البحرية البريطانية قد أفادت سابقًا بإصابة ناقلة بقذيفتين مجهولتين قرب المضيق أصابتا غرفة المحركات.",
-     "sources": [
-      {
-       "title": "Al Jazeera live blog",
-       "url": "https://www.aljazeera.com/news/liveblog/2026/11/5/iran-war-live-trump-admits-war-caused-election-loss-but-had-to-do-it",
-       "type": "independent"
-      },
-      {
-       "title": "Asharq Al-Awsat",
-       "url": "https://english.aawsat.com/world/5331918-ukmto-ship-attacked-near-strait-hormuz",
-       "type": "independent"
-      }
-     ],
-     "image": "https://ichef.bbci.co.uk/news/480/cpsprodpb/935d/live/479e54b0-d745-11f1-b441-2b33b063138f.jpg.webp"
     }
    ],
    "watch": [
@@ -212,9 +212,57 @@
    ]
   },
   "us_markets": {
-   "what_changed": "thursday was wall street's worst session since april 2025: the s&p 500 fell 4.36% and the nasdaq 5.52% into a correction, with the semiconductor index down 12.2% and the vix at 28.18; asia sold off on friday, the nikkei losing 6.2% and the kospi 7.1%, and the october jobs report is due at 16:30 riyadh.",
-   "what_changed_ar": "كانت جلسة الخميس الأسوأ في وول ستريت منذ أبريل 2025: هبط ستاندرد آند بورز 500 بنسبة 4.36% وناسداك 5.52% إلى منطقة التصحيح، وتراجع مؤشر أشباه الموصلات 12.2% وبلغ مؤشر التقلب 28.18؛ وتراجعت آسيا الجمعة إذ خسر نيكي 6.2% وكوسبي 7.1%، ويصدر تقرير وظائف أكتوبر عند 16:30 بتوقيت الرياض.",
+   "what_changed": "the october jobs report blew past forecasts and chips led a rebound that had the nasdaq up 1.6% by late morning, but the week still ends in the red after thursday's rout, and oil is heading for a 12% weekly fall.",
+   "what_changed_ar": "تجاوز تقرير وظائف أكتوبر كل التوقعات وقادت الرقائق ارتدادًا رفع ناسداك 1.6% بحلول منتصف الجلسة، لكن الأسبوع ينتهي على خسائر بعد انهيار الخميس، والنفط يتجه لهبوط أسبوعي بنحو 12%.",
    "items": [
+    {
+     "id": "us-friday-rebound",
+     "title": "chips lead a bounce, but the week still belongs to the sellers",
+     "summary": "by 11:01 a.m. et the nasdaq composite was up 1.6%, the s&p 500 0.9% and the dow 0.1%, with the philadelphia semiconductor index up 3.7% after thursday's 12.2% slide. the rebound still leaves the nasdaq about 3% lower on the week and the s&p 500 about 2%, and europe's stoxx 600 fell 1.7%.",
+     "title_ar": "الرقائق تقود ارتدادًا لكن الأسبوع ما زال للبائعين",
+     "summary_ar": "بحلول الساعة 11:01 صباحًا بتوقيت نيويورك كان ناسداك المركّب مرتفعًا 1.6% وستاندرد آند بورز 500 بنسبة 0.9% وداو جونز 0.1%، مع صعود مؤشر فيلادلفيا لأشباه الموصلات 3.7% بعد هبوطه 12.2% الخميس. ومع ذلك يبقى ناسداك منخفضًا نحو 3% خلال الأسبوع وستاندرد آند بورز 500 نحو 2%، وتراجع ستوكس 600 الأوروبي 1.7%.",
+     "sources": [
+      {
+       "title": "Yahoo Finance",
+       "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
+       "type": "independent"
+      },
+      {
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/05/stock-market-today-live-updates.html",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-06T19:00:00+03:00",
+     "section": "us_markets",
+     "status": "new",
+     "image": "https://s.yimg.com/lo/mysterio/api/d520914a559c3a320491294c5119b3cdaf6f2c568ec1dafbb8afe923277c9c00/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2F2026-11%2Fb3f6c15b-9a31-459a-8adb-dc55613d3709",
+     "tag": "MOVERS"
+    },
+    {
+     "id": "us-jobs-report",
+     "section": "us_markets",
+     "tag": "MACRO",
+     "time": "2026-11-06T16:30:00+03:00",
+     "title": "165,000 jobs in october blow past forecasts; unemployment falls to 4.1%",
+     "title_ar": "165,000 وظيفة في أكتوبر تتجاوز التوقعات والبطالة تهبط إلى 4.1%",
+     "summary": "the labour department said payrolls rose 165,000 last month, against the 59,000 economists polled by dow jones expected, with august and september revised up by a combined 84,000. the unemployment rate slipped to 4.1% from 4.2% and average hourly earnings rose 0.4% on the month and 3.1% from a year earlier.",
+     "summary_ar": "قالت وزارة العمل إن الوظائف ارتفعت 165,000 الشهر الماضي مقابل 59,000 توقعها اقتصاديون استطلعتهم داو جونز، مع مراجعة أغسطس وسبتمبر بالزيادة بمجموع 84,000. وتراجع معدل البطالة إلى 4.1% من 4.2%، وارتفع متوسط الأجر بالساعة 0.4% شهريًا و3.1% سنويًا.",
+     "sources": [
+      {
+       "title": "Bureau of Labor Statistics",
+       "url": "https://www.bls.gov/news.release/empsit.nr0.htm",
+       "type": "official"
+      },
+      {
+       "title": "Reuters via Yahoo Finance",
+       "url": "https://finance.yahoo.com/news/us-job-growth-beats-expectations-133634157.html",
+       "type": "wire"
+      }
+     ],
+     "image": "https://image.cnbcfm.com/api/v1/image/108476508-1793219405492-gettyimages-2301921916-US_JOBLESS_CLAIMS.jpeg?v=1793219480&w=1920&h=1080",
+     "status": "updated"
+    },
     {
      "id": "us-chip-selloff",
      "section": "us_markets",
@@ -236,18 +284,17 @@
        "type": "independent"
       }
      ],
-     "image": "https://image.cnbcfm.com/api/v1/image/108504024-1793627169043-gettyimages-2302715444-AFP_D66R9ZV.jpeg?v=1793661051&w=1920&h=1080",
-     "status": "updated"
+     "image": "https://image.cnbcfm.com/api/v1/image/108504024-1793627169043-gettyimages-2302715444-AFP_D66R9ZV.jpeg?v=1793661051&w=1920&h=1080"
     },
     {
      "id": "us-asia-rout",
      "section": "us_markets",
      "tag": "GLOBAL",
-     "time": "2026-11-06T04:40:00+03:00",
-     "title": "nikkei sinks 6.2% and kospi trips a circuit breaker as the ai selloff spreads",
-     "title_ar": "نيكي يهبط 6.2% وكوسبي يفعّل قاطع الدائرة مع انتشار موجة بيع الذكاء الاصطناعي",
-     "summary": "japan's nikkei 225 fell 6.2% to 57,271.19 in friday morning trade, while south korea's kospi dropped 7.1% to 5,000.25 after plunging more than 8% and halting trading for 20 minutes. australia's asx 200 lost 0.7% to 9,003.40, and futures pointed to losses in taiwan, hong kong and mainland china.",
-     "summary_ar": "هبط مؤشر نيكي 225 الياباني 6.2% إلى 57,271.19 في تعاملات صباح الجمعة، بينما تراجع كوسبي الكوري الجنوبي 7.1% إلى 5,000.25 بعد هبوط تجاوز 8% وإيقاف التداول 20 دقيقة. وخسر إس آند بي/إيه إس إكس 200 الأسترالي 0.7% إلى 9,003.40، وأشارت العقود الآجلة إلى خسائر في تايوان وهونغ كونغ والبر الرئيسي للصين.",
+     "time": "2026-11-06T11:30:00+03:00",
+     "title": "nikkei closes below 60,000 and kospi ends 6% lower",
+     "title_ar": "نيكي يغلق دون 60,000 وكوسبي ينهي الجلسة منخفضًا 6%",
+     "summary": "japan's nikkei 225 closed down 6.0% at 57,434.77, below 60,000 for the first time in nearly half a year, and south korea's kospi ended 6.0% lower at 5,059.69 after falling as much as 8.8% and halting trading for 20 minutes. hong kong's hang seng fell 1.3% to 24,481.86 and australia's asx 200 0.5% to 9,020.80.",
+     "summary_ar": "أغلق مؤشر نيكي 225 الياباني منخفضًا 6.0% عند 57,434.77، دون 60,000 للمرة الأولى منذ نحو نصف عام، وأنهى كوسبي الكوري الجنوبي الجلسة منخفضًا 6.0% عند 5,059.69 بعد هبوط بلغ 8.8% وإيقاف التداول 20 دقيقة. وتراجع هانغ سنغ الهونغ كونغي 1.3% إلى 24,481.86 وإس آند بي/إيه إس إكس 200 الأسترالي 0.5% إلى 9,020.80.",
      "sources": [
       {
        "title": "AP",
@@ -261,45 +308,26 @@
       }
      ],
      "image": "https://s.yimg.com/lo/mysterio/api/f8538204f574e8f516e44773f88d0d42339ded012267f0dca925720716111c2a/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Freuters.com%2F34ea5c7d3d9769158d8c37a34be5745d.jpg",
-     "status": "new"
-    },
-    {
-     "id": "us-jobs-report",
-     "section": "us_markets",
-     "tag": "MACRO",
-     "time": "2026-11-06T05:20:00+03:00",
-     "title": "october jobs report lands at 16:30 riyadh, with 59,000 jobs expected",
-     "title_ar": "تقرير وظائف أكتوبر يصدر عند 16:30 بتوقيت الرياض وسط توقع 59,000 وظيفة",
-     "summary": "economists polled by dow jones expect payrolls to rise 59,000 in october and the unemployment rate to hold at 4.2%, cnbc reported. it is the week's last major data point and arrives with the vix at 28.18 and the federal reserve describing the labour market as on a solid footing, though it says uncertainty remains.",
-     "summary_ar": "يتوقع اقتصاديون استطلعتهم داو جونز زيادة الوظائف 59,000 في أكتوبر وثبات معدل البطالة عند 4.2%، وفق سي إن بي سي. وهو آخر بيانات كبيرة هذا الأسبوع ويأتي ومؤشر التقلب عند 28.18 بينما يصف الاحتياطي الفيدرالي سوق العمل بأنها على أساس متين مع استمرار عدم اليقين.",
-     "sources": [
-      {
-       "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/05/october-jobs-report-preview.html",
-       "type": "independent"
-      }
-     ],
-     "image": "https://image.cnbcfm.com/api/v1/image/108476508-1793219405492-gettyimages-2301921916-US_JOBLESS_CLAIMS.jpeg?v=1793219480&w=1920&h=1080",
-     "status": "new"
+     "status": "updated"
     },
     {
      "id": "oil-settle",
      "status": "updated",
      "section": "us_markets",
      "tag": "GLOBAL",
-     "time": "2026-11-06T05:25:00+03:00",
-     "title": "brent settles 3.9% higher at $98.29, then tops $99 as tankers burn",
-     "title_ar": "برنت يغلق مرتفعًا 3.9% عند 98.29 دولار ثم يتجاوز 99 مع احتراق ناقلات",
-     "summary": "brent crude settled up $3.67, or 3.88%, at $98.29 a barrel on thursday and west texas intermediate rose $2.40, or 2.72%, to $90.52, a rebound after wednesday's slide of more than 8%. by 02:22 GMT on friday brent's january contract was up another 1.6% at $99.86 and wti 1.2% at $91.62, though both remain on course for a weekly fall of about 12%.",
-     "summary_ar": "أغلق برنت مرتفعًا 3.67 دولار، أي 3.88%، عند 98.29 دولارًا للبرميل الخميس، وصعد غرب تكساس الوسيط 2.40 دولار، أي 2.72%، إلى 90.52 دولار، في ارتداد بعد هبوط الأربعاء بأكثر من 8%. وبحلول الساعة 02:22 بتوقيت غرينتش الجمعة ارتفع عقد برنت لشهر يناير 1.6% أخرى إلى 99.86 دولارًا وغرب تكساس 1.2% إلى 91.62 دولارًا، مع بقاء الاثنين على مسار هبوط أسبوعي بنحو 12%.",
+     "time": "2026-11-06T19:00:00+03:00",
+     "title": "brent holds near $99 as tankers burn, with oil set for a 12% weekly fall",
+     "title_ar": "برنت قرب 99 دولارًا مع احتراق الناقلات والنفط يتجه لهبوط أسبوعي 12%",
+     "summary": "brent was up 36 cents, or 0.39%, at $98.65 a barrel and wti 43 cents, or 0.48%, at $90.98 on friday, cnbc reported, after brent touched almost $100 earlier in the session. both benchmarks are still on course for a weekly fall of about 12%.",
+     "summary_ar": "ارتفع برنت 36 سنتًا، أي 0.39%، إلى 98.65 دولارًا للبرميل، وغرب تكساس الوسيط 43 سنتًا، أي 0.48%، إلى 90.98 دولارًا الجمعة، وفق سي إن بي سي، بعد أن لامس برنت نحو 100 دولار في وقت سابق من الجلسة. ولا يزال الخامان على مسار هبوط أسبوعي بنحو 12%.",
      "sources": [
       {
-       "title": "Reuters via Yahoo Finance",
-       "url": "https://ca.finance.yahoo.com/news/oil-falls-fourth-day-expectations-045943628.html",
-       "type": "wire"
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/06/oil-price-today-brent-wti.html",
+       "type": "independent"
       },
       {
-       "title": "Al Jazeera (live blog)",
+       "title": "Al Jazeera live blog",
        "url": "https://www.aljazeera.com/news/liveblog/2026/11/6/iran-war-live-trump-warns-us-may-have-to-destroy-rest-of-iran",
        "type": "independent"
       }
@@ -327,27 +355,31 @@
        "type": "independent"
       }
      ],
-     "image": "https://image.cnbcfm.com/api/v1/image/108524758-5ED2-REQ-110526-NewsPRE1.jpg?v=1793877462&w=1920&h=1080",
-     "status": "updated"
+     "image": "https://image.cnbcfm.com/api/v1/image/108524758-5ED2-REQ-110526-NewsPRE1.jpg?v=1793877462&w=1920&h=1080"
     },
     {
-     "id": "us-earnings-afterbell",
-     "section": "us_markets",
-     "tag": "EARNINGS",
-     "time": "2026-11-05T17:00:00+03:00",
-     "title": "applovin jumps 23% on results while wendy's rejects peltz's $1.4bn bid",
-     "title_ar": "أب لوڤن يقفز 23% بعد النتائج ووينديز ترفض عرض بلتز بقيمة 1.4 مليار دولار",
-     "summary": "applovin rose 23% after third-quarter revenue of $2.18bn beat the $2.07bn consensus and it guided fourth-quarter revenue to $2.37-2.40bn, above the $2.25bn expected; btig lifted its target to $450. wendy's rejected nelson peltz's $1.4bn takeover offer as undervaluing the company and announced a turnaround plan called 'dave's way'. duke energy, airbnb and lumentum report after the bell.",
-     "summary_ar": "صعدت أب لوڤن 23% بعد إيرادات ربع ثالث بلغت 2.18 مليار دولار مقابل توقع 2.07 مليار، وتوقعات لإيرادات الربع الرابع بين 2.37 و2.40 مليار دولار مقابل 2.25 مليار متوقعة؛ ورفعت بي تي آي جي هدفها السعري إلى 450 دولارًا. ورفضت ونديز عرض استحواذ نيلسون بلتز بقيمة 1.4 مليار دولار لأنه يقلل من قيمة الشركة، وأعلنت خطة تحول باسم «ديفز وي». وتعلن ديوك إنرجي وإير بي إن بي ولومنتام نتائجها بعد الإغلاق.",
+     "id": "us-tesla-cybertruck",
+     "title": "musk winds down the cybertruck to make room for robotaxis",
+     "summary": "musk said on x on friday that tesla will wind down cybertruck production at gigafactory texas around the middle of next year to make room for more cybercab output, adding that the existing fleet 'will be around for a long time'. cybertruck sales fell 28% so far in 2026, according to cox automotive, after 20,237 were sold in the us last year, down 48% from 2024.",
+     "title_ar": "ماسك يوقف إنتاج سايبرترك لإفساح المجال لسيارات الأجرة ذاتية القيادة",
+     "summary_ar": "قال ماسك على منصة إكس الجمعة إن تسلا ستوقف إنتاج سايبرترك في مصنعها بتكساس حول منتصف العام المقبل لإفساح المجال لزيادة إنتاج سايبركاب، مضيفًا أن الأسطول الحالي «سيبقى طويلًا». وتراجعت مبيعات سايبرترك 28% حتى الآن في 2026 بحسب كوكس أوتوموتيف، بعد بيع 20,237 منها في الولايات المتحدة العام الماضي بانخفاض 48% عن 2024.",
      "sources": [
       {
-       "title": "Yahoo Finance",
-       "url": "https://ca.finance.yahoo.com/news/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-oil-rises-chip-stocks-141439950.html",
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/06/tesla-cybertruck-texas-musk.html",
+       "type": "independent"
+      },
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/6/musk-says-tesla-to-wind-down-polarising-cybertruck-production-as-sales-lag",
        "type": "independent"
       }
      ],
-     "image": "https://image.cnbcfm.com/api/v1/image/108249978-1767887539173-gettyimages-2255246069-kd1_7832_9ex7rskv.jpeg?v=1767887586&w=1920&h=1080",
-     "status": ""
+     "time": "2026-11-06T13:00:00+03:00",
+     "section": "us_markets",
+     "status": "new",
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/ap_6aede29627306-1793974934.jpg?resize=1920%2C1440",
+     "tag": "MOVERS"
     },
     {
      "id": "boe-rate-hike",
@@ -365,8 +397,7 @@
        "type": "independent"
       }
      ],
-     "image": "https://s.yimg.com/lo/mysterio/api/991c829f48a08bbb131b2e193e3d3a5ac8c8588b633383ba4173fc62882c68d1/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fs.yimg.com%2Fos%2Fcreatr-uploaded-images%2F2025-05%2F157444b0-3163-11f0-a91b-eb382a4eb590",
-     "status": ""
+     "image": "https://s.yimg.com/lo/mysterio/api/991c829f48a08bbb131b2e193e3d3a5ac8c8588b633383ba4173fc62882c68d1/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fs.yimg.com%2Fos%2Fcreatr-uploaded-images%2F2025-05%2F157444b0-3163-11f0-a91b-eb382a4eb590"
     }
    ],
    "watch": [
@@ -386,14 +417,13 @@
    "items": [
     {
      "id": "ai-kimi-k31",
-     "status": "updated",
      "section": "ai",
-     "time": "2026-11-06T06:00:00+03:00",
+     "time": "2026-11-06T19:00:00+03:00",
      "kind": "MODEL",
-     "title": "#1: kimi k3.1 pro leads hugging face's trending list with 941 likes",
-     "title_ar": "المركز 1: Kimi K3.1 Pro يتصدر قائمة هاغينغ فيس الرائجة بـ941 إعجابًا",
-     "summary": "moonshot ai's kimi k3.1 pro holds the top spot on hugging face's trending list with 941 likes and 11,658 downloads. the repo holds 96 safetensors shards totalling 2.78 trillion parameters, 2.72 trillion of them in 8-bit; the model has been on kimi's apps and api since 23 october and scored 65.7% on terminal-bench 4.0 against claude opus 5.5's 66.4%.",
-     "summary_ar": "يحافظ Kimi K3.1 Pro من موونشوت إيه آي على صدارة قائمة الأكثر رواجًا على هاغينغ فيس بـ941 إعجابًا و11,658 تحميلًا. ويضم المستودع 96 شظية safetensors بإجمالي 2.78 تريليون معامل، منها 2.72 تريليون بدقة 8 بت؛ وهو متاح عبر تطبيقات كيمي وواجهتها البرمجية منذ 23 أكتوبر وسجل 65.7% في Terminal-Bench 4.0 مقابل 66.4% لكلود أوبوس 5.5.",
+     "title": "#1: kimi k3.1 pro leads with 1,400 likes",
+     "title_ar": "الأول: kimi k3.1 pro يتصدر بـ1,400 إعجاب",
+     "summary": "moonshot ai's kimi k3.1 pro holds the top spot with 1,400 likes and 18,432 downloads, up from 941 likes this morning. the repo holds 96 safetensors shards totalling 2.78 trillion parameters, 2.72 trillion of them in 8-bit; the model has been on kimi's apps and api since 23 october and scored 65.7% on terminal-bench 4.0 against claude opus 5.5's 66.4%.",
+     "summary_ar": "يتصدر kimi k3.1 pro من moonshot ai بـ1,400 إعجاب و18,432 تنزيلًا، بعد 941 إعجابًا صباح اليوم. ويضم المستودع 96 شريحة safetensors بإجمالي 2.78 تريليون معامل، منها 2.72 تريليون بثمانية بتات؛ والنموذج متاح في تطبيقات كيمي وواجهتها البرمجية منذ 23 أكتوبر وسجّل 65.7% في terminal-bench 4.0 مقابل 66.4% لـclaude opus 5.5.",
      "sources": [
       {
        "title": "Hugging Face (Moonshot AI org)",
@@ -409,18 +439,17 @@
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/moonshotai/Kimi-K3.png",
      "try_url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
      "pricing": "Open weights",
-     "metric": "#1 trending, 941 likes"
+     "metric": "#1 trending, 1,400 likes"
     },
     {
      "id": "ai-idol",
-     "status": "updated",
      "section": "ai",
-     "time": "2026-11-06T06:00:00+03:00",
+     "time": "2026-11-06T19:00:00+03:00",
      "kind": "MODEL",
      "title": "#2: idol turns a single photo into a 3d model, still second",
-     "title_ar": "المركز 2: idol يحوّل صورة واحدة إلى نموذج ثلاثي الأبعاد ويبقى ثانيًا",
-     "summary": "speridlabs' idol holds second place with 795 likes and 17,180 downloads, an image-to-3d model that rebuilds an object from one photo as a gaussian splat. it ships under apache-2.0 with its own library, so it can be run locally rather than through a hosted demo.",
-     "summary_ar": "يحافظ idol من سبيريدلابس على المركز الثاني بـ795 إعجابًا و17,180 تحميلًا، وهو نموذج لتحويل الصورة إلى مجسم ثلاثي الأبعاد يعيد بناء الجسم من صورة واحدة على هيئة gaussian splat. ويُطرح برخصة Apache-2.0 وبمكتبة خاصة به، ما يتيح تشغيله محليًا بدل الاعتماد على عرض مستضاف.",
+     "title_ar": "الثاني: idol يحوّل صورة واحدة إلى نموذج ثلاثي الأبعاد",
+     "summary": "speridlabs' idol holds second place with 886 likes and 19,139 downloads, an image-to-3d model that rebuilds an object from one photo as a gaussian splat. it ships under apache-2.0 with its own library, so it can be run locally rather than through a hosted demo.",
+     "summary_ar": "يحل idol من speridlabs ثانيًا بـ886 إعجابًا و19,139 تنزيلًا، وهو نموذج يحوّل صورة واحدة إلى نموذج ثلاثي الأبعاد بصيغة gaussian splat. ويُطرح تحت رخصة apache-2.0 مع مكتبته الخاصة، فيمكن تشغيله محليًا بدل الاعتماد على عرض مستضاف.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -431,17 +460,17 @@
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/speridlabs/idol.png",
      "try_url": "https://huggingface.co/spaces/speridlabs/idol",
      "pricing": "Open weights",
-     "metric": "#2 trending, 795 likes"
+     "metric": "#2 trending, 886 likes"
     },
     {
      "id": "ai-qwen-3d-coder",
      "section": "ai",
      "kind": "MODEL",
-     "time": "2026-11-06T06:00:00+03:00",
+     "time": "2026-11-06T19:00:00+03:00",
      "title": "#3: a 4b qwen fine-tune that writes three.js 3d scenes",
-     "title_ar": "المركز 3: نسخة مضبوطة من Qwen بحجم 4 مليارات تكتب مشاهد three.js ثلاثية الأبعاد",
-     "summary": "ccore's Qwen3.5-4B-3D-Coder enters the trending list third with 713 likes and 157,157 downloads, a fine-tune of Qwen3.5-4B trained on the author's ThreeJS-3D-Scenes dataset and published in safetensors and GGUF since 25 october. it is apache-2.0 and built for generating three.js code, which makes it a cheap local option for 3d scene generation.",
-     "summary_ar": "يدخل Qwen3.5-4B-3D-Coder من ccore القائمة في المركز الثالث بـ713 إعجابًا و157,157 تحميلًا، وهو نسخة مضبوطة من Qwen3.5-4B دُرّبت على مجموعة بيانات ThreeJS-3D-Scenes الخاصة بمطوّره ونُشرت بصيغتَي safetensors وGGUF منذ 25 أكتوبر. ورخصته Apache-2.0 وهو مخصص لتوليد أكواد three.js، ما يجعله خيارًا محليًا منخفض الكلفة لتوليد المشاهد ثلاثية الأبعاد.",
+     "title_ar": "الثالث: نسخة qwen بحجم 4b تكتب مشاهد three.js ثلاثية الأبعاد",
+     "summary": "ccore's Qwen3.5-4B-3D-Coder is third with 761 likes and 190,243 downloads, a fine-tune of Qwen3.5-4B trained on the author's ThreeJS-3D-Scenes dataset and published in safetensors and GGUF since 25 october. it is apache-2.0 and built for generating three.js code, which makes it a cheap local option for 3d scene generation.",
+     "summary_ar": "يحل Qwen3.5-4B-3D-Coder من ccore ثالثًا بـ761 إعجابًا و190,243 تنزيلًا، وهو نسخة مضبوطة من Qwen3.5-4B دُرّبت على مجموعة بيانات ThreeJS-3D-Scenes ونُشرت بصيغتَي safetensors وGGUF منذ 25 أكتوبر. ورخصته apache-2.0 وهو مخصص لتوليد أكواد three.js، ما يجعله خيارًا محليًا رخيصًا لتوليد مشاهد ثلاثية الأبعاد.",
      "why_it_matters": "a 4b model that turns prompts into three.js scenes is small enough to run on a laptop, which is where most 3d prototyping actually happens.",
      "why_it_matters_ar": "نموذج بحجم 4 مليارات يحوّل الأوامر النصية إلى مشاهد three.js صغير بما يكفي ليعمل على حاسوب محمول، وهو المكان الذي تجري فيه معظم نماذج التصميم ثلاثي الأبعاد فعليًا.",
      "sources": [
@@ -454,18 +483,17 @@
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/ccore/Qwen3.5-4B-3D-Coder.png",
      "try_url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
      "pricing": "Open weights",
-     "metric": "#3 trending, 713 likes",
-     "status": "new"
+     "metric": "#3 trending, 761 likes"
     },
     {
      "id": "ai-ltx-2-5",
      "section": "ai",
      "kind": "MODEL",
-     "time": "2026-11-06T06:00:00+03:00",
-     "title": "#4: ltx-2.5 is the workhorse of the list with 10,743 likes",
-     "title_ar": "المركز 4: LTX-2.5 هو الأكثر استخدامًا في القائمة بـ10,743 إعجابًا",
-     "summary": "lightricks' ltx-2.5 sits fourth with 10,743 likes and 2.56 million downloads, a diffusion model that handles image, text and audio to video in one pipeline, including native multishot and audio generation. it is the most downloaded model in the trending ten by a wide margin.",
-     "summary_ar": "يحل LTX-2.5 من لايتريكس رابعًا بـ10,743 إعجابًا و2.56 مليون تحميل، وهو نموذج انتشار يتعامل مع الصورة والنص والصوت إلى فيديو في مسار واحد، بما في ذلك اللقطات المتعددة وتوليد الصوت. وهو الأكثر تحميلًا في قائمة العشرة الرائجة بفارق كبير.",
+     "time": "2026-11-06T19:00:00+03:00",
+     "title": "#4: ltx-2.5 is the workhorse of the list with 10,819 likes",
+     "title_ar": "الرابع: ltx-2.5 الأكثر استخدامًا في القائمة بـ10,819 إعجابًا",
+     "summary": "lightricks' ltx-2.5 sits fourth with 10,819 likes and 2.6 million downloads, a diffusion model that handles image, text and audio to video in one pipeline, including native multishot and audio generation. it is the most downloaded model in the trending ten by a wide margin.",
+     "summary_ar": "يحل ltx-2.5 من lightricks رابعًا بـ10,819 إعجابًا و2.6 مليون تنزيل، وهو نموذج انتشار يتعامل مع الصورة والنص والصوت إلى فيديو في مسار واحد، بما يشمل تعدد اللقطات وتوليد الصوت. وهو الأكثر تنزيلًا في قائمة العشرة الأوائل بفارق كبير.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -476,19 +504,61 @@
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Lightricks/LTX-2.5.png",
      "try_url": "https://huggingface.co/Lightricks/LTX-2.5",
      "pricing": "Open weights",
-     "metric": "#4 trending, 10,743 likes",
-     "status": "updated"
+     "metric": "#4 trending, 10,819 likes"
+    },
+    {
+     "id": "ai-numbat",
+     "title": "#5: a 7.7tb 'anthropic' checkpoint appears on hugging face",
+     "summary": "burner22/numbat is fifth with 364 likes and 9,066 downloads: an anonymous upload that claims to be a mid-pretraining checkpoint of an unreleased anthropic model, 772 shards and about 7.72 tb in nvfp4 format, with a reference implementation and a training-log tail. anthropic has not confirmed it, the readme ties the codename to a comment in the march claude code source leak, and at 7.7tb it is not something anyone can run at home.",
+     "title_ar": "الخامس: نسخة «أنثروبيك» بحجم 7.7 تيرابايت على hugging face",
+     "summary_ar": "يحل burner22/numbat خامسًا بـ364 إعجابًا و9,066 تنزيلًا: ملف مرفوع مجهول الهوية يدّعي أنه نسخة وسيطة من تدريب نموذج أنثروبيك لم يُطرح بعد، بـ772 شريحة ونحو 7.72 تيرابايت بصيغة nvfp4، مع تطبيق مرجعي ومقتطف من سجل التدريب. ولم تؤكد أنثروبيك ذلك، ويربط الملف الاسم الرمزي بتعليق في تسريب شيفرة claude code في مارس، وحجمه يمنع تشغيله منزليًا.",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/burner22/numbat",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-06T19:00:00+03:00",
+     "section": "ai",
+     "status": "new",
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/burner22/numbat.png",
+     "kind": "MODEL",
+     "try_url": "https://huggingface.co/burner22/numbat",
+     "pricing": "Open weights",
+     "metric": "#5 trending, 364 likes"
+    },
+    {
+     "id": "ai-sulphur-3",
+     "title": "#6: sulphur-3 is a community build on minimax's video model",
+     "summary": "FusionCow's Sulphur-3 is sixth with 390 likes and 950 downloads, a community fine-tune built on MiniMax's H3 image-to-video model and shipped as comfyui workflows, lora files and a parameter guide. the repo is gated, so downloading it needs the author's approval.",
+     "title_ar": "السادس: sulphur-3 نسخة مجتمعية من نموذج فيديو minimax",
+     "summary_ar": "يحل Sulphur-3 من FusionCow سادسًا بـ390 إعجابًا و950 تنزيلًا، وهو نسخة مجتمعية مضبوطة مبنية على نموذج MiniMax H3 لتحويل الصورة إلى فيديو، تُطرح كسير عمل comfyui وملفات lora ودليل معاملات. والمستودع مقيّد، فتحميله يتطلب موافقة صاحبه.",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/FusionCow/Sulphur-3",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-06T19:00:00+03:00",
+     "section": "ai",
+     "status": "new",
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/FusionCow/Sulphur-3.png",
+     "kind": "MODEL",
+     "try_url": "https://huggingface.co/FusionCow/Sulphur-3",
+     "pricing": "Open weights",
+     "metric": "#6 trending, 390 likes"
     },
     {
      "id": "ai-nemotron-transcribe",
-     "status": "updated",
      "section": "ai",
-     "time": "2026-11-06T06:00:00+03:00",
+     "time": "2026-11-06T19:00:00+03:00",
      "kind": "MODEL",
-     "title": "#5: nvidia's nemotron transcribe climbs to fifth",
-     "title_ar": "المركز 5: نموذج نفيديا للنسخ الصوتي يتقدم إلى الخامس",
-     "summary": "nvidia's Nemotron-3.5-Transcribe-30B-A4B is fifth with 3,059 likes and 57,297 downloads, a 30b mixture-of-experts speech model covering 40 languages with speaker diarization and speech translation in one pass.",
-     "summary_ar": "يحل Nemotron-3.5-Transcribe-30B-A4B من نفيديا خامسًا بـ3,059 إعجابًا و57,297 تحميلًا، وهو نموذج كلام بمزيج خبراء بحجم 30 مليارًا يغطي 40 لغة مع تمييز المتحدثين وترجمة الكلام في تمريرة واحدة.",
+     "title": "#7: nvidia's nemotron transcribe slips to seventh",
+     "title_ar": "السابع: نموذج نيموترون للنسخ الصوتي من نفيديا",
+     "summary": "nvidia's Nemotron-3.5-Transcribe-30B-A4B is seventh with 3,069 likes and 61,049 downloads, a 30b mixture-of-experts speech model covering 40 languages with speaker diarization and speech translation in one pass.",
+     "summary_ar": "يحل Nemotron-3.5-Transcribe-30B-A4B من نفيديا سابعًا بـ3,069 إعجابًا و61,049 تنزيلًا، وهو نموذج صوتي بخليط خبراء بحجم 30b يغطي 40 لغة مع تمييز المتحدثين وترجمة الكلام في تمريرة واحدة.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -499,29 +569,7 @@
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B.png",
      "try_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
      "pricing": "Open weights",
-     "metric": "#5 trending, 3,059 likes"
-    },
-    {
-     "id": "ai-mistral-large-4",
-     "time": "2026-11-06T06:00:00+03:00",
-     "kind": "MODEL",
-     "title": "#6: mistral's 1-trillion-parameter large 4 slips to sixth",
-     "title_ar": "المركز 6: نموذج Mistral Large 4 بتريليون معامل يتراجع إلى السادس",
-     "summary": "mistral's Mistral-Large-4-1T-A52B is sixth with 1,615 likes and 9,592 downloads, a trillion-parameter sparse model with 52 billion active parameters that supports 40-plus languages including arabic and ships with vllm, sglang and llama.cpp support.",
-     "summary_ar": "يحل Mistral-Large-4-1T-A52B من ميسترال سادسًا بـ1,615 إعجابًا و9,592 تحميلًا، وهو نموذج متناثر بتريليون معامل و52 مليار معامل نشط يدعم أكثر من 40 لغة بينها العربية ويتوافق مع vllm وsglang وllama.cpp.",
-     "sources": [
-      {
-       "title": "Hugging Face",
-       "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
-       "type": "official"
-      }
-     ],
-     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/mistralai/Mistral-Large-4-1T-A52B.png",
-     "try_url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
-     "pricing": "Open weights",
-     "metric": "#6 trending, 1,615 likes",
-     "section": "ai",
-     "status": "updated"
+     "metric": "#7 trending, 3,069 likes"
     },
     {
      "id": "ai-openai-images-26",
@@ -542,8 +590,7 @@
      "image": "https://images.ctfassets.net/kftzwdyauwt9/2E8ts1o0xQpNfGigwDDkUx/f144a75f6a59d0307eba199c518e5a83/gpt-image-2-6-card.png?w=3840&q=90&fm=webp",
      "try_url": "https://chatgpt.com/",
      "pricing": "Free tier",
-     "metric": "4B images a week",
-     "status": ""
+     "metric": "4B images a week"
     }
    ],
    "watch": [
@@ -562,17 +609,42 @@
   "trending": {
    "items": [
     {
-     "id": "nvidia-auto-ontology",
+     "id": "zed-industries-zed",
+     "title": "zed is #1 today: the rust editor keeps adding converts",
+     "summary": "zed industries' editor leads today's list with 292 stars added and 93,233 in total; it is a gpu-rendered, multiplayer code editor written in rust by the creators of atom, and the repo was pushed to at 14:56 gmt on friday.",
+     "title_ar": "zed الأول اليوم: محرر rust يواصل كسب المستخدمين",
+     "summary_ar": "يتصدر محرر zed industries قائمة اليوم بـ292 نجمة مضافة و93,233 في الإجمالي؛ وهو محرر أكواد متعدد اللاعبين يعمل بمعالج الرسوميات ومكتوب بلغة rust على يد مبتكري atom، وقد دُفع إليه في 14:56 بتوقيت غرينتش الجمعة.",
+     "sources": [
+      {
+       "title": "GitHub",
+       "url": "https://github.com/zed-industries/zed",
+       "type": "official"
+      }
+     ],
+     "time": "2026-11-06T19:00:00+03:00",
      "section": "trending",
+     "status": "new",
+     "image": "https://opengraph.githubassets.com/1/zed-industries/zed",
      "rank": 1,
      "period": "today",
-     "stars_gained": 2679,
-     "stars_total": 7586,
+     "stars_gained": 292,
+     "stars_total": 93233,
+     "language": "Rust",
+     "why_it_matters": "an editor that ships daily and still adds a few hundred stars a day is where a lot of agent-era coding is actually happening.",
+     "why_it_matters_ar": "محرر يُحدَّث يوميًا ويضيف بضع مئات من النجوم كل يوم هو المكان الذي تجري فيه فعليًا كثير من أعمال البرمجة في عصر الوكلاء."
+    },
+    {
+     "id": "nvidia-auto-ontology",
+     "section": "trending",
+     "rank": 2,
+     "period": "today",
+     "stars_gained": 2005,
+     "stars_total": 8572,
      "language": "Python",
-     "title": "auto-ontology keeps #1 today: nvidia's graph layer for agent reasoning",
-     "title_ar": "auto-ontology يحافظ على المركز الأول اليوم: طبقة رسوم معرفية من نفيديا لاستدلال الوكلاء",
-     "summary": "nvidia's auto-ontology is a python framework for building semantic, graph-based reasoning layers over data, aimed at deterministic query generation and better retrieval context; it gained 2,679 stars today, the most on the list, and has 7,586 in total.",
-     "summary_ar": "Auto Ontology من نفيديا إطار عمل بلغة بايثون لبناء طبقات استدلال دلالية قائمة على الرسوم فوق البيانات، بهدف توليد استعلامات حتمي وسياق استرجاع أفضل؛ حصد 2,679 نجمة اليوم، وهو الأعلى في القائمة، ليصل إجماليه إلى 7,586.",
+     "title": "auto-ontology is #2 today with 2,005 new stars",
+     "title_ar": "auto-ontology الثاني اليوم بـ2,005 نجمة جديدة",
+     "summary": "nvidia's auto-ontology is a python framework for building semantic, graph-based reasoning layers over data, aimed at deterministic query generation and better retrieval context; it gained 2,005 stars today and has 8,572 in total.",
+     "summary_ar": "auto-ontology من نفيديا إطار بايثون لبناء طبقات استدلال دلالية قائمة على الرسوم البيانية فوق البيانات، بهدف توليد استعلامات حتمية وسياق استرجاع أفضل؛ وقد كسب 2,005 نجمة اليوم ولديه 8,572 في الإجمالي.",
      "why_it_matters": "nvidia shipping an open framework for ontology-driven retrieval is a bet that agents need structure, not just bigger context windows.",
      "why_it_matters_ar": "إطلاق نفيديا إطارًا مفتوحًا للاسترجاع القائم على الأنطولوجيا رهان على أن الوكلاء يحتاجون بنية لا مجرد نوافذ سياق أكبر.",
      "image": "https://opengraph.githubassets.com/1/NVIDIA/auto-ontology",
@@ -583,108 +655,57 @@
        "type": "official"
       }
      ],
-     "status": "updated",
-     "time": "2026-11-06T06:10:00+03:00"
+     "time": "2026-11-06T19:00:00+03:00"
     },
     {
-     "id": "mattpocock-skills",
-     "section": "trending",
-     "rank": 2,
-     "period": "today",
-     "stars_gained": 2071,
-     "stars_total": 315458,
-     "language": "Shell",
-     "title": "mattpocock/skills holds #2 today with 315k stars in total",
-     "title_ar": "mattpocock/skills يحافظ على المركز الثاني اليوم بإجمالي 315 ألف نجمة",
-     "summary": "mattpocock's skills repo, a set of agent skills taken straight from his .agents directory, is second today with 2,071 new stars and 315,458 in total, and was pushed to again on thursday morning.",
-     "summary_ar": "مستودع skills لمات بوكوك، وهو مجموعة مهارات للوكلاء مأخوذة مباشرة من مجلد .agents الخاص به، في المركز الثاني اليوم بـ2,071 نجمة جديدة وإجمالي 315,458 نجمة، وقد تلقّى تحديثًا صباح الخميس.",
-     "why_it_matters": "skills are becoming the distribution layer for how agents behave, and this is now the most-starred collection of them.",
-     "why_it_matters_ar": "أصبحت المهارات طبقة توزيع لسلوك الوكلاء، وهذا الآن المستودع الأكثر نجومًا بين مجموعاتها.",
-     "image": "https://opengraph.githubassets.com/1/mattpocock/skills",
+     "id": "google-skills",
+     "title": "google/skills is #10 today: google's own agent skills",
+     "summary": "google's repo of agent skills for its products and technologies is tenth today with 532 stars added and 22,700 in total, apache-2.0 and pushed on thursday night.",
+     "title_ar": "google/skills العاشر اليوم: مهارات وكلاء من غوغل نفسها",
+     "summary_ar": "يحل مستودع غوغل لمهارات الوكلاء الخاصة بمنتجاتها وتقنياتها عاشرًا اليوم بـ532 نجمة مضافة و22,700 في الإجمالي، برخصة apache-2.0 وآخر دفع مساء الخميس.",
      "sources": [
       {
        "title": "GitHub",
-       "url": "https://github.com/mattpocock/skills",
+       "url": "https://github.com/google/skills",
        "type": "official"
       }
      ],
-     "status": "updated",
-     "time": "2026-11-06T06:10:00+03:00"
-    },
-    {
-     "id": "garrytan-gstack",
+     "time": "2026-11-06T19:00:00+03:00",
      "section": "trending",
-     "rank": 3,
+     "status": "new",
+     "image": "https://opengraph.githubassets.com/1/google/skills",
+     "rank": 10,
      "period": "today",
-     "stars_gained": 612,
-     "stars_total": 140027,
-     "language": "TypeScript",
-     "title": "gstack is #3 today: garry tan's own claude code setup, packaged",
-     "title_ar": "gstack في المركز الثالث اليوم: إعدادات غاري تان نفسه لكلود كود في حزمة",
-     "summary": "garry tan's gstack packages his claude code setup as 23 opinionated tools that act as ceo, designer, engineering manager, release manager, doc engineer and qa; it gained 612 stars today and has 140,027 in total, with commits landing at 03:30 GMT on friday.",
-     "summary_ar": "يجمع gstack من غاري تان إعداداته في claude code في 23 أداة ذات رأي تعمل كمدير تنفيذي ومصمم ومدير هندسي ومدير إصدارات ومهندس وثائق وضمان جودة؛ حصد 612 نجمة اليوم وإجماليه 140,027، مع تحديثات وصلت الساعة 03:30 بتوقيت غرينتش الجمعة.",
-     "why_it_matters": "people copy workflows faster than they read docs, and a named operator's stack is the clearest template yet.",
-     "why_it_matters_ar": "يقلّد الناس سير العمل أسرع مما يقرؤون الوثائق، وحزمة مشغّل معروف هي أوضح قالب حتى الآن.",
-     "image": "https://opengraph.githubassets.com/1/garrytan/gstack",
-     "sources": [
-      {
-       "title": "GitHub",
-       "url": "https://github.com/garrytan/gstack",
-       "type": "official"
-      }
-     ],
-     "time": "2026-11-06T06:10:00+03:00",
-     "status": "updated"
-    },
-    {
-     "id": "d4vinci-scrapling",
-     "section": "trending",
-     "rank": 5,
-     "period": "today",
-     "stars_gained": 1655,
-     "stars_total": 98146,
+     "stars_gained": 532,
+     "stars_total": 22700,
      "language": "Python",
-     "title": "scrapling is #5 today for scraping that survives bot walls",
-     "title_ar": "Scrapling في المركز الخامس اليوم لاستخراج بيانات يتجاوز جدران الحماية",
-     "summary": "scrapling is a python scraping framework built to survive bot walls, from a single request to a full crawl; it gained 1,655 stars today and has 98,146 in total, with the repo pushed to at 18:01 GMT on thursday.",
-     "summary_ar": "Scrapling إطار كشط بيانات بلغة بايثون مصمم لتجاوز جدران الحماية الآلية، من طلب واحد إلى زحف كامل؛ حصد 1,655 نجمة اليوم وإجماليه 98,146، مع تحديث للمستودع عند 18:01 بتوقيت غرينتش الخميس.",
-     "why_it_matters": "agent builders keep hitting 403s, so a scraper that survives them spreads by word of mouth.",
-     "why_it_matters_ar": "يصطدم بناة الوكلاء مرارًا بأخطاء 403، لذا ينتشر أي مستخرج بيانات يتجاوزها بالكلمة المنقولة.",
-     "image": "https://opengraph.githubassets.com/1/D4Vinci/Scrapling",
-     "sources": [
-      {
-       "title": "GitHub",
-       "url": "https://github.com/D4Vinci/Scrapling",
-       "type": "official"
-      }
-     ],
-     "time": "2026-11-06T06:10:00+03:00",
-     "status": "updated"
+     "why_it_matters": "google packaging its own apis as agent skills is the clearest sign that skills are becoming the integration layer.",
+     "why_it_matters_ar": "تغليف غوغل لواجهاتها البرمجية كمهارات وكلاء هو أوضح إشارة إلى أن المهارات أصبحت طبقة التكامل."
     },
     {
-     "id": "vercel-labs-agent-desktop",
-     "section": "trending",
-     "rank": 6,
-     "period": "today",
-     "stars_gained": 2173,
-     "stars_total": 17071,
-     "language": "Rust",
-     "title": "agent-desktop is #6 today with 2,173 new stars",
-     "title_ar": "agent-desktop في المركز السادس اليوم بـ2,173 نجمة جديدة",
-     "summary": "vercel labs' agent-desktop is a computer-use cli for ai agents written in rust; it gained 2,173 stars today and has 17,071 in total, with commits through 01:21 GMT on friday.",
-     "summary_ar": "agent-desktop من فيرسل لابز أداة سطر أوامر لاستخدام الحاسوب من قبل وكلاء الذكاء الاصطناعي، مكتوبة بلغة Rust؛ حصدت 2,173 نجمة اليوم وإجماليها 17,071، مع تحديثات حتى 01:21 بتوقيت غرينتش الجمعة.",
-     "why_it_matters": "computer use is moving from demos to a cli primitive, which is the step that makes it deployable.",
-     "why_it_matters_ar": "التحكم بالحاسوب ينتقل من العروض التجريبية إلى أداة سطر أوامر أساسية، وهي الخطوة التي تجعله قابلًا للنشر.",
-     "image": "https://opengraph.githubassets.com/1/vercel-labs/agent-desktop",
+     "id": "cloudflare-security-audit-skill",
+     "title": "cloudflare's security-audit skill is #17 with 2,524 stars",
+     "summary": "cloudflare's coding-agent skill for multi-phase security audits, with machine-readable findings that have to be independently verified, added 2,524 stars today and has 63,214 in total.",
+     "title_ar": "مهارة التدقيق الأمني من cloudflare السابعة عشرة بـ2,524 نجمة",
+     "summary_ar": "أضافت مهارة cloudflare لوكلاء البرمجة للتدقيق الأمني متعدد المراحل، مع نتائج قابلة للقراءة آليًا يجب التحقق منها بشكل مستقل، 2,524 نجمة اليوم ولديها 63,214 في الإجمالي.",
      "sources": [
       {
        "title": "GitHub",
-       "url": "https://github.com/vercel-labs/agent-desktop",
+       "url": "https://github.com/cloudflare/security-audit-skill",
        "type": "official"
       }
      ],
-     "status": "updated",
-     "time": "2026-11-06T06:10:00+03:00"
+     "time": "2026-11-06T19:00:00+03:00",
+     "section": "trending",
+     "status": "new",
+     "image": "https://opengraph.githubassets.com/1/cloudflare/security-audit-skill",
+     "rank": 17,
+     "period": "today",
+     "stars_gained": 2524,
+     "stars_total": 63214,
+     "language": "JavaScript",
+     "why_it_matters": "an audit an agent can run and prove is the difference between a security checkbox and a real gate.",
+     "why_it_matters_ar": "تدقيق يستطيع الوكيل تشغيله وإثباته هو الفرق بين إجراء شكلي أمني وبوابة حقيقية."
     },
     {
      "id": "thedotmack-claude-mem",
@@ -692,12 +713,12 @@
      "rank": 1,
      "period": "week",
      "stars_gained": 9318,
-     "stars_total": 113610,
+     "stars_total": 113850,
      "language": "TypeScript",
-     "title": "claude-mem is #1 this week: persistent memory for every agent",
-     "title_ar": "claude-mem الأول هذا الأسبوع: ذاكرة مستمرة لكل وكيل",
-     "summary": "thedotmack's claude-mem captures what an agent does during sessions, compresses it and injects the relevant context back later, and says it works with claude code, codex, gemini, hermes, copilot and opencode; it leads the weekly list with 9,318 stars gained and 113,610 in total.",
-     "summary_ar": "يلتقط claude-mem من thedotmack ما يفعله الوكيل خلال الجلسات ويضغطه ويعيد حقن السياق المناسب لاحقًا، ويقول إنه يعمل مع claude code وcodex وgemini وhermes وcopilot وopencode؛ ويتصدر القائمة الأسبوعية بـ9,318 نجمة مكتسبة وإجمالي 113,610.",
+     "title": "claude-mem holds #1 this week: memory for every agent",
+     "title_ar": "claude-mem الأول هذا الأسبوع: ذاكرة لكل وكيل",
+     "summary": "thedotmack's claude-mem captures what an agent does during sessions, compresses it and injects the relevant context back later, and says it works with claude code, codex, gemini, hermes, copilot and opencode; it leads the weekly list with 9,318 stars gained and 113,850 in total.",
+     "summary_ar": "يلتقط claude-mem من thedotmack ما يفعله الوكيل خلال الجلسات ويضغطه ويعيد حقن السياق المناسب لاحقًا، ويقول إنه يعمل مع claude code وcodex وgemini وhermes وcopilot وopencode؛ ويتصدر القائمة الأسبوعية بـ9,318 نجمة مكتسبة و113,850 في الإجمالي.",
      "why_it_matters": "memory is the difference between a tool you re-explain every day and one that compounds.",
      "why_it_matters_ar": "الذاكرة هي الفارق بين أداة تعيد شرحها كل يوم وأخرى تتراكم قيمتها.",
      "image": "https://opengraph.githubassets.com/1/thedotmack/claude-mem",
@@ -708,33 +729,32 @@
        "type": "official"
       }
      ],
-     "status": "updated",
-     "time": "2026-11-06T06:05:00+03:00"
+     "time": "2026-11-06T19:00:00+03:00"
     },
     {
-     "id": "nutlope-hallmark",
-     "section": "trending",
-     "rank": 2,
-     "period": "week",
-     "stars_gained": 6994,
-     "stars_total": 48871,
-     "language": "CSS",
-     "title": "hallmark stays #2 this week: anti-slop design for coding agents",
-     "title_ar": "hallmark يبقى الثاني هذا الأسبوع: تصميم مضاد للرداءة لوكلاء البرمجة",
-     "summary": "nutlope's hallmark is an anti-ai-slop design skill for claude code, cursor and codex; it is second on the weekly list with 6,994 stars gained and 48,871 in total.",
-     "summary_ar": "Hallmark من ناتلوب مهارة تصميم مضادة لرداءة الذكاء الاصطناعي لـclaude code وcursor وcodex؛ وهي الثانية في القائمة الأسبوعية بـ6,994 نجمة مكتسبة وإجمالي 48,871.",
-     "why_it_matters": "design taste is being packaged as a skill file, the cheapest quality upgrade an agent can get.",
-     "why_it_matters_ar": "يجري تغليف الذوق التصميمي في ملف مهارة، وهو أرخص تحسين جودة يمكن أن يحصل عليه الوكيل.",
-     "image": "https://opengraph.githubassets.com/1/Nutlope/hallmark",
+     "id": "donchitos-claude-code-game-studios",
+     "title": "claude code game studios is #2 this week: 49 agents",
+     "summary": "Donchitos' repo turns claude code into a game studio with 49 agents and 72 workflow skills plus a coordination layer, and is second on the weekly list with 6,685 stars gained and 35,979 in total under the mit licence.",
+     "title_ar": "claude code game studios الثاني هذا الأسبوع: 49 وكيلًا",
+     "summary_ar": "يحوّل مستودع Donchitos برنامج claude code إلى استوديو ألعاب بـ49 وكيلًا و72 مهارة سير عمل إضافة إلى طبقة تنسيق، ويحل ثانيًا في القائمة الأسبوعية بـ6,685 نجمة مكتسبة و35,979 في الإجمالي تحت رخصة mit.",
      "sources": [
       {
        "title": "GitHub",
-       "url": "https://github.com/Nutlope/hallmark",
+       "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
        "type": "official"
       }
      ],
-     "status": "updated",
-     "time": "2026-11-06T06:05:00+03:00"
+     "time": "2026-11-06T19:00:00+03:00",
+     "section": "trending",
+     "status": "new",
+     "image": "https://opengraph.githubassets.com/1/Donchitos/Claude-Code-Game-Studios",
+     "rank": 2,
+     "period": "week",
+     "stars_gained": 6685,
+     "stars_total": 35979,
+     "language": "Shell",
+     "why_it_matters": "it is the clearest example yet of multi-agent orchestration shipped as a file tree rather than a platform.",
+     "why_it_matters_ar": "إنه أوضح مثال حتى الآن على تنسيق الوكلاء المتعددين يُسلَّم كشجرة ملفات بدل منصة."
     },
     {
      "id": "pingdotgg-t3code",
@@ -742,12 +762,12 @@
      "rank": 3,
      "period": "week",
      "stars_gained": 16235,
-     "stars_total": 48488,
+     "stars_total": 49238,
      "language": "TypeScript",
      "title": "t3code is #3 this week with the biggest weekly gain",
      "title_ar": "t3code الثالث هذا الأسبوع بأكبر زيادة أسبوعية",
-     "summary": "pingdotgg's t3code has no description on github but gained 16,235 stars this week, more than any other repo on the list, taking it to 48,488 in total; commits landed as recently as 03:27 GMT on friday.",
-     "summary_ar": "لا يضع pingdotgg وصفًا لمستودع t3code على github لكنه حصد 16,235 نجمة هذا الأسبوع، أكثر من أي مستودع آخر في القائمة، ليصل إجماليه إلى 48,488؛ ووصلت تحديثات حتى 03:27 بتوقيت غرينتش الجمعة.",
+     "summary": "pingdotgg's t3code still has no description on github but gained 16,235 stars this week, more than any other repo on the list, taking it to 49,238 in total; commits landed as recently as 15:54 gmt on friday.",
+     "summary_ar": "لا يزال مستودع t3code من pingdotgg بلا وصف على github لكنه كسب 16,235 نجمة هذا الأسبوع، أكثر من أي مستودع آخر في القائمة، ليصل إلى 49,238 في الإجمالي؛ وآخر التزامات دُفعت في 15:54 بتوقيت غرينتش الجمعة.",
      "why_it_matters": "a repo with no readme pitch adding 16k stars in a week is worth watching to see what it turns out to be.",
      "why_it_matters_ar": "مستودع بلا وصف تسويقي يضيف 16 ألف نجمة في أسبوع يستحق المتابعة لمعرفة ما سيصبح عليه.",
      "image": "https://opengraph.githubassets.com/1/pingdotgg/t3code",
@@ -758,8 +778,31 @@
        "type": "official"
       }
      ],
-     "status": "updated",
-     "time": "2026-11-06T06:05:00+03:00"
+     "time": "2026-11-06T19:00:00+03:00"
+    },
+    {
+     "id": "nutlope-hallmark",
+     "section": "trending",
+     "rank": 2,
+     "period": "week",
+     "stars_gained": 6994,
+     "stars_total": 49348,
+     "language": "CSS",
+     "title": "hallmark is #5 this week: anti-slop design for agents",
+     "title_ar": "hallmark الخامس هذا الأسبوع: تصميم بلا ركاكة للوكلاء",
+     "summary": "nutlope's hallmark is an anti-ai-slop design skill for claude code, cursor and codex; it is fifth on the weekly list with 6,994 stars gained and 49,348 in total.",
+     "summary_ar": "hallmark من nutlope مهارة تصميم لمكافحة رداءة الذكاء الاصطناعي لـclaude code وcursor وcodex؛ ويحل خامسًا في القائمة الأسبوعية بـ6,994 نجمة مكتسبة و49,348 في الإجمالي.",
+     "why_it_matters": "design taste is being packaged as a skill file, the cheapest quality upgrade an agent can get.",
+     "why_it_matters_ar": "يجري تغليف الذوق التصميمي في ملف مهارة، وهو أرخص تحسين جودة يمكن أن يحصل عليه الوكيل.",
+     "image": "https://opengraph.githubassets.com/1/Nutlope/hallmark",
+     "sources": [
+      {
+       "title": "GitHub",
+       "url": "https://github.com/Nutlope/hallmark",
+       "type": "official"
+      }
+     ],
+     "time": "2026-11-06T19:00:00+03:00"
     }
    ],
    "watch": [
@@ -776,22 +819,22 @@
    ]
   },
   "liverpool": {
-   "what_changed": "liverpool go to selhurst park on sunday trying to avoid a third straight defeat, with ryan gravenberch out through a heel injury, dominik szoboszlai short of fitness and iraola weighing whether trey nyoni can start a third game in a week; the manager speaks at 16:30 riyadh on friday.",
-   "what_changed_ar": "يحل ليفربول ضيفًا على سيلهرست بارك الأحد سعيًا لتجنب خسارة ثالثة توالياً، مع غياب رايان غرافينبيرخ لإصابة في الكعب ونقص جاهزية دومينيك سوبوسلاي وتردد إيراولا بشأن إشراك تري نيوني أساسيًا للمرة الثالثة في أسبوع؛ ويتحدث المدرب عند 16:30 بتوقيت الرياض الجمعة.",
+   "what_changed": "gravenberch is a game-day call rather than ruled out, and iraola says the chance quality has to improve before sunday's trip to palace.",
+   "what_changed_ar": "غرافينبيرخ قرار يوم المباراة ولم يُستبعد نهائيًا، ويقول إيراولا إن جودة الفرص يجب أن تتحسن قبل رحلة الأحد إلى Palace.",
    "items": [
     {
      "id": "liverpool-palace-next",
      "section": "liverpool",
      "reliability": "Official",
-     "time": "2026-11-06T06:20:00+03:00",
-     "title": "next up: palace away on sunday, and liverpool need to stop the slide",
-     "title_ar": "التالي: بالاس خارج الديار الأحد وليفربول بحاجة إلى وقف التراجع",
-     "summary": "liverpool travel to selhurst park on sunday 8 november for a 14:00 gmt kick-off, 17:00 in riyadh, in premier league matchweek 10 and their last game before the international break, after losing 1-0 to arsenal and 3-2 at fenerbahce. crystal palace failed to overturn jean-philippe mateta's three-match ban for serious foul play, so the striker misses the game; iraola holds his pre-match press conference at 13:30 gmt on friday, 16:30 riyadh.",
-     "summary_ar": "يحل ليفربول ضيفًا على كريستال بالاس في سيلهرست بارك الأحد 8 نوفمبر عند 14:00 بتوقيت غرينتش، أي 17:00 بتوقيت الرياض، في الجولة العاشرة من الدوري الإنجليزي وآخر مباراة له قبل التوقف الدولي، بعد خسارته 1-0 من أرسنال و3-2 في فنربخشة. وفشل كريستال بالاس في إلغاء إيقاف جان-فيليب ماتيتا ثلاث مباريات بسبب خطأ جسيم، فيغيب المهاجم عن المباراة؛ ويعقد إيراولا مؤتمره الصحافي عند 13:30 بتوقيت غرينتش الجمعة، أي 16:30 بتوقيت الرياض.",
+     "time": "2026-11-06T19:00:00+03:00",
+     "title": "iraola: gravenberch is the only doubt for palace",
+     "title_ar": "إيراولا: غرافينبيرخ الشك الوحيد أمام Palace",
+     "summary": "liverpool go to selhurst park on sunday for a 14:00 gmt kick-off, 17:00 in riyadh, with iraola saying 'the only doubt we will have is ryan... it's a matter of pain, let's see if he can deal with the pain and he can help us.' gravenberch, out with a heel problem, was left out of the netherlands squad and has no timeline; crystal palace are without the suspended jean-philippe mateta after their appeal against his three-match ban failed.",
+     "summary_ar": "يحل ليفربول ضيفًا على سلهرست بارك الأحد في مباراة تنطلق 14:00 بتوقيت غرينتش، 17:00 بتوقيت الرياض، وقال إيراولا إن «الشك الوحيد لدينا هو رايان... المسألة مسألة ألم، لنرَ إن كان يستطيع تحمّل الألم ومساعدتنا». وغرافينبيرخ، الغائب بسبب إصابة في الكعب، استُبعد من تشكيلة هولندا ولا موعد محدد لعودته؛ ويفتقد كريستال بالاس المهاجم الموقوف جان-فيليب ماتيتا بعد رفض استئنافه ضد إيقافه ثلاث مباريات.",
      "sources": [
       {
        "title": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/watch-andoni-iraola-pre-crystal-palace-press-conference",
+       "url": "https://www.liverpoolfc.com/news/ryan-gravenberch-fitness-latest-crystal-palace-iraola",
        "type": "official"
       },
       {
@@ -800,18 +843,18 @@
        "type": "independent"
       }
      ],
-     "image": "https://images.ctfassets.net/rm6ms1yxue4m/JMT4Vq2XSG7OZc9iRFfBn/29ce6301dc4f11da8959bbdd860563fb/anfield-general-view-fans-man-utd-18122023.jpg?w=1200&h=630&fit=crop&f=face",
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/4zKUwryeIh19l0XP4RbPYg/35658286918d7dc70eaf6fb030675328/ryan-gravenberch-6112026.jpg?w=1200&h=630&fit=crop&f=face",
      "status": "updated"
     },
     {
      "id": "liverpool-nyoni-dilemma",
      "section": "liverpool",
      "reliability": "Tier 2",
-     "time": "2026-11-06T04:00:00+03:00",
-     "title": "nyoni's third game in a week is iraola's main fitness call",
-     "title_ar": "مشاركة نيوني في ثالث مباراة خلال أسبوع هي أبرز قرارات إيراولا",
-     "summary": "the liverpool echo's likely xi has araujo returning at right-back, kerkez in for tsimikas, wirtz back at number 10 and isak leading the line, with the open question whether trey nyoni, 19 and the best player in istanbul, can start a third game in seven days. ryan gravenberch is unavailable with a heel injury and dominik szoboszlai does not look fully fit after a hamstring problem, so nyoni or szoboszlai partners mac allister.",
-     "summary_ar": "تُعيد تشكيلة ليفربول إيكو المتوقعة أراوخو إلى الظهير الأيمن وتُشرك كيركيز بدل تسيميكاس وتُعيد فيرتز في مركز صانع الألعاب مع إيساك في المقدمة، ويبقى السؤال مفتوحًا حول قدرة تري نيوني (19 عامًا) وأفضل لاعب في إسطنبول على البدء في ثالث مباراة خلال سبعة أيام. ويغيب رايان غرافينبيرخ لإصابة في الكعب ولا يبدو دومينيك سوبوسلاي بكامل جاهزيته بعد مشكلة في أوتار الركبة، فيشارك نيوني أو سوبوسلاي إلى جانب ماك أليستر.",
+     "time": "2026-11-06T19:00:00+03:00",
+     "title": "nyoni or szoboszlai is iraola's call in midfield",
+     "title_ar": "نيوني أم سوبوسلاي: قرار إيراولا في الوسط",
+     "summary": "with gravenberch a game-day decision rather than ruled out, iraola has to choose between dominik szoboszlai, fit again after a hamstring problem, and 19-year-old trey nyoni, who scored in istanbul and would be starting a third game in seven days. the echo's likely xi has araujo back at right-back, kerkez in for tsimikas and wirtz at number 10 behind isak.",
+     "summary_ar": "مع بقاء غرافينبيرخ قرارًا يوم المباراة وليس غائبًا مؤكدًا، على إيراولا الاختيار بين دومينيك سوبوسلاي، العائد بعد مشكلة في أوتار الركبة، وتري نيوني (19 عامًا) الذي سجل في إستنبول وسيخوض ثالث مباراة في سبعة أيام. وتشكيلة إيكو المرجحة تعيد أراوخو إلى الظهير الأيمن وتُدخل كيركيز بدل تسيميكاس وفيرتز في المركز 10 خلف إيساك.",
      "sources": [
       {
        "title": "Liverpool Echo via Yahoo Sports",
@@ -820,7 +863,31 @@
       }
      ],
      "image": "https://s.yimg.com/lo/mysterio/api/02e341b2f55cb008a8f07ec0d8cf55289da39729c75238336eb7f3c631116729/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fliverpool_echo_403%2Fbf9634bf72883cfcc452dbb02da51a52.jpg",
-     "status": "new"
+     "status": "updated"
+    },
+    {
+     "id": "liverpool-iraola-pressure",
+     "title": "iraola: we are on two defeats and we need the win at palace",
+     "summary": "iraola said the mood had flipped in a week — 'one week ago in this press conference, we were on a run, everything was in a good place... and now, two defeats, it changes, and it has to change' — and called for a reaction at selhurst park. this is anfield reported he also wants his side to take more risks because their chance quality is low.",
+     "title_ar": "إيراولا: نعيش على هزيمتين ونحتاج الفوز في Palace",
+     "summary_ar": "قال إيراولا إن الأجواء انقلبت خلال أسبوع — «قبل أسبوع كنا في هذا المؤتمر في سلسلة انتصارات وكل شيء في مكان جيد... والآن، هزيمتان، يتغير الأمر ويجب أن يتغير» — ودعا إلى رد فعل في سلهرست بارك. وذكر This Is Anfield أنه يريد أيضًا من فريقه المخاطرة أكثر لأن جودة الفرص منخفضة.",
+     "sources": [
+      {
+       "title": "The Straits Times (AFP)",
+       "url": "https://www.straitstimes.com/sport/liverpool-boss-iraola-urges-calm-after-defeats-dent-anfield-optimism",
+       "type": "wire"
+      },
+      {
+       "title": "This Is Anfield",
+       "url": "https://www.thisisanfield.com/2026/11/iraola-liverpool-chance-quality-low-attack-risks/",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-06T19:00:00+03:00",
+     "section": "liverpool",
+     "status": "new",
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/4zKUwryeIh19l0XP4RbPYg/35658286918d7dc70eaf6fb030675328/ryan-gravenberch-6112026.jpg?w=1200&h=630&fit=crop&f=face",
+     "reliability": "Tier 1"
     },
     {
      "id": "transfer-araujo",
@@ -842,7 +909,6 @@
      ],
      "time": "2026-11-06T03:30:00+03:00",
      "section": "liverpool",
-     "status": "updated",
      "image": "https://i2-prod.liverpoolecho.co.uk/article34868288.ece/ALTERNATES/s1200d/0_GettyImages-2300122080.jpg",
      "reliability": "Tier 2"
     },
@@ -867,8 +933,7 @@
        "type": "official"
       }
      ],
-     "image": "https://media.thisisanfield.com/2026-11-03-Fenerbahce_Liverpool-044-1.jpg",
-     "status": ""
+     "image": "https://media.thisisanfield.com/2026-11-03-Fenerbahce_Liverpool-044-1.jpg"
     },
     {
      "id": "liverpool-iraola-reaction",
@@ -891,8 +956,7 @@
        "type": "independent"
       }
      ],
-     "image": "https://ichef.bbci.co.uk/ace/standard/778/cpsprodpb/87ab/live/001dd950-d89c-11f1-bb5c-cdf9cd18a12c.jpg",
-     "status": ""
+     "image": "https://ichef.bbci.co.uk/ace/standard/778/cpsprodpb/87ab/live/001dd950-d89c-11f1-bb5c-cdf9cd18a12c.jpg"
     },
     {
      "id": "fenerbahce-defeat",
@@ -910,27 +974,7 @@
        "type": "independent"
       }
      ],
-     "image": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/0e28/live/96dc9ad0-d896-11f1-bffe-b94c467713ac.jpg",
-     "status": ""
-    },
-    {
-     "id": "liverpool-fsg-cadillac",
-     "section": "liverpool",
-     "reliability": "Tier 1",
-     "time": "2026-11-04T12:00:00+03:00",
-     "title": "fsg held talks over a majority stake in the cadillac f1 team",
-     "title_ar": "إف إس جي أجرت محادثات لشراء حصة أغلبية في فريق كاديلاك للفورمولا 1",
-     "summary": "the guardian reported that fenway sports group, liverpool's owner, has held talks about buying a majority stake in the cadillac formula one team for more than £2bn; cadillac are jointly owned by mark walter.",
-     "summary_ar": "ذكرت الغارديان أن مجموعة فينواي الرياضية، مالكة ليفربول، أجرت محادثات لشراء حصة أغلبية في فريق كاديلاك للفورمولا 1 بأكثر من ملياري جنيه إسترليني؛ ويُشارك في ملكية كاديلاك مارك والتر.",
-     "sources": [
-      {
-       "title": "The Guardian",
-       "url": "https://www.theguardian.com/sport/2026/nov/04/liverpool-owner-fsg-talks-buy-cadillac-f1-team-majority-stake",
-       "type": "independent"
-      }
-     ],
-     "image": "https://i.guim.co.uk/img/media/a80e56c22af2b20e609a324741c74472cdc14c9c/659_131_4724_3779/master/4724.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=bdf5444ddcb97db72ef846da29b8278b",
-     "status": "new"
+     "image": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/0e28/live/96dc9ad0-d896-11f1-bffe-b94c467713ac.jpg"
     },
     {
      "id": "liverpool-wirtz-low-block",
@@ -947,7 +991,6 @@
      ],
      "time": "2026-11-02T21:50:00+03:00",
      "section": "liverpool",
-     "status": "",
      "image": "https://i.guim.co.uk/img/media/c55b88097451a26693122eb9b6fa70219efa7ffa/284_79_2445_1955/master/2445.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=6a8e4ef76ace6213220d8d896d759050",
      "reliability": "Tier 1"
     }
@@ -1234,12 +1277,12 @@
      "section": "social",
      "platform": "youtube",
      "creator": "Jimmy Kimmel Live",
-     "metric": "13.8M views",
-     "time": "2026-11-06T06:15:00+03:00",
-     "title": "kimmel's midterm monologue passes 13.8m views",
-     "title_ar": "خطاب كيمل عن الانتخابات النصفية يتجاوز 13.8 مليون مشاهدة",
-     "summary": "jimmy kimmel's breakdown of the midterm results has 13,811,750 views, up from 13.25m on thursday evening and still the biggest political clip of the week by a wide margin.",
-     "summary_ar": "حصد مقطع جيمي كيمل عن نتائج الانتخابات النصفية 13,811,750 مشاهدة، مقابل 13.25 مليون مساء الخميس، ولا يزال أكبر مقطع سياسي هذا الأسبوع بفارق كبير.",
+     "metric": "14M views",
+     "time": "2026-11-06T19:00:00+03:00",
+     "title": "kimmel's midterm monologue passes 14m views",
+     "title_ar": "مونولوج كيمل عن الانتخابات يتجاوز 14 مليون مشاهدة",
+     "summary": "jimmy kimmel's breakdown of the midterm results has 14,006,032 views, up from 13.8m this morning and still the biggest political clip of the week by a wide margin.",
+     "summary_ar": "بلغت مشاهدات تحليل جيمي كيمل لنتائج الانتخابات النصفية 14,006,032 مشاهدة، مقابل 13.8 مليون صباح اليوم، ولا يزال أكبر مقطع سياسي هذا الأسبوع بفارق كبير.",
      "sources": [
       {
        "title": "YouTube (Jimmy Kimmel Live)",
@@ -1247,21 +1290,19 @@
        "type": "social"
       }
      ],
-     "image": "https://i.ytimg.com/vi/KY9zDP4pH88/hqdefault.jpg",
-     "status": "updated"
+     "image": "https://i.ytimg.com/vi/KY9zDP4pH88/hqdefault.jpg"
     },
     {
      "id": "social-mrbeast-haaland",
-     "status": "updated",
      "section": "social",
-     "time": "2026-11-06T06:15:00+03:00",
+     "time": "2026-11-06T19:00:00+03:00",
      "platform": "youtube",
      "creator": "MrBeast",
-     "metric": "71.8M views",
-     "title": "mrbeast's 'beat a professional athlete' passes 71m views",
-     "title_ar": "فيديو مستر بيست «اهزم رياضيًا محترفًا» يتجاوز 71 مليون مشاهدة",
-     "summary": "mrbeast's 'beat professional athlete, win $100,000' has 71,822,396 views five days after posting, the biggest non-political clip in this brief.",
-     "summary_ar": "حصد فيديو مستر بيست «اهزم رياضيًا محترفًا واربح 100,000 دولار» 71,822,396 مشاهدة بعد خمسة أيام من نشره، وهو أكبر مقطع غير سياسي في هذا الملخص.",
+     "metric": "73.4M views",
+     "title": "mrbeast's 'beat a professional athlete' passes 73m views",
+     "title_ar": "فيديو mrbeast «تغلّب على رياضي محترف» يتجاوز 73 مليون مشاهدة",
+     "summary": "mrbeast's 'beat professional athlete, win $100,000' has 73,367,551 views five days after posting, the biggest non-political clip in this brief.",
+     "summary_ar": "بلغت مشاهدات فيديو mrbeast «تغلّب على رياضي محترف واربح 100,000 دولار» 73,367,551 مشاهدة بعد خمسة أيام من نشره، وهو أكبر مقطع غير سياسي في هذا الملخص.",
      "sources": [
       {
        "title": "YouTube",
@@ -1294,19 +1335,18 @@
        "type": "independent"
       }
      ],
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/ap_6aec64386b6aa-1793877048_8e29cd-1793888455.jpg?resize=1200%2C630&quality=80",
-     "status": "updated"
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/ap_6aec64386b6aa-1793877048_8e29cd-1793888455.jpg?resize=1200%2C630&quality=80"
     },
     {
      "id": "social-cnn-senate-reactions",
      "platform": "youtube",
      "creator": "CNN",
      "metric": "3.3M views",
-     "time": "2026-11-06T06:15:00+03:00",
+     "time": "2026-11-06T19:00:00+03:00",
      "title": "cnn's house and senate flip reaction passes 3.3m views",
-     "title_ar": "تفاعل CNN مع قلب مجلسي النواب والشيوخ يتجاوز 3.3 مليون مشاهدة",
-     "summary": "cnn's first reactions to the democrats taking the house and senate have 3,306,002 views, up from 3.2m on thursday.",
-     "summary_ar": "حصدت ردود الفعل الأولى على قناة CNN إزاء سيطرة الديمقراطيين على مجلسي النواب والشيوخ 3,306,002 مشاهدة، مقابل 3.2 مليون الخميس.",
+     "title_ar": "تفاعل CNN مع قلب مجلسي الكونغرس يتجاوز 3.3 مليون مشاهدة",
+     "summary": "cnn's first reactions to the democrats taking the house and senate have 3,345,430 views, up from 3.3m this morning.",
+     "summary_ar": "بلغت مشاهدات أول ردود CNN على سيطرة الديمقراطيين على مجلسي النواب والشيوخ 3,345,430 مشاهدة، مقابل 3.3 مليون صباح اليوم.",
      "sources": [
       {
        "title": "YouTube (CNN)",
@@ -1315,19 +1355,18 @@
       }
      ],
      "image": "https://i.ytimg.com/vi/BvfKr-eVEfM/hqdefault.jpg",
-     "section": "social",
-     "status": "updated"
+     "section": "social"
     },
     {
      "id": "social-trump-fox-call",
      "platform": "youtube",
      "creator": "USA TODAY",
-     "metric": "1.1M views",
-     "time": "2026-11-06T06:15:00+03:00",
-     "title": "trump's fox news call after the losses passes 1.1m views",
-     "title_ar": "مكالمة ترامب على فوكس نيوز بعد الخسائر تتجاوز 1.1 مليون مشاهدة",
-     "summary": "usa today's clip of trump calling into fox news to react to the midterm results has 1,113,366 views, up from 1.02m on thursday.",
-     "summary_ar": "حصد مقطع يو إس إيه توداي لمكالمة ترامب على فوكس نيوز للتعليق على نتائج الانتخابات 1,113,366 مشاهدة، مقابل 1.02 مليون الخميس.",
+     "metric": "1.13M views",
+     "time": "2026-11-06T19:00:00+03:00",
+     "title": "trump's fox news call after the losses passes 1.13m views",
+     "title_ar": "مداخلة ترامب على فوكس نيوز بعد الخسائر تتجاوز 1.13 مليون مشاهدة",
+     "summary": "usa today's clip of trump calling into fox news to react to the midterm results has 1,132,530 views, up from 1.1m this morning.",
+     "summary_ar": "بلغت مشاهدات مقطع يو إس إيه توداي لمداخلة ترامب على فوكس نيوز للتعليق على نتائج الانتخابات 1,132,530 مشاهدة، مقابل 1.1 مليون صباح اليوم.",
      "sources": [
       {
        "title": "YouTube (USA TODAY)",
@@ -1336,20 +1375,19 @@
       }
      ],
      "image": "https://i.ytimg.com/vi/rP1dadmyRaw/hqdefault.jpg",
-     "section": "social",
-     "status": "updated"
+     "section": "social"
     },
     {
      "id": "social-psa-blue-tsunami",
      "section": "social",
      "platform": "youtube",
      "creator": "Pod Save America",
-     "metric": "1.15M views",
-     "time": "2026-11-06T06:15:00+03:00",
-     "title": "pod save america's 'blue tsunami' episode passes 1.15m views",
-     "title_ar": "حلقة «الموجة الزرقاء» من بود سيف أمريكا تتجاوز 1.15 مليون مشاهدة",
-     "summary": "pod save america's 'democrats win everywhere as massive blue tsunami sweeps the nation' has 1,151,477 views, up from 1.1m on thursday.",
-     "summary_ar": "حصدت حلقة «الديمقراطيون يفوزون في كل مكان مع اجتياح موجة زرقاء هائلة للبلاد» من بود سيف أمريكا 1,151,477 مشاهدة، مقابل 1.1 مليون الخميس.",
+     "metric": "1.17M views",
+     "time": "2026-11-06T19:00:00+03:00",
+     "title": "pod save america's 'blue tsunami' episode passes 1.17m views",
+     "title_ar": "حلقة «الموجة الزرقاء» من Pod Save America تتجاوز 1.17 مليون مشاهدة",
+     "summary": "pod save america's 'democrats win everywhere as massive blue tsunami sweeps the nation' has 1,165,518 views, up from 1.15m this morning.",
+     "summary_ar": "بلغت مشاهدات حلقة «يفوز الديمقراطيون في كل مكان مع اكتساح موجة زرقاء هائلة للبلاد» من Pod Save America نحو 1,165,518 مشاهدة، مقابل 1.15 مليون صباح اليوم.",
      "sources": [
       {
        "title": "YouTube (Pod Save America)",
@@ -1357,21 +1395,19 @@
        "type": "social"
       }
      ],
-     "image": "https://i.ytimg.com/vi/Ca6XflqGbt8/hqdefault.jpg",
-     "status": "updated"
+     "image": "https://i.ytimg.com/vi/Ca6XflqGbt8/hqdefault.jpg"
     },
     {
      "id": "social-sidemen-mansion",
-     "status": "updated",
      "section": "social",
-     "time": "2026-11-06T06:15:00+03:00",
+     "time": "2026-11-06T19:00:00+03:00",
      "platform": "youtube",
      "creator": "Sidemen",
-     "metric": "3.38M views",
-     "title": "sidemen's 'first to escape the mansion' passes 3.3m views",
-     "title_ar": "فيديو سايدمين «أول من يهرب من القصر» يتجاوز 3.3 مليون مشاهدة",
-     "summary": "sidemen's 'first to escape the mansion' has 3,383,125 views four days after posting, their fastest-growing upload of the week.",
-     "summary_ar": "حصد فيديو سايدمين «أول من يهرب من القصر» 3,383,125 مشاهدة بعد أربعة أيام من نشره، وهو أسرع مقاطعهم نموًا هذا الأسبوع.",
+     "metric": "3.42M views",
+     "title": "sidemen's 'first to escape the mansion' passes 3.4m views",
+     "title_ar": "فيديو sidemen «أول من يهرب من القصر» يتجاوز 3.4 مليون مشاهدة",
+     "summary": "sidemen's 'first to escape the mansion' has 3,423,850 views four days after posting, their fastest-growing upload of the week.",
+     "summary_ar": "بلغت مشاهدات فيديو sidemen «أول من يهرب من القصر» 3,423,850 مشاهدة بعد أربعة أيام من نشره، وهو أسرع فيديوهاتهم نموًا هذا الأسبوع.",
      "sources": [
       {
        "title": "YouTube",
@@ -1402,26 +1438,25 @@
     {
      "id": "graphic-zaporizhia-40",
      "section": "graphic",
-     "time": "2026-11-06T01:20:00+03:00",
-     "title": "one survivor pulled from zaporizhia rubble three days after the strike",
-     "title_ar": "انتشال ناجٍ من تحت أنقاض زابوريجيا بعد ثلاثة أيام من القصف",
-     "summary": "rescuers found one person alive in the rubble of the aid centre in komyshuvakha three days after russia's bombing, which ukraine says killed 43 people; police had recovered 42 bodies and estimated up to 33 more could be buried. russia hit the school-turned-distribution point with fab-500 and fab-3000 bombs on 2 november.",
-     "summary_ar": "عثر رجال الإنقاذ على شخص حي تحت أنقاض مركز المساعدات في كوميشوفاخا بعد ثلاثة أيام من القصف الروسي الذي تقول أوكرانيا إنه قتل 43 شخصًا؛ وكانت الشرطة قد انتشلت 42 جثة وقدّرت احتمال وجود 33 آخرين تحت الأنقاض. واستهدفت روسيا المدرسة التي تحولت إلى مركز توزيع بقنابل FAB-500 وFAB-3000 في 2 نوفمبر.",
+     "time": "2026-11-06T16:30:00+03:00",
+     "title": "zaporizhia strike death toll rises to at least 50",
+     "title_ar": "حصيلة ضربة زابوريجيا ترتفع إلى 50 قتيلًا على الأقل",
+     "summary": "ukraine's emergency service said the toll from monday's strike on the aid centre in komyshuvakha rose to at least 50 after eight more bodies were recovered, and acting regional governor mykhailo semikin later put it at 53. up to 39 people may still be under the rubble and dna tests are being used to identify the dead; russia hit the school-turned-distribution point with fab-500 and fab-3000 bombs on 2 november.",
+     "summary_ar": "قالت خدمة الطوارئ الأوكرانية إن حصيلة ضربة الاثنين على مركز توزيع المساعدات في كوميشوفاخا ارتفعت إلى 50 قتيلًا على الأقل بعد انتشال ثماني جثث أخرى، وقدّر القائم بأعمال حاكم المنطقة ميخايلو سيميكين لاحقًا الحصيلة بـ53. وقد يبقى ما يصل إلى 39 شخصًا تحت الأنقاض وتُستخدم اختبارات الحمض النووي لتحديد هوية الضحايا؛ وكانت روسيا قد قصفت المدرسة التي تحولت إلى نقطة توزيع بقنابل fab-500 وfab-3000 في 2 نوفمبر.",
      "sources": [
       {
-       "title": "Reuters via Yahoo News",
-       "url": "https://uk.news.yahoo.com/death-toll-russian-strike-ukrainian-101551827.html",
-       "type": "wire"
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/6/ukraine-raises-zaporizhia-aid-strike-death-toll-to-at-least-50",
+       "type": "independent"
       }
      ],
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6aeb7dae-1793818030.jpg?resize=1920%2C1440",
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/2026-11-02T212847Z_1214409262_RC2QFOATU4MH_RTRMADP_3_UKRAINE-CRISIS-ATTACK-ZAPORIZHZHIA-REGION-1793667591.jpg?resize=1920%2C1440",
      "warning": "violence, mass casualties",
      "warning_ar": "عنف وسقوط ضحايا بأعداد كبيرة",
      "status": "updated"
     },
     {
      "id": "graphic-gaza-strikes",
-     "status": "",
      "section": "graphic",
      "time": "2026-11-05T16:10:00+03:00",
      "title": "four killed in gaza, including a child, as strikes continue under the ceasefire",
@@ -1441,7 +1476,6 @@
     },
     {
      "id": "graphic-kharkiv-hospital",
-     "status": "",
      "section": "graphic",
      "time": "2026-11-03T10:00:00+03:00",
      "title": "russian bomb hit a kharkiv hospital, injuring 73",
@@ -1481,8 +1515,7 @@
      "image": "https://www.aljazeera.com/apple-touch-icon.png",
      "warning": "mass casualties",
      "warning_ar": "ضحايا بالجملة",
-     "section": "graphic",
-     "status": ""
+     "section": "graphic"
     },
     {
      "id": "graphic-qeshm-explosions",
@@ -1499,7 +1532,6 @@
      ],
      "time": "2026-11-03T05:30:00+03:00",
      "section": "graphic",
-     "status": "",
      "image": "https://www.aljazeera.com/apple-touch-icon.png",
      "warning": "explosions, strike footage",
      "warning_ar": "انفجارات ومشاهد قصف"
@@ -1519,7 +1551,6 @@
      ],
      "time": "2026-11-03T05:20:00+03:00",
      "section": "graphic",
-     "status": "",
      "image": "https://www.aljazeera.com/apple-touch-icon.png",
      "warning": "civilian casualties",
      "warning_ar": "إصابات بين المدنيين"
