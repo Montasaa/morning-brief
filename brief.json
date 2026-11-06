@@ -1,894 +1,1531 @@
 {
- "schema_version": "1.0",
- "generated_at": "2026-11-06T03:40:00Z",
- "date": "2026-11-06",
- "edition": "morning",
+ "version": 2,
+ "schema_rev": "2.3",
+ "sample": false,
+ "generated_at": "2026-11-06T06:42:17+03:00",
  "timezone": "Asia/Riyadh",
- "next_build_at": "2026-11-06T16:00:00Z",
- "sections": [
+ "top_stories": [
   {
-   "id": "trending_repos",
-   "title": "trending repos",
+   "section": "us_markets",
+   "id": "us-chip-selloff"
+  },
+  {
+   "section": "middle_east",
+   "id": "me-turkey-mecca"
+  },
+  {
+   "section": "us_markets",
+   "id": "us-asia-rout"
+  }
+ ],
+ "sections": {
+  "middle_east": {
+   "what_changed": "turkiye ratified the mecca defence pact with saudi arabia and pakistan, 279-119, binding a nato member to the war with the houthis; iran's security chief delivered a letter from khamenei to putin in moscow and said tehran will not talk until seven conditions are met; and herzog opened coalition talks in jerusalem, with a decision due on sunday.",
+   "what_changed_ar": "أقرّت تركيا ميثاق مكة الدفاعي مع السعودية وباكستان بـ279 صوتًا مقابل 119، بما يُلزم دولة عضو في الناتو بحرب الحوثيين؛ وسلّم مسؤول الأمن الإيراني رسالة من خامنئي إلى بوتين في موسكو وقال إن طهران لن تتفاوض قبل تنفيذ سبعة شروط؛ وبدأ هرتسوغ مشاورات تشكيل الحكومة في القدس بقرار متوقع الأحد.",
+   "items": [
+    {
+     "id": "me-iran-deterrence",
+     "section": "middle_east",
+     "time": "2026-11-06T03:05:00+03:00",
+     "title": "iran's security chief delivers a khamenei letter to putin in moscow",
+     "title_ar": "مسؤول الأمن الإيراني يسلّم بوتين رسالة من خامنئي في موسكو",
+     "summary": "mohsen rezaei, secretary of iran's supreme national security council, met putin at the senate palace on thursday and handed him a letter from supreme leader mojtaba khamenei, saying the trip had been planned a month earlier but postponed by the war. he said the talks covered post-war security arrangements and russian gas pipelines to iran, that tehran will neither reopen the strait of hormuz nor negotiate until washington meets seven conditions, and that he would not disclose the letter's contents.",
+     "summary_ar": "التقى محسن رضائي، أمين المجلس الأعلى للأمن القومي الإيراني، بوتين في قصر مجلس الشيوخ الخميس وسلّمه رسالة من المرشد الأعلى مجتبى خامنئي، وقال إن الزيارة كانت مقررة قبل شهر وأُرجئت بسبب الحرب. وأوضح أن المباحثات تناولت ترتيبات الأمن بعد الحرب وخطوط أنابيب الغاز الروسية إلى إيران، وأن طهران لن تعيد فتح مضيق هرمز ولن تتفاوض قبل تلبية واشنطن سبعة شروط، وأنه لن يكشف مضمون الرسالة.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/6/irans-security-chief-meets-putin-delivers-message-from-khamenei",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/afp_6aed15d3ae53-1793922515_78291e-1793931257.jpg?resize=1200%2C630&quality=80",
+     "status": "new"
+    },
+    {
+     "id": "me-trump-destroy-iran",
+     "section": "middle_east",
+     "time": "2026-11-06T02:50:00+03:00",
+     "title": "trump says the us may have to 'destroy' the rest of iran",
+     "title_ar": "ترامب: قد تضطر واشنطن إلى «تدمير» ما تبقى من إيران",
+     "summary": "trump told reporters the us may have to 'destroy' the rest of iran and that rebuilding the country would take 25 years, adding that people will 'know soon enough' whether he acts, and that washington is 'locked and loaded'. iran has reportedly sent a nuclear proposal to the us through qatari mediators, which washington is reviewing while tehran waits for its seven demands to be met.",
+     "summary_ar": "قال ترامب للصحافيين إن الولايات المتحدة قد تضطر إلى «تدمير» ما تبقى من إيران وإن إعادة بناء البلاد ستستغرق 25 عامًا، مضيفًا أن الناس سيعرفون «قريبًا بما يكفي» ما إذا كان سيتحرك، ومؤكدًا أن واشنطن «جاهزة تمامًا». وذُكر أن إيران أرسلت مقترحًا نوويًا إلى الولايات المتحدة عبر وسطاء قطريين تراجعه واشنطن بينما تنتظر طهران تلبية مطالبها السبعة.",
+     "sources": [
+      {
+       "title": "Al Jazeera (live blog)",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/6/iran-war-live-trump-warns-us-may-have-to-destroy-rest-of-iran",
+       "type": "independent"
+      },
+      {
+       "title": "Forbes Breaking News",
+       "url": "https://www.youtube.com/watch?v=ydltb0IWxn8",
+       "type": "social"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/14414821-1793917435.jpg?resize=1920%2C1440",
+     "status": "new"
+    },
+    {
+     "id": "me-turkey-mecca",
+     "section": "middle_east",
+     "time": "2026-11-06T02:10:00+03:00",
+     "title": "turkiye's parliament ratifies the mecca defence pact, 279-119",
+     "title_ar": "البرلمان التركي يصادق على ميثاق مكة الدفاعي بـ279 مقابل 119",
+     "summary": "lawmakers passed the 16-article Mecca Joint Defence Agreement on thursday, committing nato's second-largest army to come to saudi arabia's or pakistan's aid if either is attacked, in a clause modelled on nato's article 5. defence minister yasar guler has said ankara does not foresee fighting the houthis and that turkish support would aim at 'strengthening deterrence'; any troop deployment would need further legislation.",
+     "summary_ar": "أقرّ النواب الخميس اتفاق مكة للدفاع المشترك المكوّن من 16 مادة، بما يُلزم ثاني أكبر جيش في الناتو بمساعدة السعودية أو باكستان إذا تعرض أي منهما لهجوم، في بند محاكٍ للمادة الخامسة من ميثاق الناتو. وقال وزير الدفاع يشار غولر إن أنقرة لا تتوقع قتال الحوثيين وإن الدعم التركي سيهدف إلى «تعزيز الردع»، وأي نشر للقوات سيحتاج تشريعات إضافية.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/6/turkiyes-parliament-ratifies-mecca-defence-agreement",
+       "type": "independent"
+      },
+      {
+       "title": "Al Jazeera (20 October)",
+       "url": "https://www.aljazeera.com/news/2026/10/20/turkiye-moves-to-ratify-mecca-joint-defence-agreement",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/AP26219433507335-1791229441.jpg?resize=1920%2C1440",
+     "status": "new"
+    },
+    {
+     "id": "me-israel-coalition",
+     "section": "middle_east",
+     "time": "2026-11-06T01:00:00+03:00",
+     "title": "herzog opens coalition talks with eisenkot holding 67 endorsements",
+     "title_ar": "هرتسوغ يبدأ مشاورات تشكيل الحكومة وأيزنكوت يملك 67 توصية",
+     "summary": "israel's president began consultations with party leaders on wednesday evening after receiving the official results and is expected to decide on sunday who should try to form a government, warning that 'not every commitment and promise can be fulfilled' if the country is to avoid another election. likud and its allies won 53 seats, eisenkot's bloc 48 and the two arab-led alliances an unprecedented 19; the joint list's backing takes eisenkot to 67, six above the knesset majority, while the elections committee said it found no evidence for netanyahu's fraud claims.",
+     "summary_ar": "بدأ الرئيس الإسرائيلي مشاوراته مع رؤساء الأحزاب مساء الأربعاء بعد تسلّمه النتائج الرسمية، ويُتوقع أن يقرر الأحد من سيُكلف تشكيل الحكومة، محذرًا من أن «ليس كل التزام ووعد يمكن الوفاء به» إذا أرادت البلاد تجنب انتخابات جديدة. وفاز الليكود وحلفاؤه بـ53 مقعدًا وتكتل أيزنكوت بـ48، وحصل التحالفان العربيَّان على 19 مقعدًا غير مسبوقة؛ وبدعم القائمة المشتركة يصل أيزنكوت إلى 67 مقعدًا، أي ستة فوق أغلبية الكنيست، فيما قالت لجنة الانتخابات إنها لم تجد دليلًا على ادعاءات نتنياهو بالتزوير.",
+     "sources": [
+      {
+       "title": "BBC News",
+       "url": "https://www.bbc.co.uk/news/articles/c6z98z5z91ppo",
+       "type": "independent"
+      },
+      {
+       "title": "The Guardian",
+       "url": "https://www.theguardian.com/world/2026/nov/05/herzog-netanyahu-eisenkot-israel-election-decision",
+       "type": "independent"
+      }
+     ],
+     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/dc51/live/4104b7f0-d869-11f1-93e1-3b657b665bcf.jpg",
+     "status": "new"
+    },
+    {
+     "id": "me-yemen-reshuffle",
+     "section": "middle_east",
+     "time": "2026-11-05T22:30:00+03:00",
+     "title": "yemen's president sacks ministers and officers as the houthis close on aden",
+     "title_ar": "رئيس اليمن يقيل وزراء وضباطًا مع اقتراب الحوثيين من عدن",
+     "summary": "the un-recognised government replaced senior political and military figures after the counteroffensive it launched on 5 october failed to roll the houthis back, who reuters reported on monday were about 60km from aden. taiz has been under a four-week siege, and the reshuffle also answers pressure from southern factions the government depends on but whose troops say they will only fight inside the former south.",
+     "summary_ar": "أقالت الحكومة المعترف بها دوليًا شخصيات سياسية وعسكرية بارزة بعد فشل هجومها المضاد الذي أطلقته في 5 أكتوبر في دحر الحوثيين، الذين ذكرت رويترز الاثنين أنهم على مسافة نحو 60 كيلومترًا من عدن. وتخضع تعز لحصار منذ أربعة أسابيع، ويأتي التعديل أيضًا استجابة لضغط فصائل جنوبية تعتمد عليها الحكومة لكن قواتها تقول إنها ستقاتل داخل الجنوب السابق فقط.",
+     "sources": [
+      {
+       "title": "The Guardian",
+       "url": "https://www.theguardian.com/world/2026/nov/05/yemen-president-sacks-ministers-and-officers-houthis",
+       "type": "independent"
+      }
+     ],
+     "image": "https://i.guim.co.uk/img/media/383606daa4f240ded1f7ec8a1b158003c8d3e84d/238_0_2383_1906/master/2383.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=86274af0b4538d5e1ffd1fa0d33bc351",
+     "status": "new"
+    },
+    {
+     "id": "me-russia-iran-launchers",
+     "section": "middle_east",
+     "time": "2026-11-05T21:10:00+03:00",
+     "title": "leaked papers: russia agreed to send iran 90 helicopter-missile launchers",
+     "title_ar": "وثائق مسربة: روسيا وافقت على تزويد إيران بـ90 منصة إطلاق صواريخ مروحيات",
+     "summary": "documents obtained by dallas analytics, a ukrainian private intelligence firm, and shared with the guardian detail plans to supply iran with launchers for the LMUR, a guided missile russian attack helicopters have used extensively against ukrainian targets since 2022. the disclosure comes as washington weighs its next move in the war and as moscow and tehran deepen military ties.",
+     "summary_ar": "تُفصّل وثائق حصلت عليها شركة دالاس أناليتيكس الاستخباراتية الأوكرانية الخاصة وشاركتها مع الغارديان خططًا لتزويد إيران بمنصات إطلاق لصاروخ LMUR الموجّه، الذي استخدمته المروحيات الروسية الهجومية بكثافة ضد أهداف أوكرانية منذ 2022. ويأتي الكشف فيما تدرس واشنطن خطوتها التالية في الحرب وتعمّق موسكو وطهران تعاونهما العسكري.",
+     "sources": [
+      {
+       "title": "The Guardian",
+       "url": "https://www.theguardian.com/world/2026/nov/05/russia-agreed-to-supply-iran-90-helicopter-missile-launchers",
+       "type": "independent"
+      }
+     ],
+     "image": "https://i.guim.co.uk/img/media/e5f00525be6b69bce469257a0668f876bdf4d008/93_0_1519_1216/master/1519.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=da230f41a6d351f50f881ac51ee6e758",
+     "status": "new"
+    },
+    {
+     "id": "me-saudi-alert",
+     "status": "",
+     "section": "middle_east",
+     "time": "2026-11-05T18:15:00+03:00",
+     "title": "saudi air defences intercept a missile toward medina and a drone over the east",
+     "title_ar": "الدفاعات السعودية تعترض صاروخًا باتجاه المدينة ومسيّرة فوق المنطقة الشرقية",
+     "summary": "the saudi-led coalition said its air defences destroyed a ballistic missile launched by the houthis toward the medina region on thursday, and spokesman turki al-maliki said a drone was intercepted over the eastern region. civil defence had earlier issued an early warning for yanbu and then an all-clear; the coalition statement referred to the wider medina region without saying whether the missile was aimed at the city. the houthis denied targeting medina, with spokesman yahya saree saying their operations hit only oil facilities and military bases.",
+     "summary_ar": "قال التحالف بقيادة السعودية إن دفاعاته الجوية دمرت صاروخًا باليستيًا أطلقه الحوثيون باتجاه منطقة المدينة المنورة الخميس، وقال المتحدث تركي المالكي إن مسيّرة اعترضت فوق المنطقة الشرقية. وكان الدفاع المدني قد أصدر إنذارًا مبكرًا في ينبع ثم أعلن زوال الخطر؛ وأشار بيان التحالف إلى منطقة المدينة الأوسع دون توضيح ما إذا كان الصاروخ يستهدف المدينة نفسها. ونفى الحوثيون استهداف المدينة، وقال المتحدث يحيى سريع إن عملياتهم تستهدف فقط منشآت النفط والقواعد العسكرية.",
+     "sources": [
+      {
+       "title": "Al Arabiya",
+       "url": "https://english.alarabiya.net/News/middle-east/2026/11/05/saudi-air-defenses-intercept-houthi-ballistic-missile-targeting-medina-region",
+       "type": "independent"
+      },
+      {
+       "title": "AFP via AOL",
+       "url": "https://www.aol.co.uk/articles/houthi-missiles-fired-medina-intercepted-110722000.html",
+       "type": "wire"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/2026-09-15T161837Z_683006544_RC2SJNA85FI2_RTRMADP_3_IRAN-CRISIS-YEMEN-HOUTHI-1793607431.jpg?resize=770%2C432"
+    },
+    {
+     "id": "me-hormuz-tanker",
+     "status": "",
+     "section": "middle_east",
+     "time": "2026-11-05T18:05:00+03:00",
+     "title": "iran's navy says two more tankers hit mines in hormuz, five in 24 hours",
+     "title_ar": "البحرية الإيرانية: ناقلتان أخريان تصطدمان بألغام في هرمز والخمس خلال 24 ساعة",
+     "summary": "iran's navy said on thursday that two more oil tankers struck naval mines and caught fire in the strait of hormuz, state broadcaster irib reported, saying they had entered prohibited areas 'without coordination'. it has now reported blazes on at least five tankers using unauthorised routes in 24 hours; the claims could not be independently verified. ukmto earlier reported a tanker hit by two unknown projectiles near the strait, with both striking the engine room.",
+     "summary_ar": "قالت البحرية الإيرانية الخميس إن ناقلتَي نفط أخريين اصطدمتا بألغام بحرية واشتعلت فيهما النار في مضيق هرمز، بحسب التلفزيون الرسمي إيريب، وقالت إنهما دخلتا مناطق محظورة «دون تنسيق». وأعلنت حتى الآن عن حرائق في خمس ناقلات على الأقل عبر مسارات غير مصرح بها خلال 24 ساعة؛ ولم يتسن التحقق من المزاعم بشكل مستقل. وكانت هيئة عمليات التجارة البحرية البريطانية قد أفادت سابقًا بإصابة ناقلة بقذيفتين مجهولتين قرب المضيق أصابتا غرفة المحركات.",
+     "sources": [
+      {
+       "title": "Al Jazeera live blog",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/5/iran-war-live-trump-admits-war-caused-election-loss-but-had-to-do-it",
+       "type": "independent"
+      },
+      {
+       "title": "Asharq Al-Awsat",
+       "url": "https://english.aawsat.com/world/5331918-ukmto-ship-attacked-near-strait-hormuz",
+       "type": "independent"
+      }
+     ],
+     "image": "https://ichef.bbci.co.uk/news/480/cpsprodpb/935d/live/479e54b0-d745-11f1-b441-2b33b063138f.jpg.webp"
+    }
+   ],
+   "watch": [
+    {
+     "title": "Khamenei says US midterms won’t change Washington’s hostility towards Iran",
+     "url": "https://www.youtube.com/watch?v=eNeVgWmOfxc",
+     "channel": "Al Jazeera English"
+    },
+    {
+     "title": "Will the US resume its attacks on Iran? | Inside Story",
+     "url": "https://www.youtube.com/watch?v=LuuJmQdzJEQ",
+     "channel": "Al Jazeera English"
+    },
+    {
+     "title": "Trump: 'We're Locked And Loaded' With Military Weapons To Use In Iran If War Escalates",
+     "url": "https://www.youtube.com/watch?v=ydltb0IWxn8",
+     "channel": "Forbes Breaking News"
+    }
+   ]
+  },
+  "us_markets": {
+   "what_changed": "thursday was wall street's worst session since april 2025: the s&p 500 fell 4.36% and the nasdaq 5.52% into a correction, with the semiconductor index down 12.2% and the vix at 28.18; asia sold off on friday, the nikkei losing 6.2% and the kospi 7.1%, and the october jobs report is due at 16:30 riyadh.",
+   "what_changed_ar": "كانت جلسة الخميس الأسوأ في وول ستريت منذ أبريل 2025: هبط ستاندرد آند بورز 500 بنسبة 4.36% وناسداك 5.52% إلى منطقة التصحيح، وتراجع مؤشر أشباه الموصلات 12.2% وبلغ مؤشر التقلب 28.18؛ وتراجعت آسيا الجمعة إذ خسر نيكي 6.2% وكوسبي 7.1%، ويصدر تقرير وظائف أكتوبر عند 16:30 بتوقيت الرياض.",
+   "items": [
+    {
+     "id": "us-chip-selloff",
+     "section": "us_markets",
+     "tag": "MOVERS",
+     "time": "2026-11-06T00:10:00+03:00",
+     "title": "nasdaq closes 5.5% lower in wall street's worst day since april 2025",
+     "title_ar": "ناسداك يغلق منخفضًا 5.5% في أسوأ جلسة لوول ستريت منذ أبريل 2025",
+     "summary": "the s&p 500 fell 334.89 points, or 4.36%, to 7,353.73 on thursday, the nasdaq composite 1,421.52 points, or 5.52%, to 24,315.00 and the dow 1,833.06 points, or 3.44%, to 51,523.06, wiping out the previous day's post-election rally. the philadelphia semiconductor index dropped 12.2%, its worst day since march 2020, as nvidia fell 9.3%, micron 17.5% and amd 17.3%; the vix jumped 11.57 points to 28.18, its highest since march, and about $3tn was wiped off s&p 500 companies.",
+     "summary_ar": "هبط ستاندرد آند بورز 500 بـ334.89 نقطة، أي 4.36%، إلى 7,353.73 الخميس، وناسداك المركّب 1,421.52 نقطة، أي 5.52%، إلى 24,315.00، وداو جونز 1,833.06 نقطة، أي 3.44%، إلى 51,523.06، ماحيًا موجة الصعود التي أعقبت الانتخابات. وتراجع مؤشر فيلادلفيا لأشباه الموصلات 12.2% في أسوأ جلسة له منذ مارس 2020، مع هبوط نفيديا 9.3% وميكرون 17.5% وأيه إم دي 17.3%؛ وقفز مؤشر التقلب 11.57 نقطة إلى 28.18، أعلى مستوى منذ مارس، ومُحي نحو 3 تريليونات دولار من قيمة شركات ستاندرد آند بورز 500.",
+     "sources": [
+      {
+       "title": "CNBC quotes",
+       "url": "https://www.cnbc.com/quotes/.SPX",
+       "type": "independent"
+      },
+      {
+       "title": "Yahoo Finance",
+       "url": "https://uk.finance.yahoo.com/news/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-plunge-chip-stocks-melt-down-193726491.html",
+       "type": "independent"
+      }
+     ],
+     "image": "https://image.cnbcfm.com/api/v1/image/108504024-1793627169043-gettyimages-2302715444-AFP_D66R9ZV.jpeg?v=1793661051&w=1920&h=1080",
+     "status": "updated"
+    },
+    {
+     "id": "us-asia-rout",
+     "section": "us_markets",
+     "tag": "GLOBAL",
+     "time": "2026-11-06T04:40:00+03:00",
+     "title": "nikkei sinks 6.2% and kospi trips a circuit breaker as the ai selloff spreads",
+     "title_ar": "نيكي يهبط 6.2% وكوسبي يفعّل قاطع الدائرة مع انتشار موجة بيع الذكاء الاصطناعي",
+     "summary": "japan's nikkei 225 fell 6.2% to 57,271.19 in friday morning trade, while south korea's kospi dropped 7.1% to 5,000.25 after plunging more than 8% and halting trading for 20 minutes. australia's asx 200 lost 0.7% to 9,003.40, and futures pointed to losses in taiwan, hong kong and mainland china.",
+     "summary_ar": "هبط مؤشر نيكي 225 الياباني 6.2% إلى 57,271.19 في تعاملات صباح الجمعة، بينما تراجع كوسبي الكوري الجنوبي 7.1% إلى 5,000.25 بعد هبوط تجاوز 8% وإيقاف التداول 20 دقيقة. وخسر إس آند بي/إيه إس إكس 200 الأسترالي 0.7% إلى 9,003.40، وأشارت العقود الآجلة إلى خسائر في تايوان وهونغ كونغ والبر الرئيسي للصين.",
+     "sources": [
+      {
+       "title": "AP",
+       "url": "https://apnews.com/article/markets-japan-nikkei-oil-ai-bba6f0bf9035a6e6b1c4fef3e8230b89",
+       "type": "wire"
+      },
+      {
+       "title": "Reuters via Yahoo Finance",
+       "url": "https://ca.finance.yahoo.com/news/asia-stocks-drop-ai-rout-235808955.html",
+       "type": "wire"
+      }
+     ],
+     "image": "https://s.yimg.com/lo/mysterio/api/f8538204f574e8f516e44773f88d0d42339ded012267f0dca925720716111c2a/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Freuters.com%2F34ea5c7d3d9769158d8c37a34be5745d.jpg",
+     "status": "new"
+    },
+    {
+     "id": "us-jobs-report",
+     "section": "us_markets",
+     "tag": "MACRO",
+     "time": "2026-11-06T05:20:00+03:00",
+     "title": "october jobs report lands at 16:30 riyadh, with 59,000 jobs expected",
+     "title_ar": "تقرير وظائف أكتوبر يصدر عند 16:30 بتوقيت الرياض وسط توقع 59,000 وظيفة",
+     "summary": "economists polled by dow jones expect payrolls to rise 59,000 in october and the unemployment rate to hold at 4.2%, cnbc reported. it is the week's last major data point and arrives with the vix at 28.18 and the federal reserve describing the labour market as on a solid footing, though it says uncertainty remains.",
+     "summary_ar": "يتوقع اقتصاديون استطلعتهم داو جونز زيادة الوظائف 59,000 في أكتوبر وثبات معدل البطالة عند 4.2%، وفق سي إن بي سي. وهو آخر بيانات كبيرة هذا الأسبوع ويأتي ومؤشر التقلب عند 28.18 بينما يصف الاحتياطي الفيدرالي سوق العمل بأنها على أساس متين مع استمرار عدم اليقين.",
+     "sources": [
+      {
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/05/october-jobs-report-preview.html",
+       "type": "independent"
+      }
+     ],
+     "image": "https://image.cnbcfm.com/api/v1/image/108476508-1793219405492-gettyimages-2301921916-US_JOBLESS_CLAIMS.jpeg?v=1793219480&w=1920&h=1080",
+     "status": "new"
+    },
+    {
+     "id": "oil-settle",
+     "status": "updated",
+     "section": "us_markets",
+     "tag": "GLOBAL",
+     "time": "2026-11-06T05:25:00+03:00",
+     "title": "brent settles 3.9% higher at $98.29, then tops $99 as tankers burn",
+     "title_ar": "برنت يغلق مرتفعًا 3.9% عند 98.29 دولار ثم يتجاوز 99 مع احتراق ناقلات",
+     "summary": "brent crude settled up $3.67, or 3.88%, at $98.29 a barrel on thursday and west texas intermediate rose $2.40, or 2.72%, to $90.52, a rebound after wednesday's slide of more than 8%. by 02:22 GMT on friday brent's january contract was up another 1.6% at $99.86 and wti 1.2% at $91.62, though both remain on course for a weekly fall of about 12%.",
+     "summary_ar": "أغلق برنت مرتفعًا 3.67 دولار، أي 3.88%، عند 98.29 دولارًا للبرميل الخميس، وصعد غرب تكساس الوسيط 2.40 دولار، أي 2.72%، إلى 90.52 دولار، في ارتداد بعد هبوط الأربعاء بأكثر من 8%. وبحلول الساعة 02:22 بتوقيت غرينتش الجمعة ارتفع عقد برنت لشهر يناير 1.6% أخرى إلى 99.86 دولارًا وغرب تكساس 1.2% إلى 91.62 دولارًا، مع بقاء الاثنين على مسار هبوط أسبوعي بنحو 12%.",
+     "sources": [
+      {
+       "title": "Reuters via Yahoo Finance",
+       "url": "https://ca.finance.yahoo.com/news/oil-falls-fourth-day-expectations-045943628.html",
+       "type": "wire"
+      },
+      {
+       "title": "Al Jazeera (live blog)",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/6/iran-war-live-trump-warns-us-may-have-to-destroy-rest-of-iran",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/AFP__20261103__2303393541__v2__HighRes__BalanceOfPowerInWashingtonDcHingesOnMidtermE-1793758662.jpg?resize=770%2C516&quality=80"
+    },
+    {
+     "id": "us-qualcomm-miss",
+     "section": "us_markets",
+     "tag": "EARNINGS",
+     "time": "2026-11-06T00:15:00+03:00",
+     "title": "qualcomm closes 11% lower after a soft outlook on phone chips",
+     "title_ar": "كوالكوم يغلق منخفضًا 11% بعد توقعات ضعيفة لرقائق الهواتف",
+     "summary": "qualcomm fell 11.1% on thursday even after beating estimates, as its guidance disappointed investors worried about smartphone demand and the cost of the ai build-out. it was one of the heaviest weights in the semiconductor index's 12.2% slide.",
+     "summary_ar": "هبط سهم كوالكوم 11.1% الخميس رغم تجاوز التوقعات، بعد أن خيّب توجيهه الشركات آمال المستثمرين القلقين بشأن الطلب على الهواتف الذكية وكلفة بناء البنية التحتية للذكاء الاصطناعي. وكان من أكبر أوزان مؤشر أشباه الموصلات الذي تراجع 12.2%.",
+     "sources": [
+      {
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/04/qualcomm-qcom-earnings-report-q4-2026.html",
+       "type": "independent"
+      },
+      {
+       "title": "Yahoo Finance",
+       "url": "https://uk.finance.yahoo.com/news/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-plunge-chip-stocks-melt-down-193726491.html",
+       "type": "independent"
+      }
+     ],
+     "image": "https://image.cnbcfm.com/api/v1/image/108524758-5ED2-REQ-110526-NewsPRE1.jpg?v=1793877462&w=1920&h=1080",
+     "status": "updated"
+    },
+    {
+     "id": "us-earnings-afterbell",
+     "section": "us_markets",
+     "tag": "EARNINGS",
+     "time": "2026-11-05T17:00:00+03:00",
+     "title": "applovin jumps 23% on results while wendy's rejects peltz's $1.4bn bid",
+     "title_ar": "أب لوڤن يقفز 23% بعد النتائج ووينديز ترفض عرض بلتز بقيمة 1.4 مليار دولار",
+     "summary": "applovin rose 23% after third-quarter revenue of $2.18bn beat the $2.07bn consensus and it guided fourth-quarter revenue to $2.37-2.40bn, above the $2.25bn expected; btig lifted its target to $450. wendy's rejected nelson peltz's $1.4bn takeover offer as undervaluing the company and announced a turnaround plan called 'dave's way'. duke energy, airbnb and lumentum report after the bell.",
+     "summary_ar": "صعدت أب لوڤن 23% بعد إيرادات ربع ثالث بلغت 2.18 مليار دولار مقابل توقع 2.07 مليار، وتوقعات لإيرادات الربع الرابع بين 2.37 و2.40 مليار دولار مقابل 2.25 مليار متوقعة؛ ورفعت بي تي آي جي هدفها السعري إلى 450 دولارًا. ورفضت ونديز عرض استحواذ نيلسون بلتز بقيمة 1.4 مليار دولار لأنه يقلل من قيمة الشركة، وأعلنت خطة تحول باسم «ديفز وي». وتعلن ديوك إنرجي وإير بي إن بي ولومنتام نتائجها بعد الإغلاق.",
+     "sources": [
+      {
+       "title": "Yahoo Finance",
+       "url": "https://ca.finance.yahoo.com/news/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-oil-rises-chip-stocks-141439950.html",
+       "type": "independent"
+      }
+     ],
+     "image": "https://image.cnbcfm.com/api/v1/image/108249978-1767887539173-gettyimages-2255246069-kd1_7832_9ex7rskv.jpeg?v=1767887586&w=1920&h=1080",
+     "status": ""
+    },
+    {
+     "id": "boe-rate-hike",
+     "section": "us_markets",
+     "tag": "MACRO",
+     "time": "2026-11-05T15:55:00+03:00",
+     "title": "bank of england raises rates to 4%, its first hike since 2023",
+     "title_ar": "بنك إنجلترا يرفع الفائدة إلى 4% في أول زيادة منذ 2023",
+     "summary": "the bank of england voted 8-1 on thursday to raise its key rate by a quarter point to 4%, the first increase since 2023, and said it expects inflation to reach 5% by mid-2027. governor andrew bailey said the move 'shouldn't be seen as the first in an inevitable long sequence of hikes, but unless the conflict in the middle east is resolved, neither does it seem likely to be the last increase.'",
+     "summary_ar": "صوّت بنك إنجلترا الخميس 8-1 على رفع سعر الفائدة الرئيسي ربع نقطة إلى 4%، وهي أول زيادة منذ 2023، وقال إنه يتوقع بلوغ التضخم 5% بحلول منتصف 2027. وقال الحاكم أندرو بيلي إن الزيادة «لا ينبغي أن تُفهم كأول زيادة في سلسلة طويلة حتمية، لكن ما لم يُحل الصراع في الشرق الأوسط، لا يبدو أنها ستكون الأخيرة».",
+     "sources": [
+      {
+       "title": "Yahoo Finance",
+       "url": "https://ca.finance.yahoo.com/news/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-oil-rises-chip-stocks-141439950.html",
+       "type": "independent"
+      }
+     ],
+     "image": "https://s.yimg.com/lo/mysterio/api/991c829f48a08bbb131b2e193e3d3a5ac8c8588b633383ba4173fc62882c68d1/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fs.yimg.com%2Fos%2Fcreatr-uploaded-images%2F2025-05%2F157444b0-3163-11f0-a91b-eb382a4eb590",
+     "status": ""
+    }
+   ],
+   "watch": [
+    {
+     "title": "Nvidia Plunges 9% as AI Selloff Wipes Out $2.3 Trillion | Closing Bell",
+     "url": "https://www.youtube.com/watch?v=50V2BcYo3ew",
+     "channel": "Bloomberg Television"
+    },
+    {
+     "title": "Market Close: Stocks Tumble, Apple To Sell $7B In Debt, Wendy's Rejects Buyout Bid 11-5-2026",
+     "url": "https://www.youtube.com/watch?v=1BI_6bOu_Qo",
+     "channel": "CNBC Television"
+    }
+   ]
+  },
+  "ai": {
+   "items": [
+    {
+     "id": "ai-kimi-k31",
+     "status": "updated",
+     "section": "ai",
+     "time": "2026-11-06T06:00:00+03:00",
+     "kind": "MODEL",
+     "title": "#1: kimi k3.1 pro leads hugging face's trending list with 941 likes",
+     "title_ar": "المركز 1: Kimi K3.1 Pro يتصدر قائمة هاغينغ فيس الرائجة بـ941 إعجابًا",
+     "summary": "moonshot ai's kimi k3.1 pro holds the top spot on hugging face's trending list with 941 likes and 11,658 downloads. the repo holds 96 safetensors shards totalling 2.78 trillion parameters, 2.72 trillion of them in 8-bit; the model has been on kimi's apps and api since 23 october and scored 65.7% on terminal-bench 4.0 against claude opus 5.5's 66.4%.",
+     "summary_ar": "يحافظ Kimi K3.1 Pro من موونشوت إيه آي على صدارة قائمة الأكثر رواجًا على هاغينغ فيس بـ941 إعجابًا و11,658 تحميلًا. ويضم المستودع 96 شظية safetensors بإجمالي 2.78 تريليون معامل، منها 2.72 تريليون بدقة 8 بت؛ وهو متاح عبر تطبيقات كيمي وواجهتها البرمجية منذ 23 أكتوبر وسجل 65.7% في Terminal-Bench 4.0 مقابل 66.4% لكلود أوبوس 5.5.",
+     "sources": [
+      {
+       "title": "Hugging Face (Moonshot AI org)",
+       "url": "https://huggingface.co/moonshotai",
+       "type": "official"
+      },
+      {
+       "title": "The Next Web via af.net",
+       "url": "https://af.net/realtime/moonshot-releases-kimi-k3-1-pro-open-weight-model-after-pruning-hacking-capabilities/",
+       "type": "independent"
+      }
+     ],
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/moonshotai/Kimi-K3.png",
+     "try_url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+     "pricing": "Open weights",
+     "metric": "#1 trending, 941 likes"
+    },
+    {
+     "id": "ai-idol",
+     "status": "updated",
+     "section": "ai",
+     "time": "2026-11-06T06:00:00+03:00",
+     "kind": "MODEL",
+     "title": "#2: idol turns a single photo into a 3d model, still second",
+     "title_ar": "المركز 2: idol يحوّل صورة واحدة إلى نموذج ثلاثي الأبعاد ويبقى ثانيًا",
+     "summary": "speridlabs' idol holds second place with 795 likes and 17,180 downloads, an image-to-3d model that rebuilds an object from one photo as a gaussian splat. it ships under apache-2.0 with its own library, so it can be run locally rather than through a hosted demo.",
+     "summary_ar": "يحافظ idol من سبيريدلابس على المركز الثاني بـ795 إعجابًا و17,180 تحميلًا، وهو نموذج لتحويل الصورة إلى مجسم ثلاثي الأبعاد يعيد بناء الجسم من صورة واحدة على هيئة gaussian splat. ويُطرح برخصة Apache-2.0 وبمكتبة خاصة به، ما يتيح تشغيله محليًا بدل الاعتماد على عرض مستضاف.",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/speridlabs/idol",
+       "type": "official"
+      }
+     ],
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/speridlabs/idol.png",
+     "try_url": "https://huggingface.co/spaces/speridlabs/idol",
+     "pricing": "Open weights",
+     "metric": "#2 trending, 795 likes"
+    },
+    {
+     "id": "ai-qwen-3d-coder",
+     "section": "ai",
+     "kind": "MODEL",
+     "time": "2026-11-06T06:00:00+03:00",
+     "title": "#3: a 4b qwen fine-tune that writes three.js 3d scenes",
+     "title_ar": "المركز 3: نسخة مضبوطة من Qwen بحجم 4 مليارات تكتب مشاهد three.js ثلاثية الأبعاد",
+     "summary": "ccore's Qwen3.5-4B-3D-Coder enters the trending list third with 713 likes and 157,157 downloads, a fine-tune of Qwen3.5-4B trained on the author's ThreeJS-3D-Scenes dataset and published in safetensors and GGUF since 25 october. it is apache-2.0 and built for generating three.js code, which makes it a cheap local option for 3d scene generation.",
+     "summary_ar": "يدخل Qwen3.5-4B-3D-Coder من ccore القائمة في المركز الثالث بـ713 إعجابًا و157,157 تحميلًا، وهو نسخة مضبوطة من Qwen3.5-4B دُرّبت على مجموعة بيانات ThreeJS-3D-Scenes الخاصة بمطوّره ونُشرت بصيغتَي safetensors وGGUF منذ 25 أكتوبر. ورخصته Apache-2.0 وهو مخصص لتوليد أكواد three.js، ما يجعله خيارًا محليًا منخفض الكلفة لتوليد المشاهد ثلاثية الأبعاد.",
+     "why_it_matters": "a 4b model that turns prompts into three.js scenes is small enough to run on a laptop, which is where most 3d prototyping actually happens.",
+     "why_it_matters_ar": "نموذج بحجم 4 مليارات يحوّل الأوامر النصية إلى مشاهد three.js صغير بما يكفي ليعمل على حاسوب محمول، وهو المكان الذي تجري فيه معظم نماذج التصميم ثلاثي الأبعاد فعليًا.",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
+       "type": "official"
+      }
+     ],
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/ccore/Qwen3.5-4B-3D-Coder.png",
+     "try_url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
+     "pricing": "Open weights",
+     "metric": "#3 trending, 713 likes",
+     "status": "new"
+    },
+    {
+     "id": "ai-ltx-2-5",
+     "section": "ai",
+     "kind": "MODEL",
+     "time": "2026-11-06T06:00:00+03:00",
+     "title": "#4: ltx-2.5 is the workhorse of the list with 10,743 likes",
+     "title_ar": "المركز 4: LTX-2.5 هو الأكثر استخدامًا في القائمة بـ10,743 إعجابًا",
+     "summary": "lightricks' ltx-2.5 sits fourth with 10,743 likes and 2.56 million downloads, a diffusion model that handles image, text and audio to video in one pipeline, including native multishot and audio generation. it is the most downloaded model in the trending ten by a wide margin.",
+     "summary_ar": "يحل LTX-2.5 من لايتريكس رابعًا بـ10,743 إعجابًا و2.56 مليون تحميل، وهو نموذج انتشار يتعامل مع الصورة والنص والصوت إلى فيديو في مسار واحد، بما في ذلك اللقطات المتعددة وتوليد الصوت. وهو الأكثر تحميلًا في قائمة العشرة الرائجة بفارق كبير.",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/Lightricks/LTX-2.5",
+       "type": "official"
+      }
+     ],
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Lightricks/LTX-2.5.png",
+     "try_url": "https://huggingface.co/Lightricks/LTX-2.5",
+     "pricing": "Open weights",
+     "metric": "#4 trending, 10,743 likes",
+     "status": "updated"
+    },
+    {
+     "id": "ai-nemotron-transcribe",
+     "status": "updated",
+     "section": "ai",
+     "time": "2026-11-06T06:00:00+03:00",
+     "kind": "MODEL",
+     "title": "#5: nvidia's nemotron transcribe climbs to fifth",
+     "title_ar": "المركز 5: نموذج نفيديا للنسخ الصوتي يتقدم إلى الخامس",
+     "summary": "nvidia's Nemotron-3.5-Transcribe-30B-A4B is fifth with 3,059 likes and 57,297 downloads, a 30b mixture-of-experts speech model covering 40 languages with speaker diarization and speech translation in one pass.",
+     "summary_ar": "يحل Nemotron-3.5-Transcribe-30B-A4B من نفيديا خامسًا بـ3,059 إعجابًا و57,297 تحميلًا، وهو نموذج كلام بمزيج خبراء بحجم 30 مليارًا يغطي 40 لغة مع تمييز المتحدثين وترجمة الكلام في تمريرة واحدة.",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+       "type": "official"
+      }
+     ],
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B.png",
+     "try_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+     "pricing": "Open weights",
+     "metric": "#5 trending, 3,059 likes"
+    },
+    {
+     "id": "ai-mistral-large-4",
+     "time": "2026-11-06T06:00:00+03:00",
+     "kind": "MODEL",
+     "title": "#6: mistral's 1-trillion-parameter large 4 slips to sixth",
+     "title_ar": "المركز 6: نموذج Mistral Large 4 بتريليون معامل يتراجع إلى السادس",
+     "summary": "mistral's Mistral-Large-4-1T-A52B is sixth with 1,615 likes and 9,592 downloads, a trillion-parameter sparse model with 52 billion active parameters that supports 40-plus languages including arabic and ships with vllm, sglang and llama.cpp support.",
+     "summary_ar": "يحل Mistral-Large-4-1T-A52B من ميسترال سادسًا بـ1,615 إعجابًا و9,592 تحميلًا، وهو نموذج متناثر بتريليون معامل و52 مليار معامل نشط يدعم أكثر من 40 لغة بينها العربية ويتوافق مع vllm وsglang وllama.cpp.",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+       "type": "official"
+      }
+     ],
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/mistralai/Mistral-Large-4-1T-A52B.png",
+     "try_url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+     "pricing": "Open weights",
+     "metric": "#6 trending, 1,615 likes",
+     "section": "ai",
+     "status": "updated"
+    },
+    {
+     "id": "ai-openai-images-26",
+     "section": "ai",
+     "kind": "TOOL",
+     "time": "2026-11-05T04:00:00+03:00",
+     "title": "openai ships images 2.6 with gifs and 50% faster generation",
+     "title_ar": "أوبن إيه آي تطلق Images 2.6 مع صور متحركة وتوليد أسرع 50%",
+     "summary": "openai rolled out images 2.6 in chatgpt, codex and the api on 4 november, adding native animated-gif creation from prompts or photos and better consistency for characters, products and brand details across edits. two api models ship with it: gpt-image-2.6 flare, which openai says can produce an image in as little as six seconds at low quality, and gpt-image-2.6 sunburst for higher-quality work that needs precision; openai says generation is 50% faster and that chatgpt, codex and the api now create 4 billion images a week.",
+     "summary_ar": "أطلقت أوبن إيه آي إصدار Images 2.6 في ChatGPT وCodex والواجهة البرمجية في 4 نوفمبر، وأضافت إنشاء صور متحركة GIF من الأوامر أو الصور، وثباتًا أفضل للشخصيات والمنتجات والعلامات أثناء التعديل. ويأتي معه نموذجان في الواجهة البرمجية: GPT-Image-2.6 Flare الذي تقول الشركة إنه ينتج صورة خلال ست ثوانٍ في الجودة المنخفضة، وGPT-Image-2.6 Sunburst للأعمال الأعلى جودة والأكثر دقة؛ وتقول أوبن إيه آي إن التوليد أسرع بنسبة 50% وإن المنصات الثلاث تنتج الآن 4 مليارات صورة أسبوعيًا.",
+     "sources": [
+      {
+       "title": "OpenAI",
+       "url": "https://openai.com/index/introducing-images-2-6/",
+       "type": "official"
+      }
+     ],
+     "image": "https://images.ctfassets.net/kftzwdyauwt9/2E8ts1o0xQpNfGigwDDkUx/f144a75f6a59d0307eba199c518e5a83/gpt-image-2-6-card.png?w=3840&q=90&fm=webp",
+     "try_url": "https://chatgpt.com/",
+     "pricing": "Free tier",
+     "metric": "4B images a week",
+     "status": ""
+    }
+   ],
+   "watch": [
+    {
+     "title": "Introducing ChatGPT Images 2.6",
+     "url": "https://www.youtube.com/watch?v=bJldMYfRvMQ",
+     "channel": "OpenAI"
+    },
+    {
+     "title": "‘We may release models we can’t control’: Amodei, Altman … and Gemini Carbon",
+     "url": "https://www.youtube.com/watch?v=0Kw6_DTZPrY",
+     "channel": "AI Explained"
+    }
+   ]
+  },
+  "trending": {
    "items": [
     {
      "id": "nvidia-auto-ontology",
-     "section": "trending_repos",
-     "title": "nvidia's auto-ontology holds the top spot with 2,679 stars",
-     "summary": "nvidia's python framework builds semantic, graph-based reasoning layers over data so query generation is deterministic instead of guessed.\nit is at 7,588 total stars, up 860 since last night, and the repo was last pushed yesterday at 14:45 utc.",
+     "section": "trending",
+     "rank": 1,
+     "period": "today",
+     "stars_gained": 2679,
+     "stars_total": 7586,
+     "language": "Python",
+     "title": "auto-ontology keeps #1 today: nvidia's graph layer for agent reasoning",
+     "title_ar": "auto-ontology يحافظ على المركز الأول اليوم: طبقة رسوم معرفية من نفيديا لاستدلال الوكلاء",
+     "summary": "nvidia's auto-ontology is a python framework for building semantic, graph-based reasoning layers over data, aimed at deterministic query generation and better retrieval context; it gained 2,679 stars today, the most on the list, and has 7,586 in total.",
+     "summary_ar": "Auto Ontology من نفيديا إطار عمل بلغة بايثون لبناء طبقات استدلال دلالية قائمة على الرسوم فوق البيانات، بهدف توليد استعلامات حتمي وسياق استرجاع أفضل؛ حصد 2,679 نجمة اليوم، وهو الأعلى في القائمة، ليصل إجماليه إلى 7,586.",
+     "why_it_matters": "nvidia shipping an open framework for ontology-driven retrieval is a bet that agents need structure, not just bigger context windows.",
+     "why_it_matters_ar": "إطلاق نفيديا إطارًا مفتوحًا للاسترجاع القائم على الأنطولوجيا رهان على أن الوكلاء يحتاجون بنية لا مجرد نوافذ سياق أكبر.",
+     "image": "https://opengraph.githubassets.com/1/NVIDIA/auto-ontology",
      "sources": [
       {
-       "name": "GitHub Trending",
-       "url": "https://github.com/trending?since=daily"
-      },
-      {
-       "name": "trendshift",
-       "url": "https://trendshift.io/"
-      },
-      {
-       "name": "GitHub",
-       "url": "https://github.com/NVIDIA/auto-ontology"
+       "title": "GitHub",
+       "url": "https://github.com/NVIDIA/auto-ontology",
+       "type": "official"
       }
      ],
-     "published_at": "2026-11-05T14:45:30Z",
      "status": "updated",
-     "updated": true,
-     "meta": {
-      "stars_today": 2679,
-      "stars_total": 7588,
-      "language": "Python"
-     }
-    },
-    {
-     "id": "vercel-labs-agent-desktop",
-     "section": "trending_repos",
-     "title": "agent-desktop adds 2,173 stars for computer use without pixels",
-     "summary": "vercel's rust cli lets an agent drive a desktop through the accessibility tree instead of reading screenshots.\ntotal stars went from 16,396 to 17,071 overnight and the repo was pushed at 01:21 utc today.",
-     "sources": [
-      {
-       "name": "GitHub Trending",
-       "url": "https://github.com/trending?since=daily"
-      },
-      {
-       "name": "trendshift",
-       "url": "https://trendshift.io/"
-      },
-      {
-       "name": "GitHub",
-       "url": "https://github.com/vercel-labs/agent-desktop"
-      }
-     ],
-     "published_at": "2026-11-06T01:21:24Z",
-     "status": "updated",
-     "updated": true,
-     "meta": {
-      "stars_today": 2173,
-      "stars_total": 17071,
-      "language": "Rust"
-     }
+     "time": "2026-11-06T06:10:00+03:00"
     },
     {
      "id": "mattpocock-skills",
-     "section": "trending_repos",
-     "title": "mattpocock's skills repo keeps 2,071 stars a day",
-     "summary": "the readme says 'skills for real engineers', taken straight from his .agents directory.\nit is the biggest repo on the chart at 315,458 stars and added 871 of them since last night.",
+     "section": "trending",
+     "rank": 2,
+     "period": "today",
+     "stars_gained": 2071,
+     "stars_total": 315458,
+     "language": "Shell",
+     "title": "mattpocock/skills holds #2 today with 315k stars in total",
+     "title_ar": "mattpocock/skills يحافظ على المركز الثاني اليوم بإجمالي 315 ألف نجمة",
+     "summary": "mattpocock's skills repo, a set of agent skills taken straight from his .agents directory, is second today with 2,071 new stars and 315,458 in total, and was pushed to again on thursday morning.",
+     "summary_ar": "مستودع skills لمات بوكوك، وهو مجموعة مهارات للوكلاء مأخوذة مباشرة من مجلد .agents الخاص به، في المركز الثاني اليوم بـ2,071 نجمة جديدة وإجمالي 315,458 نجمة، وقد تلقّى تحديثًا صباح الخميس.",
+     "why_it_matters": "skills are becoming the distribution layer for how agents behave, and this is now the most-starred collection of them.",
+     "why_it_matters_ar": "أصبحت المهارات طبقة توزيع لسلوك الوكلاء، وهذا الآن المستودع الأكثر نجومًا بين مجموعاتها.",
+     "image": "https://opengraph.githubassets.com/1/mattpocock/skills",
      "sources": [
       {
-       "name": "GitHub Trending",
-       "url": "https://github.com/trending?since=daily"
-      },
-      {
-       "name": "trendshift",
-       "url": "https://trendshift.io/"
-      },
-      {
-       "name": "GitHub",
-       "url": "https://github.com/mattpocock/skills"
+       "title": "GitHub",
+       "url": "https://github.com/mattpocock/skills",
+       "type": "official"
       }
      ],
-     "published_at": "2026-11-05T10:40:01Z",
      "status": "updated",
-     "updated": true,
-     "meta": {
-      "stars_today": 2071,
-      "stars_total": 315458,
-      "language": "Shell"
-     }
-    },
-    {
-     "id": "d4vinci-scrapling",
-     "section": "trending_repos",
-     "title": "scrapling holds 1,655 stars as scraping demand persists",
-     "summary": "python framework built to handle one request or a full crawl, with anti-bot handling included rather than bolted on.\nit sits at 98,148 stars, 551 more than last night, and the author pushed at 18:01 utc yesterday.",
-     "sources": [
-      {
-       "name": "GitHub Trending",
-       "url": "https://github.com/trending?since=daily"
-      },
-      {
-       "name": "trendshift",
-       "url": "https://trendshift.io/"
-      },
-      {
-       "name": "GitHub",
-       "url": "https://github.com/D4Vinci/Scrapling"
-      }
-     ],
-     "published_at": "2026-11-06T03:00:00Z",
-     "status": "updated",
-     "updated": true,
-     "meta": {
-      "stars_today": 1655,
-      "stars_total": 98148,
-      "language": "Python"
-     }
-    },
-    {
-     "id": "jiafeimiao-discimagestudio",
-     "section": "trending_repos",
-     "title": "discimage studio enters the chart with 984 stars",
-     "summary": "a c# disc-image tool, the only .net entry on today's list, and it ships with no description on github.\nit is at 7,368 total stars, 272 more than last night, and the repo was pushed at 17:24 utc yesterday.",
-     "sources": [
-      {
-       "name": "GitHub Trending",
-       "url": "https://github.com/trending?since=daily"
-      },
-      {
-       "name": "trendshift",
-       "url": "https://trendshift.io/"
-      },
-      {
-       "name": "GitHub",
-       "url": "https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio"
-      }
-     ],
-     "published_at": "2026-11-05T17:24:40Z",
-     "status": "updated",
-     "updated": true,
-     "meta": {
-      "stars_today": 984,
-      "stars_total": 7368,
-      "language": "C#"
-     }
-    },
-    {
-     "id": "floci-io-floci",
-     "section": "trending_repos",
-     "title": "floci keeps 779 stars as a free local aws emulator",
-     "summary": "a java aws emulator pitched as 'light, fluffy, and always free' for running cloud services on a laptop.\nit is at 30,492 stars, 353 more than last night, with a push at 21:02 utc.",
-     "sources": [
-      {
-       "name": "GitHub Trending",
-       "url": "https://github.com/trending?since=daily"
-      },
-      {
-       "name": "trendshift",
-       "url": "https://trendshift.io/"
-      },
-      {
-       "name": "GitHub",
-       "url": "https://github.com/floci-io/floci"
-      }
-     ],
-     "published_at": "2026-11-05T21:02:20Z",
-     "status": "updated",
-     "updated": true,
-     "meta": {
-      "stars_today": 779,
-      "stars_total": 30492,
-      "language": "Java"
-     }
-    },
-    {
-     "id": "scenario-labs-skills",
-     "section": "trending_repos",
-     "title": "scenario-labs' skills repo arrives with 667 stars",
-     "summary": "python skills that let an agent call image, video, audio and 3d models without wiring each provider api.\nfirst appearance on the chart at 3,143 total stars, pushed at 23:21 utc yesterday.",
-     "sources": [
-      {
-       "name": "GitHub Trending",
-       "url": "https://github.com/trending?since=daily"
-      },
-      {
-       "name": "trendshift",
-       "url": "https://trendshift.io/"
-      },
-      {
-       "name": "GitHub",
-       "url": "https://github.com/scenario-labs/skills"
-      }
-     ],
-     "published_at": "2026-11-05T23:21:04Z",
-     "status": "new",
-     "updated": true,
-     "meta": {
-      "stars_today": 667,
-      "stars_total": 3143,
-      "language": "Python"
-     }
+     "time": "2026-11-06T06:10:00+03:00"
     },
     {
      "id": "garrytan-gstack",
-     "section": "trending_repos",
-     "title": "gstack holds 612 stars for garry tan's claude code setup",
-     "summary": "23 opinionated tools that reproduce his ceo, designer and engineer agents, packaged as a single install.\n140,027 total stars now, 283 more overnight, and the repo was pushed at 03:30 utc this morning.",
+     "section": "trending",
+     "rank": 3,
+     "period": "today",
+     "stars_gained": 612,
+     "stars_total": 140027,
+     "language": "TypeScript",
+     "title": "gstack is #3 today: garry tan's own claude code setup, packaged",
+     "title_ar": "gstack في المركز الثالث اليوم: إعدادات غاري تان نفسه لكلود كود في حزمة",
+     "summary": "garry tan's gstack packages his claude code setup as 23 opinionated tools that act as ceo, designer, engineering manager, release manager, doc engineer and qa; it gained 612 stars today and has 140,027 in total, with commits landing at 03:30 GMT on friday.",
+     "summary_ar": "يجمع gstack من غاري تان إعداداته في claude code في 23 أداة ذات رأي تعمل كمدير تنفيذي ومصمم ومدير هندسي ومدير إصدارات ومهندس وثائق وضمان جودة؛ حصد 612 نجمة اليوم وإجماليه 140,027، مع تحديثات وصلت الساعة 03:30 بتوقيت غرينتش الجمعة.",
+     "why_it_matters": "people copy workflows faster than they read docs, and a named operator's stack is the clearest template yet.",
+     "why_it_matters_ar": "يقلّد الناس سير العمل أسرع مما يقرؤون الوثائق، وحزمة مشغّل معروف هي أوضح قالب حتى الآن.",
+     "image": "https://opengraph.githubassets.com/1/garrytan/gstack",
      "sources": [
       {
-       "name": "GitHub Trending",
-       "url": "https://github.com/trending?since=daily"
-      },
-      {
-       "name": "trendshift",
-       "url": "https://trendshift.io/"
-      },
-      {
-       "name": "GitHub",
-       "url": "https://github.com/garrytan/gstack"
+       "title": "GitHub",
+       "url": "https://github.com/garrytan/gstack",
+       "type": "official"
       }
      ],
-     "published_at": "2026-11-06T03:30:11Z",
+     "time": "2026-11-06T06:10:00+03:00",
+     "status": "updated"
+    },
+    {
+     "id": "d4vinci-scrapling",
+     "section": "trending",
+     "rank": 5,
+     "period": "today",
+     "stars_gained": 1655,
+     "stars_total": 98146,
+     "language": "Python",
+     "title": "scrapling is #5 today for scraping that survives bot walls",
+     "title_ar": "Scrapling في المركز الخامس اليوم لاستخراج بيانات يتجاوز جدران الحماية",
+     "summary": "scrapling is a python scraping framework built to survive bot walls, from a single request to a full crawl; it gained 1,655 stars today and has 98,146 in total, with the repo pushed to at 18:01 GMT on thursday.",
+     "summary_ar": "Scrapling إطار كشط بيانات بلغة بايثون مصمم لتجاوز جدران الحماية الآلية، من طلب واحد إلى زحف كامل؛ حصد 1,655 نجمة اليوم وإجماليه 98,146، مع تحديث للمستودع عند 18:01 بتوقيت غرينتش الخميس.",
+     "why_it_matters": "agent builders keep hitting 403s, so a scraper that survives them spreads by word of mouth.",
+     "why_it_matters_ar": "يصطدم بناة الوكلاء مرارًا بأخطاء 403، لذا ينتشر أي مستخرج بيانات يتجاوزها بالكلمة المنقولة.",
+     "image": "https://opengraph.githubassets.com/1/D4Vinci/Scrapling",
+     "sources": [
+      {
+       "title": "GitHub",
+       "url": "https://github.com/D4Vinci/Scrapling",
+       "type": "official"
+      }
+     ],
+     "time": "2026-11-06T06:10:00+03:00",
+     "status": "updated"
+    },
+    {
+     "id": "vercel-labs-agent-desktop",
+     "section": "trending",
+     "rank": 6,
+     "period": "today",
+     "stars_gained": 2173,
+     "stars_total": 17071,
+     "language": "Rust",
+     "title": "agent-desktop is #6 today with 2,173 new stars",
+     "title_ar": "agent-desktop في المركز السادس اليوم بـ2,173 نجمة جديدة",
+     "summary": "vercel labs' agent-desktop is a computer-use cli for ai agents written in rust; it gained 2,173 stars today and has 17,071 in total, with commits through 01:21 GMT on friday.",
+     "summary_ar": "agent-desktop من فيرسل لابز أداة سطر أوامر لاستخدام الحاسوب من قبل وكلاء الذكاء الاصطناعي، مكتوبة بلغة Rust؛ حصدت 2,173 نجمة اليوم وإجماليها 17,071، مع تحديثات حتى 01:21 بتوقيت غرينتش الجمعة.",
+     "why_it_matters": "computer use is moving from demos to a cli primitive, which is the step that makes it deployable.",
+     "why_it_matters_ar": "التحكم بالحاسوب ينتقل من العروض التجريبية إلى أداة سطر أوامر أساسية، وهي الخطوة التي تجعله قابلًا للنشر.",
+     "image": "https://opengraph.githubassets.com/1/vercel-labs/agent-desktop",
+     "sources": [
+      {
+       "title": "GitHub",
+       "url": "https://github.com/vercel-labs/agent-desktop",
+       "type": "official"
+      }
+     ],
      "status": "updated",
-     "updated": true,
-     "meta": {
-      "stars_today": 612,
-      "stars_total": 140027,
-      "language": "TypeScript"
-     }
+     "time": "2026-11-06T06:10:00+03:00"
+    },
+    {
+     "id": "thedotmack-claude-mem",
+     "section": "trending",
+     "rank": 1,
+     "period": "week",
+     "stars_gained": 9318,
+     "stars_total": 113610,
+     "language": "TypeScript",
+     "title": "claude-mem is #1 this week: persistent memory for every agent",
+     "title_ar": "claude-mem الأول هذا الأسبوع: ذاكرة مستمرة لكل وكيل",
+     "summary": "thedotmack's claude-mem captures what an agent does during sessions, compresses it and injects the relevant context back later, and says it works with claude code, codex, gemini, hermes, copilot and opencode; it leads the weekly list with 9,318 stars gained and 113,610 in total.",
+     "summary_ar": "يلتقط claude-mem من thedotmack ما يفعله الوكيل خلال الجلسات ويضغطه ويعيد حقن السياق المناسب لاحقًا، ويقول إنه يعمل مع claude code وcodex وgemini وhermes وcopilot وopencode؛ ويتصدر القائمة الأسبوعية بـ9,318 نجمة مكتسبة وإجمالي 113,610.",
+     "why_it_matters": "memory is the difference between a tool you re-explain every day and one that compounds.",
+     "why_it_matters_ar": "الذاكرة هي الفارق بين أداة تعيد شرحها كل يوم وأخرى تتراكم قيمتها.",
+     "image": "https://opengraph.githubassets.com/1/thedotmack/claude-mem",
+     "sources": [
+      {
+       "title": "GitHub",
+       "url": "https://github.com/thedotmack/claude-mem",
+       "type": "official"
+      }
+     ],
+     "status": "updated",
+     "time": "2026-11-06T06:05:00+03:00"
+    },
+    {
+     "id": "nutlope-hallmark",
+     "section": "trending",
+     "rank": 2,
+     "period": "week",
+     "stars_gained": 6994,
+     "stars_total": 48871,
+     "language": "CSS",
+     "title": "hallmark stays #2 this week: anti-slop design for coding agents",
+     "title_ar": "hallmark يبقى الثاني هذا الأسبوع: تصميم مضاد للرداءة لوكلاء البرمجة",
+     "summary": "nutlope's hallmark is an anti-ai-slop design skill for claude code, cursor and codex; it is second on the weekly list with 6,994 stars gained and 48,871 in total.",
+     "summary_ar": "Hallmark من ناتلوب مهارة تصميم مضادة لرداءة الذكاء الاصطناعي لـclaude code وcursor وcodex؛ وهي الثانية في القائمة الأسبوعية بـ6,994 نجمة مكتسبة وإجمالي 48,871.",
+     "why_it_matters": "design taste is being packaged as a skill file, the cheapest quality upgrade an agent can get.",
+     "why_it_matters_ar": "يجري تغليف الذوق التصميمي في ملف مهارة، وهو أرخص تحسين جودة يمكن أن يحصل عليه الوكيل.",
+     "image": "https://opengraph.githubassets.com/1/Nutlope/hallmark",
+     "sources": [
+      {
+       "title": "GitHub",
+       "url": "https://github.com/Nutlope/hallmark",
+       "type": "official"
+      }
+     ],
+     "status": "updated",
+     "time": "2026-11-06T06:05:00+03:00"
+    },
+    {
+     "id": "pingdotgg-t3code",
+     "section": "trending",
+     "rank": 3,
+     "period": "week",
+     "stars_gained": 16235,
+     "stars_total": 48488,
+     "language": "TypeScript",
+     "title": "t3code is #3 this week with the biggest weekly gain",
+     "title_ar": "t3code الثالث هذا الأسبوع بأكبر زيادة أسبوعية",
+     "summary": "pingdotgg's t3code has no description on github but gained 16,235 stars this week, more than any other repo on the list, taking it to 48,488 in total; commits landed as recently as 03:27 GMT on friday.",
+     "summary_ar": "لا يضع pingdotgg وصفًا لمستودع t3code على github لكنه حصد 16,235 نجمة هذا الأسبوع، أكثر من أي مستودع آخر في القائمة، ليصل إجماليه إلى 48,488؛ ووصلت تحديثات حتى 03:27 بتوقيت غرينتش الجمعة.",
+     "why_it_matters": "a repo with no readme pitch adding 16k stars in a week is worth watching to see what it turns out to be.",
+     "why_it_matters_ar": "مستودع بلا وصف تسويقي يضيف 16 ألف نجمة في أسبوع يستحق المتابعة لمعرفة ما سيصبح عليه.",
+     "image": "https://opengraph.githubassets.com/1/pingdotgg/t3code",
+     "sources": [
+      {
+       "title": "GitHub",
+       "url": "https://github.com/pingdotgg/t3code",
+       "type": "official"
+      }
+     ],
+     "status": "updated",
+     "time": "2026-11-06T06:05:00+03:00"
     }
    ],
    "watch": [
     {
-     "title": "NVIDIA Auto Ontology - Graph Reasoning (Full Tutorial)",
-     "url": "https://www.youtube.com/watch?v=NFJIfX3f1JI",
+     "title": "NEW 5 GitHub Repos Blowing Up (LIFE CHANGING)",
+     "url": "https://www.youtube.com/watch?v=y2TmTP7qsvU",
+     "channel": "Beau Johnson"
+    },
+    {
+     "title": "Top 10 GitHub Repos This Week | Oct 26 – Nov 1 | Agents Learn Taste",
+     "url": "https://www.youtube.com/watch?v=A3grJN81Ryk",
      "channel": "Full Stack"
-    },
-    {
-     "title": "agent-desktop: 16,000 Stars for Computer Use Without Pixels",
-     "url": "https://www.youtube.com/watch?v=EVQYr10IQYM",
-     "channel": "AwesomeFOSS"
     }
    ]
   },
-  {
-   "id": "middle_east",
-   "title": "middle east",
+  "liverpool": {
+   "what_changed": "liverpool go to selhurst park on sunday trying to avoid a third straight defeat, with ryan gravenberch out through a heel injury, dominik szoboszlai short of fitness and iraola weighing whether trey nyoni can start a third game in a week; the manager speaks at 16:30 riyadh on friday.",
+   "what_changed_ar": "يحل ليفربول ضيفًا على سيلهرست بارك الأحد سعيًا لتجنب خسارة ثالثة توالياً، مع غياب رايان غرافينبيرخ لإصابة في الكعب ونقص جاهزية دومينيك سوبوسلاي وتردد إيراولا بشأن إشراك تري نيوني أساسيًا للمرة الثالثة في أسبوع؛ ويتحدث المدرب عند 16:30 بتوقيت الرياض الجمعة.",
    "items": [
     {
-     "id": "trump-iran-nuclear-proposal",
-     "section": "middle_east",
-     "title": "trump says iran sent a nuclear proposal as he weighs more strikes",
-     "summary": "trump told reporters iran had sent a proposal through mediators on its nuclear programme, and that 'they're not doing anything without our approval'.\nhe added he would 'rather not destroy the rest of the country, if possible, but maybe i'll have to' and that reporters would 'know soon enough'.",
+     "id": "liverpool-palace-next",
+     "section": "liverpool",
+     "reliability": "Official",
+     "time": "2026-11-06T06:20:00+03:00",
+     "title": "next up: palace away on sunday, and liverpool need to stop the slide",
+     "title_ar": "التالي: بالاس خارج الديار الأحد وليفربول بحاجة إلى وقف التراجع",
+     "summary": "liverpool travel to selhurst park on sunday 8 november for a 14:00 gmt kick-off, 17:00 in riyadh, in premier league matchweek 10 and their last game before the international break, after losing 1-0 to arsenal and 3-2 at fenerbahce. crystal palace failed to overturn jean-philippe mateta's three-match ban for serious foul play, so the striker misses the game; iraola holds his pre-match press conference at 13:30 gmt on friday, 16:30 riyadh.",
+     "summary_ar": "يحل ليفربول ضيفًا على كريستال بالاس في سيلهرست بارك الأحد 8 نوفمبر عند 14:00 بتوقيت غرينتش، أي 17:00 بتوقيت الرياض، في الجولة العاشرة من الدوري الإنجليزي وآخر مباراة له قبل التوقف الدولي، بعد خسارته 1-0 من أرسنال و3-2 في فنربخشة. وفشل كريستال بالاس في إلغاء إيقاف جان-فيليب ماتيتا ثلاث مباريات بسبب خطأ جسيم، فيغيب المهاجم عن المباراة؛ ويعقد إيراولا مؤتمره الصحافي عند 13:30 بتوقيت غرينتش الجمعة، أي 16:30 بتوقيت الرياض.",
      "sources": [
       {
-       "name": "Anadolu Agency",
-       "url": "https://www.aa.com.tr/en/americas/trump-warns-that-iran-could-face-destruction-saying-you-ll-know-soon-enough-about-his-next-move/4113532"
+       "title": "Liverpool FC",
+       "url": "https://www.liverpoolfc.com/news/watch-andoni-iraola-pre-crystal-palace-press-conference",
+       "type": "official"
       },
       {
-       "name": "The Jerusalem Post",
-       "url": "https://www.jpost.com/middle-east/article-914025"
-      },
-      {
-       "name": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/liveblog/2026/11/6/iran-war-live-trump-warns-us-may-have-to-destroy-rest-of-iran"
+       "title": "This Is Anfield",
+       "url": "https://www.thisisanfield.com/2026/11/crystal-palace-appeal-rejected-mateta-ban-liverpool/",
+       "type": "independent"
       }
      ],
-     "published_at": "2026-11-05T22:22:35Z",
-     "status": "new",
-     "updated": true,
-     "change": "new: trump's first extended remarks on iran since the midterms, putting a nuclear proposal and an explicit strike threat in the same answer.",
-     "tags": [
-      "iran",
-      "us"
-     ]
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/JMT4Vq2XSG7OZc9iRFfBn/29ce6301dc4f11da8959bbdd860563fb/anfield-general-view-fans-man-utd-18122023.jpg?w=1200&h=630&fit=crop&f=face",
+     "status": "updated"
     },
     {
-     "id": "israel-herzog-talks",
-     "section": "middle_east",
-     "title": "herzog will hand eisenkot the mandate on sunday",
-     "summary": "after a week of consultations herzog ended with 67 seats behind eisenkot, the 48-seat opposition bloc plus the arab parties' 19, and set the handover for sunday.\nhe will meet party leaders privately over the weekend, and liberman has dropped his veto on sitting with the haredi parties.",
+     "id": "liverpool-nyoni-dilemma",
+     "section": "liverpool",
+     "reliability": "Tier 2",
+     "time": "2026-11-06T04:00:00+03:00",
+     "title": "nyoni's third game in a week is iraola's main fitness call",
+     "title_ar": "مشاركة نيوني في ثالث مباراة خلال أسبوع هي أبرز قرارات إيراولا",
+     "summary": "the liverpool echo's likely xi has araujo returning at right-back, kerkez in for tsimikas, wirtz back at number 10 and isak leading the line, with the open question whether trey nyoni, 19 and the best player in istanbul, can start a third game in seven days. ryan gravenberch is unavailable with a heel injury and dominik szoboszlai does not look fully fit after a hamstring problem, so nyoni or szoboszlai partners mac allister.",
+     "summary_ar": "تُعيد تشكيلة ليفربول إيكو المتوقعة أراوخو إلى الظهير الأيمن وتُشرك كيركيز بدل تسيميكاس وتُعيد فيرتز في مركز صانع الألعاب مع إيساك في المقدمة، ويبقى السؤال مفتوحًا حول قدرة تري نيوني (19 عامًا) وأفضل لاعب في إسطنبول على البدء في ثالث مباراة خلال سبعة أيام. ويغيب رايان غرافينبيرخ لإصابة في الكعب ولا يبدو دومينيك سوبوسلاي بكامل جاهزيته بعد مشكلة في أوتار الركبة، فيشارك نيوني أو سوبوسلاي إلى جانب ماك أليستر.",
      "sources": [
       {
-       "name": "The Jerusalem Post",
-       "url": "https://www.jpost.com/israel-election-2026/article-913989"
-      },
-      {
-       "name": "The Jerusalem Post",
-       "url": "https://www.jpost.com/israel-election-2026/article-914006"
+       "title": "Liverpool Echo via Yahoo Sports",
+       "url": "https://uk.sports.yahoo.com/news/andoni-iraola-trey-nyoni-fitness-010000847.html",
+       "type": "independent"
       }
      ],
-     "published_at": "2026-11-05T23:13:00Z",
+     "image": "https://s.yimg.com/lo/mysterio/api/02e341b2f55cb008a8f07ec0d8cf55289da39729c75238336eb7f3c631116729/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fliverpool_echo_403%2Fbf9634bf72883cfcc452dbb02da51a52.jpg",
+     "status": "new"
+    },
+    {
+     "id": "transfer-araujo",
+     "title": "araujo's absence shows what liverpool lose without him",
+     "title_ar": "غياب أراوخو يكشف ما يخسره ليفربول من دونه",
+     "summary": "this is anfield notes that liverpool conceded three non-penalty set-piece goals in a single champions league match for the first time, with the loanee rested at fenerbahce after starting the previous 12 matches; he wins 4.2 aerial duels per 90 in the premier league, in the top 1% of his position in europe's big five leagues. the loan from barcelona carries a £47m option, and the echo reports barcelona's search for a centre-back keeps that decision open.",
+     "summary_ar": "يشير هذا إز أنفيلد إلى أن ليفربول استقبل ثلاثة أهداف من كرات ثابتة غير احتساب ركلة جزاء في مباراة واحدة بدوري الأبطال للمرة الأولى، بعد أن أراحه إيراولا أمام فنربخشة إثر 12 مباراة أساسيًا متتالية؛ وهو يفوز بـ4.2 التحام هوائي لكل 90 دقيقة في الدوري الإنجليزي، ضمن أفضل 1% في مركزه بين الدوريات الخمس الكبرى. وتتضمن إعارته من برشلونة خيار شراء بـ47 مليون جنيه، ويقول إيكو إن بحث برشلونة عن مدافع وسط يُبقي القرار مفتوحًا.",
+     "sources": [
+      {
+       "title": "This Is Anfield",
+       "url": "https://www.thisisanfield.com/2026/11/ronald-araujo-absence-liverpool-mentality-set-pieces/",
+       "type": "independent"
+      },
+      {
+       "title": "Liverpool Echo",
+       "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-araujo-transfer-barcelona-latest-34867582",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-06T03:30:00+03:00",
+     "section": "liverpool",
      "status": "updated",
-     "updated": true,
-     "change": "herzog named sunday for the handover and liberman dropped his veto on haredi partners, the first real movement in the coalition arithmetic.",
-     "tags": [
-      "israel"
-     ]
+     "image": "https://i2-prod.liverpoolecho.co.uk/article34868288.ece/ALTERNATES/s1200d/0_GettyImages-2300122080.jpg",
+     "reliability": "Tier 2"
     },
     {
-     "id": "turkey-mecca-pact",
-     "section": "middle_east",
-     "title": "turkey's parliament ratifies the mecca defence pact",
-     "summary": "lawmakers approved the saudi-pakistan-turkey agreement 279-119, with 398 of 592 members voting.\narticle 2 commits all three to 'immediately provide assistance' if one is attacked, mirroring nato's article 5 and putting nato's second-largest military behind riyadh.",
+     "id": "nyoni-first-goal",
+     "section": "liverpool",
+     "reliability": "Tier 2",
+     "time": "2026-11-05T16:35:00+03:00",
+     "title": "nyoni becomes liverpool's second-youngest champions league scorer",
+     "title_ar": "نيوني يصبح ثاني أصغر هداف لليفربول في دوري الأبطال",
+     "summary": "trey nyoni's first liverpool goal in istanbul made him the club's second-youngest champions league scorer at 19 years and 127 days, behind only trent alexander-arnold at 19 years and 10 days. 'it's a day that i'll never forget, even though we lost,' he told the club; talks over a new contract are at an advanced stage, according to this is anfield.",
+     "summary_ar": "جعل هدف تري نيوني الأول لليفربول في إسطنبول ثاني أصغر هداف للنادي في دوري الأبطال بعمر 19 عامًا و127 يومًا، خلف ترنت ألكسندر-أرنولد وحده بـ19 عامًا و10 أيام. وقال للنادي «إنه يوم لن أنساه أبدًا رغم الخسارة»؛ والمحادثات حول عقد جديد في مرحلة متقدمة بحسب This Is Anfield.",
      "sources": [
       {
-       "name": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/2026/11/6/turkiyes-parliament-ratifies-mecca-defence-agreement"
+       "title": "This Is Anfield",
+       "url": "https://www.thisisanfield.com/2026/11/trey-nyoni-bittersweet-first-liverpool-goal-fenerbahce/",
+       "type": "independent"
       },
       {
-       "name": "The Jerusalem Post",
-       "url": "https://www.jpost.com/middle-east/article-914024"
+       "title": "Liverpool FC",
+       "url": "https://www.liverpoolfc.com/news/trey-nyoni-we-have-to-show-were-a-good-team-and-bounce-back-quickly",
+       "type": "official"
       }
      ],
-     "published_at": "2026-11-06T00:15:22Z",
-     "status": "new",
-     "updated": true,
-     "change": "new: ankara's ratification turns august's signed pact into a commitment, with a collective-defence clause now live.",
-     "tags": [
-      "saudi",
-      "turkey"
-     ]
+     "image": "https://media.thisisanfield.com/2026-11-03-Fenerbahce_Liverpool-044-1.jpg",
+     "status": ""
     },
     {
-     "id": "hormuz-attacks",
-     "section": "middle_east",
-     "title": "five tankers and a tugboat burn in hormuz, iran's army says",
-     "summary": "the irgc told fars that a large tanker hit a mine on the 'illegal passageway' south of the strait and burned, and that a second supertanker and the tug sent to help it also caught fire.\nthe army then said three more tankers hit mines early thursday, taking the count to five tankers damaged in one night.",
+     "id": "liverpool-iraola-reaction",
+     "section": "liverpool",
+     "reliability": "Tier 1",
+     "time": "2026-11-05T02:15:00+03:00",
+     "title": "iraola: they were cheap goals, they were messy goals",
+     "title_ar": "إيراولا: كانت أهدافًا رخيصة وفوضوية",
+     "summary": "liverpool's head coach refused to blame squad rotation for the defeat, saying 'we were, during most part of the game, thinking we can win this one. but obviously it hasn't happened.' he called the goals 'cheap' and 'messy' and pointed to a free-kick through the wall and a long throw that muriqi won; former liverpool defender stephen warnock said the side 'look like they can concede at any moment'.",
+     "summary_ar": "رفض مدرب ليفربول تحميل الخسارة لتدوير التشكيلة، قائلًا «كنا في معظم أجزاء المباراة نعتقد أننا قادرون على الفوز، لكن ذلك لم يحدث». ووصف الأهداف بأنها «رخيصة» و«فوضوية» مشيرًا إلى ركلة حرة اخترقت الحائط ورمية تماس طويلة فاز بها موريتشي؛ وقال المدافع السابق ستيفن وارنوك إن الفريق «يبدو قادرًا على استقبال هدف في أي لحظة».",
      "sources": [
       {
-       "name": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/2026/11/5/iran-says-tankers-struck-in-hormuz-amid-fears-of-new-us-attack"
-      }
-     ],
-     "published_at": "2026-11-05T19:21:56Z",
-     "status": "updated",
-     "updated": true,
-     "change": "the count rose from three vessels to five tankers plus a tugboat across the irgc and army statements.",
-     "tags": [
-      "iran",
-      "hormuz",
-      "oil"
-     ]
-    },
-    {
-     "id": "iran-russia-moscow",
-     "section": "middle_east",
-     "title": "rezaei delivers khamenei's letter to putin in moscow",
-     "summary": "iran's security council chief met putin on thursday and said they discussed post-war security arrangements, energy cooperation and russian gas pipelines to iran.\nhe repeated that tehran has seven conditions for washington and will neither open hormuz nor negotiate until they are met.",
-     "sources": [
-      {
-       "name": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/2026/11/6/irans-security-chief-meets-putin-delivers-message-from-khamenei"
+       "title": "BBC Sport",
+       "url": "https://www.bbc.co.uk/sport/football/videos/cjn5vd10v9g3o",
+       "type": "independent"
       },
       {
-       "name": "The Jerusalem Post",
-       "url": "https://www.jpost.com/middle-east/article-914025"
+       "title": "BBC Sport",
+       "url": "https://www.bbc.co.uk/sport/football/articles/cwx28z712rd8o",
+       "type": "independent"
       }
      ],
-     "published_at": "2026-11-06T02:48:19Z",
-     "status": "updated",
-     "updated": true,
-     "change": "the meeting happened and produced a readout; last night's build only had rezaei arriving with the message.",
-     "tags": [
-      "iran",
-      "russia"
-     ]
+     "image": "https://ichef.bbci.co.uk/ace/standard/778/cpsprodpb/87ab/live/001dd950-d89c-11f1-bb5c-cdf9cd18a12c.jpg",
+     "status": ""
     },
     {
-     "id": "iran-gulf-calls",
-     "section": "middle_east",
-     "title": "araghchi calls turkish and emirati ministers as mediation widens",
-     "summary": "iran's foreign minister spoke to his turkish and emirati counterparts about the us-iran talks and regional stability, per a turkish ministry source and his own telegram.\nthe calls came as ankara and tehran traded accounts of a turkish soldier killed at their border this week.",
+     "id": "fenerbahce-defeat",
+     "section": "liverpool",
+     "reliability": "Tier 1",
+     "time": "2026-11-05T01:45:00+03:00",
+     "title": "fenerbahce 3-2 liverpool: all three goals from set pieces sink the reds",
+     "title_ar": "فنربخشة 3-2 ليفربول: ثلاثة أهداف من الكرات الثابتة تغرق الريدز",
+     "summary": "liverpool led twice in istanbul, through trey nyoni and alexander isak's header on 69 minutes, but lost 3-2 after conceding three set-piece goals: mason greenwood's deflected free-kick, cody gakpo's header past alisson that gave archie brown a tap-in, and vedat muriqi's header from a long throw. it was liverpool's first champions league defeat of the season and the latest they have ever led in a major european game and still lost; dirk kuyt, the interim fenerbahce boss, called it 'a miracle'.",
+     "summary_ar": "تقدّم ليفربول مرتين في إسطنبول عبر تري نيوني وهدف أليكساندر إيزاك برأسه في الدقيقة 69، لكنه خسر 3-2 بعد تلقيه ثلاثة أهداف من كرات ثابتة: ركلة حرة لماسون غرينوود انحرفت إلى الشباك، وضربة رأس من كودي خاكبو تجاوزت أليسون ووصلت إلى آرشي براون ليضعها في المرمى، ثم رأسية ويدات موريتشي من رمية تماس طويلة. وهي أول خسارة لليفربول في دوري الأبطال هذا الموسم، وأحدث مرة يتقدم فيها في مباراة أوروبية كبرى ثم يخسر؛ ووصف ديرك كويت، المدير المؤقت لفنربخشة، الفوز بأنه «معجزة».",
      "sources": [
       {
-       "name": "The Jerusalem Post",
-       "url": "https://www.jpost.com/middle-east/article-914015"
+       "title": "BBC Sport",
+       "url": "https://www.bbc.co.uk/sport/football/articles/cwx28z712rd8o",
+       "type": "independent"
       }
      ],
-     "published_at": "2026-11-05T20:30:00Z",
-     "status": "new",
-     "updated": true,
-     "change": "new: the gulf track is now turkey and the uae alongside qatar, where last night's build had only riyadh on the phone.",
-     "tags": [
-      "iran",
-      "gulf"
-     ]
+     "image": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/0e28/live/96dc9ad0-d896-11f1-bffe-b94c467713ac.jpg",
+     "status": ""
     },
     {
-     "id": "yemen-finance-rules",
-     "section": "middle_east",
-     "title": "yemen's government tightens customs to squeeze houthi finances",
-     "summary": "new rules make foreign-exchange transfers conditional on proof that import charges are paid in full, aimed at the parallel trade that funds the houthis.\nimporters say the paperwork adds cost in a country where basic goods already trade at black-market prices.",
+     "id": "liverpool-fsg-cadillac",
+     "section": "liverpool",
+     "reliability": "Tier 1",
+     "time": "2026-11-04T12:00:00+03:00",
+     "title": "fsg held talks over a majority stake in the cadillac f1 team",
+     "title_ar": "إف إس جي أجرت محادثات لشراء حصة أغلبية في فريق كاديلاك للفورمولا 1",
+     "summary": "the guardian reported that fenway sports group, liverpool's owner, has held talks about buying a majority stake in the cadillac formula one team for more than £2bn; cadillac are jointly owned by mark walter.",
+     "summary_ar": "ذكرت الغارديان أن مجموعة فينواي الرياضية، مالكة ليفربول، أجرت محادثات لشراء حصة أغلبية في فريق كاديلاك للفورمولا 1 بأكثر من ملياري جنيه إسترليني؛ ويُشارك في ملكية كاديلاك مارك والتر.",
      "sources": [
       {
-       "name": "The Jerusalem Post",
-       "url": "https://www.jpost.com/middle-east/article-913970"
+       "title": "The Guardian",
+       "url": "https://www.theguardian.com/sport/2026/nov/04/liverpool-owner-fsg-talks-buy-cadillac-f1-team-majority-stake",
+       "type": "independent"
       }
      ],
-     "published_at": "2026-11-05T18:59:06Z",
-     "status": "new",
-     "updated": true,
-     "change": "new: the government is opening an economic front after sacking ministers last week over the stalled counteroffensive.",
-     "tags": [
-      "yemen"
-     ]
+     "image": "https://i.guim.co.uk/img/media/a80e56c22af2b20e609a324741c74472cdc14c9c/659_131_4724_3779/master/4724.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=bdf5444ddcb97db72ef846da29b8278b",
+     "status": "new"
     },
     {
-     "id": "us-iran-deportation-talks",
-     "section": "middle_east",
-     "title": "us held secret talks with iran on deporting iranians, court files show",
-     "summary": "unsealed court documents show the administration told a judge as recently as mid-october it had plans to deport iranians through an unnamed third country.\nthe judge ordered 24 hours' notice before any deportation to iran itself and five days' written notice before any other destination.",
+     "id": "liverpool-wirtz-low-block",
+     "title": "wirtz and liverpool still cannot unpick a low block",
+     "title_ar": "فيرتز وليفربول عاجزان عن فك شيفرة الدفاع المتكتل",
+     "summary": "the guardian's analysis notes liverpool had no shot on target in the 1-0 defeat by arsenal, according to opta, and credits arsenal for restricting space. it argues iraola needs a plan against low backlines, with wirtz's touches crowded out between the lines.",
+     "summary_ar": "يشير تحليل الغارديان إلى أن ليفربول لم يسدد أي كرة على المرمى في خسارته 0-1 أمام آرسنال، بحسب أوبتا، وينسب الفضل لآرسنال في تقليص المساحات. ويرى أن إيراولا يحتاج إلى خطة ضد الدفاعات المتكتلة، مع تحييد لمسات فيرتز بين الخطوط.",
      "sources": [
       {
-       "name": "The Guardian",
-       "url": "https://www.theguardian.com/us-news/2026/nov/05/trump-administration-deport-iranians"
+       "title": "The Guardian",
+       "url": "https://www.theguardian.com/football/2026/nov/02/florian-wirtz-andoni-iraola-liverpool-tight-defences-arsenal-anfield",
+       "type": "independent"
       }
      ],
-     "published_at": "2026-11-05T20:43:26Z",
-     "status": "new",
-     "updated": true,
-     "change": "new: a channel between washington and tehran that is running while the war continues.",
-     "tags": [
-      "iran",
-      "us"
-     ]
+     "time": "2026-11-02T21:50:00+03:00",
+     "section": "liverpool",
+     "status": "",
+     "image": "https://i.guim.co.uk/img/media/c55b88097451a26693122eb9b6fa70219efa7ffa/284_79_2445_1955/master/2445.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=6a8e4ef76ace6213220d8d896d759050",
+     "reliability": "Tier 1"
     }
    ],
    "watch": [
     {
-     "title": "Turkish parliament ratifies the pact with Saudi Arabia, Pakistan",
-     "url": "https://www.youtube.com/watch?v=higARDH550k",
-     "channel": "TRT World"
-    },
-    {
-     "title": "‘Maybe I Will Have to Destroy Rest of Iran’: Trump",
-     "url": "https://www.youtube.com/watch?v=0ZEoPFY2dJc",
-     "channel": "Al Arabiya English"
-    },
-    {
-     "title": "Israel’s main left-wing party endorses Eisenkot to form government",
-     "url": "https://www.youtube.com/watch?v=3-PAd7CXAk8",
-     "channel": "CGTN Europe"
-    }
-   ]
-  },
-  {
-   "id": "us_markets",
-   "title": "us markets",
-   "items": [
-    {
-     "id": "tech-selloff-thursday",
-     "section": "us_markets",
-     "title": "nasdaq falls 5.5% in the worst day since april 2025",
-     "summary": "the nasdaq closed at 24,315, down 5.52% and more than 10% off its peak, while the s&p lost 4.36% to 7,353.73 and the dow lost 1,833 points to 51,523.\nthe magnificent seven shed over $1trn of market value, nvidia about $440bn of it, and the vix jumped 11.57 points to 28.18.",
-     "sources": [
-      {
-       "name": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/05/stock-market-selloff-ai-fears.html"
-      },
-      {
-       "name": "Anadolu Agency",
-       "url": "https://www.aa.com.tr/en/economy/us-stock-markets-see-worst-day-since-2025/4113504"
-      },
-      {
-       "name": "CNBC quote",
-       "url": "https://www.cnbc.com/quotes/.SPX"
-      }
-     ],
-     "published_at": "2026-11-05T23:39:32Z",
-     "status": "updated",
-     "updated": true,
-     "change": "the selloff deepened into the close: last night's 16:10z snapshot had the s&p at -3.27%, it finished at -4.36%.",
-     "meta": {
-      "spx": 7353.73,
-      "spx_pct": -4.36,
-      "ndx_comp": 24315.0,
-      "ndx_pct": -5.52,
-      "dow": 51523.06,
-      "dow_pct": -3.44,
-      "vix": 28.18
-     },
-     "tags": [
-      "us",
-      "equities"
-     ]
-    },
-    {
-     "id": "futures-asia-friday",
-     "section": "us_markets",
-     "title": "futures steady while asia's chip stocks take the hit",
-     "summary": "s&p futures were up 0.21% and nasdaq 100 futures up 1.03% at 03:20 utc, after the cash session had closed.\nasia did the falling instead: the nikkei dropped 5.27%, sk hynix 8% and samsung 7%, with foxconn down 9.4%.",
-     "sources": [
-      {
-       "name": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/06/tech-stocks-sk-hynix-samsung-softbank.html"
-      },
-      {
-       "name": "CNBC quote",
-       "url": "https://www.cnbc.com/quotes/.N225"
-      }
-     ],
-     "published_at": "2026-11-06T02:40:15Z",
-     "status": "new",
-     "updated": true,
-     "meta": {
-      "es_fut": 7398.5,
-      "es_pct": 0.21,
-      "nq_fut": 27028.0,
-      "nq_pct": 1.03,
-      "nikkei_pct": -5.27
-     },
-     "tags": [
-      "us",
-      "futures",
-      "asia"
-     ]
-    },
-    {
-     "id": "jobs-report-preview",
-     "section": "us_markets",
-     "title": "october payrolls land at 16:30 riyadh with 59,000 expected",
-     "summary": "the dow jones consensus is a 59,000 gain in nonfarm payrolls with unemployment steady at 4.2%, per cnbc's preview.\nthe same 13:30 utc release carries average hourly earnings, forecast up 0.3% on the month and 2.9% on the year.",
-     "sources": [
-      {
-       "name": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/05/october-jobs-report-preview.html"
-      },
-      {
-       "name": "TradingView calendar",
-       "url": "https://www.tradingview.com/economic-calendar/"
-      }
-     ],
-     "published_at": "2026-11-05T21:32:52Z",
-     "status": "new",
-     "updated": true,
-     "meta": {
-      "payrolls_fc": 59000,
-      "unemployment_fc": 4.2,
-      "ahe_mom_fc": 0.3
-     },
-     "tags": [
-      "us",
-      "macro",
-      "jobs"
-     ]
-    },
-    {
-     "id": "earnings-friday",
-     "section": "us_markets",
-     "title": "berkshire, vistra and moderna lead friday's earnings",
-     "summary": "berkshire hathaway, vistra, moderna, humana, enbridge and brookfield asset management are on the calendar.\nhumana is forecast to swing to a $1.03 loss from $3.24 of profit a year ago, and moderna's loss to widen to $1.10 from $0.51.",
-     "sources": [
-      {
-       "name": "Nasdaq earnings calendar",
-       "url": "https://www.nasdaq.com/market-activity/earnings"
-      }
-     ],
-     "published_at": "2026-11-06T03:00:00Z",
-     "status": "new",
-     "updated": true,
-     "tags": [
-      "us",
-      "earnings"
-     ]
-    },
-    {
-     "id": "oil-above-90",
-     "section": "us_markets",
-     "title": "oil holds above $90 with brent back near $100",
-     "summary": "wti for december was $91.31, up 0.87%, and brent for january $99.55, up 1.28%, at 03:20 utc.\nthe move extends thursday's reversal, when crude rose while equities sold off and hormuz traffic stayed restricted.",
-     "sources": [
-      {
-       "name": "CNBC quote",
-       "url": "https://www.cnbc.com/quotes/@CL.1"
-      },
-      {
-       "name": "CNBC quote",
-       "url": "https://www.cnbc.com/quotes/@LCO.1"
-      }
-     ],
-     "published_at": "2026-11-06T03:20:52Z",
-     "status": "new",
-     "updated": true,
-     "meta": {
-      "wti": 91.31,
-      "wti_pct": 0.87,
-      "brent": 99.55,
-      "brent_pct": 1.28
-     },
-     "tags": [
-      "oil"
-     ]
-    },
-    {
-     "id": "gold-drops",
-     "section": "us_markets",
-     "title": "gold slips 1.3% as the dollar firms",
-     "summary": "comex december gold was $4,059.70, down 1.31%, against a dollar index of 101.585, up 0.16%.\nthe 10-year was 4.847% and the 2-year 4.482%, both barely changed on the day.",
-     "sources": [
-      {
-       "name": "CNBC quote",
-       "url": "https://www.cnbc.com/quotes/@GC.1"
-      },
-      {
-       "name": "CNBC quote",
-       "url": "https://www.cnbc.com/quotes/US10Y"
-      }
-     ],
-     "published_at": "2026-11-05T22:20:56Z",
-     "status": "new",
-     "updated": true,
-     "meta": {
-      "gold": 4059.7,
-      "gold_pct": -1.31,
-      "dxy": 101.585,
-      "us10y": 4.847
-     },
-     "tags": [
-      "gold",
-      "rates"
-     ]
-    },
-    {
-     "id": "musk-companies",
-     "section": "us_markets",
-     "title": "tesla and spacex lose $420bn in two days",
-     "summary": "tesla fell about 9% and spacex about 11% on thursday as investors priced in congressional probes and tighter rules after the democratic sweep.\nthe two-day drop tops $420bn, and his wealth, above $1trn after spacex's june ipo, is now below $800bn.",
-     "sources": [
-      {
-       "name": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/05/tesla-spacex-stocks-fall-after-2026-midterms.html"
-      }
-     ],
-     "published_at": "2026-11-06T03:20:43Z",
-     "status": "new",
-     "updated": true,
-     "tags": [
-      "us",
-      "movers"
-     ]
-    },
-    {
-     "id": "data-center-moratorium",
-     "section": "us_markets",
-     "title": "democrats open with a call for a data-center moratorium",
-     "summary": "sanders posted 'national data center moratorium now' after referendums passed in several localities, with ansari and casar pushing similar lines.\ncnbc's voter survey found 56% called ai and data centres a crucial or major factor, and 65% of those voted democratic.",
-     "sources": [
-      {
-       "name": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/05/democrats-data-center-restrictions-midterms.html"
-      },
-      {
-       "name": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/05/stock-market-selloff-ai-fears.html"
-      }
-     ],
-     "published_at": "2026-11-05T20:17:16Z",
-     "status": "new",
-     "updated": true,
-     "tags": [
-      "us",
-      "ai",
-      "policy"
-     ]
-    }
-   ],
-   "watch": []
-  },
-  {
-   "id": "liverpool",
-   "title": "liverpool",
-   "items": [
-    {
-     "id": "crystal-palace-next",
-     "section": "liverpool",
-     "title": "palace away on sunday in the last game before the break",
-     "summary": "liverpool go to selhurst park for a 2pm gmt kick-off, 5pm in riyadh, with tony harrington refereeing and mat wilkes and steve meredith on the lines.\na third straight defeat going into the international break is the scenario iraola is trying to avoid.",
-     "sources": [
-      {
-       "name": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/crystal-palace-v-liverpool-referee-and-match-officials-confirmed"
-      }
-     ],
-     "published_at": "2026-11-05T17:00:00Z",
-     "status": "updated",
-     "updated": true,
-     "change": "the officials are confirmed and the kick-off is 2pm gmt; last night's build had the fixture without a referee.",
-     "meta": {
-      "kickoff": "2026-11-08T14:00:00Z",
-      "referee": "Tony Harrington",
-      "venue": "Selhurst Park"
-     },
-     "tags": [
-      "fixture"
-     ]
-    },
-    {
-     "id": "nyoni-fitness",
-     "section": "liverpool",
-     "title": "iraola has a nyoni fitness call to make for palace",
-     "summary": "the echo's projected xi has araujo back at right-back and van dijk alongside jacquet, but asks whether nyoni can start a third game in a week.\niraola said on tuesday that young players are 'already ready', and nyoni was the best player on the pitch in istanbul before coming off.",
-     "sources": [
-      {
-       "name": "Liverpool Echo",
-       "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/andoni-iraola-trey-nyoni-fitness-34866808"
-      },
-      {
-       "name": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/watch-andoni-iraola-pre-crystal-palace-press-conference"
-      }
-     ],
-     "published_at": "2026-11-06T01:00:00Z",
-     "status": "new",
-     "updated": true,
-     "tags": [
-      "team news"
-     ]
-    },
-    {
-     "id": "fenerbahce-champions-league",
-     "section": "liverpool",
-     "title": "van dijk: 'we cannot lose in the manner we did'",
-     "summary": "liverpool led twice in istanbul and lost 3-2 to muriqi's header, their first champions league defeat of the season.\nvan dijk said the squad should be disappointed and that the manner of the loss, not the effort, was the problem.",
-     "sources": [
-      {
-       "name": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/virgil-van-dijk-everyone-is-disappointed-we-cannot-lose-in-that-manner"
-      },
-      {
-       "name": "BBC Sport",
-       "url": "https://www.bbc.co.uk/sport/football/articles/cwx28z712rd8o"
-      }
-     ],
-     "published_at": "2026-11-05T19:00:00Z",
-     "status": "updated",
-     "updated": true,
-     "change": "the captain's verdict is in: van dijk called the manner of the collapse the issue, after iraola had called the goals cheap and messy.",
-     "meta": {
-      "score": "Fenerbahce 3-2 Liverpool"
-     },
-     "tags": [
-      "result"
-     ]
-    },
-    {
-     "id": "transfer-roundup",
-     "section": "liverpool",
-     "title": "araujo's £47m option looks likelier after an agent meeting",
-     "summary": "the echo reports araujo's new agent met a barcelona club chief, and that barcelona are looking at leipzig's castello lukeba as a replacement.\nliverpool's clause is a £47m option rather than an obligation, and the player still has to agree to the move.",
-     "sources": [
-      {
-       "name": "Liverpool Echo",
-       "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-araujo-transfer-barcelona-latest-34867582"
-      }
-     ],
-     "published_at": "2026-11-05T21:43:00Z",
-     "status": "updated",
-     "updated": true,
-     "change": "barcelona looking at a replacement is the new detail; last night's build only had the £47m option looking likelier.",
-     "meta": {
-      "reliability": "medium - echo reporting a sport claim",
-      "fee": "£47m option"
-     },
-     "tags": [
-      "transfer"
-     ]
-    },
-    {
-     "id": "gravenberch-injury",
-     "section": "liverpool",
-     "title": "gravenberch still out with a fractured heel",
-     "summary": "the midfielder has a heel fracture and missed istanbul, and no return date has been published.\nnyoni has started the last two games in his absence, and the shape for palace is still open.",
-     "sources": [
-      {
-       "name": "Liverpool Echo",
-       "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/andoni-iraola-trey-nyoni-fitness-34866808"
-      }
-     ],
-     "published_at": "2026-11-04T22:00:00Z",
-     "status": "steady",
-     "updated": false,
-     "meta": {
-      "status": "out",
-      "injury": "heel fracture"
-     },
-     "tags": [
-      "injury"
-     ]
-    },
-    {
-     "id": "carragher-spend",
-     "section": "liverpool",
-     "title": "carragher says two academy kids expose the spending",
-     "summary": "carragher told cbs the squad is 'very expensive but not as good as it should be and not as balanced as it should be'.\nhe pointed to ngumoha and nyoni's progress as the thing that makes the £123m barcola and £60m jacquet outlay look badly apportioned.",
-     "sources": [
-      {
-       "name": "Liverpool Echo",
-       "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/a-little-worry-jamie-carragher-34866373"
-      }
-     ],
-     "published_at": "2026-11-05T12:55:55Z",
-     "status": "new",
-     "updated": true,
-     "tags": [
-      "analysis"
-     ]
-    },
-    {
-     "id": "collins-scouts",
-     "section": "liverpool",
-     "title": "liverpool among the clubs watching frankfurt's nnamdi collins",
-     "summary": "a fussball news report carried by liverpoolfc.com's media watch says united, chelsea and liverpool have scouted the 22-year-old german defender.\nit is an aggregator picking up a single german report, so treat it as a watching brief rather than a move.",
-     "sources": [
-      {
-       "name": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/liverpool-chelsea-and-man-utd-send-scouts-to-monitor-frankfurt-star-nnamdi-collins"
-      }
-     ],
-     "published_at": "2026-11-05T16:00:00Z",
-     "status": "new",
-     "updated": true,
-     "meta": {
-      "reliability": "low - single fussball news report, reproduced by the club"
-     },
-     "tags": [
-      "transfer"
-     ]
-    },
-    {
-     "id": "liverpool-u19s-wright",
-     "section": "liverpool",
-     "title": "wright's hat-trick gives the u19s a 5-3 win in istanbul",
-     "summary": "liverpool's youth side won the uefa youth league tie 5-3 at fenerbahce, with will wright scoring three.\njosh sonni-lambie and finn inglethorpe also scored in wednesday's tie in turkiye.",
-     "sources": [
-      {
-       "name": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/watch-uefa-youth-league-highlights-fenerbahce-3-5-liverpool"
-      }
-     ],
-     "published_at": "2026-11-05T10:45:00Z",
-     "status": "steady",
-     "updated": false,
-     "meta": {
-      "score": "Fenerbahce 3-5 Liverpool"
-     },
-     "tags": [
-      "academy"
-     ]
-    }
-   ],
-   "watch": [
-    {
-     "title": "Highlights: Fenerbahce 3-2 Liverpool | Trey Nyoni's first Liverpool Goal",
+     "title": "Highlights: Fenerbahce 3-2 Liverpool | Trey Nyoni's first Liverpool Goal | Champions League",
      "url": "https://www.youtube.com/watch?v=05geh16Zu-Y",
      "channel": "Liverpool FC"
     },
     {
-     "title": "EVERY Champions League Goal From Matchday 4 | Highlights",
-     "url": "https://www.youtube.com/watch?v=OVcoVweCVuY",
-     "channel": "UEFA"
+     "title": "Liverpool Fans GUTTED 🤣 Reactions to Fenerbahce 3-2 Liverpool | Champions League Fan Reactions",
+     "url": "https://www.youtube.com/watch?v=Y050IYXwTmc",
+     "channel": "FAN REACTION TV"
     }
    ]
+  },
+  "games": {
+   "items": [
+    {
+     "id": "game-underkeep",
+     "status": "updated",
+     "section": "games",
+     "time": "2026-11-06T05:40:00+03:00",
+     "kind": "RELEASE",
+     "title": "underkeep is out: 45.66 sr with 15% off in its launch week",
+     "title_ar": "Underkeep صدر: 45.66 ريالًا مع خصم 15% في أسبوع الإطلاق",
+     "summary": "underkeep, which steam still listed as coming soon on thursday, has now released: the saudi store shows a 5 november 2026 release date and a price of 45.66 sr, 15% below its 53.72 sr list price, tagged adventure, indie and rpg.",
+     "summary_ar": "كان Underkeep مدرجًا على ستيم كـ«قادم قريبًا» الخميس، وقد صدر الآن: ويعرض متجر السعودية تاريخ إصدار 5 نوفمبر 2026 وسعرًا قدره 45.66 ريالًا بخصم 15% عن سعره الأصلي 53.72 ريالًا، مصنفًا ضمن المغامرات والألعاب المستقلة وتقمص الأدوار.",
+     "sources": [
+      {
+       "title": "Steam",
+       "url": "https://store.steampowered.com/app/2411200/",
+       "type": "official"
+      }
+     ],
+     "genres": [
+      "Adventure",
+      "Indie",
+      "RPG"
+     ],
+     "platforms": [
+      "Windows"
+     ],
+     "release_date": "5 Nov, 2026",
+     "store_url": "https://store.steampowered.com/app/2411200/",
+     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2411200/be22c58d9f42d3d349198e87b3c192998047b053/header.jpg?t=1793898448",
+     "price": "45.66 SR",
+     "discount": 15
+    },
+    {
+     "id": "game-dungeons-dynasties",
+     "section": "games",
+     "kind": "DEAL",
+     "time": "2026-11-05T17:50:00+03:00",
+     "title": "dungeons & dynasties is 'dnd meets football manager', 10% off at 21.14 sr",
+     "title_ar": "Dungeons & Dynasties «دمج بين DnD وFootball Manager» بخصم 10% إلى 21.14 ريالًا",
+     "summary": "dungeons & dynasties, out in early access on 3 november, is a guild-management sim where every match is a dungeon and your delvers can die in it: sign adventurers, watch them age and form relationships, and grow a town. it is 10% off at 21.14 sr in the saudi store, down from 23.49.",
+     "summary_ar": "صدرت Dungeons & Dynasties بالوصول المبكر في 3 نوفمبر، وهي لعبة إدارة نقابة مغامرين حيث كل مباراة زنزانة ويمكن أن يموت مغامروك فيها: وقّع مع المغامرين وراقب تقدمهم في العمر وعلاقاتهم وطوّر بلدة. وهي بخصم 10% بسعر 21.14 ريالًا في المتجر السعودي بدلًا من 23.49.",
+     "sources": [
+      {
+       "title": "Steam",
+       "url": "https://store.steampowered.com/app/5101960/",
+       "type": "official"
+      }
+     ],
+     "genres": [
+      "Turn-based strategy",
+      "Management",
+      "Early Access"
+     ],
+     "platforms": [
+      "Windows"
+     ],
+     "price": "21.14 SR",
+     "discount": 10,
+     "release_date": "3 Nov, 2026",
+     "store_url": "https://store.steampowered.com/app/5101960/",
+     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5101960/b410c700f03fb3f65478e393cf864f90e7a1a57c/header.jpg?t=1793728816",
+     "status": ""
+    },
+    {
+     "id": "game-dd2-butchers-asylum",
+     "status": "",
+     "section": "games",
+     "time": "2026-11-04T06:20:00+03:00",
+     "kind": "NEWS",
+     "title": "darkest dungeon ii teases the butcher's asylum dlc",
+     "title_ar": "داركست دانجن 2 تلمّح إلى توسعة The Butcher’s Asylum",
+     "summary": "red hook studios released a teaser for the butcher's asylum, the next darkest dungeon ii expansion, with a gameplay reveal promised this month. the base game is 89.99 sr on steam in the saudi store.",
+     "summary_ar": "أصدر استوديو ريد هوك إعلانًا تشويقيًا لتوسعة The Butcher’s Asylum، التوسعة التالية للعبة داركست دانجن 2، مع وعد بكشف عن أسلوب اللعب هذا الشهر. ويبلغ سعر اللعبة الأساسية 89.99 ريالًا على ستيم في المتجر السعودي.",
+     "sources": [
+      {
+       "title": "Turn Based Lovers",
+       "url": "https://turnbasedlovers.com/",
+       "type": "independent"
+      },
+      {
+       "title": "Steam",
+       "url": "https://store.steampowered.com/app/1940340/",
+       "type": "official"
+      }
+     ],
+     "genres": [
+      "Turn-based RPG",
+      "Roguelike"
+     ],
+     "platforms": [
+      "Windows",
+      "Mac"
+     ],
+     "price": "89.99 SR",
+     "release_date": "8 May, 2023",
+     "store_url": "https://store.steampowered.com/app/1940340/",
+     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/header.jpg?t=1759351183"
+    },
+    {
+     "id": "game-verdant-requiem",
+     "status": "",
+     "section": "games",
+     "time": "2026-11-04T06:20:00+03:00",
+     "kind": "RELEASE",
+     "title": "verdant requiem is a solo-dev srpg at 23.59 sr, 20% off",
+     "title_ar": "Verdant Requiem لعبة تكتيكية من مطور واحد بـ23.59 ريالًا بخصم 20%",
+     "summary": "med.y.m's verdant requiem mixes square-grid battles with salt, ore and food logistics across a three-nation war, and is 20% off at 23.59 sr in the saudi store. the solo developer puts a full campaign at roughly 40 hours with side content.",
+     "summary_ar": "تخلط Verdant Requiem من المطور الفردي Med.y.m معارك المربعات مع لوجستيات الملح والخام والغذاء في حرب بين ثلاث دول، وهي بخصم 20% بسعر 23.59 ريالًا في المتجر السعودي. ويقدّر المطور الحملة الكاملة بنحو 40 ساعة مع المحتوى الجانبي.",
+     "sources": [
+      {
+       "title": "Steam",
+       "url": "https://store.steampowered.com/app/4744400/",
+       "type": "official"
+      }
+     ],
+     "genres": [
+      "Turn-based strategy",
+      "SRPG"
+     ],
+     "platforms": [
+      "Windows"
+     ],
+     "price": "23.59 SR",
+     "discount": 20,
+     "release_date": "2 Nov, 2026",
+     "store_url": "https://store.steampowered.com/app/4744400/",
+     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4744400/c703ddd4073c75e44996d161789d3a7676999371/header.jpg?t=1793737578"
+    },
+    {
+     "id": "game-instruments-of-power",
+     "status": "",
+     "section": "games",
+     "time": "2026-11-04T06:20:00+03:00",
+     "kind": "PREVIEW",
+     "title": "instruments of power brings custom spells to tactical rpgs in january",
+     "title_ar": "Instruments of Power تجلب تعاويذ مخصصة إلى الألعاب التكتيكية في يناير",
+     "summary": "a tactical rpg where you build your own spells and spend disposable avatars, instruments of power is dated 28 january 2027 and has a demo up on steam now.",
+     "summary_ar": "لعبة تكتيكية يمكنك فيها بناء تعاويذك الخاصة واستهلاك أجساد قابلة للفقد، ومحددة في 28 يناير 2027 مع عرض تجريبي متاح على ستيم الآن.",
+     "sources": [
+      {
+       "title": "Steam",
+       "url": "https://store.steampowered.com/app/3791850/",
+       "type": "official"
+      }
+     ],
+     "genres": [
+      "Tactical RPG",
+      "Turn-based"
+     ],
+     "platforms": [
+      "Windows"
+     ],
+     "release_date": "28 Jan, 2027",
+     "store_url": "https://store.steampowered.com/app/3791850/",
+     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3791850/ec4ef8bd23effa4d1a4f1bee785a2f2fe650dbf6/header.jpg?t=1793630555"
+    },
+    {
+     "id": "game-chronicles-medieval",
+     "section": "games",
+     "kind": "NEWS",
+     "time": "2026-11-05T05:00:00+03:00",
+     "title": "chronicles: medieval loses its funding and asks players to wishlist it",
+     "title_ar": "Chronicles: Medieval تفقد تمويلها وتطلب من اللاعبين إضافتها لقائمة الرغبات",
+     "summary": "raw power games, a studio of veterans from the witcher 3, total war: three kingdoms and crusader kings iii, says it has lost funding for itself and its historical strategy sandbox chronicles: medieval, calling the situation an existential threat and asking players to keep talking about the game and wishlist it. the steam page lists a 2027 release and no price.",
+     "summary_ar": "قال استوديو raw power games، المكوّن من خبراء عملوا على the witcher 3 وtotal war: three kingdoms وcrusader kings iii، إنه فقد تمويله هو ولعبته الاستراتيجية التاريخية chronicles: medieval، ووصف الوضع بأنه تهديد وجودي وطلب من اللاعبين مواصلة الحديث عن اللعبة وإضافتها لقائمة الرغبات. وتعرض صفحة ستيم إصدارًا في 2027 دون سعر.",
+     "sources": [
+      {
+       "title": "Rock Paper Shotgun",
+       "url": "https://www.rockpapershotgun.com/keep-talking-about-it-raw-power-games-call-for-wishlist-aid-as-they-and-their-historical-strategy-sandbox-chronicles-medieval-lose-funding",
+       "type": "independent"
+      },
+      {
+       "title": "Steam",
+       "url": "https://store.steampowered.com/app/2231020/",
+       "type": "official"
+      }
+     ],
+     "genres": [
+      "Historical strategy",
+      "Sandbox"
+     ],
+     "platforms": [
+      "Windows"
+     ],
+     "release_date": "2027",
+     "store_url": "https://store.steampowered.com/app/2231020/",
+     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2231020/322a3e5e98ce955972508f8ae5a6eb569ee40742/header.jpg?t=1791486435",
+     "status": ""
+    },
+    {
+     "id": "game-sw-zero-company",
+     "title": "Star Wars Zero Company is the big turn-based tactics pick this week",
+     "title_ar": "Star Wars Zero Company هو اختيار الأسبوع في التكتيكات بالأدوار",
+     "summary": "a single-player turn-based tactics game set at the end of the clone wars, from the xcom-adjacent school of squad games. it sits at the top of steam's popular-new turn-based strategy list and costs 189.00 sr.",
+     "summary_ar": "لعبة تكتيكات بالأدوار للاعب واحد تدور في نهاية حروب الاستنساخ، من مدرسة ألعاب الفرق القريبة من XCOM. تتصدر قائمة الألعاب الجديدة الشائعة في استراتيجية الأدوار على ستيم ويبلغ سعرها 189.00 ريالًا.",
+     "sources": [
+      {
+       "title": "Steam",
+       "url": "https://store.steampowered.com/app/2075800/",
+       "type": "official"
+      }
+     ],
+     "time": "2026-11-03T06:20:00+03:00",
+     "section": "games",
+     "status": "",
+     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2075800/2c7d5dad080c4888faaa03c4a955136c50f5bfae/header.jpg",
+     "kind": "TRENDING",
+     "genres": [
+      "Turn-based tactics",
+      "Strategy"
+     ],
+     "platforms": [
+      "Windows"
+     ],
+     "price": "189.00 SR",
+     "release_date": "27 Aug, 2026",
+     "store_url": "https://store.steampowered.com/app/2075800/"
+    },
+    {
+     "id": "game-hom-olden-era",
+     "title": "heroes of might and magic: olden era is still in early access at 149.95 sr",
+     "title_ar": "Heroes of Might and Magic: Olden Era لا يزال في الوصول المبكر بـ149.95 ريالًا",
+     "summary": "the official prequel to the turn-based strategy series, with city building, army stacks and spell duels. it launched in early access on 30 april and hasn't left it yet; read the store page before buying.",
+     "summary_ar": "الجزء السابق الرسمي لسلسلة الاستراتيجيا بالأدوار، ببناء المدن وجيوش الوحدات ومبارزات التعاويذ. صدر في الوصول المبكر في 30 أبريل ولم يخرج منه بعد؛ اقرأ صفحة المتجر قبل الشراء.",
+     "sources": [
+      {
+       "title": "Steam",
+       "url": "https://store.steampowered.com/app/3105440/",
+       "type": "official"
+      }
+     ],
+     "time": "2026-11-03T06:20:00+03:00",
+     "section": "games",
+     "status": "",
+     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3105440/e2bef853b7cb19e3d5f019022309783609e8454f/header.jpg?t=1793358152",
+     "kind": "PICK",
+     "genres": [
+      "Turn-based strategy",
+      "Early Access"
+     ],
+     "platforms": [
+      "Windows"
+     ],
+     "price": "149.95 SR",
+     "release_date": "30 Apr, 2026",
+     "store_url": "https://store.steampowered.com/app/3105440/"
+    }
+   ],
+   "watch": [
+    {
+     "title": "Darkest Dungeon II: The Butcher's Asylum Teaser Trailer",
+     "url": "https://www.youtube.com/watch?v=6vtxZAqP1T0",
+     "channel": "Red Hook Studios"
+    },
+    {
+     "title": "Star Wars Zero Company | Official Gameplay Trailer",
+     "url": "https://www.youtube.com/watch?v=ksOBF-T5LrA",
+     "channel": "Star Wars"
+    }
+   ]
+  },
+  "social": {
+   "items": [
+    {
+     "id": "social-kimmel-midterms",
+     "section": "social",
+     "platform": "youtube",
+     "creator": "Jimmy Kimmel Live",
+     "metric": "13.8M views",
+     "time": "2026-11-06T06:15:00+03:00",
+     "title": "kimmel's midterm monologue passes 13.8m views",
+     "title_ar": "خطاب كيمل عن الانتخابات النصفية يتجاوز 13.8 مليون مشاهدة",
+     "summary": "jimmy kimmel's breakdown of the midterm results has 13,811,750 views, up from 13.25m on thursday evening and still the biggest political clip of the week by a wide margin.",
+     "summary_ar": "حصد مقطع جيمي كيمل عن نتائج الانتخابات النصفية 13,811,750 مشاهدة، مقابل 13.25 مليون مساء الخميس، ولا يزال أكبر مقطع سياسي هذا الأسبوع بفارق كبير.",
+     "sources": [
+      {
+       "title": "YouTube (Jimmy Kimmel Live)",
+       "url": "https://www.youtube.com/watch?v=KY9zDP4pH88",
+       "type": "social"
+      }
+     ],
+     "image": "https://i.ytimg.com/vi/KY9zDP4pH88/hqdefault.jpg",
+     "status": "updated"
+    },
+    {
+     "id": "social-mrbeast-haaland",
+     "status": "updated",
+     "section": "social",
+     "time": "2026-11-06T06:15:00+03:00",
+     "platform": "youtube",
+     "creator": "MrBeast",
+     "metric": "71.8M views",
+     "title": "mrbeast's 'beat a professional athlete' passes 71m views",
+     "title_ar": "فيديو مستر بيست «اهزم رياضيًا محترفًا» يتجاوز 71 مليون مشاهدة",
+     "summary": "mrbeast's 'beat professional athlete, win $100,000' has 71,822,396 views five days after posting, the biggest non-political clip in this brief.",
+     "summary_ar": "حصد فيديو مستر بيست «اهزم رياضيًا محترفًا واربح 100,000 دولار» 71,822,396 مشاهدة بعد خمسة أيام من نشره، وهو أكبر مقطع غير سياسي في هذا الملخص.",
+     "sources": [
+      {
+       "title": "YouTube",
+       "url": "https://www.youtube.com/watch?v=_c2e1NcI3Sc",
+       "type": "social"
+      }
+     ],
+     "image": "https://i.ytimg.com/vi/_c2e1NcI3Sc/hqdefault.jpg"
+    },
+    {
+     "id": "social-ronaldo-retires",
+     "section": "social",
+     "platform": "instagram",
+     "creator": "Cristiano Ronaldo",
+     "metric": "932k views",
+     "time": "2026-11-06T06:15:00+03:00",
+     "title": "ronaldo retires from international football at 41 after 23 years",
+     "title_ar": "رونالدو يعتزل اللعب الدولي في الـ41 بعد 23 عامًا",
+     "summary": "cristiano ronaldo announced his retirement from international football on instagram after 23 years with portugal, and clips of the announcement keep climbing: ndtv's cut has 932,402 views and the bbc's 224,956, 14 hours after posting.",
+     "summary_ar": "أعلن كريستيانو رونالدو اعتزاله اللعب الدولي عبر إنستغرام بعد 23 عامًا مع البرتغال، ولا تزال مقاطع الإعلان ترتفع: حصد مقطع NDTV 932,402 مشاهدة ومقطع بي بي سي 224,956 بعد 14 ساعة من نشره.",
+     "sources": [
+      {
+       "title": "CNN",
+       "url": "https://edition.cnn.com/2026/11/05/sport/video/ronaldo-retires-portugal-sports-vrtc",
+       "type": "independent"
+      },
+      {
+       "title": "Sky Sports",
+       "url": "https://www.skysports.com/football/video/13608338/cristiano-ronaldo-announces-international-retirement-on-instagram",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/ap_6aec64386b6aa-1793877048_8e29cd-1793888455.jpg?resize=1200%2C630&quality=80",
+     "status": "updated"
+    },
+    {
+     "id": "social-cnn-senate-reactions",
+     "platform": "youtube",
+     "creator": "CNN",
+     "metric": "3.3M views",
+     "time": "2026-11-06T06:15:00+03:00",
+     "title": "cnn's house and senate flip reaction passes 3.3m views",
+     "title_ar": "تفاعل CNN مع قلب مجلسي النواب والشيوخ يتجاوز 3.3 مليون مشاهدة",
+     "summary": "cnn's first reactions to the democrats taking the house and senate have 3,306,002 views, up from 3.2m on thursday.",
+     "summary_ar": "حصدت ردود الفعل الأولى على قناة CNN إزاء سيطرة الديمقراطيين على مجلسي النواب والشيوخ 3,306,002 مشاهدة، مقابل 3.2 مليون الخميس.",
+     "sources": [
+      {
+       "title": "YouTube (CNN)",
+       "url": "https://www.youtube.com/watch?v=BvfKr-eVEfM",
+       "type": "social"
+      }
+     ],
+     "image": "https://i.ytimg.com/vi/BvfKr-eVEfM/hqdefault.jpg",
+     "section": "social",
+     "status": "updated"
+    },
+    {
+     "id": "social-trump-fox-call",
+     "platform": "youtube",
+     "creator": "USA TODAY",
+     "metric": "1.1M views",
+     "time": "2026-11-06T06:15:00+03:00",
+     "title": "trump's fox news call after the losses passes 1.1m views",
+     "title_ar": "مكالمة ترامب على فوكس نيوز بعد الخسائر تتجاوز 1.1 مليون مشاهدة",
+     "summary": "usa today's clip of trump calling into fox news to react to the midterm results has 1,113,366 views, up from 1.02m on thursday.",
+     "summary_ar": "حصد مقطع يو إس إيه توداي لمكالمة ترامب على فوكس نيوز للتعليق على نتائج الانتخابات 1,113,366 مشاهدة، مقابل 1.02 مليون الخميس.",
+     "sources": [
+      {
+       "title": "YouTube (USA TODAY)",
+       "url": "https://www.youtube.com/watch?v=rP1dadmyRaw",
+       "type": "social"
+      }
+     ],
+     "image": "https://i.ytimg.com/vi/rP1dadmyRaw/hqdefault.jpg",
+     "section": "social",
+     "status": "updated"
+    },
+    {
+     "id": "social-psa-blue-tsunami",
+     "section": "social",
+     "platform": "youtube",
+     "creator": "Pod Save America",
+     "metric": "1.15M views",
+     "time": "2026-11-06T06:15:00+03:00",
+     "title": "pod save america's 'blue tsunami' episode passes 1.15m views",
+     "title_ar": "حلقة «الموجة الزرقاء» من بود سيف أمريكا تتجاوز 1.15 مليون مشاهدة",
+     "summary": "pod save america's 'democrats win everywhere as massive blue tsunami sweeps the nation' has 1,151,477 views, up from 1.1m on thursday.",
+     "summary_ar": "حصدت حلقة «الديمقراطيون يفوزون في كل مكان مع اجتياح موجة زرقاء هائلة للبلاد» من بود سيف أمريكا 1,151,477 مشاهدة، مقابل 1.1 مليون الخميس.",
+     "sources": [
+      {
+       "title": "YouTube (Pod Save America)",
+       "url": "https://www.youtube.com/watch?v=Ca6XflqGbt8",
+       "type": "social"
+      }
+     ],
+     "image": "https://i.ytimg.com/vi/Ca6XflqGbt8/hqdefault.jpg",
+     "status": "updated"
+    },
+    {
+     "id": "social-sidemen-mansion",
+     "status": "updated",
+     "section": "social",
+     "time": "2026-11-06T06:15:00+03:00",
+     "platform": "youtube",
+     "creator": "Sidemen",
+     "metric": "3.38M views",
+     "title": "sidemen's 'first to escape the mansion' passes 3.3m views",
+     "title_ar": "فيديو سايدمين «أول من يهرب من القصر» يتجاوز 3.3 مليون مشاهدة",
+     "summary": "sidemen's 'first to escape the mansion' has 3,383,125 views four days after posting, their fastest-growing upload of the week.",
+     "summary_ar": "حصد فيديو سايدمين «أول من يهرب من القصر» 3,383,125 مشاهدة بعد أربعة أيام من نشره، وهو أسرع مقاطعهم نموًا هذا الأسبوع.",
+     "sources": [
+      {
+       "title": "YouTube",
+       "url": "https://www.youtube.com/watch?v=lTd6YiA8WDI",
+       "type": "social"
+      }
+     ],
+     "image": "https://i.ytimg.com/vi/lTd6YiA8WDI/hqdefault.jpg"
+    }
+   ],
+   "watch": [
+    {
+     "title": "Beat Professional Athlete, Win $100,000",
+     "url": "https://www.youtube.com/watch?v=_c2e1NcI3Sc",
+     "channel": "MrBeast"
+    },
+    {
+     "title": "Trump Blames Everyone But Himself for Huge Midterm Loss & the White House Lashes Out at Jimmy Kimmel",
+     "url": "https://www.youtube.com/watch?v=RHWmbCnprXw",
+     "channel": "Jimmy Kimmel Live"
+    }
+   ]
+  },
+  "graphic": {
+   "warning": "graphic war footage and casualty reports. no graphic imagery is shown here.",
+   "warning_ar": "مشاهد حرب وتقارير ضحايا. لا تُعرض هنا أي صور صادمة.",
+   "items": [
+    {
+     "id": "graphic-zaporizhia-40",
+     "section": "graphic",
+     "time": "2026-11-06T01:20:00+03:00",
+     "title": "one survivor pulled from zaporizhia rubble three days after the strike",
+     "title_ar": "انتشال ناجٍ من تحت أنقاض زابوريجيا بعد ثلاثة أيام من القصف",
+     "summary": "rescuers found one person alive in the rubble of the aid centre in komyshuvakha three days after russia's bombing, which ukraine says killed 43 people; police had recovered 42 bodies and estimated up to 33 more could be buried. russia hit the school-turned-distribution point with fab-500 and fab-3000 bombs on 2 november.",
+     "summary_ar": "عثر رجال الإنقاذ على شخص حي تحت أنقاض مركز المساعدات في كوميشوفاخا بعد ثلاثة أيام من القصف الروسي الذي تقول أوكرانيا إنه قتل 43 شخصًا؛ وكانت الشرطة قد انتشلت 42 جثة وقدّرت احتمال وجود 33 آخرين تحت الأنقاض. واستهدفت روسيا المدرسة التي تحولت إلى مركز توزيع بقنابل FAB-500 وFAB-3000 في 2 نوفمبر.",
+     "sources": [
+      {
+       "title": "Reuters via Yahoo News",
+       "url": "https://uk.news.yahoo.com/death-toll-russian-strike-ukrainian-101551827.html",
+       "type": "wire"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6aeb7dae-1793818030.jpg?resize=1920%2C1440",
+     "warning": "violence, mass casualties",
+     "warning_ar": "عنف وسقوط ضحايا بأعداد كبيرة",
+     "status": "updated"
+    },
+    {
+     "id": "graphic-gaza-strikes",
+     "status": "",
+     "section": "graphic",
+     "time": "2026-11-05T16:10:00+03:00",
+     "title": "four killed in gaza, including a child, as strikes continue under the ceasefire",
+     "title_ar": "مقتل أربعة في غزة بينهم طفل مع استمرار الضربات خلال وقف إطلاق النار",
+     "summary": "medical sources said an israeli drone fired two missiles at a tent sheltering displaced people west of az-zawayda at dawn, killing abdul rahim walid matar, 27, and that another strike killed a person there. a woman was killed in khan younis and a child in bureij refugee camp. gaza's health ministry says 1,602 palestinians have been killed since the ceasefire took effect on 11 october 2025.",
+     "summary_ar": "قالت مصادر طبية إن مسيّرة إسرائيلية أطلقت صاروخين على خيمة تؤوي نازحين غرب الزوايدة فجرًا، فقتلت عبد الرحيم وليد مطر (27 عامًا)، وإن ضربة أخرى قتلت شخصًا هناك. وقُتلت امرأة في خان يونس وطفل في مخيم بريج. وتقول وزارة الصحة في غزة إن 1,602 فلسطيني قتلوا منذ سريان وقف إطلاق النار في 11 أكتوبر 2025.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/5/four-people-including-a-child-killed-in-israeli-attacks-on-gaza",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/ap_6aec6b82b881a-1793878914.jpg?resize=1920%2C1440",
+     "warning": "civilian casualties",
+     "warning_ar": "ضحايا مدنيون"
+    },
+    {
+     "id": "graphic-kharkiv-hospital",
+     "status": "",
+     "section": "graphic",
+     "time": "2026-11-03T10:00:00+03:00",
+     "title": "russian bomb hit a kharkiv hospital, injuring 73",
+     "title_ar": "قنبلة روسية تصيب مستشفى في خاركيف وتجرح 73 شخصًا",
+     "summary": "ukrainian officials said a russian guided bomb struck a city clinical hospital in kharkiv overnight, injuring 73 people including patients and staff and damaging the cardiology department. the strike came during a barrage of 289 drones, 17 ballistic missiles and 59 cruise missiles aimed mainly at energy sites across nine regions.",
+     "summary_ar": "قال مسؤولون أوكرانيون إن قنبلة موجهة روسية أصابت مستشفى سريريًا في خاركيف خلال الليل، ما أدى إلى إصابة 73 شخصًا بينهم مرضى وكوادر طبية وإلحاق أضرار بقسم القلب. وجاءت الضربة خلال هجوم شمل 289 مسيّرة و17 صاروخًا باليستيًا و59 صاروخ كروز استهدف أساسًا منشآت الطاقة في تسع مناطق.",
+     "sources": [
+      {
+       "title": "The Guardian via Yahoo",
+       "url": "https://www.yahoo.com/news/world/articles/least-73-injured-russia-bombs-101818724.html",
+       "type": "independent"
+      },
+      {
+       "title": "Babel",
+       "url": "https://babel.ua/en/news/131463-russians-launched-ballistic-and-cruise-missiles-and-289-drones-into-ukraine-overnight-one-person-died-in-dnipro-over-70-injured-in-kharkiv",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.bbc.co.uk/apple-touch-icon.png",
+     "warning": "violence, mass casualties",
+     "warning_ar": "عنف وضحايا بالجملة"
+    },
+    {
+     "id": "graphic-dhalea-camp",
+     "time": "2026-11-04T16:00:00+03:00",
+     "title": "houthi missile hits a training camp in al-dhalea, killing eight",
+     "title_ar": "صاروخ حوثي يصيب معسكرًا تدريبيًا في الضالع ويقتل ثمانية",
+     "summary": "a houthi ballistic missile struck a gathering of recruits at the al-jumaima camp in northern al-dhalea, killing eight people and wounding more than 15, a military source told al jazeera; no official toll has been released and some yemeni media reported higher figures.",
+     "summary_ar": "أصاب صاروخ باليستي حوثي تجمعًا للمجندين في معسكر الجعيمة شمال الضالع، فقتل ثمانية أشخاص وأصاب أكثر من 15، بحسب مصدر عسكري نقلت عنه الجزيرة؛ ولم تُعلن حصيلة رسمية ونشرت بعض وسائل الإعلام اليمنية أرقامًا أعلى.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/4/yemeni-government-forces-claim-control-of-strategic-al-jawf-mountain-range",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/apple-touch-icon.png",
+     "warning": "mass casualties",
+     "warning_ar": "ضحايا بالجملة",
+     "section": "graphic",
+     "status": ""
+    },
+    {
+     "id": "graphic-qeshm-explosions",
+     "title": "explosions and air defences active over iran's qeshm island",
+     "title_ar": "انفجارات ونشاط للدفاع الجوي فوق جزيرة قشم الإيرانية",
+     "summary": "iranian state media reported explosions on qeshm island and at bandar lengeh late on monday; us media said the strikes targeted surface-to-air missile sites. no casualty figures have been published.",
+     "summary_ar": "أفادت وسائل إعلام إيرانية رسمية بوقوع انفجارات في جزيرة قشم وفي بندر لنجه مساء الاثنين؛ وقالت وسائل إعلام أمريكية إن الضربات استهدفت مواقع صواريخ أرض-جو. ولم تُنشر أرقام عن الضحايا.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/3/explosions-hit-irans-qeshm-island-as-us-media-report-us-strikes-in-hormuz",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-03T05:30:00+03:00",
+     "section": "graphic",
+     "status": "",
+     "image": "https://www.aljazeera.com/apple-touch-icon.png",
+     "warning": "explosions, strike footage",
+     "warning_ar": "انفجارات ومشاهد قصف"
+    },
+    {
+     "id": "graphic-taiz-factory",
+     "title": "strike north of taiz hit a shoe factory, houthi media say",
+     "title_ar": "وسائل إعلام حوثية: ضربة شمال تعز أصابت مصنع أحذية",
+     "summary": "houthi-affiliated outlets said a strike on a plastic shoe factory north of taiz killed three people and wounded eight. the yemeni government's military spokesman said its aircraft targeted houthi vehicles west of the city.",
+     "summary_ar": "قالت منصات تابعة للحوثيين إن ضربة على مصنع للأحذية البلاستيكية شمال تعز قتلت ثلاثة أشخاص وأصابت ثمانية. وقال المتحدث العسكري للحكومة اليمنية إن طائراته استهدفت مركبات حوثية غرب المدينة.",
+     "sources": [
+      {
+       "title": "Middle East Eye",
+       "url": "https://www.middleeasteye.net/live-blog/live-blog-update/yemeni-government-forces-launch-strikes-houthi-positions-west-taiz",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-03T05:20:00+03:00",
+     "section": "graphic",
+     "status": "",
+     "image": "https://www.aljazeera.com/apple-touch-icon.png",
+     "warning": "civilian casualties",
+     "warning_ar": "إصابات بين المدنيين"
+    }
+   ],
+   "watch": []
   }
- ],
- "top_stories": [
-  {
-   "section": "us_markets",
-   "id": "tech-selloff-thursday"
-  },
-  {
-   "section": "middle_east",
-   "id": "trump-iran-nuclear-proposal"
-  },
-  {
-   "section": "middle_east",
-   "id": "israel-herzog-talks"
-  },
-  {
-   "section": "middle_east",
-   "id": "turkey-mecca-pact"
-  },
-  {
-   "section": "liverpool",
-   "id": "crystal-palace-next"
-  }
- ]
+ }
 }
