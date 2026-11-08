@@ -2,36 +2,59 @@
  "version": 2,
  "schema_rev": "2.3",
  "sample": false,
- "generated_at": "2026-11-08T06:30:00+03:00",
+ "generated_at": "2026-11-08T19:12:32+03:00",
  "timezone": "Asia/Riyadh",
  "top_stories": [
   {
    "section": "middle_east",
-   "id": "me-houthi-sanaa-strike"
+   "id": "me-aramco-tower"
+  },
+  {
+   "section": "liverpool",
+   "id": "liverpool-palace-report"
   },
   {
    "section": "middle_east",
-   "id": "me-hormuz-tanker"
-  },
-  {
-   "section": "middle_east",
-   "id": "me-eisenkot-mandate"
+   "id": "me-iran-saudi-talks"
   }
  ],
  "sections": {
   "middle_east": {
-   "what_changed": "houthi media say saudi strikes near sanaa killed at least 33 and a houthi missile aimed at the eastern province was intercepted, tanker fires are still burning off hormuz, and herzog handed eisenkot the mandate to replace netanyahu",
-   "what_changed_ar": "إعلام الحوثيين يقول إن ضربات سعودية قرب صنعاء قتلت 33 على الأقل، واعتراض صاروخ حوثي باتجاه المنطقة الشرقية، وحرائق الناقلات ما زالت مشتعلة قبالة هرمز، وهرتسوغ يكلّف أيزنكوت تشكيل الحكومة بدلاً من نتنياهو.",
+   "what_changed": "houthi projectiles damaged aramco's riyadh tower and air defences intercepted at least three of them, the irgc says three tankers are burning in hormuz, and herzog formally tasked eisenkot with forming israel's next government",
+   "what_changed_ar": "مقذوفات حوثية تضر ببرج أرامكو في الرياض والدفاعات الجوية تعترض ثلاثة منها على الأقل، والحرس الثوري يقول إن ثلاث ناقلات تحترق في هرمز، وهرتسوغ يكلّف أيزنكوت رسمياً تشكيل الحكومة الإسرائيلية المقبلة",
    "items": [
     {
-     "status": "new",
+     "id": "me-aramco-tower",
+     "section": "middle_east",
+     "time": "2026-11-08T17:15:00+03:00",
+     "title": "missile debris damages aramco's riyadh tower; three projectiles intercepted",
+     "title_ar": "شظايا صاروخ تضر ببرج أرامكو في الرياض واعتراض ثلاثة مقذوفات",
+     "summary": "Saudi Arabia's energy ministry said an administrative building belonging to Aramco in Riyadh was damaged by falling shrapnel from an intercepted projectile, with no casualties, in what it called an attempted attack. Air defences intercepted at least three projectiles fired from Yemen, and the Houthis said they targeted King Khalid International Airport and Aramco storage tanks in Abqaiq, a claim Riyadh has not confirmed.",
+     "summary_ar": "قالت وزارة الطاقة السعودية إن مبنى إدارياً تابعاً لأرامكو في الرياض تضرر بشظايا ساقطة من مقذوف جرى اعتراضه، دون إصابات، في ما وصفته بهجوم محاول. واعترضت الدفاعات الجوية ثلاثة مقذوفات على الأقل أُطلقت من اليمن، وقال الحوثيون إنهم استهدفوا مطار الملك خالد الدولي وخزانات أرامكو في بقيق، وهو ما لم تؤكده الرياض.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/8/saudi-arabia-intercepts-houthi-missiles-targeting-riyadh-eastern-province",
+       "type": "independent"
+      },
+      {
+       "title": "BBC News",
+       "url": "https://www.bbc.com/news/articles/c65yn1v99ypmo",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/AFP__20230416__33DB3QE__v5__HighRes__SaudiAramcoEnergy-1794131288.jpg?resize=1920%2C1440",
+     "status": "new"
+    },
+    {
+     "status": "updated",
      "section": "middle_east",
      "id": "me-houthi-sanaa-strike",
-     "time": "2026-11-08T05:30:00+03:00",
-     "title": "houthi media say saudi strikes killed 33 near sanaa; missile intercepted",
-     "title_ar": "إعلام الحوثيين: ضربات سعودية تقتل 33 قرب صنعاء واعتراض صاروخ",
-     "summary": "Houthi-run media said air strikes on al-Shariyah, northeast of Sanaa, killed at least 33 people, up from 25, and that nine strikes hit telecom networks in Saada; the Saudi-led coalition has not commented. Saudi air defences destroyed a ballistic missile aimed at the Eastern Province and civil defence issued alerts for Dammam, al-Ahsa and Abqaiq before saying the danger had passed, while the coalition also reported intercepting a missile bound for Riyadh.",
-     "summary_ar": "قالت وسائل إعلام تابعة للحوثيين إن ضربات جوية على الشريعة شمال شرق صنعاء قتلت 33 شخصاً على الأقل بعد أن كانت الحصيلة 25، وإن تسع ضربات أصابت شبكات اتصالات في صعدة، دون تعليق من التحالف بقيادة السعودية. وأسقطت الدفاعات الجوية السعودية صاروخاً باليستياً باتجاه المنطقة الشرقية، وأصدر الدفاع المدني تحذيرات في الدمام والأحساء وبقيق قبل أن يعلن انتهاء الخطر، فيما أعلن التحالف اعتراض صاروخ آخر كان متجهاً إلى الرياض.",
+     "time": "2026-11-08T16:00:00+03:00",
+     "title": "houthi media say 33 killed near sanaa and 72 across eight provinces",
+     "title_ar": "إعلام الحوثيين: مقتل 33 قرب صنعاء و72 في ثماني محافظات",
+     "summary": "Houthi-run media said air strikes on al-Shariyah, northeast of Sanaa, killed at least 33 people, including women and children, and injured 39, and the group said 72 people were killed in strikes across eight provinces in the past 48 hours. The Saudi-led coalition has not commented, and a strike on a market in Taiz on Friday killed 30, with both sides blaming each other.",
+     "summary_ar": "قالت وسائل إعلام تابعة للحوثيين إن ضربات جوية على الشريعة شمال شرق صنعاء قتلت 33 شخصاً على الأقل بينهم نساء وأطفال وأصابت 39، وإن الجماعة أحصت مقتل 72 شخصاً في ضربات على ثماني محافظات خلال 48 ساعة الماضية. ولم يعلق التحالف بقيادة السعودية، فيما أدت ضربة على سوق في تعز الجمعة إلى مقتل 30 وجّه كل طرف فيها الاتهام للآخر.",
      "sources": [
       {
        "title": "Al Jazeera",
@@ -50,11 +73,11 @@
      "status": "updated",
      "section": "middle_east",
      "id": "me-hormuz-tanker",
-     "time": "2026-11-08T05:30:00+03:00",
-     "title": "uae rescues 22 sailors as tanker fires burn off hormuz",
-     "title_ar": "الإمارات تنقذ 22 بحاراً وسط حرائق ناقلات قبالة هرمز",
-     "summary": "The UAE's National Guard said it rescued all 22 Arab crew from a cargo ship that caught fire in the Gulf of Oman, all in a stable condition, without giving a cause. Iran's Revolutionary Guards said two oil tankers struck mines in the Strait of Hormuz after switching off navigation systems and using an unauthorised route, and CENTCOM said it disabled the St Kitts-flagged M/V Huda with precision fire after its crew refused to comply.",
-     "summary_ar": "قال الحرس الوطني الإماراتي إنه أنقذ جميع أفراد طاقم سفينة شحن وعددهم 22 بحاراً عربياً بعد اندلاع حريق فيها في خليج عمان، وإن حالتهم جميعاً مستقرة دون تحديد سبب الحريق. وقال الحرس الثوري الإيراني إن ناقلتَي نفط أصابتا ألغاماً في مضيق هرمز بعد إغلاق أنظمة الملاحة واستخدام مسار غير مصرح به، وقالت القيادة المركزية الأميركية إنها عطّلت السفينة Huda المرفوعة علم سانت كيتس بنيران دقيقة بعد رفض طاقمها الامتثال.",
+     "time": "2026-11-08T17:00:00+03:00",
+     "title": "three tankers ablaze in hormuz, irgc says, as attacks intensify",
+     "title_ar": "الحرس الثوري: ثلاث ناقلات تحترق في هرمز مع تصاعد الهجمات",
+     "summary": "The IRGC said three 'rogue' oil tankers travelling an unauthorised route were hit by unidentified explosions and caught severe fires in the Strait of Hormuz after switching off their navigation systems. The UAE's National Guard earlier said it rescued all 22 crew from a cargo ship that caught fire in the Gulf of Oman and that all were in a stable condition.",
+     "summary_ar": "قال الحرس الثوري الإيراني إن ثلاث ناقلات نفط «مارقة» كانت تسير في مسار غير مصرح به تعرضت لانفجارات مجهولة وحرائق شديدة في مضيق هرمز بعد إغلاق أنظمة الملاحة الخاصة بها. وكان الحرس الوطني الإماراتي قد قال في وقت سابق إنه أنقذ أفراد طاقم سفينة شحن وعددهم 22 بعد اندلاع حريق فيها في خليج عمان وإن حالتهم جميعاً مستقرة.",
      "sources": [
       {
        "title": "Al Jazeera",
@@ -70,7 +93,7 @@
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/09/AA-20260909-42422213-42422190-IRANS_OIL_TANKERS_OFF_BANDAR_ABBAS_IN_STRAIT_OF_HORMUZ-1788948414.jpg?resize=1920%2C1440"
     },
     {
-     "status": "updated",
+     "status": "",
      "section": "middle_east",
      "id": "me-us-qeshm-strikes",
      "time": "2026-11-08T05:30:00+03:00",
@@ -93,7 +116,7 @@
      "image": "https://assets.maestronewsroom.com/media/30f6532d-717b-4366-9158-9c455299fcd9/proxies/b0144f93-762e-45e0-94f6-47db081ee2cc.webp"
     },
     {
-     "status": "new",
+     "status": "",
      "section": "middle_east",
      "id": "me-iron-gate",
      "time": "2026-11-08T05:00:00+03:00",
@@ -116,32 +139,14 @@
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6aefb55c-1794094428.jpg?resize=1920%2C1440"
     },
     {
-     "status": "new",
-     "section": "middle_east",
-     "id": "me-iran-hormuz-exemptions",
-     "time": "2026-11-08T06:30:00+03:00",
-     "title": "iran exempts china, india, iraq and qatar from its hormuz restrictions",
-     "title_ar": "إيران تعفي الصين والهند والعراق وقطر من قيودها في هرمز",
-     "summary": "Amir Hayat Moqaddam, deputy chairman of the Iranian parliament's national security committee, said ships from India, China, Iraq and Qatar are exempt from Iran's Strait of Hormuz restrictions. He said Tehran will get medicine from India, political backing from China and transit fees from Indian and Chinese ships, while Qatari vessels pass free of charge; analyst Wolfgang Pusztai called it a move to undercut Washington's strategy.",
-     "summary_ar": "قال أمير حيات مقّدم، نائب رئيس لجنة الأمن القومي والسياسة الخارجية في البرلمان الإيراني، إن سفن الهند والصين والعراق وقطر معفاة من القيود الإيرانية في مضيق هرمز. وأضاف أن طهران ستحصل على أدوية من الهند ودعم سياسي من الصين ورسوم عبور من السفن الهندية والصينية، فيما تعبر السفن القطرية مجاناً؛ ووصف المحلل فولفغانغ بوشتاي الخطوة بأنها محاولة لتقويض استراتيجية واشنطن.",
-     "sources": [
-      {
-       "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/2026/11/6/why-is-iran-exempting-india-china-qatar-iraq-from-hormuz-restrictions",
-       "type": "independent"
-      }
-     ],
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6aec701d-1793880093.jpg?resize=1920%2C1440"
-    },
-    {
-     "status": "new",
+     "status": "updated",
      "section": "middle_east",
      "id": "me-eisenkot-mandate",
-     "time": "2026-11-07T22:30:00+03:00",
-     "title": "herzog hands eisenkot the mandate to form israel's next government",
-     "title_ar": "هرتسوغ يكلّف أيزنكوت تشكيل الحكومة الإسرائيلية المقبلة",
-     "summary": "Israel's president told Gadi Eisenkot on Saturday evening that he will be tasked with forming a government, with the formal ceremony on Sunday; 67 lawmakers endorsed the Yashar leader against 46 for Benjamin Netanyahu. Eisenkot has 28 days, plus a possible 14-day extension, and the new Knesset is sworn in on Tuesday; he has ruled out sitting with the Arab-led parties, so both ultra-Orthodox parties would give him exactly 61 seats.",
-     "summary_ar": "أبلغ الرئيس الإسرائيلي غادي أيزنكوت مساء السبت أنه سيكلفه تشكيل الحكومة، مع مراسم رسمية يوم الأحد؛ وأيد 67 نائباً زعيم حزب «يشار» مقابل 46 لبنيامين نتنياهو. ويملك أيزنكوت 28 يوماً مع إمكان تمديد 14 يوماً، ويؤدي الكنيست الجديد اليمين الثلاثاء؛ وقد استبعد الجلوس مع الأحزاب العربية، لذا فإن انضمام الحزبين الحريديين إليه يمنحه 61 مقعداً بالضبط.",
+     "time": "2026-11-08T18:30:00+03:00",
+     "title": "herzog formally tasks eisenkot with forming israel's next government",
+     "title_ar": "هرتسوغ يكلّف أيزنكوت رسمياً تشكيل الحكومة الإسرائيلية المقبلة",
+     "summary": "Israel's president formally tasked Gadi Eisenkot with forming a government at a ceremony on Sunday, after 67 lawmakers endorsed the Yashar leader against 46 for Benjamin Netanyahu. Herzog used the event to say Iran's threats 'must be dealt with immediately' and to push the 20-point plan for Gaza; Eisenkot has 28 days, plus a possible 14-day extension, and needs 61 seats.",
+     "summary_ar": "كلّف الرئيس الإسرائيلي غادي أيزنكوت رسمياً تشكيل الحكومة في مراسم الأحد، بعد أن أيد 67 نائباً زعيم «يشار» مقابل 46 لبنيامين نتنياهو. واستغل هرتسوغ المناسبة للقول إن التهديدات الإيرانية «يجب التعامل معها فوراً» وللدعوة إلى خطة النقاط العشرين لغزة؛ ويملك أيزنكوت 28 يوماً مع إمكان تمديد 14 يوماً، ويحتاج 61 مقعداً.",
      "sources": [
       {
        "title": "Al Jazeera",
@@ -160,6 +165,29 @@
       }
      ],
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/2026-10-27T234936Z_337143780_RC2ZBOAVPW2L_RTRMADP_3_ISRAEL-ELECTION-1794082454.jpg?resize=1920%2C1440"
+    },
+    {
+     "id": "me-iran-saudi-talks",
+     "section": "middle_east",
+     "time": "2026-11-08T19:00:00+03:00",
+     "title": "iran condemns 'saudi aggression' in yemen but calls for talks with riyadh",
+     "title_ar": "إيران تدين «العدوان السعودي» في اليمن وتدعو إلى محادثات مع الرياض",
+     "summary": "Iran's foreign ministry condemned what it called Saudi aggression in Yemen after a strike on a market in Taiz killed dozens, and called for an immediate halt to military attacks, a complete end to the blockade and talks between Tehran and Riyadh. It also condemned strikes on civilian infrastructure and said the Yemeni people must be allowed to decide their own future; both the Houthis and Yemen's government blame each other for the Taiz attack.",
+     "summary_ar": "أدانت وزارة الخارجية الإيرانية ما وصفته بالعدوان السعودي في اليمن بعد ضربة على سوق في تعز قتلت عشرات المدنيين، ودعت إلى وقف فوري للهجمات العسكرية ورفع كامل للحصار ومحادثات بين طهران والرياض. كما أدانت استهداف البنية التحتية المدنية وقالت إنه يجب ترك اليمنيين يقررون مستقبلهم بأنفسهم، فيما يتبادل الحوثيون والحكومة اليمنية الاتهام في هجوم تعز.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/8/iran-war-live-explosions-hit-qeshm-us-moves-to-block-land-supply-routes",
+       "type": "independent"
+      },
+      {
+       "title": "Al Jazeera (Taiz market)",
+       "url": "https://www.aljazeera.com/news/2026/11/6/yemeni-govt-forces-houthis-trade-blame-for-deadly-strikes-on-taiz-market",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/afp_6adb9b137002-1792776979.jpg?resize=1920%2C1440",
+     "status": "new"
     },
     {
      "id": "me-qatar-bridge",
@@ -183,24 +211,6 @@
      ],
      "status": "",
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/AA-20261103-42953182-42953164-GIANT_POSTER_AGAINST_US_AND_ISRAEL_HUNG_IN_TEHRAN-1794004328.jpg?resize=1920%2C1440"
-    },
-    {
-     "id": "me-yemen-reshuffle",
-     "section": "middle_east",
-     "time": "2026-11-05T22:30:00+03:00",
-     "title": "yemen's president sacks ministers and officers as the houthis close on aden",
-     "title_ar": "رئيس اليمن يقيل وزراء وضباطًا مع اقتراب الحوثيين من عدن",
-     "summary": "the un-recognised government replaced senior political and military figures after the counteroffensive it launched on 5 october failed to roll the houthis back, who reuters reported on monday were about 60km from aden. taiz has been under a four-week siege, and the reshuffle also answers pressure from southern factions the government depends on but whose troops say they will only fight inside the former south.",
-     "summary_ar": "أقالت الحكومة المعترف بها دوليًا شخصيات سياسية وعسكرية بارزة بعد فشل هجومها المضاد الذي أطلقته في 5 أكتوبر في دحر الحوثيين، الذين ذكرت رويترز الاثنين أنهم على مسافة نحو 60 كيلومترًا من عدن. وتخضع تعز لحصار منذ أربعة أسابيع، ويأتي التعديل أيضًا استجابة لضغط فصائل جنوبية تعتمد عليها الحكومة لكن قواتها تقول إنها ستقاتل داخل الجنوب السابق فقط.",
-     "sources": [
-      {
-       "title": "The Guardian",
-       "url": "https://www.theguardian.com/world/2026/nov/05/yemen-president-sacks-ministers-and-officers-houthis",
-       "type": "independent"
-      }
-     ],
-     "image": "https://i.guim.co.uk/img/media/383606daa4f240ded1f7ec8a1b158003c8d3e84d/238_0_2383_1906/master/2383.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=86274af0b4538d5e1ffd1fa0d33bc351",
-     "status": ""
     }
    ],
    "watch": [
@@ -221,6 +231,25 @@
    "what_changed_ar": "الأسواق مغلقة حتى الاثنين؛ ارتفع S&P وناسداك الجمعة لكنهما خسرا 2.7% و3.4% خلال الأسبوع، وأغلق خام برنت عند 98.32 دولاراً بتراجع أسبوعي 13.3%، وبيانات التضخم تصدر الثلاثاء.",
    "items": [
     {
+     "id": "us-gulf-markets",
+     "section": "us_markets",
+     "time": "2026-11-08T18:45:00+03:00",
+     "tag": "GLOBAL",
+     "title": "gulf markets slip as traders wait on trump's next iran move",
+     "title_ar": "أسواق الخليج تتراجع مع ترقب المستثمرين خطوة ترامب المقبلة تجاه إيران",
+     "summary": "Saudi Arabia's benchmark index fell 0.8% on Sunday, led by a 1.5% drop in Al Rajhi Bank and a 1.3% fall in Saudi National Bank, while Qatar's index closed 0.5% lower as investors waited for a signal on whether Trump will order new strikes on Iran. US markets are shut for the weekend.",
+     "summary_ar": "تراجع المؤشر السعودي 0.8% الأحد بقيادة هبوط 1.5% في مصرف الراجحي و1.3% في البنك الأهلي السعودي، فيما أغلق مؤشر قطر منخفضاً 0.5% مع ترقب المستثمرين إشارة حول ما إذا كان ترامب سيأمر بضربات جديدة على إيران. والأسواق الأميركية مغلقة في عطلة نهاية الأسبوع.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/8/iran-war-live-explosions-hit-qeshm-us-moves-to-block-land-supply-routes",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/AFP__20260907__C7JU7ZQ__v1__HighRes__IranUsIsraelWar-1-1794138533.jpg?resize=1920%2C1440",
+     "status": "new"
+    },
+    {
      "id": "us-friday-rebound",
      "title": "a friday bounce, but a fourth straight weekly loss",
      "summary": "The S&P 500 rose 0.31% to 7,376.86 and the Nasdaq gained 1.09% to 24,579.43 on Friday, but they still lost 2.7% and 3.4% on the week, the fourth straight weekly decline for both. The VIX fell 9% to 25.64 on the day and is still up 32% on the week.",
@@ -240,7 +269,7 @@
      ],
      "time": "2026-11-06T23:59:00+03:00",
      "section": "us_markets",
-     "status": "updated",
+     "status": "",
      "image": "https://s.yimg.com/lo/mysterio/api/549b3ebe86b7bb2e7ed2014d0c0cebd37292bd766020ea80319e054d29258788/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fkiplinger_425%2Fbe3818c5032348ad6e79bbdcaa36b383.jpg",
      "tag": "MOVERS"
     },
@@ -264,7 +293,7 @@
        "type": "independent"
       }
      ],
-     "status": "updated",
+     "status": "",
      "image": "https://image.cnbcfm.com/api/v1/image/108527793-1793972802519-108527793-1793909522550-gettyimages-2303212023-NASDAQ_MARKETSITE.jpg?v=1793972812&w=1920&h=1080",
      "tag": "MACRO"
     },
@@ -302,12 +331,12 @@
        "type": "independent"
       }
      ],
-     "status": "updated",
+     "status": "",
      "image": "https://image.cnbcfm.com/api/v1/image/108410034-1792003128025-gettyimages-2245498775-raa-coreweav251110_npfn0.jpeg?v=1792003201&w=1920&h=1080",
      "tag": "MOVERS"
     },
     {
-     "status": "new",
+     "status": "",
      "section": "us_markets",
      "id": "us-berkshire-buybacks",
      "time": "2026-11-07T18:30:00+03:00",
@@ -326,7 +355,7 @@
      "image": "https://image.cnbcfm.com/api/v1/image/108544105-1794064987864-gettyimages-2283537705-050126-owh-new-berkshire-nf-24.jpeg?v=1794065008&w=1920&h=1080"
     },
     {
-     "status": "new",
+     "status": "",
      "section": "us_markets",
      "id": "us-anthropic-ipo",
      "time": "2026-11-07T16:00:00+03:00",
@@ -387,12 +416,12 @@
     {
      "id": "ai-idol",
      "section": "ai",
-     "time": "2026-11-08T06:00:00+03:00",
+     "time": "2026-11-08T19:12:32+03:00",
      "kind": "MODEL",
-     "title": "#1: idol turns one photo into a 3d model, 1,139 likes",
-     "title_ar": "#1: idol يحوّل صورة واحدة إلى نموذج ثلاثي الأبعاد بـ1,139 إعجاباً",
-     "summary": "speridlabs' idol holds first place on Hugging Face's trending list with 1,139 likes and 20,689 downloads, an image-to-3D demo that turns a single photo into a mesh.",
-     "summary_ar": "يحافظ idol من speridlabs على المركز الأول في قائمة Hugging Face الأكثر تداولاً بـ1,139 إعجاباً و20,689 تنزيلاً، وهو عرض يحوّل صورة واحدة إلى نموذج ثلاثي الأبعاد.",
+     "title": "#1: idol turns one photo into a 3d model, 1,305 likes",
+     "title_ar": "#1: idol يحوّل صورة واحدة إلى نموذج ثلاثي الأبعاد بـ1,305 إعجاب",
+     "summary": "speridlabs' idol stays first on Hugging Face's trending list with 1,305 likes and 22,854 downloads, an image-to-3D demo that turns a single photo into a mesh.",
+     "summary_ar": "يبقى idol من speridlabs أولاً في قائمة Hugging Face الأكثر تداولاً بـ1,305 إعجاب و22,854 تنزيلاً، وهو عرض يحوّل صورة واحدة إلى نموذج ثلاثي الأبعاد.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -403,18 +432,42 @@
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/speridlabs/idol.png",
      "try_url": "https://huggingface.co/spaces/speridlabs/idol",
      "pricing": "Open weights",
-     "metric": "#1 trending · 1,139 likes",
+     "metric": "#1 trending · 1,305 likes",
      "status": "updated"
+    },
+    {
+     "status": "updated",
+     "section": "ai",
+     "id": "ai-heretic-distill",
+     "time": "2026-11-08T19:12:32+03:00",
+     "kind": "MODEL",
+     "title": "#2: the uncensored deepseek distill climbs to second",
+     "title_ar": "#2: نسخة DeepSeek منزوعة القيود ترتقي إلى المركز الثاني",
+     "summary": "xtools-at's 'uncensored heretic' build of DeepSeek-V4-Pro on a Qwen3.5-9B base climbs to second with 764 likes and 7,088 downloads, up from 531 likes this morning.",
+     "summary_ar": "ترتقي نسخة «uncensored heretic» من DeepSeek-V4-Pro على قاعدة Qwen3.5-9B من xtools-at إلى المركز الثاني بـ764 إعجاباً و7,088 تنزيلاً، مقابل 531 إعجاباً هذا الصباح.",
+     "why_it_matters": "the trending list keeps rewarding stripped-down community builds, which is a decent signal of what people actually download and run.",
+     "why_it_matters_ar": "تواصل قائمة الأكثر تداولاً مكافأة النسخ المجتمعية منزوعة القيود، وهو مؤشر جيد على ما ينزّله الناس ويشغّلونه فعلياً.",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
+       "type": "official"
+      }
+     ],
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic.png",
+     "try_url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
+     "pricing": "Open weights",
+     "metric": "#2 trending · 764 likes"
     },
     {
      "id": "ai-kimi-k31",
      "section": "ai",
-     "time": "2026-11-08T06:00:00+03:00",
+     "time": "2026-11-08T19:12:32+03:00",
      "kind": "MODEL",
-     "title": "#2: kimi k3.1 pro holds second with 1,644 likes",
-     "title_ar": "#2: Kimi K3.1 Pro يحافظ على المركز الثاني بـ1,644 إعجاباً",
-     "summary": "Moonshot's Kimi-K3.1-Pro is second with 1,644 likes and 22,571 downloads, the open-weights flagship that keeps the top two crowded.",
-     "summary_ar": "يحل Kimi-K3.1-Pro من Moonshot ثانياً بـ1,644 إعجاباً و22,571 تنزيلاً، وهو النموذج الرائد بمفتوحات الأوزان الذي يبقي المركزين الأولين مزدحمين.",
+     "title": "#3: kimi k3.1 pro slips to third despite 1,702 likes",
+     "title_ar": "#3: Kimi K3.1 Pro يتراجع إلى الثالث رغم 1,702 إعجاب",
+     "summary": "Moonshot's Kimi-K3.1-Pro slips to third even as its likes rise to 1,702, with 25,569 downloads, overtaken by the two community builds above it.",
+     "summary_ar": "يتراجع Kimi-K3.1-Pro من Moonshot إلى المركز الثالث رغم ارتفاع إعجاباته إلى 1,702، مع 25,569 تنزيلاً، بعد أن تجاوزته النسختان المجتمعيتان أعلاه.",
      "sources": [
       {
        "title": "Hugging Face (Moonshot AI org)",
@@ -430,42 +483,40 @@
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/moonshotai/Kimi-K3.png",
      "try_url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
      "pricing": "Open weights",
-     "metric": "#2 trending · 1,644 likes",
+     "metric": "#3 trending · 1,702 likes",
      "status": "updated"
     },
     {
-     "status": "new",
+     "id": "ai-ltx-2-5",
      "section": "ai",
-     "id": "ai-heretic-distill",
-     "time": "2026-11-08T06:00:00+03:00",
      "kind": "MODEL",
-     "title": "#3: a deepseek-v4-pro distill with the guardrails stripped",
-     "title_ar": "#3: نسخة DeepSeek-V4-Pro منزوعة القيود الأخلاقية",
-     "summary": "xtools-at's 'uncensored heretic' build of DeepSeek-V4-Pro on a Qwen3.5-9B base enters third with 531 likes, one of a run of de-censored community fine-tunes on the trending list.",
-     "summary_ar": "تدخل نسخة «uncensored heretic» من DeepSeek-V4-Pro على قاعدة Qwen3.5-9B من xtools-at المركز الثالث بـ531 إعجاباً، وهي واحدة من سلسلة نسخ مجتمعية أُزيلت عنها القيود على قائمة الأكثر تداولاً.",
-     "why_it_matters": "the trending list keeps rewarding stripped-down community builds, which is a decent signal of what people actually download and run.",
-     "why_it_matters_ar": "تواصل قائمة الأكثر تداولاً مكافأة النسخ المجتمعية منزوعة القيود، وهو مؤشر جيد على ما ينزّله الناس ويشغّلونه فعلياً.",
+     "time": "2026-11-08T19:12:32+03:00",
+     "title": "#4: ltx-2.5 is the workhorse with 11,087 likes",
+     "title_ar": "#4: LTX-2.5 هو الأكثر استخداماً بـ11,087 إعجاباً",
+     "summary": "Lightricks' LTX-2.5 is fourth with 11,087 likes and 2.66m downloads, still the video model most people actually run.",
+     "summary_ar": "يحل LTX-2.5 من Lightricks رابعاً بـ11,087 إعجاباً و2.66 مليون تنزيل، ولا يزال نموذج الفيديو الأكثر استخداماً فعلياً.",
      "sources": [
       {
        "title": "Hugging Face",
-       "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
+       "url": "https://huggingface.co/Lightricks/LTX-2.5",
        "type": "official"
       }
      ],
-     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic.png",
-     "try_url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Lightricks/LTX-2.5.png",
+     "try_url": "https://huggingface.co/Lightricks/LTX-2.5",
      "pricing": "Open weights",
-     "metric": "#3 trending · 531 likes"
+     "metric": "#4 trending · 11,087 likes",
+     "status": "updated"
     },
     {
      "id": "ai-qwen-3d-coder",
      "section": "ai",
      "kind": "MODEL",
-     "time": "2026-11-08T06:00:00+03:00",
-     "title": "#4: a 4b qwen fine-tune that writes three.js scenes",
-     "title_ar": "#4: نسخة Qwen بحجم 4 مليارات تكتب مشاهد three.js",
-     "summary": "ccore's Qwen3.5-4B-3D-Coder is fourth with 877 likes and 221,506 downloads, a small model that turns prompts into three.js code for 3D scenes.",
-     "summary_ar": "يحل Qwen3.5-4B-3D-Coder من ccore رابعاً بـ877 إعجاباً و221,506 تنزيلاً، وهو نموذج صغير يحوّل الأوامر النصية إلى شيفرة three.js لمشاهد ثلاثية الأبعاد.",
+     "time": "2026-11-08T19:12:32+03:00",
+     "title": "#5: a 4b qwen fine-tune that writes three.js scenes",
+     "title_ar": "#5: نسخة Qwen صغيرة (4B) تكتب مشاهد three.js",
+     "summary": "ccore's Qwen3.5-4B-3D-Coder is fifth with 905 likes and 254,053 downloads, a small model that turns prompts into three.js code for 3D scenes.",
+     "summary_ar": "يحل Qwen3.5-4B-3D-Coder من ccore خامساً بـ905 إعجابات و254,053 تنزيلاً، وهو نموذج صغير يحوّل الأوامر النصية إلى كود three.js لمشاهد ثلاثية الأبعاد.",
      "why_it_matters": "a 4b model that turns prompts into three.js scenes is small enough to run on a laptop, which is where most 3d prototyping actually happens.",
      "why_it_matters_ar": "نموذج بحجم 4 مليارات يحوّل الأوامر النصية إلى مشاهد three.js صغير بما يكفي ليعمل على حاسوب محمول، وهو المكان الذي تجري فيه معظم نماذج التصميم ثلاثي الأبعاد فعليًا.",
      "sources": [
@@ -478,39 +529,17 @@
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/ccore/Qwen3.5-4B-3D-Coder.png",
      "try_url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
      "pricing": "Open weights",
-     "metric": "#4 trending · 877 likes",
-     "status": "updated"
-    },
-    {
-     "id": "ai-ltx-2-5",
-     "section": "ai",
-     "kind": "MODEL",
-     "time": "2026-11-08T06:00:00+03:00",
-     "title": "#5: ltx-2.5 is the workhorse with 11,004 likes",
-     "title_ar": "#5: LTX-2.5 هو الأكثر استخداماً بـ11,004 إعجابات",
-     "summary": "Lightricks' LTX-2.5 is fifth with 11,004 likes and 2.64m downloads, still the video model most people actually run.",
-     "summary_ar": "يحل LTX-2.5 من Lightricks خامساً بـ11,004 إعجابات و2.64 مليون تنزيل، ولا يزال نموذج الفيديو الذي يشغّله معظم الناس فعلياً.",
-     "sources": [
-      {
-       "title": "Hugging Face",
-       "url": "https://huggingface.co/Lightricks/LTX-2.5",
-       "type": "official"
-      }
-     ],
-     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Lightricks/LTX-2.5.png",
-     "try_url": "https://huggingface.co/Lightricks/LTX-2.5",
-     "pricing": "Open weights",
-     "metric": "#5 trending · 11,004 likes",
+     "metric": "#5 trending · 905 likes",
      "status": "updated"
     },
     {
      "id": "ai-ripple-65b",
      "section": "ai",
-     "time": "2026-11-08T06:00:00+03:00",
-     "title": "#6: ripple-65b slips to sixth with 376 likes",
-     "title_ar": "#6: Ripple-65B يتراجع إلى المركز السادس بـ376 إعجاباً",
-     "summary": "ricursiveAI's Ripple-65B-Preview drops one place to sixth with 376 likes and 3,803 downloads, a 65B preview that is still finding users.",
-     "summary_ar": "يتراجع Ripple-65B-Preview من ricursiveAI مركزاً واحداً إلى السادس بـ376 إعجاباً و3,803 تنزيلات، وهو إصدار تجريبي بحجم 65 مليار معامل ما زال يجد مستخدمين.",
+     "time": "2026-11-08T19:12:32+03:00",
+     "title": "#6: ripple-65b holds sixth with 388 likes",
+     "title_ar": "#6: Ripple-65B في المركز السادس بـ388 إعجاباً",
+     "summary": "ricursiveAI's Ripple-65B-Preview holds sixth with 388 likes and 5,087 downloads, a 65B preview that is still finding users.",
+     "summary_ar": "يبقى Ripple-65B-Preview من ricursiveAI سادساً بـ388 إعجاباً و5,087 تنزيلاً، وهو إصدار تجريبي بحجم 65B لا يزال يجد مستخدميه.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -523,38 +552,16 @@
      "kind": "MODEL",
      "try_url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview",
      "pricing": "Open weights",
-     "metric": "#6 trending · 376 likes",
+     "metric": "#6 trending · 388 likes",
      "why_it_matters": "A new lab shipping a long-context coding model is the kind of release that shifts the open-weights race.",
      "why_it_matters_ar": "مختبر جديد يطلق نموذج برمجة بسياق طويل هو النوع الذي يغيّر سباق الأوزان المفتوحة."
     },
     {
-     "id": "ai-numbat",
-     "title": "#7: a 7.7tb 'anthropic' checkpoint appears on hugging face",
-     "summary": "burner22/numbat is seventh with 381 likes and 9,212 downloads, a 7.7TB checkpoint labelled as an Anthropic model that people keep pulling despite the size.",
-     "title_ar": "#7: نسخة «أنثروبيك» بحجم 7.7 تيرابايت تظهر على Hugging Face",
-     "summary_ar": "يحل burner22/numbat سابعاً بـ381 إعجاباً و9,212 تنزيلاً، وهي نسخة بحجم 7.7 تيرابايت موسومة كنموذج من Anthropic يواصل الناس تنزيلها رغم حجمها.",
-     "sources": [
-      {
-       "title": "Hugging Face",
-       "url": "https://huggingface.co/burner22/numbat",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-08T06:00:00+03:00",
-     "section": "ai",
-     "status": "updated",
-     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/burner22/numbat.png",
-     "kind": "MODEL",
-     "try_url": "https://huggingface.co/burner22/numbat",
-     "pricing": "Open weights",
-     "metric": "#7 trending · 381 likes"
-    },
-    {
      "id": "ai-sulphur-3",
-     "title": "#8: sulphur-3 is a community build on minimax's video model",
-     "summary": "FusionCow/Sulphur-3 is eighth with 405 likes and 997 downloads, a community build on MiniMax's video model that is picking up attention.",
-     "title_ar": "#8: Sulphur-3 نسخة مجتمعية على نموذج فيديو من MiniMax",
-     "summary_ar": "يحل FusionCow/Sulphur-3 ثامناً بـ405 إعجابات و997 تنزيلاً، وهي نسخة مجتمعية على نموذج فيديو من MiniMax تبدأ بجذب الانتباه.",
+     "title": "#7: sulphur-3 is a community build on minimax's video model",
+     "summary": "FusionCow/Sulphur-3 is seventh with 412 likes and 1,003 downloads, a community build on MiniMax's video model that is picking up attention.",
+     "title_ar": "#7: Sulphur-3 نسخة مجتمعية على نموذج فيديو من MiniMax",
+     "summary_ar": "يحل Sulphur-3 من FusionCow سابعاً بـ412 إعجاباً و1,003 تنزيلات، وهي نسخة مجتمعية على نموذج الفيديو من MiniMax تجذب الانتباه.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -562,14 +569,38 @@
        "type": "independent"
       }
      ],
-     "time": "2026-11-08T06:00:00+03:00",
+     "time": "2026-11-08T19:12:32+03:00",
      "section": "ai",
      "status": "updated",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/FusionCow/Sulphur-3.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/FusionCow/Sulphur-3",
      "pricing": "Open weights",
-     "metric": "#8 trending · 405 likes"
+     "metric": "#7 trending · 412 likes"
+    },
+    {
+     "id": "ai-qwen38-27b",
+     "section": "ai",
+     "time": "2026-11-08T19:12:32+03:00",
+     "kind": "MODEL",
+     "title": "#8: qwen3.8-27b enters the top ten with 19,380 likes",
+     "title_ar": "#8: Qwen3.8-27B يدخل العشرة الأوائل بـ19,380 إعجاباً",
+     "summary": "Qwen's 27B multimodal model is eighth on the trending list with 19,380 likes and 7.67m downloads, by far the most-liked model in the top ten.",
+     "summary_ar": "يحل نموذج Qwen متعدد الوسائط بحجم 27B ثامناً في قائمة الأكثر تداولاً بـ19,380 إعجاباً و7.67 مليون تنزيل، وهو الأكثر إعجاباً بين العشرة الأوائل بفارق كبير.",
+     "why_it_matters": "a 27B open-weights model with 19k likes is what most people will actually download and run locally, not the tiny fine-tunes above it.",
+     "why_it_matters_ar": "نموذج مفتوح الأوزان بحجم 27B وبنحو 19 ألف إعجاب هو ما سينزّله معظم الناس ويشغّلونه محلياً، لا النسخ الصغيرة فوقه.",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+       "type": "official"
+      }
+     ],
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Qwen/Qwen3.8-27B.png",
+     "try_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+     "pricing": "Open weights",
+     "metric": "#8 trending · 19,380 likes",
+     "status": "new"
     }
    ],
    "watch": [
@@ -595,13 +626,63 @@
   "trending": {
    "items": [
     {
+     "id": "sherlock-project-sherlock",
+     "section": "trending",
+     "time": "2026-11-08T19:12:32+03:00",
+     "title": "sherlock is #1 today: username hunting across social networks",
+     "title_ar": "#1 اليوم: Sherlock لتتبع الحسابات باسم المستخدم عبر الشبكات الاجتماعية",
+     "summary": "sherlock-project/sherlock tops today's list with 2,372 stars gained and 102,490 in total, a Python CLI that hunts down accounts by username across social networks.",
+     "summary_ar": "يتصدر sherlock-project/sherlock قائمة اليوم بـ2,372 نجمة مكتسبة و102,490 إجمالاً، وهو أداة سطر أوامر بلغة Python تتعقب الحسابات باسم المستخدم عبر الشبكات الاجتماعية.",
+     "why_it_matters": "it is the quickest way to see what a handle exposes before you trust it, or before someone uses yours.",
+     "why_it_matters_ar": "إنها أسرع طريقة لمعرفة ما يكشفه اسم مستخدم قبل الوثوق به، أو قبل أن يستخدم أحد اسمك.",
+     "sources": [
+      {
+       "title": "GitHub",
+       "url": "https://github.com/sherlock-project/sherlock",
+       "type": "official"
+      }
+     ],
+     "image": "https://opengraph.githubassets.com/1/sherlock-project/sherlock",
+     "rank": 1,
+     "period": "today",
+     "stars_gained": 2372,
+     "stars_total": 102490,
+     "language": "Python",
+     "status": "new"
+    },
+    {
+     "id": "milind-soni-openmausbot",
+     "section": "trending",
+     "time": "2026-11-08T19:12:32+03:00",
+     "title": "openmausbot is #3 today: an open grok bot with its own vm",
+     "title_ar": "#3 اليوم: OpenMausBot بديل مفتوح لروبوت Grok بجهاز افتراضي خاص",
+     "summary": "milind-soni/OpenMausBot is third today with 1,437 stars gained and 17,898 in total, an Apache-licensed TypeScript bot that runs agents on its own virtual machine.",
+     "summary_ar": "يحل milind-soni/OpenMausBot ثالثاً اليوم بـ1,437 نجمة مكتسبة و17,898 إجمالاً، وهو روبوت بلغة TypeScript برخصة Apache يشغّل الوكلاء على جهاز افتراضي خاص.",
+     "why_it_matters": "giving an agent its own VM is the difference between a chat toy and something that can finish a job.",
+     "why_it_matters_ar": "منح الوكيل جهازاً افتراضياً خاصاً هو الفرق بين لعبة محادثة وشيء يستطيع إنجاز العمل.",
+     "sources": [
+      {
+       "title": "GitHub",
+       "url": "https://github.com/milind-soni/OpenMausBot",
+       "type": "official"
+      }
+     ],
+     "image": "https://opengraph.githubassets.com/1/milind-soni/OpenMausBot",
+     "rank": 3,
+     "period": "today",
+     "stars_gained": 1437,
+     "stars_total": 17898,
+     "language": "TypeScript",
+     "status": "new"
+    },
+    {
      "id": "vercel-labs-agent-browser",
      "section": "trending",
-     "time": "2026-11-08T06:00:00+03:00",
-     "title": "agent-browser is #1 today: a rust cli that drives a browser for agents",
-     "title_ar": "agent-browser أولاً اليوم: أداة سطر أوامر بـRust تشغّل متصفحاً للوكلاء",
-     "summary": "vercel-labs/agent-browser stays first with 190 stars today and 46,918 in total: a Rust CLI for browser automation built for AI agents.",
-     "summary_ar": "يحافظ vercel-labs/agent-browser على المركز الأول بـ190 نجمة اليوم و46,918 إجمالاً: أداة سطر أوامر بـRust لأتمتة المتصفح مبنية لوكلاء الذكاء الاصطناعي.",
+     "time": "2026-11-08T19:12:32+03:00",
+     "title": "agent-browser drops to #5 today as the daily list churns",
+     "title_ar": "agent-browser يهبط إلى الخامس اليوم مع تغيّر القائمة اليومية",
+     "summary": "vercel-labs/agent-browser slips from first to fifth with 812 stars today and 47,360 in total, the Rust CLI for browser automation built for AI agents; it also sits 11th for the week.",
+     "summary_ar": "يهبط vercel-labs/agent-browser من الأول إلى الخامس بـ812 نجمة اليوم و47,360 إجمالاً، وهو أداة سطر أوامر بلغة Rust لأتمتة المتصفح موجهة لوكلاء الذكاء الاصطناعي، ويحل أيضاً في المركز 11 للأسبوع.",
      "sources": [
       {
        "title": "GitHub",
@@ -611,97 +692,47 @@
      ],
      "status": "updated",
      "image": "https://opengraph.githubassets.com/1/vercel-labs/agent-browser",
-     "rank": 1,
+     "rank": 5,
      "period": "today",
-     "stars_gained": 190,
-     "stars_total": 46918,
+     "stars_gained": 812,
+     "stars_total": 47360,
      "language": "Rust",
      "why_it_matters": "Every agent stack needs a browser it can actually drive; Vercel shipping one is a signal.",
-     "why_it_matters_ar": "كل حزمة وكلاء تحتاج متصفحاً يمكنها تشغيله فعلاً، وإطلاق Vercel لواحد إشارة مهمة."
+     "why_it_matters_ar": "كل حزمة وكلاء تحتاج متصفحاً تستطيع تشغيله فعلاً؛ وإصدار Vercel لواحد إشارة مهمة."
     },
     {
-     "id": "cloudflare-security-audit-skill",
+     "id": "meta-astryx",
      "section": "trending",
-     "time": "2026-11-08T06:00:00+03:00",
-     "title": "cloudflare's security-audit skill is #2 with 2,085 stars today",
-     "title_ar": "مهارة security-audit من Cloudflare ثانية بـ2,085 نجمة اليوم",
-     "summary": "cloudflare/security-audit-skill is second with 2,085 stars today and 65,887 in total, a coding-agent skill for multi-phase security audits with machine-readable findings.",
-     "summary_ar": "يحل cloudflare/security-audit-skill ثانياً بـ2,085 نجمة اليوم و65,887 إجمالاً، وهي مهارة لوكيل برمجي تُجري تدقيقات أمنية متعددة المراحل بنتائج قابلة للقراءة آلياً.",
+     "time": "2026-11-08T19:12:32+03:00",
+     "title": "meta's astryx is #6 today: an agent-ready design system",
+     "title_ar": "#6 اليوم: Astryx من Meta نظام تصميم جاهز للوكلاء",
+     "summary": "meta/astryx is sixth today with 863 stars gained and 15,634 in total, an MIT-licensed TypeScript design system built to be customised and used by agents.",
+     "summary_ar": "يحل meta/astryx سادساً اليوم بـ863 نجمة مكتسبة و15,634 إجمالاً، وهو نظام تصميم بلغة TypeScript برخصة MIT مصمم للتخصيص والاستخدام بواسطة الوكلاء.",
+     "why_it_matters": "design systems written for agents, not just humans, is a small but real shift in how front ends get built.",
+     "why_it_matters_ar": "أنظمة التصميم المكتوبة للوكلاء لا للبشر فقط تحوّل صغير لكنه حقيقي في طريقة بناء الواجهات.",
      "sources": [
       {
        "title": "GitHub",
-       "url": "https://github.com/cloudflare/security-audit-skill",
+       "url": "https://github.com/meta/astryx",
        "type": "official"
       }
      ],
-     "status": "updated",
-     "image": "https://opengraph.githubassets.com/1/cloudflare/security-audit-skill",
-     "rank": 2,
+     "image": "https://opengraph.githubassets.com/1/meta/astryx",
+     "rank": 6,
      "period": "today",
-     "stars_gained": 2085,
-     "stars_total": 65887,
-     "language": "JavaScript",
-     "why_it_matters": "A security skill that returns verifiable findings is what turns an agent from a linter into an auditor.",
-     "why_it_matters_ar": "مهارة أمنية تعيد نتائج قابلة للتحقق هي ما يحوّل الوكيل من مدقق أسلوب إلى مدقق أمني."
-    },
-    {
-     "id": "google-skills",
-     "title": "google/skills is #3 today as agent skills keep climbing",
-     "summary": "Google's official agent-skills repo is third with 443 stars today and 23,469 in total; the Python skills cover Google products and technologies.",
-     "title_ar": "google/skills ثالثاً اليوم مع صعود مهارات الوكلاء",
-     "summary_ar": "يحل مستودع Google الرسمي لمهارات الوكلاء ثالثاً بـ443 نجمة اليوم و23,469 إجمالاً؛ وتغطي المهارات المكتوبة بلغة Python منتجات Google وتقنياتها.",
-     "sources": [
-      {
-       "title": "GitHub",
-       "url": "https://github.com/google/skills",
-       "type": "official"
-      }
-     ],
-     "time": "2026-11-08T06:00:00+03:00",
-     "section": "trending",
-     "status": "updated",
-     "image": "https://opengraph.githubassets.com/1/google/skills",
-     "rank": 3,
-     "period": "today",
-     "stars_gained": 443,
-     "stars_total": 23469,
-     "language": "Python",
-     "why_it_matters": "google packaging its own apis as agent skills is the clearest sign that skills are becoming the integration layer.",
-     "why_it_matters_ar": "تغليف غوغل لواجهاتها البرمجية كمهارات وكلاء هو أوضح إشارة إلى أن المهارات أصبحت طبقة التكامل."
-    },
-    {
-     "id": "mattpocock-skills",
-     "section": "trending",
-     "time": "2026-11-08T06:00:00+03:00",
-     "title": "mattpocock/skills is #4 with 1,100 stars today",
-     "title_ar": "mattpocock/skills رابعاً بـ1,100 نجمة اليوم",
-     "summary": "mattpocock/skills is fourth with 1,100 stars today and 317,819 in total, a collection of shell-based skills taken straight from the author's .agents directory.",
-     "summary_ar": "يحل mattpocock/skills رابعاً بـ1,100 نجمة اليوم و317,819 إجمالاً، وهي مجموعة مهارات مبنية على Shell مأخوذة مباشرة من مجلد .agents لدى صاحبها.",
-     "sources": [
-      {
-       "title": "GitHub",
-       "url": "https://github.com/mattpocock/skills",
-       "type": "official"
-      }
-     ],
-     "status": "updated",
-     "image": "https://opengraph.githubassets.com/1/mattpocock/skills",
-     "rank": 4,
-     "period": "today",
-     "stars_gained": 1100,
-     "stars_total": 317819,
-     "language": "Shell",
-     "why_it_matters": "Copy-paste prompt packs are being replaced by versioned skill folders agents load themselves.",
-     "why_it_matters_ar": "حزم الأوامر الجاهزة تحل محلها الآن مجلدات مهارات مُصدّرة يحمّلها الوكلاء بأنفسهم."
+     "stars_gained": 863,
+     "stars_total": 15634,
+     "language": "TypeScript",
+     "status": "new"
     },
     {
      "id": "anthropics-skills",
      "section": "trending",
-     "time": "2026-11-08T06:00:00+03:00",
-     "title": "anthropics/skills is #5 today as the skills repos take over",
-     "title_ar": "anthropics/skills خامساً اليوم مع سيطرة مستودعات المهارات",
-     "summary": "anthropics/skills is fifth with 390 stars today and 188,871 in total, the public repo behind Claude's agent skills and now one of four skill repos in the top five.",
-     "summary_ar": "يحل anthropics/skills خامساً بـ390 نجمة اليوم و188,871 إجمالاً، وهو المستودع العام لمهارات وكيل Claude وأحد أربعة مستودعات مهارات في المراكز الخمسة الأولى.",
+     "time": "2026-11-08T19:12:32+03:00",
+     "title": "anthropics/skills is #7 today with 793 stars",
+     "title_ar": "anthropics/skills في السابع اليوم بـ793 نجمة",
+     "summary": "anthropics/skills is seventh today with 793 stars gained and 189,297 in total, the public repo behind Claude's agent skills and the most-starred repo on the page.",
+     "summary_ar": "يحل anthropics/skills سابعاً اليوم بـ793 نجمة مكتسبة و189,297 إجمالاً، وهو المستودع العام لمهارات وكلاء Claude والأكثر نجوماً في الصفحة.",
      "sources": [
       {
        "title": "GitHub",
@@ -711,28 +742,28 @@
      ],
      "status": "updated",
      "image": "https://opengraph.githubassets.com/1/anthropics/skills",
-     "rank": 5,
+     "rank": 7,
      "period": "today",
-     "stars_gained": 390,
-     "stars_total": 188871,
+     "stars_gained": 793,
+     "stars_total": 189297,
      "language": "Python",
      "why_it_matters": "Skills are becoming the packaging format for agent capabilities, and every big lab now ships one.",
-     "why_it_matters_ar": "المهارات أصبحت صيغة تغليف قدرات الوكلاء، وكل مختبر كبير يطرح واحدة الآن."
+     "why_it_matters_ar": "تُصبح المهارات صيغة تغليف قدرات الوكلاء، وكل مختبر كبير يصدر واحدة الآن."
     },
     {
      "id": "thedotmack-claude-mem",
      "section": "trending",
-     "rank": 1,
+     "rank": 2,
      "period": "week",
      "stars_gained": 7482,
-     "stars_total": 114549,
+     "stars_total": 114748,
      "language": "TypeScript",
-     "title": "claude-mem holds #1 this week with 7,482 stars",
-     "title_ar": "claude-mem يحافظ على الأول أسبوعياً بـ7,482 نجمة",
-     "summary": "thedotmack/claude-mem is still first for the week with 7,482 stars and 114,549 in total, a TypeScript layer that keeps context alive across agent sessions.",
-     "summary_ar": "لا يزال thedotmack/claude-mem أولاً هذا الأسبوع بـ7,482 نجمة و114,549 إجمالاً، وهي طبقة بـTypeScript تحفظ السياق بين جلسات الوكيل.",
+     "title": "claude-mem is #2 this week with 7,482 stars",
+     "title_ar": "claude-mem في الثاني هذا الأسبوع بـ7,482 نجمة",
+     "summary": "thedotmack/claude-mem drops to second for the week with 7,482 stars and 114,748 in total, a TypeScript layer that keeps context alive across agent sessions.",
+     "summary_ar": "يهبط thedotmack/claude-mem إلى الثاني هذا الأسبوع بـ7,482 نجمة و114,748 إجمالاً، وهي طبقة بلغة TypeScript تحافظ على السياق بين جلسات الوكيل.",
      "why_it_matters": "memory is the difference between a tool you re-explain every day and one that compounds.",
-     "why_it_matters_ar": "الذاكرة هي الفارق بين أداة تعيد شرحها كل يوم وأخرى تتراكم قيمتها.",
+     "why_it_matters_ar": "الذاكرة هي الفرق بين أداة تشرحها كل يوم وأخرى تتراكم قيمتها.",
      "image": "https://opengraph.githubassets.com/1/thedotmack/claude-mem",
      "sources": [
       {
@@ -741,23 +772,23 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-08T06:00:00+03:00",
+     "time": "2026-11-08T19:12:32+03:00",
      "status": "updated"
     },
     {
      "id": "pingdotgg-t3code",
      "section": "trending",
-     "rank": 5,
+     "rank": 7,
      "period": "week",
      "stars_gained": 17100,
-     "stars_total": 51393,
+     "stars_total": 52084,
      "language": "TypeScript",
-     "title": "t3code is #5 this week with the biggest gain, 17,100 stars",
-     "title_ar": "t3code خامساً هذا الأسبوع بأكبر زيادة، 17,100 نجمة",
-     "summary": "pingdotgg/t3code is fifth for the week with 17,100 stars, the biggest weekly gain on the page, taking the repo to 51,393 stars.",
-     "summary_ar": "يحل pingdotgg/t3code خامساً هذا الأسبوع بـ17,100 نجمة، وهي أكبر زيادة أسبوعية في الصفحة، لتبلغ النجوم الإجمالية 51,393.",
-     "why_it_matters": "a repo with no readme pitch adding 16k stars in a week is worth watching to see what it turns out to be.",
-     "why_it_matters_ar": "مستودع بلا وصف تسويقي يضيف 16 ألف نجمة في أسبوع يستحق المتابعة لمعرفة ما سيصبح عليه.",
+     "title": "t3code is #7 this week and still the biggest gainer at 17,100",
+     "title_ar": "t3code في السابع هذا الأسبوع ولا يزال الأكبر مكسباً بـ17,100 نجمة",
+     "summary": "pingdotgg/t3code is seventh for the week with 17,100 stars, still the biggest weekly gain on the page, taking the repo to 52,084 stars.",
+     "summary_ar": "يحل pingdotgg/t3code سابعاً للأسبوع بـ17,100 نجمة، وهو أكبر مكسب أسبوعي في الصفحة، ليرتفع المستودع إلى 52,084 نجمة.",
+     "why_it_matters": "a repo with no readme pitch adding 17k stars in a week is worth watching to see what it turns out to be.",
+     "why_it_matters_ar": "مستودع بلا وصف في ملفه التعريفي يضيف 17 ألف نجمة في أسبوع جدير بالمتابعة لمعرفة ما سيصير إليه.",
      "image": "https://opengraph.githubassets.com/1/pingdotgg/t3code",
      "sources": [
       {
@@ -766,17 +797,17 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-08T06:00:00+03:00",
+     "time": "2026-11-08T19:12:32+03:00",
      "status": "updated"
     },
     {
      "id": "d4vinci-scrapling",
      "section": "trending",
-     "time": "2026-11-08T06:00:00+03:00",
-     "title": "scrapling is #9 this week: scraping that survives anti-bot walls",
-     "title_ar": "Scrapling تاسعاً هذا الأسبوع: كشط بيانات يصمد أمام جدران مكافحة الروبوتات",
-     "summary": "D4Vinci/Scrapling is ninth for the week with 8,712 stars and 99,375 in total, a Python scraping framework built to handle single requests and full crawls behind anti-bot walls.",
-     "summary_ar": "يحل D4Vinci/Scrapling تاسعاً هذا الأسبوع بـ8,712 نجمة و99,375 إجمالاً، وهو إطار كشط بيانات بلغة Python يتعامل مع الطلبات المفردة والزحف الكامل خلف جدران مكافحة الروبوتات.",
+     "time": "2026-11-08T19:12:32+03:00",
+     "title": "scrapling is #10 this week: scraping that survives anti-bot walls",
+     "title_ar": "scrapling في العاشر هذا الأسبوع: كشط ويب يتجاوز جدران مكافحة الروبوتات",
+     "summary": "D4Vinci/Scrapling is tenth for the week with 8,712 stars and 99,679 in total, a Python scraping framework built to handle single requests and full crawls behind anti-bot walls.",
+     "summary_ar": "يحل D4Vinci/Scrapling عاشراً للأسبوع بـ8,712 نجمة و99,679 إجمالاً، وهو إطار كشط ويب بلغة Python يتعامل مع الطلبات المفردة والزحف الكامل خلف جدران مكافحة الروبوتات.",
      "sources": [
       {
        "title": "GitHub",
@@ -786,13 +817,13 @@
      ],
      "status": "updated",
      "image": "https://opengraph.githubassets.com/1/D4Vinci/Scrapling",
-     "rank": 9,
+     "rank": 10,
      "period": "week",
      "stars_gained": 8712,
-     "stars_total": 99375,
+     "stars_total": 99679,
      "language": "Python",
      "why_it_matters": "Half the agent work people actually want is just getting clean data out of hostile pages.",
-     "why_it_matters_ar": "نصف عمل الوكلاء المطلوب فعلاً هو مجرد استخراج بيانات نظيفة من صفحات محمية."
+     "why_it_matters_ar": "نصف ما يريده الناس من الوكلاء هو مجرد إخراج بيانات نظيفة من صفحات معادية."
     }
    ],
    "watch": [
@@ -811,32 +842,32 @@
    "what_changed_ar": "مستودعات المهارات ما زالت تسيطر على القائمة اليومية، وagent-browser في المقدمة، وclaude-mem ما زال الأكثر تحركاً أسبوعياً بين المستودعات المتابعة."
   },
   "liverpool": {
-   "what_changed": "palace away at 17:00 riyadh time with gravenberch a game-day call, and liverpool are chasing a response after two straight defeats.",
-   "what_changed_ar": "مواجهة Palace خارج الديار الساعة 17:00 بتوقيت الرياض وغرافينبيرخ موضع تقييم يوم المباراة، وليفربول يبحث عن رد فعل بعد خسارتين متتاليتين.",
+   "what_changed": "liverpool won 3-1 at selhurst park to end a two-match losing run and climb to fourth before the international break",
+   "what_changed_ar": "فاز ليفربول 3-1 في سيلهرست بارك لينهي سلسلة هزيمتين ويتقدم إلى المركز الرابع قبل التوقف الدولي",
    "items": [
     {
-     "id": "liverpool-palace-next",
+     "id": "liverpool-palace-report",
      "section": "liverpool",
      "reliability": "Tier 1",
-     "time": "2026-11-08T06:00:00+03:00",
-     "title": "iraola: gravenberch is the only doubt for palace at selhurst park",
-     "title_ar": "إيراولا: غرافينبيرخ الشك الوحيد أمام Palace في سيلهرست بارك",
-     "summary": "Liverpool play Crystal Palace at Selhurst Park on Sunday at 14:00 GMT, with Ryan Gravenberch still a day-to-day call on a pain issue and the rest of the squad unchanged. Iraola also said Bradley Barcola is a winger '90% of the time' and that Palace, 18th under new manager Pierre Sage, are still organised.",
-     "summary_ar": "يلعب ليفربول مع كريستال بالاس في سيلهرست بارك الأحد الساعة 14:00 بتوقيت غرينتش، ولا يزال ريان غرافينبيرخ موضع تقييم يومي بسبب الألم فيما لم تتغير بقية القائمة. وقال إيراولا أيضاً إن برادلي باركولا جناح «90% من الوقت»، وإن بالاس، صاحب المركز 18 تحت المدرب الجديد بيير ساج، ما زال منظماً.",
+     "time": "2026-11-08T18:50:00+03:00",
+     "title": "palace 1-3 liverpool: isak and wirtz end the losing run",
+     "title_ar": "بالاس 1-3 ليفربول: إيساك وفيرتز ينهيان سلسلة الهزائم",
+     "summary": "Mac Allister opened the scoring on 40 minutes from Szoboszlai's pass, Wirtz made it two nine minutes into the second half from Barcola's ball and Isak added a third on 89. Nketiah's stoppage-time penalty was a consolation; the win lifts Liverpool to fourth on 18 points, while Palace stay 20th and Pierre Sage is under pressure.",
+     "summary_ar": "افتتح ماك أليستر التسجيل في الدقيقة 40 بتمريرة سوبوسلاي، وأضاف فيرتز الثاني بعد تسع دقائق من الشوط الثاني بتمريرة باركولا، ثم سجل إيساك الثالث في الدقيقة 89. وجاء هدف نكيتياه من ركلة جزاء في الوقت بدل الضائع للتقليص فقط؛ ويرفع الفوز ليفربول إلى المركز الرابع بـ18 نقطة، فيما يبقى بالاس في العشرين ويتعرض مدربه بيير ساج لضغط.",
      "sources": [
       {
        "title": "BBC Sport",
-       "url": "https://www.bbc.com/sport/football/articles/c6gm00xp2rjpo",
+       "url": "https://www.bbc.com/sport/football/live/c6r7ydrm8xlyt",
        "type": "independent"
       },
       {
-       "title": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/andoni-iraola-pre-crystal-palace-press-conference",
-       "type": "official"
+       "title": "The Guardian",
+       "url": "https://www.theguardian.com/football/live/2026/nov/08/crystal-palace-v-liverpool-brighton-v-brentford-and-more-premier-league-live",
+       "type": "independent"
       }
      ],
-     "image": "https://images.ctfassets.net/rm6ms1yxue4m/1GRaFtsPPiJKm6aKvlHUZu/4737c064f2beabf977f59f58194c9a67/andoni-iraola-presser-6112026.jpg?w=1200&h=630&fit=crop&f=face",
-     "status": "updated"
+     "image": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/ade6/live/fc1381f0-db8b-11f1-ab1c-6b6075dcdfe1.jpg",
+     "status": "new"
     },
     {
      "id": "liverpool-ngumoha-england",
@@ -955,7 +986,7 @@
   "games": {
    "items": [
     {
-     "status": "new",
+     "status": "",
      "section": "games",
      "id": "game-fm27",
      "time": "2026-11-08T06:00:00+03:00",
@@ -983,7 +1014,7 @@
      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4530370/1827516e497f3ddd2023b5ba3cd354af34a3548b/header_alt_assets_0.jpg?t=1793982134"
     },
     {
-     "status": "new",
+     "status": "",
      "section": "games",
      "id": "game-aow4-deal",
      "time": "2026-11-08T06:00:00+03:00",
@@ -1010,7 +1041,7 @@
      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1669000/68c09090edc5317dfbdcbb5bb2b693a4301e727e/header_alt_assets_15.jpg?t=1793955877"
     },
     {
-     "status": "new",
+     "status": "",
      "section": "games",
      "id": "game-kingslayers",
      "time": "2026-11-08T06:00:00+03:00",
@@ -1082,7 +1113,7 @@
        "type": "official"
       }
      ],
-     "status": "updated",
+     "status": "",
      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5268180/6a6f6493ad9c457236c313ed916771a5f713951b/header.jpg?t=1794010834",
      "kind": "RELEASE",
      "genres": [
@@ -1225,16 +1256,16 @@
       }
      ],
      "image": "https://i.ytimg.com/vi/KY9zDP4pH88/hqdefault.jpg",
-     "status": "updated"
+     "status": ""
     },
     {
      "id": "social-kimmel-rants",
      "section": "social",
-     "time": "2026-11-08T06:00:00+03:00",
-     "title": "kimmel's latest rant passes 5.9m views",
-     "title_ar": "أحدث حلقة نقد لكيمل تتجاوز 5.9 مليون مشاهدة",
-     "summary": "Kimmel's rant about Trump's grievances has 5,900,486 views and 131k likes, three days after it was posted.",
-     "summary_ar": "بلغت حلقة كيمل عن مظالم ترامب 5,900,486 مشاهدة و131 ألف إعجاب بعد ثلاثة أيام من نشرها.",
+     "time": "2026-11-08T19:12:32+03:00",
+     "title": "kimmel's latest rant passes 6.1m views",
+     "title_ar": "أحدث هجوم لكيمل يتجاوز 6.1 مليون مشاهدة",
+     "summary": "Kimmel's rant about Trump's grievances has 6,097,667 views, three days after it was posted.",
+     "summary_ar": "بلغ هجوم كيمل على مظالم ترامب 6,097,667 مشاهدة بعد ثلاثة أيام من نشره.",
      "sources": [
       {
        "title": "YouTube",
@@ -1246,19 +1277,19 @@
      "image": "https://i.ytimg.com/vi/UWDWyXvHo90/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Jimmy Kimmel Live",
-     "metric": "5.9m views"
+     "metric": "6.1m views"
     },
     {
      "id": "social-mrbeast-haaland",
      "section": "social",
-     "time": "2026-11-08T06:00:00+03:00",
+     "time": "2026-11-08T19:12:32+03:00",
      "platform": "youtube",
      "creator": "MrBeast",
-     "metric": "80.7m views",
-     "title": "mrbeast's 'beat a professional athlete' passes 80.7m views",
-     "title_ar": "فيديو MrBeast «اهزم رياضياً محترفاً» يتجاوز 80.7 مليون مشاهدة",
-     "summary": "MrBeast's 'Beat Professional Athlete, Win $100,000' has 80,764,142 views and 1.1m likes, still the biggest number in the section.",
-     "summary_ar": "بلغ فيديو MrBeast «اهزم رياضياً محترفاً واربح 100,000 دولار» 80,764,142 مشاهدة و1.1 مليون إعجاب، ولا يزال الأكبر في هذا القسم.",
+     "metric": "82.7m views",
+     "title": "mrbeast's 'beat a professional athlete' passes 82.7m views",
+     "title_ar": "فيديو MrBeast «تغلّب على رياضي محترف» يتجاوز 82.7 مليون مشاهدة",
+     "summary": "MrBeast's 'Beat Professional Athlete, Win $100,000' has 82,661,799 views, still the biggest number in the section.",
+     "summary_ar": "بلغ فيديو MrBeast «تغلّب على رياضي محترف واربح 100,000 دولار» 82,661,799 مشاهدة، ولا يزال الأكبر في القسم.",
      "sources": [
       {
        "title": "YouTube",
@@ -1288,16 +1319,16 @@
       }
      ],
      "image": "https://i.ytimg.com/vi/lTd6YiA8WDI/hqdefault.jpg",
-     "status": "updated"
+     "status": ""
     },
     {
      "id": "social-moresidemen-amongus",
      "section": "social",
-     "time": "2026-11-08T06:00:00+03:00",
-     "title": "moresidemen's among us return passes 4.6m views",
-     "title_ar": "عودة Among Us من MoreSidemen تتجاوز 4.6 مليون مشاهدة",
-     "summary": "MoreSidemen's Among Us impostor-chat video has 4,650,514 views and 97k likes, six days after release.",
-     "summary_ar": "بلغ فيديو Among Us من MoreSidemen 4,650,514 مشاهدة و97 ألف إعجاب بعد ستة أيام من نشره.",
+     "time": "2026-11-08T19:12:32+03:00",
+     "title": "moresidemen's among us return passes 4.8m views",
+     "title_ar": "عودة MoreSidemen إلى Among Us تتجاوز 4.8 مليون مشاهدة",
+     "summary": "MoreSidemen's Among Us impostor-chat video has 4,783,255 views, six days after release.",
+     "summary_ar": "بلغ فيديو المحادثة بين الجواسيس في Among Us من MoreSidemen 4,783,255 مشاهدة بعد ستة أيام من نشره.",
      "sources": [
       {
        "title": "YouTube",
@@ -1309,16 +1340,16 @@
      "image": "https://i.ytimg.com/vi/Bbhvp9Oo8TI/hqdefault.jpg",
      "platform": "youtube",
      "creator": "MoreSidemen",
-     "metric": "4.6m views"
+     "metric": "4.8m views"
     },
     {
      "id": "social-cnn-musk-week",
      "section": "social",
-     "time": "2026-11-08T06:00:00+03:00",
-     "title": "cnn's musk round-up passes 939k views in two days",
-     "title_ar": "ملخص CNN عن أسبوع ماسك يتجاوز 939 ألف مشاهدة في يومين",
-     "summary": "CNN's round-up of Musk's week has 939,421 views and 4.8k likes, two days after it went up.",
-     "summary_ar": "بلغ ملخص CNN لأسبوع ماسك 939,421 مشاهدة و4.8 ألف إعجاب بعد يومين من نشره.",
+     "time": "2026-11-08T19:12:32+03:00",
+     "title": "cnn's musk round-up passes 969k views in two days",
+     "title_ar": "ملخص CNN لأسبوع ماسك يتجاوز 969 ألف مشاهدة في يومين",
+     "summary": "CNN's round-up of Musk's week has 968,817 views, two days after it went up.",
+     "summary_ar": "بلغ ملخص CNN لأسبوع ماسك 968,817 مشاهدة بعد يومين من نشره.",
      "sources": [
       {
        "title": "YouTube",
@@ -1330,20 +1361,20 @@
      "image": "https://i.ytimg.com/vi/MVDcmg_xQhM/hqdefault.jpg",
      "platform": "youtube",
      "creator": "CNN",
-     "metric": "939k views"
+     "metric": "969k views"
     },
     {
-     "status": "new",
+     "status": "updated",
      "section": "social",
      "id": "social-dana-white",
-     "time": "2026-11-08T06:00:00+03:00",
+     "time": "2026-11-08T19:12:32+03:00",
      "platform": "youtube",
      "creator": "LiveNOW from FOX",
-     "metric": "226k views in 8 hours",
+     "metric": "273k views",
      "title": "trump offers dana white the white house press secretary job",
      "title_ar": "ترامب يعرض على دانا وايت منصب السكرتير الصحفي للبيت الأبيض",
-     "summary": "Trump offered UFC chief Dana White the White House press secretary job on Saturday, and White said he will meet the president on Monday to discuss it. Fox's live clip has 226,471 views in eight hours.",
-     "summary_ar": "عرض الرئيس الأميركي دونالد ترامب على رئيس UFC دانا وايت منصب السكرتير الصحفي للبيت الأبيض السبت، وقال وايت إنه سيلتقي ترامب الاثنين لمناقشة العرض. وحصد مقطع Fox المباشر 226,471 مشاهدة في ثماني ساعات.",
+     "summary": "Trump offered UFC chief Dana White the White House press secretary job on Saturday, and White said he will meet the president on Monday to discuss it. Fox's live clip has 273,417 views.",
+     "summary_ar": "عرض ترامب على رئيس UFC دانا وايت منصب السكرتير الصحفي للبيت الأبيض السبت، وقال وايت إنه سيلتقي الرئيس الاثنين لبحث الأمر. وبلغ المقطع المباشر من Fox 273,417 مشاهدة.",
      "sources": [
       {
        "title": "YouTube (LiveNOW from FOX)",
@@ -1374,7 +1405,7 @@
    "warning_ar": "مشاهد حرب وتقارير ضحايا. لا تُعرض هنا أي صور صادمة.",
    "items": [
     {
-     "status": "new",
+     "status": "",
      "section": "graphic",
      "id": "graphic-yemen-sanaa",
      "time": "2026-11-08T05:30:00+03:00",
