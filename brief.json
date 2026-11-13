@@ -2,9 +2,13 @@
  "version": 2,
  "schema_rev": "2.3",
  "sample": false,
- "generated_at": "2026-11-12T19:10:39+03:00",
+ "generated_at": "2026-11-13T06:41:19+03:00",
  "timezone": "Asia/Riyadh",
  "top_stories": [
+  {
+   "section": "middle_east",
+   "id": "me-iran-bahrain-radar"
+  },
   {
    "section": "us_markets",
    "id": "us-nvidia-huang"
@@ -12,113 +16,117 @@
   {
    "section": "middle_east",
    "id": "me-hormuz-tankers"
-  },
-  {
-   "section": "middle_east",
-   "id": "me-nasser-hospital"
   }
  ],
  "sections": {
   "middle_east": {
-   "what_changed": "two supertankers are burning in hormuz after what iran called a 'massive explosion', missile debris fell 35km from the grand mosque, and israel's strike on gaza's nasser hospital killed a surgeon and a child.",
-   "what_changed_ar": "سوبرناقلتان تحترقان في هرمز بعد «انفجار هائل»، وحطام صواريخ سقط على 35 كلم من المسجد الحرام، وغارة إسرائيلية على مستشفى ناصر في غزة قتلت جراحاً وطفلاً.",
+   "what_changed": "iran says it destroyed a us radar in bahrain, four tankers have now been hit in hormuz, and the un extended yemen sanctions while houthi drones kept coming at saudi oil sites.",
+   "what_changed_ar": "إيران تقول إنها دمّرت راداراً أميركياً في البحرين، وأربع ناقلات استُهدفت في هرمز، ومجلس الأمن يمدّد عقوبات اليمن بينما تواصل مسيّرات الحوثي استهداف منشآت النفط السعودية.",
    "items": [
+    {
+     "id": "me-iran-bahrain-radar",
+     "section": "middle_east",
+     "title": "iran says it destroyed a us early-warning radar in bahrain",
+     "summary": "The IRGC said it hit a US radar site in Bahrain in retaliation for an air attack on a telecoms tower in Sirik, and the Fars agency said the installation was destroyed; Washington and Manama did not comment. Reuters says it is the first time since early September that Iran has claimed a strike on US military assets in a Gulf state.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/13/iran-says-it-struck-us-radar-site-in-bahrain",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-13T06:17:00+03:00",
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/05/getty_69f846d446-1777878740.jpg?resize=1920%2C1440",
+     "title_ar": "إيران تقول إنها دمّرت رادار إنذار مبكر أميركياً في البحرين",
+     "summary_ar": "قال الحرس الثوري الإيراني إنه استهدف موقع رادار أميركياً في البحرين رداً على هجوم جوي على برج اتصالات في سيريك، وقالت وكالة فارس إن المنظومة دُمّرت، دون تعليق من واشنطن أو المنامة. ونقلت رويترز أن هذه أول مرة منذ مطلع سبتمبر تعلن فيها إيران استهداف أصول عسكرية أميركية في دولة خليجية.",
+     "status": "new"
+    },
     {
      "id": "me-hormuz-tankers",
      "section": "middle_east",
-     "status": "new",
-     "sources": [
-      {
-       "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/liveblog/2026/11/12/iran-war-live-tehran-warns-of-wider-retaliation-israel-kills-in-gaza",
-       "type": "independent"
-      },
-      {
-       "title": "CBS News",
-       "url": "https://www.cbsnews.com/live-updates/iran-war-us-nuclear-strait-of-hormuz/",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-12T18:45:00+03:00",
-     "title": "two supertankers ablaze in hormuz after a 'massive explosion'",
-     "summary": "Iran's Revolutionary Guards said two supertankers carrying more than four million barrels were stopped by a \"massive explosion\" overnight on a route Tehran calls unauthorised, and state TV said they hit naval mines. The army later reported two more tankers on fire east of the strait on Thursday afternoon; Brent rose about 1%.",
-     "image": "https://static-cdn.toi-media.com/www/uploads/2026/09/AP26249358408858-640x400.jpg",
-     "title_ar": "سوبرناقلتان تشتعلان في هرمز بعد «انفجار هائل»",
-     "summary_ar": "قال الحرس الثوري الإيراني إن سوبرناقلتَين تحملان أكثر من أربعة ملايين برميل توقفتا جراء «انفجار هائل» ليلاً على مسار تعتبره طهران غير مصرح به، ونقل التلفزيون الرسمي عن مسؤولين أن السفينتين اصطدمتا بألغام بحرية. وبعد الظهر أعلن الجيش الإيراني احتراق ناقلتَين أخريين شرق المضيق، وارتفع خام برنت نحو 1%."
-    },
-    {
-     "id": "me-iran-live",
-     "section": "middle_east",
      "status": "updated",
-     "time": "2026-11-12T18:20:00+03:00",
-     "title": "iran says any us attack will get a reply '10 times more severe'",
-     "summary": "Iran's military warned that any new US or Israeli attack would be answered \"10 times more severe\", as the Assembly of Experts urged the leadership to consider leaving the nuclear non-proliferation treaty. Israel has ordered its army to step up preparations for a possible new strike on Iran.",
      "sources": [
       {
-       "title": "Al Jazeera (live)",
-       "url": "https://www.aljazeera.com/news/liveblog/2026/11/12/iran-war-live-tehran-warns-of-wider-retaliation-israel-kills-in-gaza",
-       "type": "independent"
-      },
-      {
-       "title": "CBS News",
-       "url": "https://www.cbsnews.com/live-updates/iran-war-us-nuclear-strait-of-hormuz/",
-       "type": "independent"
-      }
-     ],
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/2026-07-03T132147Z_995685063_RC2A6MAV1254_RTRMADP_3_IRAN-CRISIS-KHAMENEI-1-1793093229.jpg?resize=1792%2C1080",
-     "title_ar": "إيران: أي هجوم أميركي سيقابل برد «أشد عشر مرات»",
-     "summary_ar": "حذّرت القوات المسلحة الإيرانية من أن أي هجوم أميركي أو إسرائيلي جديد سيقابل برد «أشد عشر مرات»، فيما دعا مجلس خبراء القيادة إلى بحث انسحاب إيران من معاهدة عدم الانتشار النووي. وأمرت إسرائيل جيشها بتعزيز التحضيرات لضربة محتملة جديدة على إيران."
-    },
-    {
-     "id": "me-nasser-hospital",
-     "section": "middle_east",
-     "status": "updated",
-     "time": "2026-11-12T17:10:00+03:00",
-     "title": "israeli strike on gaza's nasser hospital kills a surgeon and a child",
-     "summary": "Six people were killed and more than 20 wounded, including staff and patients, when an Israeli strike hit the second floor of the Nasser medical complex in Khan Younis at about 12.30am, Gaza's civil defence said. Among the dead was general surgeon Rizk Abu Shaira, who appeared in the documentary American Doctor; Israel said it struck a Hamas commander.",
-     "sources": [
-      {
-       "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/video/newsfeed/2026/11/12/israel-strikes-intensive-care-at-gazas-nasser-hospital",
-       "type": "independent"
-      },
-      {
-       "title": "RTE (Reuters)",
-       "url": "https://www.rte.ie/news/2026/1112/1598900-gaza-israel-strikes/",
+       "title": "Reuters via The Straits Times",
+       "url": "https://www.straitstimes.com/world/middle-east/four-tankers-struck-by-explosions-in-strait-of-hormuz-iran-says",
        "type": "wire"
       }
      ],
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/image-1794446435.jpg?resize=1920%2C1080&quality=80",
-     "title_ar": "غارة إسرائيلية على مستشفى ناصر في غزة تقتل جراحاً وطفلاً",
-     "summary_ar": "قُتل ستة أشخاص وأُصيب أكثر من 20 بينهم كوادر طبية ومرضى عندما أصابت غارة إسرائيلية الطابق الثاني من مجمع ناصر الطبي في خان يونس نحو الساعة 12:30 ليلاً، وفق الدفاع المدني في غزة. ومن بين القتلى الجراح العام رزق أبو شعيرة الذي ظهر في الفيلم الوثائقي American Doctor، وقالت إسرائيل إنها استهدفت قائداً في حماس."
+     "time": "2026-11-12T19:29:00+03:00",
+     "title": "four tankers hit in hormuz as iran reports new mine blasts",
+     "summary": "Iran's military said four tankers were hit by explosions in the Strait of Hormuz — two supertankers carrying more than 4m barrels midweek and two more on Thursday — after ignoring warnings on what Tehran calls an 'unauthorised' route. UKMTO said a vessel was hit by an unidentified projectile off Ras Al Khaimah, and at least 10 ships have been struck this month after 37 attacks in October.",
+     "image": "https://cassette.sphdigital.com.sg/image/straitstimes/4e77bf2f50f582021268b732c0c75bc468d09bd4549f5672fd2ca6140ad0dada?t=og",
+     "title_ar": "أربع ناقلات تُستهدف في هرمز مع إعلان إيران عن انفجارات ألغام جديدة",
+     "summary_ar": "قال الجيش الإيراني إن أربع ناقلات أصابتها انفجارات في مضيق هرمز — ناقلتان عملاقتان تحملان أكثر من 4 ملايين برميل منتصف الأسبوع وأخريان الخميس — بعد تجاهلها تحذيرات بشأن ما تسميه طهران مساراً «غير مصرح به». وقالت هيئة عمليات التجارة البحرية البريطانية إن سفينة أصابها مقذوف مجهول قبالة رأس الخيمة، وإن ما لا يقل عن 10 سفن استُهدفت هذا الشهر بعد 37 هجوماً في أكتوبر."
     },
     {
      "id": "me-yemen-missiles",
      "section": "middle_east",
      "status": "updated",
-     "time": "2026-11-12T17:30:00+03:00",
-     "title": "missile debris falls 35km from the grand mosque as houthi fire goes on",
-     "summary": "Saudi civil defence said debris from two intercepted ballistic missiles fell on Sabuhah village in the Makkah region, about 35km from the Grand Mosque, after Wednesday night's launches. The Saudi-led coalition also downed a drone over the Eastern Province overnight and another over the Riyadh region on Thursday; the Houthis deny targeting Mecca.",
+     "time": "2026-11-13T02:52:00+03:00",
+     "title": "houthis hit saudi oil sites as the un extends yemen sanctions",
+     "summary": "The Saudi-led coalition said it intercepted suspected Houthi drones over Riyadh and the Eastern Province, after the group claimed a drone hit a pumping station on the East-West pipeline and the Yanbu oil facility. The UN Security Council voted unanimously to extend Yemen sanctions for another year and demanded an end to the attacks on Saudi Arabia.",
      "sources": [
       {
-       "title": "Anadolu Agency",
-       "url": "https://www.aa.com.tr/en/middle-east/debris-from-intercepted-houthi-missiles-falls-in-saudi-arabia-s-mecca-region/4121557",
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/12/yemens-houthis-renew-strikes-on-saudi-arabia-as-unsc-extends-sanctions",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/ap_6af63caea5bc3-1794522286.jpg?resize=1920%2C1440",
+     "title_ar": "الحوثيون يستهدفون منشآت نفط سعودية ومجلس الأمن يمدد عقوبات اليمن",
+     "summary_ar": "قال التحالف بقيادة السعودية إنه اعترض مسيّرات يُشتبه بأنها حوثية فوق منطقة الرياض والمنطقة الشرقية، بعدما أعلنت الجماعة استهداف محطة ضخ على خط الأنابيب شرق-غرب ومنشأة ينبع النفطية بطائرة مسيّرة. وصوّت مجلس الأمن بالإجماع على تمديد عقوبات اليمن سنة أخرى وطالب بوقف الهجمات على السعودية."
+    },
+    {
+     "id": "me-iran-live",
+     "section": "middle_east",
+     "status": "updated",
+     "time": "2026-11-13T03:20:00+03:00",
+     "title": "trump says gulf allies urged a pause in strikes on iran",
+     "summary": "Trump said he held off on more strikes at Gulf allies' request, hours after warning he would not hesitate to hit Tehran again, Al Jazeera's live coverage reports. The IRGC says it struck a US radar in Bahrain in the same window.",
+     "sources": [
+      {
+       "title": "Al Jazeera (live)",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/13/iran-war-live-riyadh-china-discuss-houthis-as-group-claims-aramco-attacks",
        "type": "independent"
       },
       {
-       "title": "Reuters via The Straits Times",
-       "url": "https://www.straitstimes.com/world/middle-east/saudi-arabia-intercepts-houthi-missiles-drones-group-denies-targeting-mecca",
-       "type": "wire"
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/12/trump-iran-deal-hormuz-strait.html",
+       "type": "independent"
       }
      ],
-     "image": "https://web-cdnprod.aa.com.tr/uploads/Contents/2026/11/12/thumbs_b_c_9a5d1693351acbb6183d64583ef5691b.jpg",
-     "title_ar": "حطام صواريخ يسقط على 35 كلم من المسجد الحرام مع تواصل هجمات الحوثي",
-     "summary_ar": "قال الدفاع المدني السعودي إن حطام صاروخين باليستيين جرى اعتراضهما سقط على قرية سبوحة في منطقة مكة المكرمة على بعد نحو 35 كلم من المسجد الحرام، بعد إطلاقات ليلة الأربعاء. وأعلن التحالف بقيادة السعودية إسقاط مسيّرة فوق المنطقة الشرقية ليلاً وأخرى فوق منطقة الرياض الخميس، وينفي الحوثيون استهداف مكة."
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6aeaf830-1793783856.jpg?resize=1920%2C1440",
+     "title_ar": "ترامب يقول إن حلفاء خليجيين طلبوا وقفاً للضربات على إيران",
+     "summary_ar": "قال ترامب إنه أحجم عن مزيد من الضربات بطلب من حلفاء خليجيين، بعد ساعات من تحذيره بأنه لن يتردد في استهداف طهران مجدداً، بحسب تغطية الجزيرة المباشرة. ويقول الحرس الثوري إنه استهدف راداراً أميركياً في البحرين في التوقيت نفسه."
+    },
+    {
+     "id": "me-nasser-hospital",
+     "section": "middle_east",
+     "status": "updated",
+     "time": "2026-11-12T19:54:00+03:00",
+     "title": "israeli strike on gaza's nasser hospital kills six, medics say",
+     "summary": "Two missiles hit a building housing surgical wards and intensive care at Nasser hospital overnight, its director said, killing six people including surgeon Dr Rizq Abu Shaira and wounding about 30. Israel said it targeted a Hamas commander who used the hospital as a headquarters; Hamas called that a 'false narrative'.",
+     "sources": [
+      {
+       "title": "BBC News",
+       "url": "https://www.bbc.co.uk/news/articles/ckzd9p7e4eqeo",
+       "type": "independent"
+      },
+      {
+       "title": "The Guardian",
+       "url": "https://www.theguardian.com/world/2026/nov/12/israeli-airstrike-nasser-hospital-gaza-kills-surgeon",
+       "type": "independent"
+      }
+     ],
+     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d247/live/940d6f30-de7e-11f1-b88b-3f1671ea859d.jpg",
+     "title_ar": "غارة إسرائيلية على مستشفى ناصر في غزة تقتل ستة، بحسب الأطباء",
+     "summary_ar": "قال مدير مستشفى ناصر إن صاروخين أصابا مبنى يضم أقسام الجراحة والعناية المركزة ليلاً، ما أسفر عن مقتل ستة أشخاص بينهم الجراح رزق أبو شعيرة وإصابة نحو 30. وقالت إسرائيل إنها استهدفت قائداً في حماس استخدم المستشفى مقراً، بينما وصفت حماس ذلك بأنه «سردية زائفة»."
     },
     {
      "id": "me-trump-plan",
      "section": "middle_east",
-     "status": "updated",
+     "status": "",
      "time": "2026-11-12T16:30:00+03:00",
      "title": "trump says the us doesn't 'need a deal with iran'",
      "summary": "In a Truth Social post on Thursday Trump wrote that the days for a peace deal \"have long since passed\", adding: \"We've got their money... and we've got their Strait!\" Iran's Basij chief said Tehran will decide on the format of any negotiations only after its seven conditions are accepted.",
@@ -134,32 +142,9 @@
      "summary_ar": "كتب ترامب في منشور على تروث سوشيال الخميس أن أيام التوصل إلى اتفاق سلام «ولّت منذ زمن»، مضيفاً: «لدينا أموالهم... ولدينا مضيقهم!». وقال قائد قوات الباسيج إن طهران ستقرر شكل أي مفاوضات فقط بعد قبول شروطها السبعة."
     },
     {
-     "id": "me-ghalibaf-hormuz",
-     "section": "middle_east",
-     "status": "updated",
-     "time": "2026-11-12T17:00:00+03:00",
-     "title": "iran says hormuz will 'never return' to its pre-war status",
-     "summary": "Parliament speaker Mohammad Bagher Ghalibaf told Al Jazeera the strait will \"never return\" to its pre-war status and that the \"ball is now in the American court\" on Tehran's seven conditions, which include a joint Iran-Oman system for Hormuz traffic. Kpler recorded five commodity crossings on Saturday and none on Sunday, against 31 the previous weekend.",
-     "sources": [
-      {
-       "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/2026/11/12/no-war-no-peace-can-iran-break-the-deadlock-with-the-us",
-       "type": "independent"
-      },
-      {
-       "title": "Al Jazeera (live)",
-       "url": "https://www.aljazeera.com/news/liveblog/2026/11/12/iran-war-live-tehran-warns-of-wider-retaliation-israel-kills-in-gaza",
-       "type": "independent"
-      }
-     ],
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/ap_6af4c8b79ab85-1794427063.jpg?resize=1920%2C1440",
-     "title_ar": "إيران: هرمز «لن يعود أبداً» إلى وضعه قبل الحرب",
-     "summary_ar": "قال رئيس مجلس الشورى الإيراني محمد باقر قاليباف للجزيرة إن المضيق «لن يعود أبداً» إلى وضعه قبل الحرب وإن «الكرة الآن في الملعب الأميركي» بشأن شروط طهران السبعة، ومنها آلية إيرانية-عمانية مشتركة لحركة الملاحة في هرمز. وسجلت Kpler عبور خمس سفن سلع السبت ولا شيء الأحد، مقابل 31 في نهاية الأسبوع السابقة."
-    },
-    {
      "id": "me-uk-iran-spies",
      "section": "middle_east",
-     "status": "new",
+     "status": "",
      "sources": [
       {
        "title": "The Guardian",
@@ -200,111 +185,139 @@
    ],
    "watch": [
     {
-     "title": "Israeli air strike on Gaza’s Nasser Hospital kills six Palestinians",
-     "url": "https://www.youtube.com/watch?v=Be8wW-2R94o",
-     "channel": "Al Jazeera English"
+     "title": "Trump claims control of the Strait of Hormuz and says deal to end Iran war isn’t needed | BBC News",
+     "url": "https://www.youtube.com/watch?v=2OtnYo9yjBI",
+     "channel": "BBC News"
     },
     {
-     "title": "US Secretary of State Marco Rubio says no major combat operations needed in Iran",
-     "url": "https://www.youtube.com/watch?v=12h7hw_3DEk",
+     "title": "Iran’s Ghalibaf tells Al Jazeera the ball is in US’s court on talks to end war",
+     "url": "https://www.youtube.com/watch?v=vQv5GQCatG0",
      "channel": "Al Jazeera English"
     }
    ]
   },
   "us_markets": {
-   "what_changed": "jensen huang resigned as nvidia's ceo and the stock swung from a 13% opening drop to about -5%, leaving the s&p 500 and nasdaq barely changed by late morning; brent pushed above $93 as tankers burned in hormuz.",
-   "what_changed_ar": "استقال جنسن هوانغ من رئاسة إنفيديا التنفيذية وتأرجح السهم بين هبوط 13% عند الافتتاح ونحو -5%، ليبقى S&P 500 وناسداك دون تغير يذكر قبيل منتصف الجلسة، وتجاوز برنت 93 دولاراً مع احتراق ناقلات في هرمز.",
+   "what_changed": "nvidia closed 4.3% lower after jensen huang quit, the s&p 500 slipped 0.35% but futures turned higher overnight, and brent settled at $95.82.",
+   "what_changed_ar": "أغلق سهم إنفيديا منخفضاً 4.3% بعد استقالة جنسن هوانغ، وتراجع S&P 500 بنسبة 0.35% لكن العقود ارتفعت خلال الليل، واستقر خام برنت عند 95.82 دولاراً.",
    "items": [
     {
      "id": "us-nvidia-huang",
      "section": "us_markets",
      "status": "updated",
-     "time": "2026-11-12T18:50:00+03:00",
-     "title": "jensen huang resigns as nvidia ceo; cfo colette kress steps in",
-     "summary": "Nvidia's board said Huang resigned as president, CEO and director effective immediately, ending 33 years at the company he co-founded, after disclosures that he had relationships with a company executive and with a woman US officials suspect of spying for China. CFO Colette Kress is interim CEO while the board searches for a permanent successor, and former Synopsys chief Harvey Jones becomes Nvidia's first board chair. The stock, down 13% at the open, was -4.07% at 11:08 a.m. ET.",
+     "time": "2026-11-13T02:34:00+03:00",
+     "title": "nvidia closed down 4.3% after huang quit over the scandal",
+     "summary": "Nvidia closed at $166.19, down 4.34%, on the day Jensen Huang resigned over reported extramarital affairs, including a relationship with a woman US intelligence officials believe is a Chinese spy. CFO Colette Kress is interim CEO while the board searches internally and externally, and Trump called the saga 'a horrible thing'.",
      "sources": [
       {
-       "title": "Nvidia",
-       "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/",
-       "type": "official"
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html",
+       "type": "independent"
       },
       {
-       "title": "CNBC",
-       "url": "https://www.cnbc.com/quotes/NVDA",
+       "title": "BBC News",
+       "url": "https://www.bbc.co.uk/news/articles/cmq5vd1wdgz6o",
        "type": "independent"
       }
      ],
-     "image": "https://image.cnbcfm.com/api/v1/image/108157882-1794436807252-108157882-17496552882025-06-11t100608z_371100481_rc2a0fa4l6n4_rtrmadp_0_france-tech.jpeg",
-     "title_ar": "جنسن هوانغ يستقيل من إنفيديا وكوليت كريس تتولى مؤقتاً",
-     "summary_ar": "أعلن مجلس إدارة إنفيديا استقالة هوانغ من منصبي الرئيس والرئيس التنفيذي وعضوية المجلس بأثر فوري، لتنتهي مسيرة 33 عاماً في الشركة التي شارك في تأسيسها، بعد كشف علاقاته بمسؤولة في الشركة وبامرأة تعتقد أجهزة الاستخبارات الأميركية أنها جاسوسة لصالح الصين. وتتولى المديرة المالية كوليت كريس منصب الرئيس التنفيذي مؤقتاً ريثما يبحث المجلس عن خلف دائم، ويصبح رئيس Synopsys السابق هارفي جونز أول رئيس لمجلس الإدارة. وكان السهم منخفضاً 4.07% عند 11:08 صباحاً بتوقيت نيويورك بعد هبوط 13% عند الافتتاح.",
+     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f66c/live/4f0358a0-def1-11f1-bb80-c5cef03337ce.jpg",
+     "title_ar": "إنفيديا تغلق منخفضة 4.3% بعد استقالة هوانغ بسبب القضية",
+     "summary_ar": "أغلق سهم إنفيديا عند 166.19 دولاراً بانخفاض 4.34% في اليوم الذي استقال فيه جنسن هوانغ بسبب علاقات خارج الزواج، من بينها علاقة بامرأة تعتقد أجهزة الاستخبارات الأميركية أنها جاسوسة صينية. وتتولى المديرة المالية كوليت كريس منصب الرئيس التنفيذي بالإنابة بينما يبحث مجلس الإدارة داخلياً وخارجياً، ووصف ترامب القضية بأنها «أمر مروع».",
      "tag": "MOVERS"
     },
     {
-     "id": "us-futures-thu",
+     "id": "us-close-thu",
      "section": "us_markets",
-     "status": "updated",
-     "time": "2026-11-12T18:55:00+03:00",
-     "title": "s&p 500 steadies as nvidia claws back from a 13% opening plunge",
-     "summary": "By 11:08 a.m. ET the S&P 500 was +0.23%, the Nasdaq +0.27% and the Dow +0.34%, with the VIX at 17.52 (+0.17%) after touching 19.34, as Nvidia recovered from $148.80 to about $166.66. Nvidia has lost more than $600bn of market value this week and reports earnings on 17 November.",
+     "tag": "MOVERS",
+     "title": "s&p 500 slips 0.35% as nvidia drags, and futures turn higher",
+     "summary": "The S&P 500 closed at 7,592.40 (-0.35%), the Nasdaq at 25,366.09 (-0.39%) and the Dow at 52,297.09 (-0.36%), with Nvidia the main weight and the VIX up 6.9% to 18.70. Early on Friday, Dow futures were up 166 points (0.3%), S&P 500 futures 0.4% and Nasdaq-100 futures 0.6%.",
      "sources": [
       {
-       "title": "CNBC (@SPX quote)",
-       "url": "https://www.cnbc.com/quotes/.SPX",
-       "type": "independent"
-      },
-      {
        "title": "CNBC (live updates)",
-       "url": "https://www.cnbc.com/2026/11/11/stock-market-today-live-updates.html",
+       "url": "https://www.cnbc.com/2026/11/12/stock-market-today-live-updates.html",
        "type": "independent"
       }
      ],
-     "image": "https://image.cnbcfm.com/api/v1/image/108548243-17943307042026-11-10t171000z_665024736_rc21loachi3x_rtrmadp_0_usa-stocks.jpeg",
-     "title_ar": "S&P 500 يتماسك بينما تتعافى إنفيديا من هبوط 13% عند الافتتاح",
-     "summary_ar": "بحلول 11:08 a.m. ET كان S&P 500 عند +0.23% وناسداك +0.27% وداو جونز +0.34%، مع مؤشر التقلب VIX عند 17.52 (+0.17%) بعد ملامسته 19.34، فيما تعافت إنفيديا من 148.80 دولاراً إلى نحو 166.66 دولار. وخسرت إنفيديا أكثر من 600 مليار دولار من قيمتها السوقية هذا الأسبوع وتعلن نتائجها في 17 نوفمبر.",
-     "tag": "MOVERS"
+     "time": "2026-11-13T05:29:00+03:00",
+     "image": "https://image.cnbcfm.com/api/v1/image/108550258-1794502895373-gettyimages-2304263485-US_STOCKS.jpeg?v=1794502956",
+     "title_ar": "S&P 500 يتراجع 0.35% بضغط إنفيديا والعقود تتحول للارتفاع",
+     "summary_ar": "أغلق مؤشر S&P 500 عند 7,592.40 (-0.35%) وناسداك عند 25,366.09 (-0.39%) وداو جونز عند 52,297.09 (-0.36%)، مع ضغط إنفيديا وصعود مؤشر التقلب VIX بنسبة 6.9% إلى 18.70. وفي وقت مبكر من الجمعة ارتفعت عقود داو 166 نقطة (0.3%) وعقود S&P 500 بنسبة 0.4% وعقود ناسداك-100 بنسبة 0.6%.",
+     "status": "new"
     },
     {
      "id": "us-oil",
      "section": "us_markets",
      "status": "updated",
-     "time": "2026-11-12T18:52:00+03:00",
-     "title": "brent climbs above $93 as hormuz tanker fires tighten supply",
-     "summary": "ICE Brent for January was $93.59 a barrel (+0.89%) and WTI for December $86.71 (+0.21%) after two supertankers caught fire in the Strait of Hormuz and Iran reported two more tankers burning on Thursday. Brent settled near $92 on Wednesday.",
+     "time": "2026-11-13T06:21:00+03:00",
+     "title": "brent settled at $95.82 before easing to $95.46 overnight",
+     "summary": "Brent rose more than 3% to settle at $95.82 on Thursday after Trump said 'we don't need a deal with Iran', then traded at $95.46 by early Friday. WTI was at $88.11.",
      "sources": [
       {
        "title": "CNBC (@LCO.1 quote)",
        "url": "https://www.cnbc.com/quotes/@LCO.1",
        "type": "independent"
-      },
-      {
-       "title": "Al Jazeera (live)",
-       "url": "https://www.aljazeera.com/news/liveblog/2026/11/12/iran-war-live-tehran-warns-of-wider-retaliation-israel-kills-in-gaza",
-       "type": "independent"
       }
      ],
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/04/reuters_69f1e9ec-1777461740.jpg?resize=1920%2C1440",
-     "title_ar": "برنت يتجاوز 93 دولاراً مع احتراق ناقلات في هرمز",
-     "summary_ar": "بلغ خام برنت لتسليم يناير 93.59 دولاراً للبرميل (+0.89%) وخام غرب تكساس لتسليم ديسمبر 86.71 دولاراً (+0.21%) بعد احتراق سوبرناقلتَين في مضيق هرمز وإعلان إيران احتراق ناقلتَين أخريين الخميس. وكان برنت قد أغلق قرب 92 دولاراً الأربعاء.",
+     "title_ar": "برنت يستقر عند 95.82 دولاراً ثم يتراجع إلى 95.46 خلال الليل",
+     "summary_ar": "ارتفع خام برنت أكثر من 3% ليستقر عند 95.82 دولاراً الخميس بعد قول ترامب «لا نحتاج اتفاقاً مع إيران»، ثم تداول عند 95.46 دولاراً في وقت مبكر من الجمعة. وبلغ خام غرب تكساس 88.11 دولاراً.",
      "tag": "GLOBAL"
     },
     {
-     "id": "us-close-wed",
+     "id": "us-ppi",
      "section": "us_markets",
-     "status": "",
-     "time": "2026-11-12T00:00:00+03:00",
-     "title": "dow adds 255 points and the nasdaq jumps 1.6% on coreweave's 24% day",
-     "summary": "The Dow rose nearly 255 points, or 0.5%, the S&P 500 gained 1.3% and the Nasdaq Composite 1.6% on Wednesday, CNBC reported. CoreWeave climbed more than 24%, its best day since April 2025, after a stronger-than-expected third quarter and a raised revenue outlook.",
+     "tag": "MACRO",
+     "title": "october producer prices land at 16:30 riyadh with 0.4% expected",
+     "summary": "October's PPI is due at 8:30 a.m. ET (16:30 Riyadh), with economists polled by Dow Jones expecting a 0.4% monthly rise and 6.6% year on year. It follows October CPI at 0.4%, which kept the debate over a Fed rate hike alive.",
      "sources": [
       {
        "title": "CNBC (live updates)",
-       "url": "https://www.cnbc.com/2026/11/11/stock-market-today-live-updates.html",
+       "url": "https://www.cnbc.com/2026/11/12/stock-market-today-live-updates.html",
        "type": "independent"
       }
      ],
-     "image": "https://image.cnbcfm.com/api/v1/image/108548220-1794329432696-Traders-Photo-20261110-KK-PRESS-010.jpg",
-     "title_ar": "داو جونز يضيف 255 نقطة وناسداك يقفز 1.6% في يوم CoreWeave القوي",
-     "summary_ar": "ارتفع داو جونز نحو 255 نقطة أي 0.5%، وصعد S&P 500 بنسبة 1.3% وناسداك المركب 1.6% الأربعاء، وفق CNBC. وقفزت CoreWeave أكثر من 24% في أفضل يوم لها منذ أبريل 2025 بعد نتائج ربع ثالث فاقت التوقعات ورفع توقعات الإيرادات.",
-     "tag": "MOVERS"
+     "time": "2026-11-13T05:30:00+03:00",
+     "image": "https://image.cnbcfm.com/api/v1/image/108550258-1794502895373-gettyimages-2304263485-US_STOCKS.jpeg?v=1794502956&w=1920&h=1080",
+     "title_ar": "أسعار المنتجين الأميركية تصدر 16:30 بتوقيت الرياض مع توقع 0.4%",
+     "summary_ar": "تصدر بيانات أسعار المنتجين لشهر أكتوبر في 8:30 صباحاً بتوقيت شرق الولايات المتحدة (16:30 بتوقيت الرياض)، ويتوقع اقتصاديون استطلعتهم داو جونز زيادة 0.4% شهرياً و6.6% سنوياً. ويأتي ذلك بعد ارتفاع أسعار المستهلك 0.4% في أكتوبر، ما أبقى الجدل حول رفع الفائدة قائماً.",
+     "status": "new"
+    },
+    {
+     "id": "us-cerebras",
+     "section": "us_markets",
+     "tag": "EARNINGS",
+     "title": "cerebras jumps 17% on a beat and a microsoft deal",
+     "summary": "Cerebras surged 17% after beating quarterly revenue estimates and announcing a deal with Microsoft, one of the few AI names to rally while Nvidia fell.",
+     "sources": [
+      {
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/12/cerebras-systems-cbrs-q3-earnings-report-2026.html",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-13T05:43:00+03:00",
+     "image": "https://image.cnbcfm.com/api/v1/image/108550490-1794515369096-gettyimages-2299540938-TECHCRUNCH_DISRUPT.jpeg?v=1794515427",
+     "title_ar": "سيربراس يقفز 17% بعد تجاوز التوقعات واتفاق مع مايكروسوفت",
+     "summary_ar": "قفز سهم Cerebras بنسبة 17% بعد تجاوز تقديرات إيرادات الربع والإعلان عن اتفاق مع مايكروسوفت، ليكون من الشركات القليلة في قطاع الذكاء الاصطناعي التي ارتفعت بينما تراجعت إنفيديا.",
+     "status": "new"
+    },
+    {
+     "id": "us-weekly",
+     "section": "us_markets",
+     "tag": "MOVERS",
+     "title": "wall street heads for its best week since early august",
+     "summary": "Even after Thursday's dip, the Nasdaq is up 3.2% this week, the S&P 500 2.9% and the Dow about 2% — the best weekly performance for all three since early August.",
+     "sources": [
+      {
+       "title": "CNBC (live updates)",
+       "url": "https://www.cnbc.com/2026/11/12/stock-market-today-live-updates.html",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-13T05:30:00+03:00",
+     "image": "https://image.cnbcfm.com/api/v1/image/108550258-1794502895373-gettyimages-2304263485-US_STOCKS.jpeg?v=1794502956&w=1920&h=1080",
+     "title_ar": "وول ستريت تتجه لأفضل أسبوع لها منذ مطلع أغسطس",
+     "summary_ar": "حتى بعد تراجع الخميس، يرتفع ناسداك 3.2% هذا الأسبوع وS&P 500 بنسبة 2.9% وداو جونز نحو 2%، وهو أفضل أداء أسبوعي للمؤشرات الثلاثة منذ مطلع أغسطس.",
+     "status": "new"
     },
     {
      "id": "us-anthropic-ipo",
@@ -331,52 +344,9 @@
      "summary_ar": "قالت أنثروبيك في ملف محدث إنها ستطرح 825 مليون سهم بسعر يتراوح بين 70 و78 دولاراً، مع توقع التسعير في 18 نوفمبر وبدء التداول في ناسداك تحت الرمز ANT في اليوم التالي، وفق CNBC. وعند أعلى النطاق سيجمع الطرح 64.35 مليار دولار وتصل قيمة الشركة إلى 1.405 تريليون دولار."
     },
     {
-     "id": "us-retail",
-     "section": "us_markets",
-     "status": "",
-     "time": "2026-11-11T15:27:00+03:00",
-     "title": "october retail sales grew at the slowest pace in nearly a year",
-     "summary": "The CNBC/NRF Retail Monitor showed retail sales rose at their slowest pace in nearly a year in October, CNBC reported, as American consumers showed signs of strain from high prices even while they kept spending.",
-     "sources": [
-      {
-       "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/11/october-retail-sales-cnbc-nrf-2026.html",
-       "type": "independent"
-      }
-     ],
-     "image": "https://image.cnbcfm.com/api/v1/image/108048711-1729110725847-gettyimages-2178767822-dsc_1410_2z6whipv.jpeg",
-     "title_ar": "مبيعات التجزئة في أكتوبر تنمو بأبطأ وتيرة منذ نحو عام",
-     "summary_ar": "أظهر مؤشر CNBC/NRF لمبيعات التجزئة أن المبيعات ارتفعت بأبطأ وتيرة منذ نحو عام في أكتوبر، وفق CNBC، مع ظهور مؤشرات ضغط على المستهلكين الأميركيين من الأسعار المرتفعة رغم استمرارهم في الإنفاق.",
-     "tag": "MACRO"
-    },
-    {
-     "status": "",
-     "id": "us-cpi-oct",
-     "section": "us_markets",
-     "tag": "MACRO",
-     "title": "october cpi runs hot at 0.4% and core at 0.3%",
-     "summary": "The consumer price index rose 0.4% in October against a 0.3% forecast from economists polled by Dow Jones, and core CPI rose 0.3% against 0.2%, the Bureau of Labor Statistics said; September was 0.6% and 0.3%. The bureau again gave no annual rate because the 2025 shutdown left it without comparable data. Shelter accounted for more than 30% of the increase, energy rose 0.7% and electricity 0.9%, and futures drifted lower while the 10-year yield jumped to 4.95%.",
-     "title_ar": "تضخم أكتوبر يرتفع 0.4% والأساسي 0.3% فوق التوقعات",
-     "summary_ar": "قال مكتب إحصاءات العمل إن مؤشر أسعار المستهلك ارتفع 0.4% في أكتوبر مقابل توقع 0.3% لدى اقتصاديي «داو جونز»، فيما ارتفع المؤشر الأساسي 0.3% مقابل 0.2%؛ وكانا 0.6% و0.3% في سبتمبر. ولم ينشر المكتب معدلاً سنوياً مجدداً لأن إغلاق الحكومة في 2025 حرمه من بيانات قابلة للمقارنة. وشكّل الإسكان أكثر من 30% من الزيادة، وارتفعت الطاقة 0.7% والكهرباء 0.9%، وتراجعت العقود المستقبلية بينما قفز عائد السند لأجل 10 سنوات إلى 4.95%.",
-     "sources": [
-      {
-       "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/10/cpi-inflation-report-october-2026.html",
-       "type": "independent"
-      },
-      {
-       "title": "Bureau of Labor Statistics",
-       "url": "https://www.bls.gov/news.release/cpi.nr0.htm",
-       "type": "official"
-      }
-     ],
-     "time": "2026-11-10T19:06:00+03:00",
-     "image": "https://image.cnbcfm.com/api/v1/image/108405599-17919312802025-05-28t072704z_2039027556_rc23zdahp1s8_rtrmadp_0_usa-trump-tariffs-c.jpg?v=1791931361&w=1920&h=1080"
-    },
-    {
      "id": "us-trump-china",
      "section": "us_markets",
-     "status": "new",
+     "status": "",
      "sources": [
       {
        "title": "Al Jazeera",
@@ -395,20 +365,20 @@
    ],
    "watch": [
     {
-     "title": "How should investors trade Nvidia now: The Investment Committee weighs in",
-     "url": "https://www.youtube.com/watch?v=luy19LtIWtQ",
+     "title": "The Investment Committee reacts to Nvidia's stock after Jensen Huang's resignation",
+     "url": "https://www.youtube.com/watch?v=knn1GWs35CE",
      "channel": "CNBC Television"
     },
     {
-     "title": "CNBC On NVIDIA Stock, Micron Stock, Jensen Huang - NVDA Update",
-     "url": "https://www.youtube.com/watch?v=4HKV9INtwXU",
-     "channel": "FinVid"
+     "title": "Nvidia CEO Jensen Huang resigns, Nvidia stock plunges",
+     "url": "https://www.youtube.com/watch?v=gCwpCPZeIGQ",
+     "channel": "CNN"
     }
    ]
   },
   "ai": {
-   "what_changed": "the uncensored deepseek distill held #1 and minimax's h3 image model #2, while qwen's own 3.8-27b and a davidau coder build entered the top ten and kimi k3.1 and ripple-65b fell out of the top five.",
-   "what_changed_ar": "احتفظ نموذج DeepSeek غير الخاضع للرقابة بالمركز الأول ونموذج MiniMax-H3 للصور بالثاني، بينما دخل Qwen3.8-27B ونسخة DavidAU للبرمجة قائمة العشرة الأوائل وتراجع Kimi K3.1 وRipple-65B إلى ما بعد الخمسة الأوائل.",
+   "what_changed": "the uncensored deepseek distill held #1, minimax's h3 image model #2, and nous research's arete-27b climbed to #3 while qwen's own 3.8-27b moved up to #6.",
+   "what_changed_ar": "احتفظت نسخة DeepSeek غير الخاضعة للرقابة بالمركز الأول، ونموذج MiniMax-H3 للصور بالثاني، وصعد arete-27b من Nous Research إلى الثالث بينما تقدّم Qwen3.8-27B إلى السادس.",
    "items": [
     {
      "id": "ai-heretic-distill",
@@ -416,7 +386,7 @@
      "status": "updated",
      "time": "2026-11-12T18:58:00+03:00",
      "title": "#1: the uncensored deepseek distill still leads hugging face",
-     "summary": "The xtools-at build of DeepSeek V4 Pro on a Qwen 3.5 9B base leads Hugging Face's trending models with 4,644 likes and 18,933 downloads, aimed at unfiltered text generation.",
+     "summary": "The xtools-at build of DeepSeek V4 Pro on a Qwen 3.5 9B base leads Hugging Face's trending models with 4,749 likes and 18,933 downloads, aimed at unfiltered text generation.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -426,11 +396,11 @@
      ],
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic.png",
      "title_ar": "المرتبة الأولى: نسخة DeepSeek غير الخاضعة للرقابة تحتفظ بالصدارة",
-     "summary_ar": "يتصدر نموذج xtools-at المبني على DeepSeek V4 Pro وقاعدة Qwen 3.5 9B قائمة Hugging Face بـ4,644 إعجاباً و18,933 تنزيلاً، وهو موجه لتوليد نصوص بلا فلاتر.",
+     "summary_ar": "يتصدر نموذج xtools-at المبني على DeepSeek V4 Pro وقاعدة Qwen 3.5 9B قائمة Hugging Face بـ4,749 إعجاباً و18,933 تنزيلاً، وهو موجه لتوليد نصوص بلا فلاتر.",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
      "pricing": "Open weights",
-     "metric": "#1 trending, 4,644 likes"
+     "metric": "#1 trending, 4,749 likes"
     },
     {
      "id": "ai-minimax-h3-image",
@@ -438,7 +408,7 @@
      "status": "updated",
      "time": "2026-11-12T18:58:00+03:00",
      "title": "#2: minimax's h3 image model holds second place",
-     "summary": "MiniMax's H3 text-to-image model stays second with 828 likes and 306,718 downloads, the most-downloaded model in the top five.",
+     "summary": "MiniMax's H3 text-to-image model stays second with 879 likes and 306,718 downloads, the most-downloaded model in the top five.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -448,41 +418,19 @@
      ],
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/MiniMaxAI/MiniMax-H3-Image.png",
      "title_ar": "المرتبة الثانية: نموذج MiniMax-H3 للصور يحافظ على مركزه",
-     "summary_ar": "يحافظ نموذج MiniMax-H3 لتحويل النص إلى صورة على المركز الثاني بـ828 إعجاباً و306,718 تنزيلاً، وهو الأكثر تنزيلاً بين الخمسة الأوائل.",
+     "summary_ar": "يحافظ نموذج MiniMax-H3 لتحويل النص إلى صورة على المركز الثاني بـ879 إعجاباً و306,718 تنزيلاً، وهو الأكثر تنزيلاً بين الخمسة الأوائل.",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image",
      "pricing": "Open weights",
-     "metric": "#2 trending, 828 likes"
-    },
-    {
-     "id": "ai-idol",
-     "section": "ai",
-     "status": "updated",
-     "time": "2026-11-12T18:58:00+03:00",
-     "title": "#3: idol holds third with 2,199 likes",
-     "summary": "SperID Labs' image-to-3D model keeps third place with 2,199 likes and 29,904 downloads.",
-     "sources": [
-      {
-       "title": "Hugging Face",
-       "url": "https://huggingface.co/speridlabs/idol",
-       "type": "independent"
-      }
-     ],
-     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/speridlabs/idol.png",
-     "title_ar": "المرتبة الثالثة: idol يحافظ على المركز الثالث بـ2,199 إعجاباً",
-     "summary_ar": "يحافظ نموذج SperID Labs لتحويل الصورة إلى مجسم ثلاثي الأبعاد على المركز الثالث بـ2,199 إعجاباً و29,904 تنزيلات.",
-     "kind": "MODEL",
-     "try_url": "https://huggingface.co/speridlabs/idol",
-     "pricing": "Open weights",
-     "metric": "#3 trending, 2,199 likes"
+     "metric": "#2 trending, 879 likes"
     },
     {
      "id": "ai-arete-27b",
      "section": "ai",
      "status": "updated",
      "time": "2026-11-12T18:58:00+03:00",
-     "title": "#4: nous research's arete-27b holds fourth",
-     "summary": "Nous Research's 27B text model sits fourth with 464 likes and 4,669 downloads six days after release.",
+     "title": "#3: nous research's arete-27b climbs to third",
+     "summary": "Nous Research's 27B text model moves up to third with 491 likes and 4,669 downloads, a week after release.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -491,20 +439,42 @@
       }
      ],
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/NousResearch/Arete-27B.png",
-     "title_ar": "المرتبة الرابعة: arete-27b من Nous Research يحافظ على المركز الرابع",
-     "summary_ar": "يحل نموذج Nous Research النصي بحجم 27B في المركز الرابع بـ464 إعجاباً و4,669 تنزيلاً بعد ستة أيام من إصداره.",
+     "title_ar": "المرتبة الثالثة: arete-27b من Nous Research يصعد إلى المركز الثالث",
+     "summary_ar": "يتقدم نموذج Nous Research النصي بحجم 27B إلى المركز الثالث بـ491 إعجاباً و4,669 تنزيلاً بعد أسبوع من إصداره.",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/NousResearch/Arete-27B",
      "pricing": "Open weights",
-     "metric": "#4 trending, 464 likes"
+     "metric": "#3 trending, 491 likes"
+    },
+    {
+     "id": "ai-idol",
+     "section": "ai",
+     "status": "updated",
+     "time": "2026-11-12T18:58:00+03:00",
+     "title": "#4: idol slips to fourth with 2,238 likes",
+     "summary": "SperID Labs' image-to-3D model is fourth with 2,238 likes and 29,904 downloads.",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/speridlabs/idol",
+       "type": "independent"
+      }
+     ],
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/speridlabs/idol.png",
+     "title_ar": "المرتبة الرابعة: idol يتراجع إلى المركز الرابع بـ2,238 إعجاباً",
+     "summary_ar": "يحل نموذج SperID Labs لتحويل الصورة إلى مجسم ثلاثي الأبعاد في المركز الرابع بـ2,238 إعجاباً و29,904 تنزيلات.",
+     "kind": "MODEL",
+     "try_url": "https://huggingface.co/speridlabs/idol",
+     "pricing": "Open weights",
+     "metric": "#4 trending, 2,238 likes"
     },
     {
      "id": "ai-ltx-2-5",
      "section": "ai",
      "status": "updated",
      "time": "2026-11-12T18:58:00+03:00",
-     "title": "#5: ltx-2.5 holds fifth at 11,588 likes",
-     "summary": "Lightricks' image-to-video model is fifth with 11,588 likes and 2.78m downloads.",
+     "title": "#5: ltx-2.5 holds fifth at 11,644 likes",
+     "summary": "Lightricks' image-to-video model is fifth with 11,644 likes and 2.78m downloads.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -513,39 +483,17 @@
       }
      ],
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Lightricks/LTX-2.5.png",
-     "title_ar": "المرتبة الخامسة: ltx-2.5 في المركز الخامس بـ11,588 إعجاباً",
-     "summary_ar": "يحل نموذج Lightricks لتحويل الصورة إلى فيديو في المركز الخامس بـ11,588 إعجاباً و2.78 مليون تنزيل.",
+     "title_ar": "المرتبة الخامسة: ltx-2.5 في المركز الخامس بـ11,644 إعجاباً",
+     "summary_ar": "يحل نموذج Lightricks لتحويل الصورة إلى فيديو في المركز الخامس بـ11,644 إعجاباً و2.78 مليون تنزيل.",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/Lightricks/LTX-2.5",
      "pricing": "Open weights",
-     "metric": "#5 trending, 11,588 likes"
-    },
-    {
-     "id": "ai-davidau-heretic-coder",
-     "section": "ai",
-     "status": "new",
-     "sources": [
-      {
-       "title": "Hugging Face",
-       "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-12T18:58:00+03:00",
-     "title": "#6: a davidau 'heretic' coder build enters sixth",
-     "summary": "DavidAU's Qwen 3.8 27B fine-tune, packaged as an uncensored coder in GGUF format, enters the top ten at #6 with 2,961 likes and 1.6m downloads.",
-     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF.png",
-     "kind": "MODEL",
-     "try_url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-     "pricing": "Open weights",
-     "metric": "#6 trending, 2,961 likes",
-     "title_ar": "المرتبة السادسة: نسخة DavidAU «الهرطقية» للبرمجة تدخل القائمة",
-     "summary_ar": "يدخل نموذج DavidAU المبني على Qwen 3.8 27B، والمطروح كنسخة برمجة بلا رقابة بصيغة GGUF، قائمة العشرة الأوائل في المركز السادس بـ2,961 إعجاباً و1.6 مليون تنزيل."
+     "metric": "#5 trending, 11,644 likes"
     },
     {
      "id": "ai-qwen38-27b",
      "section": "ai",
-     "status": "new",
+     "status": "updated",
      "sources": [
       {
        "title": "Hugging Face",
@@ -554,67 +502,84 @@
       }
      ],
      "time": "2026-11-12T18:58:00+03:00",
-     "title": "#7: qwen's own 3.8-27b joins the top ten",
-     "summary": "Alibaba's Qwen3.8-27B enters at #7 with 19,700 likes and 7.09m downloads; it is the base DavidAU's build above is fine-tuned from.",
+     "title": "#6: qwen's own 3.8-27b moves up to sixth",
+     "summary": "Alibaba's Qwen3.8-27B climbs to sixth with 19,751 likes and 7.09m downloads; it is the base DavidAU's uncensored build is fine-tuned from.",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Qwen/Qwen3.8-27B.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
      "pricing": "Open weights",
-     "metric": "#7 trending, 19,700 likes",
-     "title_ar": "المرتبة السابعة: Qwen3.8-27B يدخل قائمة العشرة الأوائل",
-     "summary_ar": "يدخل نموذج Qwen3.8-27B من علي بابا في المركز السابع بـ19,700 إعجاباً و7.09 مليون تنزيل، وهو الأساس الذي بُنيت عليه نسخة DavidAU أعلاه."
+     "metric": "#6 trending, 19,751 likes",
+     "title_ar": "المرتبة السادسة: Qwen3.8-27B يصعد إلى المركز السادس",
+     "summary_ar": "يتقدم نموذج Qwen3.8-27B من علي بابا إلى المركز السادس بـ19,751 إعجاباً و7.09 مليون تنزيل، وهو الأساس الذي بُنيت عليه نسخة DavidAU غير الخاضعة للرقابة."
+    },
+    {
+     "id": "ai-davidau-heretic-coder",
+     "section": "ai",
+     "status": "updated",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-12T18:58:00+03:00",
+     "title": "#7: the davidau 'heretic' coder build sits seventh",
+     "summary": "DavidAU's Qwen 3.8 27B fine-tune, packaged as an uncensored coder in GGUF format, is seventh with 2,984 likes and 1.6m downloads.",
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF.png",
+     "kind": "MODEL",
+     "try_url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+     "pricing": "Open weights",
+     "metric": "#7 trending, 2,984 likes",
+     "title_ar": "المرتبة السابعة: نسخة DavidAU «الهرطقية» للبرمجة في المركز السابع",
+     "summary_ar": "يحل نموذج DavidAU المبني على Qwen 3.8 27B، والمطروح كنسخة برمجة بلا رقابة بصيغة GGUF، في المركز السابع بـ2,984 إعجاباً و1.6 مليون تنزيل."
     },
     {
      "id": "ai-codex-security",
      "section": "ai",
-     "status": "",
+     "status": "updated",
      "time": "2026-11-12T06:05:00+03:00",
      "title": "openai's codex-security is a cli that hunts and patches bugs",
-     "summary": "OpenAI's Codex Security ships as a CLI and TypeScript SDK that scans a repository or a git diff, validates candidate findings, writes patches and drafts SECURITY.md files, and it also runs inside Codex as a workflow. The repo has 11,836 stars and is Apache-2.0 licensed.",
+     "summary": "OpenAI's Codex Security ships as a CLI and TypeScript SDK that scans a repository or a git diff, validates candidate findings, writes patches and drafts SECURITY.md files, and it also runs inside Codex as a workflow. The repo has 12,545 stars and is Apache-2.0 licensed.",
      "sources": [
       {
        "title": "GitHub",
        "url": "https://github.com/openai/codex-security",
        "type": "official"
-      },
-      {
-       "title": "npm",
-       "url": "https://www.npmjs.com/package/@openai/codex-security",
-       "type": "official"
       }
      ],
      "image": "https://opengraph.githubassets.com/1/openai/codex-security",
      "title_ar": "codex-security من OpenAI أداة سطر أوامر تكتشف الثغرات وتصلحها",
-     "summary_ar": "تأتي Codex Security من OpenAI كأداة سطر أوامر وحزمة TypeScript SDK تفحص المستودع أو فرق git، وتتحقق من النتائج المحتملة، وتكتب تصحيحات وملفات SECURITY.md، وتعمل أيضاً داخل Codex كسير عمل. وللمستودع 11,836 نجمة ورخصة Apache-2.0.",
+     "summary_ar": "تأتي Codex Security من OpenAI كأداة سطر أوامر وحزمة TypeScript SDK تفحص المستودع أو فرق git، وتتحقق من النتائج المحتملة، وتكتب تصحيحات وملفات SECURITY.md، وتعمل أيضاً داخل Codex كسير عمل. وللمستودع 12,545 نجمة ورخصة Apache-2.0.",
      "kind": "TOOL",
      "try_url": "https://github.com/openai/codex-security",
      "pricing": "Open source",
-     "metric": "#9 today, 11,836 stars"
+     "metric": "#2 today, 12,545 stars"
     }
    ],
    "watch": [
     {
-     "title": "AI News: New ChatGPT & Google Models (14 Updates Worth Knowing)",
-     "url": "https://www.youtube.com/watch?v=IrAHINf0M6E",
-     "channel": "Matt Wolfe"
+     "title": "AI News: New Grok Bot Limits, Muse Voice Is Here, ChatGPT Images 2.6 and More!",
+     "url": "https://www.youtube.com/watch?v=85mhGo9jNGY",
+     "channel": "Paul J Lipsky"
     },
     {
-     "title": "Did Anthropic just save its $1 trillion IPO?",
-     "url": "https://www.youtube.com/watch?v=1FurWDiK9A4",
-     "channel": "Fireship"
+     "title": "AI News: The Only 6 Stories Worth Knowing This Week",
+     "url": "https://www.youtube.com/watch?v=eDiQNFa-zYg",
+     "channel": "Matt Wolfe"
     }
    ]
   },
   "trending": {
-   "what_changed": "google chrome's modern-web-guidance took #1 on the daily chart, openai's codex-security entered at #2, and anthropic's skills library now leads the week with 5,738 stars.",
-   "what_changed_ar": "تصدّر modern-web-guidance من Google Chrome قائمة اليوم، ودخل codex-security من OpenAI في المركز الثاني، وتصدّرت مكتبة skills من Anthropic قائمة الأسبوع بـ5,738 نجمة.",
+   "what_changed": "google chrome's modern-web-guidance kept #1 on the daily chart with 739 stars, openai's codex-security held #2, and openmausbot led the weekly list's newcomers at #2 with 9,104 stars.",
+   "what_changed_ar": "احتفظ modern-web-guidance من Google Chrome بالمركز الأول في القائمة اليومية بـ739 نجمة، وبقي codex-security من OpenAI في الثاني، وتصدّر OpenMausBot الوافدين الجدد في القائمة الأسبوعية بالمركز الثاني بـ9,104 نجمة.",
    "items": [
     {
      "id": "googlechrome-modern-web-guidance",
      "section": "trending",
      "status": "updated",
      "time": "2026-11-12T19:00:00+03:00",
-     "title": "google chrome's modern-web-guidance takes #1 today with 799 stars",
+     "title": "google chrome's modern-web-guidance holds #1 today with 739 stars",
      "summary": "Modern Web Guidance is Chrome's set of skills that feed current web-platform practice and browser compatibility data into coding agents, stewarded by the Chrome, Edge, Firefox and MDN teams.",
      "sources": [
       {
@@ -624,12 +589,12 @@
       }
      ],
      "image": "https://opengraph.githubassets.com/1/GoogleChrome/modern-web-guidance-src",
-     "title_ar": "modern-web-guidance من Google Chrome يتصدر اليوم بـ799 نجمة",
+     "title_ar": "modern-web-guidance من Google Chrome يحافظ على المركز الأول اليوم بـ739 نجمة",
      "summary_ar": "«Modern Web Guidance» مجموعة مهارات من Chrome تغذي وكلاء البرمجة بممارسات منصة الويب الحديثة وبيانات توافق المتصفحات، وتشرف عليها فرق Chrome وEdge وFirefox وMDN.",
      "rank": 1,
      "period": "today",
-     "stars_gained": 799,
-     "stars_total": 2455,
+     "stars_gained": 739,
+     "stars_total": 3289,
      "language": "TypeScript",
      "why_it_matters": "Modern Web Guidance is Chrome's set of skills that feed current web-platform practice and browser compatibility data into coding agents, stewarded by the Chrome, Edge, Firefox and MDN teams.",
      "why_it_matters_ar": "«Modern Web Guidance» مجموعة مهارات من Chrome تغذي وكلاء البرمجة بممارسات منصة الويب الحديثة وبيانات توافق المتصفحات، وتشرف عليها فرق Chrome وEdge وFirefox وMDN."
@@ -637,7 +602,7 @@
     {
      "id": "openai-codex-security",
      "section": "trending",
-     "status": "new",
+     "status": "updated",
      "sources": [
       {
        "title": "GitHub",
@@ -648,21 +613,21 @@
      "time": "2026-11-12T19:00:00+03:00",
      "rank": 2,
      "period": "today",
-     "stars_gained": 663,
-     "stars_total": 12189,
+     "stars_gained": 643,
+     "stars_total": 12545,
      "language": "TypeScript",
-     "title": "openai's codex-security enters at #2 today with 663 stars",
+     "title": "openai's codex-security holds #2 today with 643 stars",
      "summary": "OpenAI's Codex Security CLI and TypeScript SDK for finding, validating and fixing security vulnerabilities, pushed to the repo on Thursday morning.",
      "image": "https://opengraph.githubassets.com/1/openai/codex-security",
      "why_it_matters": "OpenAI's Codex Security CLI and TypeScript SDK for finding, validating and fixing security vulnerabilities, pushed to the repo on Thursday morning.",
-     "title_ar": "codex-security من OpenAI يدخل في المركز الثاني اليوم بـ663 نجمة",
+     "title_ar": "codex-security من OpenAI يحافظ على المركز الثاني اليوم بـ643 نجمة",
      "summary_ar": "أداة Codex Security بواجهة سطر أوامر وحزمة TypeScript من OpenAI لاكتشاف الثغرات الأمنية والتحقق منها وإصلاحها، وقد دُفع تحديثها إلى المستودع صباح الخميس.",
      "why_it_matters_ar": "أداة Codex Security بواجهة سطر أوامر وحزمة TypeScript من OpenAI لاكتشاف الثغرات الأمنية والتحقق منها وإصلاحها، وقد دُفع تحديثها إلى المستودع صباح الخميس."
     },
     {
      "id": "nvm-sh-nvm",
      "section": "trending",
-     "status": "new",
+     "status": "updated",
      "sources": [
       {
        "title": "GitHub",
@@ -673,21 +638,21 @@
      "time": "2026-11-12T19:00:00+03:00",
      "rank": 3,
      "period": "today",
-     "stars_gained": 79,
-     "stars_total": 95955,
+     "stars_gained": 63,
+     "stars_total": 96034,
      "language": "Shell",
-     "title": "nvm is back at #3 today with 79 stars",
+     "title": "nvm holds #3 today with 63 stars",
      "summary": "The long-standing Node Version Manager, a POSIX-compliant bash script for switching between node.js versions.",
      "image": "https://opengraph.githubassets.com/1/nvm-sh/nvm",
      "why_it_matters": "The long-standing Node Version Manager, a POSIX-compliant bash script for switching between node.js versions, still pulling fresh stars.",
-     "title_ar": "nvm يعود إلى المركز الثالث اليوم بـ79 نجمة",
+     "title_ar": "nvm يحافظ على المركز الثالث اليوم بـ63 نجمة",
      "summary_ar": "أداة Node Version Manager العريقة، وهي سكربت bash متوافق مع POSIX للتبديل بين إصدارات node.js، ولا تزال تجذب نجومًا جديدة.",
      "why_it_matters_ar": "أداة Node Version Manager العريقة، وهي سكربت bash متوافق مع POSIX للتبديل بين إصدارات node.js، ولا تزال تجذب نجومًا جديدة."
     },
     {
      "id": "pookjw-hermesenabler",
      "section": "trending",
-     "status": "new",
+     "status": "updated",
      "sources": [
       {
        "title": "GitHub",
@@ -698,14 +663,14 @@
      "time": "2026-11-12T19:00:00+03:00",
      "rank": 4,
      "period": "today",
-     "stars_gained": 390,
-     "stars_total": 1423,
+     "stars_gained": 218,
+     "stars_total": 1592,
      "language": "Objective-C",
-     "title": "hermesenabler unlocks hermès watch faces on any apple watch at #4",
+     "title": "hermesenabler holds #4 today with 218 stars",
      "summary": "A small Objective-C tool that enables Hermès watch faces on any Apple Watch model.",
      "image": "https://opengraph.githubassets.com/1/pookjw/HermesEnabler",
      "why_it_matters": "A small Objective-C tool that enables Hermès watch faces on any Apple Watch model.",
-     "title_ar": "HermesEnabler يتيح واجهات ساعة Hermès على أي Apple Watch في المركز الرابع",
+     "title_ar": "HermesEnabler يحافظ على المركز الرابع اليوم بـ218 نجمة",
      "summary_ar": "أداة صغيرة بلغة Objective-C تتيح استخدام واجهات ساعة Hermès على أي طراز من Apple Watch.",
      "why_it_matters_ar": "أداة صغيرة بلغة Objective-C تتيح استخدام واجهات ساعة Hermès على أي طراز من Apple Watch."
     },
@@ -714,7 +679,7 @@
      "section": "trending",
      "status": "updated",
      "time": "2026-11-12T19:00:00+03:00",
-     "title": "we-promise/sure climbs to #5 today with 974 stars",
+     "title": "we-promise/sure holds #5 today with 967 stars",
      "summary": "The open-source personal finance app, built in Ruby and designed to be self-hosted.",
      "sources": [
       {
@@ -724,47 +689,22 @@
       }
      ],
      "image": "https://opengraph.githubassets.com/1/we-promise/sure",
-     "title_ar": "we-promise/sure يصعد إلى المركز الخامس اليوم بـ974 نجمة",
+     "title_ar": "we-promise/sure يحافظ على المركز الخامس اليوم بـ967 نجمة",
      "summary_ar": "تطبيق التمويل الشخصي مفتوح المصدر، مكتوب بلغة Ruby ومصمم للاستضافة الذاتية.",
      "rank": 5,
      "period": "today",
-     "stars_gained": 974,
-     "stars_total": 13643,
+     "stars_gained": 967,
+     "stars_total": 14036,
      "language": "Ruby",
      "why_it_matters": "The open-source personal finance app, built in Ruby and designed to be self-hosted.",
      "why_it_matters_ar": "تطبيق التمويل الشخصي مفتوح المصدر، مكتوب بلغة Ruby ومصمم للاستضافة الذاتية."
-    },
-    {
-     "id": "qwenlm-qwen-code",
-     "section": "trending",
-     "status": "new",
-     "sources": [
-      {
-       "title": "GitHub",
-       "url": "https://github.com/QwenLM/qwen-code",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-12T19:00:00+03:00",
-     "rank": 6,
-     "period": "today",
-     "stars_gained": 151,
-     "stars_total": 29642,
-     "language": "TypeScript",
-     "title": "qwen-code enters at #6 today with 151 stars",
-     "summary": "Alibaba's open-source AI coding agent that lives in your terminal, pushed within the past hour.",
-     "image": "https://opengraph.githubassets.com/1/QwenLM/qwen-code",
-     "why_it_matters": "Alibaba's open-source AI coding agent that lives in your terminal, pushed within the past hour.",
-     "title_ar": "qwen-code يدخل في المركز السادس اليوم بـ151 نجمة",
-     "summary_ar": "وكيل برمجة بالذكاء الاصطناعي مفتوح المصدر من علي بابا يعمل داخل الطرفية، ودُفع تحديثه خلال الساعة الماضية.",
-     "why_it_matters_ar": "وكيل برمجة بالذكاء الاصطناعي مفتوح المصدر من علي بابا يعمل داخل الطرفية، ودُفع تحديثه خلال الساعة الماضية."
     },
     {
      "id": "anthropics-skills",
      "section": "trending",
      "status": "updated",
      "time": "2026-11-12T19:00:00+03:00",
-     "title": "anthropic's skills library takes #1 this week with 5,738 stars",
+     "title": "anthropic's skills library takes #1 this week with 6,055 stars",
      "summary": "Anthropic's public repository of Agent Skills, reusable instruction packages that agents load on demand.",
      "sources": [
       {
@@ -774,40 +714,65 @@
       }
      ],
      "image": "https://opengraph.githubassets.com/1/anthropics/skills",
-     "title_ar": "مكتبة skills من Anthropic تتصدر الأسبوع بـ5,738 نجمة",
+     "title_ar": "مكتبة skills من Anthropic تتصدر الأسبوع بـ6,055 نجمة",
      "summary_ar": "المستودع العام لأدوات Agent Skills من Anthropic، وهي حزم تعليمات قابلة لإعادة الاستخدام يحمّلها الوكلاء عند الحاجة.",
      "rank": 1,
      "period": "week",
-     "stars_gained": 5738,
-     "stars_total": 193548,
+     "stars_gained": 6055,
+     "stars_total": 193752,
      "language": "Python",
      "why_it_matters": "Anthropic's public repository of Agent Skills, reusable instruction packages that agents load on demand.",
      "why_it_matters_ar": "المستودع العام لأدوات Agent Skills من Anthropic، وهي حزم تعليمات قابلة لإعادة الاستخدام يحمّلها الوكلاء عند الحاجة."
     },
     {
-     "id": "nvidia-auto-ontology",
+     "id": "milind-soni-openmausbot",
      "section": "trending",
-     "status": "updated",
-     "time": "2026-11-12T19:00:00+03:00",
-     "title": "nvidia's auto-ontology is #4 this week with 7,947 stars",
-     "summary": "A Python framework for building semantic, graph-based reasoning layers over data, built for deterministic query generation and explainable AI workflows.",
+     "rank": 2,
+     "period": "week",
+     "stars_gained": 9104,
+     "stars_total": 21779,
+     "language": "TypeScript",
+     "title": "openmausbot is #2 this week with 9,104 stars",
+     "summary": "An open-source take on Grok Bot: a TypeScript stack that gives every bot its own virtual machine with a browser, files and tools.",
      "sources": [
       {
        "title": "GitHub",
-       "url": "https://github.com/NVIDIA/auto-ontology",
+       "url": "https://github.com/milind-soni/OpenMausBot",
        "type": "independent"
       }
      ],
-     "image": "https://opengraph.githubassets.com/1/NVIDIA/auto-ontology",
-     "title_ar": "auto-ontology من إنفيديا في المركز الرابع هذا الأسبوع بـ7,947 نجمة",
-     "summary_ar": "إطار عمل بلغة Python لبناء طبقات استدلال دلالية قائمة على الرسوم البيانية فوق البيانات، لتوليد استعلامات حتمي وسير عمل ذكاء اصطناعي قابل للتفسير.",
-     "rank": 4,
+     "time": "2026-11-13T06:30:00+03:00",
+     "image": "https://opengraph.githubassets.com/1/milind-soni/OpenMausBot",
+     "why_it_matters": "An open-source take on Grok Bot: a TypeScript stack that gives every bot its own virtual machine with a browser, files and tools.",
+     "title_ar": "OpenMausBot في المركز الثاني هذا الأسبوع بـ9,104 نجمة",
+     "summary_ar": "نسخة مفتوحة المصدر من Grok Bot: حزمة TypeScript تمنح كل بوت جهازاً افتراضياً خاصاً به مع متصفح وملفات وأدوات.",
+     "why_it_matters_ar": "نسخة مفتوحة المصدر من Grok Bot: حزمة TypeScript تمنح كل بوت جهازاً افتراضياً خاصاً به مع متصفح وملفات وأدوات.",
+     "status": "new"
+    },
+    {
+     "id": "vercel-labs-agent-browser",
+     "section": "trending",
+     "rank": 3,
      "period": "week",
-     "stars_gained": 7947,
-     "stars_total": 12150,
-     "language": "Python",
-     "why_it_matters": "A Python framework for building semantic, graph-based reasoning layers over data, built for deterministic query generation and explainable AI workflows.",
-     "why_it_matters_ar": "إطار عمل بلغة Python لبناء طبقات استدلال دلالية قائمة على الرسوم البيانية فوق البيانات، لتوليد استعلامات حتمي وسير عمل ذكاء اصطناعي قابل للتفسير."
+     "stars_gained": 4601,
+     "stars_total": 50375,
+     "language": "Rust",
+     "title": "vercel's agent-browser is #3 this week with 4,601 stars",
+     "summary": "Vercel Labs' browser automation CLI built for AI agents, written in Rust and tracked on the weekly chart as agent tooling keeps climbing.",
+     "sources": [
+      {
+       "title": "GitHub",
+       "url": "https://github.com/vercel-labs/agent-browser",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-13T06:30:00+03:00",
+     "image": "https://opengraph.githubassets.com/1/vercel-labs/agent-browser",
+     "why_it_matters": "Vercel Labs' browser automation CLI built for AI agents, written in Rust.",
+     "title_ar": "agent-browser من Vercel في المركز الثالث هذا الأسبوع بـ4,601 نجمة",
+     "summary_ar": "أداة سطر أوامر لأتمتة المتصفح من Vercel Labs موجهة لوكلاء الذكاء الاصطناعي، مكتوبة بلغة Rust، وتظهر في القائمة الأسبوعية مع صعود أدوات الوكلاء.",
+     "why_it_matters_ar": "أداة سطر أوامر لأتمتة المتصفح من Vercel Labs موجهة لوكلاء الذكاء الاصطناعي، مكتوبة بلغة Rust.",
+     "status": "new"
     }
    ],
    "watch": [
@@ -824,40 +789,40 @@
    ]
   },
   "liverpool": {
-   "what_changed": "united sacked michael carrick three days after a 4-4 draw with villa, a week before they come to anfield, and liverpool have asked tottenham about pedro porro.",
-   "what_changed_ar": "أقال مانشستر يونايتد مايكل كاريك بعد ثلاثة أيام من تعادله 4-4 مع أستون فيلا وقبل أسبوع من زيارته أنفيلد، كما استفسر ليفربول عن بيدرو بورو من توتنهام.",
+   "what_changed": "united sacked carrick and are finalising a deal for pochettino four days before they come to anfield, araujo says he is still adapting, and enderby's x-ray came back clear.",
+   "what_changed_ar": "يونايتد أقال كاريك وينهي اتفاقاً مع بوكتينو قبل أربعة أيام من زيارته أنفيلد، وأراوخو يقول إنه لا يزال يتأقلم، وأشعة إندربي جاءت سليمة.",
    "items": [
     {
      "id": "liverpool-carrick-sacked",
      "section": "liverpool",
-     "status": "new",
+     "status": "updated",
      "sources": [
       {
-       "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/sports/2026/11/12/manchester-united-sack-michael-carrick-as-manager",
+       "title": "BBC Sport",
+       "url": "https://www.bbc.com/sport/football/live/cw4g15k9xm5kt",
        "type": "independent"
       },
       {
-       "title": "Sky Sports",
-       "url": "https://www.skysports.com/football/news/13602738/michael-carrick-sacked-by-man-utd-how-his-old-trafford-reign-unravelled-in-worst-start-to-a-season-in-40-years",
-       "type": "independent"
+       "title": "AFP",
+       "url": "https://www.afp.com/en/man-utd-sack-manager-carrick-pochettino-set-hot-seat",
+       "type": "wire"
       }
      ],
-     "time": "2026-11-12T18:30:00+03:00",
+     "time": "2026-11-12T20:07:00+03:00",
      "reliability": "Tier 1",
-     "title": "man utd sack carrick a week before they come to anfield",
-     "summary": "United dismissed Michael Carrick on Thursday with the club 18th on eight points from 10 games, their worst start to a top-flight season in 40 years, and are lining up Mauricio Pochettino. Liverpool host them at Anfield on Sunday 22 November.",
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/AFP__20261103__D6BZ6UC__v1__HighRes__FblEurC1ManUtdRoma-1794480574.jpg?resize=1920%2C1440",
-     "title_ar": "مانشستر يونايتد يقيل كاريك قبل أسبوع من زيارته أنفيلد",
-     "summary_ar": "أقال مانشستر يونايتد مايكل كاريك الخميس والفريق في المركز 18 بثماني نقاط من 10 مباريات، وهو أسوأ بداية له في دوري الدرجة الأولى منذ 40 عاماً، ويستعد لتعيين ماوريسيو بوتشيتينو. ويستضيفه ليفربول في أنفيلد الأحد 22 نوفمبر."
+     "title": "man utd sack carrick and line up pochettino before anfield trip",
+     "summary": "United sacked Michael Carrick on Thursday with the club in the relegation zone on eight points from 10 games and their worst-ever start to a Premier League season, and are finalising a deal to make USA boss Mauricio Pochettino their manager. Pochettino is due to take training on 18 or 19 November, four days before United visit Anfield.",
+     "image": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/c040/live/4c838900-de98-11f1-a701-fddedf244c16.png",
+     "title_ar": "مانشستر يونايتد يقيل كاريك ويستعد لبوكتينو قبل زيارة أنفيلد",
+     "summary_ar": "أقال مانشستر يونايتد مايكل كاريك الخميس والفريق في منطقة الهبوط بثماني نقاط من 10 مباريات وبأسوأ بداية له على الإطلاق في الدوري الإنجليزي الممتاز، وهو ينهي اتفاقاً لتولي مدرب المنتخب الأميركي ماوريسيو بوكتينو تدريب الفريق. ومن المتوقع أن يبدأ بوكتينو التدريبات في 18 أو 19 نوفمبر، أي قبل أربعة أيام من زيارة يونايتد لأنفيلد."
     },
     {
      "id": "liverpool-next-fixtures",
      "section": "liverpool",
      "status": "updated",
-     "time": "2026-11-12T18:30:00+03:00",
+     "time": "2026-11-13T06:30:00+03:00",
      "title": "next up: man utd at anfield on sunday 22 november",
-     "summary": "Liverpool return from the international break with Manchester United at Anfield in the Premier League on Sunday 22 November, a 19:30 Riyadh kick-off (16:30 UK), against a side that sacked Michael Carrick on Thursday. Everton away follows on 29 November.",
+     "summary": "Liverpool host Manchester United at 19:30 Riyadh (16:30 GMT) on Sunday 22 November, then travel to Club Brugge in the Champions League on 25 November and to Everton on 29 November.",
      "sources": [
       {
        "title": "Liverpool FC fixtures",
@@ -873,12 +838,12 @@
      "image": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/ade6/live/fc1381f0-db8b-11f1-ab1c-6b6075dcdfe1.jpg",
      "reliability": "Official",
      "title_ar": "التالي: مانشستر يونايتد في أنفيلد الأحد 22 نوفمبر",
-     "summary_ar": "يعود ليفربول من التوقف الدولي بمواجهة مانشستر يونايتد في أنفيلد ضمن الدوري الإنجليزي الأحد 22 نوفمبر، في انطلاق 19:30 بتوقيت الرياض (16:30 بتوقيت المملكة المتحدة)، أمام فريق أقال مايكل كاريك الخميس. ثم إيفرتون خارج الديار في 29 نوفمبر."
+     "summary_ar": "يستضيف ليفربول مانشستر يونايتد في 19:30 بتوقيت الرياض (16:30 بتوقيت غرينتش) الأحد 22 نوفمبر، ثم يحل ضيفاً على كلوب بروج في دوري أبطال أوروبا في 25 نوفمبر وعلى إيفرتون في 29 نوفمبر."
     },
     {
      "id": "liverpool-porro",
      "section": "liverpool",
-     "status": "new",
+     "status": "",
      "sources": [
       {
        "title": "Liverpool FC (media watch)",
@@ -893,6 +858,44 @@
      "image": "https://images.ctfassets.net/rm6ms1yxue4m/2b7rdHEF0JILdEym5BG6Pj/d128a789299f8214710c0d888e46e377/media-watch-goal.jpg?w=1200&h=630&fit=crop&f=face",
      "title_ar": "ليفربول بين ثلاثة أندية استفسرت عن بيدرو بورو",
      "summary_ar": "نشرت «ميديا ووتش» في الموقع الرسمي تقريراً لـTEAMtalk يفيد بأن ليفربول وتشيلسي ومانشستر سيتي استفسروا عن الظهير الأيمن الإسباني بيدرو بورو (27 عاماً)، الذي يُقال إنه يفضّل العودة إلى الدوري الإسباني مع اهتمام برشلونة وريال مدريد. ويشير النص إلى أن القصة لا تعبّر بالضرورة عن موقف النادي."
+    },
+    {
+     "id": "liverpool-araujo",
+     "section": "liverpool",
+     "reliability": "Official",
+     "title": "araujo says there is 'a lot more to come' from him at liverpool",
+     "summary": "The Uruguayan, on a season-long loan from Barcelona, has 15 appearances and two goals and told the club's website he is still adapting: 'I can't just stay in this moment — you need to keep working.'",
+     "sources": [
+      {
+       "title": "Liverpool FC",
+       "url": "https://www.liverpoolfc.com/news/why-ronald-araujo-is-not-content-with-his-liverpool-form",
+       "type": "official"
+      }
+     ],
+     "time": "2026-11-12T12:25:00+03:00",
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/3pUzy1IR6zJsPlTDDhj6Zd/a09c950dbef5aa01e301fac6ab8ea362/ronald-araujo-liverpool-fc-091126.jpg?w=1200&h=630&fit=crop&f=face",
+     "title_ar": "أراوخو يقول إن أمامه «الكثير» ليقدمه مع ليفربول",
+     "summary_ar": "خاض الأوروغوياني، المعار من برشلونة لموسم كامل، 15 مباراة وسجل هدفين، وقال لموقع النادي إنه لا يزال يتأقلم: «لا يمكنني الاكتفاء بهذه اللحظة — عليك أن تواصل العمل».",
+     "status": "new"
+    },
+    {
+     "id": "liverpool-enderby",
+     "section": "liverpool",
+     "reliability": "Official",
+     "title": "enderby's x-ray is clear as liverpool women head to brighton",
+     "summary": "Mia Enderby, substituted in Wednesday's 4-1 Subway Players Cup win over Aston Villa, had an X-ray that came back clear, Gareth Taylor said. Liverpool Women are away at Brighton on Saturday at 20:15 Riyadh.",
+     "sources": [
+      {
+       "title": "Liverpool FC",
+       "url": "https://www.liverpoolfc.com/news/mia-enderby-and-ceri-holland-injury-updates",
+       "type": "official"
+      }
+     ],
+     "time": "2026-11-12T18:47:00+03:00",
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/4zR1RE4mv05CA0RHb5dReC/32e779751894994ce7c51e5f534b681b/mia-enderby-12112026.JPG?w=1200&h=630&fit=crop&f=face",
+     "title_ar": "أشعة إندربي سليمة وسيدات ليفربول يستعدن لبرايتون",
+     "summary_ar": "قال غاريث تايلور إن أشعة ميا إندربي، التي استُبدلت في فوز الأربعاء 4-1 على أستون فيلا في كأس اللاعبين، جاءت سليمة. وتلعب سيدات ليفربول خارج الديار أمام برايتون السبت في 20:15 بتوقيت الرياض.",
+     "status": "new"
     },
     {
      "id": "liverpool-camara",
@@ -914,42 +917,23 @@
      "image": "https://images.ctfassets.net/rm6ms1yxue4m/4v0IeQufuwXTFvrFXjdGHY/bd1dece83bff2bf1ef1128cb3389f4e8/new-media-watch-teamtalk_34f03d7bfe1bd94b5e1e3c54a34667c3.jpg?w=1200&h=630&fit=crop&f=face"
     },
     {
-     "id": "liverpool-alex-scott",
+     "id": "liverpool-frimpong",
      "section": "liverpool",
-     "status": "",
-     "time": "2026-11-11T20:10:00+03:00",
-     "title": "liverpool and chelsea keenest on bournemouth's £100m alex scott",
-     "summary": "Liverpool, Arsenal and Chelsea have made contact with Bournemouth over a January move for England midfielder Alex Scott, the i Paper reported, with Liverpool and Chelsea Keenest to act in January and Arsenal preferring the summer. Bournemouth value the 23-year-old at about £100m.",
-     "sources": [
-      {
-       "title": "Liverpool FC (media watch)",
-       "url": "https://www.liverpoolfc.com/news/arsenal-join-liverpool-and-chelsea-in-race-for-bournemouth-alex-scott",
-       "type": "official"
-      }
-     ],
-     "image": "https://images.ctfassets.net/rm6ms1yxue4m/3h18JNRJYjtlpyNkWSswgT/723a351f885cfe922fa6065e6f157524/media-watch-i-paper.png?w=1200&h=630&fit=crop&f=face",
-     "title_ar": "ليفربول وتشيلسي الأكثر حرصاً على ضم أليكس سكوت مقابل 100 مليون جنيه",
-     "summary_ar": "ذكرت صحيفة i أن ليفربول وأرسنال وتشيلسي تواصلوا مع بورنموث بشأن انتقال لاعب الوسط الإنجليزي أليكس سكوت في يناير، وأن ليفربول وتشيلسي الأكثر حرصاً على التحرك في الشتاء بينما يفضل أرسنال الصيف. ويقدّر بورنموث اللاعب (23 عاماً) بنحو 100 مليون جنيه.",
-     "reliability": "Rumour"
-    },
-    {
-     "id": "liverpool-women-villa",
-     "section": "liverpool",
-     "status": "",
-     "time": "2026-11-12T00:08:00+03:00",
-     "title": "liverpool women come from behind to beat aston villa 4-1",
-     "summary": "Liverpool FC Women came from a goal down to beat Aston Villa 4-1 in the Subway Players Cup at St Helens on Wednesday, with Marie Höbinger equalising, Cornelia Kapocs curling in the third and Beata Olsson adding a late double. Gareth Taylor's side now have nine points from four league-stage games.",
+     "reliability": "Official",
+     "title": "frimpong shortlisted for fifpro's player voice award",
+     "summary": "The defender is nominated for the 2026 FIFPRO Player Voice Award for Pathways, his programme that has reached more than 800 young people in four countries. The winner is announced on 19 November.",
      "sources": [
       {
        "title": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/subway-players-cup-liverpool-aston-villa-match-report",
+       "url": "https://www.liverpoolfc.com/news/jeremie-frimpong-nominated-fifpro-merit-award",
        "type": "official"
       }
      ],
-     "image": "https://images.ctfassets.net/rm6ms1yxue4m/5oXW6ygweBJF8FUGL6bdlh/c5866500057b0fc638756b59cb51129f/women-aston-villa-11112026-cover.jpg?w=1200&h=630&fit=crop&f=face",
-     "title_ar": "سيدات ليفربول يعدن من التأخر للفوز على أستون فيلا 4-1",
-     "summary_ar": "عاد فريق سيدات ليفربول من تأخر بهدف ليفوز على أستون فيلا 4-1 في كأس Subway Players Cup بملعب سانت هيلينز الأربعاء، حيث عادلت ماري هوبينغر النتيجة وسجلت كورنيليا كابوتش الهدف الثالث بلمسة منحنية وأضافت بياتا أولسون هدفين في الدقائق الأخيرة. ولدى فريق غاريث تايلور الآن تسع نقاط من أربع مباريات في دور المجموعات.",
-     "reliability": "Official"
+     "time": "2026-11-12T14:00:00+03:00",
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/7KZD1qyDfPd3nEBIV0qmYi/da20c232767a2cc4b8f78dbc8105c324/Jeremie_Frimpong_FIFPRO_nomination_09.11.2026.jpg?w=1200&h=630&fit=crop&f=face",
+     "title_ar": "فرينبونغ مرشح لجائزة FIFPRO Player Voice",
+     "summary_ar": "رُشّح الظهير لجائزة FIFPRO Player Voice لعام 2026 عن برنامج Pathways الذي وصل إلى أكثر من 800 شاب في أربع دول. ويُعلن الفائز في 19 نوفمبر.",
+     "status": "new"
     },
     {
      "status": "",
@@ -969,122 +953,144 @@
       }
      ],
      "image": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/a5e1/live/724f1e20-dc53-11f1-a869-656dc96bd12d.jpg"
-    },
-    {
-     "status": "",
-     "id": "liverpool-vandijk-out",
-     "section": "liverpool",
-     "reliability": "Official",
-     "time": "2026-11-10T06:00:00+03:00",
-     "title": "van dijk withdraws from the netherlands squad with a fitness issue",
-     "summary": "Liverpool's captain will miss the Netherlands' Nations League games against Greece and Germany after the Dutch federation said he 'did not return fit' from Sunday's 3-1 win at Crystal Palace.",
-     "title_ar": "فان دايك ينسحب من تشكيلة هولندا بسبب مشكلة بدنية",
-     "summary_ar": "سيغيب قائد ليفربول عن مباراتي هولندا ضد اليونان وألمانيا في دوري الأمم بعد أن قال الاتحاد الهولندي إنه «لم يعد لائقاً» من الفوز 3-1 على كريستال بالاس الأحد.",
-     "sources": [
-      {
-       "title": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/virgil-van-dijk-withdraws-from-netherlands-squad",
-       "type": "official"
-      }
-     ],
-     "image": "https://images.ctfassets.net/rm6ms1yxue4m/7Ie8siZYhzHzmIa2vDjtCT/f536609a7d9398ee14d7a0a736cb8048/Virgil_van_Dijk_09.11.2026.JPG?w=1200&h=630&fit=crop&f=face"
     }
    ],
    "watch": [
     {
-     "title": "Andoni Iraola is \"incredible\" - but Liverpool \"lost too many players!\" | Steve McManaman",
-     "url": "https://www.youtube.com/watch?v=LxyqI0py0ug",
-     "channel": "This Is Anfield"
+     "title": "CARRICK SACKED! + TWO NEW FULL-BACK SIGNINGS? Liverpool FC Latest Transfer News",
+     "url": "https://www.youtube.com/watch?v=FbV_BW7KgCI",
+     "channel": "Anfield Agenda"
     },
     {
-     "title": "Liverpool FC Women vs Aston Villa | Subway Players Cup",
-     "url": "https://www.youtube.com/watch?v=Gvph2f_bevE",
+     "title": "Highlights: Liverpool FC Women 4-1 Aston Villa | Höbinger, Kapocs & Olsson goals!",
+     "url": "https://www.youtube.com/watch?v=B_UFbc_-68U",
      "channel": "Liverpool FC"
     }
    ]
   },
   "games": {
-   "what_changed": "underkeep is 15% off in its launch week, minerva rising is a new frostpunk-meets-silo city builder, and crimson desert took pc game of the year at the golden joysticks.",
-   "what_changed_ar": "Underkeep مخفض 15% في أسبوع إطلاقه، وMinerva Rising باني مدن جديد بروح Frostpunk وSilo، وCrimson Desert نال جائزة أفضل لعبة PC في جوائز Golden Joystick.",
+   "what_changed": "slay the spire 2's biggest beta patch landed with the fool and two new modes, darktide confirmed a sisters novitiate class for next month, and paradox is changing chief executive.",
+   "what_changed_ar": "صدر أكبر تحديث تجريبي في Slay the Spire 2 مع شخصية The Fool ونمطين جديدين، وأكدت Darktide صنف Sisters Novitiate الشهر المقبل، وParadox تغيّر رئيسها التنفيذي.",
    "items": [
     {
-     "id": "game-underkeep",
+     "id": "game-sts2-patch",
      "section": "games",
-     "status": "",
-     "time": "2026-11-12T06:15:00+03:00",
-     "title": "underkeep is 15% off at 45.66 sr in its launch week",
-     "summary": "Underkeep, a hand-built dungeon crawler with tactical turn-based combat, party-building and gear upgrades, came out on 5 November and is 15% off at 45.66 SR in Saudi Arabia.",
+     "kind": "UPDATE",
+     "genres": [
+      "Roguelike deckbuilder",
+      "Turn-based strategy"
+     ],
+     "platforms": [
+      "Windows",
+      "Mac",
+      "Linux"
+     ],
+     "price": "47.20 SR",
+     "discount": 20,
+     "release_date": "5 Mar, 2026",
+     "store_url": "https://store.steampowered.com/app/2868840/Slay_the_Spire_2/",
+     "title": "slay the spire 2's biggest beta patch adds the fool and two new modes",
+     "summary": "Patch v0.113.0 adds The Fool as the first new playable character, two new game modes and a long list of card and relic changes. The early-access deckbuilder is 47.20 SR at 20% off on Steam.",
      "sources": [
       {
+       "title": "Rock Paper Shotgun",
+       "url": "https://www.rockpapershotgun.com/slay-the-spire-2s-biggest-beta-patch-yet-adds-its-first-new-early-access-and-foolish-character-two-game-modes-and-more-tweaks-than-you-can-shake-a-stick-at",
+       "type": "independent"
+      },
+      {
        "title": "Steam",
-       "url": "https://store.steampowered.com/app/2411200/",
+       "url": "https://store.steampowered.com/app/2868840/Slay_the_Spire_2/",
        "type": "official"
       }
      ],
-     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2411200/be22c58d9f42d3d349198e87b3c192998047b053/header.jpg?t=1794141969",
-     "title_ar": "Underkeep مخفض 15% إلى 45.66 ريالاً في أسبوع إطلاقه",
-     "summary_ar": "صدر Underkeep، وهو زحف زنزانة مصنوع يدوياً بقتال تكتيكي بالدورات وتجميع فريق وتطوير عتاد، في 5 نوفمبر، وهو مخفض 15% إلى 45.66 ريالاً في السعودية.",
-     "kind": "DEAL",
+     "time": "2026-11-13T01:53:00+03:00",
+     "image": "https://assetsio.gnwcdn.com/slay-the-spire-2-the-fool.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp",
+     "title_ar": "أكبر تحديث تجريبي في Slay the Spire 2 يضيف «The Fool» ونمطين جديدين",
+     "summary_ar": "يضيف التحديث v0.113.0 شخصية «The Fool» كأول شخصية جديدة قابلة للعب، ونمطي لعب جديدين، وقائمة طويلة من تعديلات البطاقات والآثار. وتباع اللعبة في الوصول المبكر على Steam بـ47.20 ريالاً بخصم 20%.",
+     "status": "new"
+    },
+    {
+     "id": "game-wolfenstein3",
+     "section": "games",
+     "kind": "NEWS",
      "genres": [
-      "Turn-based RPG",
-      "Dungeon crawler"
+      "First-person shooter"
      ],
      "platforms": [
       "Windows"
      ],
-     "price": "45.66 SR",
-     "discount": 15,
-     "release_date": "5 Nov, 2026",
-     "store_url": "https://store.steampowered.com/app/2411200/"
-    },
-    {
-     "id": "game-minerva-rising",
-     "section": "games",
-     "status": "",
-     "time": "2026-11-12T06:15:00+03:00",
-     "title": "minerva rising is a frostpunk-meets-silo underground city builder",
-     "summary": "Minerva Rising is an in-development city builder from solo developer Jonny Strellman in which you play the city's systems AI, stacking levels of housing, industry and farms underground while managing trust and rebel citizens who can hack your cameras. There is no release date yet.",
+     "title": "wolfenstein 3 is in production at machinegames",
+     "summary": "PC Gamer reports that MachineGames has Wolfenstein 3 in production, after the studio's recent work on the Indiana Jones game.",
      "sources": [
       {
-       "title": "Rock Paper Shotgun",
-       "url": "https://www.rockpapershotgun.com/minerva-rising-is-a-frostpunk-meets-silo-underground-city-builder-in-which-rebel-citizens-can-hack-your-camera",
+       "title": "PC Gamer",
+       "url": "https://www.pcgamer.com/games/fps/wolfenstein-3-is-in-production-at-machinegames/",
        "type": "independent"
       }
      ],
-     "image": "https://assetsio.gnwcdn.com/Minerva-Rising.png?width=1200&height=630&fit=crop&enable=upscale&auto=webp",
-     "title_ar": "Minerva Rising باني مدن تحت الأرض بروح Frostpunk وSilo",
-     "summary_ar": "Minerva Rising لعبة بناء مدن قيد التطوير من المطور المنفرد جوني ستريلمان، يلعب فيها اللاعب دور الذكاء الاصطناعي المشرف على المدينة، فيكدّس مستويات من السكن والصناعة والمزارع تحت الأرض مع إدارة الثقة والمواطنين المتمردين القادرين على اختراق كاميراته. ولا يوجد موعد إصدار بعد.",
-     "kind": "PREVIEW",
+     "time": "2026-11-13T04:35:00+03:00",
+     "image": "https://cdn.mos.cms.futurecdn.net/kLcpoTPbNywZi79u2Nox5C-1920-80.jpg",
+     "title_ar": "Wolfenstein 3 قيد الإنتاج في MachineGames",
+     "summary_ar": "ذكر موقع PC Gamer أن استوديو MachineGames يعمل على Wolfenstein 3، بعد عمله الأخير على لعبة إنديانا جونز.",
+     "status": "new"
+    },
+    {
+     "id": "game-darktide-sisters",
+     "section": "games",
+     "kind": "UPDATE",
      "genres": [
-      "City builder",
+      "Action",
+      "Co-op"
+     ],
+     "platforms": [
+      "Windows",
+      "PS5",
+      "Xbox"
+     ],
+     "title": "darktide's next class is the sisters novitiate, out next month",
+     "summary": "Warhammer 40,000: Darktide adds the Sisters Novitiate, an all-female class built around a Faith resource and six Acts of Faith instead of the usual blitz and combat abilities; two can be equipped at once. It arrives next month.",
+     "sources": [
+      {
+       "title": "Rock Paper Shotgun",
+       "url": "https://www.rockpapershotgun.com/warhammer-40000-darktides-next-class-is-the-sisters-novitiate-a-group-who-love-staking-and-burning-people-for-the-god-emperor-and-its-out-next-month",
+       "type": "independent"
+      },
+      {
+       "title": "PC Gamer",
+       "url": "https://www.pcgamer.com/games/fps/darktides-getting-a-sisters-of-battle-class-on-december-7/",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-13T00:10:00+03:00",
+     "image": "https://assetsio.gnwcdn.com/warhammer-40k-darktide-sisters-novitiate.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp",
+     "title_ar": "الصنف القادم في Darktide هو Sisters Novitiate الشهر المقبل",
+     "summary_ar": "تضيف Warhammer 40,000: Darktide صنف Sisters Novitiate، وهو صنف نسائي بالكامل يقوم على مورد «الإيمان» وستة «أعمال إيمان» بدلاً من قدرات البلِتز والقتال المعتادة، ويمكن تجهيز اثنين منها في وقت واحد. ويصدر الشهر المقبل.",
+     "status": "new"
+    },
+    {
+     "id": "game-paradox-ceo",
+     "section": "games",
+     "kind": "NEWS",
+     "genres": [
       "Strategy"
      ],
      "platforms": [
       "Windows"
      ],
-     "store_url": "https://store.steampowered.com/app/5538040/"
-    },
-    {
-     "id": "game-golden-joystick",
-     "section": "games",
-     "status": "",
-     "time": "2026-11-12T06:15:00+03:00",
-     "title": "crimson desert takes pc game of the year at the golden joysticks",
-     "summary": "Crimson Desert won PC Game of the Year at the 2026 Golden Joystick Awards, with Resident Evil Requiem and Meccha Chameleon among the night's other big winners.",
+     "title": "paradox interactive is getting a new boss",
+     "summary": "Fredrik Wester is stepping down as Paradox Interactive's chief executive for the second time, with the strategy publisher set to name a new boss, PC Gamer reports.",
      "sources": [
       {
        "title": "PC Gamer",
-       "url": "https://www.pcgamer.com/games/crimson-desert-wins-pc-game-of-the-year-at-the-2026-golden-joystick-awards/",
+       "url": "https://www.pcgamer.com/gaming-industry/paradox-interactive-is-getting-a-new-boss-as-fredrik-wester-steps-down-for-the-second-time/",
        "type": "independent"
       }
      ],
-     "image": "https://cdn.mos.cms.futurecdn.net/5uSFBL8SwZsL8eN6i48NTm-2560-80.jpg",
-     "title_ar": "Crimson Desert يفوز بجائزة أفضل لعبة PC في Golden Joystick",
-     "summary_ar": "فازت Crimson Desert بجائزة أفضل لعبة PC في جوائز Golden Joystick 2026، وكان Resident Evil Requiem وMeccha Chameleon من أبرز الفائزين الآخرين في الحفل.",
-     "kind": "NEWS",
-     "genres": [
-      "Action RPG"
-     ]
+     "time": "2026-11-12T22:52:00+03:00",
+     "image": "https://cdn.mos.cms.futurecdn.net/cDgAxkrVVPG3amZjs53R5N-1920-80.jpg",
+     "title_ar": "Paradox Interactive تستعد لمدير تنفيذي جديد",
+     "summary_ar": "يتنحى فريدريك ويستر عن منصب الرئيس التنفيذي لشركة Paradox Interactive للمرة الثانية، مع استعداد الناشر المتخصص في الاستراتيجية لتسمية مدير جديد، بحسب PC Gamer.",
+     "status": "new"
     },
     {
      "status": "",
@@ -1118,12 +1124,42 @@
      "store_url": "https://store.steampowered.com/app/4530370/"
     },
     {
+     "id": "game-underkeep",
+     "section": "games",
+     "status": "updated",
+     "time": "2026-11-12T06:15:00+03:00",
+     "title": "underkeep is 15% off at 45.66 sr in its launch week",
+     "summary": "The turn-based dungeon RPG launched on 5 November and is 45.66 SR at 15% off during its launch-week discount.",
+     "sources": [
+      {
+       "title": "Steam",
+       "url": "https://store.steampowered.com/app/2411200/",
+       "type": "official"
+      }
+     ],
+     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2411200/be22c58d9f42d3d349198e87b3c192998047b053/header.jpg?t=1794141969",
+     "title_ar": "Underkeep بخصم 15% عند 45.66 ريالاً في أسبوع الإطلاق",
+     "summary_ar": "صدرت لعبة تقمص الأدوار التكتيكية في الزنزانات في 5 نوفمبر وتباع بـ45.66 ريالاً بخصم 15% خلال خصم أسبوع الإطلاق.",
+     "kind": "DEAL",
+     "genres": [
+      "Turn-based RPG",
+      "Dungeon crawler"
+     ],
+     "platforms": [
+      "Windows"
+     ],
+     "price": "45.66 SR",
+     "discount": 15,
+     "release_date": "5 Nov, 2026",
+     "store_url": "https://store.steampowered.com/app/2411200/"
+    },
+    {
      "id": "game-tfc2",
      "section": "games",
-     "status": "",
+     "status": "updated",
      "time": "2026-11-11T06:15:00+03:00",
      "title": "the fertile crescent 2 is 20% off at 35.19 sr in launch week",
-     "summary": "The bronze age city-builder and survival strategy game released on 6 November and is 35.19 SR in its launch discount, down from 43.99 SR, on Windows, Mac and Linux.",
+     "summary": "TFC2: The Fertile Crescent 2 — Collapse of The Bronze Age launched on 6 November and is 35.19 SR at 20% off in its launch week.",
      "sources": [
       {
        "title": "Steam",
@@ -1147,41 +1183,8 @@
      "discount": 20,
      "release_date": "6 Nov, 2026",
      "store_url": "https://store.steampowered.com/app/4158610/",
-     "title_ar": "The Fertile Crescent 2 بخصم 20% إلى 35.19 ريالاً في أسبوع الإطلاق",
-     "summary_ar": "صدرت لعبة بناء المدن والبقاء في العصر البرونزي في 6 نوفمبر، وهي معروضة بـ35.19 ريالاً بخصم الإطلاق بدلاً من 43.99 ريالاً، على ويندوز وماك ولينكس."
-    },
-    {
-     "status": "",
-     "id": "game-hell-wait",
-     "section": "games",
-     "kind": "PICK",
-     "time": "2026-11-10T05:45:00+03:00",
-     "title": "hell wait is riichi mahjong crossed with a deckbuilder, 31.86 sr",
-     "summary": "Released on 9 November, Hell Wait stacks jokers, upgrades yaku and asks you not to deal in; it is 15% off at 31.86 SR against a 37.49 SR list price.",
-     "title_ar": "Hell Wait مزيج من الماه جونغ وباني المجموعات بـ31.86 ريالاً",
-     "summary_ar": "صدرت في 9 نوفمبر، وتقوم Hell Wait على تجميع الجواكر وتطوير الياكو ومحاولة عدم الخسارة؛ وهي بخصم 15% بسعر 31.86 ريالاً مقابل 37.49 ريالاً.",
-     "sources": [
-      {
-       "title": "Steam",
-       "url": "https://store.steampowered.com/app/3936340/",
-       "type": "independent"
-      }
-     ],
-     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3936340/a429813374132309ee2a54bfd32c99ad5d1a2d68/header.jpg?t=1794246714",
-     "genres": [
-      "Strategy",
-      "Roguelike",
-      "Casual"
-     ],
-     "platforms": [
-      "Windows",
-      "Mac",
-      "Linux"
-     ],
-     "release_date": "9 Nov, 2026",
-     "price": "31.86 SR",
-     "discount": 15,
-     "store_url": "https://store.steampowered.com/app/3936340/"
+     "title_ar": "The Fertile Crescent 2 بخصم 20% عند 35.19 ريالاً في أسبوع الإطلاق",
+     "summary_ar": "صدرت TFC2: The Fertile Crescent 2 — Collapse of The Bronze Age في 6 نوفمبر وتباع بـ35.19 ريالاً بخصم 20% في أسبوع الإطلاق."
     },
     {
      "status": "",
@@ -1214,59 +1217,32 @@
      "release_date": "27 Aug, 2026",
      "price": "189.00 SR",
      "store_url": "https://store.steampowered.com/app/2075800/"
-    },
-    {
-     "status": "",
-     "section": "games",
-     "id": "game-aow4-deal",
-     "time": "2026-11-08T06:00:00+03:00",
-     "kind": "DEAL",
-     "title": "age of wonders 4 is 60% off at 74.38 sr",
-     "title_ar": "Age of Wonders 4 بخصم 60% إلى 74.38 ريال",
-     "summary": "Age of Wonders 4 is down to 74.38 SR, 60% off, for a 4X game that mixes empire building with turn-based tactical battles. Steam's review score for it is very positive.",
-     "summary_ar": "ينزل Age of Wonders 4 إلى 74.38 ريال بخصم 60%، وهي لعبة 4X تمزج بناء الإمبراطورية بمعارك تكتيكية بنظام الأدوار. وتقييم Steam لها «إيجابي جداً».",
-     "genres": [
-      "4X",
-      "Turn-based strategy"
-     ],
-     "price": "74.38 SR",
-     "discount": 60,
-     "release_date": "2 May, 2023",
-     "store_url": "https://store.steampowered.com/app/1669000/",
-     "sources": [
-      {
-       "title": "Steam",
-       "url": "https://store.steampowered.com/app/1669000/",
-       "type": "official"
-      }
-     ],
-     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1669000/68c09090edc5317dfbdcbb5bb2b693a4301e727e/header_alt_assets_15.jpg?t=1793955877"
     }
    ],
    "watch": [
     {
+     "title": "Slay the spire 2 got a MASSIVE new update",
+     "url": "https://www.youtube.com/watch?v=SV0eprXn7Zs",
+     "channel": "Frost Prime"
+    },
+    {
      "title": "The Battle of Polytopia | Official Game Trailer | Turn-Based Strategy",
      "url": "https://www.youtube.com/watch?v=q3vuo32l9uU",
      "channel": "The Battle of Polytopia Official"
-    },
-    {
-     "title": "Football Manager 27 Review - The Final Verdict",
-     "url": "https://www.youtube.com/watch?v=KkqNV8K3d-E",
-     "channel": "GamingBolt"
     }
    ]
   },
   "social": {
-   "what_changed": "mrbeast's athlete challenge passed 92m views, badshah's 'mahiya' hit 69m, and every sidemen clip on the list kept climbing.",
-   "what_changed_ar": "تجاوز تحدي الرياضي من MrBeast 92 مليون مشاهدة، ووصلت «ماهيا» لبادشاه إلى 69 مليوناً، وواصلت مقاطع Sidemen الصعود.",
+   "what_changed": "mrbeast's athlete challenge passed 92.9m views, badshah's 'mahiya' hit 70.5m, and the sidemen pub quiz went past 4m.",
+   "what_changed_ar": "تجاوز تحدي MrBeast الرياضي 92.9 مليون مشاهدة، ووصلت «ماهيا» لبادشاه إلى 70.5 مليون، وتخطى اختبار Sidemen الأربعة ملايين.",
    "items": [
     {
      "id": "social-mrbeast",
      "section": "social",
      "status": "updated",
      "time": "2026-11-12T19:05:00+03:00",
-     "title": "mrbeast's 'beat a professional athlete' passes 92m views",
-     "summary": "MrBeast's 'Beat Professional Athlete, Win $100,000' has 92,094,240 views twelve days after release.",
+     "title": "mrbeast's 'beat a professional athlete' passes 92.9m views",
+     "summary": "MrBeast's 'Beat Professional Athlete, Win $100,000' has 92,914,429 views thirteen days after release.",
      "sources": [
       {
        "title": "MrBeast",
@@ -1277,17 +1253,17 @@
      "image": "https://i.ytimg.com/vi/_c2e1NcI3Sc/hqdefault.jpg",
      "platform": "youtube",
      "creator": "MrBeast",
-     "metric": "92.1m views",
-     "title_ar": "«تغلّب على رياضي محترف» من MrBeast يتجاوز 92 مليون مشاهدة",
-     "summary_ar": "بلغ فيديو «Beat Professional Athlete, Win $100,000» من MrBeast 92,094,240 مشاهدة بعد اثني عشر يوماً من نشره."
+     "metric": "92.9m views",
+     "title_ar": "«تغلّب على رياضي محترف» من MrBeast يتجاوز 92.9 مليون مشاهدة",
+     "summary_ar": "بلغ فيديو «Beat Professional Athlete, Win $100,000» من MrBeast 92,914,429 مشاهدة بعد ثلاثة عشر يوماً من نشره."
     },
     {
      "id": "social-badshah-mahiya",
      "section": "social",
      "status": "updated",
      "time": "2026-11-12T19:05:00+03:00",
-     "title": "badshah's 'mahiya' climbs to 69m views",
-     "summary": "The Badshah and Shreya Ghoshal track, with Avneet Kaur in the video, has 69,088,345 views nine days after release.",
+     "title": "badshah's 'mahiya' climbs to 70.5m views",
+     "summary": "The Badshah and Shreya Ghoshal track, with Avneet Kaur in the video, has 70,476,617 views ten days after release.",
      "sources": [
       {
        "title": "Badshah",
@@ -1298,17 +1274,17 @@
      "image": "https://i.ytimg.com/vi/EgXkduRe9ZU/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Badshah",
-     "metric": "69.1m views",
-     "title_ar": "«ماهيا» لبادشاه يصعد إلى 69 مليون مشاهدة",
-     "summary_ar": "بلغ مقطع Badshah وShreya Ghoshal، بمشاركة Avneet Kaur في الفيديو، 69,088,345 مشاهدة بعد تسعة أيام من نشره."
+     "metric": "70.5m views",
+     "title_ar": "«ماهيا» لبادشاه يصعد إلى 70.5 مليون مشاهدة",
+     "summary_ar": "بلغ مقطع Badshah وShreya Ghoshal، بمشاركة Avneet Kaur في الفيديو، 70,476,617 مشاهدة بعد عشرة أيام من نشره."
     },
     {
      "id": "social-kimmel-rigged",
      "section": "social",
      "status": "updated",
      "time": "2026-11-12T19:05:00+03:00",
-     "title": "kimmel's 'rigged election' monologue passes 7.5m views",
-     "summary": "Jimmy Kimmel's monologue about a rigged election has 7,537,578 views three days after release.",
+     "title": "kimmel's 'rigged election' monologue passes 7.6m views",
+     "summary": "Jimmy Kimmel's monologue about a rigged election has 7,627,229 views four days after release.",
      "sources": [
       {
        "title": "Jimmy Kimmel Live",
@@ -1319,17 +1295,17 @@
      "image": "https://i.ytimg.com/vi/XMRsPleHZ4s/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Jimmy Kimmel Live",
-     "metric": "7.5m views",
-     "title_ar": "مونولوج كيمل عن «انتخابات مزوّرة» يتجاوز 7.5 مليون مشاهدة",
-     "summary_ar": "بلغ مونولوج Jimmy Kimmel عن انتخابات مزوّرة 7,537,578 مشاهدة بعد ثلاثة أيام من نشره."
+     "metric": "7.6m views",
+     "title_ar": "مونولوج كيمل عن «انتخابات مزوّرة» يتجاوز 7.6 مليون مشاهدة",
+     "summary_ar": "بلغ مونولوج Jimmy Kimmel عن انتخابات مزوّرة 7,627,229 مشاهدة بعد أربعة أيام من نشره."
     },
     {
      "id": "social-sidemen-quiz",
      "section": "social",
      "status": "updated",
      "time": "2026-11-12T19:05:00+03:00",
-     "title": "sidemen's youtuber pub quiz passes 3.89m views",
-     "summary": "Sidemen's 'YouTuber Pub Quiz' has 3,890,226 views four days after release.",
+     "title": "sidemen's youtuber pub quiz passes 4.04m views",
+     "summary": "Sidemen's 'YouTuber Pub Quiz' has 4,043,932 views five days after release.",
      "sources": [
       {
        "title": "Sidemen",
@@ -1340,17 +1316,17 @@
      "image": "https://i.ytimg.com/vi/BcOP1ZEOTo0/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Sidemen",
-     "metric": "3.89m views",
-     "title_ar": "اختبار النشرات المعرفية من Sidemen يتجاوز 3.89 مليون مشاهدة",
-     "summary_ar": "بلغ فيديو «SIDEMEN YOUTUBER PUB QUIZ» 3,890,226 مشاهدة بعد أربعة أيام من نشره."
+     "metric": "4.04m views",
+     "title_ar": "اختبار النشرات المعرفية من Sidemen يتجاوز 4.04 مليون مشاهدة",
+     "summary_ar": "بلغ فيديو «SIDEMEN YOUTUBER PUB QUIZ» 4,043,932 مشاهدة بعد خمسة أيام من نشره."
     },
     {
      "id": "social-sidemen-lms",
      "section": "social",
      "status": "updated",
      "time": "2026-11-12T19:05:00+03:00",
-     "title": "moresidemen's last man standing passes 1.43m views",
-     "summary": "MoreSidemen's 'Last Man Standing: MW4 Edition' has 1,433,509 views two days after release.",
+     "title": "moresidemen's last man standing passes 1.59m views",
+     "summary": "MoreSidemen's 'Last Man Standing: MW4 Edition' has 1,587,674 views three days after release.",
      "sources": [
       {
        "title": "MoreSidemen",
@@ -1361,17 +1337,17 @@
      "image": "https://i.ytimg.com/vi/ssMtANeN5Ew/hqdefault.jpg",
      "platform": "youtube",
      "creator": "MoreSidemen",
-     "metric": "1.43m views",
-     "title_ar": "«Last Man Standing» من MoreSidemen يتجاوز 1.43 مليون مشاهدة",
-     "summary_ar": "بلغ فيديو «SIDEMEN LAST MAN STANDING: MW4 EDITION» 1,433,509 مشاهدة بعد يومين من نشره."
+     "metric": "1.59m views",
+     "title_ar": "«Last Man Standing» من MoreSidemen يتجاوز 1.59 مليون مشاهدة",
+     "summary_ar": "بلغ فيديو «SIDEMEN LAST MAN STANDING: MW4 EDITION» 1,587,674 مشاهدة بعد ثلاثة أيام من نشره."
     },
     {
      "id": "social-sidemen-reacts",
      "section": "social",
      "status": "updated",
      "time": "2026-11-12T19:05:00+03:00",
-     "title": "sidemenreacts' new clip passes 874k views",
-     "summary": "SidemenReacts' 'People Caught Laughing In Serious Situations' has 874,434 views two days after release.",
+     "title": "sidemenreacts' clip passes 996k views",
+     "summary": "SidemenReacts' 'People Caught Laughing In Serious Situations' has 995,661 views three days after release.",
      "sources": [
       {
        "title": "SidemenReacts",
@@ -1382,17 +1358,17 @@
      "image": "https://i.ytimg.com/vi/un1WBq8s2v0/hqdefault.jpg",
      "platform": "youtube",
      "creator": "SidemenReacts",
-     "metric": "874k views",
-     "title_ar": "مقطع جديد من SidemenReacts يتجاوز 874 ألف مشاهدة",
-     "summary_ar": "بلغ مقطع «People Caught Laughing In Serious Situations» 874,434 مشاهدة بعد يومين من نشره."
+     "metric": "996k views",
+     "title_ar": "مقطع SidemenReacts يقترب من مليون مشاهدة",
+     "summary_ar": "بلغ مقطع «People Caught Laughing In Serious Situations» من SidemenReacts 995,661 مشاهدة بعد ثلاثة أيام من نشره."
     },
     {
      "id": "social-fireship-ipo",
      "section": "social",
      "status": "updated",
      "time": "2026-11-12T19:05:00+03:00",
-     "title": "fireship's anthropic ipo video passes 1.5m views",
-     "summary": "Fireship's 'Did Anthropic just save its $1 trillion IPO?' has 1,499,772 views two days after release.",
+     "title": "fireship's anthropic ipo video passes 1.57m views",
+     "summary": "Fireship's 'Did Anthropic just save its $1 trillion IPO?' has 1,569,892 views three days after release.",
      "sources": [
       {
        "title": "Fireship",
@@ -1403,17 +1379,17 @@
      "image": "https://i.ytimg.com/vi/1FurWDiK9A4/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Fireship",
-     "metric": "1.5m views",
-     "title_ar": "فيديو Fireship عن اكتتاب Anthropic يتجاوز 1.5 مليون مشاهدة",
-     "summary_ar": "بلغ فيديو Fireship «Did Anthropic just save its $1 trillion IPO?» 1,499,772 مشاهدة بعد يومين من نشره."
+     "metric": "1.57m views",
+     "title_ar": "فيديو Fireship عن اكتتاب Anthropic يتجاوز 1.57 مليون مشاهدة",
+     "summary_ar": "بلغ فيديو Fireship «Did Anthropic just save its $1 trillion IPO?» 1,569,892 مشاهدة بعد ثلاثة أيام من نشره."
     },
     {
      "id": "social-amrit-maan",
      "section": "social",
      "status": "updated",
      "time": "2026-11-12T19:05:00+03:00",
-     "title": "amrit maan's 'guts' passes 2.45m views",
-     "summary": "Amrit Maan's 'Guts' has 2,445,216 views three days after release.",
+     "title": "amrit maan's 'guts' passes 2.59m views",
+     "summary": "Amrit Maan's 'Guts' has 2,591,384 views four days after release.",
      "sources": [
       {
        "title": "Amrit Maan",
@@ -1424,9 +1400,9 @@
      "image": "https://i.ytimg.com/vi/zxbDTgRivGI/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Amrit Maan",
-     "metric": "2.45m views",
-     "title_ar": "«GUTS» لأمريت مان يتجاوز 2.45 مليون مشاهدة",
-     "summary_ar": "بلغ فيديو «GUTS» لأمريت مان 2,445,216 مشاهدة بعد ثلاثة أيام من نشره."
+     "metric": "2.59m views",
+     "title_ar": "«GUTS» لأمريت مان يتجاوز 2.59 مليون مشاهدة",
+     "summary_ar": "بلغ فيديو «GUTS» لأمريت مان 2,591,384 مشاهدة بعد أربعة أيام من نشره."
     }
    ],
    "watch": [
@@ -1443,9 +1419,47 @@
    ]
   },
   "graphic": {
-   "warning": "war and crime footage, casualties",
-   "warning_ar": "مشاهد حرب وجرائم وضحايا",
    "items": [
+    {
+     "id": "graphic-uae-crash",
+     "section": "graphic",
+     "warning": "casualties, road crash",
+     "title": "fourteen dead as a truck hits 23 vehicles in fujairah",
+     "summary": "A truck driver lost control and hit several vehicles in Fujairah just before midnight, and the fire that followed spread through the traffic, killing 14 people and injuring 30, the UAE interior ministry said. Five of the 23 vehicles involved were trucks, and DNA tests are being used to identify the dead.",
+     "sources": [
+      {
+       "title": "BBC News",
+       "url": "https://www.bbc.co.uk/news/articles/c804wp9013kvo",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-12T19:56:00+03:00",
+     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/9fe2/live/b651d100-deb8-11f1-8fb5-a771a656a227.jpg",
+     "title_ar": "14 قتيلاً بعد اصطدام شاحنة بـ23 مركبة في الفجيرة",
+     "summary_ar": "فقد سائق شاحنة السيطرة على مركبته واصطدم بعدة سيارات في الفجيرة قبيل منتصف الليل، وامتد الحريق الناتج في حركة المرور فأودى بحياة 14 شخصاً وأصاب 30، بحسب وزارة الداخلية الإماراتية. وكانت خمس من المركبات الـ23 شاحنات، وتُستخدم اختبارات الحمض النووي لتحديد هوية الضحايا.",
+     "warning_ar": "سقوط ضحايا وحادث مروري",
+     "status": "new"
+    },
+    {
+     "id": "graphic-grid-winter",
+     "section": "graphic",
+     "warning": "war, strikes on infrastructure",
+     "title": "russia's grid campaign left a house-sized crater at a ukrainian substation",
+     "summary": "Ukraine's grid operator Ukrenergo said one Russian strike left a crater the size of a house at a substation it has hit hundreds of times, part of a campaign that in one week in early November fired 115 missiles, nearly 1,900 guided bombs and more than 3,000 drones. One night's strikes cut power to more than 600,000 customers in Dnipropetrovsk Oblast alone.",
+     "sources": [
+      {
+       "title": "Euromaidan Press",
+       "url": "https://euromaidanpress.com/2026/11/12/russia-is-trying-to-break-ukraines-power-grid-before-winter-one-strike-left-house-sized-crater/",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-12T22:41:00+03:00",
+     "image": "https://euromaidanpress.com/wp-content/uploads/2024/04/Russia-strikes-Ukraine-power-grid-Trypilska.jpg",
+     "title_ar": "حملة روسيا على شبكة الكهرباء تترك حفرة بحجم منزل في محطة أوكرانية",
+     "summary_ar": "قالت شركة Ukrenergo المشغلة للشبكة إن ضربة روسية واحدة تركت حفرة بحجم منزل في محطة فرعية استُهدفت مئات المرات، ضمن حملة أطلقت في أسبوع واحد من مطلع نوفمبر 115 صاروخاً ونحو 1,900 قنبلة موجهة وأكثر من 3,000 مسيّرة. وانقطعت الكهرباء عن أكثر من 600 ألف مشترك في مقاطعة دنيبروبتروفسك وحدها في ليلة واحدة.",
+     "warning_ar": "حرب وضربات على البنية التحتية",
+     "status": "new"
+    },
     {
      "status": "",
      "id": "graphic-odesa-warehouse",
@@ -1470,31 +1484,6 @@
      "image": "https://www.bbc.co.uk/apple-touch-icon.png",
      "warning": "civilian deaths, war damage",
      "warning_ar": "قتلى مدنيون ودمار من الحرب"
-    },
-    {
-     "status": "",
-     "section": "graphic",
-     "id": "graphic-yemen-sanaa",
-     "time": "2026-11-08T05:30:00+03:00",
-     "title": "saudi strike on a village near sanaa kills at least 33, houthi media say",
-     "title_ar": "ضربة سعودية على قرية قرب صنعاء تقتل 33 على الأقل بحسب إعلام الحوثيين",
-     "summary": "Houthi-run Al Masirah showed rescuers pulling bodies, including children, from the rubble of several buildings in al-Shariyah, east of Sanaa, and the toll rose from 25 to at least 33. The Saudi-led coalition has not commented, and the UN says more than 1,600 people have been killed since fighting resumed.",
-     "summary_ar": "أظهرت قناة المسيرة التابعة للحوثيين فرق الإنقاذ تنتشل جثثاً بينها أطفال من أنقاض عدة مبانٍ في الشريعة شرق صنعاء، وارتفعت الحصيلة من 25 إلى 33 على الأقل. ولم يعلق التحالف بقيادة السعودية، وتقول الأمم المتحدة إن أكثر من 1,600 شخص قتلوا منذ استئناف القتال.",
-     "sources": [
-      {
-       "title": "BBC News",
-       "url": "https://www.bbc.co.uk/news/articles/c65yn1v99ypmo",
-       "type": "independent"
-      },
-      {
-       "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/liveblog/2026/11/8/iran-war-live-explosions-hit-qeshm-us-moves-to-block-land-supply-routes",
-       "type": "independent"
-      }
-     ],
-     "image": "https://www.bbc.co.uk/apple-touch-icon.png",
-     "warning": "mass casualties, civilian deaths",
-     "warning_ar": "سقوط ضحايا بكثافة، بينهم مدنيون"
     },
     {
      "status": "",
@@ -1537,51 +1526,33 @@
      "warning_ar": "ضحايا بالجملة"
     },
     {
-     "id": "graphic-russia-power-grid",
+     "status": "",
      "section": "graphic",
-     "time": "2026-11-07T19:05:00+03:00",
-     "title": "russian strikes wound nine and hit ukraine's power grid before talks",
-     "title_ar": "ضربات روسية تجرح تسعة وتستهدف شبكة الكهرباء قبل المحادثات",
-     "summary": "Overnight drone and missile attacks damaged energy infrastructure across 12 regions, Kyiv hardest, Zelensky said; nine people were hurt including a child, and the capital's water and heating supplies were disrupted. The wave of more than 30 ballistic missiles and 170 drones came before trilateral talks in Abu Dhabi next week.",
-     "summary_ar": "قال زيلينسكي إن هجمات بالمسيّرات والصواريخ خلال الليل ألحقت أضراراً بمنشآت الطاقة في 12 منطقة وكانت كييف الأشد تضرراً؛ وأصيب تسعة أشخاص بينهم طفل، وتعطلت إمدادات المياه والتدفئة في العاصمة. وجاءت الموجة التي ضمت أكثر من 30 صاروخاً باليستياً و170 مسيّرة قبل محادثات ثلاثية في أبوظبي الأسبوع المقبل.",
+     "id": "graphic-yemen-sanaa",
+     "time": "2026-11-08T05:30:00+03:00",
+     "title": "saudi strike on a village near sanaa kills at least 33, houthi media say",
+     "title_ar": "ضربة سعودية على قرية قرب صنعاء تقتل 33 على الأقل بحسب إعلام الحوثيين",
+     "summary": "Houthi-run Al Masirah showed rescuers pulling bodies, including children, from the rubble of several buildings in al-Shariyah, east of Sanaa, and the toll rose from 25 to at least 33. The Saudi-led coalition has not commented, and the UN says more than 1,600 people have been killed since fighting resumed.",
+     "summary_ar": "أظهرت قناة المسيرة التابعة للحوثيين فرق الإنقاذ تنتشل جثثاً بينها أطفال من أنقاض عدة مبانٍ في الشريعة شرق صنعاء، وارتفعت الحصيلة من 25 إلى 33 على الأقل. ولم يعلق التحالف بقيادة السعودية، وتقول الأمم المتحدة إن أكثر من 1,600 شخص قتلوا منذ استئناف القتال.",
      "sources": [
       {
        "title": "BBC News",
-       "url": "https://www.bbc.co.uk/news/articles/cm4g1nq8158po",
+       "url": "https://www.bbc.co.uk/news/articles/c65yn1v99ypmo",
+       "type": "independent"
+      },
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/8/iran-war-live-explosions-hit-qeshm-us-moves-to-block-land-supply-routes",
        "type": "independent"
       }
      ],
      "image": "https://www.bbc.co.uk/apple-touch-icon.png",
-     "warning": "civilian casualties, infrastructure damage",
-     "warning_ar": "ضحايا مدنيون وأضرار بالبنية التحتية",
-     "status": ""
-    },
-    {
-     "id": "graphic-zaporizhia-40",
-     "section": "graphic",
-     "time": "2026-11-07T12:52:00+03:00",
-     "title": "zaporizhia aid-strike toll reaches 55",
-     "title_ar": "حصيلة ضربة مركز المساعدات في زابوريجيا تبلغ 55",
-     "summary": "Ukraine's state emergency service said the toll from Monday's strike on the aid point in Komyshuvakha rose to 55 on Saturday, after rescuers recovered nine more bodies; acting regional governor Mykhailo Semikin gave the same figure. Police listed 59 people missing, and the strike is the deadliest Russian attack on Zaporizhzhia region since the full-scale invasion.",
-     "summary_ar": "قالت خدمة الطوارئ الأوكرانية إن حصيلة الضربة التي استهدفت نقطة توزيع مساعدات في كوميشوفاخا الاثنين ارتفعت السبت إلى 55 قتيلاً بعد انتشال تسع جثث أخرى، وأكد القائم بأعمال حاكم المنطقة ميخايلو سيميكين الرقم نفسه. وأدرجت الشرطة 59 مفقوداً، وتُعد الضربة الأكثر دموية على منطقة زابوريجيا منذ الغزو الشامل.",
-     "sources": [
-      {
-       "title": "Kyiv Independent",
-       "url": "https://kyivindependent.com/death-toll-from-russian-strike-on-komyshuvakha-rises-to-53-as-search-operation-enters-5th-day/",
-       "type": "independent"
-      },
-      {
-       "title": "UNN",
-       "url": "https://unn.ua/en/amp/the-death-toll-following-the-russian-airstrike-on-komyshuvakha-has-risen-to-55",
-       "type": "independent"
-      }
-     ],
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/2026-11-02T212847Z_1214409262_RC2QFOATU4MH_RTRMADP_3_UKRAINE-CRISIS-ATTACK-ZAPORIZHZHIA-REGION-1793667591.jpg?resize=1920%2C1440",
-     "warning": "mass casualties, graphic reports",
-     "warning_ar": "سقوط ضحايا بكثافة، تقارير صادمة",
-     "status": ""
+     "warning": "mass casualties, civilian deaths",
+     "warning_ar": "سقوط ضحايا بكثافة، بينهم مدنيون"
     }
    ],
+   "warning": "war and crime footage, casualties",
+   "warning_ar": "مشاهد حرب وجرائم وضحايا",
    "watch": []
   }
  }
