@@ -92,9 +92,10 @@ describe("POST /api/editions (Edition ingest)", () => {
 
   it("gives the same stored state when the same Edition id is posted twice", async () => {
     const app = await startTestApp();
+    const owner = await app.signInAsOwner(); // a Reader before the Edition, so their top stories are picked then
 
     const first = await app.postEdition(morningEdition());
-    const briefAfterFirst = await (await app.signInAsOwner()).request("GET", "/api/brief");
+    const briefAfterFirst = await owner.request("GET", "/api/brief");
     const second = await app.postEdition(morningEdition());
     const briefAfterSecond = await (await app.signInAsOwner()).request("GET", "/api/brief");
 

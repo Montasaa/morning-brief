@@ -247,9 +247,10 @@ describe("POST /api/editions/legacy (legacy importer)", () => {
 
   it("changes nothing when the same file is imported twice", async () => {
     const app = await startTestApp();
+    const owner = await app.signInAsOwner(); // a Reader before the imports, so their top stories are picked then
     await importLegacy(app, legacySample());
     const first = await importLegacy(app, legacyToday());
-    const briefBefore = await (await app.signInAsOwner()).request("GET", "/api/brief");
+    const briefBefore = await owner.request("GET", "/api/brief");
 
     const again = await importLegacy(app, legacyToday());
     const sampleAgain = await importLegacy(app, legacySample());

@@ -1,5 +1,6 @@
 // POST /api/editions: the gathering side posts one Edition v3 document.
 import { getAppContext } from "@/server/app";
+import { pickTopStories } from "@/server/brief/top-picker";
 import { ingestEdition } from "@/server/editions/ingest";
 import { hasPipelineToken } from "@/server/pipeline-auth";
 
@@ -19,5 +20,7 @@ export async function POST(req: Request): Promise<Response> {
   }
 
   const result = ingestEdition(ctx, doc);
+  // Then every Reader's top stories (ticket 13), before answering, so the Briefs are ready when it returns.
+  if (result.accepted) await pickTopStories(ctx, result.edition_id);
   return Response.json(result, { status: result.accepted ? 200 : 422 });
 }

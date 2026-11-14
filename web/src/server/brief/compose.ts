@@ -5,12 +5,14 @@
 // Edition's fallback `top_stories`), then the rest grouped by Topic, ordered
 // by the Scorer (./score.ts) within a group and groups ordered by their best
 // Item. Items the Reader hid are left out and opened ones are dimmed (ticket
-// 09). Each Item appears once, under its best-matching followed Topic (for now
+// 09). The top stories are the ones picked for this Reader after ingest, with
+// their why-lines (ticket 13, ./top-picker.ts), as long as they are still in
+// the Reader's Brief; with none picked, the Edition's own `top_stories`. Each Item appears once, under its best-matching followed Topic (for now
 // the first of its Topics, in the Edition's order, that the Reader follows),
 // with the Reader's other followed Topics as tags. `groups` drive the progress
 // bars. Sensitive Items reach only Readers who opted into their Sensitive
-// Topics, and are marked blurred (ticket 08). Later tickets add per-Reader top
-// stories and Widgets here, keeping this one entry point.
+// Topics, and are marked blurred (ticket 08). Later tickets add Widgets here,
+// keeping this one entry point.
 import type { AppContext } from "../app";
 import type { ItemStatus, Source } from "../editions/types";
 import { readerReactions, toItemReactions, type Reaction } from "../reactions";
@@ -18,6 +20,7 @@ import { followedTopicIds } from "../topics/catalog";
 import { sensitiveItemSql, sensitiveItemVisibleSql } from "../topics/sensitive";
 import { topicName } from "../topics/names";
 import { scoreItems, type ScoredReaction } from "./score";
+import { scoredTopStories, storedTopStories } from "./top-stories";
 
 export interface BriefEdition {
   id: string;
@@ -48,6 +51,9 @@ export interface BriefItem {
   tags: string[];
   /** A top story: shown first, with the "Top for you" badge. */
   top: boolean;
+  /** On a top story Claude picked (ticket 13): "why this matters to you". Null otherwise. */
+  why_for_you: string | null;
+  why_for_you_ar: string | null;
   /** A sensitive Item (it carries a Sensitive Topic the Reader opted into): blurred with its warning until tapped, every time. */
   blurred: boolean;
   /** This Reader's Like and Save on the Item (ticket 09), for the dock. */
@@ -90,7 +96,7 @@ export interface Brief {
 }
 
 interface ItemRow
-  extends Omit<BriefItem, "topics" | "sources" | "extras" | "topic" | "tags" | "top" | "blurred" | "reactions" | "dimmed"> {
+  extends Omit<BriefItem, "topics" | "sources" | "extras" | "topic" | "tags" | "top" | "why_for_you" | "why_for_you_ar" | "blurred" | "reactions" | "dimmed"> {
   topics: string;
   sources: string;
   extras: string;
@@ -98,8 +104,17 @@ interface ItemRow
   time_ms: number;
 }
 
-/** The Brief of the Reader with id `reader.id`: only the Topics they follow. */
-export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
+/** A Reader's Brief before the top stories are taken out (ticket 13: the top picker chooses from it). */
+export interface RankedBrief {
+  edition: BriefEdition;
+  /** The latest Edition's Items the Reader follows, may see and has not hidden: highest score first, ties newest first. */
+  ranked: BriefItem[];
+  /** The Edition's own `top_stories`, the fallback tops. */
+  editionTopIds: string[];
+}
+
+/** The ranked Items of the Reader with id `reader.id`; null before the first Edition. */
+export function rankBrief(ctx: AppContext, reader: { id: number }): RankedBrief | null {
   const { db } = ctx;
   const edition = db
     .prepare(
@@ -110,7 +125,7 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
         LIMIT 1`,
     )
     .get() as BriefEdition | undefined;
-  if (!edition) return { edition: null, cover: null, items: [], groups: [], topic_names: {}, topic_names_ar: {}, next_edition_at: null };
+  if (!edition) return null;
 
   const rows = db
     .prepare(
@@ -147,6 +162,8 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
         topic: mine[0]!,
         tags: mine.slice(1),
         top: false,
+        why_for_you: null,
+        why_for_you_ar: null,
         blurred: r.blurred === 1,
         reactions: { like: mark.like, save: mark.save },
         dimmed: mark.open,
@@ -161,13 +178,35 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
   );
   const ranked = [...newestFirst].sort((a, b) => scores.get(b.id)! - scores.get(a.id)!);
 
-  const topIds = JSON.parse(
+  const editionTopIds = JSON.parse(
     (db.prepare("SELECT top_stories FROM editions WHERE id = ?").pluck().get(edition.id) as string | null) ?? "[]",
   ) as string[];
-  const tops = topIds.flatMap((id): BriefItem[] => {
-    const item = ranked.find((i) => i.id === id);
-    return item ? [{ ...item, top: true }] : [];
-  });
+  return { edition, ranked, editionTopIds };
+}
+
+/** The Brief of the Reader with id `reader.id`: only the Topics they follow. */
+export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
+  const { db } = ctx;
+  const rankedBrief = rankBrief(ctx, reader);
+  if (!rankedBrief) return { edition: null, cover: null, items: [], groups: [], topic_names: {}, topic_names_ar: {}, next_edition_at: null };
+  const { edition, ranked, editionTopIds } = rankedBrief;
+
+  // Top stories (ticket 13): the ones Claude picked for this Reader after ingest that are still in their
+  // Brief (not hidden, still followed), with their why-lines. When Claude failed, the Scorer's best Items
+  // as they are now. When nothing was picked for this Reader, the Edition's own top stories.
+  const inBrief = new Map(ranked.map((i) => [i.id, i]));
+  const top = (id: string, why: string | null = null, why_ar: string | null = null): BriefItem[] => {
+    const item = inBrief.get(id);
+    return item ? [{ ...item, top: true, why_for_you: why, why_for_you_ar: why_ar }] : [];
+  };
+  const picked = storedTopStories(ctx, reader.id, edition.id);
+  let tops =
+    picked?.picked_by === "claude"
+      ? picked.stories.flatMap((s) => top(s.item_id, s.why, s.why_ar))
+      : picked
+        ? scoredTopStories([...inBrief.keys()], editionTopIds).flatMap((id) => top(id))
+        : [];
+  if (tops.length === 0) tops = editionTopIds.flatMap((id) => top(id));
 
   // Groups in order of their best-scored Item; Items by score within each.
   const byTopic = new Map<string, BriefItem[]>();
