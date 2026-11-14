@@ -76,7 +76,7 @@ export function updateProfile(ctx: AppContext, reader: Reader, patch: unknown): 
       reasons.push("topics must be a list of Topic ids.");
     } else {
       topics = [...new Set(body.topics as string[])];
-      for (const id of unknownTopicIds(ctx, topics)) reasons.push(`"${id}" is not a Topic in the Catalog.`);
+      for (const id of unknownTopicIds(ctx, topics, reader.id)) reasons.push(`"${id}" is not a Topic in the Catalog.`);
     }
   }
 

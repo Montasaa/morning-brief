@@ -83,6 +83,7 @@ function TopicChecklist({
               </span>
               <span>{lang === "ar" ? topic.name_ar : topic.name}</span>
               {topic.sensitive && <span className={s.sensitive}>{t("Sensitive", "حساس")}</span>}
+              {topic.private && <span className={s.sensitive}>{t("Private", "خاص")}</span>}
             </label>
           );
         })}
