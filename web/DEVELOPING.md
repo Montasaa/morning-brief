@@ -230,3 +230,13 @@ Ticket 13. After an Edition is ingested, the top picker (`src/server/brief/top-p
 - `POST /api/editions` and the legacy import pick before they answer, so the Briefs are ready when ingest returns. Only the latest Edition is picked for; posting the same Edition again does not ask Claude again for a Reader it already answered for.
 - Claude's answer is filtered to the Reader's own Brief, and the Brief drops a top story the Reader has since hidden or unfollowed. When Claude fails or picks nothing usable, the tops are the Scorer's: the Edition's own `top_stories` in the Reader's Brief, then their highest-scored Items, up to 3, recomputed as their Reactions change, with no why-lines. A Reader with nothing picked (onboarded after the ingest) gets the Edition's own `top_stories`.
 - So in tests, **a Reader who exists when an Edition is posted gets top stories picked for them**; one who signs in afterwards does not. The fake Claude's default `top-picks` reply picks the Edition's own top stories (or the Reader's first Item) with a canned why-line. Set `app.services.claude.replies.set("top-picks", ...)` for specific picks, or `app.services.claude.failing.add("top-picks")` to get the Scorer's tops (what `test/api/ranking.test.ts` does, so the whole Brief follows the score).
+
+## Saved and Search
+
+Ticket 15. `src/server/saved-search/` lists Items to one Reader from every Edition ever posted (nothing is pruned), as each Item's newest stored version.
+
+- `GET /api/saved` returns `{items, topic_names, topic_names_ar}`: the Reader's `save` Reactions, newest-saved first, each with `saved_at`. Unsaving is `DELETE /api/items/{id}/reactions/save`.
+- `GET /api/search?q=` returns `{query, results, topic_names, topic_names_ar}`: at most 50 Items whose title or summary (English or Arabic) contain every word of `q` (a word's beginning is enough), newest first. An empty query finds nothing; query text is always plain words, never FTS5 syntax.
+- Each Item carries its date (`time`), the `topic` it is shown under (the first Topic the Reader follows, else its first Catalog Topic), its `thread` (`{id, title, title_ar}` or null), `blurred`, and the Reader's own `reactions: {like, save}`.
+- Listing rules live in `listableItemSql` (`listing.ts`): the sensitive opt-in rule, and at least one Topic in the Catalog. A ticket that makes Topics private narrows that one function to the Catalog as the Reader sees it.
+- Search is SQLite FTS5 (`migrations/t15_search.sql`). Triggers on `items` only note which Items changed; `searchItems` folds the text (Arabic hamza forms, vowel marks, tatweel, ى/ة and a leading article; see `searchWords`) and indexes them before each search. So ingest needs no change, and the same folding is applied to queries.
