@@ -1,13 +1,15 @@
 // The Interest Profile: what a Reader has said they care about (the Topics they
 // follow) plus their language and city, and whether they have finished
-// onboarding. GET/PATCH /api/me. Ticket 08 adds Sensitive Topic opt-ins and
-// ticket 18 notification preferences here.
+// onboarding. GET/PATCH /api/me. Sensitive Topic opt-ins (ticket 08) are the
+// Sensitive Topics among `topics`, opted into only through
+// POST /api/topics/{id}/follow; ticket 18 adds notification preferences here.
 //
 // Onboarding is finished by a PATCH with `onboarded: true`, which needs at
 // least one followed Topic. Until then the Reader's Brief is empty and the
 // Brief page sends them to /onboarding.
 import type { AppContext } from "../app";
 import { followedTopicIds, setFollowedTopics, unknownTopicIds } from "../topics/catalog";
+import { isSensitiveTopic, lastAgeConfirmation } from "../topics/sensitive";
 import type { Reader } from "./readers";
 
 export type ProfileLanguage = "en" | "ar";
@@ -19,8 +21,10 @@ export interface InterestProfile {
   language: ProfileLanguage | null;
   /** The city for weather and prayer times, as the Reader wrote it. Null until set. */
   city: string | null;
-  /** The Topics they follow, in Catalog order. */
+  /** The Topics they follow, in Catalog order. Sensitive ones among them are their opt-ins. */
   topics: string[];
+  /** When they last confirmed they are 18 or over, opting into Adult Trending (ISO 8601). Null if never. */
+  age_confirmed_at: string | null;
 }
 
 export const CITY_MAX_LENGTH = 80;
@@ -41,6 +45,7 @@ export function getProfile(ctx: AppContext, reader: Reader): InterestProfile {
     language: row?.language ?? null,
     city: row?.city ?? null,
     topics: followedTopicIds(ctx, reader.id),
+    age_confirmed_at: lastAgeConfirmation(ctx, reader.id),
   };
 }
 
@@ -77,6 +82,14 @@ export function updateProfile(ctx: AppContext, reader: Reader, patch: unknown): 
     } else {
       topics = [...new Set(body.topics as string[])];
       for (const id of unknownTopicIds(ctx, topics)) reasons.push(`"${id}" is not a Topic in the Catalog.`);
+      // Opting into a Sensitive Topic is its own step on the Me tab (POST /api/topics/{id}/follow);
+      // `topics` may keep or drop the ones already opted into, but never add one.
+      const already = new Set(followedTopicIds(ctx, reader.id));
+      for (const id of topics) {
+        if (!already.has(id) && isSensitiveTopic(ctx, id)) {
+          reasons.push(`"${id}" is a Sensitive Topic: opt into it from the Me tab.`);
+        }
+      }
     }
   }
 

@@ -41,6 +41,8 @@ test("opens on the cover card, taps through every Item to You're caught up, and 
   for (const { chip, title } of SWIPE_ORDER) {
     await tap(page, "Next");
     await expect(page.getByTestId("chip")).toHaveText(chip);
+    // The Graphic Item is blurred until tapped (ticket 08; e2e/sensitive-topics.spec.ts).
+    if (chip.startsWith("Graphic")) await page.getByRole("button", { name: /Tap to reveal/ }).tap();
     await expect(page.getByRole("heading", { level: 2 })).toHaveText(title);
   }
 

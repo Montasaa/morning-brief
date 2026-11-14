@@ -4,8 +4,8 @@
 //
 // The database lives for the whole run, so the helper also puts the Reader's
 // Interest Profile in a known state: a first-time Reader finishes onboarding
-// following every Catalog Topic (so their Brief is the whole Edition), and the
-// language is set back to English. Pass `{ onboard: false }` to land on
+// following (and opted into) every Catalog Topic (so their Brief is the whole
+// Edition), and the language is set back to English. Pass `{ onboard: false }` to land on
 // onboarding instead, as a new Reader does.
 import { existsSync, readFileSync } from "node:fs";
 import { expect, type Page } from "@playwright/test";
@@ -61,16 +61,29 @@ export async function signIn(
   await expect(page).toHaveURL(new RegExp(`${E2E_BASE_PATH}$`));
 }
 
-/** English, and onboarded following every Catalog Topic if this Reader had not finished onboarding. */
+/**
+ * English, and onboarded following every Catalog Topic if this Reader had not
+ * finished onboarding. Sensitive Topics cannot be picked in onboarding, so they
+ * are opted into afterwards as the Me tab does (with the 18+ confirmation).
+ */
 async function resetProfile(page: Page): Promise<void> {
   const me = await page.request.get(`${E2E_BASE_PATH}/api/me`);
   expect(me.status()).toBe(200);
   const patch: Record<string, unknown> = { language: "en" };
+  let optIns: string[] = [];
   if (!(await me.json()).onboarded) {
-    const catalog = await (await page.request.get(`${E2E_BASE_PATH}/api/topics`)).json();
-    patch.topics = (catalog.topics as { id: string }[]).map((t) => t.id);
+    const catalog = (await (await page.request.get(`${E2E_BASE_PATH}/api/topics`)).json()).topics as {
+      id: string;
+      sensitive: boolean;
+    }[];
+    patch.topics = catalog.filter((t) => !t.sensitive).map((t) => t.id);
     patch.onboarded = true;
+    optIns = catalog.filter((t) => t.sensitive).map((t) => t.id);
   }
   const res = await page.request.patch(`${E2E_BASE_PATH}/api/me`, { data: patch });
   expect(res.status(), await res.text()).toBe(200);
+  for (const id of optIns) {
+    const optIn = await page.request.post(`${E2E_BASE_PATH}/api/topics/${id}/follow`, { data: { age_confirmed: true } });
+    expect(optIn.status(), await optIn.text()).toBe(200);
+  }
 }

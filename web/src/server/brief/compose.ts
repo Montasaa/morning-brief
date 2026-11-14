@@ -7,11 +7,13 @@
 // appears once, under its best-matching followed Topic (for now the first of
 // its Topics, in the Edition's order, that the Reader follows), with the
 // Reader's other followed Topics as tags. `groups` drive the progress bars.
-// Later tickets add Reactions, sensitive opt-ins, per-Reader top stories,
-// scoring and Widgets here, keeping this one entry point.
+// Sensitive Items reach only Readers who opted into their Sensitive Topics, and
+// are marked blurred (ticket 08). Later tickets add Reactions, per-Reader top
+// stories, scoring and Widgets here, keeping this one entry point.
 import type { AppContext } from "../app";
 import type { ItemStatus, Source } from "../editions/types";
 import { followedTopicIds } from "../topics/catalog";
+import { sensitiveItemSql, sensitiveItemVisibleSql } from "../topics/sensitive";
 import { topicName } from "../topics/names";
 
 export interface BriefEdition {
@@ -43,6 +45,8 @@ export interface BriefItem {
   tags: string[];
   /** A top story: shown first, with the "Top for you" badge. */
   top: boolean;
+  /** A sensitive Item (it carries a Sensitive Topic the Reader opted into): blurred with its warning until tapped, every time. */
+  blurred: boolean;
 }
 
 /** One progress bar: the top stories, or the Items shown under one Topic, in Brief order. */
@@ -78,10 +82,11 @@ export interface Brief {
   next_edition_at: string | null;
 }
 
-interface ItemRow extends Omit<BriefItem, "topics" | "sources" | "extras" | "topic" | "tags" | "top"> {
+interface ItemRow extends Omit<BriefItem, "topics" | "sources" | "extras" | "topic" | "tags" | "top" | "blurred"> {
   topics: string;
   sources: string;
   extras: string;
+  blurred: number;
 }
 
 /** The Brief of the Reader with id `reader.id`: only the Topics they follow. */
@@ -104,13 +109,14 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
               i.sources, i.image, i.warning, i.warning_ar, i.extras,
               (SELECT json_group_array(topic_id)
                  FROM (SELECT topic_id FROM item_topics t WHERE t.item_id = i.id ORDER BY t.position)
-              ) AS topics
+              ) AS topics,
+              ${sensitiveItemSql("i.id")} AS blurred
          FROM edition_items ei
          JOIN items i ON i.id = ei.item_id
-        WHERE ei.edition_id = ?
+        WHERE ei.edition_id = ? AND ${sensitiveItemVisibleSql("i.id")}
         ORDER BY i.time_ms DESC, ei.position`,
     )
-    .all(edition.id) as ItemRow[];
+    .all(edition.id, reader.id) as ItemRow[];
 
   const followed = new Set(followedTopicIds(ctx, reader.id));
   const newestFirst = rows.flatMap((r): BriefItem[] => {
@@ -126,6 +132,7 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
         topic: mine[0]!,
         tags: mine.slice(1),
         top: false,
+        blurred: r.blurred === 1,
       },
     ];
   });

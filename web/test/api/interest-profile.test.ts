@@ -21,6 +21,7 @@ describe("GET /api/me", () => {
       language: null,
       city: null,
       topics: [],
+      age_confirmed_at: null,
     });
     const brief = await sara.request("GET", "/api/brief");
     expect(brief.body.edition).toMatchObject({ id: "2026-11-14-morning" });
