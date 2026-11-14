@@ -189,3 +189,13 @@ Ticket 09. A Reader's Reactions are one row per Reader, Item and kind in `reacti
 - Order comes from the Scorer, `scoreItems` in `src/server/brief/score.ts`: a pure function of followed Topics, the Reader's Reactions, recency (against the Edition's `generated_at`, not the clock) and status. Within a group Items run by score, groups by their best Item, ties newest first. So the non-top part of `composeBrief(...).items` is already the highest-scored first.
 - Test ranking through the order of `GET /api/brief` (see `test/api/ranking.test.ts`), never the weights.
 - In the Swipe Brief, `useReactions` (`src/app/_components/reactions.tsx`) holds the dock, the hide-reason sheet and the Undo toast. Opening any link on a card records an `open`.
+
+## Saved and Search
+
+Ticket 15. `src/server/saved-search/` lists Items to one Reader from every Edition ever posted (nothing is pruned), as each Item's newest stored version.
+
+- `GET /api/saved` returns `{items, topic_names, topic_names_ar}`: the Reader's `save` Reactions, newest-saved first, each with `saved_at`. Unsaving is `DELETE /api/items/{id}/reactions/save`.
+- `GET /api/search?q=` returns `{query, results, topic_names, topic_names_ar}`: at most 50 Items whose title or summary (English or Arabic) contain every word of `q` (a word's beginning is enough), newest first. An empty query finds nothing; query text is always plain words, never FTS5 syntax.
+- Each Item carries its date (`time`), the `topic` it is shown under (the first Topic the Reader follows, else its first Catalog Topic), its `thread` (`{id, title, title_ar}` or null), `blurred`, and the Reader's own `reactions: {like, save}`.
+- Listing rules live in `listableItemSql` (`listing.ts`): the sensitive opt-in rule, and at least one Topic in the Catalog. A ticket that makes Topics private narrows that one function to the Catalog as the Reader sees it.
+- Search is SQLite FTS5 (`migrations/t15_search.sql`). Triggers on `items` only note which Items changed; `searchItems` folds the text (Arabic hamza forms, vowel marks, tatweel, ى/ة and a leading article; see `searchWords`) and indexes them before each search. So ingest needs no change, and the same folding is applied to queries.
