@@ -138,3 +138,10 @@ test("the bottom tabs switch screens", async ({ page }) => {
   await tabs.getByRole("link", { name: "Brief" }).tap();
   await expect(page.getByRole("region", { name: "Cover card" })).toBeVisible();
 });
+
+test("on a phone there is no side list, only the one card (ticket 05)", async ({ page }) => {
+  await page.goto(E2E_BASE_PATH);
+  await expect(page.getByRole("region", { name: "Cover card" })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "In this Brief" })).toBeHidden();
+  await expect(page.getByRole("button", { name: "Next", exact: true })).toBeVisible();
+});

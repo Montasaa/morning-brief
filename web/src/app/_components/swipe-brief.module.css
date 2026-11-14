@@ -302,3 +302,26 @@
   font: inherit;
   font-weight: 600;
 }
+
+/* ---- desktop (ticket 05): the card in the centre, the side list beside it ---- */
+/* Below the breakpoint .layout is a plain wrapper and .stage stays fixed full-screen. */
+@media (min-width: 1024px) {
+  .layout {
+    position: fixed;
+    inset: 0 0 var(--tabbar-h) 0;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 520px) 1fr;
+    background: #000;
+  }
+  .stage {
+    position: relative;
+    inset: auto;
+    grid-column: 2;
+    max-width: none;
+    margin: 0;
+    border-inline: 1px solid #1c1c1e;
+  }
+  .tap {
+    cursor: pointer;
+  }
+}

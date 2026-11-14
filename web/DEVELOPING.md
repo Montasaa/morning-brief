@@ -99,6 +99,9 @@ Playwright at phone size (Pixel 7, Chromium) in `e2e/`, against `next dev` with 
 - Tap the Swipe Brief's tap zones up on the picture (`tap({ position: { x: 40, y: 200 } })`): the card text sits over their lower half on purpose. Match buttons with `exact: true`.
 - Fix the clock with `page.clock.setFixedTime(...)` before `page.goto` when a test reads relative times ("50m ago"). They are filled in after the page loads.
 - `devIndicators` is off in `next.config.ts` because the Next.js dev badge covers the bottom tabs.
+- Desktop-only flows go in `e2e/desktop-*.spec.ts`: they run in the `desktop` project (Desktop Chrome, 1280×720) and not at phone size; every other spec runs only at phone size. The desktop layout (card plus side list) starts at 1024px wide.
+- The e2e server listens on port 3210. Set `E2E_PORT` to use another one when several checkouts run e2e at once.
+- `next.config.ts` turns off Turbopack's on-disk dev cache. With it on, its writes under `web/.next` made `next dev` keep reloading the page, and the Swipe Brief jumped back to the cover in the middle of a test.
 
 ## The Edition v3 contract
 

@@ -4,10 +4,15 @@
 // left side to go back. Progress bars (one per group of the Brief) and a
 // Topic/position chip sit on top; the dock (Hide, Save, Like, Ask) sits at the
 // bottom and does nothing until ticket 09 (Reactions) and 16 (Ask).
+//
+// On a wide screen (ticket 05) the card stays in the centre and the side list
+// of the whole Brief sits beside it; clicking a row jumps to that Item. The
+// arrow keys move forward and back on any screen size.
 import { useEffect, useState } from "react";
 import type { Brief, BriefGroup, BriefItem } from "@/server/brief/compose";
 import { CardExtras } from "./card-extras";
 import { formatCoverDate, formatNextEdition, timeSince } from "./format";
+import { SideList, useArrowKeys } from "./side-list";
 import s from "./swipe-brief.module.css";
 
 const WIDGET_SLOTS = ["Weather", "Prayer times", "Next match", "Countdowns"] as const;
@@ -20,31 +25,35 @@ export function SwipeBrief({ brief }: { brief: Brief }) {
   const item = pos >= 1 && pos <= total ? brief.items[pos - 1]! : null;
   const next = () => setPos((p) => Math.min(p + 1, total + 1));
   const back = () => setPos((p) => Math.max(p - 1, 0));
+  useArrowKeys(next, back);
 
   return (
-    <div className={s.stage}>
-      <ProgressBars brief={brief} pos={pos} />
+    <div className={s.layout}>
+      <div className={s.stage}>
+        <ProgressBars brief={brief} pos={pos} />
 
-      {pos === 0 && <Cover brief={brief} />}
-      {item && <ItemCard item={item} brief={brief} position={pos} now={now} />}
-      {pos > total && (
-        <section className={s.done} aria-label="End of the Brief">
-          <h2>You&apos;re caught up</h2>
-          <p>{formatNextEdition(brief)}</p>
-          <button type="button" className={s.startOver} onClick={() => setPos(0)}>
-            Start over
-          </button>
-        </section>
-      )}
+        {pos === 0 && <Cover brief={brief} />}
+        {item && <ItemCard item={item} brief={brief} position={pos} now={now} />}
+        {pos > total && (
+          <section className={s.done} aria-label="End of the Brief">
+            <h2>You&apos;re caught up</h2>
+            <p>{formatNextEdition(brief)}</p>
+            <button type="button" className={s.startOver} onClick={() => setPos(0)}>
+              Start over
+            </button>
+          </section>
+        )}
 
-      {pos > 0 && (
-        <button type="button" className={`${s.tap} ${s.tapBack}`} aria-label="Back" onClick={back} />
-      )}
-      {pos <= total && (
-        <button type="button" className={`${s.tap} ${s.tapNext}`} aria-label="Next" onClick={next} />
-      )}
+        {pos > 0 && (
+          <button type="button" className={`${s.tap} ${s.tapBack}`} aria-label="Back" onClick={back} />
+        )}
+        {pos <= total && (
+          <button type="button" className={`${s.tap} ${s.tapNext}`} aria-label="Next" onClick={next} />
+        )}
 
-      {item && <Dock />}
+        {item && <Dock />}
+      </div>
+      <SideList brief={brief} pos={pos} onJump={setPos} groupName={(g) => groupName(g, brief)} />
     </div>
   );
 }
