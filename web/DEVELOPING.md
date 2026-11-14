@@ -173,6 +173,13 @@ Ticket 11. `src/server/topics/reader-topics.ts` (create, share) and `gathering-r
 - **Gathering Rules** are plain text (trusted outlets, what counts, exclude). Claude drafts them with `purpose: "gathering-rules"`; when Claude fails the Topic is still created with a template marked `rules_by: "fallback"`. The house source rules (`HOUSE_SOURCE_RULES`) are not copied into each Topic: they go to Claude's prompt and to the gathering list. The Owner edits any Topic's with `PATCH /api/topics/{id}/rules {rules}`.
 - **The gathering list** (`GET /api/gathering-list`, pipeline token) is `{house_rules, topics: [{id, name, name_ar, sensitive, rules, followers}]}`: every Topic followed by at least one Reader whose Invite is not revoked, in Catalog order.
 
+## Story Threads
+
+Ticket 14, in `src/server/threads/threads.ts`. Ingest links Items to Threads by `thread_id`; a new development is always a new Item, so a Thread's timeline is every Item ever linked to it, across all Editions, newest first.
+
+- `GET /api/threads` (the Threads tab: followed Threads first, then the other *active* ones, i.e. those the latest Edition carries), `GET /api/threads/{id}` (`{thread, items, topic_names, topic_names_ar}`, each Item with its Asia/Riyadh `date`), `POST /api/threads/{id}/follow|unfollow` (idempotent). The Brief carries `threads` (by id) for the chip on each card.
+- A Reader sees a Thread's Item only under the Brief's rules: it carries a Topic they follow, and every Sensitive Topic it carries is one they opted into (sensitive Items come back `blurred: true`). A Thread they can see no Item of is a `404` and is never listed. Later rules that hide Items from a Reader belong in its `VISIBLE_ITEMS` SQL too.
+
 ## The Catalog and the legacy importer
 
 - The Catalog starts with the 14 starting Topics, seeded by `migrations/t02_topics.sql` (`GET /api/topics` lists them). Their ids (`saudi`, `wider-middle-east`, `turn-based-rpg-tactics`, `adult-trending`, ...) are what Editions put in `items[].topics`. Later tickets add columns to `topics` with their own migrations.

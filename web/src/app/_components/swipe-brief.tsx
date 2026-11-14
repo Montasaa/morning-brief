@@ -5,6 +5,7 @@
 // Topic/position chip sit on top; the dock (Hide, Save, Like, Ask) sits at the
 // bottom (Reactions: ticket 09, in reactions.tsx; Ask opens the Ask sheet:
 // ticket 16). Hidden Items leave the Brief at once, and opened ones are dimmed.
+// A card on a Story Thread shows its Thread chip and Follow button (ticket 14).
 //
 // On a wide screen (ticket 05) the card stays in the centre and the side list
 // of the whole Brief sits beside it; clicking a row jumps to that Item. The
@@ -20,6 +21,7 @@ import { formatNumber, localized, type Lang } from "./i18n";
 import { LanguageToggle, useLanguage } from "./language";
 import { Dock, UndoToast, useReactions, type ReactionsState } from "./reactions";
 import { SideList, useArrowKeys } from "./side-list";
+import { ThreadChip } from "./thread-follow";
 import s from "./swipe-brief.module.css";
 
 const WIDGET_SLOTS = [
@@ -58,7 +60,9 @@ export function SwipeBrief({ brief: initial, basePath }: { brief: Brief; basePat
 
         {pos === 0 && <Cover brief={brief} />}
         {/* Keyed by Item, so a sensitive card is blurred again every time it comes round. */}
-        {item && <ItemCard key={item.id} item={item} brief={brief} position={pos} now={now} reactions={reactions} />}
+        {item && (
+          <ItemCard key={item.id} item={item} brief={brief} position={pos} now={now} reactions={reactions} basePath={basePath} />
+        )}
         {pos > total && (
           <section className={s.done} aria-label={t("End of the Brief", "نهاية الموجز")}>
             <h2>{t("You're caught up", "انتهيت من الموجز")}</h2>
@@ -149,12 +153,14 @@ function ItemCard({
   position,
   now,
   reactions,
+  basePath,
 }: {
   item: BriefItem;
   brief: Brief;
   position: number;
   now: number | null;
   reactions: ReactionsState;
+  basePath: string;
 }) {
   const { lang, t } = useLanguage();
   const name = (id: string) => topicNameIn(brief, id, lang);
@@ -200,6 +206,9 @@ function ItemCard({
           </p>
         )}
         <CardExtras extras={item.extras} />
+        {item.thread_id && brief.threads[item.thread_id] && (
+          <ThreadChip thread={brief.threads[item.thread_id]!} basePath={basePath} />
+        )}
         {item.tags.length > 0 && (
           <p className={s.tags}>
             {t("Also in", "أيضًا في")} {item.tags.map(name).join(t(", ", "، "))}

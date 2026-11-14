@@ -14,6 +14,7 @@
 import type { AppContext } from "../app";
 import type { ItemStatus, Source } from "../editions/types";
 import { readerReactions, toItemReactions, type Reaction } from "../reactions";
+import { threadSummaries, type ThreadSummary } from "../threads/threads";
 import { followedTopicIds, hiddenTopicIds } from "../topics/catalog";
 import { sensitiveItemSql, sensitiveItemVisibleSql } from "../topics/sensitive";
 import { topicName } from "../topics/names";
@@ -87,6 +88,8 @@ export interface Brief {
   topic_names_ar: Record<string, string>;
   /** When the next Edition is due (RFC 3339, +03:00): 19:15 after a morning Edition, 06:00 the next day after an evening one. */
   next_edition_at: string | null;
+  /** The Story Threads of the Brief's Items, by id, for the Thread chip (ticket 14). */
+  threads: Record<string, ThreadSummary>;
 }
 
 interface ItemRow
@@ -110,7 +113,7 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
         LIMIT 1`,
     )
     .get() as BriefEdition | undefined;
-  if (!edition) return { edition: null, cover: null, items: [], groups: [], topic_names: {}, topic_names_ar: {}, next_edition_at: null };
+  if (!edition) return { edition: null, cover: null, items: [], groups: [], topic_names: {}, topic_names_ar: {}, next_edition_at: null, threads: {} };
 
   const rows = db
     .prepare(
@@ -201,6 +204,7 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
     topic_names,
     topic_names_ar,
     next_edition_at: nextEditionAt(edition),
+    threads: threadSummaries(ctx, reader.id, items.flatMap((i) => (i.thread_id ? [i.thread_id] : []))),
   };
 }
 
