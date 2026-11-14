@@ -8,6 +8,7 @@
 // a service owns its real adapter and may extend its interface additively
 // (add methods or optional fields; do not rename), updating the fake with it.
 
+import { claudeService } from "./claude";
 import { resendEmailService } from "./resend";
 
 // --- Claude --------------------------------------------------------------------
@@ -131,7 +132,8 @@ function notConnected(service: string): () => Promise<never> {
  */
 export function realOutsideServices(env: Record<string, string | undefined> = process.env): OutsideServices {
   return {
-    claude: { complete: notConnected("Claude") },
+    // Claude (ticket 16): ANTHROPIC_API_KEY.
+    claude: env.ANTHROPIC_API_KEY ? claudeService({ apiKey: env.ANTHROPIC_API_KEY }) : { complete: notConnected("Claude") },
     // Resend (ticket 06): RESEND_API_KEY + EMAIL_FROM.
     email:
       env.RESEND_API_KEY && env.EMAIL_FROM

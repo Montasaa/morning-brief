@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getAppContext } from "@/server/app";
+import { askUsage } from "@/server/ask/limits";
 import { listInvites } from "@/server/readers/invites";
 import { requireReaderPage } from "@/server/readers/page-session";
 import { T } from "../_components/language";
+import { AskLimitsManager } from "./ask-limits-manager";
 import { InvitesManager } from "./invites-manager";
 
 export const dynamic = "force-dynamic";
@@ -32,6 +34,16 @@ export default async function InvitesPage() {
         />
       </p>
       <InvitesManager basePath={ctx.config.basePath} initial={listInvites(ctx)} />
+      <h2 style={{ fontSize: 18, margin: "32px 0 4px" }}>
+        <T en="Ask limits" ar="حدود الأسئلة" />
+      </h2>
+      <p style={{ margin: "0 0 12px", color: "var(--muted)", fontSize: 14 }}>
+        <T
+          en="Questions each Reader may ask Claude a day (default 20; resets at midnight, Riyadh time). You have no limit."
+          ar="عدد الأسئلة التي يطرحها كل قارئ على Claude يوميًا (الافتراضي ٢٠، وتتجدد عند منتصف الليل بتوقيت الرياض). لا حدّ لك."
+        />
+      </p>
+      <AskLimitsManager basePath={ctx.config.basePath} initial={askUsage(ctx)} />
     </main>
   );
 }

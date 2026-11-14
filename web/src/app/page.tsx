@@ -38,5 +38,5 @@ export default async function BriefPage() {
       </Placeholder>
     );
   }
-  return <SwipeBrief brief={brief} />;
+  return <SwipeBrief brief={brief} basePath={ctx.config.basePath} />;
 }
