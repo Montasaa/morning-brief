@@ -1,6 +1,7 @@
 // POST /api/editions: the gathering side posts one Edition v3 document.
 import { getAppContext } from "@/server/app";
 import { ingestEdition } from "@/server/editions/ingest";
+import { recordIngestRejection } from "@/server/owner/health";
 import { hasPipelineToken } from "@/server/pipeline-auth";
 
 export const dynamic = "force-dynamic";
@@ -15,9 +16,12 @@ export async function POST(req: Request): Promise<Response> {
   try {
     doc = await req.json();
   } catch {
-    return Response.json({ accepted: false, reasons: ["Body is not valid JSON"] }, { status: 400 });
+    const reasons = ["Body is not valid JSON"];
+    recordIngestRejection(ctx, { endpoint: "/api/editions", doc: null, reasons });
+    return Response.json({ accepted: false, reasons }, { status: 400 });
   }
 
   const result = ingestEdition(ctx, doc);
+  if (!result.accepted) recordIngestRejection(ctx, { endpoint: "/api/editions", doc, reasons: result.reasons });
   return Response.json(result, { status: result.accepted ? 200 : 422 });
 }
