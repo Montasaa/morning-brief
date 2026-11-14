@@ -215,3 +215,10 @@ Ticket 09. A Reader's Reactions are one row per Reader, Item and kind in `reacti
 - Order comes from the Scorer, `scoreItems` in `src/server/brief/score.ts`: a pure function of followed Topics, the Reader's Reactions, recency (against the Edition's `generated_at`, not the clock) and status. Within a group Items run by score, groups by their best Item, ties newest first. So the non-top part of `composeBrief(...).items` is already the highest-scored first.
 - Test ranking through the order of `GET /api/brief` (see `test/api/ranking.test.ts`), never the weights.
 - In the Swipe Brief, `useReactions` (`src/app/_components/reactions.tsx`) holds the dock, the hide-reason sheet and the Undo toast. Opening any link on a card records an `open`.
+
+## The Owner console
+
+Ticket 10. `/owner` (linked as "Console" from the Owner's account bar on the Me tab) shows ingest health and "bad source" reports; other Readers are redirected to their Brief. The data comes from `src/server/owner/`, also served as `GET /api/owner/health` and `GET /api/owner/reports` (Owner only).
+
+- **Reports** are read from the Readers' current `bad_source` hides, so undoing the hide or changing its reason withdraws the report. They group by Item (with its Topics and sources) and by source title, and count Readers without naming them. Other hide reasons never reach the Owner.
+- **Rejected ingests**: a pipeline route that refuses a document from a caller holding the token (invalid Edition, body not JSON, a brief.json the legacy importer cannot convert) records it with `recordIngestRejection(ctx, {endpoint, doc, reasons})`. A new pipeline route that ingests should do the same. Calls without the token and legacy dry runs are not recorded. The console lists the newest 20; only the newest 200 are kept.

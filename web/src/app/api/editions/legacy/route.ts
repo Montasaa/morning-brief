@@ -5,6 +5,7 @@
 // A pipeline route: needs the bearer token.
 import { getAppContext } from "@/server/app";
 import { importLegacyBrief, previewLegacyBrief } from "@/server/legacy/import";
+import { recordIngestRejection } from "@/server/owner/health";
 import { hasPipelineToken } from "@/server/pipeline-auth";
 
 export const dynamic = "force-dynamic";
@@ -19,10 +20,16 @@ export async function POST(req: Request): Promise<Response> {
   try {
     doc = await req.json();
   } catch {
-    return Response.json({ accepted: false, reasons: ["Body is not valid JSON"] }, { status: 400 });
+    const reasons = ["Body is not valid JSON"];
+    recordIngestRejection(ctx, { endpoint: "/api/editions/legacy", doc: null, reasons });
+    return Response.json({ accepted: false, reasons }, { status: 400 });
   }
 
   const dryRun = new URL(req.url).searchParams.get("dry_run") === "1";
   const result = dryRun ? previewLegacyBrief(doc) : importLegacyBrief(ctx, doc);
+  // A dry run stores nothing, so its refusal is not an ingest the Owner needs to see.
+  if (!dryRun && !result.accepted) {
+    recordIngestRejection(ctx, { endpoint: "/api/editions/legacy", doc, reasons: result.reasons });
+  }
   return Response.json(result, { status: result.accepted ? 200 : 422 });
 }

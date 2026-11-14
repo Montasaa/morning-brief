@@ -1,0 +1,91 @@
+.screen {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px calc(24px + var(--tabbar-h));
+}
+
+.screen h1 {
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+
+.back {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.section {
+  margin-block-start: 24px;
+}
+
+.section h2 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.section h3 {
+  font-size: 15px;
+  margin: 20px 0 4px;
+}
+
+.lede,
+.empty,
+.meta {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+.lede {
+  margin-block-end: 8px;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 16px;
+  margin: 0;
+  font-size: 15px;
+}
+
+.facts dt {
+  color: var(--muted);
+}
+
+.facts dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list > li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 4px;
+  font-weight: 600;
+}
+
+.reasons,
+.sources {
+  margin: 6px 0 0;
+  padding-inline-start: 20px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.sourceRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+}

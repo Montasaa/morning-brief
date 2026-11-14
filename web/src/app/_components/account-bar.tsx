@@ -1,5 +1,5 @@
 "use client";
-// A small bar with the signed-in Reader, the Owner's Invites link and Sign out,
+// A small bar with the signed-in Reader, the Owner's Invites and console links and Sign out,
 // at the top of the Me tab. Sign out is a plain form post.
 import Link from "next/link";
 import type { Reader } from "@/server/readers/readers";
@@ -29,6 +29,11 @@ export function AccountBar({ reader, basePath }: { reader: Reader; basePath: str
         // "Rules" keeps the bar on one line at phone width; the accessible name says what they are.
         <Link href="/gathering-rules" aria-label={t("Gathering Rules", "قواعد الجمع")} style={{ whiteSpace: "nowrap" }}>
           {t("Rules", "القواعد")}
+        </Link>
+      )}
+      {reader.role === "owner" && (
+        <Link href="/owner" style={{ whiteSpace: "nowrap" }}>
+          {t("Console", "لوحة المالك")}
         </Link>
       )}
       <form method="post" action={`${basePath}/api/auth/sign-out`} style={{ margin: 0 }}>
