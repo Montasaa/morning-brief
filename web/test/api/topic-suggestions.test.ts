@@ -37,12 +37,12 @@ describe("POST /api/me/topic-suggestions", () => {
       unavailable: false,
       suggestions: [
         {
-          topic: { id: "liverpool", name: "Liverpool", name_ar: "ليفربول", sensitive: false, followed: false },
+          topic: { id: "liverpool", name: "Liverpool", name_ar: "ليفربول", sensitive: false, followed: false, private: false, mine: false },
           reason: "You support Liverpool.",
           reason_ar: "أنت تشجع ليفربول.",
         },
         {
-          topic: { id: "ai", name: "AI", name_ar: "الذكاء الاصطناعي", sensitive: false, followed: false },
+          topic: { id: "ai", name: "AI", name_ar: "الذكاء الاصطناعي", sensitive: false, followed: false, private: false, mine: false },
           reason: "You build software.",
           reason_ar: "أنت تبني البرمجيات.",
         },
