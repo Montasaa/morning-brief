@@ -5,6 +5,8 @@
 // (see side-list.module.css), so phones keep the one-card Swipe Brief.
 import { useEffect, useRef } from "react";
 import type { Brief, BriefGroup } from "@/server/brief/compose";
+import { formatNumber, localized } from "./i18n";
+import { useLanguage } from "./language";
 import s from "./side-list.module.css";
 
 interface SideListProps {
@@ -20,6 +22,9 @@ export function SideList({ brief, pos, onJump, groupName }: SideListProps) {
   const position = new Map(brief.items.map((item, i) => [item.id, i + 1]));
   const byId = new Map(brief.items.map((item) => [item.id, item]));
   const current = useRef<HTMLButtonElement>(null);
+  const { lang, t } = useLanguage();
+  const topicName = (id: string) =>
+    (lang === "ar" ? brief.topic_names_ar[id] : undefined) ?? brief.topic_names[id] ?? id;
 
   // Keep the highlighted row in view as the Reader moves through the Brief.
   useEffect(() => {
@@ -27,8 +32,8 @@ export function SideList({ brief, pos, onJump, groupName }: SideListProps) {
   }, [pos]);
 
   return (
-    <nav className={s.sideList} aria-label="In this Brief">
-      <h2 className={s.title}>In this Brief</h2>
+    <nav className={s.sideList} aria-label={t("In this Brief", "في هذا الموجز")}>
+      <h2 className={s.title}>{t("In this Brief", "في هذا الموجز")}</h2>
       {brief.groups.map((g) => (
         <section key={g.topic ?? "top"} className={s.group}>
           <h3>{groupName(g)}</h3>
@@ -47,11 +52,14 @@ export function SideList({ brief, pos, onJump, groupName }: SideListProps) {
                     onClick={() => onJump(at)}
                   >
                     <span className={s.num} aria-hidden>
-                      {at}
+                      {formatNumber(at, lang)}
                     </span>
                     <span className={s.rowText}>
-                      <span className={s.rowTitle}>{item.title}</span>
-                      {g.kind === "top" && <small>{brief.topic_names[item.topic] ?? item.topic}</small>}
+                      {/* dir="auto": an English fallback inside the Arabic layout still reads left to right. */}
+                      <span className={s.rowTitle} dir="auto">
+                        {localized(item, "title", lang)}
+                      </span>
+                      {g.kind === "top" && <small>{topicName(item.topic)}</small>}
                     </span>
                   </button>
                 </li>

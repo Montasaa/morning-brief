@@ -98,3 +98,8 @@
   font-size: 11px;
   color: #8a8a8a;
 }
+
+/* Arabic: letter-spacing breaks the joins between Arabic letters. */
+:global([dir="rtl"]) .title {
+  letter-spacing: 0;
+}

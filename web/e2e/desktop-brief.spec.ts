@@ -1,7 +1,7 @@
 // Smoke tests for the Brief on a wide screen (ticket 05): the current card in
 // the centre, the side list of the whole Brief beside it, and arrow keys.
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, expect, postEdition, signIn, swipeEdition, test } from "./support";
 
 const TITLES = [
   "Truce talks resume over Hodeidah port access",
@@ -18,8 +18,9 @@ const row = (page: Page, title: string) => sideList(page).getByRole("button", { 
 const chip = (page: Page) => page.getByTestId("chip");
 const cover = (page: Page) => page.getByRole("region", { name: "Cover card" });
 
-test.beforeEach(async ({ request }) => {
+test.beforeEach(async ({ request, page }) => {
   await postEdition(request, swipeEdition());
+  await signIn(page);
 });
 
 test("shows the card in the centre with the whole Brief listed beside it", async ({ page }) => {
@@ -101,4 +102,34 @@ test("arrow keys move forward and back, but not while typing in an input", async
   await input.blur();
   await page.keyboard.press("ArrowLeft");
   await expect(chip(page)).toHaveText("GitHub Trending · 6/7");
+});
+
+test("in Arabic the side list is in Arabic, sits on the left, and the arrow keys follow the reading direction", async ({
+  page,
+}) => {
+  await page.goto(E2E_BASE_PATH);
+  await page.getByRole("button", { name: "العربية", exact: true }).click();
+  await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
+
+  const list = page.getByRole("navigation", { name: "في هذا الموجز" });
+  await expect(list).toBeVisible();
+  await expect(list.getByRole("heading", { name: "الأهم لك" })).toBeVisible();
+  await expect(list.getByRole("heading", { name: "ليفربول" })).toBeVisible();
+  await expect(
+    list.getByRole("button", { name: "لاعب الوسط يعود إلى التدريبات الكاملة قبل نهاية الأسبوع" }),
+  ).toBeVisible();
+
+  // Right to left: the list sits on the card's left.
+  const card = (await page.getByRole("region", { name: "بطاقة الغلاف" }).boundingBox())!;
+  const box = (await list.boundingBox())!;
+  expect(box.x + box.width).toBeLessThanOrEqual(card.x);
+
+  // ArrowLeft goes forward in Arabic, ArrowRight back.
+  await page.keyboard.press("ArrowLeft");
+  await page.keyboard.press("ArrowLeft");
+  await expect(chip(page)).toHaveText("الذكاء الاصطناعي · ٢/٧");
+  await page.keyboard.press("ArrowRight");
+  await expect(chip(page)).toHaveText("اليمن · ١/٧");
+
+  await page.getByRole("button", { name: "English", exact: true }).click();
 });
