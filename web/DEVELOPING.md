@@ -240,3 +240,11 @@ Ticket 15. `src/server/saved-search/` lists Items to one Reader from every Editi
 - Each Item carries its date (`time`), the `topic` it is shown under (the first Topic the Reader follows, else its first Catalog Topic), its `thread` (`{id, title, title_ar}` or null), `blurred`, and the Reader's own `reactions: {like, save}`.
 - Listing rules live in `listableItemSql` (`listing.ts`): the sensitive opt-in rule, and at least one Topic in the Catalog as the Reader sees it (ticket 11: another Reader's private Topic does not count, and is stripped from the Item's `topics`).
 - Search is SQLite FTS5 (`migrations/t15_search.sql`). Triggers on `items` only note which Items changed; `searchItems` folds the text (Arabic hamza forms, vowel marks, tatweel, ى/ة and a leading article; see `searchWords`) and indexes them before each search. So ingest needs no change, and the same folding is applied to queries.
+
+## Pipeline v3 (the gathering side)
+
+Ticket 19. Gathering stays outside the app: the agent follows [`pipeline/PIPELINE-v3.md`](../pipeline/PIPELINE-v3.md) and uses the Python tool `pipeline/v3/edition_v3.py` (stdlib plus `jsonschema`), which turns its drafts into an Edition, checks links, validates against the same schema as ingest and posts to `POST /api/editions`. The v2 `pipeline/PIPELINE.md` keeps running unchanged until the switch-over.
+
+- `web/test/pipeline/` tests the tool from outside: it runs as a child process (`runTool` in `test/support/pipeline-v3.ts`) against the test app served on 127.0.0.1 (`serveApp`), and the tests check its files, output and the app's API. So `npm test` needs `python3` (3.10+) with `jsonschema` 4.x on the PATH.
+- Tests pass `--no-link-check` (drafts use example.com links); only the link-check test checks links, against a local server. Never let the tool reach the real network in a test.
+- A change to `schema/edition.v3.schema.json` is picked up by the tool too; keep the house rules in `pipeline/v3/gathering/validate.py` in step with `HOUSE_SOURCE_RULES`.
