@@ -89,7 +89,10 @@ test("choosing Arabic on the Me tab changes every screen and lasts across reload
   const cover = page.getByRole("region", { name: "بطاقة الغلاف" });
   await expect(cover.getByRole("heading", { level: 1 })).toContainText("نوفمبر");
   await expect(cover).toContainText("الطبعة الصباحية");
-  await expect(cover.getByRole("group", { name: "مواقيت الصلاة" })).toBeVisible();
+  // The Widgets in Arabic: weather for the Reader's city, or the link to set one (ticket 17).
+  await expect(
+    cover.getByRole("group", { name: "الطقس" }).or(cover.getByRole("link", { name: "اختر مدينتك من تبويب «أنا»" })),
+  ).toBeVisible();
   await expect(page.getByRole("progressbar", { name: "الأهم لك", exact: true })).toBeVisible();
 
   // The first Item: Arabic title, its other Topic as an Arabic tag, the Arabic dock.

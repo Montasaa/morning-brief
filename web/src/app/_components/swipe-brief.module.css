@@ -122,26 +122,6 @@
   font-size: 15px;
   color: #bdbdbd;
 }
-/* Under the tap zones: the whole cover card is tappable. */
-.widgets {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.widget {
-  min-height: 78px;
-  padding: 12px;
-  border: 1px dashed rgba(255, 255, 255, 0.22);
-  border-radius: 14px;
-  font-size: 12px;
-  color: #9a9a9a;
-}
-.widget b {
-  display: block;
-  margin-top: 6px;
-  font-size: 20px;
-  color: #5c5c5c;
-}
 .hint {
   margin: 28px 0 0;
   font-size: 13px;

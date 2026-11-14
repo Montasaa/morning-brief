@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import type { Brief, BriefGroup, BriefItem } from "@/server/brief/compose";
 import { AskSheet } from "./ask-sheet";
 import { CardExtras } from "./card-extras";
+import { CoverWidgets } from "./cover-widgets";
 import { formatCoverDate, formatNextEdition, itemCount, timeSince } from "./format";
 import { formatNumber, localized, type Lang } from "./i18n";
 import { LanguageToggle, useLanguage } from "./language";
@@ -23,13 +24,6 @@ import { Dock, UndoToast, useReactions, type ReactionsState } from "./reactions"
 import { SideList, useArrowKeys } from "./side-list";
 import { ThreadChip } from "./thread-follow";
 import s from "./swipe-brief.module.css";
-
-const WIDGET_SLOTS = [
-  { en: "Weather", ar: "الطقس" },
-  { en: "Prayer times", ar: "مواقيت الصلاة" },
-  { en: "Next match", ar: "المباراة القادمة" },
-  { en: "Countdowns", ar: "العد التنازلي" },
-] as const;
 
 /** A Topic's name in the Reader's language. */
 function topicNameIn(brief: Brief, id: string, lang: Lang): string {
@@ -133,14 +127,7 @@ function Cover({ brief }: { brief: Brief }) {
           : t("Evening Edition", "الطبعة المسائية")}{" "}
         · {itemCount(brief.items.length, lang)}
       </p>
-      <div className={s.widgets}>
-        {WIDGET_SLOTS.map((slot) => (
-          <div key={slot.en} role="group" aria-label={t(slot.en, slot.ar)} className={s.widget}>
-            <span>{t(slot.en, slot.ar)}</span>
-            <b aria-hidden>—</b>
-          </div>
-        ))}
-      </div>
+      <CoverWidgets widgets={brief.cover!.widgets} />
       {/* The forward side is on the left in Arabic. */}
       <p className={s.hint}>{t("Tap the right side to start", "اضغط على الجانب الأيسر للبدء")}</p>
     </section>
