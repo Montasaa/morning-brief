@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
   // Served under its own path on the existing domain (spec: Platform).
   // BASE_PATH is read at build time (and by `next dev`); default /brief.
   basePath: basePathFrom(process.env),
+  // The dev indicator would sit on top of the bottom tabs; errors still show.
+  devIndicators: false,
   serverExternalPackages: ["better-sqlite3"],
   // Migrations are read from disk at start-up, so ship them with every server route.
   outputFileTracingIncludes: { "/**": ["./migrations/*.sql"] },
