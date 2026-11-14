@@ -4,7 +4,7 @@
 //
 //   const app = await startTestApp();
 //   await app.postEdition(morningEdition());
-//   const owner = await app.signInAsOwner();
+//   const owner = await app.signInAsOwner();          // onboarded, following every Catalog Topic
 //   const res = await owner.request("GET", "/api/brief");
 //
 // See web/DEVELOPING.md for the conventions.
@@ -63,17 +63,27 @@ export interface TestApp {
    * Sign in the way a Reader does: request a magic link for `email`, open the
    * newest link the fake Resend outbox holds for it, and keep the session cookie.
    * Throws if no link arrives (the email is not invited) or the link is refused.
+   *
+   * A Reader who has not been through onboarding yet finishes it straight away
+   * (through PATCH /api/me), following every Catalog Topic, so their Brief is
+   * the whole Edition. Pass `{ onboarded: false }` to stay on the first visit.
+   * A Reader who already finished onboarding is left as they are.
    */
-  signIn(email: string): Promise<TestSession>;
+  signIn(email: string, options?: SignInOptions): Promise<TestSession>;
   /** signIn() as the Owner (TEST_OWNER_EMAIL). */
-  signInAsOwner(): Promise<TestSession>;
+  signInAsOwner(options?: SignInOptions): Promise<TestSession>;
   /** The Owner invites `email`, then that Reader signs in. The usual way to get a second Reader. */
-  addReader(email: string): Promise<TestSession>;
+  addReader(email: string, options?: SignInOptions): Promise<TestSession>;
   /** The newest magic link (full URL) the fake Resend outbox holds for `email`, or null. */
   lastMagicLink(email: string): string | null;
   /** Open a magic link (or any URL under the app) as a fresh browser would: GET, no cookie. */
   openLink(url: string): Promise<TestResponse>;
   close(): void;
+}
+
+export interface SignInOptions {
+  /** Finish onboarding (following every Catalog Topic) if this Reader has not yet. Default true. */
+  onboarded?: boolean;
 }
 
 export interface TestAppOptions {
@@ -117,7 +127,7 @@ export async function startTestApp(options: TestAppOptions = {}): Promise<TestAp
     if (!u.pathname.startsWith(TEST_BASE_PATH + "/")) throw new Error(`Link is not under the app: ${url}`);
     return callRoute("GET", u.pathname.slice(TEST_BASE_PATH.length) + u.search);
   };
-  const signIn = async (email: string): Promise<TestSession> => {
+  const signIn = async (email: string, { onboarded = true }: SignInOptions = {}): Promise<TestSession> => {
     const before = lastMagicLink(email);
     const asked = await callRoute("POST", "/api/auth/magic-link", { body: { email } });
     if (asked.status !== 200) throw new Error(`Magic link request for ${email} failed: ${asked.status} ${asked.text}`);
@@ -126,11 +136,13 @@ export async function startTestApp(options: TestAppOptions = {}): Promise<TestAp
     const opened = await openLink(link);
     const cookie = sessionCookie(opened);
     if (!cookie) throw new Error(`The magic link for ${email} did not sign in (${opened.status} ${opened.headers.get("location")})`);
-    return {
+    const session: TestSession = {
       email,
       cookie,
       request: (method, p, opts) => callRoute(method, p, { cookie, ...opts }),
     };
+    if (onboarded) await finishOnboarding(session);
+    return session;
   };
 
   let closed = false;
@@ -141,12 +153,12 @@ export async function startTestApp(options: TestAppOptions = {}): Promise<TestAp
     request: (method, p, opts) => callRoute(method, p, opts),
     postEdition: (edition) => callRoute("POST", "/api/editions", { body: edition, token: ingestToken }),
     signIn,
-    signInAsOwner: () => signIn(options.ownerEmail || TEST_OWNER_EMAIL),
-    async addReader(email) {
+    signInAsOwner: (opts) => signIn(options.ownerEmail || TEST_OWNER_EMAIL, opts),
+    async addReader(email, opts) {
       const owner = await signIn(options.ownerEmail || TEST_OWNER_EMAIL);
       const invited = await owner.request("POST", "/api/invites", { body: { email } });
       if (invited.status !== 201) throw new Error(`Inviting ${email} failed: ${invited.status} ${invited.text}`);
-      return signIn(email);
+      return signIn(email, opts);
     },
     lastMagicLink,
     openLink,
@@ -165,6 +177,17 @@ export async function startTestApp(options: TestAppOptions = {}): Promise<TestAp
 /** Called after every test by test/support/setup.ts. */
 export function closeAllTestApps(): void {
   while (open.length) open.pop()!.close();
+}
+
+/** A first-time Reader finishes onboarding following every Catalog Topic; anyone else is left alone. */
+async function finishOnboarding(session: TestSession): Promise<void> {
+  const me = await session.request("GET", "/api/me");
+  if (me.status !== 200) throw new Error(`GET /api/me failed for ${session.email}: ${me.status} ${me.text}`);
+  if (me.body.onboarded) return;
+  const catalog = await session.request("GET", "/api/topics");
+  const topics = (catalog.body.topics as { id: string }[]).map((t) => t.id);
+  const done = await session.request("PATCH", "/api/me", { body: { topics, onboarded: true } });
+  if (done.status !== 200) throw new Error(`Onboarding ${session.email} failed: ${done.status} ${done.text}`);
 }
 
 // --- in-process routing over src/app/api/**/route.ts -------------------------

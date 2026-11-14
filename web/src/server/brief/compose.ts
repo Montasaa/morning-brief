@@ -1,14 +1,17 @@
 // Brief composer: turns the latest Edition into a Reader's Brief.
 //
-// Every Item of the latest Edition, in Swipe order: the cover card, then the
-// top stories (for now the Edition's fallback `top_stories`), then the rest
-// grouped by Topic (for now each Item's first Topic), newest first within a
-// group and groups ordered by their newest Item. `groups` drive the progress
-// bars. Later tickets add the Reader (followed Topics, Reactions, sensitive
-// opt-ins), per-Reader top stories, scoring and Widgets here, keeping this one
-// entry point.
+// The Items of the latest Edition that carry a Topic the Reader follows (ticket
+// 07), in Swipe order: the cover card, then the top stories (for now the
+// Edition's fallback `top_stories`), then the rest grouped by Topic, newest
+// first within a group and groups ordered by their newest Item. Each Item
+// appears once, under its best-matching followed Topic (for now the first of
+// its Topics, in the Edition's order, that the Reader follows), with the
+// Reader's other followed Topics as tags. `groups` drive the progress bars.
+// Later tickets add Reactions, sensitive opt-ins, per-Reader top stories,
+// scoring and Widgets here, keeping this one entry point.
 import type { AppContext } from "../app";
 import type { ItemStatus, Source } from "../editions/types";
+import { followedTopicIds } from "../topics/catalog";
 import { topicName } from "../topics/names";
 
 export interface BriefEdition {
@@ -34,9 +37,9 @@ export interface BriefItem {
   warning_ar: string | null;
   /** Kind-specific extras (try_url, genres, stars_gained, reliability, tag, voices, ...). */
   extras: Record<string, unknown>;
-  /** The Topic this Item is shown under (its group). */
+  /** The followed Topic this Item is shown under (its group): the best match. */
   topic: string;
-  /** The Item's other Topics, shown as tags. */
+  /** The Item's other Topics that the Reader follows, shown as tags. */
   tags: string[];
   /** A top story: shown first, with the "Top for you" badge. */
   top: boolean;
@@ -81,7 +84,8 @@ interface ItemRow extends Omit<BriefItem, "topics" | "sources" | "extras" | "top
   extras: string;
 }
 
-export function composeBrief(ctx: AppContext): Brief {
+/** The Brief of the Reader with id `reader.id`: only the Topics they follow. */
+export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
   const { db } = ctx;
   const edition = db
     .prepare(
@@ -108,17 +112,22 @@ export function composeBrief(ctx: AppContext): Brief {
     )
     .all(edition.id) as ItemRow[];
 
-  const newestFirst = rows.map((r): BriefItem => {
+  const followed = new Set(followedTopicIds(ctx, reader.id));
+  const newestFirst = rows.flatMap((r): BriefItem[] => {
     const topics = JSON.parse(r.topics) as string[];
-    return {
-      ...r,
-      topics,
-      sources: JSON.parse(r.sources) as Source[],
-      extras: JSON.parse(r.extras) as Record<string, unknown>,
-      topic: topics[0]!,
-      tags: topics.slice(1),
-      top: false,
-    };
+    const mine = topics.filter((t) => followed.has(t));
+    if (mine.length === 0) return [];
+    return [
+      {
+        ...r,
+        topics,
+        sources: JSON.parse(r.sources) as Source[],
+        extras: JSON.parse(r.extras) as Record<string, unknown>,
+        topic: mine[0]!,
+        tags: mine.slice(1),
+        top: false,
+      },
+    ];
   });
 
   const topIds = JSON.parse(

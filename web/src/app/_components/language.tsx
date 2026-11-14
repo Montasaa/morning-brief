@@ -2,7 +2,9 @@
 // The Reader's language in the browser. The root layout reads the cookie and
 // renders <html lang dir> to match, then wraps the app in LanguageProvider.
 // Switching re-renders every screen in place (no reload, no refetch), flips
-// <html dir>, and remembers the choice in the cookie.
+// <html dir>, and remembers the choice in the cookie and, for a signed-in
+// Reader, in their Interest Profile (PATCH /api/me), so it follows them to
+// every device.
 //
 //   const { lang, t } = useLanguage();  t("Save", "حفظ")
 //   <T en="Threads" ar="القصص المتواصلة" />   (usable inside server components)
@@ -23,11 +25,14 @@ const LanguageContext = createContext<LanguageState | null>(null);
 export function LanguageProvider({
   initial,
   cookiePath,
+  saveToProfile = false,
   children,
 }: {
   initial: Lang;
   /** The app's base path, so the cookie is the app's alone on the shared domain. */
   cookiePath: string;
+  /** A Reader is signed in: also save each change to their Interest Profile. */
+  saveToProfile?: boolean;
   children: ReactNode;
 }) {
   const [lang, setLangState] = useState<Lang>(initial);
@@ -42,8 +47,17 @@ export function LanguageProvider({
     (next: Lang) => {
       setLangState(next);
       document.cookie = `${LANG_COOKIE}=${next}; path=${cookiePath || "/"}; max-age=${LANG_COOKIE_MAX_AGE}; samesite=lax`;
+      if (saveToProfile) {
+        // Fire and forget: the screen has already switched, and the cookie keeps the choice on this device.
+        void fetch(`${cookiePath}/api/me`, {
+          method: "PATCH",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ language: next }),
+          keepalive: true,
+        }).catch(() => {});
+      }
     },
-    [cookiePath],
+    [cookiePath, saveToProfile],
   );
 
   const value = useMemo<LanguageState>(

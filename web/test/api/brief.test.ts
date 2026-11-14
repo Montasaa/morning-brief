@@ -17,7 +17,7 @@ describe("GET /api/brief", () => {
   it("returns the latest Edition's Items newest first", async () => {
     const app = await startTestApp();
     const edition = morningEdition();
-    edition.items.forEach((i) => (i.topics = ["one-topic"])); // one group, no top stories: plain newest first
+    edition.items.forEach((i) => (i.topics = ["ai"])); // one group, no top stories: plain newest first
     delete edition.top_stories;
     await app.postEdition(edition);
 

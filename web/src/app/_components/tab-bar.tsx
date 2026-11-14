@@ -15,8 +15,8 @@ const TABS = [
 export function TabBar() {
   const pathname = usePathname();
   const { t } = useLanguage();
-  // Signed out there is nowhere to go yet: the sign-in page has no tabs.
-  if (pathname === "/sign-in") return null;
+  // Signed out there is nowhere to go yet: the sign-in page has no tabs. Nor does onboarding, which comes first.
+  if (pathname === "/sign-in" || pathname === "/onboarding") return null;
   const current = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
   return (
     <nav className={`${s.tabs} ${pathname === "/" ? s.onBrief : ""}`} aria-label={t("Tabs", "التبويبات")}>

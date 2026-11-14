@@ -25,9 +25,10 @@ test("switching to Arabic on the Brief runs right to left, mirrors the taps and 
   await expect(page.getByTestId("chip")).toHaveText("AI · 2/7");
 
   // Switching language is instant: no page load and no data fetched again.
+  // (The choice is saved to the Interest Profile with a PATCH, which loads nothing.)
   const loads: string[] = [];
   page.on("request", (r) => {
-    if (["document", "fetch", "xhr"].includes(r.resourceType())) loads.push(r.url());
+    if (["document", "fetch", "xhr"].includes(r.resourceType()) && r.method() === "GET") loads.push(r.url());
   });
   await page.getByRole("button", { name: "العربية", exact: true }).tap();
 
