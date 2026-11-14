@@ -1,0 +1,105 @@
+{
+  "_comment": "Sample evening drafts for the local dry run: one updated Item, one new development on the Story Thread, one new Item, one dropped. The other morning Items are carried over.",
+  "items": [
+    {
+      "id": "sample-ai-open-model",
+      "topics": [
+        "ai"
+      ],
+      "time": "2026-11-13T22:10:00+03:00",
+      "title": "A new open-weights model tops the coding and maths leaderboards",
+      "title_ar": "نموذج مفتوح الأوزان يتصدر لوحتي البرمجة والرياضيات",
+      "summary": "The release ships with a permissive licence and a hosted demo; it now also leads on maths.",
+      "summary_ar": "يأتي الإصدار برخصة متساهلة وعرض تجريبي مستضاف، ويتصدر الآن الرياضيات أيضا.",
+      "sources": [
+        {
+          "title": "Example Tech",
+          "url": "https://example.com/tech/open-model",
+          "type": "independent"
+        }
+      ],
+      "image": "https://example.com/img/open-model.png",
+      "kind": "MODEL",
+      "try_url": "https://example.com/demo",
+      "pricing": "Open weights"
+    },
+    {
+      "id": "sample-yemen-deal-signed",
+      "topics": [
+        "yemen",
+        "saudi"
+      ],
+      "time": "2026-11-14T18:30:00+03:00",
+      "title": "Port access deal signed after day of talks",
+      "title_ar": "توقيع اتفاق الوصول إلى الميناء بعد يوم من المحادثات",
+      "summary": "Both sides agreed to reopen the port to commercial shipping next week.",
+      "summary_ar": "اتفق الطرفان على إعادة فتح الميناء أمام الشحن التجاري الأسبوع المقبل.",
+      "sources": [
+        {
+          "title": "Example Wire",
+          "url": "https://example.com/wire/deal",
+          "type": "wire"
+        },
+        {
+          "title": "Example Daily",
+          "url": "https://example.com/daily/deal",
+          "type": "independent"
+        }
+      ],
+      "image": "https://example.com/img/deal.jpg",
+      "thread_id": "sample-yemen-truce-talks"
+    },
+    {
+      "id": "sample-lfc-team-news",
+      "topics": [
+        "liverpool"
+      ],
+      "time": "2026-11-14T17:00:00+03:00",
+      "title": "Manager confirms an unchanged back four",
+      "title_ar": "المدرب يؤكد عدم تغيير خط الدفاع",
+      "summary": "He spoke at the pre-match press conference.",
+      "summary_ar": "تحدث في المؤتمر الصحفي قبل المباراة.",
+      "sources": [
+        {
+          "title": "Example FC",
+          "url": "https://example.com/club/press",
+          "type": "official"
+        },
+        {
+          "title": "Example Sport",
+          "url": "https://example.com/sport/lfc",
+          "type": "independent"
+        }
+      ],
+      "image": "https://example.com/img/press.jpg",
+      "reliability": "Official"
+    }
+  ],
+  "threads": [],
+  "widgets": {
+    "next_match": {
+      "team": "Liverpool",
+      "opponent": "Example Town",
+      "competition": "Premier League",
+      "kickoff": "2026-11-15T18:00:00+03:00",
+      "venue": "Anfield"
+    },
+    "countdowns": [
+      {
+        "label": "Example Corp earnings",
+        "label_ar": "أرباح شركة مثال",
+        "at": "2026-11-19T23:00:00+03:00",
+        "topic": "us-markets"
+      }
+    ]
+  },
+  "top_stories": [
+    "sample-yemen-deal-signed"
+  ],
+  "drop": [
+    "sample-lfc-midfielder-fitness"
+  ],
+  "nothing_found": {
+    "adult-trending": "Nothing from mainstream outlets qualified (sample)."
+  }
+}

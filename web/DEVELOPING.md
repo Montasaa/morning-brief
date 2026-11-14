@@ -205,3 +205,11 @@ Ticket 09. A Reader's Reactions are one row per Reader, Item and kind in `reacti
 - Order comes from the Scorer, `scoreItems` in `src/server/brief/score.ts`: a pure function of followed Topics, the Reader's Reactions, recency (against the Edition's `generated_at`, not the clock) and status. Within a group Items run by score, groups by their best Item, ties newest first. So the non-top part of `composeBrief(...).items` is already the highest-scored first.
 - Test ranking through the order of `GET /api/brief` (see `test/api/ranking.test.ts`), never the weights.
 - In the Swipe Brief, `useReactions` (`src/app/_components/reactions.tsx`) holds the dock, the hide-reason sheet and the Undo toast. Opening any link on a card records an `open`.
+
+## Pipeline v3 (the gathering side)
+
+Ticket 19. Gathering stays outside the app: the agent follows [`pipeline/PIPELINE-v3.md`](../pipeline/PIPELINE-v3.md) and uses the Python tool `pipeline/v3/edition_v3.py` (stdlib plus `jsonschema`), which turns its drafts into an Edition, checks links, validates against the same schema as ingest and posts to `POST /api/editions`. The v2 `pipeline/PIPELINE.md` keeps running unchanged until the switch-over.
+
+- `web/test/pipeline/` tests the tool from outside: it runs as a child process (`runTool` in `test/support/pipeline-v3.ts`) against the test app served on 127.0.0.1 (`serveApp`), and the tests check its files, output and the app's API. So `npm test` needs `python3` (3.10+) with `jsonschema` 4.x on the PATH.
+- Tests pass `--no-link-check` (drafts use example.com links); only the link-check test checks links, against a local server. Never let the tool reach the real network in a test.
+- A change to `schema/edition.v3.schema.json` is picked up by the tool too; keep the house rules in `pipeline/v3/gathering/validate.py` in step with `HOUSE_SOURCE_RULES`.
