@@ -1,0 +1,21 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Written and re-added by `next dev` (Next.js agent rules); see DEVELOPING.md
+AGENTS.md
+
+# Local SQLite databases (DATABASE_PATH default) and the e2e scratch DB
+data/
+.e2e/
+
+# Playwright output
+test-results/
+playwright-report/
+blob-report/
+
+.env
+.env.*
+!.env.example

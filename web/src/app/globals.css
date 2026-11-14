@@ -1,0 +1,29 @@
+/* Base styles. Ticket 03 brings the Swipe look; keep this file small. */
+:root {
+  --bg: #fbfaf7;
+  --fg: #1c1b19;
+  --muted: #6b6760;
+  --rule: #e4e1da;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141412;
+    --fg: #ecebe7;
+    --muted: #9c988f;
+    --rule: #2c2b28;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Arabic", sans-serif;
+  line-height: 1.45;
+}
