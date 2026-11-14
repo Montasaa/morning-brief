@@ -1,0 +1,104 @@
+{
+  "edition_id": "2026-11-14-morning",
+  "kind": "morning",
+  "generated_at": "2026-11-14T06:05:00+03:00",
+  "items": [
+    {
+      "id": "me-yemen-port-talks",
+      "topics": ["yemen", "saudi"],
+      "thread_id": "yemen-truce-talks",
+      "status": "new",
+      "time": "2026-11-14T05:40:00+03:00",
+      "title": "Truce talks resume over Hodeidah port access",
+      "title_ar": "استئناف محادثات الهدنة بشأن الوصول إلى ميناء الحديدة",
+      "summary": "Negotiators met again overnight to discuss shipping access through the port.",
+      "summary_ar": "التقى المفاوضون مجددا خلال الليل لمناقشة حركة الشحن عبر الميناء.",
+      "sources": [
+        { "title": "Example Wire", "url": "https://example.com/wire/hodeidah", "type": "wire" },
+        { "title": "Example Daily", "url": "https://example.com/daily/hodeidah", "type": "independent" }
+      ],
+      "image": "https://example.com/img/hodeidah.jpg"
+    },
+    {
+      "id": "ai-open-model-release",
+      "topics": ["ai"],
+      "status": "",
+      "time": "2026-11-13T22:10:00+03:00",
+      "title": "A new open-weights model tops the coding leaderboard",
+      "summary": "The release ships with a permissive licence and a hosted demo.",
+      "sources": [
+        { "title": "Example Tech", "url": "https://example.com/tech/open-model", "type": "independent" }
+      ],
+      "image": "https://example.com/img/open-model.png",
+      "kind": "MODEL",
+      "try_url": "https://example.com/demo",
+      "pricing": "Open weights"
+    },
+    {
+      "id": "lfc-midfielder-fitness",
+      "topics": ["liverpool"],
+      "status": "updated",
+      "time": "2026-11-14T01:15:00+03:00",
+      "title": "Midfielder back in full training before the weekend",
+      "title_ar": "لاعب الوسط يعود إلى التدريبات الكاملة قبل نهاية الأسبوع",
+      "summary": "The club confirmed he trained with the squad on Thursday.",
+      "summary_ar": "أكد النادي أنه تدرب مع الفريق يوم الخميس.",
+      "sources": [
+        { "title": "Example FC", "url": "https://example.com/club/news/fitness", "type": "official" }
+      ],
+      "reliability": "Official"
+    },
+    {
+      "id": "gh-terminal-agent",
+      "topics": ["github-trending"],
+      "time": "2026-11-13T18:00:00+03:00",
+      "title": "example/terminal-agent",
+      "summary": "A terminal agent that edits code from plain-language requests.",
+      "sources": [
+        { "title": "GitHub", "url": "https://example.com/gh/terminal-agent", "type": "official" }
+      ],
+      "image": "https://example.com/img/terminal-agent.png",
+      "rank": 1,
+      "period": "today",
+      "stars_gained": 1840,
+      "stars_total": 12400,
+      "language": "Rust",
+      "why_it_matters": "It runs fully offline.",
+      "why_it_matters_ar": "يعمل دون اتصال بالكامل."
+    },
+    {
+      "id": "graphic-flood-aftermath",
+      "topics": ["graphic"],
+      "time": "2026-11-13T20:30:00+03:00",
+      "title": "Flood aftermath leaves villages cut off",
+      "summary": "Rescue teams report casualties as roads stay closed.",
+      "sources": [
+        { "title": "Example News", "url": "https://example.com/news/flood", "type": "independent" }
+      ],
+      "image": "https://example.com/img/outlet-logo.png",
+      "warning": "Casualties",
+      "warning_ar": "ضحايا"
+    }
+  ],
+  "threads": [
+    { "id": "yemen-truce-talks", "title": "Yemen truce talks", "title_ar": "محادثات الهدنة في اليمن" }
+  ],
+  "widgets": {
+    "next_match": {
+      "team": "Liverpool",
+      "opponent": "Example Town",
+      "competition": "Premier League",
+      "kickoff": "2026-11-15T18:00:00+03:00",
+      "venue": "Anfield"
+    },
+    "countdowns": [
+      {
+        "label": "Example Corp earnings",
+        "label_ar": "أرباح شركة مثال",
+        "at": "2026-11-19T23:00:00+03:00",
+        "topic": "us-markets"
+      }
+    ]
+  },
+  "top_stories": ["me-yemen-port-talks", "ai-open-model-release"]
+}

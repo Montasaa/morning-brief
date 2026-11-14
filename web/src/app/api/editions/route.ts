@@ -1,0 +1,23 @@
+// POST /api/editions: the gathering side posts one Edition v3 document.
+import { getAppContext } from "@/server/app";
+import { ingestEdition } from "@/server/editions/ingest";
+import { hasPipelineToken } from "@/server/pipeline-auth";
+
+export const dynamic = "force-dynamic";
+
+export async function POST(req: Request): Promise<Response> {
+  const ctx = getAppContext();
+  if (!hasPipelineToken(req, ctx.config)) {
+    return Response.json({ accepted: false, reasons: ["Missing or wrong bearer token"] }, { status: 401 });
+  }
+
+  let doc: unknown;
+  try {
+    doc = await req.json();
+  } catch {
+    return Response.json({ accepted: false, reasons: ["Body is not valid JSON"] }, { status: 400 });
+  }
+
+  const result = ingestEdition(ctx, doc);
+  return Response.json(result, { status: result.accepted ? 200 : 422 });
+}
