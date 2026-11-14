@@ -15,6 +15,7 @@ import { formatNumber } from "./i18n";
 import { LanguageSetting, useLanguage } from "./language";
 import s from "./interest-profile.module.css";
 import { buttonStyle, inputStyle, quietButtonStyle } from "./styles";
+import { TopicSuggestions } from "./topic-suggestions";
 
 /** Suggestions for the city field; any city can be typed. */
 const CITIES: [en: string, ar: string][] = [
@@ -194,6 +195,13 @@ export function Onboarding({
             "الموضوعات الحساسة (المشاهد القاسية وأخبار البالغين) مغلقة. يمكنك تفعيلها لاحقًا من تبويب «أنا».",
           )}
         </p>
+        <TopicSuggestions
+          basePath={basePath}
+          selected={selected}
+          onFollowed={(topic) => toggle(topic, true)}
+          disabled={!ready || busy}
+          optional
+        />
         <div className={s.setting}>
           <label className={s.label} htmlFor="city">
             {t("City", "المدينة")}
@@ -355,6 +363,12 @@ export function ProfileSettings({
         </div>
         <p className={s.note}>{t("For weather and prayer times.", "لحالة الطقس ومواقيت الصلاة.")}</p>
       </form>
+      <TopicSuggestions
+        basePath={basePath}
+        selected={selected}
+        onFollowed={(topic) => setSelected((prev) => new Set(prev).add(topic.id))}
+        disabled={!ready}
+      />
       <p role="status" className={`${s.status} ${message?.error ? s.error : ""}`}>
         {message?.text ?? ""}
       </p>
