@@ -103,3 +103,19 @@ Ingest is all-or-nothing and idempotent:
 - An invalid one gets `422 {accepted: false, reasons: [...]}` and nothing is stored. A missing or wrong token gets `401`.
 - Items are upserted by stable id. The stored version is the one from the newest Edition (by `generated_at`) that carried it, so posting an older Edition late never overwrites newer facts.
 - A Brief is built from the latest Edition alone (each Edition is complete).
+
+## The Catalog and the legacy importer
+
+- The Catalog starts with the 14 starting Topics, seeded by `migrations/t02_topics.sql` (`GET /api/topics` lists them). Their ids (`saudi`, `wider-middle-east`, `turn-based-rpg-tactics`, `adult-trending`, ...) are what Editions put in `items[].topics`. Later tickets add columns to `topics` with their own migrations.
+- `POST /api/editions/legacy` (pipeline token) imports a v2 / rev 2.x `brief.json`: `src/server/legacy/` converts it to an Edition v3 document and sends it through Edition ingest, so the response and the guarantees are the same. Add `?dry_run=1` to get the converted Edition back without storing it. Section-to-Topic mapping is in `src/server/legacy/topics.ts`; the Edition id comes from `generated_at` (`2026-11-14-morning`, `2026-11-14-evening`), so re-importing a file changes nothing.
+- To give a local or deployed app real history, post the files oldest first:
+
+  ```sh
+  for f in ../samples/brief.sample.json ../brief.json; do
+    curl -fsS -H "Authorization: Bearer $INGEST_TOKEN" -H 'content-type: application/json' \
+      --data-binary @"$f" http://localhost:3000/brief/api/editions/legacy; echo
+  done
+  ```
+
+  Older files from git history work too (`git show <commit>:brief.json > /tmp/old.json`).
+- Tests use snapshots of the two files in `test/fixtures/legacy/` (`legacySample()`, `legacyToday()`), not the live root `brief.json`, which the old pipeline rewrites twice a day.
