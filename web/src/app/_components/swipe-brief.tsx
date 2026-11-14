@@ -1,20 +1,33 @@
 "use client";
 // The Swipe Brief (prototype variant B): a cover card, then one Item per
 // screen, then "You're caught up". Tap the right side to go forward and the
-// left side to go back. Progress bars (one per group of the Brief) and a
+// left side to go back (mirrored in Arabic, where the layout runs right to left). Progress bars (one per group of the Brief) and a
 // Topic/position chip sit on top; the dock (Hide, Save, Like, Ask) sits at the
 // bottom and does nothing until ticket 09 (Reactions) and 16 (Ask).
 import { useEffect, useState } from "react";
 import type { Brief, BriefGroup, BriefItem } from "@/server/brief/compose";
 import { CardExtras } from "./card-extras";
-import { formatCoverDate, formatNextEdition, timeSince } from "./format";
+import { formatCoverDate, formatNextEdition, itemCount, timeSince } from "./format";
+import { formatNumber, localized, type Lang } from "./i18n";
+import { LanguageToggle, useLanguage } from "./language";
 import s from "./swipe-brief.module.css";
 
-const WIDGET_SLOTS = ["Weather", "Prayer times", "Next match", "Countdowns"] as const;
+const WIDGET_SLOTS = [
+  { en: "Weather", ar: "الطقس" },
+  { en: "Prayer times", ar: "مواقيت الصلاة" },
+  { en: "Next match", ar: "المباراة القادمة" },
+  { en: "Countdowns", ar: "العد التنازلي" },
+] as const;
+
+/** A Topic's name in the Reader's language. */
+function topicNameIn(brief: Brief, id: string, lang: Lang): string {
+  return (lang === "ar" ? brief.topic_names_ar[id] : undefined) ?? brief.topic_names[id] ?? id;
+}
 
 /** Positions: 0 is the cover card, 1..n the Items, n + 1 "You're caught up". */
 export function SwipeBrief({ brief }: { brief: Brief }) {
   const [pos, setPos] = useState(0);
+  const { lang, t } = useLanguage();
   const now = useNow();
   const total = brief.items.length;
   const item = pos >= 1 && pos <= total ? brief.items[pos - 1]! : null;
@@ -25,23 +38,25 @@ export function SwipeBrief({ brief }: { brief: Brief }) {
     <div className={s.stage}>
       <ProgressBars brief={brief} pos={pos} />
 
+      <LanguageToggle className={s.langToggle} />
+
       {pos === 0 && <Cover brief={brief} />}
       {item && <ItemCard item={item} brief={brief} position={pos} now={now} />}
       {pos > total && (
-        <section className={s.done} aria-label="End of the Brief">
-          <h2>You&apos;re caught up</h2>
-          <p>{formatNextEdition(brief)}</p>
+        <section className={s.done} aria-label={t("End of the Brief", "نهاية الموجز")}>
+          <h2>{t("You're caught up", "انتهيت من الموجز")}</h2>
+          <p>{formatNextEdition(brief, lang)}</p>
           <button type="button" className={s.startOver} onClick={() => setPos(0)}>
-            Start over
+            {t("Start over", "من البداية")}
           </button>
         </section>
       )}
 
       {pos > 0 && (
-        <button type="button" className={`${s.tap} ${s.tapBack}`} aria-label="Back" onClick={back} />
+        <button type="button" className={`${s.tap} ${s.tapBack}`} aria-label={t("Back", "السابق")} onClick={back} />
       )}
       {pos <= total && (
-        <button type="button" className={`${s.tap} ${s.tapNext}`} aria-label="Next" onClick={next} />
+        <button type="button" className={`${s.tap} ${s.tapNext}`} aria-label={t("Next", "التالي")} onClick={next} />
       )}
 
       {item && <Dock />}
@@ -50,6 +65,7 @@ export function SwipeBrief({ brief }: { brief: Brief }) {
 }
 
 function ProgressBars({ brief, pos }: { brief: Brief; pos: number }) {
+  const { lang } = useLanguage();
   // How many Items of each group are read up to and including the current one.
   const seen = new Set(brief.items.slice(0, Math.max(0, pos)).map((i) => i.id));
   return (
@@ -61,7 +77,7 @@ function ProgressBars({ brief, pos }: { brief: Brief; pos: number }) {
             key={g.topic ?? "top"}
             className={s.bar}
             role="progressbar"
-            aria-label={groupName(g, brief)}
+            aria-label={groupName(g, brief, lang)}
             aria-valuemin={0}
             aria-valuemax={g.item_ids.length}
             aria-valuenow={done}
@@ -74,37 +90,46 @@ function ProgressBars({ brief, pos }: { brief: Brief; pos: number }) {
   );
 }
 
-function groupName(g: BriefGroup, brief: Brief): string {
-  return g.kind === "top" ? "Top for you" : brief.topic_names[g.topic!] ?? g.topic!;
+function groupName(g: BriefGroup, brief: Brief, lang: Lang): string {
+  if (g.kind === "top") return lang === "ar" ? "الأهم لك" : "Top for you";
+  return topicNameIn(brief, g.topic!, lang);
 }
 
 function Cover({ brief }: { brief: Brief }) {
   const edition = brief.edition!;
+  const { lang, t } = useLanguage();
   return (
-    <section className={s.cover} aria-label="Cover card">
-      <p className={s.kicker}>Morning Brief</p>
-      <h1>{formatCoverDate(brief.cover!.date)}</h1>
+    <section className={s.cover} aria-label={t("Cover card", "بطاقة الغلاف")}>
+      <p className={s.kicker}>{t("Morning Brief", "الموجز الصباحي")}</p>
+      <h1>{formatCoverDate(brief.cover!.date, lang)}</h1>
       <p className={s.editionLine}>
-        {edition.kind === "morning" ? "Morning Edition" : "Evening Edition"} · {brief.items.length}{" "}
-        {brief.items.length === 1 ? "Item" : "Items"}
+        {edition.kind === "morning"
+          ? t("Morning Edition", "الطبعة الصباحية")
+          : t("Evening Edition", "الطبعة المسائية")}{" "}
+        · {itemCount(brief.items.length, lang)}
       </p>
       <div className={s.widgets}>
         {WIDGET_SLOTS.map((slot) => (
-          <div key={slot} role="group" aria-label={slot} className={s.widget}>
-            <span>{slot}</span>
+          <div key={slot.en} role="group" aria-label={t(slot.en, slot.ar)} className={s.widget}>
+            <span>{t(slot.en, slot.ar)}</span>
             <b aria-hidden>—</b>
           </div>
         ))}
       </div>
-      <p className={s.hint}>Tap the right side to start</p>
+      {/* The forward side is on the left in Arabic. */}
+      <p className={s.hint}>{t("Tap the right side to start", "اضغط على الجانب الأيسر للبدء")}</p>
     </section>
   );
 }
 
 function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brief; position: number; now: number | null }) {
-  const name = (id: string) => brief.topic_names[id] ?? id;
+  const { lang, t } = useLanguage();
+  const name = (id: string) => topicNameIn(brief, id, lang);
+  const title = localized(item, "title", lang)!;
+  const summary = localized(item, "summary", lang);
+  const warning = localized(item, "warning", lang);
   return (
-    <article className={s.card} aria-label={item.title}>
+    <article className={s.card} aria-label={title}>
       <div className={s.hero}>
         {item.image && (
           // External, already link-checked images from the Edition; next/image would need every host allow-listed.
@@ -112,18 +137,33 @@ function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brie
         )}
       </div>
       <span className={s.chip} data-testid="chip">
-        {name(item.topic)} · {position}/{brief.items.length}
+        {name(item.topic)} · {formatNumber(position, lang)}/{formatNumber(brief.items.length, lang)}
       </span>
       <div className={s.body}>
         <div className={s.badges}>
-          {item.top && <span className={`${s.badge} ${s.badgeTop}`}>Top for you</span>}
-          {item.status === "new" && <span className={s.badge}>New</span>}
-          {item.status === "updated" && <span className={s.badge}>Updated</span>}
+          {item.top && <span className={`${s.badge} ${s.badgeTop}`}>{t("Top for you", "الأهم لك")}</span>}
+          {item.status === "new" && <span className={s.badge}>{t("New", "جديد")}</span>}
+          {item.status === "updated" && <span className={s.badge}>{t("Updated", "محدَّث")}</span>}
+          {/* Ticket 08 moves the warning onto the blur that hides a sensitive card until it is tapped. */}
+          {warning && (
+            <span className={`${s.badge} ${s.badgeWarning}`} dir="auto">
+              {warning}
+            </span>
+          )}
         </div>
-        <h2>{item.title}</h2>
-        <p className={s.summary}>{item.summary}</p>
+        {/* dir="auto": an English fallback inside the Arabic layout still reads left to right. */}
+        <h2 dir="auto">{title}</h2>
+        {summary && (
+          <p className={s.summary} dir="auto">
+            {summary}
+          </p>
+        )}
         <CardExtras extras={item.extras} />
-        {item.tags.length > 0 && <p className={s.tags}>Also in {item.tags.map(name).join(", ")}</p>}
+        {item.tags.length > 0 && (
+          <p className={s.tags}>
+            {t("Also in", "أيضًا في")} {item.tags.map(name).join(t(", ", "، "))}
+          </p>
+        )}
         <p className={s.sources}>
           {item.sources.map((src, i) => (
             <span key={src.url}>
@@ -134,7 +174,7 @@ function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brie
             </span>
           ))}
           {" · "}
-          <time dateTime={item.time}>{now === null ? "" : timeSince(item.time, now)}</time>
+          <time dateTime={item.time}>{now === null ? "" : timeSince(item.time, now, lang)}</time>
         </p>
       </div>
     </article>
@@ -142,12 +182,13 @@ function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brie
 }
 
 function Dock() {
+  const { t } = useLanguage();
   return (
-    <div className={s.dock} role="toolbar" aria-label="Reactions">
-      <DockButton label="Hide" path="M6 6l12 12M18 6L6 18" />
-      <DockButton label="Save" path="M7 4h10v16l-5-4-5 4z" />
-      <DockButton label="Like" path="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" />
-      <DockButton label="Ask" path="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" />
+    <div className={s.dock} role="toolbar" aria-label={t("Reactions", "التفاعلات")}>
+      <DockButton label={t("Hide", "إخفاء")} path="M6 6l12 12M18 6L6 18" />
+      <DockButton label={t("Save", "حفظ")} path="M7 4h10v16l-5-4-5 4z" />
+      <DockButton label={t("Like", "أعجبني")} path="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" />
+      <DockButton label={t("Ask", "اسأل")} path="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" />
     </div>
   );
 }
