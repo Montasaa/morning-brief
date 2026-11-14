@@ -16,3 +16,16 @@ export function loadFixture(name: string): EditionDoc {
 export function morningEdition(): EditionDoc {
   return loadFixture("edition.morning.json");
 }
+
+/** A v2 / rev 2.3 brief.json kept as a legacy-importer fixture (test/fixtures/legacy). */
+export type LegacyBriefDoc = Record<string, any> & { sections: Record<string, { items: Record<string, any>[] }> };
+
+/** The 2026-11-14 v2 sample (samples/brief.sample.json): the morning run, 156 Items, no Arabic. */
+export function legacySample(): LegacyBriefDoc {
+  return JSON.parse(readFileSync(path.join(fixturesDir, "legacy", "brief.sample.2026-11-14-morning.json"), "utf8"));
+}
+
+/** Today's live rev 2.3 brief.json (the 2026-11-14 19:15 evening refresh): 63 Items with Arabic. */
+export function legacyToday(): LegacyBriefDoc {
+  return JSON.parse(readFileSync(path.join(fixturesDir, "legacy", "brief.rev2.3.2026-11-14-evening.json"), "utf8"));
+}
