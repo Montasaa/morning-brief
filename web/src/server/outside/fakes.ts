@@ -1,6 +1,8 @@
 // Fakes for every outside service. API-seam tests get them from
 // startTestApp(); the e2e server uses them when OUTSIDE_SERVICES=fake.
 // They never touch the network and record what the app asked of them.
+import { appendFileSync, mkdirSync } from "node:fs";
+import path from "node:path";
 import type {
   ClaudeReply,
   ClaudeRequest,
@@ -32,7 +34,15 @@ export interface FakeOutsideServices extends OutsideServices {
   };
 }
 
-export function fakeOutsideServices(): FakeOutsideServices {
+export interface FakeOptions {
+  /**
+   * Also append every email as one JSON line to this file (FAKE_OUTBOX_FILE),
+   * so browser tests can open the magic links the e2e server sent.
+   */
+  outboxFile?: string;
+}
+
+export function fakeOutsideServices(options: FakeOptions = {}): FakeOutsideServices {
   const claudeCalls: ClaudeRequest[] = [];
   const replies: FakeOutsideServices["claude"]["replies"] = new Map();
   const failing = new Set<string>();
@@ -76,6 +86,12 @@ export function fakeOutsideServices(): FakeOutsideServices {
       outbox,
       async send(message) {
         outbox.push(message);
+        if (options.outboxFile) {
+          // turbopackIgnore: a local test file chosen at run time, not something to bundle.
+          const file = path.resolve(/*turbopackIgnore: true*/ options.outboxFile);
+          mkdirSync(path.dirname(/*turbopackIgnore: true*/ file), { recursive: true });
+          appendFileSync(/*turbopackIgnore: true*/ file, JSON.stringify(message) + "\n");
+        }
       },
     },
     weather,

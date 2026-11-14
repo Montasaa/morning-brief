@@ -8,6 +8,8 @@
 // a service owns its real adapter and may extend its interface additively
 // (add methods or optional fields; do not rename), updating the fake with it.
 
+import { resendEmailService } from "./resend";
+
 // --- Claude --------------------------------------------------------------------
 
 export interface ClaudeRequest {
@@ -127,10 +129,14 @@ function notConnected(service: string): () => Promise<never> {
  * The real adapters. Each reads its own secrets from the environment when it
  * is connected. Until a ticket connects one, calling it throws.
  */
-export function realOutsideServices(): OutsideServices {
+export function realOutsideServices(env: Record<string, string | undefined> = process.env): OutsideServices {
   return {
     claude: { complete: notConnected("Claude") },
-    email: { send: notConnected("Resend") },
+    // Resend (ticket 06): RESEND_API_KEY + EMAIL_FROM.
+    email:
+      env.RESEND_API_KEY && env.EMAIL_FROM
+        ? resendEmailService({ apiKey: env.RESEND_API_KEY, from: env.EMAIL_FROM })
+        : { send: notConnected("Resend") },
     weather: { today: notConnected("Open-Meteo") },
     prayerTimes: { forDay: notConnected("Aladhan") },
     push: { send: notConnected("Web Push") },

@@ -18,7 +18,7 @@ Run them from `web/`. Node 22.12 or newer.
 | Full suite | `npm test` |
 | Browser smoke (phone size) | `npm run test:e2e` |
 | All of the above | `npm run check` |
-| Dev server | `INGEST_TOKEN=dev OUTSIDE_SERVICES=fake npm run dev`, then open http://localhost:3000/brief |
+| Dev server | `INGEST_TOKEN=dev OWNER_EMAIL=you@example.com OUTSIDE_SERVICES=fake FAKE_OUTBOX_FILE=data/outbox.jsonl npm run dev`, then open http://localhost:3000/brief, ask for a sign-in link and open the one written to `data/outbox.jsonl` |
 
 Typecheck, the full suite and the browser smoke must pass before a ticket is done.
 
@@ -46,7 +46,21 @@ All configuration comes from environment variables. `.env.example` lists them. S
 - `BASE_PATH`: the path the app is served under (default `/brief`). It is read at build time, so links and assets must go through Next.js (`<Link>`, `next/image`, `basePath`-aware fetches) and never hard-code `/brief`.
 - `DATABASE_PATH`: the SQLite file (default `data/brief.db`).
 - `INGEST_TOKEN`: the bearer token for pipeline routes. Unset means every pipeline call is refused.
-- `OUTSIDE_SERVICES=fake`: use the fakes instead of the real services (e2e server and local demos only).
+- `OUTSIDE_SERVICES=fake`: use the fakes instead of the real services (e2e server and local demos only). `FAKE_OUTBOX_FILE` makes the fake Resend also append each email to a file, so you can open magic links locally.
+- `OWNER_EMAIL`: the Owner, created at setup (when the database opens and no Owner exists yet). Never through an Invite.
+- `PUBLIC_ORIGIN`: the origin magic links point at (e.g. `https://example.com`). Set it in production; without it, links use the request's Host header. An `https` origin makes the session cookie `Secure`.
+- `RESEND_API_KEY` and `EMAIL_FROM`: the Resend adapter (sign-in and Invite emails). Unset means email is not connected.
+
+## Access: who may call what
+
+Every route handler checks access first, with the helpers in `src/server/access.ts`:
+
+- **Reader routes** need a signed-in session: `const access = readerAccess(ctx, req); if (!access.ok) return access.response;` then use `access.reader` (`{ id, email, role }`). Signed out is `401`.
+- **Owner routes** use `ownerAccess(ctx, req)` the same way: `401` signed out, `403` for other Readers.
+- **Pipeline routes** (`/api/editions`, `/api/gathering-list`) keep the bearer token (`hasPipelineToken`), never a session.
+- **Pages** call `requireReaderPage()` (`src/server/readers/page-session.ts`), which redirects signed-out visitors to `/sign-in`.
+
+Sessions are an HttpOnly `mb_session` cookie (one per device, a year long, scoped to the base path); only token hashes are stored. Plain HTML forms posting to the auth routes get a `303` redirect back, JSON callers get JSON.
 
 ## The database and migrations
 
@@ -61,6 +75,7 @@ Claude, Resend (email), Open-Meteo (weather), Aladhan (prayer times) and Web Pus
 
 - `src/server/outside/fakes.ts` holds a fake for each: a Claude with canned replies by `purpose` (and a switch to make it fail), a Resend outbox, fixed weather and prayer times, and a push recorder. Tests read what the app sent from them (`app.services.email.outbox`, `app.services.push.sent`).
 - The real adapters are not connected yet and throw `OutsideServiceNotConnected`. The ticket that first needs a service writes its real adapter in `src/server/outside/`, reading its secret from the environment, and may extend that service's interface additively, updating the fake in the same change.
+- Resend is connected (ticket 06, `src/server/outside/resend.ts`). Real adapters take an injected `fetch` so `test/platform/` can check the requests they make without the network.
 - Tests make no real network calls. `test/support/setup.ts` replaces `fetch` with one that fails the test.
 
 ## Tests
@@ -78,23 +93,27 @@ import { startTestApp } from "../support/test-app";
 it("returns the latest Edition's Items newest first", async () => {
   const app = await startTestApp();
   await app.postEdition(morningEdition());          // POST /api/editions with the bearer token
+  const owner = await app.signInAsOwner();          // a signed-in device
 
-  const res = await app.request("GET", "/api/brief"); // { status, body, headers, text }
+  const res = await owner.request("GET", "/api/brief"); // { status, body, headers, text }
 
   expect(res.body.items.map((i) => i.id)).toEqual([...]);
 });
 ```
 
 - `startTestApp()` creates a scratch database in a temp folder, applies the migrations, installs the fakes and returns the app. It is closed and deleted after each test.
-- `app.request(method, path, { body, token, headers, rawBody })` calls the route handler under `src/app/api` that matches the path, in-process, just as Next.js would (dynamic `[id]` segments and route groups work). A new route file needs no registration.
-- Set up state only through public endpoints: post Editions to the ingest endpoint, act as Readers through signed-in sessions (ticket 06 adds a helper for this).
+- `app.request(method, path, { body, token, headers, rawBody, cookie })` calls the route handler under `src/app/api` that matches the path, in-process, just as Next.js would (dynamic `[id]` segments and route groups work). A new route file needs no registration.
+- Set up state only through public endpoints: post Editions to the ingest endpoint, act as Readers through signed-in sessions. `app.request` is signed out.
+- Signed-in Readers: `app.signInAsOwner()` (the test app's Owner is `TEST_OWNER_EMAIL`), `app.addReader(email)` (the Owner invites them, then they sign in) and `app.signIn(email)` each go through the real magic-link flow and return a session whose `request(...)` sends its cookie. Each call is a new device. `app.lastMagicLink(email)` and `app.openLink(url)` drive the flow by hand.
+- Time: magic links and sessions read `Date.now()`, so `vi.useFakeTimers({ toFake: ["Date"] })` and `vi.setSystemTime()` move the clock (restore with `vi.useRealTimers()`).
 - Fixtures: `test/fixtures/edition.morning.json` is a valid hand-written Edition (5 Items across 6 Topics, 1 Story Thread). Tests copy it with `morningEdition()` and change what they need.
 
 ### The browser seam (thin)
 
-Playwright at phone size (Pixel 7, Chromium) in `e2e/`, against `next dev` with a fresh `.e2e/` database and `OUTSIDE_SERVICES=fake`. Tests set up data through the API, then use the page. Only smoke flows go here, never ranking.
+Playwright at phone size (Pixel 7, Chromium) in `e2e/`, against `next dev` with a fresh `.e2e/` database and `OUTSIDE_SERVICES=fake`. Tests set up data through the API, sign in, then use the page. Only smoke flows go here, never ranking.
 
-- Import `test`, `expect`, `E2E_BASE_PATH` and the helpers from `e2e/support.ts`, not from `@playwright/test`. Its `test` aborts every request that is not to the app itself (Item images on example.com and so on), so the browser makes no real network calls.
+- Import `test`, `expect`, `E2E_BASE_PATH`, `signIn` and the helpers from `e2e/support.ts`, not from `@playwright/test`. Its `test` aborts every request that is not to the app itself (Item images on example.com and so on), so the browser makes no real network calls.
+- Every screen but `/sign-in` needs a session: call `await signIn(page)` first (from `e2e/support/sign-in.ts`, re-exported by `e2e/support.ts`). It signs in as the Owner by default by opening the magic link the fake Resend wrote to `.e2e/outbox.jsonl`, and leaves the page on the Brief. The Owner's account bar (email, Invites, Sign out) is on the Me tab.
 - `postEdition(request, edition)` posts with the e2e token. `swipeEdition()` is the morning fixture plus a US Markets and a game Item (7 Items, every kind of card extra). The database is fresh per run, not per test, so post the Edition your test needs in the test or a `beforeEach`.
 - Tap the Swipe Brief's tap zones up on the picture (`tap({ position: { x: 40, y: 200 } })`): the card text sits over their lower half on purpose. Match buttons with `exact: true`.
 - Fix the clock with `page.clock.setFixedTime(...)` before `page.goto` when a test reads relative times ("50m ago"). They are filled in after the page loads.
@@ -104,7 +123,7 @@ Playwright at phone size (Pixel 7, Chromium) in `e2e/`, against `next dev` with 
 
 Every screen works in English and in Arabic, laid out right to left (ticket 04). The Brief carries both languages (Items keep their `_ar` fields; `topic_names_ar` names Topics from the Catalog), so switching language re-renders in place and never fetches again.
 
-- The root layout reads the `brief_lang` cookie, renders `<html lang dir>` to match, and wraps the app in `LanguageProvider` (`src/app/_components/language.tsx`). Until the Interest Profile holds the language (tickets 06/07), the cookie is the only place it is kept; those tickets should save it to the profile and seed `LanguageProvider` from there.
+- The root layout reads the `brief_lang` cookie, renders `<html lang dir>` to match, and wraps the app in `LanguageProvider` (`src/app/_components/language.tsx`). Until the Interest Profile holds the language (ticket 07), the cookie is the only place it is kept; that ticket should save it to the profile and seed `LanguageProvider` from there.
 - Write UI text in both languages: `const { lang, t } = useLanguage(); t("Save", "حفظ")` in client components, `<T en="Threads" ar="القصص المتواصلة" />` inside server components.
 - Show Edition text with `localized(item, "title", lang)` from `src/app/_components/i18n.ts`: the `_ar` field in Arabic, English when it is missing. Put `dir="auto"` on such text so an English fallback still reads left to right.
 - Dates, times and numbers go through `format.ts` / `formatNumber` (Arabic uses `ar-SA` on the Gregorian calendar, with Arabic-Indic digits).

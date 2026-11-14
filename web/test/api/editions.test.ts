@@ -25,7 +25,7 @@ describe("POST /api/editions (Edition ingest)", () => {
     expect(none.status).toBe(401);
     expect(wrong.status).toBe(401);
     expect(none.body).toMatchObject({ accepted: false });
-    const brief = await app.request("GET", "/api/brief");
+    const brief = await (await app.signInAsOwner()).request("GET", "/api/brief");
     expect(brief.body.edition).toBeNull();
     expect(brief.body.items).toEqual([]);
   });
@@ -48,7 +48,7 @@ describe("POST /api/editions (Edition ingest)", () => {
     expect(res.status).toBe(422);
     expect(res.body.accepted).toBe(false);
     expect(res.body.reasons.join("\n")).toMatch(/\/items\/3.*topics/);
-    const brief = await app.request("GET", "/api/brief");
+    const brief = await (await app.signInAsOwner()).request("GET", "/api/brief");
     expect(brief.body.edition).toBeNull();
     expect(brief.body.items).toEqual([]);
   });
@@ -83,7 +83,7 @@ describe("POST /api/editions (Edition ingest)", () => {
     expect(all).toMatch(/no-such-thread/);
     expect(all).toMatch(/lfc-midfielder-fitness/);
     expect(all).toMatch(/not-an-item/);
-    const brief = await app.request("GET", "/api/brief");
+    const brief = await (await app.signInAsOwner()).request("GET", "/api/brief");
     expect(brief.body.edition.id).toBe("2026-11-14-morning");
     expect(brief.body.items.map((i: { title: string }) => i.title)).not.toContain(
       "Changed title that must not be stored",
@@ -94,9 +94,9 @@ describe("POST /api/editions (Edition ingest)", () => {
     const app = await startTestApp();
 
     const first = await app.postEdition(morningEdition());
-    const briefAfterFirst = await app.request("GET", "/api/brief");
+    const briefAfterFirst = await (await app.signInAsOwner()).request("GET", "/api/brief");
     const second = await app.postEdition(morningEdition());
-    const briefAfterSecond = await app.request("GET", "/api/brief");
+    const briefAfterSecond = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     expect(second.status).toBe(200);
     expect(second.body).toEqual(first.body);
@@ -116,7 +116,7 @@ describe("POST /api/editions (Edition ingest)", () => {
     evening.items[0]!.status = "updated";
     await app.postEdition(evening);
 
-    const brief = await app.request("GET", "/api/brief");
+    const brief = await (await app.signInAsOwner()).request("GET", "/api/brief");
     const ids = brief.body.items.map((i: { id: string }) => i.id);
     expect(brief.body.edition.id).toBe("2026-11-14-evening");
     expect(ids.filter((id: string) => id === "me-yemen-port-talks")).toHaveLength(1);
@@ -137,7 +137,7 @@ describe("POST /api/editions (Edition ingest)", () => {
     const lateMorning = await app.postEdition(morningEdition());
 
     expect(lateMorning.status).toBe(200);
-    const brief = await app.request("GET", "/api/brief");
+    const brief = await (await app.signInAsOwner()).request("GET", "/api/brief");
     expect(brief.body.edition.id).toBe("2026-11-14-evening");
     expect(brief.body.items.find((i: { id: string }) => i.id === "me-yemen-port-talks").title).toBe(
       "Truce talks agree a shipping corridor",

@@ -8,7 +8,7 @@ describe("GET /api/brief", () => {
   it("is empty before any Edition has been ingested", async () => {
     const app = await startTestApp();
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     expect(res.status).toBe(200);
     expect(res.body).toMatchObject({ edition: null, items: [] });
@@ -21,7 +21,7 @@ describe("GET /api/brief", () => {
     delete edition.top_stories;
     await app.postEdition(edition);
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     expect(res.status).toBe(200);
     expect(res.body.edition).toEqual({
@@ -43,7 +43,7 @@ describe("GET /api/brief", () => {
     const app = await startTestApp();
     await app.postEdition(morningEdition());
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     const talks = res.body.items.find((i: BriefItem) => i.id === "me-yemen-port-talks");
     expect(talks).toMatchObject({
@@ -80,7 +80,7 @@ describe("GET /api/brief", () => {
     });
     await app.postEdition(evening);
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     const ids = res.body.items.map((i: BriefItem) => i.id);
     expect(ids).toContain("ai-evening-tool");

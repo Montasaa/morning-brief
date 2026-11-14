@@ -4,7 +4,8 @@
 //
 //   const app = await startTestApp();
 //   await app.postEdition(morningEdition());
-//   const res = await app.request("GET", "/api/brief");
+//   const owner = await app.signInAsOwner();
+//   const res = await owner.request("GET", "/api/brief");
 //
 // See web/DEVELOPING.md for the conventions.
 import { mkdtempSync, readdirSync, rmSync, statSync } from "node:fs";
@@ -19,6 +20,8 @@ const apiRoot = path.join(webRoot, "src", "app", "api");
 
 export const TEST_INGEST_TOKEN = "test-ingest-token";
 export const TEST_BASE_PATH = "/brief";
+/** The Owner every test app is set up with (OWNER_EMAIL). */
+export const TEST_OWNER_EMAIL = "owner@example.com";
 
 export interface TestResponse {
   status: number;
@@ -36,6 +39,16 @@ export interface RequestOptions {
   /** Sent as `Authorization: Bearer <token>`. */
   token?: string;
   headers?: Record<string, string>;
+  /** Sent as the `Cookie` header, e.g. a signed-in session's cookie. */
+  cookie?: string;
+}
+
+/** A signed-in device: every request it makes carries its session cookie. */
+export interface TestSession {
+  email: string;
+  /** `name=value` of the session cookie, as a browser would send it back. */
+  cookie: string;
+  request(method: string, path: string, options?: RequestOptions): Promise<TestResponse>;
 }
 
 export interface TestApp {
@@ -46,12 +59,30 @@ export interface TestApp {
   request(method: string, path: string, options?: RequestOptions): Promise<TestResponse>;
   /** Post an Edition to the ingest endpoint with the pipeline's bearer token. */
   postEdition(edition: unknown): Promise<TestResponse>;
+  /**
+   * Sign in the way a Reader does: request a magic link for `email`, open the
+   * newest link the fake Resend outbox holds for it, and keep the session cookie.
+   * Throws if no link arrives (the email is not invited) or the link is refused.
+   */
+  signIn(email: string): Promise<TestSession>;
+  /** signIn() as the Owner (TEST_OWNER_EMAIL). */
+  signInAsOwner(): Promise<TestSession>;
+  /** The Owner invites `email`, then that Reader signs in. The usual way to get a second Reader. */
+  addReader(email: string): Promise<TestSession>;
+  /** The newest magic link (full URL) the fake Resend outbox holds for `email`, or null. */
+  lastMagicLink(email: string): string | null;
+  /** Open a magic link (or any URL under the app) as a fresh browser would: GET, no cookie. */
+  openLink(url: string): Promise<TestResponse>;
   close(): void;
 }
 
 export interface TestAppOptions {
   /** Defaults to TEST_INGEST_TOKEN. Pass "" to run with no token configured. */
   ingestToken?: string;
+  /** Defaults to TEST_OWNER_EMAIL. Pass "" to start with no Owner. */
+  ownerEmail?: string;
+  /** PUBLIC_ORIGIN. Defaults to "" (links use the request's host, http://brief.test). */
+  publicOrigin?: string;
 }
 
 const open: TestApp[] = [];
@@ -61,10 +92,46 @@ export async function startTestApp(options: TestAppOptions = {}): Promise<TestAp
   const services = fakeOutsideServices();
   const ingestToken = options.ingestToken ?? TEST_INGEST_TOKEN;
   const ctx = createAppContext({
-    config: { databasePath: path.join(dir, "brief.db"), ingestToken, basePath: TEST_BASE_PATH },
+    config: {
+      databasePath: path.join(dir, "brief.db"),
+      ingestToken,
+      basePath: TEST_BASE_PATH,
+      ownerEmail: options.ownerEmail ?? TEST_OWNER_EMAIL,
+      publicOrigin: options.publicOrigin ?? "",
+    },
     services,
   });
   setAppContext(ctx);
+
+  const lastMagicLink = (email: string): string | null => {
+    const to = email.trim().toLowerCase();
+    for (const message of [...services.email.outbox].reverse()) {
+      if (message.to !== to) continue;
+      const link = /https?:\/\/\S+\/api\/auth\/callback\?token=[\w-]+/.exec(message.text);
+      if (link) return link[0];
+    }
+    return null;
+  };
+  const openLink = (url: string): Promise<TestResponse> => {
+    const u = new URL(url);
+    if (!u.pathname.startsWith(TEST_BASE_PATH + "/")) throw new Error(`Link is not under the app: ${url}`);
+    return callRoute("GET", u.pathname.slice(TEST_BASE_PATH.length) + u.search);
+  };
+  const signIn = async (email: string): Promise<TestSession> => {
+    const before = lastMagicLink(email);
+    const asked = await callRoute("POST", "/api/auth/magic-link", { body: { email } });
+    if (asked.status !== 200) throw new Error(`Magic link request for ${email} failed: ${asked.status} ${asked.text}`);
+    const link = lastMagicLink(email);
+    if (!link || link === before) throw new Error(`No magic link was emailed to ${email}`);
+    const opened = await openLink(link);
+    const cookie = sessionCookie(opened);
+    if (!cookie) throw new Error(`The magic link for ${email} did not sign in (${opened.status} ${opened.headers.get("location")})`);
+    return {
+      email,
+      cookie,
+      request: (method, p, opts) => callRoute(method, p, { cookie, ...opts }),
+    };
+  };
 
   let closed = false;
   const app: TestApp = {
@@ -73,6 +140,16 @@ export async function startTestApp(options: TestAppOptions = {}): Promise<TestAp
     ingestToken,
     request: (method, p, opts) => callRoute(method, p, opts),
     postEdition: (edition) => callRoute("POST", "/api/editions", { body: edition, token: ingestToken }),
+    signIn,
+    signInAsOwner: () => signIn(options.ownerEmail || TEST_OWNER_EMAIL),
+    async addReader(email) {
+      const owner = await signIn(options.ownerEmail || TEST_OWNER_EMAIL);
+      const invited = await owner.request("POST", "/api/invites", { body: { email } });
+      if (invited.status !== 201) throw new Error(`Inviting ${email} failed: ${invited.status} ${invited.text}`);
+      return signIn(email);
+    },
+    lastMagicLink,
+    openLink,
     close() {
       if (closed) return;
       closed = true;
@@ -159,10 +236,21 @@ async function callRoute(method: string, pathAndQuery: string, opts: RequestOpti
   else if (opts.body !== undefined) body = JSON.stringify(opts.body);
   if (body !== undefined && !headers.has("content-type")) headers.set("content-type", "application/json");
   if (opts.token !== undefined) headers.set("authorization", `Bearer ${opts.token}`);
+  if (opts.cookie !== undefined) headers.set("cookie", opts.cookie);
 
   const req = new Request(url, { method: method.toUpperCase(), headers, body });
   const res: Response = await handler(req, { params: Promise.resolve(match.params) });
   return toTestResponse(res);
+}
+
+/** The `name=value` of a session cookie the response sets (not one it clears), or null. */
+export function sessionCookie(res: TestResponse): string | null {
+  for (const header of res.headers.getSetCookie()) {
+    const [pair = "", ...attributes] = header.split(";").map((p) => p.trim());
+    const cleared = attributes.some((a) => /^max-age=0$/i.test(a)) || pair.endsWith("=");
+    if (/^mb_session=/.test(pair) && !cleared) return pair;
+  }
+  return null;
 }
 
 async function toTestResponse(res: Response): Promise<TestResponse> {

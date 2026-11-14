@@ -1,13 +1,15 @@
-// The Brief tab: the Swipe Brief built from the latest Edition.
+// The Brief tab: the Swipe Brief built from the latest Edition, for the signed-in Reader.
 import { getAppContext } from "@/server/app";
 import { composeBrief } from "@/server/brief/compose";
+import { requireReaderPage } from "@/server/readers/page-session";
 import { T } from "./_components/language";
 import { Placeholder } from "./_components/placeholder";
 import { SwipeBrief } from "./_components/swipe-brief";
 
 export const dynamic = "force-dynamic";
 
-export default function BriefPage() {
+export default async function BriefPage() {
+  await requireReaderPage();
   const brief = composeBrief(getAppContext());
 
   if (!brief.edition) {
