@@ -3,9 +3,20 @@
 import type { ReactNode } from "react";
 import s from "./placeholder.module.css";
 
-export function Placeholder({ title, children, after }: { title: ReactNode; children: ReactNode; after?: ReactNode }) {
+export function Placeholder({
+  title,
+  children,
+  before,
+  after,
+}: {
+  title: ReactNode;
+  children: ReactNode;
+  before?: ReactNode;
+  after?: ReactNode;
+}) {
   return (
     <main className={s.screen}>
+      {before}
       <h1>{title}</h1>
       <p>{children}</p>
       {after}

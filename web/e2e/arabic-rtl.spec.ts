@@ -1,6 +1,6 @@
 // Smoke tests for Arabic and right-to-left at phone size (ticket 04).
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, expect, postEdition, signIn, swipeEdition, test } from "./support";
 
 /** Tap the screen itself (not a named button) on the left or right side, up on the picture. */
 async function tapSide(page: Page, side: "left" | "right") {
@@ -10,8 +10,9 @@ async function tapSide(page: Page, side: "left" | "right") {
 
 const html = (page: Page) => page.locator("html");
 
-test.beforeEach(async ({ request }) => {
+test.beforeEach(async ({ request, page }) => {
   await postEdition(request, swipeEdition());
+  await signIn(page);
 });
 
 test("switching to Arabic on the Brief runs right to left, mirrors the taps and keeps the place", async ({ page }) => {

@@ -8,7 +8,7 @@ describe("GET /api/topics (the Catalog)", () => {
   it("starts with the 14 agreed Topics, Graphic and Adult Trending marked sensitive", async () => {
     const app = await startTestApp();
 
-    const res = await app.request("GET", "/api/topics");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/topics");
 
     expect(res.status).toBe(200);
     expect(res.body.topics.map((t: CatalogTopic) => [t.id, t.name, t.sensitive])).toEqual([
@@ -33,16 +33,16 @@ describe("GET /api/topics (the Catalog)", () => {
   it("holds every Topic the legacy importer tags Items with", async () => {
     const app = await startTestApp();
     const catalog = new Set(
-      (await app.request("GET", "/api/topics")).body.topics.map((t: CatalogTopic) => t.id),
+      (await (await app.signInAsOwner()).request("GET", "/api/topics")).body.topics.map((t: CatalogTopic) => t.id),
     );
 
     for (const legacy of [legacySample(), legacyToday()]) {
       await app.request("POST", "/api/editions/legacy", { body: legacy, token: app.ingestToken });
-      const brief = await app.request("GET", "/api/brief");
+      const brief = await (await app.signInAsOwner()).request("GET", "/api/brief");
       const used = new Set(brief.body.items.flatMap((i: { topics: string[] }) => i.topics));
       for (const topic of used) expect(catalog).toContain(topic);
     }
-    const after = await app.request("GET", "/api/topics");
+    const after = await (await app.signInAsOwner()).request("GET", "/api/topics");
     expect(after.body.topics).toHaveLength(14);
   });
 });

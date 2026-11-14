@@ -1,6 +1,6 @@
 // Smoke tests for the Swipe Brief at phone size (ticket 03).
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, expect, postEdition, signIn, swipeEdition, test } from "./support";
 
 /** Tap the right or left side of the screen, up on the picture where the tap zones are. */
 async function tap(page: Page, side: "Next" | "Back") {
@@ -17,8 +17,9 @@ const SWIPE_ORDER = [
   { chip: "Turn-based RPG & Tactics · 7/7", title: "A grid tactics sequel gets a release date" },
 ];
 
-test.beforeEach(async ({ request }) => {
+test.beforeEach(async ({ request, page }) => {
   await postEdition(request, swipeEdition());
+  await signIn(page);
 });
 
 test("opens on the cover card, taps through every Item to You're caught up, and starts over", async ({ page }) => {

@@ -5,7 +5,7 @@
 //
 //   test("...", async ({ page, request }) => {
 //     await postEdition(request, swipeEdition());
-//     await page.goto(E2E_BASE_PATH);
+//     await signIn(page); // every screen but /sign-in needs a session; lands on the Brief
 //   });
 //
 // - The page may only reach the app itself: any other request (images on
@@ -19,6 +19,7 @@ import { test as base, expect, type APIRequestContext } from "@playwright/test";
 import { E2E_BASE_PATH, E2E_INGEST_TOKEN } from "../playwright.config";
 
 export { expect, E2E_BASE_PATH };
+export { lastMagicLink, signIn } from "./support/sign-in";
 
 export const test = base.extend<{ onlyTheApp: void }>({
   onlyTheApp: [

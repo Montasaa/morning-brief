@@ -13,7 +13,7 @@ describe("GET /api/brief in both languages", () => {
     const app = await startTestApp();
     await app.postEdition(morningEdition());
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     expect(res.body.topic_names_ar).toEqual({
       yemen: "اليمن",
@@ -31,7 +31,7 @@ describe("GET /api/brief in both languages", () => {
     edition.items[0]!.topics = ["yemen", "formula-1"];
     await app.postEdition(edition);
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     expect(res.body.topic_names["formula-1"]).toBe("Formula 1");
     expect(res.body.topic_names_ar["formula-1"]).toBe("Formula 1");
@@ -41,7 +41,7 @@ describe("GET /api/brief in both languages", () => {
     const app = await startTestApp();
     await app.postEdition(morningEdition());
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
     const byId = (id: string) => res.body.items.find((i: BriefItem) => i.id === id);
 
     expect(byId("me-yemen-port-talks")).toMatchObject({

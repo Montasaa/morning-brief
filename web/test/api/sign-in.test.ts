@@ -54,12 +54,14 @@ describe("Reader routes", () => {
 
     const brief = await app.request("GET", "/api/brief");
     const session = await app.request("GET", "/api/auth/session");
+    const catalog = await app.request("GET", "/api/topics");
     const forged = await app.request("GET", "/api/brief", { cookie: "mb_session=not-a-real-session" });
 
     expect(brief.status).toBe(401);
     expect(brief.body).toEqual({ error: "Sign in to read your Brief." });
     expect(brief.text).not.toContain("Hodeidah");
     expect(session.status).toBe(401);
+    expect(catalog.status).toBe(401);
     expect(forged.status).toBe(401);
   });
 

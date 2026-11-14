@@ -22,7 +22,7 @@ type BriefItem = { id: string; topics: string[]; [field: string]: any };
 
 /** The latest Brief's Items by id. */
 async function briefItems(app: TestApp): Promise<Map<string, BriefItem>> {
-  const brief = await app.request("GET", "/api/brief");
+  const brief = await (await app.signInAsOwner()).request("GET", "/api/brief");
   return new Map(brief.body.items.map((i: BriefItem) => [i.id, i]));
 }
 
@@ -48,7 +48,7 @@ describe("POST /api/editions/legacy (legacy importer)", () => {
     expect(res.status).toBe(200);
     expect(res.body).toMatchObject({ accepted: true, edition_id: "2026-11-14-morning" });
     expect(res.body.counts.items).toBe(156);
-    const brief = await app.request("GET", "/api/brief");
+    const brief = await (await app.signInAsOwner()).request("GET", "/api/brief");
     expect(brief.body.edition).toMatchObject({
       id: "2026-11-14-morning",
       kind: "morning",
@@ -67,7 +67,7 @@ describe("POST /api/editions/legacy (legacy importer)", () => {
     expect(res.status).toBe(200);
     expect(res.body).toMatchObject({ accepted: true, edition_id: "2026-11-14-evening" });
     expect(res.body.counts.items).toBe(63);
-    const brief = await app.request("GET", "/api/brief");
+    const brief = await (await app.signInAsOwner()).request("GET", "/api/brief");
     expect(brief.body.edition).toMatchObject({
       id: "2026-11-14-evening",
       kind: "evening",
@@ -227,7 +227,7 @@ describe("POST /api/editions/legacy (legacy importer)", () => {
       expect(res.body.accepted).toBe(true);
       expect(validateEdition(res.body.edition), JSON.stringify(validateEdition.errors)).toBe(true);
     }
-    const brief = await app.request("GET", "/api/brief");
+    const brief = await (await app.signInAsOwner()).request("GET", "/api/brief");
     expect(brief.body).toMatchObject({ edition: null, items: [] });
   });
 
@@ -249,7 +249,7 @@ describe("POST /api/editions/legacy (legacy importer)", () => {
     const app = await startTestApp();
     await importLegacy(app, legacySample());
     const first = await importLegacy(app, legacyToday());
-    const briefBefore = await app.request("GET", "/api/brief");
+    const briefBefore = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     const again = await importLegacy(app, legacyToday());
     const sampleAgain = await importLegacy(app, legacySample());
@@ -257,7 +257,7 @@ describe("POST /api/editions/legacy (legacy importer)", () => {
     expect(again.status).toBe(200);
     expect(again.body).toEqual(first.body);
     expect(sampleAgain.status).toBe(200);
-    const briefAfter = await app.request("GET", "/api/brief");
+    const briefAfter = await (await app.signInAsOwner()).request("GET", "/api/brief");
     expect(briefAfter.body).toEqual(briefBefore.body);
   });
 
@@ -267,7 +267,7 @@ describe("POST /api/editions/legacy (legacy importer)", () => {
     const res = await app.request("POST", "/api/editions/legacy", { body: legacyToday() });
 
     expect(res.status).toBe(401);
-    expect((await app.request("GET", "/api/brief")).body.edition).toBeNull();
+    expect((await (await app.signInAsOwner()).request("GET", "/api/brief")).body.edition).toBeNull();
   });
 
   it("rejects a file that is not a v2 brief.json with reasons, storing nothing", async () => {
@@ -285,6 +285,6 @@ describe("POST /api/editions/legacy (legacy importer)", () => {
     expect(b.status).toBe(422);
     expect(b.body.reasons.join("\n")).toMatch(/version/);
     expect(c.status).toBe(400);
-    expect((await app.request("GET", "/api/brief")).body.edition).toBeNull();
+    expect((await (await app.signInAsOwner()).request("GET", "/api/brief")).body.edition).toBeNull();
   });
 });

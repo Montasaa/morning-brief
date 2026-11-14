@@ -12,7 +12,7 @@ describe("GET /api/brief for the Swipe Brief", () => {
     const app = await startTestApp();
     await app.postEdition(morningEdition());
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     expect(res.body.items.map((i: BriefItem) => i.id)).toEqual([
       "me-yemen-port-talks", // top story 1
@@ -28,7 +28,7 @@ describe("GET /api/brief for the Swipe Brief", () => {
     const app = await startTestApp();
     await app.postEdition(morningEdition());
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     expect(res.body.groups).toEqual([
       { kind: "top", topic: null, item_ids: ["me-yemen-port-talks", "ai-open-model-release"] },
@@ -52,7 +52,8 @@ describe("GET /api/brief for the Swipe Brief", () => {
       tag: "MACRO",
     });
 
-    const res = await app.postEdition(edition).then(() => app.request("GET", "/api/brief"));
+    await app.postEdition(edition);
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     const ids = res.body.items.map((i: BriefItem) => i.id);
     expect(ids).toEqual([
@@ -72,7 +73,7 @@ describe("GET /api/brief for the Swipe Brief", () => {
     const app = await startTestApp();
     await app.postEdition(morningEdition());
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     expect(res.body.topic_names).toEqual({
       yemen: "Yemen",
@@ -88,7 +89,7 @@ describe("GET /api/brief for the Swipe Brief", () => {
     const app = await startTestApp();
     await app.postEdition(morningEdition());
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     expect(res.body.cover).toEqual({ date: "2026-11-14", widgets: [] });
   });
@@ -97,7 +98,7 @@ describe("GET /api/brief for the Swipe Brief", () => {
     const app = await startTestApp();
     await app.postEdition(morningEdition());
 
-    const morning = await app.request("GET", "/api/brief");
+    const morning = await (await app.signInAsOwner()).request("GET", "/api/brief");
     expect(morning.body.next_edition_at).toBe("2026-11-14T19:15:00+03:00");
 
     const evening = morningEdition();
@@ -106,14 +107,14 @@ describe("GET /api/brief for the Swipe Brief", () => {
     evening.generated_at = "2026-11-30T19:20:00+03:00";
     await app.postEdition(evening);
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
     expect(res.body.next_edition_at).toBe("2026-12-01T06:00:00+03:00");
   });
 
   it("has no cover, groups or next Edition before any Edition has been ingested", async () => {
     const app = await startTestApp();
 
-    const res = await app.request("GET", "/api/brief");
+    const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
     expect(res.body).toMatchObject({ edition: null, cover: null, items: [], groups: [], next_edition_at: null });
   });

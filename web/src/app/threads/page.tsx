@@ -1,8 +1,12 @@
 // The Threads tab. Ticket 14 (Story Threads) fills it in.
+import { requireReaderPage } from "@/server/readers/page-session";
 import { T } from "../_components/language";
 import { Placeholder } from "../_components/placeholder";
 
-export default function ThreadsPage() {
+export const dynamic = "force-dynamic";
+
+export default async function ThreadsPage() {
+  await requireReaderPage();
   return (
     <Placeholder title={<T en="Threads" ar="القصص المتواصلة" />}>
       <T
