@@ -1,0 +1,126 @@
+/* The Interest Profile screens: onboarding and the Me tab (ticket 07). */
+.screen {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: calc(24px + env(safe-area-inset-top)) 16px calc(24px + var(--tabbar-h));
+}
+.onboarding {
+  padding-bottom: calc(32px + env(safe-area-inset-bottom));
+}
+.screen h1 {
+  margin: 0 0 8px;
+  font-size: 26px;
+}
+.lede {
+  margin: 0;
+  color: var(--muted);
+}
+
+.setting {
+  margin: 24px 0 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.setting legend,
+.label {
+  display: block;
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* Topics as tappable chips that wrap; each is a real checkbox underneath. */
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.topic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-size: 15px;
+  cursor: pointer;
+  user-select: none;
+}
+.topic input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.topic:has(input:checked) {
+  background: var(--fg);
+  border-color: var(--fg);
+  color: var(--bg);
+}
+.topic:has(input:focus-visible) {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+.topic:has(input:disabled) {
+  opacity: 0.6;
+}
+.tick {
+  font-size: 13px;
+  width: 0.9em;
+  text-align: center;
+}
+.sensitive {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  opacity: 0.8;
+}
+.note {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.cityRow {
+  display: flex;
+  gap: 8px;
+}
+.cityRow input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.cityRow button {
+  flex: none;
+  white-space: nowrap;
+}
+
+.actions {
+  margin-top: 32px;
+}
+.actions button {
+  width: 100%;
+}
+.status {
+  margin: 10px 0 0;
+  min-height: 1.45em;
+  font-size: 14px;
+  color: var(--muted);
+}
+.error {
+  color: #b3261e;
+}
+@media (prefers-color-scheme: dark) {
+  .error {
+    color: #f2b8b5;
+  }
+}

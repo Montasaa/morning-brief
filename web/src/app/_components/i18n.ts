@@ -4,8 +4,9 @@
 //
 // Every Brief carries both languages (Items keep their `_ar` fields, Topics
 // have `topic_names_ar`), so switching language never fetches data again.
-// Until the Interest Profile holds the language (tickets 06/07), the choice is
-// kept in a cookie scoped to the app's base path.
+// The choice is kept in a cookie scoped to the app's base path (for this
+// device, and signed-out pages) and, for a signed-in Reader, in their Interest
+// Profile (ticket 07), which wins when the page is first rendered.
 
 export type Lang = "en" | "ar";
 

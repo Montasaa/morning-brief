@@ -47,8 +47,10 @@ test("the Owner invites someone, who signs in from the Invite email; revoking si
 
   const sara = await browser.newPage();
   await sara.goto(lastMagicLink("sara@example.com")!);
-  await expect(sara).toHaveURL(new RegExp(`${E2E_BASE_PATH}$`));
-  await openMe(sara);
+  // A first-time Reader starts with onboarding (ticket 07); the Me tab is reachable from the start.
+  await expect(sara).toHaveURL(new RegExp(`${E2E_BASE_PATH}/onboarding$`));
+  await sara.goto(`${E2E_BASE_PATH}/me`);
+  await expect(sara.getByRole("heading", { level: 1, name: "Me" })).toBeVisible();
   await expect(sara.getByRole("navigation", { name: "Account" })).toContainText("sara@example.com");
   await expect(sara.getByRole("link", { name: "Invites" })).toHaveCount(0);
 

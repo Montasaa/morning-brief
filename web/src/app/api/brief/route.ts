@@ -9,5 +9,5 @@ export async function GET(req: Request): Promise<Response> {
   const ctx = getAppContext();
   const access = readerAccess(ctx, req);
   if (!access.ok) return access.response;
-  return Response.json(composeBrief(ctx));
+  return Response.json(composeBrief(ctx, access.reader));
 }

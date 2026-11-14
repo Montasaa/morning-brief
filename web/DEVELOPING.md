@@ -106,6 +106,7 @@ it("returns the latest Edition's Items newest first", async () => {
 - Set up state only through public endpoints: post Editions to the ingest endpoint, act as Readers through signed-in sessions. `app.request` is signed out.
 - Signed-in Readers: `app.signInAsOwner()` (the test app's Owner is `TEST_OWNER_EMAIL`), `app.addReader(email)` (the Owner invites them, then they sign in) and `app.signIn(email)` each go through the real magic-link flow and return a session whose `request(...)` sends its cookie. Each call is a new device. `app.lastMagicLink(email)` and `app.openLink(url)` drive the flow by hand.
 - Time: magic links and sessions read `Date.now()`, so `vi.useFakeTimers({ toFake: ["Date"] })` and `vi.setSystemTime()` move the clock (restore with `vi.useRealTimers()`).
+- Onboarding: `signIn`, `signInAsOwner` and `addReader` finish a first-time Reader's onboarding through `PATCH /api/me`, following **every Catalog Topic** (Sensitive ones included), so their Brief is the whole Edition. A Reader already onboarded is left alone. Pass `{ onboarded: false }` for a Reader on their first visit (no Topics, an empty Brief), then set exactly what they follow with `PATCH /api/me {topics, onboarded: true}` or `POST /api/topics/{id}/follow|unfollow`. Items whose Topics are not in the Catalog never reach a Brief, because nobody can follow them.
 - Fixtures: `test/fixtures/edition.morning.json` is a valid hand-written Edition (5 Items across 6 Topics, 1 Story Thread). Tests copy it with `morningEdition()` and change what they need.
 
 ### The browser seam (thin)
@@ -113,7 +114,7 @@ it("returns the latest Edition's Items newest first", async () => {
 Playwright at phone size (Pixel 7, Chromium) in `e2e/`, against `next dev` with a fresh `.e2e/` database and `OUTSIDE_SERVICES=fake`. Tests set up data through the API, sign in, then use the page. Only smoke flows go here, never ranking.
 
 - Import `test`, `expect`, `E2E_BASE_PATH`, `signIn` and the helpers from `e2e/support.ts`, not from `@playwright/test`. Its `test` aborts every request that is not to the app itself (Item images on example.com and so on), so the browser makes no real network calls.
-- Every screen but `/sign-in` needs a session: call `await signIn(page)` first (from `e2e/support/sign-in.ts`, re-exported by `e2e/support.ts`). It signs in as the Owner by default by opening the magic link the fake Resend wrote to `.e2e/outbox.jsonl`, and leaves the page on the Brief. The Owner's account bar (email, Invites, Sign out) is on the Me tab.
+- Every screen but `/sign-in` needs a session: call `await signIn(page)` first (from `e2e/support/sign-in.ts`, re-exported by `e2e/support.ts`). It signs in as the Owner by default by opening the magic link the fake Resend wrote to `.e2e/outbox.jsonl`, and leaves the page on the Brief. Because the database lasts the whole run, it also resets the Reader's language to English and, on their first sign-in, finishes onboarding following every Catalog Topic; `signIn(page, email, { onboard: false })` leaves a new Reader on `/onboarding`. Tests that change an Interest Profile (follows, city) use their own invited Reader, not the Owner. The Owner's account bar (email, Invites, Sign out) is on the Me tab.
 - `postEdition(request, edition)` posts with the e2e token. `swipeEdition()` is the morning fixture plus a US Markets and a game Item (7 Items, every kind of card extra). The database is fresh per run, not per test, so post the Edition your test needs in the test or a `beforeEach`.
 - Tap the Swipe Brief's tap zones up on the picture (`tap({ position: { x: 40, y: 200 } })`): the card text sits over their lower half on purpose. Match buttons with `exact: true`.
 - Fix the clock with `page.clock.setFixedTime(...)` before `page.goto` when a test reads relative times ("50m ago"). They are filled in after the page loads.
@@ -123,7 +124,7 @@ Playwright at phone size (Pixel 7, Chromium) in `e2e/`, against `next dev` with 
 
 Every screen works in English and in Arabic, laid out right to left (ticket 04). The Brief carries both languages (Items keep their `_ar` fields; `topic_names_ar` names Topics from the Catalog), so switching language re-renders in place and never fetches again.
 
-- The root layout reads the `brief_lang` cookie, renders `<html lang dir>` to match, and wraps the app in `LanguageProvider` (`src/app/_components/language.tsx`). Until the Interest Profile holds the language (ticket 07), the cookie is the only place it is kept; that ticket should save it to the profile and seed `LanguageProvider` from there.
+- The root layout takes the language from the signed-in Reader's Interest Profile, or else the `brief_lang` cookie, renders `<html lang dir>` to match, and wraps the app in `LanguageProvider` (`src/app/_components/language.tsx`). Switching saves to both (the profile through `PATCH /api/me`).
 - Write UI text in both languages: `const { lang, t } = useLanguage(); t("Save", "حفظ")` in client components, `<T en="Threads" ar="القصص المتواصلة" />` inside server components.
 - Show Edition text with `localized(item, "title", lang)` from `src/app/_components/i18n.ts`: the `_ar` field in Arabic, English when it is missing. Put `dir="auto"` on such text so an English fallback still reads left to right.
 - Dates, times and numbers go through `format.ts` / `formatNumber` (Arabic uses `ar-SA` on the Gregorian calendar, with Arabic-Indic digits).
@@ -139,6 +140,14 @@ Ingest is all-or-nothing and idempotent:
 - An invalid one gets `422 {accepted: false, reasons: [...]}` and nothing is stored. A missing or wrong token gets `401`.
 - Items are upserted by stable id. The stored version is the one from the newest Edition (by `generated_at`) that carried it, so posting an older Edition late never overwrites newer facts.
 - A Brief is built from the latest Edition alone (each Edition is complete).
+
+## Following Topics and the Interest Profile
+
+Ticket 07. A Reader's Brief covers only the Catalog Topics they follow (`topic_follows`); an Item appears once, under the first of its Topics (Edition order) that the Reader follows, with their other followed Topics as `tags`. `composeBrief(ctx, reader)` always takes the Reader.
+
+- `GET /api/topics` marks each Topic `followed`; `POST /api/topics/{id}/follow|unfollow` are idempotent, `404` for a Topic not in the Catalog.
+- `GET /api/me` returns `{reader, onboarded, language, city, topics}`; `PATCH /api/me {topics?, language?, city?, onboarded?}` is all or nothing (`422 {error, reasons}`), `topics` replaces the follows, and `onboarded: true` needs at least one followed Topic. Server code reads it with `getProfile` / `isOnboarded` (`src/server/readers/profile.ts`); later tickets add their profile fields there.
+- Until onboarding is finished the Brief is empty and the Brief page redirects to `/onboarding` (no tabs). Onboarding never offers Sensitive Topics; the Me tab lists the whole Catalog.
 
 ## The Catalog and the legacy importer
 

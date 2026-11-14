@@ -26,7 +26,8 @@ describe("the Owner, created at setup", () => {
 
     const brief = await app.request("GET", "/api/brief", { cookie: cookie! });
     expect(brief.status).toBe(200);
-    expect(brief.body.items).toHaveLength(5);
+    // The latest Edition; its Items arrive once onboarding picks Topics (ticket 07).
+    expect(brief.body.edition).toMatchObject({ id: "2026-11-14-morning" });
   });
 
   it("is matched by email case-insensitively", async () => {
