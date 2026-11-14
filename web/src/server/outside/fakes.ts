@@ -34,6 +34,22 @@ export interface FakeOutsideServices extends OutsideServices {
   };
 }
 
+/**
+ * What the fake Claude answers for a purpose no test has set a reply for, when
+ * the default text would not do (the e2e server has no way to set replies).
+ */
+const DEFAULT_CLAUDE_REPLIES: Record<string, ClaudeReply> = {
+  // Ticket 12: the app keeps only Catalog Topics the Reader may follow.
+  "topic-suggestions": {
+    text: JSON.stringify({
+      suggestions: [
+        { topic: "liverpool", reason: "You follow the football.", reason_ar: "أنت تتابع كرة القدم." },
+        { topic: "ai", reason: "You work with technology.", reason_ar: "أنت تعمل في التقنية." },
+      ],
+    }),
+  },
+};
+
 export interface FakeOptions {
   /**
    * Also append every email as one JSON line to this file (FAKE_OUTBOX_FILE),
@@ -79,7 +95,7 @@ export function fakeOutsideServices(options: FakeOptions = {}): FakeOutsideServi
         if (failing.has(req.purpose)) throw new Error(`Fake Claude failure for "${req.purpose}"`);
         const canned = replies.get(req.purpose);
         if (typeof canned === "function") return canned(req);
-        return canned ?? { text: `Fake Claude reply (${req.purpose})` };
+        return canned ?? DEFAULT_CLAUDE_REPLIES[req.purpose] ?? { text: `Fake Claude reply (${req.purpose})` };
       },
     },
     email: {
