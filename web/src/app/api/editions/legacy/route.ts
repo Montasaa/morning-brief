@@ -4,6 +4,7 @@
 // response is the converted Edition v3 document instead ({accepted, edition}).
 // A pipeline route: needs the bearer token.
 import { getAppContext } from "@/server/app";
+import { pickTopStories } from "@/server/brief/top-picker";
 import { importLegacyBrief, previewLegacyBrief } from "@/server/legacy/import";
 import { recordIngestRejection } from "@/server/owner/health";
 import { hasPipelineToken } from "@/server/pipeline-auth";
@@ -31,5 +32,7 @@ export async function POST(req: Request): Promise<Response> {
   if (!dryRun && !result.accepted) {
     recordIngestRejection(ctx, { endpoint: "/api/editions/legacy", doc, reasons: result.reasons });
   }
+  // Like any ingest, then every Reader's top stories (ticket 13).
+  if (!dryRun && result.accepted && "edition_id" in result) await pickTopStories(ctx, result.edition_id);
   return Response.json(result, { status: result.accepted ? 200 : 422 });
 }

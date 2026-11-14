@@ -52,7 +52,7 @@ export interface FakeOutsideServices extends OutsideServices {
  * What the fake Claude answers for a purpose no test has set a reply for, when
  * the default text would not do (the e2e server has no way to set replies).
  */
-const DEFAULT_CLAUDE_REPLIES: Record<string, ClaudeReply> = {
+const DEFAULT_CLAUDE_REPLIES: Record<string, ClaudeReply | ((req: ClaudeRequest) => ClaudeReply)> = {
   // Ticket 12: the app keeps only Catalog Topics the Reader may follow.
   "topic-suggestions": {
     text: JSON.stringify({
@@ -61,6 +61,22 @@ const DEFAULT_CLAUDE_REPLIES: Record<string, ClaudeReply> = {
         { topic: "ai", reason: "You work with technology.", reason_ar: "أنت تعمل في التقنية." },
       ],
     }),
+  },
+  // Ticket 13: picks the Edition's own top stories the prompt lists, else the Reader's first Item.
+  "top-picks": (req) => {
+    const prompt = req.messages.map((m) => m.content).join("\n");
+    const editors = /^The Edition's own top stories, for everyone: (.+)$/m.exec(prompt)?.[1]?.split(", ") ?? [];
+    const first = /^- id: (\S+)$/m.exec(prompt)?.[1];
+    const ids = editors.length ? editors : first ? [first] : [];
+    return {
+      text: JSON.stringify({
+        top_stories: ids.map((item) => ({
+          item,
+          why: "One of today's biggest stories in your Topics.",
+          why_ar: "من أهم أخبار اليوم في مواضيعك.",
+        })),
+      }),
+    };
   },
 };
 
@@ -133,9 +149,9 @@ export function fakeOutsideServices(options: FakeOptions = {}): FakeOutsideServi
       async complete(req) {
         claudeCalls.push(req);
         if (failing.has(req.purpose)) throw new Error(`Fake Claude failure for "${req.purpose}"`);
-        const canned = replies.get(req.purpose);
+        const canned = replies.get(req.purpose) ?? DEFAULT_CLAUDE_REPLIES[req.purpose];
         if (typeof canned === "function") return canned(req);
-        return canned ?? DEFAULT_CLAUDE_REPLIES[req.purpose] ?? { text: `Fake Claude reply (${req.purpose})` };
+        return canned ?? { text: `Fake Claude reply (${req.purpose})` };
       },
     },
     email: {

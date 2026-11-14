@@ -154,6 +154,8 @@ function ItemCard({
   const title = localized(item, "title", lang)!;
   const summary = localized(item, "summary", lang);
   const warning = localized(item, "warning", lang);
+  // On a top story Claude picked: why it matters to this Reader (ticket 13).
+  const whyForYou = item.top ? localized(item, "why_for_you", lang) : null;
   // A sensitive Item stays blurred with its warning until tapped (ticket 08).
   const [revealed, setRevealed] = useState(false);
   const locked = item.blurred && !revealed;
@@ -187,6 +189,11 @@ function ItemCard({
         </div>
         {/* dir="auto": an English fallback inside the Arabic layout still reads left to right. */}
         <h2 dir="auto">{title}</h2>
+        {whyForYou && (
+          <p className={s.whyForYou} dir="auto" data-testid="why-for-you">
+            <span className={s.whyForYouLabel}>{t("Why it matters to you", "لماذا يهمك")}</span> {whyForYou}
+          </p>
+        )}
         {summary && (
           <p className={s.summary} dir="auto">
             {summary}

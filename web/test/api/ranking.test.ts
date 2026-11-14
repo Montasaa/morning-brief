@@ -47,6 +47,9 @@ async function setUp(): Promise<{ app: TestApp; sara: TestSession }> {
   const app = await startTestApp();
   await app.postEdition(morningEdition());
   const sara = await app.addReader("sara@example.com", { onboarded: false });
+  // Claude does not pick the top stories here (ticket 13), so they are the Scorer's best and the whole
+  // Brief follows the score.
+  app.services.claude.failing.add("top-picks");
   const res = await sara.request("PATCH", "/api/me", {
     body: { topics: ["ai", "liverpool", "github-trending"], onboarded: true },
   });
