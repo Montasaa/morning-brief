@@ -28,6 +28,7 @@ Typecheck, the full suite and the browser smoke must pass before a ticket is don
 web/
   migrations/           tNN_<slug>.sql, applied in order at start-up
   src/app/              pages and route handlers (src/app/api/**/route.ts)
+  src/app/_components/  UI components and their CSS modules (not routed)
   src/server/           the modules: app context, db, editions, brief, outside
   test/api/             API-seam tests, one file per area
   test/support/         the test harness (startTestApp) and fixture helpers
@@ -91,7 +92,13 @@ it("returns the latest Edition's Items newest first", async () => {
 
 ### The browser seam (thin)
 
-Playwright at phone size (Pixel 7, Chromium) in `e2e/`, against `next dev` with a fresh `.e2e/` database and `OUTSIDE_SERVICES=fake`. Tests set up data through the API (post an Edition with the e2e token from `playwright.config.ts`), then use the page. Only smoke flows go here, never ranking. Ticket 03 owns this harness and extends it.
+Playwright at phone size (Pixel 7, Chromium) in `e2e/`, against `next dev` with a fresh `.e2e/` database and `OUTSIDE_SERVICES=fake`. Tests set up data through the API, then use the page. Only smoke flows go here, never ranking.
+
+- Import `test`, `expect`, `E2E_BASE_PATH` and the helpers from `e2e/support.ts`, not from `@playwright/test`. Its `test` aborts every request that is not to the app itself (Item images on example.com and so on), so the browser makes no real network calls.
+- `postEdition(request, edition)` posts with the e2e token. `swipeEdition()` is the morning fixture plus a US Markets and a game Item (7 Items, every kind of card extra). The database is fresh per run, not per test, so post the Edition your test needs in the test or a `beforeEach`.
+- Tap the Swipe Brief's tap zones up on the picture (`tap({ position: { x: 40, y: 200 } })`): the card text sits over their lower half on purpose. Match buttons with `exact: true`.
+- Fix the clock with `page.clock.setFixedTime(...)` before `page.goto` when a test reads relative times ("50m ago"). They are filled in after the page loads.
+- `devIndicators` is off in `next.config.ts` because the Next.js dev badge covers the bottom tabs.
 
 ## The Edition v3 contract
 

@@ -4,6 +4,8 @@
   --fg: #1c1b19;
   --muted: #6b6760;
   --rule: #e4e1da;
+  /* Height of the bottom tabs; screens keep their content above it. */
+  --tabbar-h: calc(56px + env(safe-area-inset-bottom));
   color-scheme: light dark;
 }
 

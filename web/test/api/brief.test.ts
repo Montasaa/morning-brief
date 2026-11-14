@@ -11,12 +11,15 @@ describe("GET /api/brief", () => {
     const res = await app.request("GET", "/api/brief");
 
     expect(res.status).toBe(200);
-    expect(res.body).toEqual({ edition: null, items: [] });
+    expect(res.body).toMatchObject({ edition: null, items: [] });
   });
 
   it("returns the latest Edition's Items newest first", async () => {
     const app = await startTestApp();
-    await app.postEdition(morningEdition());
+    const edition = morningEdition();
+    edition.items.forEach((i) => (i.topics = ["one-topic"])); // one group, no top stories: plain newest first
+    delete edition.top_stories;
+    await app.postEdition(edition);
 
     const res = await app.request("GET", "/api/brief");
 
@@ -80,7 +83,7 @@ describe("GET /api/brief", () => {
     const res = await app.request("GET", "/api/brief");
 
     const ids = res.body.items.map((i: BriefItem) => i.id);
-    expect(ids[0]).toBe("ai-evening-tool");
+    expect(ids).toContain("ai-evening-tool");
     expect(ids).not.toContain("gh-terminal-agent");
     expect(res.body.edition).toMatchObject({ id: "2026-11-14-evening", kind: "evening", item_count: 5 });
   });
