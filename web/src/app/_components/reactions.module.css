@@ -1,0 +1,67 @@
+/* Reactions in the Swipe Brief (ticket 09): the hide-reason sheet, the Undo
+   toast. The dock itself is styled in swipe-brief.module.css. */
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  padding: 0;
+  border: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+.sheet {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 16px 16px calc(20px + env(safe-area-inset-bottom));
+  border-radius: 18px 18px 0 0;
+  background: #1c1c1e;
+  color: #fff;
+}
+.sheet h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+.reason {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+  padding: 12px;
+  border: 0;
+  border-radius: 10px;
+  background: #2c2c2e;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  text-align: start;
+}
+.justHide {
+  background: none;
+  color: #8a8a8a;
+}
+
+.toast {
+  position: absolute;
+  inset-inline: 16px;
+  bottom: 96px;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px 10px 16px;
+  border-radius: 12px;
+  background: #2c2c2e;
+  color: #fff;
+  font-size: 14px;
+}
+.toast button {
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  font: inherit;
+  font-weight: 700;
+}

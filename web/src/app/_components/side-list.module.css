@@ -103,3 +103,8 @@
 :global([dir="rtl"]) .title {
   letter-spacing: 0;
 }
+
+/* An Item the Reader opened before (ticket 09). */
+.dimmed .rowText {
+  opacity: 0.5;
+}

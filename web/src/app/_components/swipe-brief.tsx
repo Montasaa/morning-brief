@@ -3,7 +3,8 @@
 // screen, then "You're caught up". Tap the right side to go forward and the
 // left side to go back (mirrored in Arabic, where the layout runs right to left). Progress bars (one per group of the Brief) and a
 // Topic/position chip sit on top; the dock (Hide, Save, Like, Ask) sits at the
-// bottom: Ask opens the Ask sheet (ticket 16); the rest wait for ticket 09 (Reactions).
+// bottom (Reactions: ticket 09, in reactions.tsx; Ask opens the Ask sheet:
+// ticket 16). Hidden Items leave the Brief at once, and opened ones are dimmed.
 //
 // On a wide screen (ticket 05) the card stays in the centre and the side list
 // of the whole Brief sits beside it; clicking a row jumps to that Item. The
@@ -17,6 +18,7 @@ import { CardExtras } from "./card-extras";
 import { formatCoverDate, formatNextEdition, itemCount, timeSince } from "./format";
 import { formatNumber, localized, type Lang } from "./i18n";
 import { LanguageToggle, useLanguage } from "./language";
+import { Dock, UndoToast, useReactions, type ReactionsState } from "./reactions";
 import { SideList, useArrowKeys } from "./side-list";
 import s from "./swipe-brief.module.css";
 
@@ -33,7 +35,9 @@ function topicNameIn(brief: Brief, id: string, lang: Lang): string {
 }
 
 /** Positions: 0 is the cover card, 1..n the Items, n + 1 "You're caught up". */
-export function SwipeBrief({ brief, basePath }: { brief: Brief; basePath: string }) {
+export function SwipeBrief({ brief: initial, basePath }: { brief: Brief; basePath: string }) {
+  const reactions = useReactions(initial, basePath);
+  const { brief } = reactions;
   const [pos, setPos] = useState(0);
   const [asking, setAsking] = useState(false);
   const { lang, t } = useLanguage();
@@ -54,7 +58,7 @@ export function SwipeBrief({ brief, basePath }: { brief: Brief; basePath: string
 
         {pos === 0 && <Cover brief={brief} />}
         {/* Keyed by Item, so a sensitive card is blurred again every time it comes round. */}
-        {item && <ItemCard key={item.id} item={item} brief={brief} position={pos} now={now} />}
+        {item && <ItemCard key={item.id} item={item} brief={brief} position={pos} now={now} reactions={reactions} />}
         {pos > total && (
           <section className={s.done} aria-label={t("End of the Brief", "نهاية الموجز")}>
             <h2>{t("You're caught up", "انتهيت من الموجز")}</h2>
@@ -72,8 +76,9 @@ export function SwipeBrief({ brief, basePath }: { brief: Brief; basePath: string
           <button type="button" className={`${s.tap} ${s.tapNext}`} aria-label={t("Next", "التالي")} onClick={next} />
         )}
 
-        {item && <Dock onAsk={() => setAsking(true)} />}
+        {item && <Dock item={item} reactions={reactions} onAsk={() => setAsking(true)} />}
         {item && asking && <AskSheet key={item.id} item={item} basePath={basePath} onClose={() => setAsking(false)} />}
+        <UndoToast reactions={reactions} />
       </div>
       <SideList brief={brief} pos={pos} onJump={setPos} groupName={(g) => groupName(g, brief, lang)} />
     </div>
@@ -138,7 +143,19 @@ function Cover({ brief }: { brief: Brief }) {
   );
 }
 
-function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brief; position: number; now: number | null }) {
+function ItemCard({
+  item,
+  brief,
+  position,
+  now,
+  reactions,
+}: {
+  item: BriefItem;
+  brief: Brief;
+  position: number;
+  now: number | null;
+  reactions: ReactionsState;
+}) {
   const { lang, t } = useLanguage();
   const name = (id: string) => topicNameIn(brief, id, lang);
   const title = localized(item, "title", lang)!;
@@ -149,8 +166,11 @@ function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brie
   const locked = item.blurred && !revealed;
   return (
     <article
-      className={`${s.card} ${locked ? s.locked : ""}`}
+      className={`${s.card} ${locked ? s.locked : ""} ${item.dimmed ? s.dimmed : ""}`}
       aria-label={locked ? t("Sensitive Item", "عنصر حساس") : title}
+      data-dimmed={item.dimmed}
+      // Opening any of the card's links (sources, try it, store) opens the Item: it comes back dimmed.
+      onClickCapture={(e) => (e.target as Element).closest("a[href]") && reactions.opened(item)}
     >
       <div className={s.hero} inert={locked} aria-hidden={locked || undefined}>
         {item.image && (
@@ -211,29 +231,6 @@ function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brie
         </>
       )}
     </article>
-  );
-}
-
-function Dock({ onAsk }: { onAsk(): void }) {
-  const { t } = useLanguage();
-  return (
-    <div className={s.dock} role="toolbar" aria-label={t("Reactions", "التفاعلات")}>
-      <DockButton label={t("Hide", "إخفاء")} path="M6 6l12 12M18 6L6 18" />
-      <DockButton label={t("Save", "حفظ")} path="M7 4h10v16l-5-4-5 4z" />
-      <DockButton label={t("Like", "أعجبني")} path="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" />
-      <DockButton label={t("Ask", "اسأل")} onClick={onAsk} path="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" />
-    </div>
-  );
-}
-
-function DockButton({ label, path, onClick }: { label: string; path: string; onClick?(): void }) {
-  return (
-    <button type="button" className={s.dockButton} onClick={onClick}>
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden>
-        <path d={path} fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
-      </svg>
-      <small>{label}</small>
-    </button>
   );
 }
 

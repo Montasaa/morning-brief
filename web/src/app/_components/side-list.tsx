@@ -50,7 +50,7 @@ export function SideList({ brief, pos, onJump, groupName }: SideListProps) {
                   <button
                     type="button"
                     ref={isCurrent ? current : undefined}
-                    className={s.row}
+                    className={`${s.row} ${item.dimmed ? s.dimmed : ""}`}
                     aria-current={isCurrent ? "true" : undefined}
                     onClick={() => onJump(at)}
                   >
