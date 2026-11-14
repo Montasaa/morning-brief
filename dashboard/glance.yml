@@ -1,0 +1,305 @@
+server:
+  host: 127.0.0.1
+  port: 8768
+  # Served under /assets/. Relative to the working directory; dashboard/run.sh cds here first.
+  assets-path: assets
+
+branding:
+  app-name: The Morning Brief
+  logo-url: /assets/logo.svg
+  favicon-url: /assets/logo.svg
+  app-background-color: "#0b0f1a"
+  hide-footer: true
+
+theme:
+  # Default: dark. The theme picker in the top bar switches to "Light" (remembered per device).
+  background-color: 226 32 7
+  primary-color: 38 92 58
+  positive-color: 152 62 48
+  negative-color: 355 78 58
+  contrast-multiplier: 1.2
+  text-saturation-multiplier: 0.4
+  custom-css-file: /assets/custom.css
+  disable-picker: false
+  presets:
+    light:
+      light: true
+      background-color: 40 33 96
+      primary-color: 28 90 45
+      positive-color: 152 70 32
+      negative-color: 355 75 45
+      contrast-multiplier: 1.15
+      text-saturation-multiplier: 0.5
+
+pages:
+  - name: Today
+    slug: morning-brief
+    width: wide
+    show-mobile-header: false
+    head-widgets:
+      - type: custom-api
+        hide-header: true
+        css-class: mb-masthead-widget
+        cache: 15m
+        url: &brief-url http://127.0.0.1:8768/assets/brief.json
+        template: |
+          {{ $h := now.Hour }}
+          <div class="mb-mast">
+            <div class="mb-mast-top">
+              <div class="mb-brand">
+                <span class="mb-mono">AM</span>
+                <div>
+                  <div class="mb-wordmark">The Morning Brief</div>
+                  <div class="mb-tagline">Abdulrahman's daily check-up · Riyadh</div>
+                </div>
+              </div>
+              <div class="mb-mast-meta">
+                <div class="mb-date">{{ now | formatTime "Monday 2 January 2006" }}</div>
+                <div class="mb-updated">Updated <span {{ .JSON.String "generated_at" | parseTime "rfc3339" | toRelativeTime }}></span> ago{{ if .JSON.Bool "sample" }} <span class="mb-chip mb-chip-sample">Sample data</span>{{ end }}</div>
+              </div>
+            </div>
+            <h1 class="mb-greet">{{ if lt $h 12 }}Good morning{{ else if lt $h 17 }}Good afternoon{{ else }}Good evening{{ end }}, Abdulrahman.</h1>
+
+            {{ $tops := .JSON.Array "top_stories" }}
+            {{ if $tops }}
+            <div class="mb-top">
+              {{ range $i, $ref := $tops }}
+              {{ $sec := $ref.String "section" }}
+              {{ range $.JSON.Array (concat "sections." $sec ".items") }}
+              {{ if eq (.String "id") ($ref.String "id") }}
+              <a class="mb-top-card mb-k-{{ $sec }} {{ if eq $i 0 }}mb-top-lead{{ end }}" href="{{ .String "sources.0.url" }}" target="_blank" rel="noopener">
+                {{ $img := .String "image" }}
+                {{ if $img }}<img src="{{ $img }}" alt="" loading="lazy" referrerpolicy="no-referrer">{{ else }}<div class="mb-ph"></div>{{ end }}
+                <div class="mb-top-shade"></div>
+                <div class="mb-top-text">
+                  <span class="mb-top-kicker"><span class="mb-ico"></span>{{ if eq $i 0 }}Top story{{ else }}Also today{{ end }}</span>
+                  <div class="mb-top-title">{{ .String "title" }}</div>
+                  {{ if eq $i 0 }}<div class="mb-top-sum">{{ .String "summary" }}</div>{{ end }}
+                  <div class="mb-top-meta"><span {{ .String "time" | parseTime "rfc3339" | toRelativeTime }}></span> ago · {{ .String "sources.0.title" }}</div>
+                </div>
+              </a>
+              {{ end }}
+              {{ end }}
+              {{ end }}
+            </div>
+            {{ end }}
+
+            <nav class="mb-nav">
+              {{ $items := .JSON.Array "sections.middle_east.items" }}{{ $n := 0 }}{{ range $items }}{{ if eq (.String "status") "new" }}{{ $n = add $n 1 }}{{ end }}{{ end }}
+              <a class="mb-nav-tile mb-k-middle_east" href="#sec-middle_east"><span class="mb-ico-tile"><span class="mb-ico"></span></span><span class="mb-nav-text"><b>Middle East</b><small>{{ if $n }}{{ $n }} new{{ else }}{{ len $items }} stories{{ end }}</small></span></a>
+              {{ $items := .JSON.Array "sections.us_markets.items" }}{{ $n := 0 }}{{ range $items }}{{ if eq (.String "status") "new" }}{{ $n = add $n 1 }}{{ end }}{{ end }}
+              <a class="mb-nav-tile mb-k-us_markets" href="#sec-us_markets"><span class="mb-ico-tile"><span class="mb-ico"></span></span><span class="mb-nav-text"><b>Markets</b><small>{{ if $n }}{{ $n }} new{{ else }}{{ len $items }} stories{{ end }}</small></span></a>
+              {{ $items := .JSON.Array "sections.ai.items" }}{{ $n := 0 }}{{ range $items }}{{ if eq (.String "status") "new" }}{{ $n = add $n 1 }}{{ end }}{{ end }}
+              <a class="mb-nav-tile mb-k-ai" href="#sec-ai"><span class="mb-ico-tile"><span class="mb-ico"></span></span><span class="mb-nav-text"><b>AI</b><small>{{ if $n }}{{ $n }} new{{ else }}{{ len $items }} stories{{ end }}</small></span></a>
+              {{ $items := .JSON.Array "sections.trending.items" }}{{ $n := 0 }}{{ range $items }}{{ if eq (.String "status") "new" }}{{ $n = add $n 1 }}{{ end }}{{ end }}
+              <a class="mb-nav-tile mb-k-trending" href="#sec-trending"><span class="mb-ico-tile"><span class="mb-ico"></span></span><span class="mb-nav-text"><b>Repos</b><small>{{ if $n }}{{ $n }} new{{ else }}{{ len $items }} stories{{ end }}</small></span></a>
+              {{ $items := .JSON.Array "sections.liverpool.items" }}{{ $n := 0 }}{{ range $items }}{{ if eq (.String "status") "new" }}{{ $n = add $n 1 }}{{ end }}{{ end }}
+              <a class="mb-nav-tile mb-k-liverpool" href="#sec-liverpool"><span class="mb-ico-tile"><span class="mb-ico"></span></span><span class="mb-nav-text"><b>Liverpool</b><small>{{ if $n }}{{ $n }} new{{ else }}{{ len $items }} stories{{ end }}</small></span></a>
+              {{ $items := .JSON.Array "sections.games.items" }}{{ $n := 0 }}{{ range $items }}{{ if eq (.String "status") "new" }}{{ $n = add $n 1 }}{{ end }}{{ end }}
+              <a class="mb-nav-tile mb-k-games" href="#sec-games"><span class="mb-ico-tile"><span class="mb-ico"></span></span><span class="mb-nav-text"><b>Games</b><small>{{ if $n }}{{ $n }} new{{ else }}{{ len $items }} stories{{ end }}</small></span></a>
+              {{ $items := .JSON.Array "sections.social.items" }}{{ $n := 0 }}{{ range $items }}{{ if eq (.String "status") "new" }}{{ $n = add $n 1 }}{{ end }}{{ end }}
+              <a class="mb-nav-tile mb-k-social" href="#sec-social"><span class="mb-ico-tile"><span class="mb-ico"></span></span><span class="mb-nav-text"><b>Social</b><small>{{ if $n }}{{ $n }} new{{ else }}{{ len $items }} stories{{ end }}</small></span></a>
+            </nav>
+          </div>
+
+    columns:
+      - size: full
+        widgets:
+          - type: custom-api
+            title: Middle East
+            css-class: mb-section mb-sec-middle_east
+            cache: 15m
+            url: *brief-url
+            options:
+              section: middle_east
+            # Shared section template; every other section reuses it via *section-template.
+            template: &section-template |
+              {{ $sec := .Options.StringOr "section" "" }}
+              <span class="mb-anchor" id="sec-{{ $sec }}"></span>
+              {{ $changed := .JSON.String (concat "sections." $sec ".what_changed") }}
+              {{ if $changed }}
+              <details class="mb-changed">
+                <summary><span class="mb-changed-label">What changed</span><span class="mb-changed-text">{{ $changed }}</span></summary>
+              </details>
+              {{ end }}
+              {{ $items := .JSON.Array (concat "sections." $sec ".items") }}
+              {{ if $items }}
+              <div class="mb-grid">
+                {{ range $items }}
+                {{ $pf := .String "platform" }}
+                <details class="mb-card">
+                  <summary>
+                    <div class="mb-thumb">
+                      {{ $img := .String "image" }}
+                      {{ if $img }}<img src="{{ $img }}" alt="" loading="lazy" referrerpolicy="no-referrer">{{ else }}<div class="mb-ph {{ if $pf }}mb-ph-{{ $pf }}{{ end }}"></div>{{ end }}
+                      <div class="mb-chips">
+                        {{ $st := .String "status" }}
+                        {{ if eq $st "new" }}<span class="mb-chip mb-chip-new">New</span>{{ else if eq $st "updated" }}<span class="mb-chip mb-chip-upd">Updated</span>{{ end }}
+                        {{ if $pf }}<span class="mb-chip mb-pf mb-pf-{{ $pf }}">{{ $pf }}</span>{{ end }}
+                        {{ $kind := .String "kind" }}{{ if $kind }}<span class="mb-chip">{{ $kind }}</span>{{ end }}
+                        {{ $tag := .String "tag" }}{{ if $tag }}<span class="mb-chip">{{ $tag }}</span>{{ end }}
+                        {{ if .Exists "rank" }}<span class="mb-chip mb-chip-rank">#{{ .Int "rank" }} {{ .String "period" }}</span>{{ end }}
+                        {{ $disc := .Int "discount" }}{{ if gt $disc 0 }}<span class="mb-chip mb-chip-deal">-{{ $disc }}%</span>{{ end }}
+                        {{ $rel := .String "reliability" }}
+                        {{ if $rel }}
+                        {{ $rc := "low" }}{{ if eq $rel "Official" }}{{ $rc = "official" }}{{ else if eq $rel "Tier 1" }}{{ $rc = "t1" }}{{ else if eq $rel "Tier 2" }}{{ $rc = "t2" }}{{ end }}
+                        <span class="mb-chip mb-rel-{{ $rc }}">{{ $rel }}</span>
+                        {{ end }}
+                      </div>
+                      {{ $voices := .Array "voices" }}
+                      {{ if $voices }}<div class="mb-voice-dots" title="What people are saying">{{ range $voices }}<span class="mb-pf-dot mb-pf-{{ .String "platform" }}"></span>{{ end }}<span>{{ len $voices }}</span></div>{{ end }}
+                    </div>
+                    <div class="mb-body">
+                      <div class="mb-title">{{ .String "title" }}</div>
+                      <div class="mb-meta">
+                        {{ if .Exists "stars_gained" }}<span class="mb-stars">★ +{{ .Int "stars_gained" | formatNumber }} {{ if eq (.String "period") "week" }}this week{{ else }}today{{ end }}</span>{{ end }}
+                        {{ $lang := .String "language" }}{{ if $lang }}<span>{{ $lang }}</span>{{ end }}
+                        {{ $creator := .String "creator" }}{{ if $creator }}<span>{{ $creator }}</span>{{ end }}
+                        {{ $metric := .String "metric" }}{{ if $metric }}<span class="mb-metric">{{ $metric }}</span>{{ end }}
+                        {{ $genre := .String "genres.0" }}{{ if $genre }}<span>{{ $genre }}</span>{{ end }}
+                        {{ $price := .String "price" }}{{ if $price }}<span>{{ $price }}</span>{{ end }}
+                        {{ if not (or $metric $price (.Exists "stars_gained")) }}<span {{ .String "time" | parseTime "rfc3339" | toRelativeTime }}></span><span>{{ .String "sources.0.title" }}</span>{{ end }}
+                      </div>
+                      {{ $try := .String "try_url" }}{{ if $try }}<a class="mb-try" href="{{ $try }}" target="_blank" rel="noopener">Try it ↗</a>{{ end }}
+                    </div>
+                  </summary>
+                  <div class="mb-more">
+                    <p>{{ .String "summary" }}</p>
+                    {{ $why := .String "why_it_matters" }}{{ if $why }}<p class="mb-why"><b>Why it matters</b> {{ $why }}</p>{{ end }}
+                    {{ if $voices }}
+                    <div class="mb-voices">
+                      <div class="mb-voices-label">What people are saying</div>
+                      {{ range $voices }}
+                      {{ $vu := .String "url" }}
+                      <div class="mb-voice">
+                        <span class="mb-pf-dot mb-pf-{{ .String "platform" }}"></span>
+                        <div><b>{{ .String "handle" }}</b>{{ $vm := .String "metric" }}{{ if $vm }} <span class="mb-voice-metric">{{ $vm }}</span>{{ end }}<br>{{ .String "text" }}{{ if $vu }} <a href="{{ $vu }}" target="_blank" rel="noopener">open ↗</a>{{ end }}</div>
+                      </div>
+                      {{ end }}
+                    </div>
+                    {{ end }}
+                    <div class="mb-sources">
+                      {{ range .Array "sources" }}<a class="mb-src-{{ .String "type" }}" href="{{ .String "url" }}" target="_blank" rel="noopener">{{ .String "title" }} ↗</a>{{ end }}
+                    </div>
+                  </div>
+                </details>
+                {{ end }}
+              </div>
+              {{ else }}
+              <div class="mb-empty">Nothing new</div>
+              {{ end }}
+              {{ $watch := .JSON.Array (concat "sections." $sec ".watch") }}
+              {{ if $watch }}
+              <div class="mb-watch-label">Watch</div>
+              <div class="mb-watch">
+                {{ range $watch }}
+                {{ $u := .String "url" }}
+                {{ $th := .String "thumbnail" }}
+                {{ if not $th }}{{ $vid := findSubmatch `(?:v=|youtu\.be/|shorts/)([A-Za-z0-9_-]{11})` $u }}{{ if $vid }}{{ $th = concat "https://i.ytimg.com/vi/" $vid "/hqdefault.jpg" }}{{ end }}{{ end }}
+                <a class="mb-video" href="{{ $u }}" target="_blank" rel="noopener">
+                  <div class="mb-vthumb">{{ if $th }}<img src="{{ $th }}" alt="" loading="lazy" referrerpolicy="no-referrer">{{ else }}<div class="mb-ph"></div>{{ end }}<span class="mb-play"></span></div>
+                  <div class="mb-vtitle">{{ .String "title" }}</div>
+                  {{ $ch := .String "channel" }}{{ if $ch }}<div class="mb-vch">{{ $ch }}</div>{{ end }}
+                </a>
+                {{ end }}
+              </div>
+              {{ end }}
+
+          - type: markets
+            title: US markets
+            title-url: https://finance.yahoo.com/markets/
+            css-class: mb-section mb-sec-us_markets mb-join-top
+            cache: 15m
+            markets:
+              - symbol: ES=F
+                name: S&P 500 futures
+                chart-link: https://finance.yahoo.com/quote/ES=F
+              - symbol: NQ=F
+                name: Nasdaq futures
+                chart-link: https://finance.yahoo.com/quote/NQ=F
+              - symbol: ^GSPC
+                name: S&P 500
+                chart-link: https://finance.yahoo.com/quote/%5EGSPC
+              - symbol: ^IXIC
+                name: Nasdaq
+                chart-link: https://finance.yahoo.com/quote/%5EIXIC
+              - symbol: ^VIX
+                name: VIX
+                chart-link: https://finance.yahoo.com/quote/%5EVIX
+              - symbol: CL=F
+                name: WTI oil
+                chart-link: https://finance.yahoo.com/quote/CL=F
+
+          - type: custom-api
+            title: Movers, earnings & macro
+            css-class: mb-section mb-sec-us_markets mb-join-bottom
+            cache: 15m
+            url: *brief-url
+            options:
+              section: us_markets
+            template: *section-template
+
+          - type: custom-api
+            title: AI
+            css-class: mb-section mb-sec-ai
+            cache: 15m
+            url: *brief-url
+            options:
+              section: ai
+            template: *section-template
+
+          - type: custom-api
+            title: Trending repos
+            title-url: https://github.com/trending
+            css-class: mb-section mb-sec-trending
+            cache: 15m
+            url: *brief-url
+            options:
+              section: trending
+            template: *section-template
+
+          - type: custom-api
+            title: Liverpool FC
+            title-url: https://www.liverpoolfc.com/news
+            css-class: mb-section mb-sec-liverpool
+            cache: 15m
+            url: *brief-url
+            options:
+              section: liverpool
+            template: *section-template
+
+          - type: custom-api
+            title: Games
+            css-class: mb-section mb-sec-games
+            cache: 15m
+            url: *brief-url
+            options:
+              section: games
+            template: *section-template
+
+          - type: custom-api
+            title: Trending on social
+            css-class: mb-section mb-sec-social
+            cache: 15m
+            url: *brief-url
+            options:
+              section: social
+            template: *section-template
+
+          - type: custom-api
+            title: Graphic news (content warning)
+            css-class: mb-section mb-sec-graphic mb-cw
+            cache: 15m
+            url: *brief-url
+            options:
+              section: graphic
+            template: *section-template
+
+          - type: custom-api
+            title: 18+ trending (content warning)
+            css-class: mb-section mb-sec-adult_trending mb-cw
+            cache: 15m
+            url: *brief-url
+            options:
+              section: adult_trending
+            template: *section-template

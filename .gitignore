@@ -1,0 +1,17 @@
+# Glance binary — download from https://github.com/glanceapp/glance/releases
+/glance
+/glance-*
+/dashboard/glance
+/dashboard/glance-*
+
+# Local copy or symlink Glance serves at /assets/brief.json
+/dashboard/assets/brief.json
+
+# TikTok scrape output (scripts/tiktok_trends.py)
+/scripts/tiktok_trends.json
+
+*.log
+__pycache__/
+*.py[cod]
+.env
+*.tmp

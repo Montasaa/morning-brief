@@ -1,0 +1,881 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Montasaa/morning-brief/main/schema/brief.v2.schema.json",
+  "title": "Morning Brief v2",
+  "description": "Version 2 daily news brief (BRIEF-SCHEMA.md rev 2.1) read by the Glance dashboard. Nine section keys, stable item ids, checked links, and no invented facts. graphic and adult_trending render behind a tap-to-reveal blur. adult_trending is mainstream-news-only and non-explicit. Closed object: fields added after rev 2.1 (schema_rev, Arabic mirrors) are not part of this document.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "sample",
+    "generated_at",
+    "sections"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 2
+    },
+    "sample": {
+      "type": "boolean",
+      "description": "True only for synthetic fixtures, which show a Sample data tag. A snapshot of a real edition is false."
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC 3339 timestamp of this build, with a +03:00 offset. The header shows Updated N ago."
+    },
+    "timezone": {
+      "type": "string",
+      "const": "Asia/Riyadh"
+    },
+    "top_stories": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "description": "One to three {section, id} refs that exist in sections. The first is the lead story. Shape only; the schema does not resolve ids.",
+      "items": {
+        "$ref": "#/$defs/topStory"
+      }
+    },
+    "sections": {
+      "$ref": "#/$defs/sections"
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "url",
+        "type"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Publisher or account name. The first source is the card link."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "independent",
+            "wire",
+            "social",
+            "official"
+          ],
+          "description": "independent: reputable independent media. wire: Reuters, AP, or AFP. social: a post or video. official: government, club, or company channel. Do not use a state outlet as the only source."
+        }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "platform",
+        "handle",
+        "text"
+      ],
+      "properties": {
+        "platform": {
+          "$ref": "#/$defs/platform"
+        },
+        "handle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What they posted, one or two lines."
+        },
+        "metric": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "minLength": 1
+        }
+      }
+    },
+    "watch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "url",
+        "channel"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "minLength": 1,
+          "description": "A specific video, not a channel page."
+        },
+        "channel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "thumbnail": {
+          "type": "string",
+          "format": "uri",
+          "minLength": 1,
+          "description": "Optional. YouTube thumbnails are derived from the video id when this is omitted."
+        }
+      }
+    },
+    "watchStandard": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/watch"
+      },
+      "description": "Two or three specific videos."
+    },
+    "watchOptional": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/watch"
+      },
+      "description": "Up to three videos. Empty when no suitable video exists."
+    },
+    "platform": {
+      "type": "string",
+      "enum": [
+        "x",
+        "tiktok",
+        "instagram",
+        "youtube",
+        "reddit"
+      ]
+    },
+    "topStory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "section",
+        "id"
+      ],
+      "properties": {
+        "section": {
+          "type": "string",
+          "enum": [
+            "middle_east",
+            "us_markets",
+            "ai",
+            "trending",
+            "liverpool",
+            "games",
+            "social",
+            "graphic",
+            "adult_trending"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9][a-z0-9.-]*$"
+        }
+      }
+    },
+    "itemCommon": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "summary",
+        "sources",
+        "time",
+        "section"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9][a-z0-9.-]*$",
+          "description": "Stable slug, unique within the file. Reuse it when the story continues."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Headline. Cards show about two lines; aim for under 80 characters."
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "description": "One or two sentences, shown when the card is opened."
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "RFC 3339. Shown as relative time."
+        },
+        "section": {
+          "type": "string",
+          "enum": [
+            "middle_east",
+            "us_markets",
+            "ai",
+            "trending",
+            "liverpool",
+            "games",
+            "social",
+            "graphic",
+            "adult_trending"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "new",
+            "updated",
+            ""
+          ],
+          "description": "new on first appearance, updated after a material change, empty afterwards. Omitted means no badge."
+        },
+        "image": {
+          "type": "string",
+          "format": "uri",
+          "minLength": 1,
+          "description": "Card picture. Use the article og:image, or https://i.ytimg.com/vi/<id>/hqdefault.jpg for YouTube. A missing image shows a coloured placeholder."
+        },
+        "voices": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/voice"
+          },
+          "description": "Zero to three social posts about the story."
+        }
+      }
+    },
+    "middleEastItem": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/itemCommon"
+        },
+        {
+          "properties": {
+            "section": {
+              "const": "middle_east"
+            }
+          },
+          "required": [
+            "section"
+          ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "usMarketsItem": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/itemCommon"
+        },
+        {
+          "properties": {
+            "section": {
+              "const": "us_markets"
+            },
+            "tag": {
+              "type": "string",
+              "enum": [
+                "EARNINGS",
+                "MACRO",
+                "FED",
+                "MOVERS",
+                "DEALS",
+                "HOUSING",
+                "GLOBAL"
+              ]
+            }
+          },
+          "required": [
+            "section"
+          ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "aiItem": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/itemCommon"
+        },
+        {
+          "properties": {
+            "section": {
+              "const": "ai"
+            },
+            "kind": {
+              "type": "string",
+              "enum": [
+                "MODEL",
+                "TOOL",
+                "APP",
+                "PAPER"
+              ]
+            },
+            "try_url": {
+              "type": "string",
+              "format": "uri",
+              "minLength": 1,
+              "description": "Where to try it now. Rendered as a Try it button."
+            },
+            "pricing": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Suggested values: Free, Free demo, Free tier, Paid, Open weights."
+            },
+            "metric": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "section",
+            "kind",
+            "try_url",
+            "image"
+          ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "trendingItem": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/itemCommon"
+        },
+        {
+          "properties": {
+            "section": {
+              "const": "trending"
+            },
+            "rank": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Position on the GitHub Trending list."
+            },
+            "period": {
+              "type": "string",
+              "enum": [
+                "today",
+                "week"
+              ]
+            },
+            "stars_gained": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Stars gained in that period."
+            },
+            "stars_total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "language": {
+              "type": "string",
+              "minLength": 1
+            },
+            "why_it_matters": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "section",
+            "rank",
+            "period",
+            "stars_gained",
+            "language",
+            "why_it_matters",
+            "image"
+          ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "liverpoolItem": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/itemCommon"
+        },
+        {
+          "properties": {
+            "section": {
+              "const": "liverpool"
+            },
+            "reliability": {
+              "type": "string",
+              "enum": [
+                "Official",
+                "Tier 1",
+                "Tier 2",
+                "Tier 3",
+                "Rumour"
+              ],
+              "description": "Official is club or league only. Tier 1 is BBC, Guardian, The Athletic."
+            }
+          },
+          "required": [
+            "section",
+            "reliability"
+          ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "gamesItem": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/itemCommon"
+        },
+        {
+          "properties": {
+            "section": {
+              "const": "games"
+            },
+            "kind": {
+              "type": "string",
+              "enum": [
+                "NEWS",
+                "RELEASE",
+                "TRENDING",
+                "TRAILER",
+                "PREVIEW",
+                "UPDATE",
+                "DEAL",
+                "PICK"
+              ]
+            },
+            "genres": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": "The first genre is shown on the card."
+            },
+            "platforms": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Windows",
+                  "Mac",
+                  "Linux",
+                  "PS5",
+                  "Xbox",
+                  "Switch"
+                ]
+              }
+            },
+            "price": {
+              "type": "string",
+              "minLength": 1
+            },
+            "discount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Percent off. A value above 0 shows a green chip."
+            },
+            "release_date": {
+              "type": "string",
+              "minLength": 1
+            },
+            "store_url": {
+              "type": "string",
+              "format": "uri",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "section",
+            "kind",
+            "genres",
+            "image"
+          ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "socialItem": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/itemCommon"
+        },
+        {
+          "properties": {
+            "section": {
+              "const": "social"
+            },
+            "platform": {
+              "$ref": "#/$defs/platform"
+            },
+            "creator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "metric": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "section",
+            "platform"
+          ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "graphicItem": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/itemCommon"
+        },
+        {
+          "properties": {
+            "section": {
+              "const": "graphic"
+            },
+            "warning": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Short note, for example violence or mass casualties. The image is an outlet logo or a neutral picture, never gore."
+            }
+          },
+          "required": [
+            "section",
+            "warning",
+            "image"
+          ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "adultItem": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/itemCommon"
+        },
+        {
+          "properties": {
+            "section": {
+              "const": "adult_trending"
+            },
+            "warning": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Short note. Mainstream news only: no explicit imagery, no adult-site or creator-page links, nothing involving minors, nothing non-consensual or leaked."
+            }
+          },
+          "required": [
+            "section",
+            "warning",
+            "image"
+          ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "sections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "middle_east",
+        "us_markets",
+        "ai",
+        "trending",
+        "liverpool",
+        "games",
+        "social",
+        "graphic",
+        "adult_trending"
+      ],
+      "properties": {
+        "middle_east": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "items",
+            "watch"
+          ],
+          "properties": {
+            "what_changed": {
+              "type": "string",
+              "minLength": 1,
+              "description": "One or two sentences on what changed since yesterday. Rendered as a one-line strip."
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/middleEastItem"
+              },
+              "description": "Newest or most important first. An empty array renders \"Nothing new\". BRIEF-SCHEMA.md suggests 5-8 items; the daily pipeline does not cap the count, and this schema does not either."
+            },
+            "watch": {
+              "$ref": "#/$defs/watchStandard"
+            }
+          },
+          "description": "Saudi Arabia, Yemen, Iran, and regional catalysts. Independent outlets lead; a state outlet is only a second source with type official. Daily delta goes in what_changed. Ground-level posts go in voices."
+        },
+        "us_markets": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "items",
+            "watch"
+          ],
+          "properties": {
+            "what_changed": {
+              "type": "string",
+              "minLength": 1,
+              "description": "One or two sentences on what changed since yesterday. Rendered as a one-line strip."
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/usMarketsItem"
+              },
+              "description": "Newest or most important first. An empty array renders \"Nothing new\". BRIEF-SCHEMA.md suggests 5-8 items; the daily pipeline does not cap the count, and this schema does not either."
+            },
+            "watch": {
+              "$ref": "#/$defs/watchStandard"
+            }
+          },
+          "description": "Movers, earnings, and macro. Index quotes and 21-day charts come from the Glance markets widget, not from these items."
+        },
+        "ai": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "items",
+            "watch"
+          ],
+          "properties": {
+            "what_changed": {
+              "type": "string",
+              "minLength": 1,
+              "description": "One or two sentences on what changed since yesterday. Rendered as a one-line strip."
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/aiItem"
+              },
+              "description": "Newest or most important first. An empty array renders \"Nothing new\". BRIEF-SCHEMA.md suggests 5-8 items; the daily pipeline does not cap the count, and this schema does not either."
+            },
+            "watch": {
+              "$ref": "#/$defs/watchStandard"
+            }
+          },
+          "description": "Models, tools, apps, and papers to try. Every item has kind, try_url, and image."
+        },
+        "trending": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "items",
+            "watch"
+          ],
+          "properties": {
+            "what_changed": {
+              "type": "string",
+              "minLength": 1,
+              "description": "One or two sentences on what changed since yesterday. Rendered as a one-line strip."
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/trendingItem"
+              },
+              "description": "Newest or most important first. An empty array renders \"Nothing new\". BRIEF-SCHEMA.md suggests 5-8 items; the daily pipeline does not cap the count, and this schema does not either."
+            },
+            "watch": {
+              "$ref": "#/$defs/watchStandard"
+            }
+          },
+          "description": "Repos that are actually on GitHub Trending for today or this week. rank, period, stars_gained, language, why_it_matters, and a GitHub Open Graph image are required."
+        },
+        "liverpool": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "items",
+            "watch"
+          ],
+          "properties": {
+            "what_changed": {
+              "type": "string",
+              "minLength": 1,
+              "description": "One or two sentences on what changed since yesterday. Rendered as a one-line strip."
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/liverpoolItem"
+              },
+              "description": "Newest or most important first. An empty array renders \"Nothing new\". BRIEF-SCHEMA.md suggests 5-8 items; the daily pipeline does not cap the count, and this schema does not either."
+            },
+            "watch": {
+              "$ref": "#/$defs/watchStandard"
+            }
+          },
+          "description": "Results, fixtures, injuries, lineups, and transfer talk. Every item has a reliability chip."
+        },
+        "games": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "items",
+            "watch"
+          ],
+          "properties": {
+            "what_changed": {
+              "type": "string",
+              "minLength": 1,
+              "description": "One or two sentences on what changed since yesterday. Rendered as a one-line strip."
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/gamesItem"
+              },
+              "description": "Newest or most important first. An empty array renders \"Nothing new\". BRIEF-SCHEMA.md suggests 5-8 items; the daily pipeline does not cap the count, and this schema does not either."
+            },
+            "watch": {
+              "$ref": "#/$defs/watchStandard"
+            }
+          },
+          "description": "Strategy, turn-based RPG and tactics, plus what is trending or worth playing. kind, genres, and image are required."
+        },
+        "social": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "items",
+            "watch"
+          ],
+          "properties": {
+            "what_changed": {
+              "type": "string",
+              "minLength": 1,
+              "description": "One or two sentences on what changed since yesterday. Rendered as a one-line strip."
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/socialItem"
+              },
+              "description": "Newest or most important first. An empty array renders \"Nothing new\". BRIEF-SCHEMA.md suggests 5-8 items; the daily pipeline does not cap the count, and this schema does not either."
+            },
+            "watch": {
+              "$ref": "#/$defs/watchStandard"
+            }
+          },
+          "description": "What is viral on X, TikTok, Instagram, YouTube, and Reddit, including Saudi TikTok hashtags merged by scripts/merge_tiktok.py."
+        },
+        "graphic": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "items",
+            "watch",
+            "warning"
+          ],
+          "properties": {
+            "what_changed": {
+              "type": "string",
+              "minLength": 1,
+              "description": "One or two sentences on what changed since yesterday. Rendered as a one-line strip."
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/graphicItem"
+              },
+              "description": "Newest or most important first. An empty array renders \"Nothing new\". BRIEF-SCHEMA.md suggests 5-8 items; the daily pipeline does not cap the count, and this schema does not either."
+            },
+            "watch": {
+              "$ref": "#/$defs/watchOptional"
+            },
+            "warning": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Section content warning. These sections render behind a tap-to-reveal blur."
+            }
+          },
+          "description": "War, crime, and graphic news from established outlets. Widget class mb-cw blurs each card until it is opened. Images are outlet logos or neutral pictures, never gore."
+        },
+        "adult_trending": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "items",
+            "watch",
+            "warning"
+          ],
+          "properties": {
+            "what_changed": {
+              "type": "string",
+              "minLength": 1,
+              "description": "One or two sentences on what changed since yesterday. Rendered as a one-line strip."
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/adultItem"
+              },
+              "description": "Newest or most important first. An empty array renders \"Nothing new\". BRIEF-SCHEMA.md suggests 5-8 items; the daily pipeline does not cap the count, and this schema does not either."
+            },
+            "watch": {
+              "$ref": "#/$defs/watchOptional"
+            },
+            "warning": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Section content warning. These sections render behind a tap-to-reveal blur."
+            }
+          },
+          "description": "Adult-themed stories trending now, from mainstream outlets or non-explicit public posts, behind the same tap-to-reveal blur. No porn or creator-page links, nothing involving minors, nothing non-consensual or leaked. Leave items empty when nothing qualifies."
+        }
+      }
+    }
+  }
+}
