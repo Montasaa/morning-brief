@@ -55,7 +55,7 @@ export function searchItems(ctx: AppContext, readerId: number, query: string): S
         ORDER BY i.time_ms DESC, i.id
         LIMIT ${SEARCH_LIMIT}`,
     )
-    .all(readerId, readerId, match, readerId) as (ListedRow & { saved: number })[];
+    .all(readerId, readerId, match, readerId, readerId) as (ListedRow & { saved: number })[];
   const results = toListedItems(ctx, readerId, rows, (r) => r.saved === 1);
   return { query, results, ...topicNamesOf(ctx, results) };
 }

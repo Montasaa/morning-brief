@@ -348,6 +348,32 @@ describe("Search", () => {
     expect(ids(await search(owner, 'hodeidah: "port"'))).toEqual(["me-yemen-port-talks"]);
   });
 
+  it("never shows another Reader's private Topic (ticket 11)", async () => {
+    const app = await startTestApp();
+    const reem = await app.addReader("reem@example.com");
+    const sara = await readerFollowing(app, "sara@example.com", ["ai"]);
+    const created = await reem.request("POST", "/api/topics", { body: { name: "Formula 1" } });
+    expect(created.status, created.text).toBe(201);
+    await app.postEdition(
+      edition("2026-11-14-morning", "2026-11-14T06:05:00+03:00", [
+        item({ id: "f1-grid", topics: ["formula-1"], time: "2026-11-14T05:00:00+03:00", title: "Grid penalty for the leader", summary: "A new engine costs ten places." }),
+        item({ id: "f1-ai-strategy", topics: ["formula-1", "ai"], time: "2026-11-14T04:00:00+03:00", title: "Teams lean on AI for grid strategy", summary: "Models pick tyre calls." }),
+      ]),
+    );
+
+    const forReem = await reem.request("GET", "/api/search?q=grid");
+    expect(ids(forReem.body.results)).toEqual(["f1-grid", "f1-ai-strategy"]);
+    expect(forReem.body.topic_names).toMatchObject({ "formula-1": "Formula 1" });
+
+    const forSara = await sara.request("GET", "/api/search?q=grid");
+    expect(ids(forSara.body.results)).toEqual(["f1-ai-strategy"]);
+    expect(forSara.body.results[0]).toMatchObject({ topic: "ai", topics: ["ai"] });
+    expect(forSara.body.topic_names).not.toHaveProperty("formula-1");
+
+    await save(sara, "f1-ai-strategy");
+    expect((await sara.request("GET", "/api/saved")).body.items[0]).toMatchObject({ topics: ["ai"] });
+  });
+
   it("needs a signed-in Reader", async () => {
     const app = await startTestApp();
     expect((await app.request("GET", "/api/search?q=port")).status).toBe(401);

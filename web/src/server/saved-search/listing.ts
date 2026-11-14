@@ -7,14 +7,14 @@
 //
 // - Sensitive: it reaches the Reader only if they opted into every Sensitive
 //   Topic it carries, and is then marked `blurred` (ticket 08).
-// - Topics: it carries at least one Topic in the Catalog, so an Item no Reader
-//   could ever follow is never listed. Ticket 11 (private Topics) narrows this
-//   to Topics in the Catalog *as this Reader sees it*: `listableItemSql` is the
-//   one place to do that.
+// - Topics: it carries at least one Topic in the Catalog as this Reader sees it
+//   (ticket 11: another Reader's private Topic does not count, and is stripped
+//   from the Item's `topics`), so an Item they could never follow is never
+//   listed. `listableItemSql` is the one place for that rule.
 // - Reactions are only ever this Reader's own (ticket 09).
 import type { AppContext } from "../app";
 import type { ItemStatus, Source } from "../editions/types";
-import { followedTopicIds } from "../topics/catalog";
+import { followedTopicIds, hiddenTopicIds } from "../topics/catalog";
 import { topicName } from "../topics/names";
 import { sensitiveItemSql, sensitiveItemVisibleSql } from "../topics/sensitive";
 
@@ -60,10 +60,12 @@ export interface ItemList<T extends ListedItem = ListedItem> {
 
 /**
  * SQL that is true when the Item whose id is `itemId` (an SQL expression such
- * as `i.id`) may be listed to a Reader. Takes one `?` parameter, the Reader's id.
+ * as `i.id`) may be listed to a Reader. Takes two `?` parameters, both the Reader's id.
  */
 export function listableItemSql(itemId: string): string {
-  return `EXISTS (SELECT 1 FROM item_topics ct JOIN topics ctt ON ctt.id = ct.topic_id WHERE ct.item_id = ${itemId})
+  return `EXISTS (SELECT 1 FROM item_topics ct JOIN topics ctt ON ctt.id = ct.topic_id
+                   WHERE ct.item_id = ${itemId}
+                     AND (ctt.created_by IS NULL OR ctt.shared_at_ms IS NOT NULL OR ctt.created_by = ?))
       AND ${sensitiveItemVisibleSql(itemId)}`;
 }
 
@@ -115,9 +117,10 @@ export function toListedItems<R extends ListedRow>(
   saved: (row: R) => boolean,
 ): ListedItem[] {
   const followed = new Set(followedTopicIds(ctx, readerId));
+  const hidden = hiddenTopicIds(ctx, readerId); // other Readers' private Topics (ticket 11)
   return rows.map((r) => {
-    const topics = JSON.parse(r.topics) as string[];
-    const catalog = JSON.parse(r.catalog_topics) as string[];
+    const topics = (JSON.parse(r.topics) as string[]).filter((t) => !hidden.has(t));
+    const catalog = (JSON.parse(r.catalog_topics) as string[]).filter((t) => !hidden.has(t));
     return {
       id: r.id,
       topics,
@@ -141,7 +144,10 @@ export function toListedItems<R extends ListedRow>(
 
 /** The Topic names (English and Arabic) a list of Items mentions. */
 export function topicNamesOf(ctx: AppContext, items: ListedItem[]): Pick<ItemList, "topic_names" | "topic_names_ar"> {
-  const topic_names = Object.fromEntries(items.flatMap((i) => i.topics).map((id) => [id, topicName(id)]));
+  const catalogName = ctx.db.prepare("SELECT name FROM topics WHERE id = ?").pluck();
+  const topic_names = Object.fromEntries(
+    items.flatMap((i) => i.topics).map((id) => [id, (catalogName.get(id) as string | undefined) || topicName(id)]),
+  );
   const arabicName = ctx.db.prepare("SELECT name_ar FROM topics WHERE id = ?").pluck();
   const topic_names_ar = Object.fromEntries(
     Object.entries(topic_names).map(([id, name]) => [id, (arabicName.get(id) as string | undefined) || name]),

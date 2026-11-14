@@ -29,7 +29,7 @@ export function savedItems(ctx: AppContext, readerId: number): ItemList<SavedIte
         WHERE s.reader_id = ? AND s.kind = 'save' AND ${listableItemSql("i.id")}
         ORDER BY s.created_at_ms DESC, s.rowid DESC`,
     )
-    .all(readerId, readerId, readerId) as (ListedRow & { saved_at_ms: number })[];
+    .all(readerId, readerId, readerId, readerId) as (ListedRow & { saved_at_ms: number })[];
   const listed = toListedItems(ctx, readerId, rows, () => true);
   const items = listed.map((item, n) => ({ ...item, saved_at: new Date(rows[n]!.saved_at_ms).toISOString() }));
   return { items, ...topicNamesOf(ctx, items) };
