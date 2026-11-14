@@ -4,12 +4,17 @@
 // left side to go back (mirrored in Arabic, where the layout runs right to left). Progress bars (one per group of the Brief) and a
 // Topic/position chip sit on top; the dock (Hide, Save, Like, Ask) sits at the
 // bottom and does nothing until ticket 09 (Reactions) and 16 (Ask).
+//
+// On a wide screen (ticket 05) the card stays in the centre and the side list
+// of the whole Brief sits beside it; clicking a row jumps to that Item. The
+// arrow keys move forward and back on any screen size.
 import { useEffect, useState } from "react";
 import type { Brief, BriefGroup, BriefItem } from "@/server/brief/compose";
 import { CardExtras } from "./card-extras";
 import { formatCoverDate, formatNextEdition, itemCount, timeSince } from "./format";
 import { formatNumber, localized, type Lang } from "./i18n";
 import { LanguageToggle, useLanguage } from "./language";
+import { SideList, useArrowKeys } from "./side-list";
 import s from "./swipe-brief.module.css";
 
 const WIDGET_SLOTS = [
@@ -33,33 +38,37 @@ export function SwipeBrief({ brief }: { brief: Brief }) {
   const item = pos >= 1 && pos <= total ? brief.items[pos - 1]! : null;
   const next = () => setPos((p) => Math.min(p + 1, total + 1));
   const back = () => setPos((p) => Math.max(p - 1, 0));
+  useArrowKeys(next, back);
 
   return (
-    <div className={s.stage}>
-      <ProgressBars brief={brief} pos={pos} />
+    <div className={s.layout}>
+      <div className={s.stage}>
+        <ProgressBars brief={brief} pos={pos} />
 
-      <LanguageToggle className={s.langToggle} />
+        <LanguageToggle className={s.langToggle} />
 
-      {pos === 0 && <Cover brief={brief} />}
-      {item && <ItemCard item={item} brief={brief} position={pos} now={now} />}
-      {pos > total && (
-        <section className={s.done} aria-label={t("End of the Brief", "نهاية الموجز")}>
-          <h2>{t("You're caught up", "انتهيت من الموجز")}</h2>
-          <p>{formatNextEdition(brief, lang)}</p>
-          <button type="button" className={s.startOver} onClick={() => setPos(0)}>
-            {t("Start over", "من البداية")}
-          </button>
-        </section>
-      )}
+        {pos === 0 && <Cover brief={brief} />}
+        {item && <ItemCard item={item} brief={brief} position={pos} now={now} />}
+        {pos > total && (
+          <section className={s.done} aria-label={t("End of the Brief", "نهاية الموجز")}>
+            <h2>{t("You're caught up", "انتهيت من الموجز")}</h2>
+            <p>{formatNextEdition(brief, lang)}</p>
+            <button type="button" className={s.startOver} onClick={() => setPos(0)}>
+              {t("Start over", "من البداية")}
+            </button>
+          </section>
+        )}
 
-      {pos > 0 && (
-        <button type="button" className={`${s.tap} ${s.tapBack}`} aria-label={t("Back", "السابق")} onClick={back} />
-      )}
-      {pos <= total && (
-        <button type="button" className={`${s.tap} ${s.tapNext}`} aria-label={t("Next", "التالي")} onClick={next} />
-      )}
+        {pos > 0 && (
+          <button type="button" className={`${s.tap} ${s.tapBack}`} aria-label={t("Back", "السابق")} onClick={back} />
+        )}
+        {pos <= total && (
+          <button type="button" className={`${s.tap} ${s.tapNext}`} aria-label={t("Next", "التالي")} onClick={next} />
+        )}
 
-      {item && <Dock />}
+        {item && <Dock />}
+      </div>
+      <SideList brief={brief} pos={pos} onJump={setPos} groupName={(g) => groupName(g, brief, lang)} />
     </div>
   );
 }

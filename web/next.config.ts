@@ -18,6 +18,10 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: { "/**": ["./migrations/*.sql"] },
   outputFileTracingRoot: repoRoot,
   turbopack: { root: repoRoot },
+  // No on-disk Turbopack cache in `next dev`: with the bundler root above web/,
+  // its writes under web/.next were seen as changes, and the dev server kept
+  // reloading the page (the Brief jumped back to the cover mid-e2e-test).
+  experimental: { turbopackFileSystemCacheForDev: false },
 };
 
 export default nextConfig;
