@@ -2,17 +2,20 @@
 //
 // The Items of the latest Edition that carry a Topic the Reader follows (ticket
 // 07), in Swipe order: the cover card, then the top stories (for now the
-// Edition's fallback `top_stories`), then the rest grouped by Topic, newest
-// first within a group and groups ordered by their newest Item. Each Item
-// appears once, under its best-matching followed Topic (for now the first of
-// its Topics, in the Edition's order, that the Reader follows), with the
-// Reader's other followed Topics as tags. `groups` drive the progress bars.
-// Later tickets add Reactions, sensitive opt-ins, per-Reader top stories,
-// scoring and Widgets here, keeping this one entry point.
+// Edition's fallback `top_stories`), then the rest grouped by Topic, ordered
+// by the Scorer (./score.ts) within a group and groups ordered by their best
+// Item. Items the Reader hid are left out and opened ones are dimmed (ticket
+// 09). Each Item appears once, under its best-matching followed Topic (for now
+// the first of its Topics, in the Edition's order, that the Reader follows),
+// with the Reader's other followed Topics as tags. `groups` drive the progress
+// bars. Later tickets add sensitive opt-ins, per-Reader top stories and
+// Widgets here, keeping this one entry point.
 import type { AppContext } from "../app";
 import type { ItemStatus, Source } from "../editions/types";
+import { readerReactions, toItemReactions, type Reaction } from "../reactions";
 import { followedTopicIds } from "../topics/catalog";
 import { topicName } from "../topics/names";
+import { scoreItems, type ScoredReaction } from "./score";
 
 export interface BriefEdition {
   id: string;
@@ -43,6 +46,10 @@ export interface BriefItem {
   tags: string[];
   /** A top story: shown first, with the "Top for you" badge. */
   top: boolean;
+  /** This Reader's Like and Save on the Item (ticket 09), for the dock. */
+  reactions: { like: boolean; save: boolean };
+  /** The Reader has opened this Item before: shown dimmed. */
+  dimmed: boolean;
 }
 
 /** One progress bar: the top stories, or the Items shown under one Topic, in Brief order. */
@@ -78,10 +85,12 @@ export interface Brief {
   next_edition_at: string | null;
 }
 
-interface ItemRow extends Omit<BriefItem, "topics" | "sources" | "extras" | "topic" | "tags" | "top"> {
+interface ItemRow
+  extends Omit<BriefItem, "topics" | "sources" | "extras" | "topic" | "tags" | "top" | "reactions" | "dimmed"> {
   topics: string;
   sources: string;
   extras: string;
+  time_ms: number;
 }
 
 /** The Brief of the Reader with id `reader.id`: only the Topics they follow. */
@@ -100,7 +109,7 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
 
   const rows = db
     .prepare(
-      `SELECT i.id, i.thread_id, i.status, i.time, i.title, i.title_ar, i.summary, i.summary_ar,
+      `SELECT i.id, i.thread_id, i.status, i.time, i.time_ms, i.title, i.title_ar, i.summary, i.summary_ar,
               i.sources, i.image, i.warning, i.warning_ar, i.extras,
               (SELECT json_group_array(topic_id)
                  FROM (SELECT topic_id FROM item_topics t WHERE t.item_id = i.id ORDER BY t.position)
@@ -113,10 +122,16 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
     .all(edition.id) as ItemRow[];
 
   const followed = new Set(followedTopicIds(ctx, reader.id));
-  const newestFirst = rows.flatMap((r): BriefItem[] => {
+  // Only this Reader's own Reactions: never another Reader's (ticket 09).
+  const reactions = readerReactions(ctx, reader.id);
+  const reactionsTo = (id: string) => toItemReactions(reactions.filter((r) => r.item_id === id));
+  const timeMs = new Map(rows.map((r) => [r.id, r.time_ms]));
+  const newestFirst = rows.flatMap(({ time_ms: _, ...r }): BriefItem[] => {
     const topics = JSON.parse(r.topics) as string[];
     const mine = topics.filter((t) => followed.has(t));
     if (mine.length === 0) return [];
+    const mark = reactionsTo(r.id);
+    if (mark.hide) return []; // hidden from this Reader's Brief only
     return [
       {
         ...r,
@@ -126,21 +141,30 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
         topic: mine[0]!,
         tags: mine.slice(1),
         top: false,
+        reactions: { like: mark.like, save: mark.save },
+        dimmed: mark.open,
       },
     ];
   });
+
+  // Ranked by the Scorer; the sort is stable, so ties stay newest first.
+  const scores = scoreItems(
+    newestFirst.map((i) => ({ ...i, time_ms: timeMs.get(i.id)! })),
+    { followed, reactions: reactionSubjects(ctx, reactions), asOfMs: Date.parse(edition.generated_at) },
+  );
+  const ranked = [...newestFirst].sort((a, b) => scores.get(b.id)! - scores.get(a.id)!);
 
   const topIds = JSON.parse(
     (db.prepare("SELECT top_stories FROM editions WHERE id = ?").pluck().get(edition.id) as string | null) ?? "[]",
   ) as string[];
   const tops = topIds.flatMap((id): BriefItem[] => {
-    const item = newestFirst.find((i) => i.id === id);
+    const item = ranked.find((i) => i.id === id);
     return item ? [{ ...item, top: true }] : [];
   });
 
-  // Groups in order of their newest Item; Items newest first within each.
+  // Groups in order of their best-scored Item; Items by score within each.
   const byTopic = new Map<string, BriefItem[]>();
-  for (const item of newestFirst) {
+  for (const item of ranked) {
     if (tops.some((t) => t.id === item.id)) continue;
     const group = byTopic.get(item.topic) ?? [];
     group.push(item);
@@ -167,6 +191,19 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
     topic_names_ar,
     next_edition_at: nextEditionAt(edition),
   };
+}
+
+/** The Topics and Story Thread of each Item the Reader reacted to, for the Scorer. */
+function reactionSubjects(ctx: AppContext, reactions: Reaction[]): ScoredReaction[] {
+  const subject = ctx.db.prepare(
+    `SELECT i.thread_id,
+            (SELECT json_group_array(topic_id) FROM item_topics t WHERE t.item_id = i.id) AS topics
+       FROM items i WHERE i.id = ?`,
+  );
+  return reactions.flatMap((r) => {
+    const row = subject.get(r.item_id) as { thread_id: string | null; topics: string } | undefined;
+    return row ? [{ kind: r.kind, reason: r.reason, thread_id: row.thread_id, topics: JSON.parse(row.topics) as string[] }] : [];
+  });
 }
 
 const RIYADH_OFFSET_MS = 3 * 3_600_000;

@@ -3,7 +3,8 @@
 // screen, then "You're caught up". Tap the right side to go forward and the
 // left side to go back (mirrored in Arabic, where the layout runs right to left). Progress bars (one per group of the Brief) and a
 // Topic/position chip sit on top; the dock (Hide, Save, Like, Ask) sits at the
-// bottom and does nothing until ticket 09 (Reactions) and 16 (Ask).
+// bottom (Reactions: ticket 09, in reactions.tsx; Ask: ticket 16). Hidden
+// Items leave the Brief at once, and opened ones are dimmed.
 //
 // On a wide screen (ticket 05) the card stays in the centre and the side list
 // of the whole Brief sits beside it; clicking a row jumps to that Item. The
@@ -14,6 +15,7 @@ import { CardExtras } from "./card-extras";
 import { formatCoverDate, formatNextEdition, itemCount, timeSince } from "./format";
 import { formatNumber, localized, type Lang } from "./i18n";
 import { LanguageToggle, useLanguage } from "./language";
+import { Dock, UndoToast, useReactions, type ReactionsState } from "./reactions";
 import { SideList, useArrowKeys } from "./side-list";
 import s from "./swipe-brief.module.css";
 
@@ -30,7 +32,9 @@ function topicNameIn(brief: Brief, id: string, lang: Lang): string {
 }
 
 /** Positions: 0 is the cover card, 1..n the Items, n + 1 "You're caught up". */
-export function SwipeBrief({ brief }: { brief: Brief }) {
+export function SwipeBrief({ brief: initial, basePath }: { brief: Brief; basePath: string }) {
+  const reactions = useReactions(initial, basePath);
+  const { brief } = reactions;
   const [pos, setPos] = useState(0);
   const { lang, t } = useLanguage();
   const now = useNow();
@@ -48,7 +52,7 @@ export function SwipeBrief({ brief }: { brief: Brief }) {
         <LanguageToggle className={s.langToggle} />
 
         {pos === 0 && <Cover brief={brief} />}
-        {item && <ItemCard item={item} brief={brief} position={pos} now={now} />}
+        {item && <ItemCard item={item} brief={brief} position={pos} now={now} reactions={reactions} />}
         {pos > total && (
           <section className={s.done} aria-label={t("End of the Brief", "نهاية الموجز")}>
             <h2>{t("You're caught up", "انتهيت من الموجز")}</h2>
@@ -66,7 +70,8 @@ export function SwipeBrief({ brief }: { brief: Brief }) {
           <button type="button" className={`${s.tap} ${s.tapNext}`} aria-label={t("Next", "التالي")} onClick={next} />
         )}
 
-        {item && <Dock />}
+        {item && <Dock item={item} reactions={reactions} />}
+        <UndoToast reactions={reactions} />
       </div>
       <SideList brief={brief} pos={pos} onJump={setPos} groupName={(g) => groupName(g, brief, lang)} />
     </div>
@@ -131,14 +136,32 @@ function Cover({ brief }: { brief: Brief }) {
   );
 }
 
-function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brief; position: number; now: number | null }) {
+function ItemCard({
+  item,
+  brief,
+  position,
+  now,
+  reactions,
+}: {
+  item: BriefItem;
+  brief: Brief;
+  position: number;
+  now: number | null;
+  reactions: ReactionsState;
+}) {
   const { lang, t } = useLanguage();
   const name = (id: string) => topicNameIn(brief, id, lang);
   const title = localized(item, "title", lang)!;
   const summary = localized(item, "summary", lang);
   const warning = localized(item, "warning", lang);
   return (
-    <article className={s.card} aria-label={title}>
+    <article
+      className={`${s.card} ${item.dimmed ? s.dimmed : ""}`}
+      aria-label={title}
+      data-dimmed={item.dimmed}
+      // Opening any of the card's links (sources, try it, store) opens the Item: it comes back dimmed.
+      onClickCapture={(e) => (e.target as Element).closest("a[href]") && reactions.opened(item)}
+    >
       <div className={s.hero}>
         {item.image && (
           // External, already link-checked images from the Edition; next/image would need every host allow-listed.
@@ -187,29 +210,6 @@ function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brie
         </p>
       </div>
     </article>
-  );
-}
-
-function Dock() {
-  const { t } = useLanguage();
-  return (
-    <div className={s.dock} role="toolbar" aria-label={t("Reactions", "التفاعلات")}>
-      <DockButton label={t("Hide", "إخفاء")} path="M6 6l12 12M18 6L6 18" />
-      <DockButton label={t("Save", "حفظ")} path="M7 4h10v16l-5-4-5 4z" />
-      <DockButton label={t("Like", "أعجبني")} path="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" />
-      <DockButton label={t("Ask", "اسأل")} path="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" />
-    </div>
-  );
-}
-
-function DockButton({ label, path }: { label: string; path: string }) {
-  return (
-    <button type="button" className={s.dockButton}>
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden>
-        <path d={path} fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
-      </svg>
-      <small>{label}</small>
-    </button>
   );
 }
 

@@ -296,6 +296,17 @@
   font-size: 9px;
   opacity: 0.7;
 }
+/* A Liked or Saved Item (ticket 09), as in the prototype. */
+.dockButton[aria-pressed="true"] {
+  background: #fff;
+  color: #000;
+}
+
+/* An Item the Reader opened before: dimmed so they don't re-read it. */
+.dimmed .hero,
+.dimmed .body {
+  opacity: 0.5;
+}
 
 /* ---- You're caught up ---- */
 .done {

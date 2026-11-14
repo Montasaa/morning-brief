@@ -167,3 +167,13 @@ Ticket 07. A Reader's Brief covers only the Catalog Topics they follow (`topic_f
 
   Older files from git history work too (`git show <commit>:brief.json > /tmp/old.json`).
 - Tests use snapshots of the two files in `test/fixtures/legacy/` (`legacySample()`, `legacyToday()`), not the live root `brief.json`, which the old pipeline rewrites twice a day.
+
+## Reactions and ranking
+
+Ticket 09. A Reader's Reactions are one row per Reader, Item and kind in `reactions` (`like`, `save`, `open`, `hide`; a hide may carry `reason` `not_interested`, `already_seen` or `bad_source`, NULL for "just hide"). `src/server/reactions/` reads and writes them, always for one Reader: never read another Reader's Reactions when building a Brief.
+
+- `POST /api/items/{id}/reactions {kind, reason?}` sets one (again: no change, except a new hide reason replaces the old); `DELETE /api/items/{id}/reactions/{kind}` undoes it. Both return `{item_id, reactions: {like, save, open, hide: {reason} | null}}`; `404` for an Item no Edition carried, `422` for a bad kind or reason.
+- The Brief leaves hidden Items out, marks opened ones `dimmed: true`, and gives each Item `reactions: {like, save}` for the dock.
+- Order comes from the Scorer, `scoreItems` in `src/server/brief/score.ts`: a pure function of followed Topics, the Reader's Reactions, recency (against the Edition's `generated_at`, not the clock) and status. Within a group Items run by score, groups by their best Item, ties newest first. So the non-top part of `composeBrief(...).items` is already the highest-scored first.
+- Test ranking through the order of `GET /api/brief` (see `test/api/ranking.test.ts`), never the weights.
+- In the Swipe Brief, `useReactions` (`src/app/_components/reactions.tsx`) holds the dock, the hide-reason sheet and the Undo toast. Opening any link on a card records an `open`.
