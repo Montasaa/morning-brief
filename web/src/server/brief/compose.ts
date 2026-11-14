@@ -69,6 +69,8 @@ export interface Brief {
   groups: BriefGroup[];
   /** Display name of every Topic the Brief mentions, by id. */
   topic_names: Record<string, string>;
+  /** The same names in Arabic, from the Catalog; the English name where the Catalog has none. */
+  topic_names_ar: Record<string, string>;
   /** When the next Edition is due (RFC 3339, +03:00): 19:15 after a morning Edition, 06:00 the next day after an evening one. */
   next_edition_at: string | null;
 }
@@ -90,7 +92,7 @@ export function composeBrief(ctx: AppContext): Brief {
         LIMIT 1`,
     )
     .get() as BriefEdition | undefined;
-  if (!edition) return { edition: null, cover: null, items: [], groups: [], topic_names: {}, next_edition_at: null };
+  if (!edition) return { edition: null, cover: null, items: [], groups: [], topic_names: {}, topic_names_ar: {}, next_edition_at: null };
 
   const rows = db
     .prepare(
@@ -142,6 +144,10 @@ export function composeBrief(ctx: AppContext): Brief {
 
   const items = [...tops, ...[...byTopic.values()].flat()];
   const topic_names = Object.fromEntries(items.flatMap((i) => i.topics).map((id) => [id, topicName(id)]));
+  const arabicName = db.prepare("SELECT name_ar FROM topics WHERE id = ?").pluck();
+  const topic_names_ar = Object.fromEntries(
+    Object.entries(topic_names).map(([id, name]) => [id, (arabicName.get(id) as string | undefined) || name]),
+  );
 
   return {
     edition,
@@ -149,6 +155,7 @@ export function composeBrief(ctx: AppContext): Brief {
     items,
     groups,
     topic_names,
+    topic_names_ar,
     next_edition_at: nextEditionAt(edition),
   };
 }

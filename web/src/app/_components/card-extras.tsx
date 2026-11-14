@@ -1,14 +1,18 @@
 // Kind-specific extras on a card, read from the Item's extras by field name
 // (Edition v3 schema): AI try link and pricing, game store link, price and
 // genre, GitHub Trending stars, Liverpool source reliability, US Markets tag,
-// and social platform, creator and metric.
+// and social platform, creator and metric. Labels follow the Reader's
+// language; values from the Edition are shown as they come, except
+// why_it_matters, which has an Arabic pair.
+"use client";
+import { formatNumber, localized } from "./i18n";
+import { useLanguage } from "./language";
 import s from "./swipe-brief.module.css";
 
 type Extras = Record<string, unknown>;
 
 const str = (v: unknown): string | null => (typeof v === "string" && v ? v : null);
 const num = (v: unknown): number | null => (typeof v === "number" && Number.isFinite(v) ? v : null);
-const count = (n: number) => n.toLocaleString("en-US");
 
 const PLATFORM_NAMES: Record<string, string> = {
   x: "X",
@@ -19,6 +23,8 @@ const PLATFORM_NAMES: Record<string, string> = {
 };
 
 export function CardExtras({ extras }: { extras: Extras }) {
+  const { lang, t } = useLanguage();
+  const count = (n: number) => formatNumber(n, lang);
   const facts: string[] = [];
   const links: { label: string; href: string }[] = [];
 
@@ -35,20 +41,20 @@ export function CardExtras({ extras }: { extras: Extras }) {
   const platforms = Array.isArray(extras.platforms) ? extras.platforms.filter((p): p is string => typeof p === "string") : [];
   if (platforms.length) facts.push(platforms.join(", "));
   const release = str(extras.release_date);
-  if (release) facts.push(`Out ${release}`);
+  if (release) facts.push(t(`Out ${release}`, `يصدر في ${release}`));
 
   const rank = num(extras.rank);
-  const period = extras.period === "week" ? "this week" : "today";
-  if (rank) facts.push(`#${rank} ${period}`);
+  const period = extras.period === "week" ? t("this week", "هذا الأسبوع") : t("today", "اليوم");
+  if (rank) facts.push(`#${count(rank)} ${period}`);
   const starsGained = num(extras.stars_gained);
-  if (starsGained !== null) facts.push(`+${count(starsGained)} stars ${period}`);
+  if (starsGained !== null) facts.push(t(`+${count(starsGained)} stars ${period}`, `+${count(starsGained)} نجمة ${period}`));
   const starsTotal = num(extras.stars_total);
-  if (starsTotal !== null) facts.push(`${count(starsTotal)} stars`);
+  if (starsTotal !== null) facts.push(t(`${count(starsTotal)} stars`, `${count(starsTotal)} نجمة`));
   const language = str(extras.language);
   if (language) facts.push(language);
 
   const reliability = str(extras.reliability);
-  if (reliability) facts.push(`Reliability: ${reliability}`);
+  if (reliability) facts.push(`${t("Reliability", "الموثوقية")}: ${reliability}`);
 
   const tag = str(extras.tag);
   if (tag) facts.push(tag);
@@ -61,18 +67,22 @@ export function CardExtras({ extras }: { extras: Extras }) {
   if (metric) facts.push(metric);
 
   const tryUrl = str(extras.try_url);
-  if (tryUrl) links.push({ label: "Try it", href: tryUrl });
+  if (tryUrl) links.push({ label: t("Try it", "جرّبه"), href: tryUrl });
   const storeUrl = str(extras.store_url);
-  if (storeUrl) links.push({ label: "Store page", href: storeUrl });
+  if (storeUrl) links.push({ label: t("Store page", "صفحة المتجر"), href: storeUrl });
 
-  const why = str(extras.why_it_matters);
+  const why = localized(extras, "why_it_matters", lang);
 
   if (!facts.length && !links.length && !why) return null;
   return (
     <div className={s.extras}>
-      {why && <p className={s.whyItMatters}>{why}</p>}
+      {why && (
+        <p className={s.whyItMatters} dir="auto">
+          {why}
+        </p>
+      )}
       {facts.length > 0 && (
-        <ul aria-label="Details" className={s.facts}>
+        <ul aria-label={t("Details", "التفاصيل")} className={s.facts}>
           {facts.map((f) => (
             <li key={f}>{f}</li>
           ))}

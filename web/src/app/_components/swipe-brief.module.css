@@ -37,7 +37,7 @@
   top: calc(20px + env(safe-area-inset-top));
   inset-inline-start: 12px;
   z-index: 5;
-  max-width: calc(100% - 24px);
+  max-width: calc(100% - 84px);
   padding: 5px 10px;
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.35);
@@ -49,7 +49,27 @@
   text-overflow: ellipsis;
 }
 
-/* ---- tap zones: under the text, over the picture ---- */
+/* ---- language switch (top corner, opposite the chip) ---- */
+.langToggle {
+  position: absolute;
+  top: calc(16px + env(safe-area-inset-top));
+  inset-inline-end: 12px;
+  z-index: 7;
+  min-width: 36px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ---- tap zones: under the text, over the picture ----
+   Logical sides, so in Arabic (right to left) forward is on the left. */
 .tap {
   position: absolute;
   top: 0;
@@ -62,10 +82,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 .tapBack {
-  left: 0;
+  inset-inline-start: 0;
 }
 .tapNext {
-  right: 0;
+  inset-inline-end: 0;
 }
 .tap:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.6);
@@ -180,6 +200,10 @@
 .badgeTop {
   background: #ffcc00;
 }
+.badgeWarning {
+  background: #b3261e;
+  color: #fff;
+}
 .card h2 {
   margin: 10px 0;
   font-size: 26px;
@@ -220,7 +244,8 @@
 }
 .extraLink {
   display: inline-block;
-  margin: 10px 8px 0 0;
+  margin-block: 10px 0;
+  margin-inline: 0 8px;
   padding: 7px 14px;
   border-radius: 999px;
   background: #fff;
@@ -301,4 +326,12 @@
   color: #000;
   font: inherit;
   font-weight: 600;
+}
+
+/* ---- Arabic: letter-spacing breaks the joins between Arabic letters ---- */
+:global([dir="rtl"]) .kicker,
+:global([dir="rtl"]) .cover h1,
+:global([dir="rtl"]) .badge,
+:global([dir="rtl"]) .card h2 {
+  letter-spacing: 0;
 }
