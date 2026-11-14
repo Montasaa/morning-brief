@@ -5,9 +5,11 @@
 //
 // Onboarding sends one PATCH /api/me {topics, language, city, onboarded: true}.
 // On the Me tab each Topic is followed or unfollowed the moment it is tapped,
-// and the city is saved with its own button.
+// and the city is saved with its own button. Sensitive Topics have their own
+// section there (ticket 08): turning one on is opting in, and Adult Trending
+// first asks the Reader to confirm they are 18 or over.
 import { useRouter } from "next/navigation";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import type { CatalogTopic } from "@/server/topics/catalog";
 import { formatNumber } from "./i18n";
 import { LanguageSetting, useLanguage } from "./language";
@@ -27,6 +29,8 @@ const CITIES: [en: string, ar: string][] = [
   ["London", "لندن"],
 ];
 const DEFAULT_CITY = "Riyadh";
+/** The Sensitive Topic that needs an 18+ confirmation (POST .../follow {age_confirmed: true}). */
+const ADULT_TOPIC_ID = "adult-trending";
 
 async function patchProfile(basePath: string, body: unknown): Promise<{ ok: boolean; error?: string }> {
   try {
@@ -55,16 +59,21 @@ function TopicChecklist({
   selected,
   onToggle,
   disabled,
+  legend,
+  children,
 }: {
   topics: CatalogTopic[];
   selected: ReadonlySet<string>;
   onToggle(topic: CatalogTopic, on: boolean): void;
   disabled?: boolean;
+  legend?: string;
+  children?: ReactNode;
 }) {
   const { lang, t } = useLanguage();
   return (
     <fieldset className={s.setting}>
-      <legend>{t("Topics", "الموضوعات")}</legend>
+      <legend>{legend ?? t("Topics", "الموضوعات")}</legend>
+      {children}
       <div className={s.topics}>
         {topics.map((topic) => {
           const on = selected.has(topic.id);
@@ -225,8 +234,21 @@ export function ProfileSettings({
   const [city, setCity] = useState(initialCity ?? "");
   const [savedCity, setSavedCity] = useState(initialCity ?? "");
   const [message, setMessage] = useState<{ text: string; error?: boolean } | null>(null);
+  /** A Sensitive Topic waiting for the 18+ confirmation before it is opted into. */
+  const [confirming, setConfirming] = useState<CatalogTopic | null>(null);
+  const general = topics.filter((topic) => !topic.sensitive);
+  const sensitive = topics.filter((topic) => topic.sensitive);
 
-  async function toggle(topic: CatalogTopic, on: boolean) {
+  function toggleSensitive(topic: CatalogTopic, on: boolean) {
+    if (on && topic.id === ADULT_TOPIC_ID) {
+      setConfirming(topic);
+      return;
+    }
+    setConfirming(null);
+    void toggle(topic, on);
+  }
+
+  async function toggle(topic: CatalogTopic, on: boolean, ageConfirmed = false) {
     const set = (value: boolean) =>
       setSelected((prev) => {
         const next = new Set(prev);
@@ -239,6 +261,9 @@ export function ProfileSettings({
     try {
       const res = await fetch(`${basePath}/api/topics/${encodeURIComponent(topic.id)}/${on ? "follow" : "unfollow"}`, {
         method: "POST",
+        ...(ageConfirmed
+          ? { headers: { "content-type": "application/json" }, body: JSON.stringify({ age_confirmed: true }) }
+          : {}),
       });
       if (!res.ok) throw new Error(String(res.status));
       setMessage(null);
@@ -265,7 +290,7 @@ export function ProfileSettings({
 
   return (
     <>
-      <TopicChecklist topics={topics} selected={selected} onToggle={toggle} disabled={!ready} />
+      <TopicChecklist topics={general} selected={selected} onToggle={(topic, on) => void toggle(topic, on)} disabled={!ready} />
       <p className={s.note} aria-live="polite">
         {selected.size === 0
           ? t("You follow no Topics, so your Brief is empty.", "لا تتابع أي موضوع، لذا موجزك فارغ.")
@@ -275,6 +300,48 @@ export function ProfileSettings({
             )}
         {pending > 0 ? " …" : ""}
       </p>
+      <TopicChecklist
+        topics={sensitive}
+        selected={selected}
+        onToggle={toggleSensitive}
+        disabled={!ready || confirming !== null}
+        legend={t("Sensitive Topics", "الموضوعات الحساسة")}
+      >
+        <p className={s.sensitiveNote}>
+          {t(
+            "Graphic and adult-themed news stay hidden until you opt in here. Once you do, each of their Items is blurred with a warning until you tap it.",
+            "تبقى الأخبار ذات المشاهد القاسية وأخبار البالغين مخفية حتى تفعّلها هنا. وبعد تفعيلها، يبقى كل عنصر منها مموّهًا مع تحذير حتى تضغط عليه.",
+          )}
+        </p>
+      </TopicChecklist>
+      {confirming && (
+        <div role="group" aria-labelledby="age-confirm-title" className={s.ageConfirm}>
+          <p id="age-confirm-title" className={s.ageConfirmTitle}>
+            {t("Adult Trending is for adults only.", "«رائج للبالغين» للبالغين فقط.")}
+          </p>
+          <p className={s.note}>
+            {t(
+              "Mainstream news about the adult world: no explicit images and no links to adult sites. Confirm you are 18 or over to turn it on.",
+              "أخبار من وسائل إعلام موثوقة عن عالم البالغين، دون صور فاضحة أو روابط لمواقع البالغين. أكّد أن عمرك ١٨ عامًا أو أكثر لتفعيله.",
+            )}
+          </p>
+          <div className={s.ageConfirmActions}>
+            <button
+              type="button"
+              style={buttonStyle}
+              onClick={() => {
+                setConfirming(null);
+                void toggle(confirming, true, true);
+              }}
+            >
+              {t("I am 18 or over", "عمري ١٨ عامًا أو أكثر")}
+            </button>
+            <button type="button" style={quietButtonStyle} onClick={() => setConfirming(null)}>
+              {t("Cancel", "إلغاء")}
+            </button>
+          </div>
+        </div>
+      )}
       <LanguageSetting />
       <form className={s.setting} onSubmit={saveCity}>
         <label className={s.label} htmlFor="city">

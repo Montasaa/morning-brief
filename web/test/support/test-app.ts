@@ -4,7 +4,7 @@
 //
 //   const app = await startTestApp();
 //   await app.postEdition(morningEdition());
-//   const owner = await app.signInAsOwner();          // onboarded, following every Catalog Topic
+//   const owner = await app.signInAsOwner();          // onboarded, following (and opted into) every Catalog Topic
 //   const res = await owner.request("GET", "/api/brief");
 //
 // See web/DEVELOPING.md for the conventions.
@@ -65,7 +65,8 @@ export interface TestApp {
    * Throws if no link arrives (the email is not invited) or the link is refused.
    *
    * A Reader who has not been through onboarding yet finishes it straight away
-   * (through PATCH /api/me), following every Catalog Topic, so their Brief is
+   * (through PATCH /api/me), following every Catalog Topic (opted into the
+   * Sensitive ones with the 18+ confirmation, as the Me tab does), so their Brief is
    * the whole Edition. Pass `{ onboarded: false }` to stay on the first visit.
    * A Reader who already finished onboarding is left as they are.
    */
@@ -179,15 +180,23 @@ export function closeAllTestApps(): void {
   while (open.length) open.pop()!.close();
 }
 
-/** A first-time Reader finishes onboarding following every Catalog Topic; anyone else is left alone. */
+/**
+ * A first-time Reader finishes onboarding following every Catalog Topic; anyone
+ * else is left alone. Sensitive Topics cannot be picked in onboarding, so they
+ * are opted into afterwards the way the Me tab does (with the 18+ confirmation).
+ */
 async function finishOnboarding(session: TestSession): Promise<void> {
   const me = await session.request("GET", "/api/me");
   if (me.status !== 200) throw new Error(`GET /api/me failed for ${session.email}: ${me.status} ${me.text}`);
   if (me.body.onboarded) return;
-  const catalog = await session.request("GET", "/api/topics");
-  const topics = (catalog.body.topics as { id: string }[]).map((t) => t.id);
+  const catalog = (await session.request("GET", "/api/topics")).body.topics as { id: string; sensitive: boolean }[];
+  const topics = catalog.filter((t) => !t.sensitive).map((t) => t.id);
   const done = await session.request("PATCH", "/api/me", { body: { topics, onboarded: true } });
   if (done.status !== 200) throw new Error(`Onboarding ${session.email} failed: ${done.status} ${done.text}`);
+  for (const topic of catalog.filter((t) => t.sensitive)) {
+    const optIn = await session.request("POST", `/api/topics/${topic.id}/follow`, { body: { age_confirmed: true } });
+    if (optIn.status !== 200) throw new Error(`Opting ${session.email} into ${topic.id} failed: ${optIn.status} ${optIn.text}`);
+  }
 }
 
 // --- in-process routing over src/app/api/**/route.ts -------------------------

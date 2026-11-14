@@ -4,6 +4,8 @@
 // left side to go back (mirrored in Arabic, where the layout runs right to left). Progress bars (one per group of the Brief) and a
 // Topic/position chip sit on top; the dock (Hide, Save, Like, Ask) sits at the
 // bottom and does nothing until ticket 09 (Reactions) and 16 (Ask).
+// A sensitive Item (ticket 08) is blurred with its warning until its reveal
+// button is tapped, every time it comes round; the tap zones still skip it.
 import { useEffect, useState } from "react";
 import type { Brief, BriefGroup, BriefItem } from "@/server/brief/compose";
 import { CardExtras } from "./card-extras";
@@ -41,7 +43,8 @@ export function SwipeBrief({ brief }: { brief: Brief }) {
       <LanguageToggle className={s.langToggle} />
 
       {pos === 0 && <Cover brief={brief} />}
-      {item && <ItemCard item={item} brief={brief} position={pos} now={now} />}
+      {/* Keyed by Item, so a sensitive card is blurred again every time it comes round. */}
+      {item && <ItemCard key={item.id} item={item} brief={brief} position={pos} now={now} />}
       {pos > total && (
         <section className={s.done} aria-label={t("End of the Brief", "نهاية الموجز")}>
           <h2>{t("You're caught up", "انتهيت من الموجز")}</h2>
@@ -128,9 +131,15 @@ function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brie
   const title = localized(item, "title", lang)!;
   const summary = localized(item, "summary", lang);
   const warning = localized(item, "warning", lang);
+  // A sensitive Item stays blurred with its warning until tapped (ticket 08).
+  const [revealed, setRevealed] = useState(false);
+  const locked = item.blurred && !revealed;
   return (
-    <article className={s.card} aria-label={title}>
-      <div className={s.hero}>
+    <article
+      className={`${s.card} ${locked ? s.locked : ""}`}
+      aria-label={locked ? t("Sensitive Item", "عنصر حساس") : title}
+    >
+      <div className={s.hero} inert={locked} aria-hidden={locked || undefined}>
         {item.image && (
           // External, already link-checked images from the Edition; next/image would need every host allow-listed.
           <img key={item.id} src={item.image} alt="" onError={(e) => (e.currentTarget.style.visibility = "hidden")} />
@@ -139,12 +148,11 @@ function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brie
       <span className={s.chip} data-testid="chip">
         {name(item.topic)} · {formatNumber(position, lang)}/{formatNumber(brief.items.length, lang)}
       </span>
-      <div className={s.body}>
+      <div className={s.body} inert={locked} aria-hidden={locked || undefined}>
         <div className={s.badges}>
           {item.top && <span className={`${s.badge} ${s.badgeTop}`}>{t("Top for you", "الأهم لك")}</span>}
           {item.status === "new" && <span className={s.badge}>{t("New", "جديد")}</span>}
           {item.status === "updated" && <span className={s.badge}>{t("Updated", "محدَّث")}</span>}
-          {/* Ticket 08 moves the warning onto the blur that hides a sensitive card until it is tapped. */}
           {warning && (
             <span className={`${s.badge} ${s.badgeWarning}`} dir="auto">
               {warning}
@@ -177,6 +185,18 @@ function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brie
           <time dateTime={item.time}>{now === null ? "" : timeSince(item.time, now, lang)}</time>
         </p>
       </div>
+      {locked && (
+        <>
+          {/* The veil sits under the tap zones, so the Reader can still skip the card without looking. */}
+          <div className={s.veil} aria-hidden />
+          <button type="button" className={s.reveal} onClick={() => setRevealed(true)}>
+            <span className={s.revealWarning} dir="auto">
+              {warning ?? t("Sensitive", "حساس")}
+            </span>
+            <span className={s.revealHint}>{t("Tap to reveal", "اضغط للعرض")}</span>
+          </button>
+        </>
+      )}
     </article>
   );
 }

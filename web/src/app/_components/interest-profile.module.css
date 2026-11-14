@@ -85,6 +85,29 @@
   border: 1px solid currentColor;
   opacity: 0.8;
 }
+/* Sensitive Topics on the Me tab (ticket 08). */
+.sensitiveNote {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.ageConfirm {
+  margin: 12px 0 0;
+  padding: 14px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+}
+.ageConfirmTitle {
+  margin: 0;
+  font-weight: 600;
+}
+.ageConfirmActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
 .note {
   margin: 10px 0 0;
   font-size: 13px;
