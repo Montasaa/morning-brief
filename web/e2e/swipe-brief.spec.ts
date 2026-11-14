@@ -28,9 +28,7 @@ test("opens on the cover card, taps through every Item to You're caught up, and 
   const cover = page.getByRole("region", { name: "Cover card" });
   await expect(cover.getByRole("heading", { level: 1 })).toHaveText("Saturday 14 November");
   await expect(cover).toContainText("Morning Edition");
-  for (const slot of ["Weather", "Prayer times", "Next match", "Countdowns"]) {
-    await expect(cover.getByRole("group", { name: slot })).toBeVisible();
-  }
+  // Its Widgets are covered by e2e/widgets.spec.ts.
 
   // Forward, then back to the cover, then forward again.
   await tap(page, "Next");

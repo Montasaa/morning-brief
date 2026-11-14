@@ -25,8 +25,22 @@ export interface FakeOutsideServices extends OutsideServices {
     failing: Set<string>;
   };
   email: OutsideServices["email"] & { outbox: EmailMessage[] };
-  weather: OutsideServices["weather"] & { calls: Place[]; reply: WeatherToday };
-  prayerTimes: OutsideServices["prayerTimes"] & { calls: { place: Place; date: string }[]; reply: Omit<PrayerTimes, "date"> };
+  weather: OutsideServices["weather"] & {
+    calls: Place[];
+    reply: WeatherToday;
+    /** Cities findPlace was asked about, in order. */
+    placeCalls: string[];
+    /** The places findPlace knows, by lower-cased city name. Starts with a few real cities. */
+    places: Map<string, Place>;
+    /** When true, today() throws (an Open-Meteo outage). */
+    failing: boolean;
+  };
+  prayerTimes: OutsideServices["prayerTimes"] & {
+    calls: { place: Place; date: string }[];
+    reply: Omit<PrayerTimes, "date">;
+    /** When true, forDay() throws (an Aladhan outage). */
+    failing: boolean;
+  };
   push: OutsideServices["push"] & {
     sent: { subscription: PushSubscription; message: PushMessage }[];
     /** Endpoints the fake reports as expired. */
@@ -42,6 +56,16 @@ export interface FakeOptions {
   outboxFile?: string;
 }
 
+/** The cities the fake geocoder knows from the start. */
+const FAKE_PLACES: Place[] = [
+  { city: "Riyadh", country: "Saudi Arabia", latitude: 24.6877, longitude: 46.7219, timezone: "Asia/Riyadh" },
+  { city: "Jeddah", country: "Saudi Arabia", latitude: 21.5169, longitude: 39.2192, timezone: "Asia/Riyadh" },
+  { city: "London", country: "United Kingdom", latitude: 51.5085, longitude: -0.1257, timezone: "Europe/London" },
+  { city: "Liverpool", country: "United Kingdom", latitude: 53.4106, longitude: -2.9779, timezone: "Europe/London" },
+  { city: "Sanaa", country: "Yemen", latitude: 15.3547, longitude: 44.2067, timezone: "Asia/Aden" },
+  { city: "New York", country: "United States", latitude: 40.7143, longitude: -74.006, timezone: "America/New_York" },
+];
+
 export function fakeOutsideServices(options: FakeOptions = {}): FakeOutsideServices {
   const claudeCalls: ClaudeRequest[] = [];
   const replies: FakeOutsideServices["claude"]["replies"] = new Map();
@@ -52,19 +76,35 @@ export function fakeOutsideServices(options: FakeOptions = {}): FakeOutsideServi
   const sent: FakeOutsideServices["push"]["sent"] = [];
   const gone = new Set<string>();
 
+  const placeCalls: string[] = [];
+  const places = new Map<string, Place>(
+    FAKE_PLACES.map((p) => [p.city.toLowerCase(), p]),
+  );
+
   const weather: FakeOutsideServices["weather"] = {
     calls: weatherCalls,
     reply: { temperatureC: 24, highC: 29, lowC: 18, weatherCode: 0 },
+    placeCalls,
+    places,
+    failing: false,
     async today(place) {
       weatherCalls.push(place);
+      if (weather.failing) throw new Error("Fake Open-Meteo failure");
       return { ...weather.reply };
+    },
+    async findPlace(city) {
+      placeCalls.push(city);
+      const found = places.get(city.trim().toLowerCase());
+      return found ? { ...found } : null;
     },
   };
   const prayerTimes: FakeOutsideServices["prayerTimes"] = {
     calls: prayerCalls,
     reply: { fajr: "04:55", sunrise: "06:13", dhuhr: "11:43", asr: "14:47", maghrib: "17:13", isha: "18:43" },
+    failing: false,
     async forDay(place, date) {
       prayerCalls.push({ place, date });
+      if (prayerTimes.failing) throw new Error("Fake Aladhan failure");
       return { date, ...prayerTimes.reply };
     },
   };

@@ -5,6 +5,7 @@ import { composeBrief } from "@/server/brief/compose";
 import { requireReaderPage } from "@/server/readers/page-session";
 import { isOnboarded } from "@/server/readers/profile";
 import { followedTopicIds } from "@/server/topics/catalog";
+import { withWidgets } from "@/server/widgets";
 import { T } from "./_components/language";
 import { Placeholder } from "./_components/placeholder";
 import { SwipeBrief } from "./_components/swipe-brief";
@@ -16,7 +17,7 @@ export default async function BriefPage() {
   const ctx = getAppContext();
   // A first-time Reader picks their Topics, language and city before their first Brief.
   if (!isOnboarded(ctx, reader.id)) redirect("/onboarding");
-  const brief = composeBrief(ctx, reader);
+  const brief = await withWidgets(ctx, reader, composeBrief(ctx, reader));
 
   if (!brief.edition) {
     return (

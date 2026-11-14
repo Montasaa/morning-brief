@@ -2,6 +2,7 @@
 import { readerAccess } from "@/server/access";
 import { getAppContext } from "@/server/app";
 import { composeBrief } from "@/server/brief/compose";
+import { withWidgets } from "@/server/widgets";
 
 export const dynamic = "force-dynamic";
 
@@ -9,5 +10,5 @@ export async function GET(req: Request): Promise<Response> {
   const ctx = getAppContext();
   const access = readerAccess(ctx, req);
   if (!access.ok) return access.response;
-  return Response.json(composeBrief(ctx, access.reader));
+  return Response.json(await withWidgets(ctx, access.reader, composeBrief(ctx, access.reader)));
 }

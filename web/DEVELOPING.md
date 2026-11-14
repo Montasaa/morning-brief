@@ -75,6 +75,7 @@ Claude, Resend (email), Open-Meteo (weather), Aladhan (prayer times) and Web Pus
 
 - `src/server/outside/fakes.ts` holds a fake for each: a Claude with canned replies by `purpose` (and a switch to make it fail), a Resend outbox, fixed weather and prayer times, and a push recorder. Tests read what the app sent from them (`app.services.email.outbox`, `app.services.push.sent`).
 - The real adapters are not connected yet and throw `OutsideServiceNotConnected`. The ticket that first needs a service writes its real adapter in `src/server/outside/`, reading its secret from the environment, and may extend that service's interface additively, updating the fake in the same change.
+- Open-Meteo (weather, and `weather.findPlace` to look up a Reader's city) and Aladhan (prayer times) are connected (ticket 17, `open-meteo.ts`, `aladhan.ts`); both are free and keyless. Their fakes know a few cities (Riyadh, Jeddah, London, Liverpool, Sanaa, New York; add more to `app.services.weather.places`) and have a `failing` switch.
 - Resend is connected (ticket 06, `src/server/outside/resend.ts`). Real adapters take an injected `fetch` so `test/platform/` can check the requests they make without the network.
 - Tests make no real network calls. `test/support/setup.ts` replaces `fetch` with one that fails the test.
 
@@ -151,6 +152,15 @@ Ticket 07. A Reader's Brief covers only the Catalog Topics they follow (`topic_f
 - `GET /api/topics` marks each Topic `followed`; `POST /api/topics/{id}/follow|unfollow` are idempotent, `404` for a Topic not in the Catalog.
 - `GET /api/me` returns `{reader, onboarded, language, city, topics}`; `PATCH /api/me {topics?, language?, city?, onboarded?}` is all or nothing (`422 {error, reasons}`), `topics` replaces the follows, and `onboarded: true` needs at least one followed Topic. Server code reads it with `getProfile` / `isOnboarded` (`src/server/readers/profile.ts`); later tickets add their profile fields there.
 - Until onboarding is finished the Brief is empty and the Brief page redirects to `/onboarding` (no tabs). Onboarding never offers Sensitive Topics; the Me tab lists the whole Catalog.
+
+## Widgets
+
+Ticket 17, `src/server/widgets/`. `GET /api/widgets` returns `{city, city_found, timezone, widgets}`; the Brief's `cover.widgets` is the same list (the `/api/brief` route and the Brief page add it with `withWidgets`, so `composeBrief` stays synchronous).
+
+- Weather and prayer times are live for the Reader's city, cached about 30 minutes in `widget_cache` (shared by everyone in the same place; failures are not cached). No city, or one that cannot be found: neither is shown, and the cover card links to the Me tab.
+- The next match belongs to the Liverpool Topic and countdowns name their Topic: only followers see them, and only while they are still to come. Times are also given in the Reader's time zone (their city's, else Asia/Riyadh).
+- A failing service drops only its own Widget; the cover card always renders.
+- Widget tests fix the clock (`vi.useFakeTimers({ toFake: ["Date"] })`), since what is "still to come" depends on now. The e2e server runs on the real clock, so e2e Editions put widget times relative to `Date.now()`.
 
 ## The Catalog and the legacy importer
 

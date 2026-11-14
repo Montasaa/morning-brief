@@ -85,13 +85,13 @@ describe("GET /api/brief for the Swipe Brief", () => {
     });
   });
 
-  it("opens on a cover card with the Edition's date and empty Widget slots", async () => {
+  it("opens on a cover card with the Edition's date and the Reader's Widgets", async () => {
     const app = await startTestApp();
     await app.postEdition(morningEdition());
 
     const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
-    expect(res.body.cover).toEqual({ date: "2026-11-14", widgets: [] });
+    expect(res.body.cover).toEqual({ date: "2026-11-14", widgets: expect.any(Array) }); // test/api/widgets.test.ts covers the Widgets
   });
 
   it("gives the evening Edition as next after a morning one, and the next morning after an evening one", async () => {

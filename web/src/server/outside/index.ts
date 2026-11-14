@@ -8,6 +8,8 @@
 // a service owns its real adapter and may extend its interface additively
 // (add methods or optional fields; do not rename), updating the fake with it.
 
+import { aladhanPrayerTimesService } from "./aladhan";
+import { openMeteoWeatherService } from "./open-meteo";
 import { resendEmailService } from "./resend";
 
 // --- Claude --------------------------------------------------------------------
@@ -65,7 +67,13 @@ export interface WeatherToday {
 }
 
 export interface WeatherService {
+  /** Today's weather at a place found with findPlace (needs its latitude and longitude). */
   today(place: Place): Promise<WeatherToday>;
+  /**
+   * Look up a city as a Reader wrote it (Open-Meteo geocoding): where it is and
+   * its time zone. Null when no such place is known.
+   */
+  findPlace(city: string): Promise<Place | null>;
 }
 
 /** Local times as "HH:MM", Umm al-Qura method. */
@@ -80,6 +88,7 @@ export interface PrayerTimes {
 }
 
 export interface PrayerTimesService {
+  /** Prayer times on `date` (YYYY-MM-DD) at a place: by its coordinates when known, else by its city name. */
   forDay(place: Place, date: string): Promise<PrayerTimes>;
 }
 
@@ -137,8 +146,9 @@ export function realOutsideServices(env: Record<string, string | undefined> = pr
       env.RESEND_API_KEY && env.EMAIL_FROM
         ? resendEmailService({ apiKey: env.RESEND_API_KEY, from: env.EMAIL_FROM })
         : { send: notConnected("Resend") },
-    weather: { today: notConnected("Open-Meteo") },
-    prayerTimes: { forDay: notConnected("Aladhan") },
+    // Open-Meteo and Aladhan (ticket 17): free, no key.
+    weather: openMeteoWeatherService(),
+    prayerTimes: aladhanPrayerTimesService(),
     push: { send: notConnected("Web Push") },
   };
 }
