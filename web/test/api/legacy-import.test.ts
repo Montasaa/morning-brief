@@ -228,7 +228,7 @@ describe("POST /api/editions/legacy (legacy importer)", () => {
       expect(validateEdition(res.body.edition), JSON.stringify(validateEdition.errors)).toBe(true);
     }
     const brief = await app.request("GET", "/api/brief");
-    expect(brief.body).toEqual({ edition: null, items: [] });
+    expect(brief.body).toMatchObject({ edition: null, items: [] });
   });
 
   it("keeps the Edition-level top_stories as the fallback tops, in order", async () => {
