@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { expect, test } from "@playwright/test";
 import { E2E_BASE_PATH, E2E_INGEST_TOKEN } from "../playwright.config";
+import { signIn } from "./support/sign-in";
 
 const fixture = JSON.parse(
   readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "test", "fixtures", "edition.morning.json"), "utf8"),
@@ -15,7 +16,7 @@ test("the bare Brief lists the latest Edition's Item titles, newest first", asyn
   });
   expect(ingest.status()).toBe(200);
 
-  await page.goto(`${E2E_BASE_PATH}`);
+  await signIn(page); // lands on the Brief
 
   await expect(page.getByTestId("edition")).toHaveText("Morning Edition · 5 Items");
   await expect(page.getByRole("list", { name: "Brief" }).getByRole("listitem")).toHaveText([

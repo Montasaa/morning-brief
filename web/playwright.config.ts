@@ -6,6 +6,9 @@ import { defineConfig, devices } from "@playwright/test";
 const port = Number(process.env.E2E_PORT ?? 3210);
 export const E2E_INGEST_TOKEN = "e2e-ingest-token";
 export const E2E_BASE_PATH = "/brief";
+export const E2E_OWNER_EMAIL = "owner@example.com";
+/** The fake Resend writes every email here; e2e/support/sign-in.ts reads magic links from it. */
+export const E2E_OUTBOX_FILE = ".e2e/outbox.jsonl";
 
 export default defineConfig({
   testDir: "e2e",
@@ -29,6 +32,9 @@ export default defineConfig({
       INGEST_TOKEN: E2E_INGEST_TOKEN,
       OUTSIDE_SERVICES: "fake",
       BASE_PATH: E2E_BASE_PATH,
+      OWNER_EMAIL: E2E_OWNER_EMAIL,
+      PUBLIC_ORIGIN: `http://127.0.0.1:${port}`,
+      FAKE_OUTBOX_FILE: E2E_OUTBOX_FILE,
       NEXT_TELEMETRY_DISABLED: "1",
     },
   },

@@ -22,6 +22,16 @@ describe("secrets", () => {
   });
 });
 
+describe("sign-in configuration", () => {
+  it("reads the Owner's email and the public origin from the environment, normalised", () => {
+    expect(configFromEnv({})).toMatchObject({ ownerEmail: "", publicOrigin: "" });
+    expect(configFromEnv({ OWNER_EMAIL: " Owner@Example.com ", PUBLIC_ORIGIN: "https://example.com/" })).toMatchObject({
+      ownerEmail: "owner@example.com",
+      publicOrigin: "https://example.com",
+    });
+  });
+});
+
 describe("migrations", () => {
   const dirs: string[] = [];
   afterEach(() => {

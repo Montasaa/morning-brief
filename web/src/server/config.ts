@@ -8,6 +8,14 @@ export interface Config {
   ingestToken: string;
   /** URL path the app is served under, e.g. "/brief". "" serves from the domain root. */
   basePath: string;
+  /** OWNER_EMAIL: the Owner, created at setup (first start) if no Owner exists yet. "" creates none. */
+  ownerEmail: string;
+  /**
+   * PUBLIC_ORIGIN: the site's public origin, e.g. https://example.com, used to build
+   * magic links and decide on Secure cookies. "" falls back to the request's origin
+   * (local runs only: behind a proxy the Host header must not decide where links point).
+   */
+  publicOrigin: string;
 }
 
 type Env = Record<string, string | undefined>;
@@ -27,5 +35,7 @@ export function configFromEnv(env: Env = process.env): Config {
     databasePath: env.DATABASE_PATH || "data/brief.db",
     ingestToken: env.INGEST_TOKEN ?? "",
     basePath: basePathFrom(env),
+    ownerEmail: (env.OWNER_EMAIL ?? "").trim().toLowerCase(),
+    publicOrigin: (env.PUBLIC_ORIGIN ?? "").trim().replace(/\/+$/, ""),
   };
 }
