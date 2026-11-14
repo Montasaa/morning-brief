@@ -3,6 +3,8 @@
 // card, grouped like the progress bars, with the current Item highlighted.
 // Clicking a row jumps to that Item. Hidden below the desktop breakpoint
 // (see side-list.module.css), so phones keep the one-card Swipe Brief.
+// A sensitive Item (ticket 08) is listed by its warning, never its title, so
+// the list does not give away what the blurred card hides.
 import { useEffect, useRef } from "react";
 import type { Brief, BriefGroup } from "@/server/brief/compose";
 import { formatNumber, localized } from "./i18n";
@@ -42,6 +44,7 @@ export function SideList({ brief, pos, onJump, groupName }: SideListProps) {
               const item = byId.get(id)!;
               const at = position.get(id)!;
               const isCurrent = at === pos;
+              const warning = localized(item, "warning", lang);
               return (
                 <li key={id}>
                   <button
@@ -57,7 +60,9 @@ export function SideList({ brief, pos, onJump, groupName }: SideListProps) {
                     <span className={s.rowText}>
                       {/* dir="auto": an English fallback inside the Arabic layout still reads left to right. */}
                       <span className={s.rowTitle} dir="auto">
-                        {localized(item, "title", lang)}
+                        {item.blurred
+                          ? `${t("Sensitive Item", "عنصر حساس")}${warning ? `: ${warning}` : ""}`
+                          : localized(item, "title", lang)}
                       </span>
                       {g.kind === "top" && <small>{topicName(item.topic)}</small>}
                     </span>

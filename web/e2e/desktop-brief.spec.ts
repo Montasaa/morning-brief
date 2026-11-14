@@ -8,7 +8,8 @@ const TITLES = [
   "A new open-weights model tops the coding leaderboard",
   "Midfielder back in full training before the weekend",
   "Fed minutes point to a pause",
-  "Flood aftermath leaves villages cut off",
+  // The Graphic Item: listed by its warning, not its title (ticket 08).
+  "Sensitive Item: Casualties",
   "example/terminal-agent",
   "A grid tactics sequel gets a release date",
 ];
@@ -44,9 +45,14 @@ test("clicking a row jumps to that Item and the current Item is highlighted in t
   await page.goto(E2E_BASE_PATH);
   await expect(sideList(page).locator('[aria-current="true"]')).toHaveCount(0);
 
-  await row(page, "Flood aftermath leaves villages cut off").click();
+  await row(page, TITLES[4]!).click();
   await expect(chip(page)).toHaveText("Graphic · 5/7");
-  await expect(page.getByRole("article").getByRole("heading", { level: 2 })).toHaveText(TITLES[4]!);
+  // The sensitive card is blurred until tapped (ticket 08), and the list never names it.
+  await page.getByRole("button", { name: /Tap to reveal/ }).click();
+  await expect(page.getByRole("article").getByRole("heading", { level: 2 })).toHaveText(
+    "Flood aftermath leaves villages cut off",
+  );
+  await expect(sideList(page).getByText("Flood aftermath leaves villages cut off")).toHaveCount(0);
   await expect(row(page, TITLES[4]!)).toHaveAttribute("aria-current", "true");
   await expect(sideList(page).locator('[aria-current="true"]')).toHaveCount(1);
 
