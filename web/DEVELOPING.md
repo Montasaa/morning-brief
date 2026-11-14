@@ -152,6 +152,13 @@ Ticket 07. A Reader's Brief covers only the Catalog Topics they follow (`topic_f
 - `GET /api/me` returns `{reader, onboarded, language, city, topics}`; `PATCH /api/me {topics?, language?, city?, onboarded?}` is all or nothing (`422 {error, reasons}`), `topics` replaces the follows, and `onboarded: true` needs at least one followed Topic. Server code reads it with `getProfile` / `isOnboarded` (`src/server/readers/profile.ts`); later tickets add their profile fields there.
 - Until onboarding is finished the Brief is empty and the Brief page redirects to `/onboarding` (no tabs). Onboarding never offers Sensitive Topics; the Me tab lists the whole Catalog.
 
+## Story Threads
+
+Ticket 14, in `src/server/threads/threads.ts`. Ingest links Items to Threads by `thread_id`; a new development is always a new Item, so a Thread's timeline is every Item ever linked to it, across all Editions, newest first.
+
+- `GET /api/threads` (the Threads tab: followed Threads first, then the other *active* ones, i.e. those the latest Edition carries), `GET /api/threads/{id}` (`{thread, items, topic_names, topic_names_ar}`, each Item with its Asia/Riyadh `date`), `POST /api/threads/{id}/follow|unfollow` (idempotent). The Brief carries `threads` (by id) for the chip on each card.
+- A Reader sees a Thread's Item only under the Brief's rules: it carries a Topic they follow, and every Sensitive Topic it carries is one they opted into (sensitive Items come back `blurred: true`). A Thread they can see no Item of is a `404` and is never listed. Later rules that hide Items from a Reader belong in its `VISIBLE_ITEMS` SQL too.
+
 ## The Catalog and the legacy importer
 
 - The Catalog starts with the 14 starting Topics, seeded by `migrations/t02_topics.sql` (`GET /api/topics` lists them). Their ids (`saudi`, `wider-middle-east`, `turn-based-rpg-tactics`, `adult-trending`, ...) are what Editions put in `items[].topics`. Later tickets add columns to `topics` with their own migrations.

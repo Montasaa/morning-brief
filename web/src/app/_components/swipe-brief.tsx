@@ -3,7 +3,8 @@
 // screen, then "You're caught up". Tap the right side to go forward and the
 // left side to go back (mirrored in Arabic, where the layout runs right to left). Progress bars (one per group of the Brief) and a
 // Topic/position chip sit on top; the dock (Hide, Save, Like, Ask) sits at the
-// bottom and does nothing until ticket 09 (Reactions) and 16 (Ask).
+// bottom and does nothing until ticket 09 (Reactions) and 16 (Ask). A card on
+// a Story Thread shows its Thread chip and Follow button (ticket 14).
 //
 // On a wide screen (ticket 05) the card stays in the centre and the side list
 // of the whole Brief sits beside it; clicking a row jumps to that Item. The
@@ -15,6 +16,7 @@ import { formatCoverDate, formatNextEdition, itemCount, timeSince } from "./form
 import { formatNumber, localized, type Lang } from "./i18n";
 import { LanguageToggle, useLanguage } from "./language";
 import { SideList, useArrowKeys } from "./side-list";
+import { ThreadChip } from "./thread-follow";
 import s from "./swipe-brief.module.css";
 
 const WIDGET_SLOTS = [
@@ -30,7 +32,7 @@ function topicNameIn(brief: Brief, id: string, lang: Lang): string {
 }
 
 /** Positions: 0 is the cover card, 1..n the Items, n + 1 "You're caught up". */
-export function SwipeBrief({ brief }: { brief: Brief }) {
+export function SwipeBrief({ brief, basePath }: { brief: Brief; basePath: string }) {
   const [pos, setPos] = useState(0);
   const { lang, t } = useLanguage();
   const now = useNow();
@@ -48,7 +50,7 @@ export function SwipeBrief({ brief }: { brief: Brief }) {
         <LanguageToggle className={s.langToggle} />
 
         {pos === 0 && <Cover brief={brief} />}
-        {item && <ItemCard item={item} brief={brief} position={pos} now={now} />}
+        {item && <ItemCard item={item} brief={brief} position={pos} now={now} basePath={basePath} />}
         {pos > total && (
           <section className={s.done} aria-label={t("End of the Brief", "نهاية الموجز")}>
             <h2>{t("You're caught up", "انتهيت من الموجز")}</h2>
@@ -131,7 +133,19 @@ function Cover({ brief }: { brief: Brief }) {
   );
 }
 
-function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brief; position: number; now: number | null }) {
+function ItemCard({
+  item,
+  brief,
+  position,
+  now,
+  basePath,
+}: {
+  item: BriefItem;
+  brief: Brief;
+  position: number;
+  now: number | null;
+  basePath: string;
+}) {
   const { lang, t } = useLanguage();
   const name = (id: string) => topicNameIn(brief, id, lang);
   const title = localized(item, "title", lang)!;
@@ -168,6 +182,9 @@ function ItemCard({ item, brief, position, now }: { item: BriefItem; brief: Brie
           </p>
         )}
         <CardExtras extras={item.extras} />
+        {item.thread_id && brief.threads[item.thread_id] && (
+          <ThreadChip thread={brief.threads[item.thread_id]!} basePath={basePath} />
+        )}
         {item.tags.length > 0 && (
           <p className={s.tags}>
             {t("Also in", "أيضًا في")} {item.tags.map(name).join(t(", ", "، "))}
