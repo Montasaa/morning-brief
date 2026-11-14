@@ -14,7 +14,7 @@
 import type { AppContext } from "../app";
 import type { ItemStatus, Source } from "../editions/types";
 import { readerReactions, toItemReactions, type Reaction } from "../reactions";
-import { followedTopicIds } from "../topics/catalog";
+import { followedTopicIds, hiddenTopicIds } from "../topics/catalog";
 import { sensitiveItemSql, sensitiveItemVisibleSql } from "../topics/sensitive";
 import { topicName } from "../topics/names";
 import { scoreItems, type ScoredReaction } from "./score";
@@ -128,12 +128,13 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
     .all(edition.id, reader.id) as ItemRow[];
 
   const followed = new Set(followedTopicIds(ctx, reader.id));
+  const hidden = hiddenTopicIds(ctx, reader.id); // other Readers' private Topics (ticket 11)
   // Only this Reader's own Reactions: never another Reader's (ticket 09).
   const reactions = readerReactions(ctx, reader.id);
   const reactionsTo = (id: string) => toItemReactions(reactions.filter((r) => r.item_id === id));
   const timeMs = new Map(rows.map((r) => [r.id, r.time_ms]));
   const newestFirst = rows.flatMap(({ time_ms: _, ...r }): BriefItem[] => {
-    const topics = JSON.parse(r.topics) as string[];
+    const topics = (JSON.parse(r.topics) as string[]).filter((t) => !hidden.has(t));
     const mine = topics.filter((t) => followed.has(t));
     if (mine.length === 0) return [];
     const mark = reactionsTo(r.id);
@@ -183,7 +184,10 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
   for (const [topic, items] of byTopic) groups.push({ kind: "topic", topic, item_ids: items.map((i) => i.id) });
 
   const items = [...tops, ...[...byTopic.values()].flat()];
-  const topic_names = Object.fromEntries(items.flatMap((i) => i.topics).map((id) => [id, topicName(id)]));
+  const catalogName = db.prepare("SELECT name FROM topics WHERE id = ?").pluck();
+  const topic_names = Object.fromEntries(
+    items.flatMap((i) => i.topics).map((id) => [id, (catalogName.get(id) as string | undefined) || topicName(id)]),
+  );
   const arabicName = db.prepare("SELECT name_ar FROM topics WHERE id = ?").pluck();
   const topic_names_ar = Object.fromEntries(
     Object.entries(topic_names).map(([id, name]) => [id, (arabicName.get(id) as string | undefined) || name]),

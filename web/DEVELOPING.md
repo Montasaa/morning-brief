@@ -164,6 +164,15 @@ Ticket 08. Graphic and Adult Trending (`topics.sensitive`) are hidden from every
 - Anything that lists Items to a Reader (Story Threads, Saved & Search, Widgets that name Items) must use the same rule: put `sensitiveItemVisibleSql("i.id")` (one `?`, the Reader's id) in its `WHERE` and `sensitiveItemSql("i.id") AS blurred` in its columns, and test it at the API seam.
 - In the UI a blurred Item hides its picture and text (blurred and `inert`) behind its warning and a "Tap to reveal" button, every time it comes round; the tap zones still skip it. Any other place that shows an Item (the desktop side list, Threads, Search) keeps its title behind the warning until tapped.
 
+## Reader-created Topics and Gathering Rules
+
+Ticket 11. `src/server/topics/reader-topics.ts` (create, share) and `gathering-rules.ts` (drafting, Owner edits, the gathering list).
+
+- **Visibility.** A Reader's Catalog is the starting Topics, every shared Topic and their own private ones. Another Reader's private Topic does not exist for them: `404` on follow and share, refused by `PATCH /api/me`, and stripped from Items' `topics` in their Brief. Anything that lists or accepts Topic ids for a Reader goes through `listCatalog` / `catalogTopic` / `unknownTopicIds(ctx, ids, readerId)` or the `VISIBLE_TO_READER` SQL in `catalog.ts`, never a bare `SELECT ... FROM topics`. The Owner's Catalog follows the same rule; the Owner sees every Topic through `GET /api/owner/topics` and the `/gathering-rules` page.
+- **Creating.** `POST /api/topics {name, note?, name_ar?}` → `201 {topic}`, private and followed by its creator; `409 {error, limit}` past 10 created Topics (the Owner has no limit), `409 {error, topic}` when a Topic of that name is already in their Catalog. The id is a slug of the name, as Editions use it in `items[].topics`.
+- **Gathering Rules** are plain text (trusted outlets, what counts, exclude). Claude drafts them with `purpose: "gathering-rules"`; when Claude fails the Topic is still created with a template marked `rules_by: "fallback"`. The house source rules (`HOUSE_SOURCE_RULES`) are not copied into each Topic: they go to Claude's prompt and to the gathering list. The Owner edits any Topic's with `PATCH /api/topics/{id}/rules {rules}`.
+- **The gathering list** (`GET /api/gathering-list`, pipeline token) is `{house_rules, topics: [{id, name, name_ar, sensitive, rules, followers}]}`: every Topic followed by at least one Reader whose Invite is not revoked, in Catalog order.
+
 ## The Catalog and the legacy importer
 
 - The Catalog starts with the 14 starting Topics, seeded by `migrations/t02_topics.sql` (`GET /api/topics` lists them). Their ids (`saudi`, `wider-middle-east`, `turn-based-rpg-tactics`, `adult-trending`, ...) are what Editions put in `items[].topics`. Later tickets add columns to `topics` with their own migrations.

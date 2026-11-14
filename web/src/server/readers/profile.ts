@@ -81,7 +81,7 @@ export function updateProfile(ctx: AppContext, reader: Reader, patch: unknown): 
       reasons.push("topics must be a list of Topic ids.");
     } else {
       topics = [...new Set(body.topics as string[])];
-      for (const id of unknownTopicIds(ctx, topics)) reasons.push(`"${id}" is not a Topic in the Catalog.`);
+      for (const id of unknownTopicIds(ctx, topics, reader.id)) reasons.push(`"${id}" is not a Topic in the Catalog.`);
       // Opting into a Sensitive Topic is its own step on the Me tab (POST /api/topics/{id}/follow);
       // `topics` may keep or drop the ones already opted into, but never add one.
       const already = new Set(followedTopicIds(ctx, reader.id));

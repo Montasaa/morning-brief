@@ -25,6 +25,12 @@ export function AccountBar({ reader, basePath }: { reader: Reader; basePath: str
         {reader.email}
       </span>
       {reader.role === "owner" && <Link href="/invites">{t("Invites", "الدعوات")}</Link>}
+      {reader.role === "owner" && (
+        // "Rules" keeps the bar on one line at phone width; the accessible name says what they are.
+        <Link href="/gathering-rules" aria-label={t("Gathering Rules", "قواعد الجمع")} style={{ whiteSpace: "nowrap" }}>
+          {t("Rules", "القواعد")}
+        </Link>
+      )}
       <form method="post" action={`${basePath}/api/auth/sign-out`} style={{ margin: 0 }}>
         <button type="submit" style={quietButtonStyle}>
           {t("Sign out", "تسجيل الخروج")}

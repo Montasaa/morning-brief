@@ -6,10 +6,12 @@ import { getAppContext } from "@/server/app";
 import { requireReaderPage } from "@/server/readers/page-session";
 import { getProfile } from "@/server/readers/profile";
 import { listCatalog } from "@/server/topics/catalog";
+import { CREATED_TOPICS_LIMIT, createdTopicCount } from "@/server/topics/reader-topics";
 import { AccountBar } from "../_components/account-bar";
 import { ProfileSettings } from "../_components/interest-profile";
 import s from "../_components/interest-profile.module.css";
 import { T } from "../_components/language";
+import { YourTopics } from "../_components/your-topics";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +19,7 @@ export default async function MePage() {
   const reader = await requireReaderPage();
   const ctx = getAppContext();
   const profile = getProfile(ctx, reader);
+  const catalog = listCatalog(ctx, reader.id);
   return (
     <main className={s.screen}>
       <AccountBar reader={reader} basePath={ctx.config.basePath} />
@@ -30,10 +33,17 @@ export default async function MePage() {
         />
       </p>
       <ProfileSettings
+        key={profile.topics.join(" ")} // a Topic created below is followed: start again from the saved follows
         basePath={ctx.config.basePath}
-        topics={listCatalog(ctx, reader.id)}
+        topics={catalog}
         initialTopics={profile.topics}
         initialCity={profile.city}
+      />
+      <YourTopics
+        basePath={ctx.config.basePath}
+        topics={catalog.filter((t) => t.mine)}
+        created={createdTopicCount(ctx, reader.id)}
+        limit={reader.role === "owner" ? null : CREATED_TOPICS_LIMIT}
       />
     </main>
   );

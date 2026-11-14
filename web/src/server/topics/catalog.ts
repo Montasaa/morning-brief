@@ -1,6 +1,12 @@
 // Catalog & Topics. Ticket 02 seeds the 14 starting Topics (migration
-// t02_topics.sql); ticket 07 adds following and unfollowing. Later tickets add
-// Reader-created Topics, sharing and Gathering Rules here.
+// t02_topics.sql); ticket 07 adds following and unfollowing; ticket 11 adds
+// Reader-created Topics (reader-topics.ts) and Gathering Rules
+// (gathering-rules.ts).
+//
+// What a Reader sees as the Catalog: the starting Topics, every shared Topic,
+// and the private Topics they created themselves. Another Reader's private
+// Topic does not exist for them (not even for the Owner here; the Owner sees
+// every Topic through the Gathering Rules listing instead).
 import type { AppContext } from "../app";
 
 export interface CatalogTopic {
@@ -11,6 +17,10 @@ export interface CatalogTopic {
   sensitive: boolean;
   /** Whether the Reader asking follows it. */
   followed: boolean;
+  /** Created by a Reader and not shared to the Catalog yet (only its creator sees it). */
+  private: boolean;
+  /** Created by the Reader asking. */
+  mine: boolean;
 }
 
 interface TopicRow {
@@ -19,22 +29,46 @@ interface TopicRow {
   name_ar: string;
   sensitive: number;
   followed: number;
+  private: number;
+  mine: number;
 }
+
+/** SQL: the Topic `t` is in the Catalog of the Reader bound as @reader. */
+export const VISIBLE_TO_READER = "(t.created_by IS NULL OR t.shared_at_ms IS NOT NULL OR t.created_by = @reader)";
 
 const SELECT = `SELECT t.id, t.name, t.name_ar, t.sensitive,
-                       EXISTS (SELECT 1 FROM topic_follows f WHERE f.topic_id = t.id AND f.reader_id = ?) AS followed
-                  FROM topics t`;
+                       EXISTS (SELECT 1 FROM topic_follows f WHERE f.topic_id = t.id AND f.reader_id = @reader) AS followed,
+                       (t.created_by IS NOT NULL AND t.shared_at_ms IS NULL) AS private,
+                       (t.created_by IS NOT NULL AND t.created_by = @reader) AS mine
+                  FROM topics t
+                 WHERE ${VISIBLE_TO_READER}`;
 
-const toTopic = (r: TopicRow): CatalogTopic => ({ ...r, sensitive: r.sensitive === 1, followed: r.followed === 1 });
+const toTopic = (r: TopicRow): CatalogTopic => ({
+  ...r,
+  sensitive: r.sensitive === 1,
+  followed: r.followed === 1,
+  private: r.private === 1,
+  mine: r.mine === 1,
+});
 
-/** The Catalog in its order, each Topic marked with whether `readerId` follows it. */
+/** The Catalog `readerId` sees, in its order, each Topic marked with whether they follow it. */
 export function listCatalog(ctx: AppContext, readerId: number): CatalogTopic[] {
-  return (ctx.db.prepare(`${SELECT} ORDER BY t.position, t.id`).all(readerId) as TopicRow[]).map(toTopic);
+  return (ctx.db.prepare(`${SELECT} ORDER BY t.position, t.id`).all({ reader: readerId }) as TopicRow[]).map(toTopic);
 }
 
+/** One Topic in the Catalog `readerId` sees, or null (unknown, or another Reader's private Topic). */
 export function catalogTopic(ctx: AppContext, readerId: number, topicId: string): CatalogTopic | null {
-  const row = ctx.db.prepare(`${SELECT} WHERE t.id = ?`).get(readerId, topicId) as TopicRow | undefined;
+  const row = ctx.db.prepare(`${SELECT} AND t.id = @id`).get({ reader: readerId, id: topicId }) as TopicRow | undefined;
   return row ? toTopic(row) : null;
+}
+
+/** The ids of other Readers' private Topics: never shown to `readerId`, even as an Item's Topic. */
+export function hiddenTopicIds(ctx: AppContext, readerId: number): Set<string> {
+  const ids = ctx.db
+    .prepare("SELECT t.id FROM topics t WHERE NOT " + VISIBLE_TO_READER)
+    .pluck()
+    .all({ reader: readerId }) as string[];
+  return new Set(ids);
 }
 
 /** The ids of the Topics `readerId` follows, in Catalog order. */
@@ -79,8 +113,8 @@ export function setFollowedTopics(ctx: AppContext, readerId: number, topicIds: s
   })();
 }
 
-/** Which of `topicIds` are not in the Catalog. */
-export function unknownTopicIds(ctx: AppContext, topicIds: string[]): string[] {
-  const exists = ctx.db.prepare("SELECT 1 FROM topics WHERE id = ?").pluck();
-  return topicIds.filter((id) => !exists.get(id));
+/** Which of `topicIds` are not in the Catalog `readerId` sees. */
+export function unknownTopicIds(ctx: AppContext, topicIds: string[], readerId: number): string[] {
+  const visible = ctx.db.prepare(`SELECT 1 FROM topics t WHERE t.id = @id AND ${VISIBLE_TO_READER}`).pluck();
+  return topicIds.filter((id) => !visible.get({ id, reader: readerId }));
 }
