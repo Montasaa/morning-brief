@@ -25,6 +25,7 @@
         }
       ],
       "image": "https://example.com/img/hodeidah.jpg",
+      "image_kind": "photo",
       "thread_id": "sample-yemen-truce-talks"
     },
     {
@@ -49,7 +50,8 @@
           "type": "official"
         }
       ],
-      "image": "https://example.com/img/budget.jpg"
+      "image": "https://example.com/img/budget.jpg",
+      "image_kind": "photo"
     },
     {
       "id": "sample-iran-shipping",
@@ -69,7 +71,8 @@
           "type": "wire"
         }
       ],
-      "image": "https://example.com/img/tanker.jpg"
+      "image": "https://example.com/img/tanker.jpg",
+      "image_kind": "photo"
     },
     {
       "id": "sample-markets-fed-minutes",
@@ -89,6 +92,7 @@
         }
       ],
       "image": "https://example.com/img/fed.jpg",
+      "image_kind": "photo",
       "tag": "FED"
     },
     {
@@ -109,6 +113,7 @@
         }
       ],
       "image": "https://example.com/img/open-model.png",
+      "image_kind": "photo",
       "kind": "MODEL",
       "try_url": "https://example.com/demo",
       "pricing": "Open weights"
@@ -131,6 +136,7 @@
         }
       ],
       "image": "https://example.com/img/terminal-agent.png",
+      "image_kind": "card",
       "rank": 1,
       "period": "today",
       "stars_gained": 1840,
@@ -157,6 +163,7 @@
         }
       ],
       "image": "https://example.com/img/training.jpg",
+      "image_kind": "photo",
       "reliability": "Official"
     },
     {
@@ -177,6 +184,7 @@
         }
       ],
       "image": "https://example.com/img/expansion.jpg",
+      "image_kind": "photo",
       "kind": "RELEASE",
       "genres": [
         "Grand strategy"
@@ -206,6 +214,7 @@
         }
       ],
       "image": "https://example.com/img/tactics.jpg",
+      "image_kind": "photo",
       "kind": "PREVIEW",
       "genres": [
         "Tactics RPG"
@@ -235,6 +244,7 @@
         }
       ],
       "image": "https://example.com/img/survival.jpg",
+      "image_kind": "photo",
       "kind": "TRENDING",
       "genres": [
         "Survival"
@@ -259,6 +269,7 @@
         }
       ],
       "image": "https://example.com/img/outlet-logo.png",
+      "image_kind": "card",
       "warning": "Casualties",
       "warning_ar": "ضحايا"
     }

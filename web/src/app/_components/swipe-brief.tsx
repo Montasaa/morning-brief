@@ -30,7 +30,7 @@ import { ItemImage } from "./item-image";
 import { useLanguage } from "./language";
 import { UndoToast, useReactions } from "./reactions";
 import { ReadSheet } from "./read-sheet";
-import { pictureKind, ReelsCard } from "./reels-card";
+import { previewKind, ReelsCard } from "./reels-card";
 import { sheetOpen } from "./sheet";
 import { TopicTabs } from "./topic-tabs";
 import s from "./swipe-brief.module.css";
@@ -228,7 +228,7 @@ function UpNext({
           <li key={item.id}>
             <button type="button" className={s.upRow} data-dimmed={item.dimmed} onClick={() => onJump(from + i)}>
               <span className={s.thumb}>
-                {pictureKind(item) === "photo" && !item.blurred && <Thumb src={item.image!} />}
+                {previewKind(item) === "photo" && <Thumb src={item.image!} />}
               </span>
               <span className={s.upText}>
                 <small>

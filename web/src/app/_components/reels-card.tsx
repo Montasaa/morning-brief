@@ -21,6 +21,9 @@
 // - A sensitive Item (`blurred`) sits behind the neutral veil: picture and
 //   text blurred and inert, with an eye icon, the Topic's name, its warning
 //   and "Tap to view". Leaving the card (`active` false) veils it again.
+// - Explicit media (`media_blurred`, rework ticket 10) keeps its own veil on the
+//   picture (and a card badge) until tapped, even when the Item is not
+//   blurred and its text shows: <MediaVeil>. It closes again on leaving too.
 // - `children` is drawn over the picture and under the text, rail and the
 //   veil's button: Swipe puts its tap thirds there.
 // - An opened Item is dimmed (`data-dimmed`), and `active` lets the text
@@ -30,7 +33,7 @@ import type { Brief, BriefItem } from "@/server/brief/compose";
 import { timeSince } from "./format";
 import { localized, topicName } from "./i18n";
 import { Icon } from "./icons";
-import { ItemImage } from "./item-image";
+import { ItemImage, MediaVeil, useMediaVeil } from "./item-image";
 import { useLanguage } from "./language";
 import { Rail, type ReactionsState } from "./reactions";
 import { ThreadChip } from "./thread-follow";
@@ -39,12 +42,22 @@ import s from "./reels-card.module.css";
 export type PictureKind = "photo" | "card" | "none";
 
 /**
- * How an Item's picture is shown. Ticket 10 adds `image_kind` to Items; until
- * then (and whenever it is missing) an Item with an image counts as a photo.
+ * How an Item's picture is shown: its `image_kind` (graded by the pipeline,
+ * rework ticket 10; the API reads a missing one as photo with an image, else
+ * none), and never more than none without an image.
  */
 export function pictureKind(item: Pick<BriefItem, "image"> & { image_kind?: PictureKind | null }): PictureKind {
   if (!item.image) return "none";
   return item.image_kind ?? "photo";
+}
+
+/**
+ * The picture a small preview (a thumbnail, a tile, a row) may show without a
+ * veil of its own: none for a blurred Item or explicit media, else its kind. Use
+ * this, not `pictureKind`, wherever there is no "Tap to view".
+ */
+export function previewKind(item: Pick<BriefItem, "image" | "blurred" | "media_blurred"> & { image_kind?: PictureKind | null }): PictureKind {
+  return item.blurred || item.media_blurred ? "none" : pictureKind(item);
 }
 
 /** Two taps on the picture within this many ms are a double-tap. */
@@ -84,6 +97,7 @@ export function ReelsCard({
 
   const locked = item.blurred && !revealed;
   const kind: PictureKind = broken ? "none" : pictureKind(item);
+  const media = useMediaVeil(item, kind !== "none", !active);
   const name = topicName(brief, item.topic, lang);
   const title = localized(item, "title", lang)!;
   const summary = localized(item, "summary", lang);
@@ -120,6 +134,7 @@ export function ReelsCard({
       data-dimmed={item.dimmed}
       data-picture={kind}
       data-locked={locked || undefined}
+      data-media-locked={media.locked || undefined}
       // Opening any of the card's links (the Thread chip) opens the Item: it comes back dimmed.
       onClickCapture={(e) => (e.target as Element).closest("a[href]") && reactions.opened(item)}
     >
@@ -180,6 +195,8 @@ export function ReelsCard({
           )}
           {thread && <ThreadChip thread={thread} basePath={basePath} />}
         </div>
+
+        {!locked && media.locked && <MediaVeil className={`${s.reveal} ${s.mediaReveal}`} onReveal={media.reveal} />}
 
         {locked && (
           <>

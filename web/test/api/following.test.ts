@@ -34,7 +34,7 @@ describe("GET /api/topics", () => {
     expect(res.status).toBe(200);
     const followed = (res.body.topics as CatalogTopic[]).filter((t) => t.followed).map((t) => t.id);
     expect(followed).toEqual(["yemen", "ai"]); // Catalog order
-    expect(res.body.topics).toHaveLength(14);
+    expect(res.body.topics).toHaveLength(13); // the 14 starting Topics but Adult Trending, which is the Owner's alone
   });
 
   it("is refused when signed out", async () => {

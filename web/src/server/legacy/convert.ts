@@ -9,6 +9,13 @@
 // - Edition-level `top_stories` ({section, id} refs) become Item ids, kept as
 //   the fallback tops. Refs that point at no Item are dropped.
 // - A sensitive section's `warning` fills in for an Item that has none.
+// - Pictures are graded (rework ticket 10): `image_kind: "card"` for the known
+//   card hosts (CARD_HOSTS: GitHub Open Graph cards, Hugging Face thumbnails,
+//   Google Cloud Storage model cards), `photo` for any other image. An Item
+//   with no image is left ungraded (it reads as `none`).
+// - Each title's first letter is capitalised (the v2 pipeline often wrote them
+//   in lowercase). Proper nouns stay as v2 wrote them, and a first word with a
+//   capital inside it ("iPhone", "eBay") is left alone.
 // - The Edition id and kind come from `generated_at` in Asia/Riyadh:
 //   2026-11-14T06:08+03:00 is 2026-11-14-morning, 19:15 the evening one.
 //
@@ -16,7 +23,7 @@
 // `watch` videos (an open question in the spec), and file-level `version`,
 // `sample`, `schema_rev` and `timezone`.
 import editionSchema from "../../../../schema/edition.v3.schema.json";
-import type { EditionDocument, EditionItem } from "../editions/types";
+import type { EditionDocument, EditionItem, ImageKind } from "../editions/types";
 import { topicsForLegacyItem } from "./topics";
 
 export type Conversion = { ok: true; edition: EditionDocument } | { ok: false; reasons: string[] };
@@ -85,7 +92,47 @@ function convertItem(raw: Json, topics: string[], section: string, body: Json): 
     if (item.warning === undefined && nonEmpty(body.warning)) item.warning = body.warning;
     if (item.warning_ar === undefined && nonEmpty(body.warning_ar)) item.warning_ar = body.warning_ar;
   }
+  if (typeof item.title === "string") item.title = capitaliseFirstLetter(item.title);
+  const kind = imageKind(item.image);
+  if (kind) item.image_kind = kind;
   return item as unknown as EditionItem;
+}
+
+/**
+ * Hosts whose pictures are logos or Open Graph cards, not photos: GitHub's
+ * Open Graph cards and repository social previews, Hugging Face thumbnails,
+ * and model cards on Google Cloud Storage.
+ */
+const CARD_HOSTS = [
+  "opengraph.githubassets.com",
+  "repository-images.githubusercontent.com",
+  "cdn-thumbnails.huggingface.co",
+  "huggingface.co",
+  "storage.googleapis.com",
+];
+
+/** `card` for a picture on a known card host, `photo` for any other picture, nothing without one. */
+function imageKind(image: unknown): ImageKind | undefined {
+  if (typeof image !== "string") return undefined;
+  let host: string;
+  try {
+    host = new URL(image).hostname.toLowerCase();
+  } catch {
+    return "photo"; // not a URL at all: ingest validation reports it
+  }
+  return CARD_HOSTS.includes(host) ? "card" : "photo";
+}
+
+/**
+ * The title with its first letter in capitals: the first letter or digit after any opening quotes or
+ * brackets ("4 killed" stays as it is). A first word that already has a capital inside ("iPhone") is left alone.
+ */
+function capitaliseFirstLetter(title: string): string {
+  const at = title.search(/[\p{L}\p{N}]/u);
+  if (at < 0 || !/\p{L}/u.test(title.charAt(at))) return title;
+  const word = title.slice(at).split(/\s/u)[0]!;
+  if (/\p{Lu}/u.test(word.slice(1))) return title;
+  return title.slice(0, at) + title.charAt(at).toUpperCase() + title.slice(at + 1);
 }
 
 const URL_FIELDS = new Set(["image", "try_url", "store_url"]);

@@ -7,10 +7,13 @@
 // On the Me tab each Topic is followed or unfollowed the moment it is tapped,
 // and the city is saved with its own button. Sensitive Topics have their own
 // section there (ticket 08): turning one on is opting in, and Adult Trending
-// first asks the Reader to confirm they are 18 or over.
+// (the Owner's alone, rework ticket 10) first asks to confirm 18 or over.
+// Each Sensitive Topic opted into has a blur switch (rework ticket 10): off
+// adds it to the Display's `unblurred`; explicit media stays blurred anyway.
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import type { CatalogTopic } from "@/server/topics/catalog";
+import { useDisplay } from "./display";
 import { formatNumber } from "./i18n";
 import { LanguageSetting, useLanguage } from "./language";
 import s from "./interest-profile.module.css";
@@ -98,6 +101,53 @@ function TopicChecklist({
           );
         })}
       </div>
+    </fieldset>
+  );
+}
+
+/**
+ * One switch per Sensitive Topic the Reader opted into: on (the default) blurs its Items until tapped;
+ * off shows them straight away (Display `unblurred`). Explicit media stays blurred until tapped either way.
+ */
+function BlurSwitches({
+  topics,
+  unblurred,
+  disabled,
+  onChange,
+}: {
+  topics: CatalogTopic[];
+  unblurred: readonly string[];
+  disabled?: boolean;
+  onChange(topic: CatalogTopic, blur: boolean): void;
+}) {
+  const { lang, t } = useLanguage();
+  if (topics.length === 0) return null;
+  return (
+    <fieldset className={s.setting}>
+      <legend>{t("Blur", "التمويه")}</legend>
+      <div className={s.switches}>
+        {topics.map((topic) => {
+          const name = lang === "ar" ? topic.name_ar : topic.name;
+          return (
+            <label key={topic.id} className={s.switch}>
+              <input
+                type="checkbox"
+                role="switch"
+                checked={!unblurred.includes(topic.id)}
+                disabled={disabled}
+                onChange={(e) => onChange(topic, e.target.checked)}
+              />
+              <span>{t(`Blur ${name}`, `تمويه ${name}`)}</span>
+            </label>
+          );
+        })}
+      </div>
+      <p className={s.sensitiveNote}>
+        {t(
+          "With the blur off, a Topic's Items show without the veil. Explicit pictures stay blurred until you tap them.",
+          "عند إيقاف التمويه تظهر عناصر الموضوع دون غطاء. وتبقى الصور الصريحة مموّهة حتى تضغط عليها.",
+        )}
+      </p>
     </fieldset>
   );
 }
@@ -245,6 +295,7 @@ export function ProfileSettings({
   const [message, setMessage] = useState<{ text: string; error?: boolean } | null>(null);
   /** A Sensitive Topic waiting for the 18+ confirmation before it is opted into. */
   const [confirming, setConfirming] = useState<CatalogTopic | null>(null);
+  const { display, update } = useDisplay();
   const general = topics.filter((topic) => !topic.sensitive);
   const sensitive = topics.filter((topic) => topic.sensitive);
 
@@ -276,6 +327,10 @@ export function ProfileSettings({
       });
       if (!res.ok) throw new Error(String(res.status));
       setMessage(null);
+      // Opting out turns the blur back on (the server forgets it too), so opting in again starts blurred.
+      if (!on && display.unblurred.includes(topic.id)) {
+        void update({ unblurred: display.unblurred.filter((id) => id !== topic.id) });
+      }
     } catch {
       set(!on);
       setMessage({ text: t("Could not save. Try again.", "تعذّر الحفظ. حاول مرة أخرى."), error: true });
@@ -318,11 +373,21 @@ export function ProfileSettings({
       >
         <p className={s.sensitiveNote}>
           {t(
-            "Graphic and adult-themed news stay hidden until you opt in here. Once you do, each of their Items is blurred with a warning until you tap it.",
-            "تبقى الأخبار ذات المشاهد القاسية وأخبار البالغين مخفية حتى تفعّلها هنا. وبعد تفعيلها، يبقى كل عنصر منها مموّهًا مع تحذير حتى تضغط عليه.",
+            "Sensitive Topics stay hidden until you opt in here. Once you do, each of their Items is blurred with a warning until you tap it, unless you turn its blur off below.",
+            "تبقى الموضوعات الحساسة مخفية حتى تفعّلها هنا. وبعد تفعيلها، يبقى كل عنصر منها مموّهًا مع تحذير حتى تضغط عليه، ما لم توقف التمويه أدناه.",
           )}
         </p>
       </TopicChecklist>
+      <BlurSwitches
+        topics={sensitive.filter((topic) => selected.has(topic.id))}
+        unblurred={display.unblurred}
+        disabled={!ready}
+        onChange={async (topic, blur) => {
+          const next = blur ? display.unblurred.filter((id) => id !== topic.id) : [...display.unblurred, topic.id];
+          const saved = await update({ unblurred: next });
+          setMessage(saved ? null : { text: t("Could not save. Try again.", "تعذّر الحفظ. حاول مرة أخرى."), error: true });
+        }}
+      />
       {confirming && (
         <div role="group" aria-labelledby="age-confirm-title" className={s.ageConfirm}>
           <p id="age-confirm-title" className={s.ageConfirmTitle}>
@@ -330,8 +395,8 @@ export function ProfileSettings({
           </p>
           <p className={s.note}>
             {t(
-              "Mainstream news about the adult world: no explicit images and no links to adult sites. Confirm you are 18 or over to turn it on.",
-              "أخبار من وسائل إعلام موثوقة عن عالم البالغين، دون صور فاضحة أو روابط لمواقع البالغين. أكّد أن عمرك ١٨ عامًا أو أكثر لتفعيله.",
+              "New posts from the subreddits listed in its Gathering Rules, explicit ones included. Explicit pictures stay blurred until you tap them. Confirm you are 18 or over to turn it on.",
+              "منشورات جديدة من مجتمعات Reddit المدرجة في قواعد جمعه، بما فيها الصريحة. تبقى الصور الصريحة مموّهة حتى تضغط عليها. أكّد أن عمرك ١٨ عامًا أو أكثر لتفعيله.",
             )}
           </p>
           <div className={s.ageConfirmActions}>
