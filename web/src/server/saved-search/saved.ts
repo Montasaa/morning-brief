@@ -6,13 +6,13 @@ import type { AppContext } from "../app";
 import {
   LISTED_ITEM_COLUMNS,
   LISTED_ITEM_JOINS,
-  listableItemSql,
   toListedItems,
   topicNamesOf,
   type ItemList,
   type ListedItem,
   type ListedRow,
 } from "./listing";
+import { itemVisibleSql } from "../topics/visibility";
 
 export interface SavedItem extends ListedItem {
   /** When the Reader saved it (ISO 8601). */
@@ -26,7 +26,7 @@ export function savedItems(ctx: AppContext, readerId: number): ItemList<SavedIte
          FROM reactions s
          JOIN items i ON i.id = s.item_id
          ${LISTED_ITEM_JOINS}
-        WHERE s.reader_id = ? AND s.kind = 'save' AND ${listableItemSql("i.id")}
+        WHERE s.reader_id = ? AND s.kind = 'save' AND ${itemVisibleSql("i.id")}
         ORDER BY s.created_at_ms DESC, s.rowid DESC`,
     )
     .all(readerId, readerId, readerId, readerId) as (ListedRow & { saved_at_ms: number })[];

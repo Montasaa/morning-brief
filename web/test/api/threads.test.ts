@@ -273,6 +273,31 @@ describe("Thread contents respect Topic following and sensitive opt-ins", () => 
     expect(after.body.items[1]).toMatchObject({ warning: "Casualties", warning_ar: "ضحايا" });
   });
 
+  it("marks the newest development blurred on the Threads tab when it is sensitive", async () => {
+    const app = await startTestApp();
+    const edition = morningEdition();
+    edition.items.push({
+      id: "me-yemen-strike-aftermath",
+      topics: ["yemen", "graphic"],
+      thread_id: "yemen-truce-talks",
+      time: "2026-11-14T06:00:00+03:00",
+      title: "Strike aftermath near the port",
+      summary: "Casualties were reported after the strike.",
+      sources: [{ title: "Example News", url: "https://example.com/news/strike", type: "independent" }],
+      warning: "Casualties",
+    });
+    await app.postEdition(edition);
+    const owner = await app.signInAsOwner(); // opted into every Sensitive Topic
+
+    const tab = (await owner.request("GET", "/api/threads")).body.threads;
+    expect(tab[0].latest).toMatchObject({ id: "me-yemen-strike-aftermath", blurred: true, warning: "Casualties" });
+    expect((await owner.request("GET", "/api/brief")).body.threads["yemen-truce-talks"].latest.blurred).toBe(true);
+
+    await owner.request("POST", "/api/topics/graphic/unfollow"); // opting out: the plain development is the newest again
+    const after = (await owner.request("GET", "/api/threads")).body.threads;
+    expect(after[0].latest).toMatchObject({ id: "me-yemen-port-talks", blurred: false });
+  });
+
   it("never lists or opens a Thread made only of sensitive Items the Reader has not opted into", async () => {
     const app = await startTestApp();
     const edition = morningEdition();
@@ -284,6 +309,67 @@ describe("Thread contents respect Topic following and sensitive opt-ins", () => 
 
     expect((await sara.request("GET", "/api/threads/flood-recovery")).status).toBe(404);
     expect(((await sara.request("GET", "/api/threads")).body.threads as ThreadSummary[]).map((t) => t.id)).toEqual([]);
+  });
+});
+
+describe("Threads and Reader-created Topics", () => {
+  async function createTopic(reader: TestSession, body: { name: string; name_ar?: string }): Promise<string> {
+    const res = await reader.request("POST", "/api/topics", { body });
+    expect(res.status, res.text).toBe(201);
+    return res.body.topic.id as string;
+  }
+
+  /** The morning Edition with `topicId` on the port talks, and a later Yemen development tagged only with it. */
+  function editionWithPrivateTopic(topicId: string): EditionDoc {
+    const edition = morningEdition();
+    edition.items.find((i) => i.id === "me-yemen-port-talks")!.topics.push(topicId);
+    edition.items.push({
+      id: "me-yemen-clinic-private",
+      topics: [topicId],
+      thread_id: "yemen-truce-talks",
+      time: "2026-11-14T06:30:00+03:00",
+      title: "A clinic reopens near the port",
+      summary: "Only the Topic's creator should ever see this.",
+      sources: [{ title: "Example Health", url: "https://example.com/health/clinic", type: "independent" }],
+    });
+    return edition;
+  }
+
+  it("never shows another Reader's private Topic, on an Item or as a development of its own", async () => {
+    const app = await startTestApp();
+    const reem = await app.addReader("reem@example.com");
+    const sara = await app.addReader("sara@example.com");
+    const topicId = await createTopic(reem, { name: "Fertility Treatment" });
+    await app.postEdition(editionWithPrivateTopic(topicId));
+
+    const timeline = (await sara.request("GET", "/api/threads/yemen-truce-talks")).body;
+    expect(ids(timeline.items)).toEqual(["me-yemen-port-talks"]);
+    expect(timeline.items[0].topics).toEqual(["yemen", "saudi"]);
+    expect(timeline.topic_names).not.toHaveProperty(topicId);
+    expect(timeline.topic_names_ar).not.toHaveProperty(topicId);
+    expect(timeline.thread).toMatchObject({ count: 1, latest: { id: "me-yemen-port-talks" } });
+
+    const tab = (await sara.request("GET", "/api/threads")).body.threads as ThreadSummary[];
+    expect(tab).toEqual([expect.objectContaining({ id: "yemen-truce-talks", count: 1 })]);
+    expect((await sara.request("GET", "/api/brief")).body.threads["yemen-truce-talks"].count).toBe(1);
+
+    // Its creator sees both, with the Topic named.
+    const own = (await reem.request("GET", "/api/threads/yemen-truce-talks")).body;
+    expect(ids(own.items)).toEqual(["me-yemen-clinic-private", "me-yemen-port-talks"]);
+    expect(own.topic_names[topicId]).toBe("Fertility Treatment");
+  });
+
+  it("names a Reader-created Topic as the Catalog does, in English and Arabic", async () => {
+    const app = await startTestApp();
+    const reem = await app.addReader("reem@example.com");
+    const topicId = await createTopic(reem, { name: "COVID-19 & Health", name_ar: "كوفيد-19 والصحة" });
+    await app.postEdition(editionWithPrivateTopic(topicId));
+
+    const timeline = (await reem.request("GET", "/api/threads/yemen-truce-talks")).body;
+
+    expect(timeline.topic_names[topicId]).toBe("COVID-19 & Health");
+    expect(timeline.topic_names_ar[topicId]).toBe("كوفيد-19 والصحة");
+    expect(timeline.topic_names_ar.yemen).toBe("اليمن");
   });
 });
 

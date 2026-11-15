@@ -226,6 +226,38 @@ describe("refusals", () => {
     expect((await owner.request("DELETE", "/api/items/no-such-item/reactions/like")).status).toBe(404);
   });
 
+  it("refuses an Item the Reader may not see, so their bad source report never reaches the Owner", async () => {
+    const app = await startTestApp();
+    const reem = await app.addReader("reem@example.com");
+    const sara = await app.addReader("sara@example.com");
+    const topic = await reem.request("POST", "/api/topics", { body: { name: "Fertility Treatment" } });
+    expect(topic.status, topic.text).toBe(201);
+    const edition = morningEdition();
+    edition.items.push({
+      id: "clinic-private",
+      topics: [topic.body.topic.id],
+      time: "2026-11-14T04:00:00+03:00",
+      title: "A clinic reopens",
+      summary: "Only the Topic's creator should see this.",
+      sources: [{ title: "Example Health", url: "https://example.com/health/clinic", type: "independent" }],
+    });
+    await app.postEdition(edition);
+    // Omar follows only AI and never opted into Graphic.
+    const omar = await app.addReader("omar@example.com", { onboarded: false });
+    await omar.request("PATCH", "/api/me", { body: { topics: ["ai"], onboarded: true } });
+
+    const badSource = { kind: "hide", reason: "bad_source" };
+    expect((await sara.request("POST", "/api/items/clinic-private/reactions", { body: badSource })).status).toBe(404);
+    expect((await sara.request("DELETE", "/api/items/clinic-private/reactions/hide")).status).toBe(404);
+    expect((await omar.request("POST", "/api/items/graphic-flood-aftermath/reactions", { body: badSource })).status).toBe(404);
+    expect((await omar.request("DELETE", "/api/items/graphic-flood-aftermath/reactions/hide")).status).toBe(404);
+    const owner = await app.signInAsOwner();
+    expect((await owner.request("GET", "/api/owner/reports")).body.reports).toEqual([]);
+
+    // Its creator may react to it.
+    expect((await reem.request("POST", "/api/items/clinic-private/reactions", { body: { kind: "save" } })).status).toBe(200);
+  });
+
   it.each([
     [{ kind: "love" }],
     [{}],

@@ -76,26 +76,43 @@ export function ThreadList({ threads, basePath }: { threads: ThreadSummary[]; ba
 }
 
 function ThreadRows({ threads, basePath }: { threads: ThreadSummary[]; basePath: string }) {
-  const { lang } = useLanguage();
   return (
     <ul className={s.rows}>
       {threads.map((th) => (
-        <li key={th.id} className={s.row} data-testid="thread-row">
-          <div className={s.rowHead}>
-            <Link href={`/threads/${encodeURIComponent(th.id)}`} className={s.rowTitle}>
-              <span dir="auto">{localized(th, "title", lang)}</span> · {formatNumber(th.count, lang)}
-            </Link>
-            <FollowThreadButton thread={th} basePath={basePath} />
-          </div>
-          <p className={s.latest}>
-            <time dateTime={th.latest.time}>
-              {formatCoverDate(riyadhDay(th.latest.time), lang)} · {clock(th.latest.time, lang)}
-            </time>
-            <span dir="auto">{localized(th.latest, "title", lang)}</span>
-          </p>
-        </li>
+        <ThreadRow key={th.id} thread={th} basePath={basePath} />
       ))}
     </ul>
+  );
+}
+
+function ThreadRow({ thread: th, basePath }: { thread: ThreadSummary; basePath: string }) {
+  const { lang, t } = useLanguage();
+  // A sensitive newest development keeps its title behind its warning until tapped (ticket 08).
+  const [revealed, setRevealed] = useState(false);
+  const hidden = th.latest.blurred && !revealed;
+  const warning = localized(th.latest, "warning", lang);
+  return (
+    <li className={s.row} data-testid="thread-row">
+      <div className={s.rowHead}>
+        <Link href={`/threads/${encodeURIComponent(th.id)}`} className={s.rowTitle}>
+          <span dir="auto">{localized(th, "title", lang)}</span> · {formatNumber(th.count, lang)}
+        </Link>
+        <FollowThreadButton thread={th} basePath={basePath} />
+      </div>
+      <p className={s.latest}>
+        <time dateTime={th.latest.time}>
+          {formatCoverDate(riyadhDay(th.latest.time), lang)} · {clock(th.latest.time, lang)}
+        </time>
+        {hidden ? (
+          <button type="button" className={s.reveal} onClick={() => setRevealed(true)}>
+            <span dir="auto">{warning ? `${t("Sensitive", "حساس")}: ${warning}` : t("Sensitive", "حساس")}</span> ·{" "}
+            {t("Tap to reveal", "اضغط للعرض")}
+          </button>
+        ) : (
+          <span dir="auto">{localized(th.latest, "title", lang)}</span>
+        )}
+      </p>
+    </li>
   );
 }
 

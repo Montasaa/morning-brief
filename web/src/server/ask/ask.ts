@@ -2,11 +2,13 @@
 // sources and web search, and must cite the links it relies on. Questions and
 // answers are stored per Reader and are only ever read back for that Reader.
 // Each question counts against the Reader's daily limit (see limits.ts); one
-// Claude could not answer does not.
+// Claude could not answer does not. An Item the Reader may not see (another
+// Reader's private Topic, a sensitive one not opted into) is no Item for them.
 import type { AppContext } from "../app";
 import type { Source } from "../editions/types";
 import type { ClaudeRequest } from "../outside";
 import type { Reader } from "../readers/readers";
+import { readerCanSeeItem } from "../topics/visibility";
 import { askLimitFor, riyadhDay, type AskLimit } from "./limits";
 
 export const MAX_QUESTION_LENGTH = 2000;
@@ -58,7 +60,9 @@ function toAsk(row: AskRow): Ask {
   };
 }
 
-function findItem(ctx: AppContext, itemId: string): ItemForAsk | null {
+/** The Item, or null when there is none or `readerId` may not see it. */
+function findItem(ctx: AppContext, readerId: number, itemId: string): ItemForAsk | null {
+  if (!readerCanSeeItem(ctx, readerId, itemId)) return null;
   return (
     (ctx.db
       .prepare("SELECT id, time, title, title_ar, summary, summary_ar, sources FROM items WHERE id = ?")
@@ -83,7 +87,7 @@ export type AskListResult = { ok: true; item_id: string; asks: Ask[]; ask_limit:
 
 /** What the Ask sheet opens with: this Reader's earlier questions about the Item, and what is left today. */
 export function listAsks(ctx: AppContext, reader: Reader, itemId: string): AskListResult {
-  if (!findItem(ctx, itemId)) return { ok: false, reason: "no-such-item" };
+  if (!findItem(ctx, reader.id, itemId)) return { ok: false, reason: "no-such-item" };
   return { ok: true, item_id: itemId, asks: answeredAsks(ctx, reader.id, itemId), ask_limit: askLimitFor(ctx, reader) };
 }
 
@@ -101,7 +105,7 @@ export async function askAboutItem(
 ): Promise<AskResult> {
   const question = typeof rawQuestion === "string" ? rawQuestion.trim() : "";
   if (!question || question.length > MAX_QUESTION_LENGTH) return { ok: false, reason: "invalid-question" };
-  const item = findItem(ctx, itemId);
+  const item = findItem(ctx, reader.id, itemId);
   if (!item) return { ok: false, reason: "no-such-item" };
 
   // Check the limit and hold a place in one step, so two questions sent at

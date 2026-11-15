@@ -152,6 +152,43 @@ describe("privacy", () => {
     expect(JSON.stringify(forOmar.body) + JSON.stringify(forOwner.body)).not.toContain("Sara's private question?");
   });
 
+  it("treats an Item the Reader may not see as no Item at all", async () => {
+    const app = await askApp();
+    const reem = await app.addReader("reem@example.com");
+    const sara = await app.addReader("sara@example.com");
+    const topic = await reem.request("POST", "/api/topics", { body: { name: "Fertility Treatment" } });
+    expect(topic.status, topic.text).toBe(201);
+    const edition = morningEdition();
+    edition.edition_id = "2026-11-14-evening";
+    edition.kind = "evening";
+    edition.generated_at = "2026-11-14T19:15:00+03:00";
+    edition.items.push({
+      id: "clinic-private",
+      topics: [topic.body.topic.id],
+      time: "2026-11-14T18:00:00+03:00",
+      title: "A clinic reopens",
+      summary: "Only the Topic's creator should see this.",
+      sources: [{ title: "Example Health", url: "https://example.com/health/clinic", type: "independent" }],
+    });
+    expect((await app.postEdition(edition)).status).toBe(200);
+    // Omar follows only AI and never opted into Graphic.
+    const omar = await app.addReader("omar@example.com", { onboarded: false });
+    await omar.request("PATCH", "/api/me", { body: { topics: ["ai"], onboarded: true } });
+
+    // Another Reader's private Topic is all the Item carries.
+    expect((await ask(sara, "What is this?", "clinic-private")).status).toBe(404);
+    expect((await sara.request("GET", "/api/items/clinic-private/ask")).status).toBe(404);
+    // A sensitive Item the Reader has not opted into.
+    expect((await ask(omar, "What happened?", "graphic-flood-aftermath")).status).toBe(404);
+    expect((await omar.request("GET", "/api/items/graphic-flood-aftermath/ask")).status).toBe(404);
+    expect(app.services.claude.calls.filter((c) => c.purpose === "ask")).toHaveLength(0);
+    expect((await sara.request("GET", `/api/items/${ITEM}/ask`)).body.ask_limit).toMatchObject({ used_today: 0 });
+
+    // Who may see them can still ask.
+    expect((await ask(reem, "What is this?", "clinic-private")).status).toBe(201);
+    expect((await ask(sara, "What happened?", "graphic-flood-aftermath")).status).toBe(201);
+  });
+
   it("keeps each Reader's earlier questions out of another Reader's conversation with Claude", async () => {
     const app = await askApp();
     const sara = await app.addReader("sara@example.com");

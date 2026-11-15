@@ -10,13 +10,14 @@
 // - Topics: it carries at least one Topic in the Catalog as this Reader sees it
 //   (ticket 11: another Reader's private Topic does not count, and is stripped
 //   from the Item's `topics`), so an Item they could never follow is never
-//   listed. `listableItemSql` is the one place for that rule.
+//   listed. Both rules are `itemVisibleSql` (../topics/visibility.ts), the one
+//   place for them.
 // - Reactions are only ever this Reader's own (ticket 09).
 import type { AppContext } from "../app";
 import type { ItemStatus, Source } from "../editions/types";
 import { followedTopicIds, hiddenTopicIds } from "../topics/catalog";
 import { topicName } from "../topics/names";
-import { sensitiveItemSql, sensitiveItemVisibleSql } from "../topics/sensitive";
+import { sensitiveItemSql } from "../topics/sensitive";
 
 export interface ListedThread {
   id: string;
@@ -56,17 +57,6 @@ export interface ItemList<T extends ListedItem = ListedItem> {
   topic_names: Record<string, string>;
   /** The same names in Arabic, from the Catalog; the English name where the Catalog has none. */
   topic_names_ar: Record<string, string>;
-}
-
-/**
- * SQL that is true when the Item whose id is `itemId` (an SQL expression such
- * as `i.id`) may be listed to a Reader. Takes two `?` parameters, both the Reader's id.
- */
-export function listableItemSql(itemId: string): string {
-  return `EXISTS (SELECT 1 FROM item_topics ct JOIN topics ctt ON ctt.id = ct.topic_id
-                   WHERE ct.item_id = ${itemId}
-                     AND (ctt.created_by IS NULL OR ctt.shared_at_ms IS NOT NULL OR ctt.created_by = ?))
-      AND ${sensitiveItemVisibleSql(itemId)}`;
 }
 
 /** The columns `toListedItems` reads, for Items aliased `i`. Takes one `?` parameter, the Reader's id. */
@@ -143,7 +133,7 @@ export function toListedItems<R extends ListedRow>(
 }
 
 /** The Topic names (English and Arabic) a list of Items mentions. */
-export function topicNamesOf(ctx: AppContext, items: ListedItem[]): Pick<ItemList, "topic_names" | "topic_names_ar"> {
+export function topicNamesOf(ctx: AppContext, items: { topics: string[] }[]): Pick<ItemList, "topic_names" | "topic_names_ar"> {
   const catalogName = ctx.db.prepare("SELECT name FROM topics WHERE id = ?").pluck();
   const topic_names = Object.fromEntries(
     items.flatMap((i) => i.topics).map((id) => [id, (catalogName.get(id) as string | undefined) || topicName(id)]),

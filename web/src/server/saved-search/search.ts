@@ -19,12 +19,12 @@ import type { AppContext } from "../app";
 import {
   LISTED_ITEM_COLUMNS,
   LISTED_ITEM_JOINS,
-  listableItemSql,
   toListedItems,
   topicNamesOf,
   type ListedItem,
   type ListedRow,
 } from "./listing";
+import { itemVisibleSql } from "../topics/visibility";
 
 export const SEARCH_LIMIT = 50;
 /** Words beyond this many are ignored. */
@@ -51,7 +51,7 @@ export function searchItems(ctx: AppContext, readerId: number, query: string): S
          JOIN item_search_docs d ON d.doc = item_search.rowid
          JOIN items i ON i.id = d.item_id
          ${LISTED_ITEM_JOINS}
-        WHERE item_search MATCH ? AND ${listableItemSql("i.id")}
+        WHERE item_search MATCH ? AND ${itemVisibleSql("i.id")}
         ORDER BY i.time_ms DESC, i.id
         LIMIT ${SEARCH_LIMIT}`,
     )

@@ -4,23 +4,30 @@
 // as a dated timeline of its Items across every Edition, newest first.
 //
 // What a Reader sees of a Thread follows the same rules as their Brief: only
-// Items carrying a Topic they follow, and a sensitive Item (one carrying a
-// Sensitive Topic) only once they have opted into every Sensitive Topic it
-// carries (followed it). A Thread none of whose Items the Reader can see does
-// not exist for them (404, and it is not listed).
+// Items carrying a Topic they follow (in their Catalog: another Reader's
+// private Topic never counts, and is stripped from an Item's `topics`), and a
+// sensitive Item (one carrying a Sensitive Topic) only once they have opted
+// into every Sensitive Topic it carries (followed it). A Thread none of whose
+// Items the Reader can see does not exist for them (404, and it is not listed).
 //
 // A Thread is *active* when the latest Edition carries one of its Items that
 // the Reader can see. The Threads tab lists the Threads a Reader follows, then
 // the other active ones, each group by its newest development.
 import type { AppContext } from "../app";
 import type { ItemStatus, Source } from "../editions/types";
-import { topicName } from "../topics/names";
+import { topicNamesOf } from "../saved-search/listing";
+import { hiddenTopicIds, VISIBLE_TO_READER } from "../topics/catalog";
+import { sensitiveItemSql, sensitiveItemVisibleSql } from "../topics/sensitive";
 
 export interface ThreadDevelopment {
   id: string;
   title: string;
   title_ar: string | null;
   time: string;
+  /** It carries a Sensitive Topic: its title stays behind its warning until tapped. */
+  blurred: boolean;
+  warning: string | null;
+  warning_ar: string | null;
 }
 
 export interface ThreadSummary {
@@ -69,22 +76,19 @@ export interface ThreadTimeline {
 }
 
 /**
- * Items the Reader `@reader` may see: at least one followed Topic, and every
- * Sensitive Topic opted into. (Ticket 08's `sensitiveItemVisibleSql` states the
- * same sensitive rule for the Brief.)
+ * Items the Reader `@reader` may see: at least one followed Topic in their
+ * Catalog, and every Sensitive Topic opted into. Takes one `?` parameter, the
+ * Reader's id (for `sensitiveItemVisibleSql`), besides `@reader`.
  */
 const VISIBLE_ITEMS = `
   visible AS (
     SELECT i.* FROM items i
      WHERE i.thread_id IS NOT NULL
-       AND EXISTS (SELECT 1 FROM item_topics t
-                     JOIN topic_follows f ON f.topic_id = t.topic_id AND f.reader_id = @reader
-                    WHERE t.item_id = i.id)
-       AND NOT EXISTS (SELECT 1 FROM item_topics st
-                         JOIN topics stt ON stt.id = st.topic_id AND stt.sensitive = 1
-                        WHERE st.item_id = i.id
-                          AND NOT EXISTS (SELECT 1 FROM topic_follows sf
-                                           WHERE sf.topic_id = st.topic_id AND sf.reader_id = @reader)))`;
+       AND EXISTS (SELECT 1 FROM item_topics it
+                     JOIN topic_follows f ON f.topic_id = it.topic_id AND f.reader_id = @reader
+                     JOIN topics t ON t.id = it.topic_id
+                    WHERE it.item_id = i.id AND ${VISIBLE_TO_READER})
+       AND ${sensitiveItemVisibleSql("i.id")})`;
 
 const LATEST_EDITION = `(SELECT id FROM editions ORDER BY generated_at_ms DESC, received_at DESC LIMIT 1)`;
 
@@ -100,6 +104,9 @@ interface SummaryRow {
   latest_title_ar: string | null;
   latest_time: string;
   latest_ms: number;
+  latest_blurred: number;
+  latest_warning: string | null;
+  latest_warning_ar: string | null;
 }
 
 function summaries(ctx: AppContext, readerId: number, threadId?: string): SummaryRow[] {
@@ -115,13 +122,14 @@ function summaries(ctx: AppContext, readerId: number, threadId?: string): Summar
                        WHERE a.thread_id = th.id AND ei.edition_id = ${LATEST_EDITION}) AS active,
               (SELECT COUNT(*) FROM visible c WHERE c.thread_id = th.id) AS count,
               n.id AS latest_id, n.title AS latest_title, n.title_ar AS latest_title_ar,
-              n.time AS latest_time, n.time_ms AS latest_ms
+              n.time AS latest_time, n.time_ms AS latest_ms,
+              ${sensitiveItemSql("n.id")} AS latest_blurred, n.warning AS latest_warning, n.warning_ar AS latest_warning_ar
          FROM threads th
          JOIN newest n ON n.thread_id = th.id AND n.rank = 1
          LEFT JOIN thread_follows tf ON tf.thread_id = th.id AND tf.reader_id = @reader
         WHERE @thread IS NULL OR th.id = @thread`,
     )
-    .all({ reader: readerId, thread: threadId ?? null }) as SummaryRow[];
+    .all(readerId, { reader: readerId, thread: threadId ?? null }) as SummaryRow[];
 }
 
 function toSummary(r: SummaryRow): ThreadSummary {
@@ -132,7 +140,15 @@ function toSummary(r: SummaryRow): ThreadSummary {
     followed: r.followed === 1,
     active: r.active === 1,
     count: r.count,
-    latest: { id: r.latest_id, title: r.latest_title, title_ar: r.latest_title_ar, time: r.latest_time },
+    latest: {
+      id: r.latest_id,
+      title: r.latest_title,
+      title_ar: r.latest_title_ar,
+      time: r.latest_time,
+      blurred: r.latest_blurred === 1,
+      warning: r.latest_warning,
+      warning_ar: r.latest_warning_ar,
+    },
   };
 }
 
@@ -182,29 +198,24 @@ export function threadTimeline(ctx: AppContext, readerId: number, threadId: stri
                  FROM (SELECT t.topic_id FROM item_topics t
                          JOIN topic_follows f ON f.topic_id = t.topic_id AND f.reader_id = @reader
                         WHERE t.item_id = v.id ORDER BY t.position)) AS followed_topics,
-              EXISTS (SELECT 1 FROM item_topics st JOIN topics stt ON stt.id = st.topic_id AND stt.sensitive = 1
-                       WHERE st.item_id = v.id) AS blurred
+              ${sensitiveItemSql("v.id")} AS blurred
          FROM visible v
         WHERE v.thread_id = @thread
         ORDER BY v.time_ms DESC, v.id`,
     )
-    .all({ reader: readerId, thread: threadId }) as TimelineRow[];
+    .all(readerId, { reader: readerId, thread: threadId }) as TimelineRow[];
 
+  const hidden = hiddenTopicIds(ctx, readerId); // other Readers' private Topics (ticket 11)
   const items = rows.map(({ followed_topics, ...r }): TimelineItem => ({
     ...r,
     date: riyadhDate(r.time),
     sources: JSON.parse(r.sources) as Source[],
-    topics: JSON.parse(r.topics) as string[],
-    topic: (JSON.parse(followed_topics) as string[])[0]!,
+    topics: (JSON.parse(r.topics) as string[]).filter((t) => !hidden.has(t)),
+    topic: (JSON.parse(followed_topics) as string[]).filter((t) => !hidden.has(t))[0]!,
     blurred: r.blurred === 1,
   }));
 
-  const topic_names = Object.fromEntries(items.flatMap((i) => i.topics).map((id) => [id, topicName(id)]));
-  const arabicName = ctx.db.prepare("SELECT name_ar FROM topics WHERE id = ?").pluck();
-  const topic_names_ar = Object.fromEntries(
-    Object.entries(topic_names).map(([id, name]) => [id, (arabicName.get(id) as string | undefined) || name]),
-  );
-  return { thread, items, topic_names, topic_names_ar };
+  return { thread, items, ...topicNamesOf(ctx, items) };
 }
 
 /** Follow a Thread. Following twice changes nothing. Null when the Reader can see none of it. */

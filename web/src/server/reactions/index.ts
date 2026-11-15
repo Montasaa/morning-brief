@@ -3,6 +3,8 @@
 // Reader, and nothing reads another Reader's Reactions to build a Brief.
 // The Scorer (../brief/score.ts) turns them into ranking; the Brief composer
 // marks liked/saved Items, dims opened ones and leaves hidden ones out.
+// The routes only take Reactions to Items the Reader may see
+// (`readerCanSeeItem`, ../topics/visibility.ts); any other Item is a 404.
 import type { AppContext } from "../app";
 
 export const REACTION_KINDS = ["like", "save", "open", "hide"] as const;
@@ -44,10 +46,6 @@ export function parseReaction(body: unknown): { ok: true; reaction: ReactionInpu
     return { ok: false, error: `reason must be one of ${HIDE_REASONS.join(", ")}, or left out.` };
   }
   return { ok: true, reaction: { kind, reason: reason as HideReason } };
-}
-
-export function itemExists(ctx: AppContext, itemId: string): boolean {
-  return ctx.db.prepare("SELECT 1 FROM items WHERE id = ?").get(itemId) !== undefined;
 }
 
 /** Set a Reaction. Setting it again changes nothing, except that a new hide reason replaces the old one. */

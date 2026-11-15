@@ -3,7 +3,8 @@
 // (not_interested, already_seen, bad_source). Returns the Item's Reactions.
 import { readerAccess } from "@/server/access";
 import { getAppContext } from "@/server/app";
-import { itemExists, parseReaction, setReaction } from "@/server/reactions";
+import { parseReaction, setReaction } from "@/server/reactions";
+import { readerCanSeeItem } from "@/server/topics/visibility";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +13,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   const access = readerAccess(ctx, req);
   if (!access.ok) return access.response;
   const itemId = (await params).id;
-  if (!itemExists(ctx, itemId)) return Response.json({ error: "No such Item." }, { status: 404 });
+  if (!readerCanSeeItem(ctx, access.reader.id, itemId)) return Response.json({ error: "No such Item." }, { status: 404 });
   let body: unknown;
   try {
     body = await req.json();

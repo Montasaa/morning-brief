@@ -70,3 +70,42 @@ test("a card on a Story Thread shows its chip; Follow sticks, the chip opens the
   await expect(following.getByTestId("thread-row")).toHaveCount(1);
   await expect(following.getByRole("link", { name: /Yemen truce talks/ })).toBeVisible();
 });
+
+test("the Threads tab keeps a sensitive newest development behind its warning until tapped", async ({ page }) => {
+  const edition = morningEdition();
+  edition.edition_id = "2026-11-12-evening-sensitive-thread";
+  edition.kind = "evening";
+  edition.generated_at = "2026-11-12T19:15:00+03:00"; // older than every other Edition, so never the latest
+  delete edition.top_stories;
+  edition.threads = [{ id: "flood-recovery-e2e", title: "Flood recovery", title_ar: "التعافي من الفيضانات" }];
+  edition.items = [
+    {
+      id: "graphic-flood-bodies-recovered",
+      topics: ["graphic"],
+      thread_id: "flood-recovery-e2e",
+      time: "2026-11-12T16:00:00+03:00",
+      title: "Rescuers recover bodies from the flood",
+      summary: "Teams reached the cut-off villages.",
+      warning: "Casualties",
+      sources: [{ title: "Example Wire", url: "https://example.com/wire/flood", type: "wire" }],
+    },
+  ];
+  await postEdition(page.request, edition);
+  await signIn(page);
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "thread-blur@example.com" } });
+  expect(invited.status(), await invited.text()).toBe(201);
+  await signIn(page, "thread-blur@example.com"); // opted into every Sensitive Topic on first sign-in
+  const followed = await page.request.post(`${E2E_BASE_PATH}/api/threads/flood-recovery-e2e/follow`);
+  expect(followed.status(), await followed.text()).toBe(200);
+
+  await page.goto(`${E2E_BASE_PATH}/threads`);
+  const row = page.getByRole("region", { name: "Following" }).getByTestId("thread-row");
+  await expect(row.getByRole("link", { name: /Flood recovery/ })).toBeVisible();
+  const reveal = row.getByRole("button", { name: /Tap to reveal/ });
+  await expect(reveal).toContainText("Casualties");
+  await expect(row.getByText("Rescuers recover bodies from the flood")).toHaveCount(0);
+
+  await reveal.tap();
+  await expect(reveal).toHaveCount(0);
+  await expect(row.getByText("Rescuers recover bodies from the flood")).toBeVisible();
+});
