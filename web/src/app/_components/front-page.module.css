@@ -121,7 +121,7 @@
   margin: 0;
   font-size: var(--fs-l);
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: var(--tracking-tight);
 }
 .count {
   color: var(--mute);
@@ -217,7 +217,7 @@
   overflow: hidden;
   aspect-ratio: 10 / 15;
   padding: 14px;
-  border-radius: 16px;
+  border-radius: var(--r-card);
   background: var(--surf);
   color: var(--on-photo);
 }
@@ -254,7 +254,7 @@
   max-width: 140px;
   margin-bottom: 12px;
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: var(--r-row);
   background: var(--plate);
 }
 .tileText {
@@ -422,7 +422,7 @@
   width: var(--list-row-thumb);
   height: var(--list-row-thumb);
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: var(--r-row);
   background: var(--surf2);
 }
 .thumb img {
@@ -434,7 +434,7 @@
 .row[data-picture="card"] .thumb img {
   width: 80%;
   height: 80%;
-  border-radius: 6px;
+  border-radius: calc(var(--r-row) / 2);
   background: var(--plate);
   object-fit: contain;
 }

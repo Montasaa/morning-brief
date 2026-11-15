@@ -17,11 +17,11 @@
 .row dd {
   margin: 0;
 }
-.list kbd {
-  padding: 1px 6px;
+.kbd {
+  padding: 1px 5px;
   border: 1px solid var(--line);
   border-bottom-width: 2px;
-  border-radius: 5px;
+  border-radius: calc(var(--r-row) / 2);
   color: var(--mute);
   font: 500 var(--fs-xs) ui-monospace, monospace;
 }

@@ -18,6 +18,7 @@ import { Icon } from "./icons";
 import { useLanguage } from "./language";
 import type { ReactionsState } from "./reactions";
 import { ReelsCard } from "./reels-card";
+import { Kbd } from "./shortcuts";
 import s from "./reader-pane.module.css";
 
 export function ReaderPane({
@@ -26,6 +27,7 @@ export function ReaderPane({
   total,
   dir,
   asking,
+  revealed,
   closable,
   brief,
   now,
@@ -45,6 +47,8 @@ export function ReaderPane({
   dir: "next" | "prev" | null;
   /** Ask is open in the pane. */
   asking: boolean;
+  /** A sensitive Item the Reader already tapped to see on the page: not veiled again here. */
+  revealed: boolean;
   /** There is a close button (not on wide, where the pane is always open). */
   closable: boolean;
   brief: Brief;
@@ -99,6 +103,7 @@ export function ReaderPane({
           <div key={item.id} className={s.card} data-dir={dir ?? undefined}>
             <ReelsCard
               fit="pane"
+              initiallyRevealed={revealed}
               item={item}
               brief={brief}
               now={now}
@@ -110,9 +115,9 @@ export function ReaderPane({
             />
           </div>
           <p className={s.keys} aria-hidden>
-            <kbd>j</kbd>
-            <kbd>k</kbd> {t("next / previous", "التالي / السابق")} · <kbd>a</kbd> {t("Ask", "اسأل")} · <kbd>s</kbd> {t("Save", "حفظ")} ·{" "}
-            <kbd>?</kbd>
+            <Kbd>j</Kbd>
+            <Kbd>k</Kbd> {t("next / previous", "التالي / السابق")} · <Kbd>a</Kbd> {t("Ask", "اسأل")} · <Kbd>s</Kbd> {t("Save", "حفظ")} ·{" "}
+            <Kbd>?</Kbd> {t("all keys", "كل الاختصارات")}
           </p>
         </>
       )}

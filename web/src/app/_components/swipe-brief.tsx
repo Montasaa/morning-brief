@@ -34,13 +34,10 @@ import { UndoToast, type ReactionsState } from "./reactions";
 import { ReadSheet } from "./read-sheet";
 import { pictureKind, ReelsCard } from "./reels-card";
 import { hasSidebar, useScreen } from "./screen-class";
-import { isShortcut, itemShortcut, pressRailButton, useShortcuts } from "./shortcuts";
+import { isShortcut, itemShortcut, runItemShortcut, useShortcuts } from "./shortcuts";
 import { SidebarTopics } from "./tab-bar";
-import { TopicTabs } from "./topic-tabs";
+import { FOR_YOU, groupKey, TopicTabs } from "./topic-tabs";
 import s from "./swipe-brief.module.css";
-
-/** The key of the "For you" tab (the top stories, and the Cover). */
-const FOR_YOU = "top";
 
 export function SwipeBrief({ reactions, basePath }: { reactions: ReactionsState; basePath: string }) {
   const { brief } = reactions;
@@ -74,7 +71,7 @@ export function SwipeBrief({ reactions, basePath }: { reactions: ReactionsState;
   // Topic tabs: "For you" (the Cover and the top stories), then each Topic group.
   const groupOf = useMemo(() => {
     const map = new Map<string, string>();
-    for (const g of brief.groups) for (const id of g.item_ids) map.set(id, g.kind === "top" ? FOR_YOU : g.topic!);
+    for (const g of brief.groups) for (const id of g.item_ids) map.set(id, groupKey(g));
     return map;
   }, [brief.groups]);
   const tabs = useMemo(
@@ -94,7 +91,7 @@ export function SwipeBrief({ reactions, basePath }: { reactions: ReactionsState;
           ? lastGroup.topic!
           : FOR_YOU;
   const jumpTo = (key: string) => {
-    const group = brief.groups.find((g) => (g.kind === "top" ? FOR_YOU : g.topic) === key);
+    const group = brief.groups.find((g) => groupKey(g) === key);
     const first = group ? items.findIndex((i) => i.id === group.item_ids[0]) : -1;
     go(first + 1);
   };
@@ -107,10 +104,8 @@ export function SwipeBrief({ reactions, basePath }: { reactions: ReactionsState;
       if (!isShortcut(e)) return;
       const { step, current, reactions } = keys.current;
       const action = itemShortcut(e);
-      if (action && current && !slides.current?.querySelector("article[data-active][data-locked]")) {
-        if (action === "like" || action === "save") reactions.toggle(current, action);
-        else if (action === "ask") setAsking(current.id);
-        else pressRailButton(slides.current, "hide");
+      if (action && current) {
+        runItemShortcut(action, current, { reactions, card: slides.current, onAsk: () => setAsking(current.id) });
         return;
       }
       const onControl = e.target instanceof Element && e.target.closest("button, a[href]") !== null;
@@ -203,14 +198,7 @@ export function SwipeBrief({ reactions, basePath }: { reactions: ReactionsState;
         />
       )}
       {askItem && <AskSheet key={askItem.id} item={askItem} basePath={basePath} onClose={() => setAsking(null)} />}
-      {screen && hasSidebar(screen) && (
-        <SidebarTopics
-          topics={brief.groups
-            .filter((g) => g.kind === "topic")
-            .map((g) => ({ key: g.topic!, label: topicName(brief, g.topic!, lang), count: g.item_ids.length }))}
-          onPick={jumpTo}
-        />
-      )}
+      {screen && hasSidebar(screen) && <SidebarTopics brief={brief} onPick={jumpTo} />}
       {shortcuts}
     </div>
   );

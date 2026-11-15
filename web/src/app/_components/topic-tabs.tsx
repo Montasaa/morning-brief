@@ -7,9 +7,18 @@
 // ticket 09's Front Page follows its scrolling (a scroll spy). In Arabic the
 // strip runs right to left with the page, indicator included.
 import { useLayoutEffect, useRef, useState } from "react";
+import type { BriefGroup } from "@/server/brief/compose";
 import { prefersReducedMotion } from "./client-time";
 import { useLanguage } from "./language";
 import s from "./topic-tabs.module.css";
+
+/** The key of the "For you" tab: the top stories (and, in Swipe, the Cover). */
+export const FOR_YOU = "top";
+
+/** A group's tab key: "For you" for the top stories, else its Topic. */
+export function groupKey(group: BriefGroup): string {
+  return group.kind === "top" ? FOR_YOU : group.topic!;
+}
 
 export interface TopicTab {
   key: string;

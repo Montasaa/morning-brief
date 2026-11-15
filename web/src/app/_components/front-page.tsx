@@ -36,14 +36,11 @@ import { ReadSheet } from "./read-sheet";
 import { ReaderPane } from "./reader-pane";
 import { pictureKind, type PictureKind } from "./reels-card";
 import { hasSidebar, type Screen } from "./screen-class";
-import { isShortcut, itemShortcut, pressRailButton, useShortcuts } from "./shortcuts";
+import { isShortcut, itemShortcut, runItemShortcut, useShortcuts } from "./shortcuts";
 import { sheetOpen } from "./sheet";
 import { SidebarTopics } from "./tab-bar";
-import { TopicTabs } from "./topic-tabs";
+import { FOR_YOU, groupKey, TopicTabs } from "./topic-tabs";
 import s from "./front-page.module.css";
-
-/** The key of the "For you" group (the top stories). */
-const FOR_YOU = "top";
 
 export function FrontPage({
   layout,
@@ -59,7 +56,7 @@ export function FrontPage({
   const { brief } = reactions;
   const { lang, t } = useLanguage();
   const now = useNow();
-  const wide = screen.cls === "wide";
+  const wide = screen.class === "wide";
   const list = layout === "list";
 
   // The Brief's order, which j/k follow: the top stories, then each Topic's Items.
@@ -68,26 +65,34 @@ export function FrontPage({
   const groups = useMemo(
     () =>
       brief.groups.map((g) => ({
-        key: g.kind === "top" ? FOR_YOU : g.topic!,
+        key: groupKey(g),
         label: g.kind === "top" ? t("For you", "لك") : topicName(brief, g.topic!, lang),
         items: g.item_ids.map((id) => byId.get(id)!),
       })),
     [brief, byId, lang, t],
   );
 
-  // The reader pane: the Item open in it, how it arrived, and whether Ask is open.
-  const [open, setOpen] = useState<string | null>(null);
+  // The reader pane: the Item the Reader opened in it, how it arrived, and whether Ask is open.
+  const [picked, setPicked] = useState<string | null>(null);
   const [dir, setDir] = useState<"next" | "prev" | null>(null);
   const [asking, setAsking] = useState(false);
   const [reading, setReading] = useState<string | null>(null);
   // Sensitive Items whose headline the Reader has tapped to see, on this page.
   const [revealed, setRevealed] = useState<ReadonlySet<string>>(new Set());
-  // Where the open Item was in the Brief, so hiding it moves the pane on to the next one.
-  const lastAt = useRef(0);
-  const openId = open === null ? (wide ? order[0] ?? null : null) : byId.has(open) ? open : order[Math.min(lastAt.current, order.length - 1)] ?? null;
-  const at = openId ? order.indexOf(openId) : -1;
-  if (at >= 0) lastAt.current = at;
-  const paneItem = openId ? byId.get(openId) : undefined;
+  // The Item in the pane: the one picked; once it is hidden, the one that took its place;
+  // on wide with nothing picked yet, the first top story.
+  const lastIndex = useRef(0);
+  const paneId =
+    picked === null
+      ? wide
+        ? order[0] ?? null
+        : null
+      : byId.has(picked)
+        ? picked
+        : order[Math.min(lastIndex.current, order.length - 1)] ?? null;
+  const paneIndex = paneId ? order.indexOf(paneId) : -1;
+  if (paneIndex >= 0) lastIndex.current = paneIndex;
+  const paneItem = paneId ? byId.get(paneId) : undefined;
 
   const page = useRef<HTMLDivElement>(null);
   const pane = useRef<HTMLElement>(null);
@@ -96,19 +101,19 @@ export function FrontPage({
     (id: string, how: "next" | "prev" | null = null) => {
       const item = byId.get(id);
       if (!item) return;
-      setOpen(id);
+      setPicked(id);
       setDir(how);
       setAsking(false);
       // Opening an Item records an open (it dims), but a veiled one is not seen yet.
-      if (!item.blurred) reactions.opened(item);
+      if (!item.blurred || revealed.has(id)) reactions.opened(item);
       page.current
         ?.querySelector(`[data-item="${CSS.escape(id)}"]`)
         ?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
     },
-    [byId, reactions],
+    [byId, reactions, revealed],
   );
   const close = () => {
-    setOpen(null);
+    setPicked(null);
     setAsking(false);
   };
 
@@ -149,28 +154,28 @@ export function FrontPage({
   };
 
   // The keys: j/k and the arrows move the pane, Enter opens (or reads), s/l/h/a act on the open Item, Esc backs out.
-  const keys = useRef({ order, openId, paneItem, asking, wide, show, reactions });
-  keys.current = { order, openId, paneItem, asking, wide, show, reactions };
+  const latest = useRef({ order, paneId, paneItem, asking, wide, show, reactions });
+  latest.current = { order, paneId, paneItem, asking, wide, show, reactions };
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      const { order, openId, paneItem, asking, wide, show, reactions } = keys.current;
+      const { order, paneId, paneItem, asking, wide, show, reactions } = latest.current;
       // Esc backs out of Ask even from its question box; a sheet open over the page takes it first.
       if (e.key === "Escape" && !e.defaultPrevented && !sheetOpen()) {
         if (asking) setAsking(false);
-        else if (openId && !wide) close();
+        else if (paneId && !wide) close();
         else return;
         e.preventDefault();
         return;
       }
       if (!isShortcut(e) || e.shiftKey) return;
-      const i = openId ? order.indexOf(openId) : -1;
+      const i = paneId ? order.indexOf(paneId) : -1;
       const onControl = e.target instanceof Element && e.target.closest("button, a[href], input, label") !== null;
       if (e.key === "j" || e.key === "ArrowDown") {
         const next = order[i < 0 ? 0 : Math.min(i + 1, order.length - 1)];
-        if (next && next !== openId) show(next, i < 0 ? null : "next");
+        if (next && next !== paneId) show(next, i < 0 ? null : "next");
       } else if (e.key === "k" || e.key === "ArrowUp") {
         const prev = order[Math.max(i - 1, 0)];
-        if (prev && prev !== openId) show(prev, i < 0 ? null : "prev");
+        if (prev && prev !== paneId) show(prev, i < 0 ? null : "prev");
       } else if (e.key === "Enter" && !onControl) {
         if (!paneItem) {
           if (order[0]) show(order[0]);
@@ -180,10 +185,8 @@ export function FrontPage({
         }
       } else {
         const action = itemShortcut(e);
-        if (!action || !paneItem || pane.current?.querySelector("article[data-locked]")) return;
-        if (action === "like" || action === "save") reactions.toggle(paneItem, action);
-        else if (action === "ask") setAsking(true);
-        else pressRailButton(pane.current, "hide");
+        if (!action || !paneItem) return;
+        runItemShortcut(action, paneItem, { reactions, card: pane.current, onAsk: () => setAsking(true) });
       }
       e.preventDefault();
     }
@@ -198,7 +201,7 @@ export function FrontPage({
     item,
     brief,
     now,
-    selected: item.id === openId,
+    selected: item.id === paneId,
     revealed: revealed.has(item.id),
     onOpen: () => show(item.id),
     onReveal: () => setRevealed((all) => new Set(all).add(item.id)),
@@ -248,10 +251,11 @@ export function FrontPage({
         <ReaderPane
           paneRef={pane}
           item={paneItem}
-          position={at + 1}
+          position={paneIndex + 1}
           total={order.length}
           dir={dir}
           asking={asking}
+          revealed={revealed.has(paneItem.id)}
           closable={!wide}
           brief={brief}
           now={now}
@@ -271,12 +275,7 @@ export function FrontPage({
         </aside>
       )}
 
-      {hasSidebar(screen) && (
-        <SidebarTopics
-          topics={groups.filter((g) => g.key !== FOR_YOU).map((g) => ({ key: g.key, label: g.label, count: g.items.length }))}
-          onPick={jumpTo}
-        />
-      )}
+      {hasSidebar(screen) && <SidebarTopics brief={brief} onPick={jumpTo} />}
       {readItem && (
         <ReadSheet
           item={readItem}
@@ -393,21 +392,24 @@ function useItemLines(item: BriefItem, brief: Brief, now: number | null) {
   };
 }
 
+/** What a card and a row both say about their Item, as data attributes the CSS (and tests) read. */
+function itemAttrs(item: BriefItem, kind: PictureKind, selected: boolean, locked: boolean) {
+  return {
+    "data-item": item.id,
+    "data-picture": kind,
+    "data-selected": selected || undefined,
+    "data-dimmed": item.dimmed && !selected,
+    "data-locked": locked || undefined,
+  };
+}
+
 /** A portrait card: 10:15 on a shelf, 3:4 for a top story (with its why-line). */
 function Tile({ item, brief, now, selected, revealed, onOpen, onReveal, big }: TileProps & { big: boolean }) {
   const { t } = useLanguage();
   const { kind, name, meta, title, why, warning, onFail } = useItemLines(item, brief, now);
   const locked = item.blurred && !revealed;
   return (
-    <article
-      className={s.tile}
-      data-item={item.id}
-      data-big={big || undefined}
-      data-picture={kind}
-      data-selected={selected || undefined}
-      data-dimmed={item.dimmed && !selected}
-      data-locked={locked || undefined}
-    >
+    <article className={s.tile} data-big={big || undefined} {...itemAttrs(item, kind, selected, locked)}>
       <div className={s.tilePicture}>
         {kind === "photo" ? <ItemImage className={s.photo} src={item.image!} onFail={onFail} /> : <div className={s.plain} />}
       </div>
@@ -448,14 +450,7 @@ function Row({ item, brief, now, selected, revealed, onOpen, onReveal }: TilePro
   const { kind, name, meta, title, onFail } = useItemLines(item, brief, now);
   const locked = item.blurred && !revealed;
   return (
-    <article
-      className={s.row}
-      data-item={item.id}
-      data-picture={kind}
-      data-selected={selected || undefined}
-      data-dimmed={item.dimmed && !selected}
-      data-locked={locked || undefined}
-    >
+    <article className={s.row} {...itemAttrs(item, kind, selected, locked)}>
       <span className={s.thumb}>{kind !== "none" && <ItemImage src={item.image!} onFail={onFail} />}</span>
       <div className={s.rowText}>
         <p className={s.meta}>

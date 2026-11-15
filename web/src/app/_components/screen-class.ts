@@ -15,32 +15,30 @@
 import { useSyncExternalStore } from "react";
 import type { Display, Layout, ScreenClass } from "@/server/display/shape";
 
-export type Screen = { cls: ScreenClass | "wide"; upright: boolean };
+/** A screen class, and whether the screen is upright (only a tablet's Layout depends on that). */
+export type Screen = { class: ScreenClass | "wide"; upright: boolean };
 
 export function screenOf(width: number, height: number): Screen {
   const upright = height >= width;
-  if (width < 768) return { cls: "phone", upright };
-  if (width < 1280) return { cls: "tablet", upright };
-  if (width < 1600) return { cls: "pc", upright };
-  return { cls: "wide", upright };
+  if (width < 768) return { class: "phone", upright };
+  if (width < 1280) return { class: "tablet", upright };
+  if (width < 1600) return { class: "pc", upright };
+  return { class: "wide", upright };
 }
 
 /** The screen class whose pick applies: wide uses the PC's. */
 export function pickFor(screen: Screen): ScreenClass {
-  return screen.cls === "wide" ? "pc" : screen.cls;
+  return screen.class === "wide" ? "pc" : screen.class;
 }
 
-/** The Layout to show on `screen`: the Reader's pick for it, else the default. */
+/** The Layout to show on `screen`: the Reader's pick for it, else Front Page where the sidebar shows and Swipe elsewhere. */
 export function layoutFor(layouts: Display["layouts"], screen: Screen): Layout {
-  const picked = layouts[pickFor(screen)];
-  if (picked) return picked;
-  if (screen.cls === "phone" || (screen.cls === "tablet" && screen.upright)) return "swipe";
-  return "front_page";
+  return layouts[pickFor(screen)] ?? (hasSidebar(screen) ? "front_page" : "swipe");
 }
 
 /** Whether the sidebar (and a reader pane beside the page) shows: tablet landscape, PC and wide. */
 export function hasSidebar(screen: Screen): boolean {
-  return screen.cls === "pc" || screen.cls === "wide" || (screen.cls === "tablet" && !screen.upright);
+  return screen.class === "pc" || screen.class === "wide" || (screen.class === "tablet" && !screen.upright);
 }
 
 function subscribe(onChange: () => void) {
@@ -50,7 +48,7 @@ function subscribe(onChange: () => void) {
 // A string, so the same screen compares equal between reads.
 const snapshot = () => {
   const s = screenOf(window.innerWidth, window.innerHeight);
-  return `${s.cls}:${s.upright ? 1 : 0}`;
+  return `${s.class}:${s.upright ? 1 : 0}`;
 };
 
 /**
@@ -61,6 +59,6 @@ const snapshot = () => {
 export function useScreen(): Screen | null {
   const value = useSyncExternalStore(subscribe, snapshot, () => null);
   if (!value) return null;
-  const [cls, upright] = value.split(":");
-  return { cls: cls as Screen["cls"], upright: upright === "1" };
+  const [screenClass, upright] = value.split(":");
+  return { class: screenClass as Screen["class"], upright: upright === "1" };
 }

@@ -190,9 +190,18 @@ test("a sensitive card keeps its headline blurred until tapped, then opens like 
   await page.goto(E2E_BASE_PATH);
   const graphic = frontPage.group(page, "Graphic");
   await expect(frontPage.open(page, TITLES[4]!)).toHaveCount(0);
+
+  // Moving onto it with j shows it veiled in the pane.
+  await frontPage.open(page, TITLES[3]!).click();
+  await page.keyboard.press("j");
+  await expect(frontPage.pane(page).getByRole("button", { name: /Tap to view/ })).toBeVisible();
+  await page.keyboard.press("Escape");
+
+  // Tapped open on the page, it opens unveiled: the Reader has already chosen to see it.
   await graphic.getByRole("button", { name: /Tap to view/ }).click();
   await frontPage.open(page, TITLES[4]!).click();
-  await expect(frontPage.pane(page).getByRole("button", { name: /Tap to view/ })).toBeVisible();
+  await expect(frontPage.paneHeadline(page)).toHaveText(TITLES[4]!);
+  await expect(frontPage.pane(page).getByRole("button", { name: /Tap to view/ })).toHaveCount(0);
 });
 
 test("? lists the shortcuts, and / goes to Saved & Search with the search box focused", async ({ page }) => {

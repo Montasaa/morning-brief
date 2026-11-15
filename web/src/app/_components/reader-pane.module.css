@@ -83,14 +83,6 @@
   color: var(--faint);
   font-size: var(--fs-xs);
 }
-.keys kbd {
-  padding: 1px 5px;
-  border: 1px solid var(--line);
-  border-bottom-width: 2px;
-  border-radius: 5px;
-  color: var(--mute);
-  font: 500 var(--fs-xs) ui-monospace, monospace;
-}
 @media (min-width: 1280px), (min-width: 768px) and (orientation: landscape) {
   .keys {
     display: flex;

@@ -8,7 +8,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { formatNumber } from "./i18n";
+import type { Brief } from "@/server/brief/compose";
+import { formatNumber, topicName } from "./i18n";
 import { Icon } from "./icons";
 import { useLanguage } from "./language";
 import s from "./tab-bar.module.css";
@@ -57,8 +58,8 @@ export function TabBar() {
   );
 }
 
-/** The Brief's Topics in the sidebar, each with its Item count; picking one jumps to it. */
-export function SidebarTopics({ topics, onPick }: { topics: { key: string; label: string; count: number }[]; onPick(key: string): void }) {
+/** The Brief's Topics in the sidebar, in Brief order, each with its Item count; picking one calls `onPick` with the Topic. */
+export function SidebarTopics({ brief, onPick }: { brief: Brief; onPick(topic: string): void }) {
   const { lang, t } = useLanguage();
   const [slot, setSlot] = useState<HTMLElement | null>(null);
   useEffect(() => setSlot(document.getElementById(SIDEBAR_TOPICS)), []);
@@ -67,11 +68,13 @@ export function SidebarTopics({ topics, onPick }: { topics: { key: string; label
     <>
       <h2 className={s.sideTitle}>{t("Topics", "المواضيع")}</h2>
       <ul className={s.sideTopics}>
-        {topics.map((topic) => (
-          <li key={topic.key}>
-            <button type="button" className={s.sideTopic} onClick={() => onPick(topic.key)}>
-              <span>{topic.label}</span>
-              <span className={s.count}>{formatNumber(topic.count, lang)}</span>
+        {brief.groups.flatMap((g) =>
+          g.kind === "topic" ? [{ topic: g.topic!, count: g.item_ids.length }] : [],
+        ).map(({ topic, count }) => (
+          <li key={topic}>
+            <button type="button" className={s.sideTopic} onClick={() => onPick(topic)}>
+              <span>{topicName(brief, topic, lang)}</span>
+              <span className={s.count}>{formatNumber(count, lang)}</span>
             </button>
           </li>
         ))}
