@@ -1,0 +1,31 @@
+# Morning Brief v3 on the VPS. See deploy/README.md.
+# Copy to the stack folder (e.g. ~/stacks/morning-brief) next to its .env, then:
+#   docker compose build && docker compose up -d
+services:
+  morning-brief:
+    image: morning-brief:latest
+    build:
+      context: ${REPO_DIR:?set REPO_DIR to the repository checkout}
+      dockerfile: web/Dockerfile
+      args:
+        BASE_PATH: /brief
+    container_name: morning-brief
+    restart: unless-stopped
+    # Write data/ and backups/ as the host user that owns the stack folder.
+    user: "${APP_UID:-1001}:${APP_GID:-1001}"
+    env_file: .env
+    environment:
+      DATABASE_PATH: /data/brief.db
+      BACKUP_DIR: /backups
+    volumes:
+      - ./data:/data
+      - ./backups:/backups
+    # Local checks only; the public route is the Cloudflare tunnel over the glance network.
+    ports:
+      - "127.0.0.1:8769:3000"
+    networks: [glance]
+
+networks:
+  glance:
+    name: glance_default
+    external: true

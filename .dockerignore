@@ -1,0 +1,12 @@
+# Docker build context is the repository root (web/Dockerfile); only schema/ and web/ are sent.
+*
+!schema/
+!web/
+web/node_modules
+web/.next
+web/.e2e
+web/data
+web/test-results
+web/playwright-report
+web/.env*
+web/tsconfig.tsbuildinfo

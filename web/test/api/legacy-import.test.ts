@@ -217,6 +217,22 @@ describe("POST /api/editions/legacy (legacy importer)", () => {
     );
   });
 
+  it("joins a summary the old pipeline wrote as a list of strings into one text", async () => {
+    // The 2026-11-15 morning file carried a liverpool summary as ["...", "..."].
+    const app = await startTestApp();
+    const legacy = legacySample();
+    const item = legacy.sections.liverpool!.items[0]!;
+    item.summary = ["First sentence.", "Second sentence."];
+    item.summary_ar = ["الجملة الأولى.", "الجملة الثانية."];
+
+    const res = await importLegacy(app, legacy);
+
+    expect(res.status).toBe(200);
+    const imported = (await briefItems(app)).get(item.id as string)!;
+    expect(imported.summary).toBe("First sentence. Second sentence.");
+    expect(imported.summary_ar).toBe("الجملة الأولى. الجملة الثانية.");
+  });
+
   it("with ?dry_run=1 returns the converted Edition v3 document, which passes the schema, and stores nothing", async () => {
     const app = await startTestApp();
 
