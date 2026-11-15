@@ -8,7 +8,7 @@
 .picture:has(.photo) {
   width: 100%;
 }
-/* NSFW media: blurred under its own veil until tapped (rework ticket 10). */
+/* Explicit media: blurred under its own veil until tapped (rework ticket 10). */
 .picture[data-media-locked] img {
   filter: blur(28px) saturate(0.8);
 }
@@ -28,7 +28,7 @@
   border-radius: var(--r-row);
   /* Over a picture in either theme: its own shade, so the white text always reads. */
   background: rgb(0 0 0 / 55%);
-  color: #fff;
+  color: var(--on-photo);
   font: inherit;
   font-size: var(--fs-s);
   cursor: pointer;

@@ -65,7 +65,7 @@ export interface TimelineItem {
   topic: string;
   /** It carries a Sensitive Topic the Reader has not turned the blur off for: shown blurred with its warning until tapped. */
   blurred: boolean;
-  /** NSFW media: its picture stays blurred until tapped, whatever the blur switch says. */
+  /** Explicit media (`nsfw_media`): its picture stays blurred until tapped, whatever the blur switch says. */
   media_blurred: boolean;
   /** The Edition the stored version of this Item came from. */
   edition_id: string;

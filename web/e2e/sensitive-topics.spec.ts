@@ -121,7 +121,7 @@ test("with the blur off for Graphic, its Items show straight away", async ({ pag
   await expect(swipe.card(page).locator("[inert]")).toHaveCount(0);
 });
 
-test("NSFW media stays veiled until tapped, even with the blur off for its Topic", async ({ page, baseURL }) => {
+test("explicit media stays veiled until tapped, even with the blur off for its Topic", async ({ page, baseURL }) => {
   const NSFW = "A placeholder post with explicit media";
   const edition = swipeEdition();
   edition.items.push({

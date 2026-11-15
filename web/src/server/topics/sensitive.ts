@@ -46,7 +46,7 @@ export function sensitiveItemSql(itemId: string): string {
  * the Reader: it carries a Sensitive Topic they have not turned the blur off
  * for (their Display's `unblurred`, rework ticket 10). So it is false only when
  * the blur is off for every Sensitive Topic it carries. Takes one `?`
- * parameter, the Reader's id. NSFW media is blurred whatever this says
+ * parameter, the Reader's id. Explicit media is blurred whatever this says
  * (`items.nsfw_media`, returned as `media_blurred`).
  */
 export function blurredItemSql(itemId: string): string {

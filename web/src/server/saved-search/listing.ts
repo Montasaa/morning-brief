@@ -7,7 +7,7 @@
 //
 // - Sensitive: it reaches the Reader only if they opted into every Sensitive
 //   Topic it carries, and is then marked `blurred` (ticket 08) unless they turned
-//   the blur off for every one of them (rework ticket 10). NSFW media is
+//   the blur off for every one of them (rework ticket 10). Explicit media (`nsfw_media`) is
 //   `media_blurred` whatever the switch says.
 // - Topics: it carries at least one Topic in the Catalog as this Reader sees it
 //   (ticket 11: another Reader's private Topic does not count, and is stripped
@@ -51,7 +51,7 @@ export interface ListedItem {
   warning_ar: string | null;
   /** A sensitive Item the Reader has not turned the blur off for: its title and text stay behind its warning until tapped. */
   blurred: boolean;
-  /** NSFW media: its picture stays blurred until tapped, whatever the blur switch says. */
+  /** Explicit media (`nsfw_media`): its picture stays blurred until tapped, whatever the blur switch says. */
   media_blurred: boolean;
   /** This Reader's own Like and Save on it. */
   reactions: { like: boolean; save: boolean };

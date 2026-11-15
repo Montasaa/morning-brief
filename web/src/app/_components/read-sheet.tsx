@@ -3,7 +3,7 @@
 // text. The whole story: its picture, the meta line, the headline, the
 // why-line on a top story, the full summary, kind-specific extras, the other
 // followed Topics it is in, Like / Save / Ask, and its sources. In the
-// Reader's theme (a Sheet), whatever the Brief canvas behind it. NSFW media
+// Reader's theme (a Sheet), whatever the Brief canvas behind it. Explicit media
 // (`media_blurred`) stays blurred under its own veil until tapped.
 import { useState } from "react";
 import type { Brief, BriefItem } from "@/server/brief/compose";
@@ -11,7 +11,7 @@ import { CardExtras } from "./card-extras";
 import { timeSince } from "./format";
 import { localized, topicName } from "./i18n";
 import { Icon } from "./icons";
-import { ItemImage, MediaVeil } from "./item-image";
+import { ItemImage, MediaVeil, useMediaVeil } from "./item-image";
 import { useLanguage } from "./language";
 import type { ReactionsState } from "./reactions";
 import { pictureKind } from "./reels-card";
@@ -35,9 +35,8 @@ export function ReadSheet({
 }) {
   const { lang, t } = useLanguage();
   const [broken, setBroken] = useState(false);
-  const [mediaRevealed, setMediaRevealed] = useState(false);
   const kind = broken ? "none" : pictureKind(item);
-  const mediaLocked = item.media_blurred && !mediaRevealed && kind !== "none";
+  const media = useMediaVeil(item, kind !== "none");
   const title = localized(item, "title", lang)!;
   const summary = localized(item, "summary", lang);
   const why = item.top ? localized(item, "why_for_you", lang) : null;
@@ -48,9 +47,9 @@ export function ReadSheet({
     <Sheet label={title} onClose={onClose}>
       <article className={s.read}>
         {kind !== "none" && (
-          <div className={s.picture} data-media-locked={mediaLocked || undefined}>
+          <div className={s.picture} data-media-locked={media.locked || undefined}>
             <ItemImage className={kind === "photo" ? s.photo : s.badge} src={item.image!} onFail={() => setBroken(true)} />
-            {mediaLocked && <MediaVeil className={s.mediaVeil} onReveal={() => setMediaRevealed(true)} />}
+            {media.locked && <MediaVeil className={s.mediaVeil} onReveal={media.reveal} />}
           </div>
         )}
         <p className={s.meta}>

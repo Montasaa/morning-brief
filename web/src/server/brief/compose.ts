@@ -66,7 +66,7 @@ export interface BriefItem {
    * off (Display `unblurred`) for every Sensitive Topic it carries.
    */
   blurred: boolean;
-  /** Its picture stays blurred until tapped whatever the blur switch says: the Edition marked it NSFW media. */
+  /** Its picture stays blurred until tapped whatever the blur switch says: the Edition marked it explicit media (`nsfw_media`). */
   media_blurred: boolean;
   /** This Reader's Like and Save on the Item (ticket 09), for the dock. */
   reactions: { like: boolean; save: boolean };

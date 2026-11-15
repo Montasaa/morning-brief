@@ -112,7 +112,7 @@ def assemble(
         if stripped:
             notes.append(f"{item['id']}: removed Topics not on the gathering list ({', '.join(stripped)})")
         item["topics"] = topics
-        dropped = _source_rules(item)
+        dropped = _apply_source_rules(item)
         if dropped:
             notes.append(f"left out {item['id']}: {dropped}")
             continue
@@ -188,8 +188,10 @@ def _is_outlet(source: dict) -> bool:
     return source.get("type") in ("independent", "wire") and not _is_reddit(source)
 
 
-def _source_rules(item: dict) -> str | None:
+def _apply_source_rules(item: dict) -> str | None:
     """Why the Item must be left out under the fixed source rules, or None (rework ticket 10).
+
+    A kept Adult Trending Item has its sources put in order: the Reddit post first.
 
     - Adult Trending is Reddit only: its sources are Reddit posts, apart from one news outlet's report
       allowed as the second source. The Reddit post leads (it is the card link).
