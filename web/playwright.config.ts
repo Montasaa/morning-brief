@@ -1,4 +1,4 @@
-// Browser smoke tests at phone size (and a few at desktop size), against the app running with a scratch
+// Browser smoke tests at phone size (and a few at PC and wide sizes), against the app running with a scratch
 // database and fake outside services. Thin by design: ranking and API
 // behaviour are tested at the API seam (test/), not here. Ticket 03 grows this.
 import { defineConfig, devices } from "@playwright/test";
@@ -21,9 +21,11 @@ export default defineConfig({
     trace: "retain-on-failure",
   },
   projects: [
-    { name: "phone", use: { ...devices["Pixel 7"] }, testIgnore: /desktop-.*\.spec\.ts/ },
-    // Desktop-only flows (card plus side list) live in e2e/desktop-*.spec.ts.
+    { name: "phone", use: { ...devices["Pixel 7"] }, testIgnore: /(desktop|wide)-.*\.spec\.ts/ },
+    // PC flows (Front Page, List, the reader pane; 1280×720) live in e2e/desktop-*.spec.ts.
     { name: "desktop", use: { ...devices["Desktop Chrome"] }, testMatch: /desktop-.*\.spec\.ts/ },
+    // Wide screens (1600px and over: the pane always open, the Widgets column) in e2e/wide-*.spec.ts.
+    { name: "wide", use: { ...devices["Desktop Chrome"], viewport: { width: 1728, height: 1050 } }, testMatch: /wide-.*\.spec\.ts/ },
   ],
   webServer: {
     // A fresh scratch database on every run.

@@ -25,6 +25,10 @@
 //   veil's button: Swipe puts its tap thirds there.
 // - An opened Item is dimmed (`data-dimmed`), and `active` lets the text
 //   settle in; both are styled in reels-card.module.css.
+// - `fit="pane"` (the reader pane, rework ticket 09): the card fills the pane
+//   with the rail over the picture, as on a phone, at every screen width.
+//   `initiallyRevealed`: the Reader already tapped this sensitive Item open
+//   (on Front Page or List), so it starts unveiled.
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Brief, BriefItem } from "@/server/brief/compose";
 import { timeSince } from "./format";
@@ -59,6 +63,8 @@ export function ReelsCard({
   basePath,
   onRead,
   onAsk,
+  fit,
+  initiallyRevealed = false,
   children,
 }: {
   item: BriefItem;
@@ -71,10 +77,14 @@ export function ReelsCard({
   basePath: string;
   onRead(item: BriefItem): void;
   onAsk(item: BriefItem): void;
+  /** "pane": fill the reader pane, rail over the picture. Else a Swipe slide (a centred card from 1024px). */
+  fit?: "pane";
+  /** Start unveiled: the Reader already tapped this sensitive Item open elsewhere. */
+  initiallyRevealed?: boolean;
   children?: ReactNode;
 }) {
   const { lang, t } = useLanguage();
-  const [revealed, setRevealed] = useState(false);
+  const [revealed, setRevealed] = useState(initiallyRevealed);
   const [broken, setBroken] = useState(false);
   const [bursts, setBursts] = useState<{ id: number; x: number; y: number }[]>([]);
   const lastTap = useRef(0);
@@ -120,6 +130,7 @@ export function ReelsCard({
       data-dimmed={item.dimmed}
       data-picture={kind}
       data-locked={locked || undefined}
+      data-fit={fit}
       // Opening any of the card's links (the Thread chip) opens the Item: it comes back dimmed.
       onClickCapture={(e) => (e.target as Element).closest("a[href]") && reactions.opened(item)}
     >

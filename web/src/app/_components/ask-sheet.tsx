@@ -3,8 +3,9 @@
 // look, rework ticket 08, a Sheet in the Reader's theme), it lets the Reader
 // ask Claude about the current Item. It lists their earlier questions on
 // this Item (private to them), shows each answer with its cited links, and says
-// how many questions are left today.
-import { useEffect, useRef, useState, type FormEvent } from "react";
+// how many questions are left today. The reader pane (rework ticket 09) shows
+// the same <AskPanel> inside the pane instead of a sheet.
+import { useEffect, useRef, useState, type FormEvent, type RefObject } from "react";
 import type { Ask } from "@/server/ask/ask";
 import type { AskLimit } from "@/server/ask/limits";
 import type { BriefItem } from "@/server/brief/compose";
@@ -15,13 +16,34 @@ import { Sheet } from "./sheet";
 import s from "./ask-sheet.module.css";
 
 export function AskSheet({ item, basePath, onClose }: { item: BriefItem; basePath: string; onClose(): void }) {
+  const { t } = useLanguage();
+  const input = useRef<HTMLTextAreaElement>(null);
+  return (
+    <Sheet
+      label={t("Ask Claude", "اسأل Claude")}
+      title={
+        <>
+          <Icon name="sparkle" size={20} className={s.titleIcon} />
+          {t("Ask Claude", "اسأل Claude")}
+        </>
+      }
+      initialFocus={input}
+      className={s.sheet}
+      onClose={onClose}
+    >
+      <AskPanel item={item} basePath={basePath} inputRef={input} />
+    </Sheet>
+  );
+}
+
+/** What Ask shows for one Item, inside a sheet or the reader pane: the earlier questions, the answers and the question box. */
+export function AskPanel({ item, basePath, inputRef: input }: { item: BriefItem; basePath: string; inputRef: RefObject<HTMLTextAreaElement | null> }) {
   const { lang, t } = useLanguage();
   const [asks, setAsks] = useState<Ask[] | null>(null);
   const [limit, setLimit] = useState<AskLimit | null>(null);
   const [question, setQuestion] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const input = useRef<HTMLTextAreaElement>(null);
   const url = `${basePath}/api/items/${encodeURIComponent(item.id)}/ask`;
 
   useEffect(() => {
@@ -73,18 +95,7 @@ export function AskSheet({ item, basePath, onClose }: { item: BriefItem; basePat
   }
 
   return (
-    <Sheet
-      label={t("Ask Claude", "اسأل Claude")}
-      title={
-        <>
-          <Icon name="sparkle" size={20} className={s.titleIcon} />
-          {t("Ask Claude", "اسأل Claude")}
-        </>
-      }
-      initialFocus={input}
-      className={s.sheet}
-      onClose={onClose}
-    >
+    <>
       <p className={s.about} dir="auto">
         {localized(item, "title", lang)}
       </p>
@@ -153,7 +164,7 @@ export function AskSheet({ item, basePath, onClose }: { item: BriefItem; basePat
         <p className={s.left} data-testid="asks-left">
           {limit && leftLine(limit, lang, t)}
         </p>
-    </Sheet>
+    </>
   );
 }
 

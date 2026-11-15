@@ -292,3 +292,58 @@ describe("following the Reader across devices", () => {
     expect(after.items).toEqual(before.items);
   });
 });
+
+// Rework ticket 09: a Layout per screen class. The browser picks the screen
+// class (phone, tablet, PC; wide uses the PC pick) and reads it from here.
+describe("Layouts per screen class", () => {
+  it("takes Swipe, Front Page and List for each of phone, tablet and PC", async () => {
+    const app = await startTestApp();
+    const sara = await app.addReader("sara@example.com");
+
+    for (const layout of ["swipe", "front_page", "list"]) {
+      const res = await patchDisplay(sara, { layouts: { phone: layout, tablet: layout, pc: layout } });
+      expect(res.status, res.text).toBe(200);
+      expect(res.body.display.layouts).toEqual({ phone: layout, tablet: layout, pc: layout });
+    }
+  });
+
+  it.each([
+    ["a wide pick (wide uses the PC pick)", { wide: "front_page" }, /Unknown screen class "wide"/],
+    ["a Layout that is not a name", { pc: 2 }, /display\.layouts\.pc must be one of swipe, front_page, list/],
+    ["a Layout from the rejected designs", { tablet: "grid" }, /display\.layouts\.tablet must be one of swipe, front_page, list/],
+    ["a list instead of picks", ["list"], /display\.layouts must be an object/],
+  ])("refuses %s with 422 and keeps the earlier picks", async (_, layouts, reason) => {
+    const app = await startTestApp();
+    const sara = await app.addReader("sara@example.com");
+    await patchDisplay(sara, { layouts: { pc: "list" } });
+
+    const res = await patchDisplay(sara, { layouts });
+
+    expect(res.status, res.text).toBe(422);
+    expect(res.body.reasons.join("\n")).toMatch(reason);
+    expect((await displayOf(sara)).layouts).toEqual({ pc: "list" });
+  });
+
+  it("follows the Reader to their other devices", async () => {
+    const app = await startTestApp();
+    const phone = await app.addReader("sara@example.com");
+    const laptop = await app.signIn("sara@example.com");
+
+    await patchDisplay(laptop, { layouts: { pc: "list" } });
+    await patchDisplay(phone, { layouts: { phone: "front_page" } });
+
+    expect((await displayOf(laptop)).layouts).toEqual({ pc: "list", phone: "front_page" });
+    expect((await displayOf(phone)).layouts).toEqual({ pc: "list", phone: "front_page" });
+  });
+
+  it("never changes the Brief", async () => {
+    const app = await startTestApp();
+    await app.postEdition(morningEdition());
+    const sara = await app.addReader("sara@example.com");
+    const before = (await sara.request("GET", "/api/brief")).body;
+
+    await patchDisplay(sara, { layouts: { phone: "list", tablet: "swipe", pc: "front_page" } });
+
+    expect((await sara.request("GET", "/api/brief")).body.items).toEqual(before.items);
+  });
+});

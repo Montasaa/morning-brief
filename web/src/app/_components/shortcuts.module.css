@@ -1,0 +1,27 @@
+/* The shortcut list (rework ticket 09): a Sheet, in chrome colours. */
+.list {
+  margin: 0;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+.row dt {
+  display: flex;
+  gap: 4px;
+  min-width: 84px;
+}
+.row dd {
+  margin: 0;
+}
+.kbd {
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: calc(var(--r-row) / 2);
+  color: var(--mute);
+  font: 500 var(--fs-xs) ui-monospace, monospace;
+}

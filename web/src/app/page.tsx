@@ -1,4 +1,5 @@
-// The Brief tab: the Swipe Brief built from the latest Edition, for the signed-in Reader.
+// The Brief tab: the Brief built from the latest Edition, for the signed-in Reader,
+// in their Layout for this screen (Swipe, Front Page or List).
 import { redirect } from "next/navigation";
 import { getAppContext } from "@/server/app";
 import { composeBrief } from "@/server/brief/compose";
@@ -6,9 +7,9 @@ import { requireReaderPage } from "@/server/readers/page-session";
 import { isOnboarded } from "@/server/readers/profile";
 import { followedTopicIds } from "@/server/topics/catalog";
 import { withWidgets } from "@/server/widgets";
+import { BriefLayouts } from "./_components/brief-layouts";
 import { T } from "./_components/language";
 import { Placeholder } from "./_components/placeholder";
-import { SwipeBrief } from "./_components/swipe-brief";
 
 export const dynamic = "force-dynamic";
 
@@ -39,5 +40,5 @@ export default async function BriefPage() {
       </Placeholder>
     );
   }
-  return <SwipeBrief brief={brief} basePath={ctx.config.basePath} />;
+  return <BriefLayouts brief={brief} basePath={ctx.config.basePath} />;
 }

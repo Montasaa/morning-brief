@@ -1,0 +1,39 @@
+/* The Layout switch on the Brief (rework ticket 09): three quiet icon buttons,
+   the chosen one outlined in the accent. On the Brief canvas. */
+.switch {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+}
+.option {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-pill);
+  color: var(--mute);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.option:hover {
+  color: var(--fg);
+}
+.option:has(:checked) {
+  color: var(--fg);
+  box-shadow: inset 0 0 0 1.5px var(--acc);
+}
+.option:has(:focus-visible) {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+/* The radio itself: invisible, but still there for the keyboard and assistive tech. */
+.input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}

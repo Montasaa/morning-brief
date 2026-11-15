@@ -53,6 +53,14 @@
   color: var(--mute);
   font-size: var(--fs-base);
 }
+.tools {
+  position: relative;
+  z-index: 4; /* above the tap thirds, like the links and buttons */
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .lang {
   min-width: var(--tap);
   min-height: var(--tap);

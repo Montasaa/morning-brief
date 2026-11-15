@@ -166,3 +166,24 @@ async function move(page: Page, name: RegExp, position: { x: number; y: number }
   await third.tap({ position });
   await expect.poll(() => slides.evaluate((f) => f.scrollTop / f.clientHeight)).toBeCloseTo(from + step, 2);
 }
+
+/**
+ * Front Page and List (rework ticket 09). The page scrolls in one column; each
+ * group is a region named by its heading ("For you", then each Topic), and
+ * each Item is an article whose headline is the button that opens it in the
+ * reader pane.
+ */
+export const frontPage = {
+  /** A group: "For you" or a Topic's name. */
+  group: (page: Page, name: string | RegExp) => page.getByRole("region", { name, exact: true }),
+  /** The button that opens an Item in the reader pane, by its headline. */
+  open: (page: Page, title: string) => page.getByRole("button", { name: title, exact: true }),
+  /** The reader pane. */
+  pane: (page: Page) => page.getByRole("complementary", { name: /^(Reader|القارئ)$/ }),
+  /** The headline of the Item open in the pane. */
+  paneHeadline: (page: Page) => frontPage.pane(page).getByRole("article").getByRole("heading", { level: 2 }),
+  /** The sidebar (tablet landscape, PC and wide). */
+  sidebar: (page: Page) => page.getByRole("navigation", { name: /^(Sidebar|الشريط الجانبي)$/ }),
+  /** The Layout switch on the Brief. */
+  layouts: (page: Page) => page.getByRole("radiogroup", { name: /^(Layout|طريقة العرض)$/ }),
+};
