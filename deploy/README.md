@@ -34,6 +34,17 @@ curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:8769/brief/api/brief  
 
 Migrations run when the app starts. After changing `.env`, run `docker compose up -d` again.
 
+## Signing in without email
+
+While Resend is not connected (or for any active Reader, any time), make a single-use sign-in link on the server:
+
+```sh
+docker exec morning-brief node scripts/sign-in-link.mjs                 # the Owner, works 15 minutes
+docker exec morning-brief node scripts/sign-in-link.mjs you@x.com 60    # an active Reader, 60 minutes
+```
+
+Open the printed link on the device you want signed in. The session lasts a year. Only people who can run commands on the server can make one, so the site stays private.
+
 ## Feeding Editions during the side-by-side week
 
 The old daily pipeline still writes the v2 `brief.json` to `main`. `import-legacy.sh` runs from cron every 15 minutes. It fetches that file and, if it changed, posts it to `POST /brief/api/editions/legacy`. Re-importing a file changes nothing. A rejected file shows up in the Owner console. The log is `backups/import.log`.

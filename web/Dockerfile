@@ -26,7 +26,7 @@ COPY --from=build --chown=node:node /repo/web/.next/static ./.next/static
 COPY --from=build --chown=node:node /repo/web/public ./public
 # Migrations are read from <cwd>/migrations at start-up.
 COPY --from=build --chown=node:node /repo/web/migrations ./migrations
-COPY --chown=node:node web/scripts/backup-db.mjs ./scripts/backup-db.mjs
+COPY --chown=node:node web/scripts/backup-db.mjs web/scripts/sign-in-link.mjs ./scripts/
 RUN mkdir -p /data /backups && chown node:node /data /backups
 USER node
 EXPOSE 3000
