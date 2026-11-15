@@ -45,6 +45,8 @@ export interface FakeOutsideServices extends OutsideServices {
     sent: { subscription: PushSubscription; message: PushMessage }[];
     /** Endpoints the fake reports as expired. */
     gone: Set<string>;
+    /** Endpoints the fake fails for (a push service error). */
+    failing: Set<string>;
   };
 }
 
@@ -98,6 +100,10 @@ const FAKE_PLACES: Place[] = [
   { city: "New York", country: "United States", latitude: 40.7143, longitude: -74.006, timezone: "America/New_York" },
 ];
 
+/** The fake push service's VAPID public key (no private key exists for it). */
+export const FAKE_VAPID_PUBLIC_KEY =
+  "BEl62iUYgUivxIkv69yViEuiBIa-Ib9-SkvMeAtA3LFgDzkrxZJjSgSnfckjBJuBkr3qBUYIHBQFLXYp5Nksh8U";
+
 export function fakeOutsideServices(options: FakeOptions = {}): FakeOutsideServices {
   const claudeCalls: ClaudeRequest[] = [];
   const replies: FakeOutsideServices["claude"]["replies"] = new Map();
@@ -107,6 +113,7 @@ export function fakeOutsideServices(options: FakeOptions = {}): FakeOutsideServi
   const prayerCalls: { place: Place; date: string }[] = [];
   const sent: FakeOutsideServices["push"]["sent"] = [];
   const gone = new Set<string>();
+  const failingPush = new Set<string>();
 
   const placeCalls: string[] = [];
   const places = new Map<string, Place>(
@@ -169,9 +176,13 @@ export function fakeOutsideServices(options: FakeOptions = {}): FakeOutsideServi
     weather,
     prayerTimes,
     push: {
+      // A real P-256 public key, so a browser could subscribe with it; nothing ever reaches a push service.
+      publicKey: FAKE_VAPID_PUBLIC_KEY,
       sent,
       gone,
+      failing: failingPush,
       async send(subscription, message) {
+        if (failingPush.has(subscription.endpoint)) throw new Error("Fake push service failure");
         if (gone.has(subscription.endpoint)) return "gone";
         sent.push({ subscription, message });
         return "sent";

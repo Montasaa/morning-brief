@@ -2,7 +2,8 @@
 // follow) plus their language and city, and whether they have finished
 // onboarding. GET/PATCH /api/me. Sensitive Topic opt-ins (ticket 08) are the
 // Sensitive Topics among `topics`, opted into only through
-// POST /api/topics/{id}/follow; ticket 18 adds notification preferences here.
+// POST /api/topics/{id}/follow. Notification preferences (ticket 18) are the
+// two kinds of push, each off until the Reader turns it on.
 //
 // Onboarding is finished by a PATCH with `onboarded: true`, which needs at
 // least one followed Topic. Until then the Reader's Brief is empty and the
@@ -25,7 +26,19 @@ export interface InterestProfile {
   topics: string[];
   /** When they last confirmed they are 18 or over, opting into Adult Trending (ISO 8601). Null if never. */
   age_confirmed_at: string | null;
+  /** Which pushes they opted into (ticket 18). Each also needs a subscribed device. */
+  notifications: NotificationPreferences;
 }
+
+export interface NotificationPreferences {
+  /** "Your Brief is ready" after each Edition, naming their top story. */
+  brief_ready: boolean;
+  /** A new development on a Story Thread they follow. */
+  thread_updates: boolean;
+}
+
+const NOTIFICATION_KINDS = ["brief_ready", "thread_updates"] as const;
+const NOTIFICATION_COLUMNS = { brief_ready: "push_brief_ready", thread_updates: "push_thread_updates" } as const;
 
 export const CITY_MAX_LENGTH = 80;
 
@@ -33,11 +46,15 @@ interface ProfileRow {
   language: ProfileLanguage | null;
   city: string | null;
   onboarded_at_ms: number | null;
+  push_brief_ready: number;
+  push_thread_updates: number;
 }
 
 export function getProfile(ctx: AppContext, reader: Reader): InterestProfile {
   const row = ctx.db
-    .prepare("SELECT language, city, onboarded_at_ms FROM interest_profiles WHERE reader_id = ?")
+    .prepare(
+      "SELECT language, city, onboarded_at_ms, push_brief_ready, push_thread_updates FROM interest_profiles WHERE reader_id = ?",
+    )
     .get(reader.id) as ProfileRow | undefined;
   return {
     reader: { id: reader.id, email: reader.email, role: reader.role },
@@ -46,6 +63,7 @@ export function getProfile(ctx: AppContext, reader: Reader): InterestProfile {
     city: row?.city ?? null,
     topics: followedTopicIds(ctx, reader.id),
     age_confirmed_at: lastAgeConfirmation(ctx, reader.id),
+    notifications: { brief_ready: row?.push_brief_ready === 1, thread_updates: row?.push_thread_updates === 1 },
   };
 }
 
@@ -59,12 +77,13 @@ export function isOnboarded(ctx: AppContext, readerId: number): boolean {
 
 export type ProfileUpdate = { ok: true; profile: InterestProfile } | { ok: false; error: string; reasons: string[] };
 
-const FIELDS = new Set(["topics", "language", "city", "onboarded"]);
+const FIELDS = new Set(["topics", "language", "city", "onboarded", "notifications"]);
 
 /**
  * PATCH /api/me. Each field is optional: `topics` replaces the followed Topics
  * (Catalog ids), `language` is "en" or "ar", `city` a name (null clears it),
- * and `onboarded: true` finishes onboarding. All or nothing: any bad field and
+ * `onboarded: true` finishes onboarding, and `notifications` turns either kind
+ * of push on or off ({brief_ready?, thread_updates?}). All or nothing: any bad field and
  * nothing changes.
  */
 export function updateProfile(ctx: AppContext, reader: Reader, patch: unknown): ProfileUpdate {
@@ -110,6 +129,20 @@ export function updateProfile(ctx: AppContext, reader: Reader, patch: unknown): 
     }
   }
 
+  const notifications: Partial<NotificationPreferences> = {};
+  if ("notifications" in body) {
+    const n = body.notifications;
+    if (typeof n !== "object" || n === null || Array.isArray(n)) {
+      reasons.push('notifications must be an object such as {"brief_ready": true}.');
+    } else {
+      for (const [key, value] of Object.entries(n)) {
+        if (!(NOTIFICATION_KINDS as readonly string[]).includes(key)) reasons.push(`Unknown notification "${key}".`);
+        else if (typeof value !== "boolean") reasons.push(`notifications.${key} must be true or false.`);
+        else notifications[key as keyof NotificationPreferences] = value;
+      }
+    }
+  }
+
   let finish = false;
   if ("onboarded" in body) {
     if (body.onboarded === true) finish = true;
@@ -130,6 +163,11 @@ export function updateProfile(ctx: AppContext, reader: Reader, patch: unknown): 
     if (language !== undefined) db.prepare("UPDATE interest_profiles SET language = ? WHERE reader_id = ?").run(language, reader.id);
     if (city !== undefined) db.prepare("UPDATE interest_profiles SET city = ? WHERE reader_id = ?").run(city, reader.id);
     if (topics !== undefined) setFollowedTopics(ctx, reader.id, topics);
+    for (const kind of NOTIFICATION_KINDS) {
+      const on = notifications[kind];
+      if (on === undefined) continue;
+      db.prepare(`UPDATE interest_profiles SET ${NOTIFICATION_COLUMNS[kind]} = ? WHERE reader_id = ?`).run(on ? 1 : 0, reader.id);
+    }
     if (finish) {
       db.prepare(
         "UPDATE interest_profiles SET onboarded_at_ms = COALESCE(onboarded_at_ms, ?) WHERE reader_id = ?",

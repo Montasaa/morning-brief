@@ -7,6 +7,7 @@ import { getAppContext } from "@/server/app";
 import { pickTopStories } from "@/server/brief/top-picker";
 import { importLegacyBrief, previewLegacyBrief } from "@/server/legacy/import";
 import { recordIngestRejection } from "@/server/owner/health";
+import { sendEditionPushes } from "@/server/push/edition-pushes";
 import { hasPipelineToken } from "@/server/pipeline-auth";
 
 export const dynamic = "force-dynamic";
@@ -34,5 +35,7 @@ export async function POST(req: Request): Promise<Response> {
   }
   // Like any ingest, then every Reader's top stories (ticket 13).
   if (!dryRun && result.accepted && "edition_id" in result) await pickTopStories(ctx, result.edition_id);
+  // And its pushes (ticket 18).
+  if (!dryRun && result.accepted && "edition_id" in result) await sendEditionPushes(ctx, result.edition_id);
   return Response.json(result, { status: result.accepted ? 200 : 422 });
 }

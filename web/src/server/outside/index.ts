@@ -12,6 +12,7 @@ import { aladhanPrayerTimesService } from "./aladhan";
 import { claudeService } from "./claude";
 import { openMeteoWeatherService } from "./open-meteo";
 import { resendEmailService } from "./resend";
+import { webPushService } from "./web-push";
 
 // --- Claude --------------------------------------------------------------------
 
@@ -105,9 +106,17 @@ export interface PushMessage {
   body: string;
   /** Path inside the app to open on tap. */
   url?: string;
+  /** A newer push with the same tag replaces the older one on the device. */
+  tag?: string;
+  /** Text direction of title and body ("rtl" for Arabic). */
+  dir?: "ltr" | "rtl";
+  /** BCP 47 language of title and body. */
+  lang?: string;
 }
 
 export interface PushService {
+  /** The VAPID public key (base64url) browsers subscribe with; null when push is not connected. */
+  publicKey: string | null;
   /** Returns "gone" when the subscription has expired and should be deleted. */
   send(subscription: PushSubscription, message: PushMessage): Promise<"sent" | "gone">;
 }
@@ -151,6 +160,10 @@ export function realOutsideServices(env: Record<string, string | undefined> = pr
     // Open-Meteo and Aladhan (ticket 17): free, no key.
     weather: openMeteoWeatherService(),
     prayerTimes: aladhanPrayerTimesService(),
-    push: { send: notConnected("Web Push") },
+    // Web Push (ticket 18): VAPID_PUBLIC_KEY + VAPID_PRIVATE_KEY + VAPID_SUBJECT.
+    push:
+      env.VAPID_PUBLIC_KEY && env.VAPID_PRIVATE_KEY && env.VAPID_SUBJECT
+        ? webPushService({ publicKey: env.VAPID_PUBLIC_KEY, privateKey: env.VAPID_PRIVATE_KEY, subject: env.VAPID_SUBJECT })
+        : { publicKey: null, send: notConnected("Web Push") },
   };
 }

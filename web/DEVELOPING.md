@@ -50,6 +50,7 @@ All configuration comes from environment variables. `.env.example` lists them. S
 - `OWNER_EMAIL`: the Owner, created at setup (when the database opens and no Owner exists yet). Never through an Invite.
 - `PUBLIC_ORIGIN`: the origin magic links point at (e.g. `https://example.com`). Set it in production; without it, links use the request's Host header. An `https` origin makes the session cookie `Secure`.
 - `RESEND_API_KEY` and `EMAIL_FROM`: the Resend adapter (sign-in and Invite emails). Unset means email is not connected.
+- `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY` and `VAPID_SUBJECT`: Web Push (ticket 18). `.env.example` has the one-liner that makes a key pair.
 
 ## Access: who may call what
 
@@ -77,6 +78,7 @@ Claude, Resend (email), Open-Meteo (weather), Aladhan (prayer times) and Web Pus
 - The real adapters are not connected yet and throw `OutsideServiceNotConnected`. The ticket that first needs a service writes its real adapter in `src/server/outside/`, reading its secret from the environment, and may extend that service's interface additively, updating the fake in the same change.
 - Open-Meteo (weather, and `weather.findPlace` to look up a Reader's city) and Aladhan (prayer times) are connected (ticket 17, `open-meteo.ts`, `aladhan.ts`); both are free and keyless. Their fakes know a few cities (Riyadh, Jeddah, London, Liverpool, Sanaa, New York; add more to `app.services.weather.places`) and have a `failing` switch.
 - Resend is connected (ticket 06, `src/server/outside/resend.ts`). Real adapters take an injected `fetch` so `test/platform/` can check the requests they make without the network.
+- Web Push is connected (ticket 18, `src/server/outside/web-push.ts`): RFC 8291 encryption and RFC 8292 VAPID signing with `node:crypto`, no library. `services.push.publicKey` is the key browsers subscribe with (null when not connected). The fake records `push.sent`, and its `gone` and `failing` sets of endpoints make the push service report a device expired or fail.
 - Claude is connected (ticket 16, `src/server/outside/claude.ts`, `ANTHROPIC_API_KEY`): the official `@anthropic-ai/sdk` on Claude Opus 5.5 with adaptive thinking and server-side refusal fallbacks. `webSearch: true` turns on web search and web fetch, and the reply's `citations` are the cited search results plus the pages Claude fetched. Later Claude features call `services.claude.complete` with their own `purpose`; they do not need a second adapter.
 - Tests make no real network calls. `test/support/setup.ts` replaces `fetch` with one that fails the test.
 
@@ -240,3 +242,13 @@ Ticket 15. `src/server/saved-search/` lists Items to one Reader from every Editi
 - Each Item carries its date (`time`), the `topic` it is shown under (the first Topic the Reader follows, else its first Catalog Topic), its `thread` (`{id, title, title_ar}` or null), `blurred`, and the Reader's own `reactions: {like, save}`.
 - Listing rules live in `listableItemSql` (`listing.ts`): the sensitive opt-in rule, and at least one Topic in the Catalog as the Reader sees it (ticket 11: another Reader's private Topic does not count, and is stripped from the Item's `topics`).
 - Search is SQLite FTS5 (`migrations/t15_search.sql`). Triggers on `items` only note which Items changed; `searchItems` folds the text (Arabic hamza forms, vowel marks, tatweel, ى/ة and a leading article; see `searchWords`) and indexes them before each search. So ingest needs no change, and the same folding is applied to queries.
+
+## Installable app and push
+
+Ticket 18. The Brief installs to the home screen and sends two opt-in pushes.
+
+- **Installable.** `src/app/manifest.ts` (served at `<base path>/manifest.webmanifest`) and the service worker `public/sw.js` are scoped to the base path itself (`/brief`, not `/brief/`, since that is the Brief's URL); `next.config.ts` serves `sw.js` with `Service-Worker-Allowed` for that. The root layout registers it on every page (`_components/service-worker.tsx`). It shows pushes and opens the app on tap; it does not cache or intercept requests. Icons are drawn by `node scripts/make-icons.mjs` into `public/icons/` and `src/app/{icon,apple-icon}.png`; links to them carry the base path.
+- **Devices.** `GET /api/push/subscriptions` → `{public_key, subscriptions: [{endpoint, created_at}]}`; `POST` a browser `PushSubscription` (`{endpoint, keys: {p256dh, auth}}`) → `201`, `422` for anything else; `DELETE {endpoint}` → `{removed}`. A subscription belongs to the session that made it: signing out of (or revoking) a device stops its pushes. Subscribing an endpoint again moves it to whoever is signed in there now.
+- **Preferences** are in the Interest Profile: `GET /api/me` has `notifications: {brief_ready, thread_updates}`, both `false` until turned on with `PATCH /api/me {notifications: {...}}`. The Me tab's "Notifications" section holds the switches, the device's on/off button and the install prompt.
+- **Sending** (`src/server/push/edition-pushes.ts`): the ingest routes call `sendEditionPushes` after top picking, before they answer, and only for the latest Edition. "Brief ready" goes once per Reader and Edition to opted-in Readers whose Brief has Items, naming their top story (a sensitive one only as "has a content warning"), in their language. An Item linked to a Thread for the first time (`thread_developments`) pushes to that Thread's opted-in followers who may see it under the Brief's rules, one push per Reader and Thread. A device the push service reports gone is forgotten; a failing one never fails the ingest.
+- In tests, subscribe a made-up device (`POST /api/push/subscriptions` with any `https` endpoint and base64url keys), opt in, post an Edition, then read `app.services.push.sent`. The browser smoke test never subscribes (that would reach a real push service); headless Chromium reports notifications as blocked.

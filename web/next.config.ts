@@ -22,6 +22,20 @@ const nextConfig: NextConfig = {
   // its writes under web/.next were seen as changes, and the dev server kept
   // reloading the page (the Brief jumped back to the cover mid-e2e-test).
   experimental: { turbopackFileSystemCacheForDev: false },
+  // The service worker (ticket 18) controls the whole base path ("/brief", the
+  // Brief itself), which is wider than its folder ("/brief/"), so it must say so.
+  // Never cached, so a new worker reaches Readers straight away.
+  async headers() {
+    return [
+      {
+        source: "/sw.js",
+        headers: [
+          { key: "Service-Worker-Allowed", value: basePathFrom(process.env) || "/" },
+          { key: "Cache-Control", value: "no-cache" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
