@@ -28,8 +28,9 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Brief, BriefItem } from "@/server/brief/compose";
 import { timeSince } from "./format";
-import { localized, type Lang } from "./i18n";
+import { localized, topicName } from "./i18n";
 import { Icon } from "./icons";
+import { ItemImage } from "./item-image";
 import { useLanguage } from "./language";
 import { Rail, type ReactionsState } from "./reactions";
 import { ThreadChip } from "./thread-follow";
@@ -44,11 +45,6 @@ export type PictureKind = "photo" | "card" | "none";
 export function pictureKind(item: Pick<BriefItem, "image"> & { image_kind?: PictureKind | null }): PictureKind {
   if (!item.image) return "none";
   return item.image_kind ?? "photo";
-}
-
-/** A Topic's name in the Reader's language. */
-export function topicName(brief: Pick<Brief, "topic_names" | "topic_names_ar">, id: string, lang: Lang): string {
-  return (lang === "ar" ? brief.topic_names_ar[id] : undefined) ?? brief.topic_names[id] ?? id;
 }
 
 /** Two taps on the picture within this many ms are a double-tap. */
@@ -130,8 +126,7 @@ export function ReelsCard({
       <div className={s.frame}>
         <div className={s.picture} inert={locked} onClick={onPictureTap}>
           {kind === "photo" ? (
-            // External, already link-checked images from the Edition; next/image would need every host allow-listed.
-            <img className={s.photo} src={item.image!} alt="" loading="lazy" decoding="async" onError={() => setBroken(true)} />
+            <ItemImage className={s.photo} src={item.image!} onFail={() => setBroken(true)} />
           ) : (
             <div className={s.plain} />
           )}
@@ -153,7 +148,7 @@ export function ReelsCard({
         >
           {kind === "card" && (
             <div className={s.badge}>
-              <img src={item.image!} alt="" loading="lazy" decoding="async" onError={() => setBroken(true)} />
+              <ItemImage src={item.image!} onFail={() => setBroken(true)} />
             </div>
           )}
           {why && (

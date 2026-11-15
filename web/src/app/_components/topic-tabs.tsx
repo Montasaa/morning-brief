@@ -7,6 +7,7 @@
 // ticket 09's Front Page follows its scrolling (a scroll spy). In Arabic the
 // strip runs right to left with the page, indicator included.
 import { useLayoutEffect, useRef, useState } from "react";
+import { prefersReducedMotion } from "./client-time";
 import { useLanguage } from "./language";
 import s from "./topic-tabs.module.css";
 
@@ -43,7 +44,7 @@ export function TopicTabs({
     if (el && on) {
       const a = on.getBoundingClientRect();
       const b = el.getBoundingClientRect();
-      el.scrollBy({ left: a.left + a.width / 2 - (b.left + b.width / 2), behavior: reducedMotion() ? "auto" : "smooth" });
+      el.scrollBy({ left: a.left + a.width / 2 - (b.left + b.width / 2), behavior: prefersReducedMotion() ? "auto" : "smooth" });
     }
     // Fonts and the text size change the tabs' widths.
     const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(measure);
@@ -69,8 +70,4 @@ export function TopicTabs({
       </div>
     </nav>
   );
-}
-
-function reducedMotion(): boolean {
-  return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
 }

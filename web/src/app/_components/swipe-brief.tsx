@@ -23,12 +23,14 @@ import type { Brief, BriefItem } from "@/server/brief/compose";
 import { AskSheet } from "./ask-sheet";
 import { CaughtUp, Cover } from "./cover";
 import { WidgetRows } from "./cover-widgets";
+import { prefersReducedMotion, useNow } from "./client-time";
 import { timeSince } from "./format";
-import { localized } from "./i18n";
+import { localized, topicName } from "./i18n";
+import { ItemImage } from "./item-image";
 import { useLanguage } from "./language";
 import { UndoToast, useReactions } from "./reactions";
 import { ReadSheet } from "./read-sheet";
-import { pictureKind, ReelsCard, topicName } from "./reels-card";
+import { pictureKind, ReelsCard } from "./reels-card";
 import { sheetOpen } from "./sheet";
 import { TopicTabs } from "./topic-tabs";
 import s from "./swipe-brief.module.css";
@@ -44,7 +46,7 @@ export function SwipeBrief({ brief: initial, basePath }: { brief: Brief; basePat
   const items = brief.items;
   // Slides: 0 is the Cover, 1..n the Items, n + 1 "You're caught up".
   const last = items.length + 1;
-  const { feed, active, go, step } = useSnapFeed(last);
+  const { slides, active, go, step } = useSnapSlides(last);
   const current = active >= 1 && active <= items.length ? items[active - 1]! : null;
 
   // Sheets hold an Item id, so they show its latest Reactions.
@@ -134,7 +136,7 @@ export function SwipeBrief({ brief: initial, basePath }: { brief: Brief; basePat
     <div className={`${s.brief} brief-canvas`}>
       <div className={s.main}>
         <TopicTabs className={s.tabs} tabs={tabs} current={currentTab} onPick={jumpTo} />
-        <div ref={feed} className={s.feed} data-testid="swipe-feed">
+        <div ref={slides} className={s.slides} data-testid="swipe-slides">
           <div {...slide(0)}>
             <div className={s.frame}>
               <Cover brief={brief} />
@@ -226,10 +228,7 @@ function UpNext({
           <li key={item.id}>
             <button type="button" className={s.upRow} data-dimmed={item.dimmed} onClick={() => onJump(from + i)}>
               <span className={s.thumb}>
-                {pictureKind(item) === "photo" && !item.blurred && (
-                  // A thumbnail that fails to load leaves the plain square.
-                  <img src={item.image!} alt="" loading="lazy" onError={(e) => e.currentTarget.remove()} />
-                )}
+                {pictureKind(item) === "photo" && !item.blurred && <Thumb src={item.image!} />}
               </span>
               <span className={s.upText}>
                 <small>
@@ -250,21 +249,27 @@ function UpNext({
   );
 }
 
+/** An Up next thumbnail; one that fails leaves the plain square. */
+function Thumb({ src }: { src: string }) {
+  const [broken, setBroken] = useState(false);
+  return broken ? null : <ItemImage src={src} onFail={() => setBroken(true)} />;
+}
+
 /**
- * A vertical scroll-snap feed of full-height slides. `active` is the slide
+ * A vertical scroll-snap column of full-height slides. `active` is the slide
  * on screen (it changes as a drag passes half way). `go(i)` scrolls to slide
- * `i`; `step(1)` / `step(-1)` move one slide from where the feed is heading,
+ * `i`; `step(1)` / `step(-1)` move one slide from where the column is heading,
  * so quick taps each move one slide even before the last move has landed.
  */
-function useSnapFeed(last: number) {
-  const feed = useRef<HTMLDivElement>(null);
+function useSnapSlides(last: number) {
+  const slides = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const target = useRef<number | null>(null);
 
   useEffect(() => {
-    const el = feed.current!;
+    const el = slides.current!;
     const onScroll = () => {
-      const i = Math.max(0, Math.min(last, Math.round(el.scrollTop / el.clientHeight)));
+      const i = Math.max(0, Math.min(last, slideAt(el)));
       setActive(i);
       if (target.current !== null && Math.abs(el.scrollTop - target.current * el.clientHeight) < 2) target.current = null;
     };
@@ -285,42 +290,32 @@ function useSnapFeed(last: number) {
 
   const go = useCallback(
     (to: number) => {
-      const el = feed.current;
+      const el = slides.current;
       if (!el) return;
       const i = Math.max(0, Math.min(last, to));
       target.current = i;
-      const instant = reducedMotion() || Math.abs(i - Math.round(el.scrollTop / el.clientHeight)) > 1;
+      const instant = prefersReducedMotion() || Math.abs(i - slideAt(el)) > 1;
       el.scrollTo({ top: i * el.clientHeight, behavior: instant ? "auto" : "smooth" });
     },
     [last],
   );
-  // From where the feed is heading, or else where it is (React's `active` may not have caught up yet).
+  // From where the slides are heading, or else where they are (React's `active` may not have caught up yet).
   const step = useCallback(
     (by: 1 | -1) => {
-      const el = feed.current;
-      if (el) go((target.current ?? Math.round(el.scrollTop / el.clientHeight)) + by);
+      const el = slides.current;
+      if (el) go((target.current ?? slideAt(el)) + by);
     },
     [go],
   );
 
-  return { feed, active, go, step };
+  return { slides, active, go, step };
+}
+
+/** The slide nearest the top of the scrolling column. */
+function slideAt(el: HTMLElement): number {
+  return Math.round(el.scrollTop / el.clientHeight);
 }
 
 function isTyping(target: EventTarget | null): boolean {
   return target instanceof Element && target.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"])') !== null;
-}
-
-function reducedMotion(): boolean {
-  return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
-}
-
-/** The current time, known only after the page has loaded (so server and browser render the same HTML). */
-function useNow(): number | null {
-  const [now, setNow] = useState<number | null>(null);
-  useEffect(() => {
-    setNow(Date.now());
-    const timer = setInterval(() => setNow(Date.now()), 60_000);
-    return () => clearInterval(timer);
-  }, []);
-  return now;
 }

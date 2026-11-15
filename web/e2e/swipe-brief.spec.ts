@@ -218,8 +218,11 @@ test("pictures: a photo fills the frame, and no picture or one that fails to loa
 
   await swipe.next(page);
   await expect(swipe.card(page)).toHaveAttribute("data-picture", "photo");
+  // The AI Item's picture fails as the page loads, before the app is running.
+  await swipe.next(page);
+  await expect(swipe.card(page)).toHaveAttribute("data-picture", "none");
   // US Markets has no image.
-  for (let i = 0; i < 3; i++) await swipe.next(page);
+  for (let i = 0; i < 2; i++) await swipe.next(page);
   await expectAt(page, 3);
   await expect(swipe.card(page)).toHaveAttribute("data-picture", "none");
   // The game's image fails to load.

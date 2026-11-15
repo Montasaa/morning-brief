@@ -8,11 +8,12 @@ import { useState } from "react";
 import type { Brief, BriefItem } from "@/server/brief/compose";
 import { CardExtras } from "./card-extras";
 import { timeSince } from "./format";
-import { localized } from "./i18n";
+import { localized, topicName } from "./i18n";
 import { Icon } from "./icons";
+import { ItemImage } from "./item-image";
 import { useLanguage } from "./language";
 import type { ReactionsState } from "./reactions";
-import { pictureKind, topicName } from "./reels-card";
+import { pictureKind } from "./reels-card";
 import { Sheet } from "./sheet";
 import s from "./read-sheet.module.css";
 
@@ -43,8 +44,8 @@ export function ReadSheet({
   return (
     <Sheet label={title} onClose={onClose}>
       <article className={s.read}>
-        {kind === "photo" && <img className={s.photo} src={item.image!} alt="" onError={() => setBroken(true)} />}
-        {kind === "card" && <img className={s.badge} src={item.image!} alt="" onError={() => setBroken(true)} />}
+        {kind === "photo" && <ItemImage className={s.photo} src={item.image!} onFail={() => setBroken(true)} />}
+        {kind === "card" && <ItemImage className={s.badge} src={item.image!} onFail={() => setBroken(true)} />}
         <p className={s.meta}>
           <b>{name(item.topic)}</b>
           {now !== null && ` · ${timeSince(item.time, now, lang)}`}

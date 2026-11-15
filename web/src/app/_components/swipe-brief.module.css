@@ -23,8 +23,8 @@
   background: linear-gradient(rgb(0 0 0 / 45%), transparent);
 }
 
-/* ---- the feed: one slide per stop ---- */
-.feed {
+/* ---- the slides: one per stop ---- */
+.slides {
   position: absolute;
   inset: 0;
   overflow-y: auto;
@@ -32,7 +32,7 @@
   scroll-snap-type: y mandatory;
   scrollbar-width: none;
 }
-.feed::-webkit-scrollbar {
+.slides::-webkit-scrollbar {
   display: none;
 }
 .slide {
@@ -116,7 +116,7 @@
   width: 56px;
   height: 56px;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: var(--r-row);
   background: var(--surf2);
 }
 .thumb img {
@@ -160,15 +160,18 @@
     padding: 6px 0 0;
     background: none;
   }
-  .feed {
+  .slides {
     top: 52px;
   }
+  /* A centred 10:16 card, its width from its height. */
   .frame {
-    inset: 6px auto 22px 50%;
-    aspect-ratio: 10 / 16;
+    position: relative;
+    inset: auto;
+    height: calc(100% - 28px);
     max-width: calc(100% - 40px);
-    border-radius: 20px;
-    transform: translateX(-50%);
+    aspect-ratio: 10 / 16;
+    margin: 6px auto 0;
+    border-radius: var(--r-card);
   }
   .third {
     cursor: pointer;

@@ -118,7 +118,7 @@ export const swipe = {
   /**
    * A finger drag up the screen by `distance` px (down when negative), made of
    * real touch events through the browser's gesture handling, then lifted.
-   * Starts once the feed is still, and resolves once it rests again.
+   * Starts once the slides are still, and resolves once they rest again.
    */
   async drag(page: Page, distance: number, { steps, pause }: { steps: number; pause: number }) {
     await still(page);
@@ -140,13 +140,13 @@ export const swipe = {
   },
 };
 
-/** Wait until the feed rests on a slide: the same whole-slide offset twice in a row, 100ms apart. */
+/** Wait until the slides rest on one slide: the same whole-slide offset twice in a row, 100ms apart. */
 async function still(page: Page) {
-  const feed = page.getByTestId("swipe-feed");
+  const slides = page.getByTestId("swipe-slides");
   let last = -1;
   await expect
     .poll(async () => {
-      const at = await feed.evaluate((f) => f.scrollTop / f.clientHeight);
+      const at = await slides.evaluate((f) => f.scrollTop / f.clientHeight);
       const resting = Math.abs(at - Math.round(at)) < 0.01 && at === last;
       last = at;
       return resting;
@@ -154,15 +154,15 @@ async function still(page: Page) {
     .toBe(true);
 }
 
-/** Tap a third of the picture and wait until the feed rests one slide further (`step` 1) or back (-1). */
+/** Tap a third of the picture and wait until the slides rest one slide further (`step` 1) or back (-1). */
 async function move(page: Page, name: RegExp, position: { x: number; y: number }, step: 1 | -1) {
-  const feed = page.getByTestId("swipe-feed");
-  const from = await feed.evaluate((f) => Math.round(f.scrollTop / f.clientHeight));
+  const slides = page.getByTestId("swipe-slides");
+  const from = await slides.evaluate((f) => Math.round(f.scrollTop / f.clientHeight));
   const third = page.getByRole("button", { name });
   // Near the start side, clear of the text and of the rail at the end side (the left in Arabic).
   if (await page.evaluate(() => document.documentElement.dir === "rtl")) {
     position = { ...position, x: (await third.boundingBox())!.width - position.x };
   }
   await third.tap({ position });
-  await expect.poll(() => feed.evaluate((f) => f.scrollTop / f.clientHeight)).toBeCloseTo(from + step, 2);
+  await expect.poll(() => slides.evaluate((f) => f.scrollTop / f.clientHeight)).toBeCloseTo(from + step, 2);
 }

@@ -15,6 +15,7 @@
 //   the Swipe Brief leaves the keys alone (see `sheetOpen`).
 import { useCallback, useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 import { createPortal } from "react-dom";
+import { prefersReducedMotion } from "./client-time";
 import { Icon } from "./icons";
 import { useLanguage } from "./language";
 import s from "./sheet.module.css";
@@ -123,8 +124,4 @@ export function Sheet({
 /** Whether a sheet is open: keyboard shortcuts behind it should do nothing. */
 export function sheetOpen(): boolean {
   return document.querySelector('[role="dialog"][aria-modal="true"]') !== null;
-}
-
-function prefersReducedMotion(): boolean {
-  return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
 }

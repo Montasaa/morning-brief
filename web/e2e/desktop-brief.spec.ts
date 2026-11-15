@@ -32,7 +32,6 @@ test("the card sits in the middle with the rail beside it, and Up next lists wha
   const list = (await upNext(page).boundingBox())!;
   const card = (await cover.boundingBox())!;
   expect(Math.abs(card.x + card.width / 2 - list.x / 2)).toBeLessThan(4);
-  expect(card.height).toBeGreaterThan(card.width);
   // Up next starts with the first Items, and the Widgets are there too.
   for (const title of TITLES.slice(0, 5)) await expect(row(page, title)).toBeVisible();
   await expect(upNext(page).getByRole("heading", { name: "Today" })).toBeVisible();

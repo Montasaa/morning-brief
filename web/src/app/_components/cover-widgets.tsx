@@ -9,9 +9,10 @@
 // first render matches the server's HTML. Ticket 09 reuses <WidgetRows> for the
 // Cover header and the wide Widgets column.
 import Link from "next/link";
-import { useEffect, useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import type { BriefWidget } from "@/server/brief/compose";
 import type { CountdownWidget, NextMatchWidget, Prayer, PrayerTimesWidget, WeatherWidget } from "@/server/widgets";
+import { useNow } from "./client-time";
 import { formatNumber, localeOf, type Lang } from "./i18n";
 import { Icon, type IconName } from "./icons";
 import { useLanguage } from "./language";
@@ -26,8 +27,8 @@ const PRAYER_NAMES: Record<Prayer | "sunrise", { en: string; ar: string }> = {
   isha: { en: "Isha", ar: "العشاء" },
 };
 
-/** How many rows fit on a phone's Cover; the soonest countdowns win (the server orders them). */
-const MAX_SHOWN = 5;
+/** At most six rows; the soonest countdowns win (the server orders them). */
+const MAX_SHOWN = 6;
 
 export function WidgetRows({ widgets: all, className }: { widgets: BriefWidget[]; className?: string }) {
   const { t } = useLanguage();
@@ -207,15 +208,4 @@ function weatherCondition(code: number): { en: string; ar: string } {
   if (code === 85 || code === 86) return { en: "Snow showers", ar: "زخات ثلج" };
   if (code >= 95) return { en: "Thunderstorms", ar: "عواصف رعدية" };
   return { en: "Weather", ar: "الطقس" };
-}
-
-/** The current time, known only after the page has loaded (so server and browser render the same HTML). */
-function useNow(): number | null {
-  const [now, setNow] = useState<number | null>(null);
-  useEffect(() => {
-    setNow(Date.now());
-    const timer = setInterval(() => setNow(Date.now()), 60_000);
-    return () => clearInterval(timer);
-  }, []);
-  return now;
 }

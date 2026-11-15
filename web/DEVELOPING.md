@@ -138,7 +138,7 @@ Every screen works in English and in Arabic, laid out right to left (ticket 04).
 - Write UI text in both languages: `const { lang, t } = useLanguage(); t("Save", "حفظ")` in client components, `<T en="Threads" ar="القصص المتواصلة" />` inside server components.
 - Show Edition text with `localized(item, "title", lang)` from `src/app/_components/i18n.ts`: the `_ar` field in Arabic, English when it is missing. Put `dir="auto"` on such text so an English fallback still reads left to right.
 - Dates, times and numbers go through `format.ts` / `formatNumber` (Arabic uses `ar-SA` on the Gregorian calendar, with Arabic-Indic digits).
-- Lay out with logical CSS (`inset-inline-start`, `margin-inline-end`, ...), not `left`/`right`, and do not letter-space Arabic text. Forward is the end side: the tap zone on the left in Arabic, so keyboard navigation should map ArrowLeft to forward when `dir` is `rtl`.
+- Lay out with logical CSS (`inset-inline-start`, `margin-inline-end`, ...), not `left`/`right`, and do not letter-space Arabic text. Mirror only what is horizontal: in Arabic the end side (the rail, a shelf's forward chevron) is on the left, so a sideways key or gesture that means "forward" maps to ArrowLeft when `dir` is `rtl`. The Swipe Brief moves vertically, so its keys and tap thirds do not change.
 
 ## The Edition v3 contract
 
@@ -192,7 +192,7 @@ All in `src/app/globals.css`. Components style themselves with its tokens, never
 - **Density** tokens (comfortable / compact): `--row-pad` 14 / 10px, `--gap` 12 / 8px, `--shelf-card-w` 196 / 168px, `--fp-row-thumb` 72 / 56px, `--list-row-thumb` 56 / 44px. `--page-pad` is 16px, 22px from 1280px wide.
 - **Motion**: everything is off under `prefers-reduced-motion` (a global rule); never hide content behind an animation's start state. `--ease` and `--spring` are the prototype's curves.
 - **Chrome screens** reuse `_components/chrome.module.css`: `.screen`, `.back`, `.sectionTitle`, `.rows` / `.row` (a plain hairline list with `.rowTitle` and `.rowSub`; `.rowsRuled` adds a top hairline) and `.status`, plus `<Chevron to="forward" | "back">` (`_components/chevron.tsx`), which mirrors in Arabic.
-- The Swipe Brief and its sheets are built on these tokens (ticket 08), so the accent and text size reach the Brief, and its sheets follow the theme. The canvas adds `--on-photo` / `--on-photo-mute` (text over pictures) and `--why` (the why-line: the accent, or a lighter `#ffd789` for amber); `--plate` is the white plate under a logo badge in every scope. Gradients and shades over pictures (the bottom shade, the Cover glow) keep their own `rgb()` values. The bottom tabs keep a fixed 11px label on purpose, so their height never changes.
+- The Swipe Brief and its sheets are built on these tokens (ticket 08), so the accent and text size reach the Brief, and its sheets follow the theme. The canvas adds `--on-photo` / `--on-photo-mute` / `--on-photo-faint` (text over pictures) and `--why` (the why-line: the accent, or a lighter `#ffd789` for amber); `--plate` is the white plate under a logo badge in every scope. Gradients and shades over pictures (the bottom shade, the Cover glow) keep their own `rgb()` values. The bottom tabs keep a fixed 11px label on purpose, so their height never changes.
 
 ### Accents
 
@@ -215,7 +215,7 @@ Rework ticket 08 (issue #8, [spec #6](https://github.com/Montasaa/morning-brief/
 
 ### Pieces (`src/app/_components/`), shared with the other Layouts
 
-- `swipe-brief.tsx`: the feed and its inputs. Each slide is full height in a CSS scroll-snap container (`scroll-snap-stop: always`), so a drag stops exactly one slide on. `useSnapFeed` tracks the slide on screen (`active`, from the scroll position) and moves with `go(i)` / `step(±1)`; a step taken before the last move lands builds on it.
+- `swipe-brief.tsx`: the slides and their inputs. Each slide is full height in a CSS scroll-snap container (`scroll-snap-stop: always`), so a drag stops exactly one slide on. `useSnapSlides` tracks the slide on screen (`active`, from the scroll position) and moves with `go(i)` / `step(±1)`; a step taken before the last move lands builds on it.
 - `reels-card.tsx`: **the Reels card**, one Item full-bleed: the picture by kind, the bottom shade, the text (why-line on top stories, **Topic** · time · Updated, headline, two-line summary, Story Thread chip), the rail, the veil and the double-tap heart. Ticket 09's reader pane shows the same component (pass `active` true; its `children` go over the picture, under the text: Swipe puts its tap thirds there). From 1024px wide it is a centred 10:16 card with the rail beside it.
   - **Pictures**: `pictureKind(item)` is `item.image_kind` (ticket 10 adds it to Items), else `photo` when there is an image, else `none`. `photo` fills the frame (cover crop); `card` is a badge up to 88px tall on a white plate (`object-fit: contain`) over a plain card with a bigger headline; `none`, and any picture that fails to load, is a plain dark gradient. The card says which in `data-picture`.
   - **The veil**: a `blurred` Item has its picture and text blurred and `inert`, a light scrim under the tap thirds, and a centred button (eye, Topic name, warning, "Tap to view"). No red. Leaving the card veils it again; double-tap does nothing while veiled.
@@ -224,7 +224,9 @@ Rework ticket 08 (issue #8, [spec #6](https://github.com/Montasaa/morning-brief/
 - `read-sheet.tsx` (tap the card's text, or Enter): the picture, meta, headline, why-line, full summary, extras (`card-extras.tsx`), "Also in", Like / Save / Ask and the sources. Opening it records an `open`, so the Item comes back dimmed (`data-dimmed`). `ask-sheet.tsx` is the Ask sheet.
 - `topic-tabs.tsx`: `<TopicTabs>` ("For you", then the Topics in Brief order) with a sliding indicator; the caller says which is `current` (Swipe: the Item on screen; Front Page: its scroll spy). It scrolls its own strip, never the page.
 - `cover.tsx`: the Cover's full-screen form (greeting, date, Edition and Item count, the Widgets, a drifting glow, the language switch) and `<CaughtUp>`. `useCoverLines` gives ticket 09's header form the same lines; `cover-widgets.tsx` draws the Widgets as quiet rows (`<WidgetRows>`).
+- `item-image.tsx`: `<ItemImage>`, an Item's picture with `onFail`, which also catches a picture that failed before the page was running (React misses that error event). Use it for every Item picture so a failed one falls back to the plain gradient.
 - `icons.tsx`: the line icons (`<Icon name="heart" filled />`).
+- `client-time.ts`: `useNow()` (the time, once the page has loaded, for relative times and countdowns) and `prefersReducedMotion()` for motion driven by script.
 
 ### Inputs
 
@@ -232,14 +234,14 @@ Rework ticket 08 (issue #8, [spec #6](https://github.com/Montasaa/morning-brief/
 - Keys (ignored while typing or with a sheet open): j, ArrowDown, Space, Page Down forward; k, ArrowUp, Shift+Space, Page Up back; Enter opens the read sheet. Ticket 09 adds the PC shortcuts.
 - Topic tabs jump to a group's first Item ("For you": the first top story). From 1280px the "Up next" list jumps too.
 - Arabic mirrors only the horizontal parts: the tabs and their indicator, the rail and text sides. Moving stays vertical.
-- Motion (the text settling in, the photo's zoom-settle, the like pop and burst, the tab indicator, sheets, the glow) is off under reduced motion, and no start state hides anything: the hidden-until-active text is only hidden under `prefers-reduced-motion: no-preference`. Moves made by tap or key jump instead of scrolling smoothly.
+- Motion (the text settling in, the photo's zoom-settle, the like pop and burst, the tab indicator, sheets, the glow) is off under reduced motion, and no start state hides anything: the hidden-until-active text is only hidden under `prefers-reduced-motion: no-preference`. Under reduced motion, moves made by tap, key or tab jump instead of scrolling smoothly (a jump of more than one slide always does); a drag still settles on its slide, since snapping is what makes it stop one Item on.
 
 ### Testing it (browser seam)
 
 - Only the slide on screen is exposed: the others are `inert` and `aria-hidden`. So `page.getByRole("article")` is the current Item and `getByRole("heading", { level: 2 })` its headline; `getByTestId` does not skip hidden slides, so scope it (`swipe.card(page).getByTestId("thread-chip")`).
 - `e2e/support.ts` has `swipe`: `card`, `headline`, `cover`, `tabs`, `rail`, and `next` / `back` / `drag`. `next` and `back` wait for the move to land: Playwright scrolls a target back into view before tapping it, so a second tap made mid-move would undo the first. They tap near the start side, clear of the text and the rail (which is on the left in Arabic).
 - Test drags by distance, not speed: a long drag (past half a screen) moves one Item however fast, a short slow one settles back. A fast short flick is judged by its speed, which CDP's event timing makes unreliable. Wait for `networkidle` before the first drag: the dev server can drop a gesture made while it is still loading the page.
-- Selectors: the Cover is the region "Cover" ("الغلاف"), the end the region "End of the Brief"; the tap thirds are the buttons "Back" / "Next"; the rail the toolbar "Actions"; the tabs the navigation "Topics", the current one `aria-current="true"`; the veil's button contains "Tap to view"; the card's `data-picture`, `data-dimmed`; the feed `data-testid="swipe-feed"`; the double-tap heart `data-testid="like-burst"`; a sheet's handle `data-testid="sheet-handle"`.
+- Selectors: the Cover is the region "Cover" ("الغلاف"), the end the region "End of the Brief"; the tap thirds are the buttons "Back" / "Next"; the rail the toolbar "Actions"; the tabs the navigation "Topics", the current one `aria-current="true"`; the veil's button contains "Tap to view"; the card's `data-picture`, `data-dimmed`; the scrolling column `data-testid="swipe-slides"`; the double-tap heart `data-testid="like-burst"`; a sheet's handle `data-testid="sheet-handle"`.
 - Specs: `e2e/swipe-brief.spec.ts` (Cover, tap thirds, keys, drag, tabs, read sheet, pictures), `reactions.spec.ts` (rail, double-tap, hide and Undo; its own Reader, since likes change ranking), `sensitive-topics.spec.ts` (veil), `arabic-rtl.spec.ts`, `desktop-brief.spec.ts` (centred card, Up next).
 
 ## Sensitive Topics

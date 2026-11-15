@@ -24,7 +24,7 @@
   overflow: auto;
   overscroll-behavior: contain;
   padding: 8px 20px calc(24px + env(safe-area-inset-bottom));
-  border-radius: 22px 22px 0 0;
+  border-radius: var(--r-card) var(--r-card) 0 0;
   background: var(--bg);
   color: var(--fg);
   box-shadow: 0 -10px 40px rgb(0 0 0 / 18%);
@@ -111,7 +111,7 @@
   }
   .sheet {
     max-height: 84dvh;
-    border-radius: 22px;
+    border-radius: var(--r-card);
     animation-name: appear;
   }
   .leaving .sheet {

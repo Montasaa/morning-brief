@@ -81,7 +81,7 @@
   max-height: 120px;
   padding: 10px 14px;
   border: 1px solid var(--line);
-  border-radius: 22px;
+  border-radius: var(--r-card);
   background: var(--bg);
   color: var(--fg);
   font: inherit;

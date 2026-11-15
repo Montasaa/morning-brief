@@ -150,6 +150,7 @@
   --why: var(--acc); /* the why-line over photos: the accent (amber's is lighter, below) */
   --on-photo: #fff; /* text and icons over pictures */
   --on-photo-mute: rgb(255 255 255 / 80%);
+  --on-photo-faint: rgb(255 255 255 / 58%); /* the Topic tabs not chosen */
   --danger: #f2b8b5;
   --scrim: rgb(0 0 0 / 60%);
   color-scheme: dark;
