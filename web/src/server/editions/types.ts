@@ -3,6 +3,7 @@
 
 export type SourceType = "independent" | "wire" | "social" | "official";
 export type ItemStatus = "new" | "updated" | "";
+export type ImageKind = "photo" | "card" | "none";
 
 export interface Source {
   title: string;
@@ -23,8 +24,14 @@ export interface EditionItemCore {
   summary_ar?: string;
   sources: Source[];
   image?: string;
+  /** What the picture is (rework ticket 10). Missing: photo when there is an image, else none. */
+  image_kind?: ImageKind;
+  /** Adult Trending only: explicit media, blurred until tapped whatever the blur switch says. */
+  nsfw_media?: boolean;
   warning?: string;
   warning_ar?: string;
+  /** The named person a claim is about. Used by the gathering tool; the app ignores it (not stored). */
+  claim_subject?: string;
 }
 
 /** Kind-specific extras carried over from v2 (AI, games, trending, Liverpool, markets, social) and voices. */
@@ -65,6 +72,17 @@ export const CORE_ITEM_FIELDS = [
   "summary_ar",
   "sources",
   "image",
+  "image_kind",
+  "nsfw_media",
   "warning",
   "warning_ar",
 ] as const satisfies readonly (keyof EditionItemCore)[];
+
+/** Item fields the app accepts but does not keep: they are for the gathering side only. */
+export const IGNORED_ITEM_FIELDS = ["claim_subject"] as const satisfies readonly (keyof EditionItemCore)[];
+
+/** How an Item's picture is shown: its `image_kind`, else photo when it has an image; never more than none without one. */
+export function imageKindOf(item: { image: string | null; image_kind: ImageKind | null }): ImageKind {
+  if (!item.image) return "none";
+  return item.image_kind ?? "photo";
+}

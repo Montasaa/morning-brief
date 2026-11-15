@@ -6,7 +6,7 @@ wrote while gathering, and the state of earlier runs. The result is a complete E
 A drafts file:
 
     {
-      "items":   [ Item, ... ],            # Edition v3 Items; "status" is set here, not by the agent
+      "items":   [ Item, ... ],            # Edition v3 Items with image_kind; "status" is set here, not by the agent
       "threads": [ {id, title, title_ar} ],
       "widgets": { "next_match": {...}, "countdowns": [...] },
       "top_stories":   [ item id, ... ],   # optional fallback lead stories
@@ -17,6 +17,7 @@ A drafts file:
 """
 import json
 from datetime import datetime, timedelta, timezone
+from urllib.parse import urlsplit
 
 from .errors import RunError
 
@@ -24,6 +25,14 @@ RIYADH = timezone(timedelta(hours=3))  # Asia/Riyadh: UTC+3 all year, no dayligh
 
 # The next-match Widget belongs to this Topic (the app shows it to its followers only).
 NEXT_MATCH_TOPIC = "liverpool"
+
+# Gathered from Reddit only, through the subreddit RSS feeds in its Gathering Rules (rework ticket 10).
+ADULT_TOPIC = "adult-trending"
+REDDIT_HOSTS = ("reddit.com", "redd.it")
+
+# What an Item's picture is: photo fills the card, card is a logo or Open Graph card on a white plate,
+# none is no usable picture.
+IMAGE_KINDS = ("photo", "card", "none")
 
 
 def riyadh_now() -> str:
@@ -103,6 +112,10 @@ def assemble(
         if stripped:
             notes.append(f"{item['id']}: removed Topics not on the gathering list ({', '.join(stripped)})")
         item["topics"] = topics
+        dropped = _source_rules(item)
+        if dropped:
+            notes.append(f"left out {item['id']}: {dropped}")
+            continue
         items.append(item)
 
     # Every link and picture is checked before coverage, so a Topic is not covered by a dead Item.
@@ -137,12 +150,18 @@ def assemble(
 
 
 def _gathered_items(drafts: list[dict], notes: list[str]) -> list[dict]:
-    """Every drafted Item once. The same id in two drafts is one Item with both sets of Topics."""
+    """Every drafted Item once. The same id in two drafts is one Item with both sets of Topics.
+
+    Every draft grades its picture: image_kind is photo, card or none.
+    """
     by_id: dict[str, dict] = {}
+    ungraded: list[str] = []
     for d in drafts:
         for draft in d.get("items", []):
             if not isinstance(draft, dict) or not isinstance(draft.get("id"), str) or not draft["id"]:
                 raise RunError(f"A drafted Item has no id: {json.dumps(draft, ensure_ascii=False)[:200]}")
+            if draft.get("image_kind") not in IMAGE_KINDS:
+                ungraded.append(f"{draft['id']}: image_kind is {json.dumps(draft.get('image_kind'))}")
             item = {k: v for k, v in draft.items() if k != "status"}
             item["sources"] = _independent_first(item.get("sources", []))
             same = by_id.get(item.get("id"))
@@ -151,7 +170,48 @@ def _gathered_items(drafts: list[dict], notes: list[str]) -> list[dict]:
                 item["topics"] = topics
                 notes.append(f"{item['id']}: drafted twice, merged (Topics {', '.join(topics)})")
             by_id[item.get("id")] = item
+    if ungraded:
+        raise RunError(
+            "Grade every drafted Item's picture with image_kind: photo (a photo), card (a logo, an Open Graph "
+            "card or a screenshot of text) or none (no usable picture):\n  " + "\n  ".join(ungraded)
+        )
     return list(by_id.values())
+
+
+def _is_reddit(source: dict) -> bool:
+    host = (urlsplit(str(source.get("url", ""))).hostname or "").lower()
+    return any(host == h or host.endswith("." + h) for h in REDDIT_HOSTS)
+
+
+def _is_outlet(source: dict) -> bool:
+    """A news outlet's report: an independent outlet or a wire, not on Reddit."""
+    return source.get("type") in ("independent", "wire") and not _is_reddit(source)
+
+
+def _source_rules(item: dict) -> str | None:
+    """Why the Item must be left out under the fixed source rules, or None (rework ticket 10).
+
+    - Adult Trending is Reddit only: its sources are Reddit posts, apart from one news outlet's report
+      allowed as the second source. The Reddit post leads (it is the card link).
+    - An Item making a claim about a named person (claim_subject), in any Topic, needs a non-Reddit
+      outlet report among its sources.
+    """
+    sources = item.get("sources", [])
+    if ADULT_TOPIC in item.get("topics", []):
+        reddit = [s for s in sources if _is_reddit(s)]
+        others = [s for s in sources if not _is_reddit(s)]
+        if not reddit or len(others) > 1 or (others and not _is_outlet(others[0])):
+            return (
+                "Adult Trending takes Reddit posts only (read through the subreddit RSS feeds in its Gathering "
+                "Rules), with at most one news outlet's report as the second source"
+            )
+        item["sources"] = reddit[:1] + others + reddit[1:]
+    if item.get("claim_subject") and not any(_is_outlet(s) for s in item.get("sources", [])):
+        return (
+            f"it makes a claim about {item['claim_subject']} with no non-Reddit outlet report as a second source "
+            "(claim_subject)"
+        )
+    return None
 
 
 def _normal(title: str) -> str:

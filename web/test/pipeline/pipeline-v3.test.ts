@@ -234,6 +234,136 @@ describe("the house rules", () => {
   });
 });
 
+describe("graded pictures and sentence-case headlines (rework ticket 10)", () => {
+  it("require image_kind on every drafted Item, and pass it to the app", async () => {
+    const { app, served, reader } = await stagingApp(["ai", "github-trending"]);
+    const s = scratch();
+    const ungraded = draftItem("ai-ungraded", ["ai"]);
+    delete ungraded.image_kind;
+    const wrong = draftItem("ai-wrong-kind", ["ai"], { image_kind: "logo" });
+    const refused = await runTool(
+      runArgs(s, served, "morning", MORNING, s.write("bad.json", { items: [ungraded, wrong], threads: [], widgets: {} })),
+      { INGEST_TOKEN: app.ingestToken },
+    );
+    expect(refused.code).not.toBe(0);
+    expect(refused.stderr).toMatch(/ai-ungraded.*image_kind/);
+    expect(refused.stderr).toMatch(/ai-wrong-kind.*image_kind/);
+    expect(served.calls).not.toContain("POST /brief/api/editions");
+
+    const drafts = s.write("drafts.json", {
+      items: [
+        draftItem("ai-new-model", ["ai"]),
+        draftItem("gh-example-repo", ["github-trending"], { image_kind: "card" }),
+        // No usable picture: graded none, and then no image is needed.
+        { ...draftItem("ai-no-picture", ["ai"], { image_kind: "none" }), image: undefined },
+      ],
+      threads: [],
+      widgets: {},
+    });
+    const run = await runTool(runArgs(s, served, "morning", MORNING, drafts), { INGEST_TOKEN: app.ingestToken });
+
+    expect(run.stderr).toBe("");
+    expect(run.code).toBe(0);
+    const brief = (await reader.request("GET", "/api/brief")).body.items as { id: string; image_kind: string }[];
+    expect(Object.fromEntries(brief.map((i) => [i.id, i.image_kind]))).toEqual({
+      "ai-new-model": "photo",
+      "gh-example-repo": "card",
+      "ai-no-picture": "none",
+    });
+  });
+
+  it("warn about an all-lowercase headline, without stopping the run", async () => {
+    const { app, served } = await stagingApp(["ai"]);
+    const s = scratch();
+    const drafts = s.write("drafts.json", {
+      items: [
+        draftItem("ai-lowercase", ["ai"], { title: "a new placeholder model ships today" }),
+        draftItem("ai-sentence-case", ["ai"], { title: "A new placeholder model from Example Labs" }),
+      ],
+      threads: [],
+      widgets: {},
+    });
+
+    const run = await runTool(runArgs(s, served, "morning", MORNING, drafts), { INGEST_TOKEN: app.ingestToken });
+
+    expect(run.code).toBe(0);
+    expect(run.stdout).toMatch(/warning: ai-lowercase.*lowercase.*sentence case/i);
+    expect(run.stdout).not.toMatch(/warning: ai-sentence-case/);
+  });
+});
+
+describe("Adult Trending from Reddit (rework ticket 10)", () => {
+  const reddit = (post: string) => ({
+    title: "r/placeholder",
+    url: `https://www.reddit.com/r/placeholder/comments/${post}/placeholder_post/`,
+    type: "social",
+  });
+  const outlet = (name: string) => ({ title: "Example Daily", url: `https://example.com/news/${name}`, type: "independent" });
+  const adult = (id: string, extra: Record<string, unknown>) =>
+    draftItem(id, ["adult-trending"], { warning: "Adult content", warning_ar: "محتوى للبالغين", ...extra });
+
+  it("keeps Reddit posts (one outlet allowed as the second source), drops the rest, and passes nsfw_media through", async () => {
+    const { app, served, reader } = await stagingApp(["ai", "adult-trending"]);
+    const s = scratch();
+    const drafts = s.write("drafts.json", {
+      items: [
+        draftItem("ai-new-model", ["ai"]),
+        adult("adult-reddit-post", { sources: [reddit("a1")], nsfw_media: true }),
+        adult("adult-with-outlet", { sources: [reddit("a2"), outlet("a2")] }),
+        adult("adult-outlet-first", { sources: [outlet("a3"), reddit("a3")] }),
+        adult("adult-outlet-only", { sources: [outlet("a4")] }),
+        adult("adult-two-outlets", { sources: [reddit("a5"), outlet("a5"), outlet("a5b")] }),
+        adult("adult-other-social", { sources: [{ title: "Example Social", url: "https://example.com/social/a6", type: "social" }] }),
+      ],
+      threads: [],
+      widgets: {},
+    });
+
+    const run = await runTool(runArgs(s, served, "morning", MORNING, drafts), { INGEST_TOKEN: app.ingestToken });
+
+    expect(run.stderr).toBe("");
+    expect(run.code).toBe(0);
+    for (const id of ["adult-outlet-only", "adult-two-outlets", "adult-other-social"]) {
+      expect(run.stdout).toMatch(new RegExp(`left out ${id}: .*Reddit`));
+    }
+    const edition = s.read("edition.morning.json");
+    const byId = Object.fromEntries(edition.items.map((i: { id: string }) => [i.id, i]));
+    expect(Object.keys(byId).sort()).toEqual(["adult-outlet-first", "adult-reddit-post", "adult-with-outlet", "ai-new-model"]);
+    // The Reddit post is the card link: it leads, the outlet report follows.
+    expect(byId["adult-outlet-first"].sources.map((x: { url: string }) => new URL(x.url).hostname)).toEqual(["www.reddit.com", "example.com"]);
+    expect(byId["adult-reddit-post"].nsfw_media).toBe(true);
+
+    const brief = (await reader.request("GET", "/api/brief")).body.items as { id: string; media_blurred: boolean }[];
+    expect(brief.find((i) => i.id === "adult-reddit-post")!.media_blurred).toBe(true);
+    expect(brief.find((i) => i.id === "adult-with-outlet")!.media_blurred).toBe(false);
+  });
+
+  it("drops any Item making a claim about a named person without a non-Reddit outlet report", async () => {
+    const { app, served } = await stagingApp(["ai", "adult-trending"]);
+    const s = scratch();
+    const claim = { claim_subject: "A Placeholder Person" };
+    const drafts = s.write("drafts.json", {
+      items: [
+        draftItem("ai-claim-reported", ["ai"], claim),
+        draftItem("ai-claim-social-only", ["ai"], { ...claim, sources: [reddit("c1"), { title: "Example Social", url: "https://example.com/social/c1", type: "social" }] }),
+        adult("adult-claim-reddit-only", { ...claim, sources: [reddit("c2")] }),
+        adult("adult-claim-reported", { ...claim, sources: [reddit("c3"), outlet("c3")] }),
+      ],
+      threads: [],
+      widgets: {},
+    });
+
+    const run = await runTool(runArgs(s, served, "morning", MORNING, drafts), { INGEST_TOKEN: app.ingestToken });
+
+    expect(run.stderr).toBe("");
+    expect(run.code).toBe(0);
+    expect(run.stdout).toMatch(/left out ai-claim-social-only: .*claim/);
+    expect(run.stdout).toMatch(/left out adult-claim-reddit-only: .*claim/);
+    const ids = s.read("edition.morning.json").items.map((i: { id: string }) => i.id).sort();
+    expect(ids).toEqual(["adult-claim-reported", "ai-claim-reported"]);
+  });
+});
+
 describe("checking links", () => {
   it("leaves out sources, pictures and links that do not load before posting", async () => {
     const { app, served } = await stagingApp(["yemen", "ai"]);

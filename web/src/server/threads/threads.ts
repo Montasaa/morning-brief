@@ -14,17 +14,17 @@
 // the Reader can see. The Threads tab lists the Threads a Reader follows, then
 // the other active ones, each group by its newest development.
 import type { AppContext } from "../app";
-import type { ItemStatus, Source } from "../editions/types";
+import { imageKindOf, type ImageKind, type ItemStatus, type Source } from "../editions/types";
 import { topicNamesOf } from "../saved-search/listing";
 import { hiddenTopicIds, VISIBLE_TO_READER } from "../topics/catalog";
-import { sensitiveItemSql, sensitiveItemVisibleSql } from "../topics/sensitive";
+import { blurredItemSql, sensitiveItemVisibleSql } from "../topics/sensitive";
 
 export interface ThreadDevelopment {
   id: string;
   title: string;
   title_ar: string | null;
   time: string;
-  /** It carries a Sensitive Topic: its title stays behind its warning until tapped. */
+  /** It carries a Sensitive Topic the Reader has not turned the blur off for: its title stays behind its warning until tapped. */
   blurred: boolean;
   warning: string | null;
   warning_ar: string | null;
@@ -56,13 +56,17 @@ export interface TimelineItem {
   summary_ar: string | null;
   sources: Source[];
   image: string | null;
+  /** How the picture is shown (rework ticket 10): photo, card or none. */
+  image_kind: ImageKind;
   warning: string | null;
   warning_ar: string | null;
   topics: string[];
   /** The first of its Topics the Reader follows. */
   topic: string;
-  /** It carries a Sensitive Topic: shown blurred with its warning until tapped. */
+  /** It carries a Sensitive Topic the Reader has not turned the blur off for: shown blurred with its warning until tapped. */
   blurred: boolean;
+  /** NSFW media: its picture stays blurred until tapped, whatever the blur switch says. */
+  media_blurred: boolean;
   /** The Edition the stored version of this Item came from. */
   edition_id: string;
 }
@@ -123,13 +127,13 @@ function summaries(ctx: AppContext, readerId: number, threadId?: string): Summar
               (SELECT COUNT(*) FROM visible c WHERE c.thread_id = th.id) AS count,
               n.id AS latest_id, n.title AS latest_title, n.title_ar AS latest_title_ar,
               n.time AS latest_time, n.time_ms AS latest_ms,
-              ${sensitiveItemSql("n.id")} AS latest_blurred, n.warning AS latest_warning, n.warning_ar AS latest_warning_ar
+              ${blurredItemSql("n.id")} AS latest_blurred, n.warning AS latest_warning, n.warning_ar AS latest_warning_ar
          FROM threads th
          JOIN newest n ON n.thread_id = th.id AND n.rank = 1
          LEFT JOIN thread_follows tf ON tf.thread_id = th.id AND tf.reader_id = @reader
         WHERE @thread IS NULL OR th.id = @thread`,
     )
-    .all(readerId, { reader: readerId, thread: threadId ?? null }) as SummaryRow[];
+    .all(readerId, readerId, { reader: readerId, thread: threadId ?? null }) as SummaryRow[];
 }
 
 function toSummary(r: SummaryRow): ThreadSummary {
@@ -176,8 +180,10 @@ export function listThreads(ctx: AppContext, readerId: number): ThreadSummary[] 
   return rows.map(toSummary);
 }
 
-interface TimelineRow extends Omit<TimelineItem, "date" | "sources" | "topics" | "topic" | "blurred"> {
+interface TimelineRow extends Omit<TimelineItem, "date" | "sources" | "image_kind" | "topics" | "topic" | "blurred" | "media_blurred"> {
   sources: string;
+  image_kind: ImageKind | null;
+  nsfw_media: number;
   topics: string;
   followed_topics: string;
   blurred: number;
@@ -191,25 +197,27 @@ export function threadTimeline(ctx: AppContext, readerId: number, threadId: stri
     .prepare(
       `WITH ${VISIBLE_ITEMS}
        SELECT v.id, v.time, v.status, v.title, v.title_ar, v.summary, v.summary_ar, v.sources, v.image,
-              v.warning, v.warning_ar, v.edition_id,
+              v.image_kind, v.nsfw_media, v.warning, v.warning_ar, v.edition_id,
               (SELECT json_group_array(topic_id)
                  FROM (SELECT topic_id FROM item_topics t WHERE t.item_id = v.id ORDER BY t.position)) AS topics,
               (SELECT json_group_array(topic_id)
                  FROM (SELECT t.topic_id FROM item_topics t
                          JOIN topic_follows f ON f.topic_id = t.topic_id AND f.reader_id = @reader
                         WHERE t.item_id = v.id ORDER BY t.position)) AS followed_topics,
-              ${sensitiveItemSql("v.id")} AS blurred
+              ${blurredItemSql("v.id")} AS blurred
          FROM visible v
         WHERE v.thread_id = @thread
         ORDER BY v.time_ms DESC, v.id`,
     )
-    .all(readerId, { reader: readerId, thread: threadId }) as TimelineRow[];
+    .all(readerId, readerId, { reader: readerId, thread: threadId }) as TimelineRow[];
 
   const hidden = hiddenTopicIds(ctx, readerId); // other Readers' private Topics (ticket 11)
-  const items = rows.map(({ followed_topics, ...r }): TimelineItem => ({
+  const items = rows.map(({ followed_topics, nsfw_media, ...r }): TimelineItem => ({
     ...r,
     date: riyadhDate(r.time),
     sources: JSON.parse(r.sources) as Source[],
+    image_kind: imageKindOf(r),
+    media_blurred: nsfw_media === 1,
     topics: (JSON.parse(r.topics) as string[]).filter((t) => !hidden.has(t)),
     topic: (JSON.parse(followed_topics) as string[]).filter((t) => !hidden.has(t))[0]!,
     blurred: r.blurred === 1,

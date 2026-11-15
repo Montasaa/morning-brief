@@ -123,6 +123,7 @@ export function draftItem(id: string, topics: string[], extra: Record<string, un
     summary_ar: `ما حدث في ${id}.`,
     sources: [{ title: "Example Daily", url: `https://example.com/news/${id}`, type: "independent" }],
     image: `https://example.com/img/${id}.jpg`,
+    image_kind: "photo",
     ...extra,
   };
 }

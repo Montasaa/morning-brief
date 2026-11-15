@@ -7,10 +7,11 @@
 //
 // A sensitive Item is one that carries at least one Sensitive Topic. It reaches
 // a Reader only if they opted into every Sensitive Topic it carries, and then
-// it is shown blurred with its warning until tapped. Everything that lists
-// Items to a Reader (the Brief, Story Threads, Saved & Search) filters with
-// `sensitiveItemVisibleSql` and marks with `sensitiveItemSql`, so no path
-// shows a sensitive Item to a Reader who has not opted in.
+// it is shown blurred with its warning until tapped, unless the Reader turned
+// the blur off for every Sensitive Topic it carries (rework ticket 10). Everything
+// that lists Items to a Reader (the Brief, Story Threads, Saved & Search)
+// filters with `sensitiveItemVisibleSql` and marks with `blurredItemSql`, so no
+// path shows a sensitive Item to a Reader who has not opted in.
 import type { AppContext } from "../app";
 import { catalogTopic, followTopic, type CatalogTopic } from "./catalog";
 
@@ -29,11 +30,31 @@ export function sensitiveItemVisibleSql(itemId: string): string {
        AND NOT EXISTS (SELECT 1 FROM topic_follows sf WHERE sf.topic_id = st.topic_id AND sf.reader_id = ?))`;
 }
 
-/** SQL that is true (1) when the Item whose id is `itemId` carries a Sensitive Topic, so it is shown blurred. No parameters. */
+/**
+ * SQL that is true (1) when the Item whose id is `itemId` carries a Sensitive
+ * Topic: a sensitive Item, never a top story, never first and never in a push
+ * (rework ticket 10). No parameters.
+ */
 export function sensitiveItemSql(itemId: string): string {
   return `EXISTS (
     SELECT 1 FROM item_topics st JOIN topics stt ON stt.id = st.topic_id AND stt.sensitive = 1
      WHERE st.item_id = ${itemId})`;
+}
+
+/**
+ * SQL that is true (1) when the Item whose id is `itemId` is shown blurred to
+ * the Reader: it carries a Sensitive Topic they have not turned the blur off
+ * for (their Display's `unblurred`, rework ticket 10). So it is false only when
+ * the blur is off for every Sensitive Topic it carries. Takes one `?`
+ * parameter, the Reader's id. NSFW media is blurred whatever this says
+ * (`items.nsfw_media`, returned as `media_blurred`).
+ */
+export function blurredItemSql(itemId: string): string {
+  return `EXISTS (
+    SELECT 1 FROM item_topics bt JOIN topics btt ON btt.id = bt.topic_id AND btt.sensitive = 1
+     WHERE bt.item_id = ${itemId}
+       AND NOT EXISTS (SELECT 1 FROM displays bd, json_each(bd.doc, '$.unblurred') bu
+                        WHERE bd.reader_id = ? AND bu.value = bt.topic_id))`;
 }
 
 /** Whether `topicId` is a Sensitive Topic in the Catalog. */
