@@ -15,7 +15,7 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { test as base, expect, type APIRequestContext } from "@playwright/test";
+import { test as base, expect, type APIRequestContext, type Page } from "@playwright/test";
 import { E2E_BASE_PATH, E2E_INGEST_TOKEN } from "../playwright.config";
 
 export { expect, E2E_BASE_PATH };
@@ -89,4 +89,80 @@ export async function postEdition(request: APIRequestContext, edition: unknown):
     headers: { authorization: `Bearer ${E2E_INGEST_TOKEN}` },
   });
   expect(res.status(), await res.text()).toBe(200);
+}
+
+/**
+ * The Swipe Brief (rework ticket 08). Only the slide on screen is exposed to
+ * assistive tech (the others are inert and aria-hidden), so role queries like
+ * `page.getByRole("article")` find the current Item and nothing else.
+ *
+ * `next` and `back` tap a third of the picture and wait for the move to land:
+ * Playwright scrolls an element back into view before tapping it, so tapping
+ * again mid-move would undo the move.
+ */
+export const swipe = {
+  /** The current Item's card. */
+  card: (page: Page) => page.getByRole("article"),
+  /** The current Item's headline. */
+  headline: (page: Page) => page.getByRole("article").getByRole("heading", { level: 2 }),
+  /** The Cover (the first slide), in either language. */
+  cover: (page: Page) => page.getByRole("region", { name: /^(Cover|الغلاف)$/ }),
+  /** Tap the lower third of the picture: forward. */
+  next: (page: Page) => move(page, /^(Next|التالي)$/, { x: 8, y: 8 }, 1),
+  /** Tap the upper third of the picture: back. Below the Topic tabs. */
+  back: (page: Page) => move(page, /^(Back|السابق)$/, { x: 8, y: 120 }, -1),
+  /** The Topic tabs across the top. */
+  tabs: (page: Page) => page.getByRole("navigation", { name: /^(Topics|المواضيع)$/ }),
+  /** The action rail on the current Item. */
+  rail: (page: Page) => page.getByRole("toolbar", { name: /^(Actions|الإجراءات)$/ }),
+  /**
+   * A finger drag up the screen by `distance` px (down when negative), made of
+   * real touch events through the browser's gesture handling, then lifted.
+   * Starts once the slides are still, and resolves once they rest again.
+   */
+  async drag(page: Page, distance: number, { steps, pause }: { steps: number; pause: number }) {
+    await still(page);
+    const cdp = await page.context().newCDPSession(page);
+    const { width, height } = page.viewportSize()!;
+    const x = Math.round(width / 2);
+    const y0 = Math.round(distance > 0 ? height * 0.85 : height * 0.25);
+    await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x, y: y0 }] });
+    // A finger rests a moment before it moves.
+    await page.waitForTimeout(50);
+    for (let i = 1; i <= steps; i++) {
+      await cdp.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ x, y: Math.round(y0 - (distance * i) / steps) }] });
+      await page.waitForTimeout(pause);
+    }
+    await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+    await cdp.detach();
+    await page.waitForTimeout(100);
+    await still(page);
+  },
+};
+
+/** Wait until the slides rest on one slide: the same whole-slide offset twice in a row, 100ms apart. */
+async function still(page: Page) {
+  const slides = page.getByTestId("swipe-slides");
+  let last = -1;
+  await expect
+    .poll(async () => {
+      const at = await slides.evaluate((f) => f.scrollTop / f.clientHeight);
+      const resting = Math.abs(at - Math.round(at)) < 0.01 && at === last;
+      last = at;
+      return resting;
+    }, { intervals: [100] })
+    .toBe(true);
+}
+
+/** Tap a third of the picture and wait until the slides rest one slide further (`step` 1) or back (-1). */
+async function move(page: Page, name: RegExp, position: { x: number; y: number }, step: 1 | -1) {
+  const slides = page.getByTestId("swipe-slides");
+  const from = await slides.evaluate((f) => Math.round(f.scrollTop / f.clientHeight));
+  const third = page.getByRole("button", { name });
+  // Near the start side, clear of the text and of the rail at the end side (the left in Arabic).
+  if (await page.evaluate(() => document.documentElement.dir === "rtl")) {
+    position = { ...position, x: (await third.boundingBox())!.width - position.x };
+  }
+  await third.tap({ position });
+  await expect.poll(() => slides.evaluate((f) => f.scrollTop / f.clientHeight)).toBeCloseTo(from + step, 2);
 }

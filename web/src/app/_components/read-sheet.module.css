@@ -1,0 +1,117 @@
+/* The read sheet (rework ticket 08), in chrome colours. */
+.photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 4px 0 14px;
+  border-radius: var(--r-row);
+  object-fit: cover;
+  background: var(--surf);
+}
+.badge {
+  display: block;
+  height: 56px;
+  width: auto;
+  max-width: 140px;
+  margin: 4px 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-row);
+  object-fit: contain;
+  background: var(--plate);
+}
+.meta {
+  margin: 0 0 6px;
+  color: var(--mute);
+  font-size: var(--fs-s);
+}
+.meta b {
+  color: var(--fg);
+}
+.headline {
+  margin: 0 0 10px;
+  font-size: var(--fs-xl);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.why {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 0 0 12px;
+  color: var(--mute);
+  font-size: var(--fs-base);
+}
+.why svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--acc);
+}
+.summary {
+  margin: 0 0 14px;
+  font-size: var(--fs-m);
+  line-height: 1.6;
+}
+.tags {
+  margin: 0 0 14px;
+  color: var(--mute);
+  font-size: var(--fs-s);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0 0 14px;
+}
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap);
+  padding: 0 14px 0 10px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: none;
+  color: var(--fg);
+  font: inherit;
+  font-size: var(--fs-s);
+  font-weight: 600;
+  cursor: pointer;
+}
+.action:hover {
+  background: var(--surf);
+}
+.action[data-kind="like"][aria-pressed="true"] svg {
+  color: var(--like);
+}
+.sourcesTitle {
+  margin: 0 0 4px;
+  color: var(--mute);
+  font-size: var(--fs-s);
+  font-weight: 600;
+}
+.sources {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.sources a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--tap);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-base);
+  font-weight: 500;
+  text-decoration: none;
+}
+.sources a svg {
+  flex: none;
+  color: var(--mute);
+}
+.sources a:hover {
+  color: var(--acc);
+}

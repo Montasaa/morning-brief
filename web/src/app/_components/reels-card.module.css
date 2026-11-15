@@ -1,0 +1,275 @@
+/* The Reels card (rework ticket 08, spec #6), on the dark Brief canvas.
+   Fills its container (a Swipe slide, or ticket 09's reader pane): from 1024px
+   wide the picture becomes a centred 10:16 card with the rail beside it. */
+.card {
+  position: absolute;
+  inset: 0;
+}
+.frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--canvas);
+  color: var(--on-photo);
+}
+
+/* ---- the picture, by kind (data-picture: photo | card | none) ---- */
+.picture {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  touch-action: manipulation; /* no double-tap zoom: a double-tap likes */
+}
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* No picture, one that failed to load, and behind a logo or card badge: a plain dark gradient. */
+.plain {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(110% 70% at 85% 0%, #22303f 0, var(--canvas) 62%);
+}
+.shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgb(0 0 0 / 50%) 0, transparent 20%, transparent 42%, rgb(0 0 0 / 88%) 100%);
+}
+/* A logo or card image: a badge on a white plate, never stretched. */
+.badge {
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.badge img {
+  display: block;
+  height: 88px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  border-radius: var(--r-row);
+  background: var(--plate);
+}
+@media (max-height: 640px) {
+  .badge img {
+    height: 56px;
+  }
+}
+
+/* ---- the text over the lower part ---- */
+.text {
+  position: absolute;
+  inset-inline: 16px 78px;
+  bottom: 22px;
+  z-index: 4;
+  cursor: pointer;
+}
+.why {
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+  margin: 0 0 10px;
+  color: var(--why);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.why svg {
+  flex: none;
+  margin-top: 2px;
+}
+.meta {
+  margin: 0 0 6px;
+  color: var(--on-photo-mute);
+  font-size: var(--fs-s);
+}
+.meta b {
+  color: var(--on-photo);
+  font-weight: 700;
+}
+.headline {
+  margin: 0 0 7px;
+  font-size: var(--fs-xl);
+  line-height: 1.22;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+  text-shadow: 0 1px 12px rgb(0 0 0 / 30%);
+  overflow-wrap: anywhere;
+}
+[data-picture="card"] .headline,
+[data-picture="none"] .headline {
+  font-size: 1.733rem; /* 26px at m: a headline-first card */
+}
+.headlineButton {
+  all: unset;
+  cursor: pointer;
+}
+.headlineButton:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.summary {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: var(--on-photo-mute);
+  font-size: 0.967rem;
+  line-height: 1.45;
+}
+
+/* ---- motion: the text settles in and the photo zooms in on the active card ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .text > * {
+    transition:
+      opacity 0.45s var(--ease),
+      transform 0.45s var(--ease);
+  }
+  .card:not([data-active]) .text > * {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  .card[data-active] .text > :nth-child(2) {
+    transition-delay: 0.05s;
+  }
+  .card[data-active] .text > :nth-child(3) {
+    transition-delay: 0.1s;
+  }
+  .card[data-active] .text > :nth-child(4) {
+    transition-delay: 0.15s;
+  }
+  .card[data-active] .text > :nth-child(5) {
+    transition-delay: 0.2s;
+  }
+  .photo {
+    transform: scale(1.06);
+    transition: transform 7s linear;
+  }
+  .card[data-active] .photo {
+    transform: scale(1);
+  }
+}
+
+/* ---- the double-tap heart ---- */
+.burst {
+  position: absolute;
+  z-index: 30;
+  width: 96px;
+  height: 96px;
+  margin: -48px 0 0 -48px;
+  pointer-events: none;
+  color: var(--on-photo);
+  filter: drop-shadow(0 6px 18px rgb(0 0 0 / 35%));
+  animation: burst 0.85s var(--ease) forwards;
+}
+@keyframes burst {
+  0% {
+    transform: scale(0.2) rotate(-12deg);
+    opacity: 0;
+  }
+  20% {
+    transform: scale(1.15) rotate(6deg);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(0.95) rotate(0);
+  }
+  70% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-60px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* ---- an opened Item: strongly dimmed ---- */
+.card[data-dimmed="true"] .picture,
+.card[data-dimmed="true"] .text {
+  opacity: 0.55;
+}
+
+/* ---- the neutral veil on a sensitive Item: no red ---- */
+.card[data-locked] .picture,
+.card[data-locked] .text {
+  filter: blur(22px) saturate(0.8);
+  pointer-events: none;
+  user-select: none;
+}
+.card[data-locked] .picture {
+  transform: scale(1.08);
+}
+.veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgb(0 0 0 / 25%);
+}
+/* Above the tap thirds, in the middle: the upper and lower thirds still move past. */
+.reveal {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  height: fit-content;
+  margin: auto;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: min(80%, 300px);
+  padding: 16px;
+  border: 0;
+  border-radius: var(--r-card);
+  background: none;
+  color: var(--on-photo);
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+.reveal b {
+  font-size: var(--fs-base);
+}
+.reveal span {
+  max-width: 260px;
+  font-size: var(--fs-s);
+  opacity: 0.8;
+  overflow-wrap: anywhere;
+}
+.reveal em {
+  margin-top: 6px;
+  padding: 7px 14px;
+  border-radius: var(--r-pill);
+  background: rgb(255 255 255 / 18%);
+  backdrop-filter: blur(8px);
+  font-size: var(--fs-s);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ---- from tablet landscape up: a centred card with the rail beside it ---- */
+@media (min-width: 1024px) {
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 14px;
+    padding: 6px 0 22px;
+  }
+  .frame {
+    position: relative;
+    inset: auto;
+    height: 100%;
+    aspect-ratio: 10 / 16;
+    max-width: calc(100% - 100px);
+    border-radius: var(--r-card);
+    box-shadow: 0 20px 50px rgb(0 0 0 / 30%);
+  }
+  .text {
+    inset-inline: 20px;
+  }
+}

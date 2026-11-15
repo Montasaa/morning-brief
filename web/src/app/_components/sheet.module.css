@@ -1,0 +1,126 @@
+/* The Reels look's bottom sheet (rework ticket 08). Rendered into <body>, so
+   these tokens are the chrome's: light or dark with the Reader's theme. */
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.scrim {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background: var(--scrim);
+  animation: fade 0.25s both;
+}
+.sheet {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  max-height: 88dvh;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 8px 20px calc(24px + env(safe-area-inset-bottom));
+  border-radius: var(--r-card) var(--r-card) 0 0;
+  background: var(--bg);
+  color: var(--fg);
+  box-shadow: 0 -10px 40px rgb(0 0 0 / 18%);
+  animation: rise 0.38s var(--ease) backwards; /* not "both": a drag sets transform inline */
+  transition: transform 0.3s var(--ease);
+  touch-action: pan-y;
+}
+.sheet:focus {
+  outline: none;
+}
+.sheet[data-dragging] {
+  transition: none;
+}
+.leaving .sheet {
+  animation: sink 0.24s var(--ease) both;
+}
+.leaving .scrim {
+  animation: fade 0.24s reverse both;
+}
+@keyframes rise {
+  from {
+    transform: translateY(100%);
+  }
+}
+@keyframes sink {
+  to {
+    transform: translateY(100%);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* The handle: drag the sheet down by it (or by any part that isn't a control). */
+.grab {
+  width: 38px;
+  height: 5px;
+  margin: 0 auto 14px;
+  border-radius: 3px;
+  background: var(--line);
+  cursor: grab;
+}
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: var(--fs-m);
+  font-weight: 700;
+}
+.close {
+  margin-inline-start: auto;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: var(--tap);
+  height: var(--tap);
+  margin-inline-end: -10px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--mute);
+  cursor: pointer;
+}
+.close:hover {
+  background: var(--surf);
+  color: var(--fg);
+}
+
+/* From tablet landscape up: a centred dialog. */
+@media (min-width: 1024px) {
+  .layer {
+    align-items: center;
+  }
+  .sheet {
+    max-height: 84dvh;
+    border-radius: var(--r-card);
+    animation-name: appear;
+  }
+  .leaving .sheet {
+    animation: fade 0.2s reverse both;
+  }
+}
+@keyframes appear {
+  from {
+    transform: translateY(24px) scale(0.97);
+    opacity: 0;
+  }
+}

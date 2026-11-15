@@ -63,6 +63,7 @@
   --on-acc: #fff; /* text and icons on a filled accent */
   --danger: #b3261e;
   --like: #f23a5e;
+  --plate: #fff; /* the white plate under a logo or card badge, in every theme */
   --scrim: rgb(10 12 16 / 42%);
   color-scheme: light;
 
@@ -146,12 +147,19 @@
   --surf2: #1b1d20;
   --acc: var(--acc-dark);
   --on-acc: #000;
-  --why: #ffd789; /* the why-line over photos */
+  --why: var(--acc); /* the why-line over photos: the accent (amber's is lighter, below) */
+  --on-photo: #fff; /* text and icons over pictures */
+  --on-photo-mute: rgb(255 255 255 / 80%);
+  --on-photo-faint: rgb(255 255 255 / 58%); /* the Topic tabs not chosen */
   --danger: #f2b8b5;
   --scrim: rgb(0 0 0 / 60%);
   color-scheme: dark;
   background: var(--bg);
   color: var(--fg);
+}
+:root:not([data-accent]) .brief-canvas,
+:root[data-accent="amber"] .brief-canvas {
+  --why: #ffd789;
 }
 /* A page showing the Brief is dark around it too. */
 body:has(.brief-canvas) {

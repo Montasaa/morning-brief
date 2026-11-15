@@ -5,7 +5,7 @@ import { formatNumber, localeOf, type Lang } from "./i18n";
 
 const RIYADH = "Asia/Riyadh";
 
-/** "Saturday 14 November" (or "السبت، ١٤ نوفمبر") from the cover card's YYYY-MM-DD date. */
+/** "Saturday 14 November" (or "السبت، ١٤ نوفمبر") from the Cover's YYYY-MM-DD date. */
 export function formatCoverDate(date: string, lang: Lang = "en"): string {
   return new Date(`${date}T12:00:00+03:00`).toLocaleDateString(localeOf(lang), {
     weekday: "long",

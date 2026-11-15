@@ -1,0 +1,121 @@
+/* The Cover's full-screen form and "You're caught up" (rework ticket 08), on
+   the dark Brief canvas. Their text sits under the Swipe Brief's tap thirds
+   (pointer-events: none), except for links and buttons, which sit above. */
+.screen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--canvas);
+}
+.glow {
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(40% 35% at 30% 30%, rgb(255 170 60 / 38%), transparent 70%),
+    radial-gradient(35% 30% at 75% 60%, rgb(60 130 255 / 28%), transparent 70%);
+  filter: blur(30px);
+  animation: drift 14s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  to {
+    transform: translate(6%, -4%) rotate(8deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glow {
+    animation: none;
+  }
+}
+.content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 70px 24px 40px;
+  pointer-events: none;
+}
+.content a,
+.content button {
+  position: relative;
+  z-index: 4;
+  pointer-events: auto;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.greeting {
+  margin: 0;
+  color: var(--mute);
+  font-size: var(--fs-base);
+}
+.lang {
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: none;
+  color: var(--fg);
+  font: inherit;
+  font-size: var(--fs-s);
+  font-weight: 700;
+  cursor: pointer;
+}
+.date {
+  margin: 0;
+  font-size: 2.4rem; /* 36px at m */
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: var(--tracking-tight);
+}
+.edition {
+  margin: 10px 0 28px;
+  color: var(--mute);
+  font-size: var(--fs-base);
+}
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 30px 0 0;
+  color: var(--mute);
+  font-size: var(--fs-base);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .nudge {
+    animation: nudge 1.6s var(--ease) infinite;
+  }
+}
+@keyframes nudge {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ---- You're caught up ---- */
+.end .content {
+  align-items: center;
+  text-align: center;
+}
+.end .date {
+  font-size: var(--fs-h1);
+}
+.toTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap);
+  padding: 0 18px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--fg);
+  color: var(--bg);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}

@@ -1,12 +1,12 @@
-// Smoke tests for the Ask sheet at phone size (ticket 16). Limits, privacy and
+// Smoke tests for the Ask sheet at phone size (ticket 16), opened from the rail (rework ticket 08). Limits, privacy and
 // reset are tested at the API seam (test/api/ask.test.ts).
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
 
 async function openFirstItem(page: Page) {
   await page.goto(E2E_BASE_PATH);
-  await page.getByRole("button", { name: "Next", exact: true }).tap({ position: { x: 40, y: 200 } });
-  await expect(page.getByTestId("chip")).toHaveText("Yemen · 1/7");
+  await swipe.next(page);
+  await expect(swipe.headline(page)).toHaveText("Truce talks resume over Hodeidah port access");
 }
 
 async function askClaude(page: Page, question: string) {
@@ -24,7 +24,7 @@ test("the Owner asks Claude about an Item and finds the answer again later", asy
   await signIn(page);
   await openFirstItem(page);
 
-  await page.getByRole("toolbar", { name: "Reactions" }).getByRole("button", { name: "Ask", exact: true }).tap();
+  await swipe.rail(page).getByRole("button", { name: "Ask", exact: true }).tap();
   const sheet = page.getByRole("dialog", { name: "Ask Claude" });
   await expect(sheet).toContainText("Truce talks resume over Hodeidah port access");
   await expect(sheet.getByTestId("asks-left")).toHaveText("No daily limit on your questions.");
@@ -35,7 +35,7 @@ test("the Owner asks Claude about an Item and finds the answer again later", asy
 
   await sheet.getByRole("button", { name: "Close", exact: true }).click();
   await expect(sheet).toHaveCount(0);
-  await page.getByRole("toolbar", { name: "Reactions" }).getByRole("button", { name: "Ask", exact: true }).tap();
+  await swipe.rail(page).getByRole("button", { name: "Ask", exact: true }).tap();
   await expect(page.getByRole("dialog", { name: "Ask Claude" })).toContainText("Who is mediating the talks?");
 });
 
@@ -47,7 +47,7 @@ test("a Reader sees how many questions are left today", async ({ page }) => {
   await signIn(page, "asker@example.com");
 
   await openFirstItem(page);
-  await page.getByRole("toolbar", { name: "Reactions" }).getByRole("button", { name: "Ask", exact: true }).tap();
+  await swipe.rail(page).getByRole("button", { name: "Ask", exact: true }).tap();
   const sheet = page.getByRole("dialog", { name: "Ask Claude" });
   const left = sheet.getByTestId("asks-left");
   await expect(left).toHaveText(/^\d+ of 20 questions left today$/);
@@ -74,7 +74,7 @@ test("the Owner changes a Reader's daily limit on the Invites page", async ({ pa
 
   await signIn(page, "limited@example.com");
   await openFirstItem(page);
-  await page.getByRole("toolbar", { name: "Reactions" }).getByRole("button", { name: "Ask", exact: true }).tap();
+  await swipe.rail(page).getByRole("button", { name: "Ask", exact: true }).tap();
   await expect(page.getByRole("dialog", { name: "Ask Claude" }).getByTestId("asks-left")).toHaveText(
     "5 of 5 questions left today",
   );

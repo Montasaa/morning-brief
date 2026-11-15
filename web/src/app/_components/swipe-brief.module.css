@@ -1,420 +1,190 @@
-/* The Swipe Brief (prototype variant B): dark and image-led in both themes. */
-.stage {
+/* The Swipe Brief in the Reels look (rework ticket 08), on the dark Brief
+   canvas. A phone shows one full-bleed slide per screen under the Topic tabs;
+   from 1024px wide the slide holds a centred card, and from 1280px the
+   "Up next" column sits at the end side. */
+.brief {
   position: fixed;
   inset: 0 0 var(--tabbar-h) 0;
-  max-width: 520px;
-  margin: 0 auto;
-  overflow: hidden;
-  background: #000;
-  color: #fff;
-}
-
-/* ---- progress bars and chip ---- */
-.bars {
-  position: absolute;
-  top: calc(8px + env(safe-area-inset-top));
-  left: 8px;
-  right: 8px;
-  z-index: 5;
-  display: flex;
-  gap: 3px;
-}
-.bar {
-  flex: 1;
-  height: 3px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.25);
   overflow: hidden;
 }
-.bar span {
-  display: block;
-  height: 100%;
-  background: #fff;
-  transition: width 0.15s;
-}
-.chip {
+.main {
   position: absolute;
-  top: calc(20px + env(safe-area-inset-top));
-  inset-inline-start: 12px;
-  z-index: 5;
-  max-width: calc(100% - 84px);
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(8px);
-  font-size: 12px;
-  font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  inset: 0;
 }
 
-/* ---- language switch (top corner, opposite the chip) ---- */
-.langToggle {
-  position: absolute;
-  top: calc(16px + env(safe-area-inset-top));
-  inset-inline-end: 12px;
-  z-index: 7;
-  min-width: 36px;
-  height: 30px;
-  padding: 0 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(8px);
-  color: #fff;
-  font: inherit;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-/* ---- tap zones: under the text, over the picture ----
-   Logical sides, so in Arabic (right to left) forward is on the left. */
-.tap {
+/* ---- Topic tabs over the top of the slides ---- */
+.tabs {
   position: absolute;
   top: 0;
-  bottom: 0;
+  inset-inline: 0;
+  z-index: 8;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: 14px;
+  background: linear-gradient(rgb(0 0 0 / 45%), transparent);
+}
+
+/* ---- the slides: one per stop ---- */
+.slides {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+.slides::-webkit-scrollbar {
+  display: none;
+}
+.slide {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+/* The Cover and "You're caught up". */
+.frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* ---- the tap thirds: under the text and the rail, over the picture ---- */
+.third {
+  position: absolute;
+  inset-inline: 0;
   z-index: 3;
-  width: 35%;
+  height: 33.333%;
   padding: 0;
   border: 0;
   background: transparent;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.tapBack {
-  inset-inline-start: 0;
+.upper {
+  top: 0;
 }
-.tapNext {
-  inset-inline-end: 0;
+.lower {
+  bottom: 0;
 }
-.tap:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
+.third:focus-visible {
+  outline: 2px solid var(--acc);
   outline-offset: -4px;
 }
 
-/* ---- cover card ---- */
-.cover {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 64px 22px 32px;
-  background: radial-gradient(120% 70% at 20% 0%, #2a2418 0%, #000 65%);
+/* ---- "Up next" and "Today" (PC) ---- */
+.aside {
+  display: none;
 }
-.kicker {
-  margin: 0 0 6px;
-  font-size: 12px;
+.asideTitle {
+  margin: 4px 0 12px;
+  font-size: var(--fs-base);
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #ffcc00;
 }
-.cover h1 {
-  margin: 0;
-  font-size: 34px;
-  line-height: 1.08;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+.asideTitle + * {
+  margin-bottom: 22px;
 }
-.editionLine {
-  margin: 8px 0 24px;
-  font-size: 15px;
-  color: #bdbdbd;
-}
-.hint {
-  margin: 28px 0 0;
-  font-size: 13px;
-  color: #8a8a8a;
-}
-
-/* ---- Item card ---- */
-.card {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-}
-.hero {
-  position: relative;
-  flex: 1 1 50%;
-  min-height: 0;
-  background: linear-gradient(160deg, #26303b, #0d0f12);
-}
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), transparent 30%, transparent 55%, #000);
-}
-.body {
-  position: relative;
-  z-index: 4;
-  flex: 1 1 50%;
-  margin-top: -90px;
-  padding: 0 18px 104px;
-  overflow-y: auto;
-}
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  min-height: 21px;
-}
-.badge {
-  display: inline-block;
-  padding: 3px 7px;
-  border-radius: 4px;
-  background: #fff;
-  color: #000;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.badgeTop {
-  background: #ffcc00;
-}
-.badgeWarning {
-  background: #b3261e;
-  color: #fff;
-}
-.card h2 {
-  margin: 10px 0;
-  font-size: 26px;
-  line-height: 1.12;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  overflow-wrap: anywhere;
-}
-/* Ticket 13: the top story's "why this matters to you" line. */
-.whyForYou {
-  margin: 0 0 10px;
-  padding-inline-start: 10px;
-  border-inline-start: 3px solid #ffcc00;
-  font-size: 15px;
-  line-height: 1.4;
-  color: #fff;
-}
-.whyForYouLabel {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #ffcc00;
-}
-:global([dir="rtl"]) .whyForYouLabel {
-  letter-spacing: normal;
-}
-.summary {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.5;
-  color: #d6d6d6;
-}
-.extras {
-  margin-top: 12px;
-}
-.whyItMatters {
-  margin: 0 0 8px;
-  font-size: 14px;
-  color: #d6d6d6;
-  font-style: italic;
-}
-.facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+.upNext {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.facts li {
-  padding: 3px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  font-size: 12px;
-  color: #cfcfcf;
-}
-.extraLink {
-  display: inline-block;
-  margin-block: 10px 0;
-  margin-inline: 0 8px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  background: #fff;
-  color: #000;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-}
-.tags {
-  margin: 10px 0 0;
-  font-size: 12px;
-  color: #8a8a8a;
-}
-.sources {
-  margin: 10px 0 0;
-  font-size: 12px;
-  color: #8a8a8a;
-}
-.sources a {
-  color: #c4c4c4;
-}
-
-/* ---- sensitive cards: blurred with their warning until tapped (ticket 08) ---- */
-.locked .hero,
-.locked .body {
-  filter: blur(18px);
-  pointer-events: none;
-  user-select: none;
-}
-.veil {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.45);
-}
-/* Above the tap zones; the sides stay free to go back or skip. */
-.reveal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 5;
-  transform: translate(-50%, -60%);
+.upRow {
   display: grid;
-  gap: 8px;
-  justify-items: center;
-  width: min(60%, 260px);
-  padding: 18px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 18px;
-  background: rgba(20, 20, 20, 0.7);
-  color: #fff;
-  font: inherit;
-  text-align: center;
-}
-.reveal:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
-.revealWarning {
-  padding: 3px 8px;
-  border-radius: 4px;
-  background: #b3261e;
-  font-size: 12px;
-  font-weight: 700;
-  overflow-wrap: anywhere;
-}
-.revealHint {
-  font-size: 15px;
-  font-weight: 600;
-}
-
-/* ---- dock ---- */
-.dock {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 6;
-  display: flex;
-  justify-content: space-around;
-  padding: 18px 10px 12px;
-  background: linear-gradient(transparent, #000 40%);
-}
-.dockButton {
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 2px;
-  width: 58px;
-  height: 58px;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 12px;
+  width: calc(100% + 20px);
+  margin: 0 -10px;
+  padding: 10px;
   border: 0;
-  border-radius: 50%;
-  background: #1c1c1e;
-  color: #fff;
-}
-.dockButton small {
-  font-size: 9px;
-  opacity: 0.7;
-}
-/* A Liked or Saved Item (ticket 09), as in the prototype. */
-.dockButton[aria-pressed="true"] {
-  background: #fff;
-  color: #000;
-}
-
-/* An Item the Reader opened before: dimmed so they don't re-read it. */
-.dimmed .hero,
-.dimmed .body {
-  opacity: 0.5;
-}
-
-/* ---- You're caught up ---- */
-.done {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  text-align: center;
-}
-.done h2 {
-  margin: 0 0 8px;
-  font-size: 28px;
-}
-.done p {
-  margin: 0 0 24px;
-  color: #bdbdbd;
-}
-.startOver {
-  position: relative;
-  z-index: 4;
-  padding: 10px 20px;
-  border: 0;
-  border-radius: 999px;
-  background: #fff;
-  color: #000;
+  border-radius: var(--r-row);
+  background: none;
+  color: var(--fg);
   font: inherit;
+  text-align: start;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.upRow:hover {
+  background: var(--surf);
+}
+.upRow[data-dimmed="true"] {
+  opacity: 0.55;
+}
+.thumb {
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  border-radius: var(--r-row);
+  background: var(--surf2);
+}
+.thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.upText {
+  min-width: 0;
+}
+.upText small {
+  display: block;
+  color: var(--mute);
+  font-size: var(--fs-xs);
+}
+.upTitle {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 0.9rem;
   font-weight: 600;
+  line-height: 1.3;
 }
 
-/* ---- Arabic: letter-spacing breaks the joins between Arabic letters ---- */
-:global([dir="rtl"]) .kicker,
-:global([dir="rtl"]) .cover h1,
-:global([dir="rtl"]) .badge,
-:global([dir="rtl"]) .card h2 {
-  letter-spacing: 0;
-}
-
-/* ---- desktop (ticket 05): the card in the centre, the side list beside it ---- */
-/* Below the breakpoint .layout is a plain wrapper and .stage stays fixed full-screen. */
+/* ---- tablet landscape and PC: the card in the middle, the rail beside it ---- */
 @media (min-width: 1024px) {
-  .layout {
-    position: fixed;
-    inset: 0 0 var(--tabbar-h) 0;
+  .brief {
     display: grid;
-    grid-template-columns: 1fr minmax(0, 520px) 1fr;
-    background: #000;
+    grid-template-columns: minmax(0, 1fr);
   }
-  .stage {
+  .main {
     position: relative;
     inset: auto;
-    grid-column: 2;
-    max-width: none;
-    margin: 0;
-    border-inline: 1px solid #1c1c1e;
+    min-height: 0;
   }
-  .tap {
+  .tabs {
+    display: flex;
+    justify-content: center;
+    padding: 6px 0 0;
+    background: none;
+  }
+  .slides {
+    top: 52px;
+  }
+  /* A centred 10:16 card, its width from its height. */
+  .frame {
+    position: relative;
+    inset: auto;
+    height: calc(100% - 28px);
+    max-width: calc(100% - 40px);
+    aspect-ratio: 10 / 16;
+    margin: 6px auto 0;
+    border-radius: var(--r-card);
+  }
+  .third {
     cursor: pointer;
+  }
+}
+@media (min-width: 1280px) {
+  .brief {
+    grid-template-columns: minmax(0, 1fr) 340px;
+  }
+  .aside {
+    display: block;
+    overflow: auto;
+    padding: 20px;
+    border-inline-start: 1px solid var(--line);
   }
 }

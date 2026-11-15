@@ -41,6 +41,15 @@ export function localized(record: object, field: string, lang: Lang): string | n
 }
 
 /** A number written the Reader's way ("1,840" or "١٬٨٤٠"). */
+/** A Topic's name in the Reader's language, from a Brief's (or listing's) name maps; the id if it has none. */
+export function topicName(
+  names: { topic_names: Record<string, string>; topic_names_ar: Record<string, string> },
+  id: string,
+  lang: Lang,
+): string {
+  return (lang === "ar" ? names.topic_names_ar[id] : undefined) ?? names.topic_names[id] ?? id;
+}
+
 export function formatNumber(n: number, lang: Lang): string {
   return n.toLocaleString(lang === "ar" ? "ar-SA" : "en-US");
 }
