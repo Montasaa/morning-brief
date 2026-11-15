@@ -1,0 +1,103 @@
+/* The Me tab's notifications and home-screen install (ticket 18). */
+.section {
+  margin: 32px 0 0;
+}
+.title {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.note {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.install,
+.device {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.install p,
+.device p {
+  flex: 1 1 200px;
+}
+.switchRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+}
+.switchText {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.switchLabel {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* A switch drawn over a real checkbox. */
+.switch {
+  appearance: none;
+  flex: none;
+  position: relative;
+  width: 46px;
+  height: 28px;
+  margin: 0;
+  border-radius: 999px;
+  background: var(--rule);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.switch::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 3px;
+  inset-inline-start: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 25%);
+  transition: inset-inline-start 0.15s;
+}
+.switch:checked {
+  background: var(--fg);
+}
+.switch:checked::after {
+  inset-inline-start: 21px;
+}
+.switch:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+.switch:disabled {
+  opacity: 0.6;
+}
+
+.status {
+  margin: 10px 0 0;
+  min-height: 1.45em;
+  font-size: 14px;
+  color: var(--muted);
+}
+.error {
+  color: #b3261e;
+}
+@media (prefers-color-scheme: dark) {
+  .error {
+    color: #f2b8b5;
+  }
+}

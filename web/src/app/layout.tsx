@@ -7,18 +7,25 @@ import { currentReader } from "@/server/readers/page-session";
 import { getProfile } from "@/server/readers/profile";
 import { LANG_COOKIE, dirOf, languageFrom } from "./_components/i18n";
 import { LanguageProvider } from "./_components/language";
+import { ServiceWorkerRegistration } from "./_components/service-worker";
 import { TabBar } from "./_components/tab-bar";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Morning Brief",
   description: "Your personal Morning Brief.",
+  // Opens like an app from the iPhone home screen (ticket 18; the manifest is app/manifest.ts).
+  appleWebApp: { capable: true, title: "Brief", statusBarStyle: "default" },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fbfaf7" },
+    { media: "(prefers-color-scheme: dark)", color: "#141412" },
+  ],
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
@@ -33,6 +40,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <LanguageProvider initial={lang} cookiePath={configFromEnv().basePath} saveToProfile={reader !== null}>
           {children}
           <TabBar />
+          <ServiceWorkerRegistration basePath={configFromEnv().basePath} />
         </LanguageProvider>
       </body>
     </html>
