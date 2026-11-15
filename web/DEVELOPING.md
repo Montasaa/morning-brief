@@ -126,7 +126,7 @@ Playwright at phone size (Pixel 7, Chromium) in `e2e/`, against `next dev` with 
 - Drive the Swipe Brief with the `swipe` helpers in `e2e/support.ts` (see [The Swipe Brief](#the-swipe-brief-the-reels-look)), not by hand: `swipe.next(page)` / `swipe.back(page)` tap a third of the picture and wait for the move to land, `swipe.drag(page, px, { steps, pause })` drags a finger. Match buttons with `exact: true`.
 - Fix the clock with `page.clock.setFixedTime(...)` before `page.goto` when a test reads relative times ("50m ago"). They are filled in after the page loads.
 - `devIndicators` is off in `next.config.ts` because the Next.js dev badge covers the bottom tabs.
-- Desktop-only flows go in `e2e/desktop-*.spec.ts`: they run in the `desktop` project (Desktop Chrome, 1280×720) and not at phone size; every other spec runs only at phone size. On a PC-sized screen the Swipe Brief is a centred card with "Up next" beside it (from 1024px and 1280px wide); ticket 09 adds Front Page and List.
+- Three projects, by screen class (see [Layouts, screen classes and the reader pane](#layouts-screen-classes-and-the-reader-pane)): `phone` (Pixel 7) runs every spec except `e2e/desktop-*.spec.ts` and `e2e/wide-*.spec.ts`; `desktop` (Desktop Chrome, 1280×720, a PC: Front Page by default) runs only `desktop-*`; `wide` (1728×1050) runs only `wide-*`. A spec can also resize its page (`page.setViewportSize`) to try a tablet either way up.
 - The e2e server listens on port 3210. Set `E2E_PORT` to use another one when several checkouts run e2e at once.
 - `next.config.ts` turns off Turbopack's on-disk dev cache. With it on, its writes under `web/.next` made `next dev` keep reloading the page, and the Swipe Brief jumped back to the cover in the middle of a test.
 
@@ -171,12 +171,12 @@ Rework ticket 07 (issue #7, [spec #6](https://github.com/Montasaa/morning-brief/
 - `PATCH /api/me {display: {...}}` changes only the keys sent, inside the profile's all-or-nothing update: any bad value gets `422 {error, reasons}` (every reason at once) and nothing is stored. A key sent as `null` goes back to its default. `layouts` merges per screen class (`phone`, `tablet`, `pc`; "wide" uses `pc`), and `{layouts: {tablet: null}}` takes back just that pick.
 - Validation: enums for `theme`, `accent`, `text_size`, `density` and each Layout; Topic lists (`topic_order`, `pinned`, `collapsed`) take only ids in the Reader's Catalog (`unknownTopicIds`), followed or not, and keep them after an unfollow; `widgets` takes Widget kinds; `dock` takes 1 to 5 of `like, save, ask, hide, share`; `unblurred` takes only Sensitive Topics the Reader has opted into (as of the end of the same request, so a request that drops one cannot unblur it). Lists are de-duplicated, keeping the first.
 - Opting out of a Sensitive Topic, by any route, removes it from `unblurred` (a trigger on `topic_follows`), so opting in again starts blurred.
-- Later tickets add only UI and behaviour: `layouts` (ticket 09), `topic_order`, `pinned`, `collapsed`, `widgets`, `dock` (ticket 11), `unblurred` (ticket 10). Add their controls to Me › Display (`src/app/me/display/page.tsx`, `_components/display-controls.tsx`).
+- Later tickets add only UI and behaviour: `layouts` (ticket 09, done: see [Layouts](#layouts-screen-classes-and-the-reader-pane)), `topic_order`, `pinned`, `collapsed`, `widgets`, `dock` (ticket 11), `unblurred` (ticket 10). Add their controls to Me › Display (`src/app/me/display/page.tsx`, `_components/display-controls.tsx`).
 - Tests: `test/api/display.test.ts` (defaults, partial updates, every validation reason, syncing between two sessions, another Reader untouched); `e2e/display.spec.ts` (changing theme and accent survives a reload and reaches another device; Arabic).
 
 ### In the browser
 
-- The root layout reads the Display on the server (as it does the language) and renders it on `<html>` as `data-theme`, `data-accent`, `data-text-size` and `data-density` (`displayAttributes` in `_components/display-attributes.ts`). `globals.css` styles everything from those attributes, so the first paint is right with no script and no flash; `auto` follows `prefers-color-scheme` in CSS. Signed out, the defaults apply. The browser bar colour (`generateViewport`) follows the theme too. Ticket 09 adds the initial Layout the same way.
+- The root layout reads the Display on the server (as it does the language) and renders it on `<html>` as `data-theme`, `data-accent`, `data-text-size` and `data-density` (`displayAttributes` in `_components/display-attributes.ts`). `globals.css` styles everything from those attributes, so the first paint is right with no script and no flash; `auto` follows `prefers-color-scheme` in CSS. Signed out, the defaults apply. The browser bar colour (`generateViewport`) follows the theme too. The Layout is not among them: it depends on the screen, which only the browser knows (see [Layouts](#layouts-screen-classes-and-the-reader-pane)).
 - `DisplayProvider` / `useDisplay()` (`_components/display.tsx`): `const { display, update } = useDisplay(); await update({ accent: "sky" })`. `update` changes the `<html>` attributes at once, saves with `PATCH /api/me {display}` and resolves `true` when saved; when the server refuses or the device is offline it undoes just those keys and resolves `false`. When the page comes back into view it fetches the Display again, so a change made on another device shows without a reload.
 
 ### The visual system
@@ -211,19 +211,19 @@ Muted text: light chrome `#5d646d` is 5.15:1 at worst, dark `#8b9098` 5.26:1.
 
 ## The Swipe Brief (the Reels look)
 
-Rework ticket 08 (issue #8, [spec #6](https://github.com/Montasaa/morning-brief/issues/6)). On a phone (and, until ticket 09, everywhere) the Brief is **Swipe**: the Cover, one Item per screen, then "You're caught up", on the dark Brief canvas.
+Rework ticket 08 (issue #8, [spec #6](https://github.com/Montasaa/morning-brief/issues/6)). By default on a phone and an upright tablet (and wherever the Reader picks it; see [Layouts](#layouts-screen-classes-and-the-reader-pane)) the Brief is **Swipe**: the Cover, one Item per screen, then "You're caught up", on the dark Brief canvas.
 
 ### Pieces (`src/app/_components/`), shared with the other Layouts
 
 - `swipe-brief.tsx`: the slides and their inputs. Each slide is full height in a CSS scroll-snap container (`scroll-snap-stop: always`), so a drag stops exactly one slide on. `useSnapSlides` tracks the slide on screen (`active`, from the scroll position) and moves with `go(i)` / `step(±1)`; a step taken before the last move lands builds on it.
-- `reels-card.tsx`: **the Reels card**, one Item full-bleed: the picture by kind, the bottom shade, the text (why-line on top stories, **Topic** · time · Updated, headline, two-line summary, Story Thread chip), the rail, the veil and the double-tap heart. Ticket 09's reader pane shows the same component (pass `active` true; its `children` go over the picture, under the text: Swipe puts its tap thirds there). From 1024px wide it is a centred 10:16 card with the rail beside it.
+- `reels-card.tsx`: **the Reels card**, one Item full-bleed: the picture by kind, the bottom shade, the text (why-line on top stories, **Topic** · time · Updated, headline, two-line summary, Story Thread chip), the rail, the veil and the double-tap heart. The reader pane shows the same component with `fit="pane"` (it fills the pane, rail over the picture, at every width; never dimmed there). Its `children` go over the picture, under the text: Swipe puts its tap thirds there. In Swipe from 1024px wide it is a centred 10:16 card with the rail beside it.
   - **Pictures**: `pictureKind(item)` is `item.image_kind` (ticket 10 adds it to Items), else `photo` when there is an image, else `none`. `photo` fills the frame (cover crop); `card` is a badge up to 88px tall on a white plate (`object-fit: contain`) over a plain card with a bigger headline; `none`, and any picture that fails to load, is a plain dark gradient. The card says which in `data-picture`.
   - **The veil**: a `blurred` Item has its picture and text blurred and `inert`, a light scrim under the tap thirds, and a centred button (eye, Topic name, warning, "Tap to view"). No red. Leaving the card veils it again; double-tap does nothing while veiled.
 - `reactions.tsx`: `useReactions` (the Brief with this page's Reactions applied), `<Rail>` (Like, Save, Ask, Hide; Like and Save pop and give a light haptic tick through `navigator.vibrate`), the hide-reason sheet and `<UndoToast>`. Ticket 11 drives the rail's buttons from Display `dock`.
 - `sheet.tsx`: `<Sheet>`, the bottom sheet every sheet uses. It renders into `<body>`, outside the canvas, so it is in chrome colours; it rises, closes by its Close button, Esc, the scrim or a drag down (by its handle, or anywhere that is not a control), and is a centred dialog from 1024px. While one is open the Swipe Brief ignores keys (`sheetOpen()`).
 - `read-sheet.tsx` (tap the card's text, or Enter): the picture, meta, headline, why-line, full summary, extras (`card-extras.tsx`), "Also in", Like / Save / Ask and the sources. Opening it records an `open`, so the Item comes back dimmed (`data-dimmed`). `ask-sheet.tsx` is the Ask sheet.
 - `topic-tabs.tsx`: `<TopicTabs>` ("For you", then the Topics in Brief order) with a sliding indicator; the caller says which is `current` (Swipe: the Item on screen; Front Page: its scroll spy). It scrolls its own strip, never the page.
-- `cover.tsx`: the Cover's full-screen form (greeting, date, Edition and Item count, the Widgets, a drifting glow, the language switch) and `<CaughtUp>`. `useCoverLines` gives ticket 09's header form the same lines; `cover-widgets.tsx` draws the Widgets as quiet rows (`<WidgetRows>`).
+- `cover.tsx`: the Cover's full-screen form (greeting, date, Edition and Item count, the Widgets, a drifting glow, the language switch) and `<CaughtUp>`. `useCoverLines` gives the header form (Front Page and List) the same lines; both forms carry the Layout switch; `cover-widgets.tsx` draws the Widgets as quiet rows (`<WidgetRows>`).
 - `item-image.tsx`: `<ItemImage>`, an Item's picture with `onFail`, which also catches a picture that failed before the page was running (React misses that error event). Use it for every Item picture so a failed one falls back to the plain gradient.
 - `icons.tsx`: the line icons (`<Icon name="heart" filled />`).
 - `client-time.ts`: `useNow()` (the time, once the page has loaded, for relative times and countdowns) and `prefersReducedMotion()` for motion driven by script.
@@ -231,7 +231,7 @@ Rework ticket 08 (issue #8, [spec #6](https://github.com/Montasaa/morning-brief/
 ### Inputs
 
 - A vertical drag snaps one Item per stop. Tapping the **upper third** of the picture goes back, the **lower third** forward; the middle third is free for **double-tap to like** (the card's text and rail sit above the thirds). On the Cover only forward, on "You're caught up" only back.
-- Keys (ignored while typing or with a sheet open): j, ArrowDown, Space, Page Down forward; k, ArrowUp, Shift+Space, Page Up back; Enter opens the read sheet. Ticket 09 adds the PC shortcuts.
+- Keys (ignored while typing or with a sheet open): j, ArrowDown, Space, Page Down forward; k, ArrowUp, Shift+Space, Page Up back; Enter opens the read sheet; the PC shortcuts (s, l, h, a, /, ?) act on the Item on screen (see [Keyboard](#keyboard-pc)).
 - Topic tabs jump to a group's first Item ("For you": the first top story). From 1280px the "Up next" list jumps too.
 - Arabic mirrors only the horizontal parts: the tabs and their indicator, the rail and text sides. Moving stays vertical.
 - Motion (the text settling in, the photo's zoom-settle, the like pop and burst, the tab indicator, sheets, the glow) is off under reduced motion, and no start state hides anything: the hidden-until-active text is only hidden under `prefers-reduced-motion: no-preference`. Under reduced motion, moves made by tap, key or tab jump instead of scrolling smoothly (a jump of more than one slide always does); a drag still settles on its slide, since snapping is what makes it stop one Item on.
@@ -242,7 +242,61 @@ Rework ticket 08 (issue #8, [spec #6](https://github.com/Montasaa/morning-brief/
 - `e2e/support.ts` has `swipe`: `card`, `headline`, `cover`, `tabs`, `rail`, and `next` / `back` / `drag`. `next` and `back` wait for the move to land: Playwright scrolls a target back into view before tapping it, so a second tap made mid-move would undo the first. They tap near the start side, clear of the text and the rail (which is on the left in Arabic).
 - Test drags by distance, not speed: a long drag (past half a screen) moves one Item however fast, a short slow one settles back. A fast short flick is judged by its speed, which CDP's event timing makes unreliable. Wait for `networkidle` before the first drag: the dev server can drop a gesture made while it is still loading the page.
 - Selectors: the Cover is the region "Cover" ("الغلاف"), the end the region "End of the Brief"; the tap thirds are the buttons "Back" / "Next"; the rail the toolbar "Actions"; the tabs the navigation "Topics", the current one `aria-current="true"`; the veil's button contains "Tap to view"; the card's `data-picture`, `data-dimmed`; the scrolling column `data-testid="swipe-slides"`; the double-tap heart `data-testid="like-burst"`; a sheet's handle `data-testid="sheet-handle"`.
-- Specs: `e2e/swipe-brief.spec.ts` (Cover, tap thirds, keys, drag, tabs, read sheet, pictures), `reactions.spec.ts` (rail, double-tap, hide and Undo; its own Reader, since likes change ranking), `sensitive-topics.spec.ts` (veil), `arabic-rtl.spec.ts`, `desktop-brief.spec.ts` (centred card, Up next).
+- Specs: `e2e/swipe-brief.spec.ts` (Cover, tap thirds, keys, drag, tabs, read sheet, pictures), `reactions.spec.ts` (rail, double-tap, hide and Undo; its own Reader, since likes change ranking), `sensitive-topics.spec.ts` (veil), `arabic-rtl.spec.ts`, `desktop-brief.spec.ts` ("Swipe on a PC": centred card, Up next).
+
+## Layouts, screen classes and the reader pane
+
+Rework ticket 09 (issue #9, [spec #6](https://github.com/Montasaa/morning-brief/issues/6)). This replaces the old desktop card-plus-side-list. The Brief page (`src/app/page.tsx`) renders `<BriefLayouts>` (`_components/brief-layouts.tsx`), which keeps the Reactions (so switching Layout keeps them) and shows one of three Layouts: **Swipe** (above), **Front Page** or **List** (`front-page.tsx`).
+
+### Screen classes and which Layout
+
+`_components/screen-class.ts`, read in the browser from the viewport (`useScreen()`, which follows resizes and rotation):
+
+| Screen class | Width | No pick | Navigation | Reader pane |
+| --- | --- | --- | --- | --- |
+| phone | under 768px | Swipe | bottom tabs | full screen |
+| tablet, upright (at least as tall as wide) | 768–1279px | Swipe | bottom tabs | full screen |
+| tablet, sideways | 768–1279px | Front Page | sidebar | beside the page (430px) |
+| PC | 1280–1599px | Front Page | sidebar | beside the page (430px) |
+| wide | 1600px and over | the PC's | sidebar | always open (460px), plus a Widgets column (300px) |
+
+- `layoutFor(display.layouts, screen)` is the pick for the class (`pickFor`: wide uses `pc`), else the default above. Once tablet has a pick it applies both ways up; without one, turning a tablet switches Layout.
+- The Reader picks with the Layout switch on the Brief (`layout-switch.tsx`, on the Cover in Swipe and the Cover header in Front Page and List; it sets the pick for the screen class it is on) or per class in Me › Display ("Automatic" sends `null`). Validation is #7's (`422` for anything but `swipe`, `front_page`, `list` under `phone`, `tablet`, `pc`).
+- The screen is unknown on the server, so the server sends the dark canvas and the Layout appears once the page is running (no wrong Layout flashes, but the Brief is blank for that moment).
+- CSS repeats the same breakpoints: `@media (min-width: 1280px), (min-width: 768px) and (orientation: landscape)` is "the sidebar shows" (tablet landscape, PC, wide), `min-width: 1600px` is wide. In `globals.css` that query sets `--sidebar-w: 240px` and `--tabbar-h: 0px`; `body` keeps `padding-inline-start: var(--sidebar-w)`, and fixed-position screens (the Brief) use `inset-inline: var(--sidebar-w) 0` and `bottom: var(--tabbar-h)`, so every screen stays clear of whichever navigation shows.
+
+### Navigation
+
+`tab-bar.tsx` renders both the bottom tabs (navigation "Tabs") and the sidebar (navigation "Sidebar": Brief, Threads, Saved & Search, Me, in chrome colours); CSS shows one. While the Brief is open each Layout fills the sidebar's Topics slot with `<SidebarTopics>` (each Topic with its Item count; clicking one jumps to it like its Topic tab).
+
+### Front Page and List
+
+- Both are one scrolling page on the canvas: Topic tabs on top (a scroll spy marks the group at the top; a tab or sidebar jump keeps its tab until the scrolling stops), the Cover as a header (greeting, date, Edition, the Layout switch, the language switch and the Widgets as a row; on wide the row is left out and the Widgets get their own column, the complementary "Today"), then the groups in Brief order (`brief.groups`), then "You're caught up".
+- **Front Page**: "For you" is up to 3 big 3:4 cards in one row (a third of the width each; sideways scrolling when narrow) with their why-lines; each Topic is a sideways shelf of 10:15 cards, `--shelf-card-w` wide (196px, 168px compact), with scroll snap and back/forward buttons shown on hover (always on touch screens; they scroll by 80% of the shelf, the other way in Arabic).
+- **List**: rows (a square thumbnail, `--list-row-thumb` 56px / 44px compact, **Topic** · time · Updated, a one-line headline cut off with an ellipsis) under sticky group headings; the top stories first. At most 760px wide.
+- A card or row is an `article` (`data-item`); its headline is the button that opens it (stretched over the whole card). It carries `data-selected` (open in the pane: outlined in the accent), `data-dimmed` (opened before and not open now: 45%, full on hover) and `data-picture`. Hover lifts a card 2px and zooms its photo 1.03.
+- **Sensitive Items**: a card or row of a `blurred` Item has its picture and headline blurred and hidden from assistive tech, and a "Tap to view" button; tapping shows the headline on this page (the pane's Reels card still has its own veil).
+
+### The reader pane
+
+`reader-pane.tsx`, the complementary "Reader": the Reels card (`fit="pane"`) with its position ("3 / 7", in Arabic digits in Arabic) and the keys at the foot, or Ask (`<AskPanel>` from `ask-sheet.tsx`, the region "Ask Claude", with a "Back to the story" arrow).
+
+- Opening an Item there (click, j/k, Enter) records an `open`, so it dims on the page; a veiled Item is not counted until it is seen. On wide the pane opens on the first top story when the page loads, without recording an open, and has no close button.
+- Hiding the open Item moves the pane on to the Item that took its place.
+- Motion (off under reduced motion): the pane slides in from the end side (the left in Arabic), and the card slides up or down on j/k (`data-dir`).
+
+### Keyboard (PC)
+
+Ignored while typing, with a modifier, or while a sheet is open (`isShortcut` in `shortcuts.tsx`).
+
+- Front Page and List: j / ArrowDown and k / ArrowUp move the pane through the Brief's order (opening it on the first Item if closed); Enter opens the first Item, or the read sheet for the open one; Esc goes from Ask to the card, then closes the pane (it works from the question box too).
+- Every Layout: s save, l like, h hide (asks why, as the rail does), a Ask (in the pane, or the Ask sheet in Swipe), on the Item being read; `/` goes to Saved & Search with the search box focused (`/saved#search`); `?` lists the shortcuts. `e` (Edit mode) is ticket 11's.
+
+### Testing it (browser seam)
+
+- `e2e/support.ts` has `frontPage`: `group(page, name)` (the region for "For you" or a Topic), `open(page, title)` (the button that opens an Item), `pane`, `paneHeadline`, `sidebar` and `layouts` (the radiogroup "Layout"). The pane's position is `data-testid="pane-position"`.
+- The e2e server keeps one database for the run, so a spec that picks a Layout resets it first (`PATCH /api/me {display: {layouts: …null}}`), or uses its own Reader.
+- Specs: `desktop-brief.spec.ts` (Front Page, the pane and j/k, Ask in the pane, the sidebar and tabs, List and the switch surviving a reload, a sensitive card, `?` and `/`, Arabic, a tablet turned both ways, and "Swipe on a PC"), `wide-brief.spec.ts` (the pane open on the first top story, the Widgets column), `front-page.spec.ts` (phone: picking Front Page, the full-screen pane, Me › Display's Layout picks).
 
 ## Sensitive Topics
 
