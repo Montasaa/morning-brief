@@ -188,6 +188,17 @@ body:has(.brief-canvas) {
     --page-pad: 22px;
   }
 }
+/* The sidebar replaces the bottom tabs on tablet landscape, PC and wide (rework ticket 09;
+   the same screen classes as _components/screen-class.ts). Screens keep clear of it. */
+:root {
+  --sidebar-w: 0px;
+}
+@media (min-width: 1280px), (min-width: 768px) and (orientation: landscape) {
+  :root {
+    --sidebar-w: 240px;
+    --tabbar-h: 0px;
+  }
+}
 
 /* ---------- base ---------- */
 html {
@@ -200,6 +211,7 @@ html {
 
 body {
   margin: 0;
+  padding-inline-start: var(--sidebar-w);
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);

@@ -1,17 +1,22 @@
 "use client";
 // The controls on Me › Display (rework ticket 07): theme, accent, text size and
-// density, each a group of radio buttons. A choice takes effect at once and is
-// saved to the Reader's Display (useDisplay). Tickets 09 and 11 add their
-// groups (Layouts, Topics, Widgets, dock) here.
+// density, each a group of radio buttons, and the Layout for each screen class
+// (rework ticket 09). A choice takes effect at once and is saved to the
+// Reader's Display (useDisplay). Ticket 11 adds its groups (Topics, Widgets,
+// dock) here.
 import { useState } from "react";
 import {
   ACCENTS,
   DENSITIES,
+  LAYOUTS,
+  SCREEN_CLASSES,
   TEXT_SIZES,
   THEMES,
   type Accent,
   type Density,
   type DisplayPatch,
+  type Layout,
+  type ScreenClass,
   type TextSize,
   type Theme,
 } from "@/server/display/shape";
@@ -19,6 +24,7 @@ import c from "./chrome.module.css";
 import { useDisplay } from "./display";
 import s from "./display-controls.module.css";
 import { useLanguage } from "./language";
+import { LAYOUT_LABELS } from "./layout-switch";
 
 type Label = readonly [en: string, ar: string];
 
@@ -44,6 +50,23 @@ const TEXT_SIZE_LABELS: Record<TextSize, Label> = {
 const DENSITY_LABELS: Record<Density, Label> = {
   compact: ["Compact", "متقارب"],
   comfortable: ["Comfortable", "مريح"],
+};
+/** "auto": no pick, so the screen's default Layout. */
+type LayoutChoice = Layout | "auto";
+const LAYOUT_CHOICES: readonly LayoutChoice[] = ["auto", ...LAYOUTS];
+const LAYOUT_CHOICE_LABELS: Record<LayoutChoice, Label> = { auto: ["Automatic", "تلقائي"], ...LAYOUT_LABELS };
+const SCREEN_LABELS: Record<ScreenClass, Label> = {
+  phone: ["On a phone", "على الهاتف"],
+  tablet: ["On a tablet", "على الجهاز اللوحي"],
+  pc: ["On a PC", "على الحاسوب"],
+};
+const SCREEN_HINTS: Record<ScreenClass, Label> = {
+  phone: ["Automatic is Swipe.", "التلقائي هو التمرير."],
+  tablet: [
+    "Automatic is Swipe held upright and Front Page held sideways. A pick applies both ways.",
+    "التلقائي هو التمرير عموديًا والصفحة الأولى أفقيًا. أي اختيار يسري في الاتجاهين.",
+  ],
+  pc: ["Automatic is Front Page. Wide screens use this too.", "التلقائي هو الصفحة الأولى. وتستخدمه الشاشات العريضة أيضًا."],
 };
 
 export function DisplayControls() {
@@ -92,6 +115,19 @@ export function DisplayControls() {
         value={display.density}
         onChange={(density) => choose({ density })}
       />
+      <h2 className={c.sectionTitle}>{t("Layout", "طريقة العرض")}</h2>
+      {SCREEN_CLASSES.map((screen) => (
+        <Choice
+          key={screen}
+          name={`layout-${screen}`}
+          legend={t(...SCREEN_LABELS[screen])}
+          hint={t(...SCREEN_HINTS[screen])}
+          options={LAYOUT_CHOICES}
+          labels={LAYOUT_CHOICE_LABELS}
+          value={display.layouts[screen] ?? "auto"}
+          onChange={(layout) => choose({ layouts: { [screen]: layout === "auto" ? null : layout } })}
+        />
+      ))}
       <p className={`${c.status} ${status === "failed" ? c.error : ""}`} role="status" data-testid="display-status">
         {status === "saved" && t("Saved.", "تم الحفظ.")}
         {status === "failed" && t("Couldn't save. Check your connection and try again.", "تعذّر الحفظ. تحقّق من اتصالك وحاول مجددًا.")}

@@ -4,7 +4,8 @@
    "Up next" column sits at the end side. */
 .brief {
   position: fixed;
-  inset: 0 0 var(--tabbar-h) 0;
+  inset-block: 0 var(--tabbar-h);
+  inset-inline: var(--sidebar-w) 0; /* clear of the sidebar, where it shows (rework ticket 09) */
   overflow: hidden;
 }
 .main {

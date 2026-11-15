@@ -273,3 +273,29 @@
     inset-inline: 20px;
   }
 }
+
+/* ---- in the reader pane (rework ticket 09): the card fills the pane at every width ---- */
+.card[data-fit="pane"] {
+  display: block;
+  padding: 0;
+}
+.card[data-fit="pane"] .frame {
+  position: absolute;
+  inset: 0;
+  height: auto;
+  max-width: none;
+  aspect-ratio: auto;
+  border-radius: var(--r-card);
+  box-shadow: none;
+}
+.card[data-fit="pane"] .text {
+  inset-inline: 16px 78px;
+}
+.card[data-fit="pane"] .headline {
+  font-size: 1.4rem; /* 21px at m: the pane is narrower than a phone */
+}
+/* The Item being read is never dimmed in the pane (opening it is what dims it on the page). */
+.card[data-fit="pane"][data-dimmed="true"] .picture,
+.card[data-fit="pane"][data-dimmed="true"] .text {
+  opacity: 1;
+}

@@ -2,8 +2,8 @@
 // The Cover in its full-screen form (rework ticket 08, spec #6): the first
 // screen of the Swipe Brief. The greeting, the date, the Edition and its Item
 // count, then the Reader's Widgets as quiet rows, over a slowly drifting glow.
-// Ticket 09 adds the header form (Front Page and List) beside this one, from
-// the same pieces (`coverLines`, <WidgetRows>).
+// Front Page and List show the header form (front-page.tsx) from the same
+// pieces (`useCoverLines`, <WidgetRows>). Both carry the Layout switch.
 //
 // The same look closes the Brief: <CaughtUp> ("You're caught up").
 import type { Brief } from "@/server/brief/compose";
@@ -11,6 +11,7 @@ import { WidgetRows } from "./cover-widgets";
 import { formatCoverDate, formatNextEdition, itemCount } from "./format";
 import { Icon } from "./icons";
 import { LanguageToggle, useLanguage } from "./language";
+import { LayoutSwitch } from "./layout-switch";
 import s from "./cover.module.css";
 
 /** The Cover's lines in the Reader's language: greeting, date and "Morning Edition · 7 Items". */
@@ -36,7 +37,10 @@ export function Cover({ brief }: { brief: Brief }) {
       <div className={s.content}>
         <div className={s.top}>
           <p className={s.greeting}>{lines.greeting}</p>
-          <LanguageToggle className={s.lang} />
+          <span className={s.tools}>
+            <LayoutSwitch />
+            <LanguageToggle className={s.lang} />
+          </span>
         </div>
         <h1 className={s.date}>{lines.date}</h1>
         <p className={s.edition}>{lines.edition}</p>

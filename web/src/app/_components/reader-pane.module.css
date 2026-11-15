@@ -1,0 +1,138 @@
+/* The reader pane (rework ticket 09), on the dark Brief canvas. Full screen on
+   a phone and an upright tablet; beside the page where the sidebar shows. */
+.pane {
+  position: fixed;
+  inset: 0;
+  z-index: 30; /* over the bottom tabs */
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: calc(10px + env(safe-area-inset-top)) 14px calc(14px + env(safe-area-inset-bottom));
+}
+@media (min-width: 1280px), (min-width: 768px) and (orientation: landscape) {
+  .pane {
+    position: relative;
+    inset: auto;
+    z-index: auto;
+    min-height: 0;
+    padding: 12px 14px 14px;
+    border-inline-start: 1px solid var(--line);
+  }
+}
+.head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--tap);
+  padding-bottom: 6px;
+  color: var(--mute);
+}
+.spacer {
+  flex: 1;
+}
+.position {
+  font-size: var(--fs-s);
+  font-variant-numeric: tabular-nums;
+}
+.icon {
+  display: grid;
+  place-items: center;
+  width: var(--tap);
+  height: var(--tap);
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--mute);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.icon:hover {
+  background: var(--surf2);
+  color: var(--fg);
+}
+.askTitle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: var(--fg);
+  font-size: var(--fs-base);
+  font-weight: 700;
+}
+.askTitle svg {
+  color: var(--acc);
+}
+.card {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+.ask {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0 4px;
+}
+.keys {
+  display: none; /* keys are for a keyboard: shown beside the page, below */
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin: 10px 2px 0;
+  color: var(--faint);
+  font-size: var(--fs-xs);
+}
+.keys kbd {
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  color: var(--mute);
+  font: 500 var(--fs-xs) ui-monospace, monospace;
+}
+@media (min-width: 1280px), (min-width: 768px) and (orientation: landscape) {
+  .keys {
+    display: flex;
+  }
+}
+
+/* ---- motion: the pane slides in from the end side; the card slides on j/k ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .pane[data-slide] {
+    animation: paneIn 0.35s var(--ease) both;
+  }
+  :global([dir="rtl"]) .pane[data-slide] {
+    animation-name: paneInRtl;
+  }
+  .card[data-dir="next"] {
+    animation: fromBelow 0.35s var(--ease) both;
+  }
+  .card[data-dir="prev"] {
+    animation: fromAbove 0.35s var(--ease) both;
+  }
+}
+@keyframes paneIn {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+}
+@keyframes paneInRtl {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+}
+@keyframes fromBelow {
+  from {
+    transform: translateY(36px);
+    opacity: 0;
+  }
+}
+@keyframes fromAbove {
+  from {
+    transform: translateY(-36px);
+    opacity: 0;
+  }
+}

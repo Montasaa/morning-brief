@@ -18,6 +18,8 @@
 //
 // From 1024px wide the card sits centred with the rail beside it, and from
 // 1280px an "Up next" list and the Widgets ("Today") sit at the end side.
+// Where the sidebar shows (rework ticket 09) it lists the Topics, which jump
+// like the tabs, and the PC shortcuts (shortcuts.tsx) work on the Item on screen.
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Brief, BriefItem } from "@/server/brief/compose";
 import { AskSheet } from "./ask-sheet";
@@ -28,18 +30,19 @@ import { timeSince } from "./format";
 import { localized, topicName } from "./i18n";
 import { ItemImage } from "./item-image";
 import { useLanguage } from "./language";
-import { UndoToast, useReactions } from "./reactions";
+import { UndoToast, type ReactionsState } from "./reactions";
 import { ReadSheet } from "./read-sheet";
 import { pictureKind, ReelsCard } from "./reels-card";
-import { sheetOpen } from "./sheet";
+import { hasSidebar, useScreen } from "./screen-class";
+import { isShortcut, itemShortcut, pressRailButton, useShortcuts } from "./shortcuts";
+import { SidebarTopics } from "./tab-bar";
 import { TopicTabs } from "./topic-tabs";
 import s from "./swipe-brief.module.css";
 
 /** The key of the "For you" tab (the top stories, and the Cover). */
 const FOR_YOU = "top";
 
-export function SwipeBrief({ brief: initial, basePath }: { brief: Brief; basePath: string }) {
-  const reactions = useReactions(initial, basePath);
+export function SwipeBrief({ reactions, basePath }: { reactions: ReactionsState; basePath: string }) {
   const { brief } = reactions;
   const { lang, t } = useLanguage();
   const now = useNow();
@@ -101,8 +104,15 @@ export function SwipeBrief({ brief: initial, basePath }: { brief: Brief; basePat
   keys.current = { step, current, reactions };
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || sheetOpen() || isTyping(e.target)) return;
+      if (!isShortcut(e)) return;
       const { step, current, reactions } = keys.current;
+      const action = itemShortcut(e);
+      if (action && current && !slides.current?.querySelector("article[data-active][data-locked]")) {
+        if (action === "like" || action === "save") reactions.toggle(current, action);
+        else if (action === "ask") setAsking(current.id);
+        else pressRailButton(slides.current, "hide");
+        return;
+      }
       const onControl = e.target instanceof Element && e.target.closest("button, a[href]") !== null;
       let by: 1 | -1 | null = null;
       if (e.key === " ") {
@@ -124,6 +134,9 @@ export function SwipeBrief({ brief: initial, basePath }: { brief: Brief; basePat
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  const shortcuts = useShortcuts();
+  const screen = useScreen();
 
   const slide = (i: number) => ({
     className: s.slide,
@@ -190,6 +203,15 @@ export function SwipeBrief({ brief: initial, basePath }: { brief: Brief; basePat
         />
       )}
       {askItem && <AskSheet key={askItem.id} item={askItem} basePath={basePath} onClose={() => setAsking(null)} />}
+      {screen && hasSidebar(screen) && (
+        <SidebarTopics
+          topics={brief.groups
+            .filter((g) => g.kind === "topic")
+            .map((g) => ({ key: g.topic!, label: topicName(brief, g.topic!, lang), count: g.item_ids.length }))}
+          onPick={jumpTo}
+        />
+      )}
+      {shortcuts}
     </div>
   );
 }
@@ -314,8 +336,4 @@ function useSnapSlides(last: number) {
 /** The slide nearest the top of the scrolling column. */
 function slideAt(el: HTMLElement): number {
   return Math.round(el.scrollTop / el.clientHeight);
-}
-
-function isTyping(target: EventTarget | null): boolean {
-  return target instanceof Element && target.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"])') !== null;
 }

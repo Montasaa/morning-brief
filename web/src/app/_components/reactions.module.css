@@ -158,3 +158,27 @@
     transform: translateY(16px) scale(0.96);
   }
 }
+
+/* ---- the rail in the reader pane (rework ticket 09): over the picture at every width ---- */
+[data-fit="pane"] > .rail {
+  position: absolute;
+  align-self: auto;
+  margin: 0;
+}
+[data-fit="pane"] .railButton {
+  color: var(--on-photo);
+}
+[data-fit="pane"] .railIcon {
+  background: rgb(0 0 0 / 25%);
+  backdrop-filter: blur(12px);
+}
+[data-fit="pane"] .railButton:hover .railIcon {
+  background: rgb(255 255 255 / 18%);
+}
+[data-fit="pane"] .railButton small {
+  color: inherit;
+  text-shadow: 0 1px 6px rgb(0 0 0 / 50%);
+}
+[data-fit="pane"] .railButton[data-kind="like"][aria-pressed="true"] {
+  color: var(--like);
+}

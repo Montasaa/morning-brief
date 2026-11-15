@@ -24,6 +24,11 @@ export function SavedSearch({ basePath, initialSaved }: { basePath: string; init
   const [results, setResults] = useState<SearchResults | null>(null);
   const [failed, setFailed] = useState(false);
   const latest = useRef(0);
+  // The Brief's `/` shortcut comes here as #search: start in the search box.
+  const box = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (window.location.hash === "#search") box.current?.focus();
+  }, []);
 
   async function runSearch(q: string) {
     const ticket = ++latest.current;
@@ -91,6 +96,7 @@ export function SavedSearch({ basePath, initialSaved }: { basePath: string; init
     <>
       <form role="search" className={s.search} onSubmit={onSubmit}>
         <input
+          ref={box}
           type="search"
           name="q"
           value={query}
