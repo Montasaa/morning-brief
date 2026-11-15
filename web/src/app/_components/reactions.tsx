@@ -1,8 +1,9 @@
 "use client";
-// Reactions in the Swipe Brief (ticket 09): the dock (Hide, Save, Like, Ask),
-// the hide-reason sheet (not interested · already seen · bad source · just
-// hide), and the "Hidden · Undo" toast. Opening one of a card's links records
-// an open, so the Item comes back dimmed.
+// Reactions on the Brief (ticket 09; the Reels look, rework ticket 08): the
+// action rail (Like, Save, Ask, Hide) on the Reels card, the hide-reason sheet
+// (not interested · already seen · bad source · just hide), and the
+// "Hidden · Undo" toast. Opening an Item (its read sheet, or one of its links)
+// records an open, so it comes back dimmed.
 //
 // Changes show straight away and are sent to POST /api/items/{id}/reactions or
 // DELETE /api/items/{id}/reactions/{kind}; a failed call puts things back.
@@ -10,9 +11,11 @@
 // next one), and Undo brings it back where it was.
 import { useEffect, useMemo, useState } from "react";
 import type { Brief, BriefItem } from "@/server/brief/compose";
+import { Icon, type IconName } from "./icons";
+import { localized } from "./i18n";
 import { useLanguage } from "./language";
+import { Sheet } from "./sheet";
 import s from "./reactions.module.css";
-import sw from "./swipe-brief.module.css";
 
 type Toggle = "like" | "save";
 type HideReason = "not_interested" | "already_seen" | "bad_source" | null;
@@ -21,6 +24,8 @@ export interface ReactionsState {
   /** The Brief without the Items hidden here, with Like/Save/dimmed as the Reader set them. */
   brief: Brief;
   toggle(item: BriefItem, kind: Toggle): void;
+  /** Turn Like or Save on or off (a double-tap turns Like on, whatever it was). */
+  set(item: BriefItem, kind: Toggle, on: boolean): void;
   hide(item: BriefItem, reason: HideReason): void;
   /** The last hidden Item, while its Undo is offered. */
   lastHidden: BriefItem | null;
@@ -74,14 +79,19 @@ export function useReactions(initial: Brief, basePath: string): ReactionsState {
       return next;
     });
 
+  const set = (item: BriefItem, kind: Toggle, on: boolean) => {
+    if (current(item).reactions[kind] === on) return;
+    // A light haptic tick where the device has one.
+    if (on) navigator.vibrate?.(10);
+    mark(item, { [kind]: on });
+    void send(item, on ? "POST" : "DELETE", kind).then((ok) => ok || mark(item, { [kind]: !on }));
+  };
+
   return {
     brief,
     lastHidden,
-    toggle(item, kind) {
-      const on = !current(item).reactions[kind];
-      mark(item, { [kind]: on });
-      void send(item, on ? "POST" : "DELETE", kind).then((ok) => ok || mark(item, { [kind]: !on }));
-    },
+    toggle: (item, kind) => set(item, kind, !current(item).reactions[kind]),
+    set,
     hide(item, reason) {
       setHiddenId(item.id, true);
       setLastHidden(item);
@@ -107,111 +117,97 @@ export function useReactions(initial: Brief, basePath: string): ReactionsState {
   };
 }
 
-const ICONS = {
-  hide: "M6 6l12 12M18 6L6 18",
-  save: "M7 4h10v16l-5-4-5 4z",
-  like: "M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z",
-  ask: "M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z",
-};
+/** The rail's buttons, in order (ticket 11 lets the Reader choose them through Display `dock`). */
+const RAIL: { kind: "like" | "save" | "ask" | "hide"; icon: IconName; en: string; ar: string }[] = [
+  { kind: "like", icon: "heart", en: "Like", ar: "أعجبني" },
+  { kind: "save", icon: "save", en: "Save", ar: "حفظ" },
+  { kind: "ask", icon: "sparkle", en: "Ask", ar: "اسأل" },
+  { kind: "hide", icon: "hide", en: "Hide", ar: "إخفاء" },
+];
 
-/** The bottom dock on an Item card. Ask opens the Ask sheet (ticket 16). */
-export function Dock({ item, reactions, onAsk }: { item: BriefItem; reactions: ReactionsState; onAsk(): void }) {
-  const { t } = useLanguage();
-  const [sheet, setSheet] = useState(false);
-  // A new card closes the sheet.
-  useEffect(() => setSheet(false), [item.id]);
+/**
+ * The action rail on a Reels card: Like and Save toggle (and pop), Ask calls
+ * `onAsk`, Hide asks why in the hide-reason sheet and then offers Undo.
+ */
+export function Rail({ item, reactions, onAsk }: { item: BriefItem; reactions: ReactionsState; onAsk(): void }) {
+  const { lang, t } = useLanguage();
+  const [hiding, setHiding] = useState(false);
+  // Which button last turned on, so it pops once.
+  const [popped, setPopped] = useState<string | null>(null);
   return (
     <>
-      <div className={sw.dock} role="toolbar" aria-label={t("Reactions", "التفاعلات")}>
-        <DockButton label={t("Hide", "إخفاء")} path={ICONS.hide} onClick={() => setSheet(true)} />
-        <DockButton
-          label={t("Save", "حفظ")}
-          path={ICONS.save}
-          pressed={item.reactions.save}
-          onClick={() => reactions.toggle(item, "save")}
-        />
-        <DockButton
-          label={t("Like", "أعجبني")}
-          path={ICONS.like}
-          pressed={item.reactions.like}
-          onClick={() => reactions.toggle(item, "like")}
-        />
-        <DockButton label={t("Ask", "اسأل")} path={ICONS.ask} onClick={onAsk} />
+      <div className={s.rail} role="toolbar" aria-orientation="vertical" aria-label={t("Actions", "الإجراءات")}>
+        {RAIL.map((b) => {
+          const toggle = b.kind === "like" || b.kind === "save" ? b.kind : null;
+          const pressed = toggle ? item.reactions[toggle] : undefined;
+          return (
+            <button
+              key={b.kind}
+              type="button"
+              className={s.railButton}
+              data-kind={b.kind}
+              data-pop={(pressed && popped === b.kind) || undefined}
+              aria-pressed={pressed}
+              onClick={() => {
+                if (toggle) {
+                  if (!pressed) setPopped(toggle);
+                  reactions.toggle(item, toggle);
+                } else if (b.kind === "ask") onAsk();
+                else setHiding(true);
+              }}
+            >
+              <span className={s.railIcon}>
+                <Icon name={b.icon} size={27} filled={pressed} />
+              </span>
+              <small>{t(b.en, b.ar)}</small>
+            </button>
+          );
+        })}
       </div>
-      {sheet && (
+      {hiding && (
         <HideSheet
+          title={localized(item, "title", lang)!}
           onPick={(reason) => {
-            setSheet(false);
+            setHiding(false);
             reactions.hide(item, reason);
           }}
-          onClose={() => setSheet(false)}
+          onClose={() => setHiding(false)}
         />
       )}
     </>
   );
 }
 
-function DockButton({
-  label,
-  path,
-  pressed,
-  onClick,
-}: {
-  label: string;
-  path: string;
-  pressed?: boolean;
-  onClick?: () => void;
-}) {
-  return (
-    <button type="button" className={sw.dockButton} aria-pressed={pressed} onClick={onClick}>
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden>
-        <path
-          d={path}
-          fill={pressed ? "currentColor" : "none"}
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinejoin="round"
-          strokeLinecap="round"
-        />
-      </svg>
-      <small>{label}</small>
-    </button>
-  );
-}
-
 /** "Why hide this?": the reason teaches the Brief the right lesson; only "not interested" lowers similar Items. */
-function HideSheet({ onPick, onClose }: { onPick: (reason: HideReason) => void; onClose: () => void }) {
+function HideSheet({ title, onPick, onClose }: { title: string; onPick: (reason: HideReason) => void; onClose: () => void }) {
   const { t } = useLanguage();
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
-  const reasons: { reason: Exclude<HideReason, null>; en: string; ar: string }[] = [
-    { reason: "not_interested", en: "Not interested", ar: "غير مهتم" },
-    { reason: "already_seen", en: "Already seen", ar: "شاهدته من قبل" },
-    { reason: "bad_source", en: "Bad source", ar: "مصدر ضعيف" },
+  const reasons: { reason: HideReason; en: string; ar: string; subEn: string; subAr: string }[] = [
+    { reason: "not_interested", en: "Not interested", ar: "غير مهتم", subEn: "Fewer stories like this", subAr: "أخبار أقل من هذا النوع" },
+    { reason: "already_seen", en: "Already seen", ar: "شاهدته من قبل", subEn: "Just this one", subAr: "هذا الخبر فقط" },
+    { reason: "bad_source", en: "Bad source", ar: "مصدر ضعيف", subEn: "Also reports it to the Owner", subAr: "ويُبلَّغ المالك أيضًا" },
+    { reason: null, en: "Just hide", ar: "إخفاء فقط", subEn: "No reason", subAr: "دون سبب" },
   ];
   return (
-    <>
-      <button type="button" className={s.scrim} aria-label={t("Cancel", "إلغاء")} onClick={onClose} />
-      <div className={s.sheet} role="dialog" aria-label={t("Why hide this?", "لماذا تخفي هذا؟")}>
-        <h3>{t("Why hide this?", "لماذا تخفي هذا؟")}</h3>
+    <Sheet label={t("Why hide this?", "لماذا تخفي هذا؟")} title={t("Why hide this?", "لماذا تخفي هذا؟")} onClose={onClose}>
+      <p className={s.about} dir="auto">
+        {title}
+      </p>
+      <ul className={s.reasons}>
         {reasons.map((r) => (
-          <button key={r.reason} type="button" className={s.reason} onClick={() => onPick(r.reason)}>
-            {t(r.en, r.ar)}
-          </button>
+          <li key={r.reason ?? "none"}>
+            <button type="button" className={s.reason} onClick={() => onPick(r.reason)}>
+              {t(r.en, r.ar)}
+              <small>{t(r.subEn, r.subAr)}</small>
+            </button>
+          </li>
         ))}
-        <button type="button" className={`${s.reason} ${s.justHide}`} onClick={() => onPick(null)}>
-          {t("Just hide", "إخفاء فقط")}
-        </button>
-      </div>
-    </>
+      </ul>
+    </Sheet>
   );
 }
 
-/** "Hidden · Undo", shown for a few seconds after a hide. */
-export function UndoToast({ reactions }: { reactions: ReactionsState }) {
+/** "Hidden · Undo", shown for a few seconds after a hide. `onUndone` gets the Item that came back. */
+export function UndoToast({ reactions, onUndone }: { reactions: ReactionsState; onUndone?(item: BriefItem): void }) {
   const { t } = useLanguage();
   const item = reactions.lastHidden;
   const { dismissUndo } = reactions;
@@ -224,7 +220,13 @@ export function UndoToast({ reactions }: { reactions: ReactionsState }) {
   return (
     <div className={s.toast} role="status">
       <span>{t("Hidden", "تم الإخفاء")}</span>
-      <button type="button" onClick={reactions.undoHide}>
+      <button
+        type="button"
+        onClick={() => {
+          reactions.undoHide();
+          onUndone?.(item);
+        }}
+      >
         {t("Undo", "تراجع")}
       </button>
     </div>

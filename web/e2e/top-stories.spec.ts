@@ -1,25 +1,23 @@
-// Smoke test for top stories and why-lines at phone size (ticket 13). Which
-// Items are picked is tested at the API seam; here the first card carries the
-// "Top for you" badge and the why-line, in English and in Arabic. The fake
-// Claude picks the Edition's own top stories with a canned why-line.
-import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipeEdition, test } from "./support";
+// Smoke test for top stories and why-lines at phone size (ticket 13; the Reels
+// look, rework ticket 08). Which Items are picked is tested at the API seam;
+// here the first Item, under the "For you" tab, carries its why-line (no
+// badge), in English and in Arabic. The fake Claude picks the Edition's own
+// top stories with a canned why-line.
+import { E2E_BASE_PATH, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
 
-const tapForward = (page: Page) => page.getByRole("button", { name: /^(Next|التالي)$/ }).tap({ position: { x: 40, y: 200 } });
-
-test("a top story leads the Brief with its badge and why-line in the Reader's language", async ({ page }) => {
+test("a top story leads the Brief under For you, with its why-line in the Reader's language", async ({ page }) => {
   await signIn(page);
   // Posted after the Owner is a Reader, so their top stories are picked for this Edition.
   await postEdition(page.request, swipeEdition());
   await page.goto(E2E_BASE_PATH);
 
-  await tapForward(page);
-  const card = page.getByRole("article");
-  await expect(page.getByRole("heading", { level: 2 })).toHaveText("Truce talks resume over Hodeidah port access");
-  await expect(card.getByText("Top for you", { exact: true })).toBeVisible();
-  await expect(page.getByTestId("why-for-you")).toContainText("One of today's biggest stories in your Topics.");
+  await swipe.next(page);
+  await expect(swipe.headline(page)).toHaveText("Truce talks resume over Hodeidah port access");
+  await expect(swipe.tabs(page).getByRole("button", { name: "For you" })).toHaveAttribute("aria-current", "true");
+  await expect(swipe.card(page).getByTestId("why-for-you")).toContainText("One of today's biggest stories in your Topics.");
 
-  await page.getByRole("button", { name: "العربية", exact: true }).tap();
-  await expect(card.getByText("الأهم لك", { exact: true })).toBeVisible();
-  await expect(page.getByTestId("why-for-you")).toContainText("من أهم أخبار اليوم في مواضيعك.");
+  await swipe.back(page);
+  await swipe.cover(page).getByRole("button", { name: "العربية", exact: true }).tap();
+  await swipe.next(page);
+  await expect(swipe.card(page).getByTestId("why-for-you")).toContainText("من أهم أخبار اليوم في مواضيعك.");
 });

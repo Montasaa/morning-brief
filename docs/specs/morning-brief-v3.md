@@ -159,7 +159,7 @@ A private web app on the Owner's existing domain. It turns each shared Edition i
 
 **UI** (from the prototype verdict: variant B, Swipe)
 
-> **Superseded.** The UI decisions below are replaced by [spec #6, the Morning Brief v3 rework](https://github.com/Montasaa/morning-brief/issues/6): the Reels look, three Layouts (Swipe, Front Page, List) and each Reader's Display. They are kept for history; where they disagree, spec #6 wins. The developer guide's Display section (`web/DEVELOPING.md`) describes what is built so far.
+> **Superseded.** The UI decisions below are replaced by [spec #6, the Morning Brief v3 rework](https://github.com/Montasaa/morning-brief/issues/6): the Reels look, three Layouts (Swipe, Front Page, List) and each Reader's Display. They are kept for history; where they disagree, spec #6 wins. The developer guide (`web/DEVELOPING.md`: "Display and the Reels look", "The Swipe Brief") describes what is built so far.
 
 - Tabs: Brief · Threads · Saved & Search · Me. The Brief opens on a cover card, then one Item per screen with a full-bleed image, per-Topic progress bars, a Topic/position chip, tap zones on each side, and a bottom dock (Hide → reason sheet, Save, Like, Ask).
 - RTL mirrors the layout and the tap direction. Sensitive cards blur until tapped. Desktop shows the centred card plus a side list, with arrow-key navigation.

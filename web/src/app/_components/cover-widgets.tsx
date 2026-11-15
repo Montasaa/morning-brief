@@ -1,15 +1,19 @@
 "use client";
-// The Widgets on the Swipe Brief's cover card (ticket 17): weather and prayer
-// times for the Reader's city, the next match for Liverpool followers and
-// countdowns for followed Topics. The server decides which ones a Reader sees
-// (src/server/widgets); this only draws them. Countdowns tick down once the
-// page has loaded and start from the server's figure, so the first render
-// matches the server's HTML.
+// The Cover's Widgets (ticket 17; the Reels look, rework ticket 08): weather
+// and prayer times for the Reader's city, the next match for Liverpool
+// followers and countdowns for followed Topics, as quiet rows (an icon, a main
+// line, a small second line and, for what is still to come, a countdown at the
+// end), not boxed cards. The server decides which ones a Reader sees and drops
+// any that failed (src/server/widgets); this only draws them. Countdowns tick
+// down once the page has loaded and start from the server's figure, so the
+// first render matches the server's HTML. Ticket 09 reuses <WidgetRows> for the
+// Cover header and the wide Widgets column.
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import type { BriefWidget } from "@/server/brief/compose";
 import type { CountdownWidget, NextMatchWidget, Prayer, PrayerTimesWidget, WeatherWidget } from "@/server/widgets";
 import { formatNumber, localeOf, type Lang } from "./i18n";
+import { Icon, type IconName } from "./icons";
 import { useLanguage } from "./language";
 import s from "./cover-widgets.module.css";
 
@@ -22,17 +26,17 @@ const PRAYER_NAMES: Record<Prayer | "sunrise", { en: string; ar: string }> = {
   isha: { en: "Isha", ar: "العشاء" },
 };
 
-/** At most three rows of two fit on a phone's cover card; the soonest countdowns win. */
-const MAX_SHOWN = 6;
+/** How many rows fit on a phone's Cover; the soonest countdowns win (the server orders them). */
+const MAX_SHOWN = 5;
 
-export function CoverWidgets({ widgets: all }: { widgets: BriefWidget[] }) {
+export function WidgetRows({ widgets: all, className }: { widgets: BriefWidget[]; className?: string }) {
   const { t } = useLanguage();
   const widgets = all.slice(0, MAX_SHOWN);
   const now = useNow();
   const hasLocal = all.some((w) => w.kind === "weather" || w.kind === "prayer_times");
   return (
-    <>
-      <div className={s.widgets}>
+    <div className={className}>
+      <div className={s.rows}>
         {widgets.map((w, i) => {
           switch (w.kind) {
             case "weather":
@@ -54,7 +58,21 @@ export function CoverWidgets({ widgets: all }: { widgets: BriefWidget[] }) {
           {t("for weather and prayer times.", "لعرض الطقس ومواقيت الصلاة.")}
         </p>
       )}
-    </>
+    </div>
+  );
+}
+
+/** One quiet row: icon, main line, small second line, and an optional countdown at the end. */
+function Row({ label, icon, main, sub, end }: { label: string; icon: IconName; main: ReactNode; sub: ReactNode; end?: ReactNode }) {
+  return (
+    <div role="group" aria-label={label} className={s.row}>
+      <Icon name={icon} size={22} className={s.icon} />
+      <div className={s.lines}>
+        <b>{main}</b>
+        <small>{sub}</small>
+      </div>
+      {end && <span className={s.end}>{end}</span>}
+    </div>
   );
 }
 
@@ -64,15 +82,16 @@ function Weather({ w }: { w: WeatherWidget }) {
   const deg = (c: number) => `\u2066${formatNumber(Math.round(c), lang)}°\u2069`;
   const condition = weatherCondition(w.weather_code);
   return (
-    <div role="group" aria-label={t("Weather", "الطقس")} className={s.widget}>
-      <span className={s.label} dir="auto">
-        {w.city}
-      </span>
-      <b className={s.big}>{deg(w.temperature_c)}</b>
-      <span className={s.small}>
-        {t(condition.en, condition.ar)} · {t("H", "العظمى")} {deg(w.high_c)} {t("L", "الصغرى")} {deg(w.low_c)}
-      </span>
-    </div>
+    <Row
+      label={t("Weather", "الطقس")}
+      icon="sun"
+      main={
+        <>
+          {deg(w.temperature_c)} <span dir="auto">{w.city}</span>
+        </>
+      }
+      sub={`${t(condition.en, condition.ar)} · ${t("H", "العظمى")} ${deg(w.high_c)} ${t("L", "الصغرى")} ${deg(w.low_c)}`}
+    />
   );
 }
 
@@ -83,15 +102,12 @@ function PrayerTimes({ w }: { w: PrayerTimesWidget }) {
   const next: Prayer = w.next ?? "fajr";
   const rest: Prayer[] = (["fajr", "dhuhr", "asr", "maghrib", "isha"] as const).filter((p) => p !== next);
   return (
-    <div role="group" aria-label={t("Prayer times", "مواقيت الصلاة")} className={s.widget}>
-      <span className={s.label}>{t("Prayer times", "مواقيت الصلاة")}</span>
-      <b className={s.big}>
-        {name(next)} {clock(w.times[next], lang)}
-      </b>
-      <span className={s.small}>
-        {rest.map((p) => `${name(p)} ${clock(w.times[p], lang)}`).join(" · ")}
-      </span>
-    </div>
+    <Row
+      label={t("Prayer times", "مواقيت الصلاة")}
+      icon="moon"
+      main={`${name(next)} ${clock(w.times[next], lang)}`}
+      sub={rest.map((p) => `${name(p)} ${clock(w.times[p], lang)}`).join(" · ")}
+    />
   );
 }
 
@@ -99,17 +115,21 @@ function NextMatch({ w, now }: { w: NextMatchWidget; now: number | null }) {
   const { lang, t } = useLanguage();
   const minutes = now === null ? w.minutes_until : Math.floor((Date.parse(w.kickoff) - now) / 60_000);
   return (
-    <div role="group" aria-label={t("Next match", "المباراة القادمة")} className={s.widget}>
-      <span className={s.label}>{t("Next match", "المباراة القادمة")}</span>
-      <b className={s.big}>{countdown(minutes, lang)}</b>
-      <span className={s.small} dir="auto">
-        {w.team} v {w.opponent}
-      </span>
-      <span className={s.small}>
-        <span dir="auto">{w.competition}</span> ·{" "}
-        <time dateTime={w.kickoff_local}>{kickoffTime(w.kickoff, w.timezone, lang)}</time>
-      </span>
-    </div>
+    <Row
+      label={t("Next match", "المباراة القادمة")}
+      icon="ball"
+      main={
+        <span dir="auto">
+          {w.team} v {w.opponent}
+        </span>
+      }
+      sub={
+        <>
+          <span dir="auto">{w.competition}</span> · <time dateTime={w.kickoff_local}>{kickoffTime(w.kickoff, w.timezone, lang)}</time>
+        </>
+      }
+      end={countdown(minutes, lang)}
+    />
   );
 }
 
@@ -118,15 +138,13 @@ function Countdown({ w, now }: { w: CountdownWidget; now: number | null }) {
   const minutes = now === null ? w.minutes_until : Math.floor((Date.parse(w.at) - now) / 60_000);
   const label = lang === "ar" && w.label_ar ? w.label_ar : w.label;
   return (
-    <div role="group" aria-label={label} className={s.widget}>
-      <span className={s.label} dir="auto">
-        {label}
-      </span>
-      <b className={s.big}>{countdown(minutes, lang)}</b>
-      <span className={s.small}>
-        <time dateTime={w.at_local}>{dayAndTime(w.at, w.timezone, lang)}</time>
-      </span>
-    </div>
+    <Row
+      label={label}
+      icon="clock"
+      main={<span dir="auto">{label}</span>}
+      sub={<time dateTime={w.at_local}>{dayAndTime(w.at, w.timezone, lang)}</time>}
+      end={countdown(minutes, lang)}
+    />
   );
 }
 

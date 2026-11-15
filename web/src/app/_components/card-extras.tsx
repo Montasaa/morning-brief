@@ -1,4 +1,4 @@
-// Kind-specific extras on a card, read from the Item's extras by field name
+// Kind-specific extras in an Item's read sheet (rework ticket 08), read from the Item's extras by field name
 // (Edition v3 schema): AI try link and pricing, game store link, price and
 // genre, GitHub Trending stars, Liverpool source reliability, US Markets tag,
 // and social platform, creator and metric. Labels follow the Reader's
@@ -7,7 +7,7 @@
 "use client";
 import { formatNumber, localized } from "./i18n";
 import { useLanguage } from "./language";
-import s from "./swipe-brief.module.css";
+import s from "./card-extras.module.css";
 
 type Extras = Record<string, unknown>;
 

@@ -123,10 +123,10 @@ Playwright at phone size (Pixel 7, Chromium) in `e2e/`, against `next dev` with 
 - Import `test`, `expect`, `E2E_BASE_PATH`, `signIn` and the helpers from `e2e/support.ts`, not from `@playwright/test`. Its `test` aborts every request that is not to the app itself (Item images on example.com and so on), so the browser makes no real network calls.
 - Every screen but `/sign-in` needs a session: call `await signIn(page)` first (from `e2e/support/sign-in.ts`, re-exported by `e2e/support.ts`). It signs in as the Owner by default by opening the magic link the fake Resend wrote to `.e2e/outbox.jsonl`, and leaves the page on the Brief. Because the database lasts the whole run, it also resets the Reader's language to English and, on their first sign-in, finishes onboarding following (and opted into) every Catalog Topic; `signIn(page, email, { onboard: false })` leaves a new Reader on `/onboarding`. Tests that change an Interest Profile (follows, city) use their own invited Reader, not the Owner. The Owner's account bar (email, Invites, Sign out) is on the Me tab.
 - `postEdition(request, edition)` posts with the e2e token. `swipeEdition()` is the morning fixture plus a US Markets and a game Item (7 Items, every kind of card extra). The database is fresh per run, not per test, so post the Edition your test needs in the test or a `beforeEach`.
-- Tap the Swipe Brief's tap zones up on the picture (`tap({ position: { x: 40, y: 200 } })`): the card text sits over their lower half on purpose. Match buttons with `exact: true`.
+- Drive the Swipe Brief with the `swipe` helpers in `e2e/support.ts` (see [The Swipe Brief](#the-swipe-brief-the-reels-look)), not by hand: `swipe.next(page)` / `swipe.back(page)` tap a third of the picture and wait for the move to land, `swipe.drag(page, px, { steps, pause })` drags a finger. Match buttons with `exact: true`.
 - Fix the clock with `page.clock.setFixedTime(...)` before `page.goto` when a test reads relative times ("50m ago"). They are filled in after the page loads.
 - `devIndicators` is off in `next.config.ts` because the Next.js dev badge covers the bottom tabs.
-- Desktop-only flows go in `e2e/desktop-*.spec.ts`: they run in the `desktop` project (Desktop Chrome, 1280×720) and not at phone size; every other spec runs only at phone size. The desktop layout (card plus side list) starts at 1024px wide.
+- Desktop-only flows go in `e2e/desktop-*.spec.ts`: they run in the `desktop` project (Desktop Chrome, 1280×720) and not at phone size; every other spec runs only at phone size. On a PC-sized screen the Swipe Brief is a centred card with "Up next" beside it (from 1024px and 1280px wide); ticket 09 adds Front Page and List.
 - The e2e server listens on port 3210. Set `E2E_PORT` to use another one when several checkouts run e2e at once.
 - `next.config.ts` turns off Turbopack's on-disk dev cache. With it on, its writes under `web/.next` made `next dev` keep reloading the page, and the Swipe Brief jumped back to the cover in the middle of a test.
 
@@ -192,7 +192,7 @@ All in `src/app/globals.css`. Components style themselves with its tokens, never
 - **Density** tokens (comfortable / compact): `--row-pad` 14 / 10px, `--gap` 12 / 8px, `--shelf-card-w` 196 / 168px, `--fp-row-thumb` 72 / 56px, `--list-row-thumb` 56 / 44px. `--page-pad` is 16px, 22px from 1280px wide.
 - **Motion**: everything is off under `prefers-reduced-motion` (a global rule); never hide content behind an animation's start state. `--ease` and `--spring` are the prototype's curves.
 - **Chrome screens** reuse `_components/chrome.module.css`: `.screen`, `.back`, `.sectionTitle`, `.rows` / `.row` (a plain hairline list with `.rowTitle` and `.rowSub`; `.rowsRuled` adds a top hairline) and `.status`, plus `<Chevron to="forward" | "back">` (`_components/chevron.tsx`), which mirrors in Arabic.
-- **Not converted yet** (left to the tickets that rebuild them): the Swipe Brief's own components (`swipe-brief`, `side-list`, `cover-widgets`, `card-extras`, `reactions`, `ask-sheet`) still use fixed colours and pixel sizes, so the accent and text size do not reach the Brief, and its sheets (hide reasons, Ask) stay dark in Light theme. Ticket 08 rebuilds them on these tokens, with sheets in chrome colours. The bottom tabs keep a fixed 11px label on purpose, so their height never changes.
+- The Swipe Brief and its sheets are built on these tokens (ticket 08), so the accent and text size reach the Brief, and its sheets follow the theme. The canvas adds `--on-photo` / `--on-photo-mute` (text over pictures) and `--why` (the why-line: the accent, or a lighter `#ffd789` for amber); `--plate` is the white plate under a logo badge in every scope. Gradients and shades over pictures (the bottom shade, the Cover glow) keep their own `rgb()` values. The bottom tabs keep a fixed 11px label on purpose, so their height never changes.
 
 ### Accents
 
@@ -209,6 +209,39 @@ Each accent has a value for the dark canvas (also dark chrome) and one for light
 
 Muted text: light chrome `#5d646d` is 5.15:1 at worst, dark `#8b9098` 5.26:1.
 
+## The Swipe Brief (the Reels look)
+
+Rework ticket 08 (issue #8, [spec #6](https://github.com/Montasaa/morning-brief/issues/6)). On a phone (and, until ticket 09, everywhere) the Brief is **Swipe**: the Cover, one Item per screen, then "You're caught up", on the dark Brief canvas.
+
+### Pieces (`src/app/_components/`), shared with the other Layouts
+
+- `swipe-brief.tsx`: the feed and its inputs. Each slide is full height in a CSS scroll-snap container (`scroll-snap-stop: always`), so a drag stops exactly one slide on. `useSnapFeed` tracks the slide on screen (`active`, from the scroll position) and moves with `go(i)` / `step(±1)`; a step taken before the last move lands builds on it.
+- `reels-card.tsx`: **the Reels card**, one Item full-bleed: the picture by kind, the bottom shade, the text (why-line on top stories, **Topic** · time · Updated, headline, two-line summary, Story Thread chip), the rail, the veil and the double-tap heart. Ticket 09's reader pane shows the same component (pass `active` true; its `children` go over the picture, under the text: Swipe puts its tap thirds there). From 1024px wide it is a centred 10:16 card with the rail beside it.
+  - **Pictures**: `pictureKind(item)` is `item.image_kind` (ticket 10 adds it to Items), else `photo` when there is an image, else `none`. `photo` fills the frame (cover crop); `card` is a badge up to 88px tall on a white plate (`object-fit: contain`) over a plain card with a bigger headline; `none`, and any picture that fails to load, is a plain dark gradient. The card says which in `data-picture`.
+  - **The veil**: a `blurred` Item has its picture and text blurred and `inert`, a light scrim under the tap thirds, and a centred button (eye, Topic name, warning, "Tap to view"). No red. Leaving the card veils it again; double-tap does nothing while veiled.
+- `reactions.tsx`: `useReactions` (the Brief with this page's Reactions applied), `<Rail>` (Like, Save, Ask, Hide; Like and Save pop and give a light haptic tick through `navigator.vibrate`), the hide-reason sheet and `<UndoToast>`. Ticket 11 drives the rail's buttons from Display `dock`.
+- `sheet.tsx`: `<Sheet>`, the bottom sheet every sheet uses. It renders into `<body>`, outside the canvas, so it is in chrome colours; it rises, closes by its Close button, Esc, the scrim or a drag down (by its handle, or anywhere that is not a control), and is a centred dialog from 1024px. While one is open the Swipe Brief ignores keys (`sheetOpen()`).
+- `read-sheet.tsx` (tap the card's text, or Enter): the picture, meta, headline, why-line, full summary, extras (`card-extras.tsx`), "Also in", Like / Save / Ask and the sources. Opening it records an `open`, so the Item comes back dimmed (`data-dimmed`). `ask-sheet.tsx` is the Ask sheet.
+- `topic-tabs.tsx`: `<TopicTabs>` ("For you", then the Topics in Brief order) with a sliding indicator; the caller says which is `current` (Swipe: the Item on screen; Front Page: its scroll spy). It scrolls its own strip, never the page.
+- `cover.tsx`: the Cover's full-screen form (greeting, date, Edition and Item count, the Widgets, a drifting glow, the language switch) and `<CaughtUp>`. `useCoverLines` gives ticket 09's header form the same lines; `cover-widgets.tsx` draws the Widgets as quiet rows (`<WidgetRows>`).
+- `icons.tsx`: the line icons (`<Icon name="heart" filled />`).
+
+### Inputs
+
+- A vertical drag snaps one Item per stop. Tapping the **upper third** of the picture goes back, the **lower third** forward; the middle third is free for **double-tap to like** (the card's text and rail sit above the thirds). On the Cover only forward, on "You're caught up" only back.
+- Keys (ignored while typing or with a sheet open): j, ArrowDown, Space, Page Down forward; k, ArrowUp, Shift+Space, Page Up back; Enter opens the read sheet. Ticket 09 adds the PC shortcuts.
+- Topic tabs jump to a group's first Item ("For you": the first top story). From 1280px the "Up next" list jumps too.
+- Arabic mirrors only the horizontal parts: the tabs and their indicator, the rail and text sides. Moving stays vertical.
+- Motion (the text settling in, the photo's zoom-settle, the like pop and burst, the tab indicator, sheets, the glow) is off under reduced motion, and no start state hides anything: the hidden-until-active text is only hidden under `prefers-reduced-motion: no-preference`. Moves made by tap or key jump instead of scrolling smoothly.
+
+### Testing it (browser seam)
+
+- Only the slide on screen is exposed: the others are `inert` and `aria-hidden`. So `page.getByRole("article")` is the current Item and `getByRole("heading", { level: 2 })` its headline; `getByTestId` does not skip hidden slides, so scope it (`swipe.card(page).getByTestId("thread-chip")`).
+- `e2e/support.ts` has `swipe`: `card`, `headline`, `cover`, `tabs`, `rail`, and `next` / `back` / `drag`. `next` and `back` wait for the move to land: Playwright scrolls a target back into view before tapping it, so a second tap made mid-move would undo the first. They tap near the start side, clear of the text and the rail (which is on the left in Arabic).
+- Test drags by distance, not speed: a long drag (past half a screen) moves one Item however fast, a short slow one settles back. A fast short flick is judged by its speed, which CDP's event timing makes unreliable. Wait for `networkidle` before the first drag: the dev server can drop a gesture made while it is still loading the page.
+- Selectors: the Cover is the region "Cover" ("الغلاف"), the end the region "End of the Brief"; the tap thirds are the buttons "Back" / "Next"; the rail the toolbar "Actions"; the tabs the navigation "Topics", the current one `aria-current="true"`; the veil's button contains "Tap to view"; the card's `data-picture`, `data-dimmed`; the feed `data-testid="swipe-feed"`; the double-tap heart `data-testid="like-burst"`; a sheet's handle `data-testid="sheet-handle"`.
+- Specs: `e2e/swipe-brief.spec.ts` (Cover, tap thirds, keys, drag, tabs, read sheet, pictures), `reactions.spec.ts` (rail, double-tap, hide and Undo; its own Reader, since likes change ranking), `sensitive-topics.spec.ts` (veil), `arabic-rtl.spec.ts`, `desktop-brief.spec.ts` (centred card, Up next).
+
 ## Sensitive Topics
 
 Ticket 08. Graphic and Adult Trending (`topics.sensitive`) are hidden from every Reader until they opt in. The rules live in `src/server/topics/sensitive.ts`.
@@ -217,7 +250,7 @@ Ticket 08. Graphic and Adult Trending (`topics.sensitive`) are hidden from every
 - `PATCH /api/me {topics}` never adds a Sensitive Topic (`422`, "opt into it from the Me tab"); it may keep or drop ones already opted into. So onboarding can never pre-select one.
 - A **sensitive Item** carries at least one Sensitive Topic. It reaches a Reader only if they opted into every Sensitive Topic it carries, even when it also carries a Topic they follow, and the Brief marks it `blurred: true`.
 - Anything that lists Items to a Reader (Story Threads, Saved & Search, Widgets that name Items) must use the same rule: put `sensitiveItemVisibleSql("i.id")` (one `?`, the Reader's id) in its `WHERE` and `sensitiveItemSql("i.id") AS blurred` in its columns, and test it at the API seam.
-- In the UI a blurred Item hides its picture and text (blurred and `inert`) behind its warning and a "Tap to reveal" button, every time it comes round; the tap zones still skip it. Any other place that shows an Item (the desktop side list, Threads, Search) keeps its title behind the warning until tapped.
+- In the Swipe Brief a blurred Item sits behind the neutral veil (eye, Topic name, warning, "Tap to view"; see [The Swipe Brief](#the-swipe-brief-the-reels-look)) every time it comes round; moving past it never reveals it. Any other place that shows an Item ("Up next", Threads, Search) keeps its title behind the warning until tapped.
 
 ## Reader-created Topics and Gathering Rules
 
@@ -239,9 +272,9 @@ Ticket 14, in `src/server/threads/threads.ts`. Ingest links Items to Threads by 
 
 Ticket 17, `src/server/widgets/`. `GET /api/widgets` returns `{city, city_found, timezone, widgets}`; the Brief's `cover.widgets` is the same list (the `/api/brief` route and the Brief page add it with `withWidgets`, so `composeBrief` stays synchronous).
 
-- Weather and prayer times are live for the Reader's city, cached about 30 minutes in `widget_cache` (shared by everyone in the same place; failures are not cached). No city, or one that cannot be found: neither is shown, and the cover card links to the Me tab.
+- Weather and prayer times are live for the Reader's city, cached about 30 minutes in `widget_cache` (shared by everyone in the same place; failures are not cached). No city, or one that cannot be found: neither is shown, and the Cover links to the Me tab.
 - The next match belongs to the Liverpool Topic and countdowns name their Topic: only followers see them, and only while they are still to come. Times are also given in the Reader's time zone (their city's, else Asia/Riyadh).
-- A failing service drops only its own Widget; the cover card always renders.
+- A failing service drops only its own Widget; the Cover always renders.
 - Widget tests fix the clock (`vi.useFakeTimers({ toFake: ["Date"] })`), since what is "still to come" depends on now. The e2e server runs on the real clock, so e2e Editions put widget times relative to `Date.now()`.
 
 ## The Catalog and the legacy importer
@@ -265,10 +298,10 @@ Ticket 17, `src/server/widgets/`. `GET /api/widgets` returns `{city, city_found,
 Ticket 09. A Reader's Reactions are one row per Reader, Item and kind in `reactions` (`like`, `save`, `open`, `hide`; a hide may carry `reason` `not_interested`, `already_seen` or `bad_source`, NULL for "just hide"). `src/server/reactions/` reads and writes them, always for one Reader: never read another Reader's Reactions when building a Brief.
 
 - `POST /api/items/{id}/reactions {kind, reason?}` sets one (again: no change, except a new hide reason replaces the old); `DELETE /api/items/{id}/reactions/{kind}` undoes it. Both return `{item_id, reactions: {like, save, open, hide: {reason} | null}}`; `404` for an Item no Edition carried or the Reader may not see, `422` for a bad kind or reason.
-- The Brief leaves hidden Items out, marks opened ones `dimmed: true`, and gives each Item `reactions: {like, save}` for the dock.
+- The Brief leaves hidden Items out, marks opened ones `dimmed: true`, and gives each Item `reactions: {like, save}` for the rail.
 - Order comes from the Scorer, `scoreItems` in `src/server/brief/score.ts`: a pure function of followed Topics, the Reader's Reactions, recency (against the Edition's `generated_at`, not the clock) and status. Within a group Items run by score, groups by their best Item, ties newest first. So the non-top part of `composeBrief(...).items` is already the highest-scored first.
 - Test ranking through the order of `GET /api/brief` (see `test/api/ranking.test.ts`), never the weights.
-- In the Swipe Brief, `useReactions` (`src/app/_components/reactions.tsx`) holds the dock, the hide-reason sheet and the Undo toast. Opening any link on a card records an `open`.
+- In the Swipe Brief, `useReactions` (`src/app/_components/reactions.tsx`) holds the rail, the hide-reason sheet and the Undo toast. Opening the read sheet or any link on a card records an `open`.
 
 ## The Owner console
 

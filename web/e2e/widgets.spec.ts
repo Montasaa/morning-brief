@@ -1,8 +1,8 @@
-// Smoke test for the cover card's Widgets at phone size (ticket 17). Which
+// Smoke test for the Cover's Widgets at phone size (ticket 17), drawn as quiet rows (rework ticket 08). Which
 // Widgets each Reader gets is tested at the API seam (test/api/widgets.test.ts);
 // this only checks that they are drawn. The weather and prayer times are the fakes'.
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
 
 const HOUR = 3_600_000;
 
@@ -16,7 +16,7 @@ async function signInAs(page: Page, email: string, topics: string[], city: strin
   expect(res.status(), await res.text()).toBe(200);
 }
 
-test("the cover card shows weather, prayer times, the next match in local time and a countdown", async ({ page }) => {
+test("the Cover shows weather, prayer times, the next match in local time and a countdown", async ({ page }) => {
   // The server decides what is still to come with the real clock, so the times are relative to now.
   const now = Date.now();
   const kickoff = new Date(Math.ceil((now + 2 * 24 * HOUR + 4 * HOUR) / HOUR) * HOUR + 30 * 60_000);
@@ -37,7 +37,7 @@ test("the cover card shows weather, prayer times, the next match in local time a
 
   await page.goto(E2E_BASE_PATH);
 
-  const cover = page.getByRole("region", { name: "Cover card" });
+  const cover = swipe.cover(page);
   const weather = cover.getByRole("group", { name: "Weather" });
   await expect(weather).toContainText("London");
   await expect(weather).toContainText("24°");
@@ -60,7 +60,7 @@ test("a Reader with no city is sent to the Me tab to set one", async ({ page }) 
 
   await page.goto(E2E_BASE_PATH);
 
-  const cover = page.getByRole("region", { name: "Cover card" });
+  const cover = swipe.cover(page);
   await expect(cover.getByRole("group", { name: "Weather" })).toHaveCount(0);
   await expect(cover.getByRole("group", { name: "Next match" })).toHaveCount(0);
   await cover.getByRole("link", { name: "Set your city on the Me tab" }).tap();

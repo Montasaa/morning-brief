@@ -1,0 +1,44 @@
+/* Topic tabs (rework ticket 08), on the dark Brief canvas. */
+.tabs {
+  min-width: 0;
+}
+.strip {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  padding: 0 18px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.strip::-webkit-scrollbar {
+  display: none;
+}
+.tab {
+  flex: none;
+  min-height: var(--tap);
+  padding: 0 0 4px;
+  border: 0;
+  background: none;
+  color: rgb(255 255 255 / 58%);
+  font: inherit;
+  font-size: var(--fs-m);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.25s;
+}
+.tab[aria-current="true"] {
+  color: var(--on-photo);
+}
+.indicator {
+  position: absolute;
+  bottom: 6px;
+  height: 2.5px;
+  border-radius: 2px;
+  background: currentColor;
+  color: var(--on-photo);
+  pointer-events: none;
+  transition:
+    left 0.4s var(--ease),
+    width 0.4s var(--ease);
+}

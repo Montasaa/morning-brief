@@ -3,11 +3,8 @@
 // Reader can get through onboarding to a Brief of their Topics, and change
 // their Interest Profile on the Me tab.
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
 
-async function tap(page: Page, side: "Next" | "Back") {
-  await page.getByRole("button", { name: side, exact: true }).tap({ position: { x: 40, y: 200 } });
-}
 
 const topic = (page: Page, name: string) => page.getByRole("checkbox", { name, exact: true });
 
@@ -44,11 +41,12 @@ test("a new Reader picks Topics on their first visit, gets a Brief of just those
 
   // Their first Brief: only Yemen and Liverpool.
   await expect(page).toHaveURL(new RegExp(`${E2E_BASE_PATH}$`));
-  await tap(page, "Next");
-  await expect(page.getByTestId("chip")).toHaveText("Yemen · 1/2");
-  await tap(page, "Next");
-  await expect(page.getByTestId("chip")).toHaveText("Liverpool · 2/2");
-  await tap(page, "Next");
+  await expect(swipe.tabs(page).getByRole("button")).toHaveText(["For you", "Liverpool"]);
+  await swipe.next(page);
+  await expect(swipe.card(page)).toContainText("Yemen");
+  await swipe.next(page);
+  await expect(swipe.card(page)).toContainText("Liverpool");
+  await swipe.next(page);
   await expect(page.getByRole("heading", { name: "You're caught up" })).toBeVisible();
 
   // The Me tab shows what they picked, every Topic of the Catalog, the language and the city.
@@ -81,6 +79,8 @@ test("a new Reader picks Topics on their first visit, gets a Brief of just those
 
   // And the next Brief has only Yemen left.
   await page.getByRole("navigation", { name: "التبويبات" }).getByRole("link", { name: "الموجز", exact: true }).tap();
-  await page.getByRole("button", { name: "التالي", exact: true }).tap({ position: { x: 40, y: 200 } });
-  await expect(page.getByTestId("chip")).toHaveText("اليمن · ١/١");
+  await swipe.next(page);
+  await expect(swipe.card(page)).toContainText("اليمن");
+  await swipe.next(page);
+  await expect(page.getByRole("heading", { name: "انتهيت من الموجز" })).toBeVisible();
 });

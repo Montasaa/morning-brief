@@ -1,0 +1,39 @@
+/* Kind-specific extras in the read sheet (chrome colours): why it matters,
+   a row of facts and the Try it / Store page links. */
+.extras {
+  margin: 0 0 14px;
+}
+.whyItMatters {
+  margin: 0 0 8px;
+  color: var(--mute);
+  font-size: var(--fs-base);
+}
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.facts li {
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  color: var(--mute);
+  font-size: var(--fs-xs);
+}
+.extraLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  margin-block: 10px 0;
+  margin-inline: 0 8px;
+  padding: 0 16px;
+  border-radius: var(--r-pill);
+  background: var(--fg);
+  color: var(--bg);
+  font-size: var(--fs-s);
+  font-weight: 600;
+  text-decoration: none;
+}

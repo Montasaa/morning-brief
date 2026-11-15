@@ -1,6 +1,7 @@
 "use client";
-// The Ask sheet (ticket 16): opened from the dock's Ask button, it lets the
-// Reader ask Claude about the current Item. It lists their earlier questions on
+// The Ask sheet (ticket 16): opened from the rail's Ask button (in the Reels
+// look, rework ticket 08, a Sheet in the Reader's theme), it lets the Reader
+// ask Claude about the current Item. It lists their earlier questions on
 // this Item (private to them), shows each answer with its cited links, and says
 // how many questions are left today.
 import { useEffect, useRef, useState, type FormEvent } from "react";
@@ -8,7 +9,9 @@ import type { Ask } from "@/server/ask/ask";
 import type { AskLimit } from "@/server/ask/limits";
 import type { BriefItem } from "@/server/brief/compose";
 import { formatNumber, localized } from "./i18n";
+import { Icon } from "./icons";
 import { useLanguage } from "./language";
+import { Sheet } from "./sheet";
 import s from "./ask-sheet.module.css";
 
 export function AskSheet({ item, basePath, onClose }: { item: BriefItem; basePath: string; onClose(): void }) {
@@ -36,16 +39,6 @@ export function AskSheet({ item, basePath, onClose }: { item: BriefItem; basePat
     };
     // t changes with the language; the questions do not need loading again.
   }, [url]);
-
-  // Escape closes the sheet; the latest onClose is kept in a ref so the listener is added once.
-  const close = useRef(onClose);
-  close.current = onClose;
-  useEffect(() => {
-    input.current?.focus();
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && close.current();
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
 
   const outOfQuestions = limit !== null && limit.remaining === 0;
 
@@ -80,20 +73,21 @@ export function AskSheet({ item, basePath, onClose }: { item: BriefItem; basePat
   }
 
   return (
-    <>
-      <button type="button" className={s.backdrop} aria-label={t("Close", "إغلاق")} tabIndex={-1} onClick={onClose} />
-      <section className={s.sheet} role="dialog" aria-modal="true" aria-label={t("Ask Claude", "اسأل Claude")}>
-        <header className={s.head}>
-          <div>
-            <h2>{t("Ask Claude", "اسأل Claude")}</h2>
-            <p className={s.about} dir="auto">
-              {localized(item, "title", lang)}
-            </p>
-          </div>
-          <button type="button" className={s.close} onClick={onClose}>
-            {t("Close", "إغلاق")}
-          </button>
-        </header>
+    <Sheet
+      label={t("Ask Claude", "اسأل Claude")}
+      title={
+        <>
+          <Icon name="sparkle" size={20} className={s.titleIcon} />
+          {t("Ask Claude", "اسأل Claude")}
+        </>
+      }
+      initialFocus={input}
+      className={s.sheet}
+      onClose={onClose}
+    >
+      <p className={s.about} dir="auto">
+        {localized(item, "title", lang)}
+      </p>
 
         <div className={s.thread} aria-live="polite">
           {asks?.map((a) => (
@@ -159,8 +153,7 @@ export function AskSheet({ item, basePath, onClose }: { item: BriefItem; basePat
         <p className={s.left} data-testid="asks-left">
           {limit && leftLine(limit, lang, t)}
         </p>
-      </section>
-    </>
+    </Sheet>
   );
 }
 
