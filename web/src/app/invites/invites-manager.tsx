@@ -92,18 +92,18 @@ export function InvitesManager({ basePath, initial }: { basePath: string; initia
         </p>
       )}
       {invites.length === 0 ? (
-        <p style={{ color: "var(--muted)" }}>{t("No Invites yet.", "لا توجد دعوات بعد.")}</p>
+        <p style={{ color: "var(--mute)" }}>{t("No Invites yet.", "لا توجد دعوات بعد.")}</p>
       ) : (
         <ul aria-label={t("Invites", "الدعوات")} style={{ listStyle: "none", margin: 0, padding: 0 }}>
           {invites.map((item) => (
             <li
               key={item.id}
-              style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 0", borderBottom: "1px solid var(--rule)" }}
+              style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 0", borderBottom: "1px solid var(--line)" }}
             >
               <span dir="ltr" style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis" }}>
                 {item.email}
               </span>
-              <span style={{ color: "var(--muted)", fontSize: 14 }}>{t(...STATUS_LABEL[item.status])}</span>
+              <span style={{ color: "var(--mute)", fontSize: 14 }}>{t(...STATUS_LABEL[item.status])}</span>
               {item.status !== "revoked" && (
                 <button type="button" disabled={!ready} onClick={() => revoke(item)} style={quietButtonStyle}>
                   {t("Revoke", "إلغاء")}

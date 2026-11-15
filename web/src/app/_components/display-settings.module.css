@@ -1,0 +1,81 @@
+/* Me › Display (rework ticket 07): groups of radio buttons drawn as quiet pills. */
+.group {
+  margin: 28px 0 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+/* A legend ignores its own margins inside a fieldset: the group carries the space. */
+.group legend {
+  margin: 0;
+  padding: 0;
+}
+
+.segments,
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.segments .option {
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+/* Each option is a real radio button underneath, covering its pill. */
+.option {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--tap);
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.option input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.option:hover {
+  border-color: var(--faint);
+}
+/* The chosen one: outlined in the accent, the only colour on the screen. */
+.option:has(input:checked) {
+  border-color: var(--acc);
+  box-shadow: inset 0 0 0 1px var(--acc);
+  color: var(--acc);
+  font-weight: 600;
+}
+.option:has(input:focus-visible) {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+
+/* An accent's two values: on the Brief (dark) and in light chrome. */
+.swatch {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--acc-dark) 50%, var(--acc-light) 50%);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+
+.hint {
+  margin: 8px 0 0;
+  font-size: var(--fs-s);
+  color: var(--mute);
+}

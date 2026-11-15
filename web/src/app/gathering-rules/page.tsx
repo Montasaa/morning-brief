@@ -27,7 +27,7 @@ export default async function GatheringRulesPage() {
       <h1 style={{ fontSize: 22, margin: "0 0 4px" }}>
         <T en="Gathering Rules" ar="قواعد الجمع" />
       </h1>
-      <p style={{ margin: "0 0 16px", color: "var(--muted)", fontSize: 14 }}>
+      <p style={{ margin: "0 0 16px", color: "var(--mute)", fontSize: 14 }}>
         <T
           en="How each Topic is gathered. Only Topics someone follows are gathered; edits apply from the next Edition."
           ar="طريقة جمع كل موضوع. لا يُجمع إلا ما يتابعه أحد، وتسري التعديلات من الإصدار التالي."
@@ -37,7 +37,7 @@ export default async function GatheringRulesPage() {
         <summary>
           <T en="House source rules (apply to every Topic)" ar="قواعد المصادر العامة (تنطبق على كل موضوع)" />
         </summary>
-        <p dir="ltr" style={{ whiteSpace: "pre-line", color: "var(--muted)" }}>
+        <p dir="ltr" style={{ whiteSpace: "pre-line", color: "var(--mute)" }}>
           {HOUSE_SOURCE_RULES}
         </p>
       </details>

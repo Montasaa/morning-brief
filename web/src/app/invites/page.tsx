@@ -27,7 +27,7 @@ export default async function InvitesPage() {
       <h1 style={{ fontSize: 22, margin: "0 0 4px" }}>
         <T en="Invites" ar="الدعوات" />
       </h1>
-      <p style={{ margin: "0 0 20px", color: "var(--muted)", fontSize: 14 }}>
+      <p style={{ margin: "0 0 20px", color: "var(--mute)", fontSize: 14 }}>
         <T
           en="Only people you invite can read. They get an email with a sign-in link."
           ar="لا يقرأ إلا من تدعوهم. يصلهم بريد فيه رابط تسجيل الدخول."
@@ -37,7 +37,7 @@ export default async function InvitesPage() {
       <h2 style={{ fontSize: 18, margin: "32px 0 4px" }}>
         <T en="Ask limits" ar="حدود الأسئلة" />
       </h2>
-      <p style={{ margin: "0 0 12px", color: "var(--muted)", fontSize: 14 }}>
+      <p style={{ margin: "0 0 12px", color: "var(--mute)", fontSize: 14 }}>
         <T
           en="Questions each Reader may ask Claude a day (default 20; resets at midnight, Riyadh time). You have no limit."
           ar="عدد الأسئلة التي يطرحها كل قارئ على Claude يوميًا (الافتراضي ٢٠، وتتجدد عند منتصف الليل بتوقيت الرياض). لا حدّ لك."

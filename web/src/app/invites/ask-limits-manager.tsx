@@ -14,7 +14,7 @@ export function AskLimitsManager({ basePath, initial }: { basePath: string; init
   useEffect(() => setReady(true), []);
 
   if (readers.length === 0) {
-    return <p style={{ color: "var(--muted)" }}>{t("No Readers yet.", "لا يوجد قرّاء بعد.")}</p>;
+    return <p style={{ color: "var(--mute)" }}>{t("No Readers yet.", "لا يوجد قرّاء بعد.")}</p>;
   }
   return (
     <ul aria-label={t("Ask limits", "حدود الأسئلة")} style={{ listStyle: "none", margin: 0, padding: 0 }}>
@@ -65,12 +65,12 @@ function LimitRow({
 
   const used = formatNumber(reader.ask_limit.used_today, lang);
   return (
-    <li style={{ padding: "12px 0", borderBottom: "1px solid var(--rule)" }}>
+    <li style={{ padding: "12px 0", borderBottom: "1px solid var(--line)" }}>
       <form onSubmit={save} style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
         <span dir="ltr" style={{ flex: "1 1 160px", minWidth: 0, overflow: "hidden", textOverflow: "ellipsis" }}>
           {reader.email}
         </span>
-        <span style={{ color: "var(--muted)", fontSize: 14 }}>{t(`${used} asked today`, `${used} اليوم`)}</span>
+        <span style={{ color: "var(--mute)", fontSize: 14 }}>{t(`${used} asked today`, `${used} اليوم`)}</span>
         <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14 }}>
           {t("Daily limit", "الحد اليومي")}
           <input

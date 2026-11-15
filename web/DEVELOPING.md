@@ -1,6 +1,8 @@
 # Developing the Morning Brief app
 
-The v3 app: Next.js (App Router, TypeScript) with SQLite, in `web/` ([ADR 0001](../docs/adr/0001-replace-glance-with-nextjs-sqlite.md)). The spec is [`docs/specs/morning-brief-v3.md`](../docs/specs/morning-brief-v3.md). Use the words in [`GLOSSARY.md`](../GLOSSARY.md) in code, tests and UI: Edition, Brief, Item, Topic, Reader, Owner, Story Thread, Reaction, Widget. Do not use feed, article, section, user or admin.
+The v3 app: Next.js (App Router, TypeScript) with SQLite, in `web/` ([ADR 0001](../docs/adr/0001-replace-glance-with-nextjs-sqlite.md)). The spec is [`docs/specs/morning-brief-v3.md`](../docs/specs/morning-brief-v3.md). Use the words in [`GLOSSARY.md`](../GLOSSARY.md) in code, tests and UI: Edition, Brief, Item, Topic, Reader, Owner, Story Thread, Reaction, Widget, Display, Layout, Cover, Pinned Topic, Collapsed Topic. Do not use feed, article, section, user, admin, settings (for the Display) or view/mode (for a Layout).
+
+The UI is being reworked to [spec #6](https://github.com/Montasaa/morning-brief/issues/6) (the Reels look, Layouts and Display), in tickets #7 to #11. It replaces the v3 spec's UI decisions; see [Display and the Reels look](#display-and-the-reels-look).
 
 This is Next.js 16: check APIs against the docs that ship with the installed version in `node_modules/next/dist/docs/` rather than memory. (`next dev` writes an `AGENTS.md` saying the same; it is gitignored.)
 
@@ -69,6 +71,7 @@ Sessions are an HttpOnly `mb_session` cookie (one per device, a year long, scope
 - They are applied in lexical filename order, each in its own transaction, when the database opens. Applied files are tracked by filename in `schema_migrations`, so branches built in parallel never collide.
 - Never edit a migration that has been merged. Add a new file.
 - A later ticket's migration may only rely on tables from tickets it is blocked by.
+- The rework tickets (#7 to #11, spec #6) are numbered by their GitHub issue, so their numbers repeat the build plan's (`t07_reader_displays.sql` sits next to `t07_interest_profiles.sql`). Lexical order is still the order on a fresh database: name the file so it sorts after every migration whose tables it uses (the test suite always starts from a fresh database, so a wrong order fails at once).
 
 ## Outside services
 
@@ -153,9 +156,57 @@ Ingest is all-or-nothing and idempotent:
 Ticket 07. A Reader's Brief covers only the Catalog Topics they follow (`topic_follows`); an Item appears once, under the first of its Topics (Edition order) that the Reader follows, with their other followed Topics as `tags`. `composeBrief(ctx, reader)` always takes the Reader.
 
 - `GET /api/topics` marks each Topic `followed`; `POST /api/topics/{id}/follow|unfollow` are idempotent, `404` for a Topic not in the Catalog.
-- `GET /api/me` returns `{reader, onboarded, language, city, topics}`; `PATCH /api/me {topics?, language?, city?, onboarded?}` is all or nothing (`422 {error, reasons}`), `topics` replaces the follows, and `onboarded: true` needs at least one followed Topic. Server code reads it with `getProfile` / `isOnboarded` (`src/server/readers/profile.ts`); later tickets add their profile fields there.
+- `GET /api/me` returns `{reader, onboarded, language, city, topics, age_confirmed_at, notifications, display}`; `PATCH /api/me {topics?, language?, city?, onboarded?, notifications?, display?}` is all or nothing (`422 {error, reasons}`), `topics` replaces the follows, and `onboarded: true` needs at least one followed Topic. Server code reads it with `getProfile` / `isOnboarded` (`src/server/readers/profile.ts`); later tickets add their profile fields there.
 - Until onboarding is finished the Brief is empty and the Brief page redirects to `/onboarding` (no tabs). Onboarding never offers Sensitive Topics; the Me tab lists the whole Catalog.
 - Claude Topic suggestions (ticket 12, `src/server/topics/suggestions.ts`): `POST /api/me/topic-suggestions {note}` returns `{suggestions: [{topic, reason, reason_ar}], unavailable}`, at most 5 Catalog Topics the Reader does not follow yet, never Sensitive ones (filtered after Claude answers too). It follows nothing and stores no note: accepting a suggestion is `POST /api/topics/{id}/follow`. When Claude fails or answers unreadably it is still `200`, with no suggestions and `unavailable: true`. Onboarding (the optional "About you") and the Me tab ("Find more Topics") both use it.
+
+## Display and the Reels look
+
+Rework ticket 07 (issue #7, [spec #6](https://github.com/Montasaa/morning-brief/issues/6)). A Reader's **Display** is how their Brief looks and is arranged. It is theirs alone, follows them to every device, and **never affects ranking**: the Scorer and the top picker must not read it.
+
+### The Display document
+
+- `src/server/display/shape.ts` holds the shape, every option list and the defaults, with no server imports (client components import it). `src/server/display/display.ts` reads, checks and writes it. Storage is one row per Reader in `displays` (`migrations/t07_reader_displays.sql`): a JSON document holding only the keys the Reader set, so every other key reads as its default and existing Readers need no backfill.
+- `GET /api/me` has `display`, every key filled in. Defaults: `layouts: {}`, `theme: "auto"`, `accent: "amber"`, `text_size: "m"`, `density: "comfortable"`, `topic_order`, `pinned`, `collapsed` and `unblurred` empty, `widgets` every Widget kind (`weather, prayer_times, next_match, countdown`; the Cover shows those the Reader is eligible for right now) and `dock: like, save, ask, hide`.
+- `PATCH /api/me {display: {...}}` changes only the keys sent, inside the profile's all-or-nothing update: any bad value gets `422 {error, reasons}` (every reason at once) and nothing is stored. A key sent as `null` goes back to its default. `layouts` merges per screen class (`phone`, `tablet`, `pc`; "wide" uses `pc`), and `{layouts: {tablet: null}}` takes back just that pick.
+- Validation: enums for `theme`, `accent`, `text_size`, `density` and each Layout; Topic lists (`topic_order`, `pinned`, `collapsed`) take only ids in the Reader's Catalog (`unknownTopicIds`), followed or not, and keep them after an unfollow; `widgets` takes Widget kinds; `dock` takes 1 to 5 of `like, save, ask, hide, share`; `unblurred` takes only Sensitive Topics the Reader has opted into (as of the end of the same request, so a request that drops one cannot unblur it). Lists are de-duplicated, keeping the first.
+- Opting out of a Sensitive Topic, by any route, removes it from `unblurred` (a trigger on `topic_follows`), so opting in again starts blurred.
+- Later tickets add only UI and behaviour: `layouts` (ticket 09), `topic_order`, `pinned`, `collapsed`, `widgets`, `dock` (ticket 11), `unblurred` (ticket 10). Add their controls to Me › Display (`src/app/me/display/page.tsx`, `_components/display-settings.tsx`).
+- Tests: `test/api/display.test.ts` (defaults, partial updates, every validation reason, syncing between two sessions, another Reader untouched); `e2e/display.spec.ts` (changing theme and accent survives a reload and reaches another device; Arabic).
+
+### In the browser
+
+- The root layout reads the Display on the server (as it does the language) and renders it on `<html>` as `data-theme`, `data-accent`, `data-text-size` and `data-density` (`displayAttributes` in `_components/display-attributes.ts`). `globals.css` styles everything from those attributes, so the first paint is right with no script and no flash; `auto` follows `prefers-color-scheme` in CSS. Signed out, the defaults apply. The browser bar colour (`generateViewport`) follows the theme too. Ticket 09 adds the initial Layout the same way.
+- `DisplayProvider` / `useDisplay()` (`_components/display.tsx`): `const { display, update } = useDisplay(); await update({ accent: "sky" })`. `update` changes the `<html>` attributes at once, saves with `PATCH /api/me {display}` and resolves `true` when saved; when the server refuses or the device is offline it undoes just those keys and resolves `false`. When the page comes back into view it fetches the Display again, so a change made on another device shows without a reload.
+
+### The visual system
+
+All in `src/app/globals.css`. Components style themselves with its tokens, never raw colours or pixel font sizes, so the Display reaches them.
+
+- **Type**: Inter (variable, 400–800 used) and IBM Plex Sans Arabic (400–700), self-hosted at build time from the `@fontsource` npm packages through `next/font/local` (`src/app/fonts.ts`): nothing is fetched from a font service, at build or at run time. One stack (`--font-sans`): Inter, then Plex Arabic for Arabic letters. Hierarchy comes from size and weight only. The base is 15px = `1rem`, scaled by `--text-scale` (s, m, l, xl = 0.93, 1, 1.13, 1.27); use the `--fs-*` steps (`xs` 12px, `s` 13, `base` 15, `m` 16, `l` 18, `xl` 22, `h1` 28 at m) or `rem`. Arabic text is never letter-spaced (`:lang(ar)` resets it); `--tracking-tight` is for big Latin headings only.
+- **Two colour scopes with the same token names** (`--bg`, `--fg`, `--mute`, `--faint`, `--line`, `--surf`, `--surf2`, `--acc`, `--on-acc`, `--danger`, `--like`, `--scrim`):
+  - *Chrome* (the default: sidebar, sheets, Threads, Saved & Search, Me): light or dark per theme.
+  - *The Brief canvas*: put the global class `brief-canvas` on the root of anything that is part of the Brief (Swipe, Front Page, List, the reader pane, the wide Widgets column; the tab bar gets it on the Brief). It is dark in every theme and adds `--canvas` and `--why` (the why-line over photos, `#ffd789`). A page showing it is dark around it too.
+  - `--faint` is decoration only, never text. `--like` (`#f23a5e`) is for the canvas; it is under 3:1 on light chrome.
+- **Ornament budget**: hairlines (`1px solid var(--line)`) only; no callout boxes, kicker labels or badges ("Updated" is plain text in the one-line meta: **Topic** · time · Updated). Colour only on actions and highlights: `--acc` is for the why-line, the selected card's outline, active controls, pins, countdowns, links and the focus ring. A chosen option is outlined in the accent, not filled. Radius: `--r-card` 18px, `--r-row` 12px, `--r-pill`. Touch targets at least `--tap` (44px).
+- **Density** tokens (comfortable / compact): `--row-pad` 14 / 10px, `--gap` 12 / 8px, `--shelf-card-w` 196 / 168px, `--fp-row-thumb` 72 / 56px, `--list-row-thumb` 56 / 44px. `--page-pad` is 16px, 22px from 1280px wide.
+- **Motion**: everything is off under `prefers-reduced-motion` (a global rule); never hide content behind an animation's start state. `--ease` and `--spring` are the prototype's curves.
+- **Chrome screens** reuse `_components/chrome.module.css`: `.screen`, `.back`, `.sectionTitle`, `.rows` / `.row` (a plain hairline list with `.rowTitle`, `.rowSub` and a `.chevron` that mirrors in Arabic) and `.status`.
+
+### Accents
+
+Each accent has a value for the dark canvas (also dark chrome) and one for light chrome, set as `--acc-dark` / `--acc-light` on `[data-accent="..."]` (any element; Me › Display's swatches use that). `--acc` picks one by scope; `--on-acc` is the text colour on a filled accent (black on dark values, white on light ones). Every value carries text somewhere, so each is checked at **4.5:1** against every background it can sit on (dark: `#000`, `#060607`, `#121315`, `#1b1d20`; light: `#fff`, `#f4f5f7`, `#eceef1`). After changing any colour token run `node scripts/check-contrast.mjs` (it reads `globals.css` and exits 1 on a failure) and update this table:
+
+| Accent | Dark value | Worst on dark | Black on it | Light-chrome value | Worst on light | White on it |
+| --- | --- | --- | --- | --- | --- | --- |
+| amber | `#ffc24b` | 10.51:1 | 13.07:1 | `#8a5300` | 5.45:1 | 6.33:1 |
+| coral | `#ff8a6b` | 7.32:1 | 9.10:1 | `#c03a1c` | 4.68:1 | 5.44:1 |
+| lime | `#b4e34a` | 11.28:1 | 14.03:1 | `#4a7012` | 4.99:1 | 5.80:1 |
+| sky | `#5cc6ff` | 8.83:1 | 10.98:1 | `#0a69a8` | 5.02:1 | 5.84:1 |
+| rose | `#ff7eaa` | 7.09:1 | 8.82:1 | `#c0215a` | 5.01:1 | 5.82:1 |
+| mono | `#ffffff` | 16.89:1 | 21.00:1 | `#0e1013` | 16.39:1 | 19.05:1 |
+
+Muted text: light chrome `#5d646d` is 5.15:1 at worst, dark `#8b9098` 5.26:1.
 
 ## Sensitive Topics
 

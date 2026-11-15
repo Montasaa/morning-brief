@@ -86,20 +86,20 @@ export function YourTopics({
           {topics.map((topic) => (
             <li
               key={topic.id}
-              style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 0", borderBottom: "1px solid var(--rule)" }}
+              style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 0", borderBottom: "1px solid var(--line)" }}
             >
               <span dir="auto" style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis" }}>
                 {lang === "ar" ? topic.name_ar : topic.name}
               </span>
               {topic.private ? (
                 <>
-                  <span style={{ color: "var(--muted)", fontSize: 13 }}>{t("Private", "خاص")}</span>
+                  <span style={{ color: "var(--mute)", fontSize: 13 }}>{t("Private", "خاص")}</span>
                   <button type="button" style={quietButtonStyle} disabled={!ready} onClick={() => share(topic)}>
                     {t("Share to Catalog", "شاركه في الفهرس")}
                   </button>
                 </>
               ) : (
-                <span style={{ color: "var(--muted)", fontSize: 13 }}>{t("In the Catalog", "في الفهرس")}</span>
+                <span style={{ color: "var(--mute)", fontSize: 13 }}>{t("In the Catalog", "في الفهرس")}</span>
               )}
             </li>
           ))}

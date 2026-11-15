@@ -18,7 +18,7 @@ export function AccountBar({ reader, basePath }: { reader: Reader; basePath: str
         justifyContent: "flex-end",
         margin: "0 0 16px",
         fontSize: 14,
-        color: "var(--muted)",
+        color: "var(--mute)",
       }}
     >
       <span dir="ltr" style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", minWidth: 0 }}>

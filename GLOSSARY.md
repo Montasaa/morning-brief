@@ -43,7 +43,7 @@ A Topic's instructions for gathering: which outlets to trust, what counts, and w
 _Avoid_: Recipe, prompt, config
 
 **Sensitive Topic**:
-A Topic that each Reader must opt into before seeing it (graphic news, adult-themed news). It stays blurred until tapped, even after opting in.
+A Topic that each Reader must opt into before seeing it (graphic news, adult-themed news). Its Items are blurred until tapped unless the Reader has turned the blur off for that Topic. Its Items are never among a Reader's top stories, never open a Brief, and never appear in a notification. Adult Trending is visible only to the Owner.
 _Avoid_: NSFW, content-warning section
 
 **Story Thread**:
@@ -65,5 +65,27 @@ A signal a Reader gives about one Item (like, hide, save, or opening it), used t
 _Avoid_: Feedback, vote, interaction
 
 **Widget**:
-A small, non-story panel tied to a Topic: weather and prayer times, the next match, countdowns to fixtures, releases or earnings. It appears only for Readers who follow its Topic.
+A small, non-story panel tied to a Topic: weather and prayer times, the next match, countdowns to fixtures, releases or earnings. It lives on the Cover. By default a Reader sees it only if they follow its Topic, and each Reader can add, remove or reorder Widgets.
 _Avoid_: Card, module
+
+## Display
+
+**Display**:
+How a Reader's Brief looks and is arranged: their Layout for each kind of screen, theme, accent, text size, density, Topic order and pins, Cover, dock buttons and whether Sensitive Items are blurred. It belongs to the Reader and follows them across devices. It never changes what is in the Brief or how Items are ranked; that is the Interest Profile's job.
+_Avoid_: Settings, preferences, appearance, look
+
+**Layout**:
+The arrangement a Reader reads their Brief in: **Swipe** (one Item per screen), **Front Page** (top stories, then one block per Topic, with a reader pane), or **List** (compact headlines for skimming). A Reader picks one each for phone, tablet and PC.
+_Avoid_: View, mode, template
+
+**Cover**:
+The opening of every Brief: the greeting, date and Edition, plus the Reader's Widgets.
+_Avoid_: Header, home, dashboard
+
+**Pinned Topic**:
+A followed Topic the Reader has fixed at the top of their Brief. Pinning changes only where its Items appear, never how they rank.
+_Avoid_: Favourite, starred
+
+**Collapsed Topic**:
+A followed Topic the Reader only wants to skim. It shows as a list of its headlines (a strip on the Front Page, one digest card in Swipe) that can be opened up into its Items.
+_Avoid_: Muted, minimised, hidden

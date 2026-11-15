@@ -62,11 +62,11 @@ function TopicRules({ basePath, topic: initial }: { basePath: string; topic: Own
   ].filter(Boolean);
 
   return (
-    <li style={{ padding: "16px 0", borderBottom: "1px solid var(--rule)" }} aria-label={name}>
+    <li style={{ padding: "16px 0", borderBottom: "1px solid var(--line)" }} aria-label={name}>
       <h2 dir="auto" style={{ fontSize: 17, margin: "0 0 4px" }}>
         {name}
       </h2>
-      <p style={{ margin: "0 0 8px", fontSize: 13, color: "var(--muted)" }}>{meta.join(" · ")}</p>
+      <p style={{ margin: "0 0 8px", fontSize: 13, color: "var(--mute)" }}>{meta.join(" · ")}</p>
       {topic.note && (
         <p dir="auto" style={{ margin: "0 0 8px", fontSize: 14 }}>
           {t("Note: ", "الملاحظة: ")}
@@ -96,7 +96,7 @@ function TopicRules({ basePath, topic: initial }: { basePath: string; topic: Own
         >
           {t("Save rules", "احفظ القواعد")}
         </button>
-        <span aria-live="polite" style={{ fontSize: 13, color: "var(--muted)" }}>
+        <span aria-live="polite" style={{ fontSize: 13, color: "var(--mute)" }}>
           {message ?? ""}
         </span>
       </div>

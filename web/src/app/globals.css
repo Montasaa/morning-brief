@@ -1,21 +1,189 @@
-/* Base styles. Ticket 03 brings the Swipe look; keep this file small. */
-:root {
-  --bg: #fbfaf7;
-  --fg: #1c1b19;
-  --muted: #6b6760;
-  --rule: #e4e1da;
-  /* Height of the bottom tabs; screens keep their content above it. */
-  --tabbar-h: calc(56px + env(safe-area-inset-bottom));
-  color-scheme: light dark;
+/*
+ * The Reels look (spec #6): design tokens and base styles. Every component
+ * styles itself with these tokens, never with raw colours or font sizes, so the
+ * Reader's Display (theme, accent, text size, density) reaches it.
+ *
+ * The root layout renders the Display on <html> from the server, so the first
+ * paint is already right (no flash, no script needed):
+ *   data-theme="light|dark|auto"  chrome colours; auto follows prefers-color-scheme
+ *   data-accent="amber|coral|lime|sky|rose|mono"
+ *   data-text-size="s|m|l|xl"     scales the 15px base (1rem) by .93, 1, 1.13, 1.27
+ *   data-density="compact|comfortable"
+ *
+ * Two colour scopes:
+ *   chrome (the default): sidebar, sheets, Threads, Saved & Search, Me. Light or dark per theme.
+ *   .brief-canvas: the Brief (Swipe, Front Page, List, the reader pane, the wide Widgets
+ *     column, the phone tab bar on the Brief). Always dark, in every theme.
+ * Both define the same token names, so a component reads --bg, --fg, --acc ... and
+ * gets the right value for wherever it sits.
+ *
+ * Accent values are contrast-checked with `node scripts/check-contrast.mjs`
+ * (≥ 4.5:1 against every background they sit on; see DEVELOPING.md › Display).
+ */
+
+/* ---------- accents: a dark value (canvas, dark chrome) and a light-chrome value ----------
+   On any element with data-accent (the Display screen's swatches use that), not only <html>. */
+:root,
+[data-accent="amber"] {
+  --acc-dark: #ffc24b;
+  --acc-light: #8a5300;
+}
+[data-accent="coral"] {
+  --acc-dark: #ff8a6b;
+  --acc-light: #c03a1c;
+}
+[data-accent="lime"] {
+  --acc-dark: #b4e34a;
+  --acc-light: #4a7012;
+}
+[data-accent="sky"] {
+  --acc-dark: #5cc6ff;
+  --acc-light: #0a69a8;
+}
+[data-accent="rose"] {
+  --acc-dark: #ff7eaa;
+  --acc-light: #c0215a;
+}
+/* No colour: white on the Brief and in dark chrome, black in light chrome. */
+[data-accent="mono"] {
+  --acc-dark: #ffffff;
+  --acc-light: #0e1013;
 }
 
+/* ---------- chrome, light (the default) ---------- */
+:root {
+  --bg: #fff;
+  --fg: #0e1013;
+  --mute: #5d646d; /* secondary text: 5.5:1 on --surf */
+  --faint: #959ba3; /* decoration only, never text */
+  --line: #e9ebee; /* hairlines */
+  --surf: #f4f5f7;
+  --surf2: #eceef1;
+  --acc: var(--acc-light);
+  --on-acc: #fff; /* text and icons on a filled accent */
+  --danger: #b3261e;
+  --like: #f23a5e;
+  --scrim: rgb(10 12 16 / 42%);
+  color-scheme: light;
+
+  /* type: one sans; hierarchy from size and weight only */
+  --font-sans: var(--font-inter), var(--font-plex-arabic), system-ui, -apple-system, "Segoe UI", Roboto,
+    "Noto Sans Arabic", sans-serif;
+  --text-scale: 1;
+  --fs-xs: 0.8rem; /* 12px at m */
+  --fs-s: 0.867rem; /* 13px */
+  --fs-base: 1rem; /* 15px */
+  --fs-m: 1.067rem; /* 16px */
+  --fs-l: 1.2rem; /* 18px */
+  --fs-xl: 1.467rem; /* 22px */
+  --fs-h1: 1.867rem; /* 28px */
+  --tracking-tight: -0.02em; /* big headings only; never on Arabic */
+
+  /* density (comfortable is the default; layout sizes from spec #6) */
+  --row-pad: 14px;
+  --gap: 12px;
+  --shelf-card-w: 196px;
+  --fp-row-thumb: 72px;
+  --list-row-thumb: 56px;
+  --page-pad: 16px;
+
+  /* shape and motion */
+  --r-card: 18px;
+  --r-row: 12px;
+  --r-pill: 999px;
+  --tap: 44px; /* smallest touch target */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Height of the bottom tabs; screens keep their content above it. */
+  --tabbar-h: calc(56px + env(safe-area-inset-bottom));
+}
+
+/* ---------- chrome, dark (Dark, or Auto on a device that prefers dark) ---------- */
+:root[data-theme="dark"] {
+  --bg: #000;
+  --fg: #ecedef;
+  --mute: #8b9098;
+  --faint: #5f646b;
+  --line: #23262b;
+  --surf: #121315;
+  --surf2: #1b1d20;
+  --acc: var(--acc-dark);
+  --on-acc: #000;
+  --danger: #f2b8b5;
+  --scrim: rgb(0 0 0 / 60%);
+  color-scheme: dark;
+}
+:root[data-theme="auto"] {
+  color-scheme: light dark;
+}
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #141412;
-    --fg: #ecebe7;
-    --muted: #9c988f;
-    --rule: #2c2b28;
+  /* The same values as [data-theme="dark"]. */
+  :root[data-theme="auto"] {
+    --bg: #000;
+    --fg: #ecedef;
+    --mute: #8b9098;
+    --faint: #5f646b;
+    --line: #23262b;
+    --surf: #121315;
+    --surf2: #1b1d20;
+    --acc: var(--acc-dark);
+    --on-acc: #000;
+    --danger: #f2b8b5;
+    --scrim: rgb(0 0 0 / 60%);
   }
+}
+
+/* ---------- the Brief canvas: always dark ---------- */
+.brief-canvas {
+  --bg: #000;
+  --canvas: #060607;
+  --fg: #ecedef;
+  --mute: #8b9098;
+  --faint: #62676e;
+  --line: #202327;
+  --surf: #121315;
+  --surf2: #1b1d20;
+  --acc: var(--acc-dark);
+  --on-acc: #000;
+  --why: #ffd789; /* the why-line over photos */
+  --danger: #f2b8b5;
+  --scrim: rgb(0 0 0 / 60%);
+  color-scheme: dark;
+  background: var(--bg);
+  color: var(--fg);
+}
+/* A page showing the Brief is dark around it too. */
+body:has(.brief-canvas) {
+  background: #000;
+}
+
+/* ---------- text size and density ---------- */
+:root[data-text-size="s"] {
+  --text-scale: 0.93;
+}
+:root[data-text-size="l"] {
+  --text-scale: 1.13;
+}
+:root[data-text-size="xl"] {
+  --text-scale: 1.27;
+}
+:root[data-density="compact"] {
+  --row-pad: 10px;
+  --gap: 8px;
+  --shelf-card-w: 168px;
+  --fp-row-thumb: 56px;
+  --list-row-thumb: 44px;
+}
+@media (min-width: 1280px) {
+  :root {
+    --page-pad: 22px;
+  }
+}
+
+/* ---------- base ---------- */
+html {
+  font-size: calc(15px * var(--text-scale));
 }
 
 * {
@@ -26,6 +194,33 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Arabic", sans-serif;
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
   line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+
+/* Letter-spacing breaks the joins between Arabic letters: never on Arabic text. */
+:lang(ar) {
+  letter-spacing: 0 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

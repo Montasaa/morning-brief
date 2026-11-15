@@ -1,13 +1,15 @@
 .screen {
   max-width: 640px;
   margin: 0 auto;
-  padding: calc(24px + env(safe-area-inset-top)) 16px calc(24px + var(--tabbar-h));
+  padding: calc(24px + env(safe-area-inset-top)) var(--page-pad) calc(24px + var(--tabbar-h));
 }
 .screen h1 {
   margin: 0 0 8px;
-  font-size: 26px;
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  letter-spacing: var(--tracking-tight);
 }
 .screen p {
   margin: 0;
-  color: var(--muted);
+  color: var(--mute);
 }

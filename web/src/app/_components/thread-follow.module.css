@@ -3,19 +3,19 @@
   flex: none;
   min-height: 32px;
   padding: 4px 12px;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
   background: transparent;
   color: inherit;
   font: inherit;
-  font-size: 13px;
+  font-size: var(--fs-s);
   font-weight: 600;
   cursor: pointer;
 }
 .follow.on {
-  border-color: #4f8cff;
-  background: #4f8cff;
-  color: #fff;
+  border-color: var(--acc);
+  background: var(--acc);
+  color: var(--on-acc);
 }
 .follow:disabled {
   cursor: default;

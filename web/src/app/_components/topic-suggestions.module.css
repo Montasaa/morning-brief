@@ -1,8 +1,8 @@
 /* Claude Topic suggestions (ticket 12), in onboarding and on the Me tab. */
 .hint {
   margin: 0 0 8px;
-  font-size: 13px;
-  color: var(--muted);
+  font-size: var(--fs-s);
+  color: var(--mute);
 }
 .note {
   display: block;
@@ -17,16 +17,13 @@
   list-style: none;
   margin: 12px 0 0;
   padding: 0;
-  display: grid;
-  gap: 8px;
 }
 .item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 12px;
-  border: 1px solid var(--rule);
-  border-radius: 12px;
+  padding: var(--row-pad) 0;
+  border-bottom: 1px solid var(--line);
 }
 .text {
   flex: 1 1 auto;
@@ -38,8 +35,8 @@
   font-weight: 600;
 }
 .why {
-  font-size: 13px;
-  color: var(--muted);
+  font-size: var(--fs-s);
+  color: var(--mute);
 }
 .buttons {
   flex: none;
