@@ -32,7 +32,7 @@ import { ItemImage } from "./item-image";
 import { useLanguage } from "./language";
 import { UndoToast, type ReactionsState } from "./reactions";
 import { ReadSheet } from "./read-sheet";
-import { pictureKind, ReelsCard } from "./reels-card";
+import { previewKind, ReelsCard } from "./reels-card";
 import { hasSidebar, useScreen } from "./screen-class";
 import { isShortcut, itemShortcut, runItemShortcut, useShortcuts } from "./shortcuts";
 import { SidebarTopics } from "./tab-bar";
@@ -238,7 +238,7 @@ function UpNext({
           <li key={item.id}>
             <button type="button" className={s.upRow} data-dimmed={item.dimmed} onClick={() => onJump(from + i)}>
               <span className={s.thumb}>
-                {pictureKind(item) === "photo" && !item.blurred && <Thumb src={item.image!} />}
+                {previewKind(item) === "photo" && <Thumb src={item.image!} />}
               </span>
               <span className={s.upText}>
                 <small>

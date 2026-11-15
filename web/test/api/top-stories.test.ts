@@ -202,7 +202,7 @@ describe("top stories only come from the Reader's own Brief", () => {
 
     // Only the Owner, who invited them (and follows every Topic), is asked about.
     expect(pickCalls(app)).toHaveLength(1);
-    expect(promptOf(pickCalls(app)[0]!)).toContain("graphic-flood-aftermath");
+    expect(promptOf(pickCalls(app)[0]!)).toContain("gh-terminal-agent");
   });
 });
 
@@ -247,7 +247,8 @@ describe("when Claude fails", () => {
 
     await owner.request("POST", "/api/items/lfc-midfielder-fitness/reactions", { body: { kind: "hide" } });
 
-    expect(tops(await briefOf(owner))).toEqual(["me-yemen-port-talks", "ai-open-model-release", "graphic-flood-aftermath"]);
+    // Never a sensitive Item (rework ticket 10): the Graphic flood story is passed over.
+    expect(tops(await briefOf(owner))).toEqual(["me-yemen-port-talks", "ai-open-model-release", "gh-terminal-agent"]);
   });
 
   it("puts the Edition's own top stories first, then the highest-scored Items", async () => {

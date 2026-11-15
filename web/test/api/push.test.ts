@@ -212,9 +212,10 @@ describe("after an Edition is ingested: the Brief ready push", () => {
     expect(message!.body).toBe(morningEdition().items[0]!.title_ar);
   });
 
-  it("never names a sensitive top story on the lock screen", async () => {
+  it("names only a non-Sensitive top story: a Sensitive Item is never in a push", async () => {
     const app = await startTestApp();
-    const owner = await app.signInAsOwner(); // opted into the Sensitive Topics
+    const owner = await app.signInAsOwner(); // opted into the Sensitive Topics, blur off for Graphic
+    await owner.request("PATCH", "/api/me", { body: { display: { unblurred: ["graphic"] } } });
     const phone = await subscribe(owner);
     await notify(owner, { brief_ready: true });
     app.services.claude.replies.set("top-picks", {
@@ -225,7 +226,24 @@ describe("after an Edition is ingested: the Brief ready push", () => {
 
     const [message] = pushesTo(app, phone);
     expect(message!.title).toBe("Your morning Brief is ready");
-    expect(message!.body).not.toMatch(/flood/i);
+    expect(message!.body).not.toMatch(/flood|warning/i);
+    expect(message!.body).toBe(morningEdition().items[0]!.title); // the Edition's own lead story, not sensitive
+  });
+
+  it("names no story at all when the Reader's Brief has only Sensitive Items", async () => {
+    const app = await startTestApp();
+    await app.signInAsOwner();
+    const sara = await readerFollowing(app, "sara@example.com", ["ai"]);
+    await sara.request("POST", "/api/topics/graphic/follow");
+    await sara.request("POST", "/api/topics/ai/unfollow");
+    const phone = await subscribe(sara);
+    await notify(sara, { brief_ready: true });
+
+    await app.postEdition(morningEdition());
+
+    const [message] = pushesTo(app, phone);
+    expect(message!.title).toBe("Your morning Brief is ready");
+    expect(message!.body).not.toMatch(/flood|warning/i);
     expect(message!.body).not.toBe("");
   });
 });
@@ -314,6 +332,48 @@ describe("after an Edition is ingested: Story Thread updates", () => {
     await app.postEdition(eveningWithDevelopment()); // the new Item carries only "yemen"
 
     expect(pushesTo(app, phone)).toEqual([]);
+  });
+
+  it("are never sent for a development that is a Sensitive Item, even with the blur off", async () => {
+    const app = await startTestApp();
+    const owner = await app.signInAsOwner();
+    await owner.request("PATCH", "/api/me", { body: { display: { unblurred: ["graphic"] } } });
+    await app.postEdition(morningEdition());
+    await followThread(owner);
+    const phone = await subscribe(owner);
+    await notify(owner, { thread_updates: true });
+
+    const evening = eveningWithDevelopment();
+    const development = evening.items.find((i) => i.id === "me-yemen-prisoner-swap")!;
+    development.topics = ["yemen", "graphic"];
+    Object.assign(development, { warning: "Casualties" });
+    await app.postEdition(evening);
+
+    expect(pushesTo(app, phone)).toEqual([]);
+  });
+
+  it("count only the developments that are not sensitive", async () => {
+    const app = await startTestApp();
+    const owner = await app.signInAsOwner();
+    await app.postEdition(morningEdition());
+    await followThread(owner);
+    const phone = await subscribe(owner);
+    await notify(owner, { thread_updates: true });
+
+    const evening = eveningWithDevelopment();
+    evening.items.push({
+      id: "me-yemen-strike-aftermath",
+      topics: ["yemen", "graphic"],
+      thread_id: "yemen-truce-talks",
+      time: "2026-11-14T18:30:00+03:00",
+      title: "Strike aftermath near the port",
+      summary: "Placeholder text.",
+      sources: [{ title: "Example Wire", url: "https://example.com/wire/strike", type: "wire" }],
+      warning: "Casualties",
+    });
+    await app.postEdition(evening);
+
+    expect(pushesTo(app, phone).map((m) => m.body)).toEqual(["Both sides agree a prisoner exchange"]);
   });
 
   it("come with the Brief ready push when a Reader opted into both", async () => {

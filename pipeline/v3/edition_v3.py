@@ -30,7 +30,7 @@ from gathering.errors import RunError  # noqa: E402
 from gathering.links import check_links  # noqa: E402
 from gathering.state import State  # noqa: E402
 from gathering.tiktok import SOCIAL_TRENDS, tiktok_drafts  # noqa: E402
-from gathering.validate import house_problems, schema_problems  # noqa: E402
+from gathering.validate import headline_warnings, house_problems, schema_problems  # noqa: E402
 
 SAMPLES = HERE / "samples"
 
@@ -95,6 +95,7 @@ def _build(
         link_check=check_links if link_check else None,
     )
     _say(*(f"note: {n}" for n in notes))
+    _say(*(f"warning: {w}" for w in headline_warnings(edition)))
     _require_valid(edition, gathering_list)
     return edition
 

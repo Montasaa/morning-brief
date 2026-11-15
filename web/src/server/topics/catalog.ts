@@ -6,7 +6,9 @@
 // What a Reader sees as the Catalog: the starting Topics, every shared Topic,
 // and the private Topics they created themselves. Another Reader's private
 // Topic does not exist for them (not even for the Owner here; the Owner sees
-// every Topic through the Gathering Rules listing instead).
+// every Topic through the Gathering Rules listing instead). An Owner-only
+// Topic (`topics.owner_only`: Adult Trending, rework ticket 10) does not exist
+// for anyone but the Owner.
 import type { AppContext } from "../app";
 
 export interface CatalogTopic {
@@ -34,7 +36,8 @@ interface TopicRow {
 }
 
 /** SQL: the Topic `t` is in the Catalog of the Reader bound as @reader. */
-export const VISIBLE_TO_READER = "(t.created_by IS NULL OR t.shared_at_ms IS NOT NULL OR t.created_by = @reader)";
+export const VISIBLE_TO_READER = `((t.created_by IS NULL OR t.shared_at_ms IS NOT NULL OR t.created_by = @reader)
+  AND (t.owner_only = 0 OR EXISTS (SELECT 1 FROM readers ow WHERE ow.id = @reader AND ow.role = 'owner')))`;
 
 const SELECT = `SELECT t.id, t.name, t.name_ar, t.sensitive,
                        EXISTS (SELECT 1 FROM topic_follows f WHERE f.topic_id = t.id AND f.reader_id = @reader) AS followed,

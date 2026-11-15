@@ -166,7 +166,7 @@ describe("POST /api/topics (a Reader creates a Topic)", () => {
 
     expect(res.status).toBe(409);
     expect(res.body.topic).toMatchObject({ id: "liverpool", followed: false });
-    expect(await catalogIds(reader)).toHaveLength(14);
+    expect(await catalogIds(reader)).toHaveLength(13); // Adult Trending is the Owner's alone
   });
 
   it("needs a session", async () => {

@@ -82,16 +82,18 @@ def schema_problems(edition: dict) -> list[str]:
     return problems
 
 
-# Fields every Item carries under the house rules: a real picture, English and Arabic text.
+# Fields every Item carries under the house rules: a real picture (unless graded image_kind none),
+# English and Arabic text.
 HOUSE_REQUIRED = ("image", "title_ar", "summary_ar")
 
 
 def house_problems(edition: dict, gathering_list: dict | None = None) -> list[str]:
     """The house rules the schema leaves optional.
 
-    Every Item has a picture and Arabic text; an Item in a Sensitive Topic carries its
-    content warning in both languages. Sensitive Topics come from the gathering list
-    (Graphic and Adult Trending when there is none).
+    Every Item has a picture (unless its image_kind is none: no usable picture) and Arabic
+    text; an Item in a Sensitive Topic carries its content warning in both languages.
+    Sensitive Topics come from the gathering list (Graphic and Adult Trending when there
+    is none).
     """
     sensitive = {"graphic", "adult-trending"}
     if gathering_list is not None:
@@ -100,6 +102,8 @@ def house_problems(edition: dict, gathering_list: dict | None = None) -> list[st
     for i, item in enumerate(edition.get("items", [])):
         name = item.get("id", f"#{i}")
         for field in HOUSE_REQUIRED:
+            if field == "image" and item.get("image_kind") == "none":
+                continue
             if not item.get(field):
                 problems.append(f"{name}: no {field} (house rule: a real image and English and Arabic text)")
         if sensitive & set(item.get("topics", [])):
@@ -107,3 +111,13 @@ def house_problems(edition: dict, gathering_list: dict | None = None) -> list[st
                 if not item.get(field):
                     problems.append(f"{name}: no {field} (an Item in a Sensitive Topic carries a content warning)")
     return problems
+
+
+def headline_warnings(edition: dict) -> list[str]:
+    """Headlines are written in sentence case: warn (without stopping the run) about an all-lowercase title."""
+    warnings = []
+    for item in edition.get("items", []):
+        title = item.get("title", "")
+        if any(c.isalpha() for c in title) and title == title.lower():
+            warnings.append(f"{item.get('id')}: the title is all lowercase; write headlines in sentence case: {title!r}")
+    return warnings

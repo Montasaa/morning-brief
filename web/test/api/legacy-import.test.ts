@@ -193,8 +193,13 @@ describe("POST /api/editions/legacy (legacy importer)", () => {
 
       for (const section of Object.values(legacy.sections)) {
         for (const { section: _section, ...v2 } of section.items) {
-          const { topics: _topics, extras, ...v3 } = items.get(v2.id)!;
+          const { topics: _topics, extras, title, ...v3 } = items.get(v2.id)!;
           const carried = { ...v3, ...extras };
+          // Titles get their first letter capitalised (rework ticket 10); the rest is as v2 wrote it.
+          const before = String(v2.title);
+          expect(title.toLowerCase()).toBe(before.toLowerCase());
+          expect([...title].filter((c, n) => c !== before[n]).length).toBeLessThanOrEqual(1);
+          delete v2.title;
           // Raw non-ASCII links (a TikTok tag) are percent-encoded: the same link.
           const sameLink = (sources: { url: string }[]) => sources.map((s) => ({ ...s, url: new URL(s.url).href }));
           expect({ ...carried, sources: sameLink(carried.sources) }).toMatchObject({ ...v2, sources: sameLink(v2.sources) });
@@ -287,5 +292,70 @@ describe("POST /api/editions/legacy (legacy importer)", () => {
     expect(b.body.reasons.join("\n")).toMatch(/version/);
     expect(c.status).toBe(400);
     expect((await (await app.signInAsOwner()).request("GET", "/api/brief")).body.edition).toBeNull();
+  });
+});
+
+describe("graded pictures and capitalised titles (rework ticket 10)", () => {
+  /** A hand-written v2 brief.json: placeholder stories, card-host and other pictures. */
+  function legacyPictures(): LegacyBriefDoc {
+    const item = (id: string, title: string, image?: string) => ({
+      id,
+      title,
+      summary: "Placeholder summary.",
+      sources: [{ title: "Example Daily", url: `https://example.com/news/${id}`, type: "independent" }],
+      time: "2026-11-14T05:00:00+03:00",
+      ...(image ? { image } : {}),
+    });
+    return {
+      version: 2,
+      generated_at: "2026-11-14T06:08:00+03:00",
+      sections: {
+        trending: {
+          items: [item("gh-example-repo", "example-repo tops today", "https://opengraph.githubassets.com/1/example/example-repo")],
+        },
+        ai: {
+          items: [
+            item("hf-example-model", "a placeholder model on the hub", "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/example/model.png"),
+            item("gcs-example-card", "model card for a placeholder model", "https://storage.googleapis.com/example-bucket/model-card.png"),
+            item("ai-photo", "iPhone maker shows a placeholder demo", "https://example.com/img/demo.jpg"),
+            item("ai-no-image", "\u201cquoted\u201d placeholder headline"),
+          ],
+        },
+      },
+    };
+  }
+
+  it("marks known card hosts card and other pictures photo, leaving an Item with no picture ungraded", async () => {
+    const app = await startTestApp();
+
+    const res = await importLegacy(app, legacyPictures(), "?dry_run=1");
+
+    expect(res.status, res.text).toBe(200);
+    const kinds = Object.fromEntries(
+      (res.body.edition.items as { id: string; image_kind?: string }[]).map((i) => [i.id, i.image_kind ?? null]),
+    );
+    expect(kinds).toEqual({
+      "gh-example-repo": "card",
+      "hf-example-model": "card",
+      "gcs-example-card": "card",
+      "ai-photo": "photo",
+      "ai-no-image": null,
+    });
+    expect(validateEdition(res.body.edition), JSON.stringify(validateEdition.errors)).toBe(true);
+  });
+
+  it("capitalises the first letter of each title, leaving the rest as v2 wrote it", async () => {
+    const app = await startTestApp();
+    await importLegacy(app, legacyPictures());
+
+    const items = await briefItems(app);
+
+    expect(items.get("gh-example-repo")!.title).toBe("Example-repo tops today");
+    expect(items.get("hf-example-model")!.title).toBe("A placeholder model on the hub");
+    expect(items.get("ai-no-image")!.title).toBe("\u201cQuoted\u201d placeholder headline");
+    // A name written with a capital inside it stays as it is.
+    expect(items.get("ai-photo")!.title).toBe("iPhone maker shows a placeholder demo");
+    expect(items.get("gh-example-repo")!.image_kind).toBe("card");
+    expect(items.get("ai-no-image")!.image_kind).toBe("none");
   });
 });

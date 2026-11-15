@@ -5,7 +5,7 @@
 // from the newest Edition (by generated_at) that carried it, so a later
 // Edition replaces an Item while an older Edition posted late cannot.
 import type { AppContext } from "../app";
-import { CORE_ITEM_FIELDS, type EditionDocument, type EditionItem } from "./types";
+import { CORE_ITEM_FIELDS, IGNORED_ITEM_FIELDS, type EditionDocument, type EditionItem } from "./types";
 import { validateEdition } from "./validate";
 
 export interface IngestCounts {
@@ -59,14 +59,15 @@ function store(ctx: AppContext, edition: EditionDocument): void {
     SELECT e.generated_at_ms FROM items i JOIN editions e ON e.id = i.edition_id WHERE i.id = ?`).pluck();
   const upsertItem = db.prepare(`
     INSERT INTO items (id, edition_id, thread_id, status, time, time_ms, title, title_ar, summary,
-                       summary_ar, sources, image, warning, warning_ar, extras)
+                       summary_ar, sources, image, image_kind, nsfw_media, warning, warning_ar, extras)
     VALUES (@id, @edition_id, @thread_id, @status, @time, @time_ms, @title, @title_ar, @summary,
-            @summary_ar, @sources, @image, @warning, @warning_ar, @extras)
+            @summary_ar, @sources, @image, @image_kind, @nsfw_media, @warning, @warning_ar, @extras)
     ON CONFLICT (id) DO UPDATE SET
       edition_id = excluded.edition_id, thread_id = excluded.thread_id, status = excluded.status,
       time = excluded.time, time_ms = excluded.time_ms, title = excluded.title,
       title_ar = excluded.title_ar, summary = excluded.summary, summary_ar = excluded.summary_ar,
-      sources = excluded.sources, image = excluded.image, warning = excluded.warning,
+      sources = excluded.sources, image = excluded.image, image_kind = excluded.image_kind,
+      nsfw_media = excluded.nsfw_media, warning = excluded.warning,
       warning_ar = excluded.warning_ar, extras = excluded.extras`);
   const clearTopics = db.prepare("DELETE FROM item_topics WHERE item_id = ?");
   const insertTopic = db.prepare("INSERT INTO item_topics (item_id, topic_id, position) VALUES (?, ?, ?)");
@@ -106,7 +107,8 @@ function store(ctx: AppContext, edition: EditionDocument): void {
 function itemRow(item: EditionItem, editionId: string) {
   const extras: Record<string, unknown> = {};
   for (const [key, value] of Object.entries(item)) {
-    if (!(CORE_ITEM_FIELDS as readonly string[]).includes(key)) extras[key] = value;
+    if ((CORE_ITEM_FIELDS as readonly string[]).includes(key) || (IGNORED_ITEM_FIELDS as readonly string[]).includes(key)) continue;
+    extras[key] = value;
   }
   return {
     id: item.id,
@@ -121,6 +123,8 @@ function itemRow(item: EditionItem, editionId: string) {
     summary_ar: item.summary_ar ?? null,
     sources: JSON.stringify(item.sources),
     image: item.image ?? null,
+    image_kind: item.image_kind ?? null,
+    nsfw_media: item.nsfw_media ? 1 : 0,
     warning: item.warning ?? null,
     warning_ar: item.warning_ar ?? null,
     extras: JSON.stringify(extras),

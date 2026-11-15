@@ -13,8 +13,11 @@
 // - Only the latest Edition is picked for (an older Edition posted late builds
 //   no Brief). Posting the same Edition again does not ask Claude again for a
 //   Reader it already answered for; it does retry those it failed for.
+// - A sensitive Item (one carrying a Sensitive Topic) is never a top story
+//   (rework ticket 10): Claude is not offered one, and the Scorer's fallback
+//   skips them.
 // - Readers with an empty Brief (not onboarded, or nothing they follow in this
-//   Edition) are skipped. A Reader who finishes onboarding later gets the
+//   Edition, or only sensitive Items) are skipped. A Reader who finishes onboarding later gets the
 //   Edition's own top stories until the next Edition.
 import type { AppContext } from "../app";
 import { followedTopicIds } from "../topics/catalog";
@@ -129,16 +132,19 @@ async function askClaude(
 async function pickForReader(ctx: AppContext, readerId: number, editionId: string): Promise<"claude" | "scorer" | null> {
   if (storedTopStories(ctx, readerId, editionId)?.picked_by === "claude") return null; // already answered
   const brief = rankBrief(ctx, { id: readerId });
-  if (!brief || brief.edition.id !== editionId || brief.ranked.length === 0) return null;
+  if (!brief || brief.edition.id !== editionId) return null;
+  // A sensitive Item is never a top story (rework ticket 10), so Claude is never offered one.
+  const eligible = brief.ranked.filter((i) => !i.sensitive);
+  if (eligible.length === 0) return null;
 
-  const candidates = brief.ranked.slice(0, MAX_CANDIDATES);
+  const candidates = eligible.slice(0, MAX_CANDIDATES);
   const picked = await askClaude(ctx, readerId, candidates, brief.editionTopIds);
   if (picked) {
     saveTopStories(ctx, readerId, editionId, "claude", picked);
     return "claude";
   }
   const fallback = scoredTopStories(
-    brief.ranked.map((i) => i.id),
+    eligible.map((i) => i.id),
     brief.editionTopIds,
   ).map((item_id) => ({ item_id, why: null, why_ar: null }));
   saveTopStories(ctx, readerId, editionId, "scorer", fallback);

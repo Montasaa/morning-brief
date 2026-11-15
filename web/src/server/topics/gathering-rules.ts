@@ -16,8 +16,11 @@ export const HOUSE_SOURCE_RULES = [
   "Use independent outlets first. Government or state media is only ever a second source, typed official.",
   "Never invent facts, quotes, links or numbers.",
   "Check that every source link and image loads before publishing.",
-  "Every Item has a real image, checked sources, and English and Arabic text.",
-  "No explicit or pornographic content and no links to adult sites, in any Topic.",
+  "Every Item has checked sources and English and Arabic text, with headlines in sentence case.",
+  "Grade every picture with image_kind: photo; card for a logo, an Open Graph card or a screenshot of text; none when there is no usable picture.",
+  "Fixed limit, in every Topic, never a setting: nothing involving minors, nothing non-consensual, nothing leaked. Drop such posts.",
+  "A claim about a named person needs a non-Reddit outlet report as a second source; set claim_subject to that person.",
+  "No explicit content and no links to adult sites, except in Adult Trending: it is gathered from Reddit only, through the subreddit RSS feeds in its Gathering Rules, and its explicit media is marked nsfw_media.",
 ].join("\n");
 
 export const RULES_MAX_LENGTH = 4000;
@@ -91,8 +94,10 @@ interface OwnerTopicRow extends Omit<OwnerTopic, "sensitive" | "private"> {
   private: number;
 }
 
+/** Readers (not revoked) who follow `t`; for an Owner-only Topic, only the Owner counts (rework ticket 10). */
 const ACTIVE_FOLLOWERS = `(SELECT COUNT(*) FROM topic_follows f JOIN readers r ON r.id = f.reader_id
-                            WHERE f.topic_id = t.id AND r.revoked_at_ms IS NULL)`;
+                            WHERE f.topic_id = t.id AND r.revoked_at_ms IS NULL
+                              AND (t.owner_only = 0 OR r.role = 'owner'))`;
 
 const OWNER_SELECT = `SELECT t.id, t.name, t.name_ar, t.sensitive,
                              (t.created_by IS NOT NULL AND t.shared_at_ms IS NULL) AS private,

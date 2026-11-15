@@ -211,6 +211,14 @@
   z-index: 2;
   background: rgb(0 0 0 / 25%);
 }
+/* Explicit media keeps its own veil while the text shows (rework ticket 10): only the picture and a card badge. */
+.card[data-media-locked] .picture,
+.card[data-media-locked] .badge img {
+  filter: blur(28px) saturate(0.8);
+}
+.card[data-media-locked] .picture {
+  transform: scale(1.08);
+}
 /* Above the tap thirds, in the middle: the upper and lower thirds still move past. */
 .reveal {
   position: absolute;
@@ -239,6 +247,11 @@
   font-size: var(--fs-s);
   opacity: 0.8;
   overflow-wrap: anywhere;
+}
+/* The picture's own veil sits in the upper part, clear of the text. */
+.mediaReveal {
+  inset: 16% 0 auto;
+  margin: 0 auto;
 }
 .reveal em {
   margin-top: 6px;

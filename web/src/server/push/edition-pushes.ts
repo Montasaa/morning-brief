@@ -2,13 +2,18 @@
 // (the ingest routes call sendEditionPushes before they answer):
 //
 // - "Brief ready": one push to each Reader who opted into it, naming their own
-//   top story (never a sensitive one's title). Once per Reader and Edition, only
-//   for the latest Edition, and only when their Brief has something in it.
+//   top story, or else their first Item. Once per Reader and Edition, only for
+//   the latest Edition, and only when their Brief has something in it.
 // - Thread updates: when ingest links an Item to a Story Thread for the first
 //   time (a new development), the Thread's followers who opted in get a push,
 //   if they may see that Item under the Brief's rules (a Topic they follow, and
 //   every Sensitive Topic it carries opted into). One push per Reader and
 //   Thread, naming the newest development. Only for the latest Edition.
+//
+// A sensitive Item (one carrying a Sensitive Topic) is never in a push (rework
+// ticket 10), whatever the Reader's blur switch says: "Brief ready" names only
+// a non-sensitive Item (and no Item at all when there is none), and a
+// development that is a sensitive Item sends no Thread push.
 //
 // Pushes go to every device the Reader subscribed whose session is still signed
 // in. A device the push service calls gone is forgotten; a failing one is
@@ -51,9 +56,10 @@ const BRIEF_READY_TITLE: Record<"morning" | "evening", Record<Lang, string>> = {
   morning: { en: "Your morning Brief is ready", ar: "موجزك الصباحي جاهز" },
   evening: { en: "Your evening Brief is ready", ar: "موجزك المسائي جاهز" },
 };
-const SENSITIVE_TOP: Record<Lang, string> = {
-  en: "Your top story has a content warning. Open your Brief to read it.",
-  ar: "قصتك الأبرز عليها تحذير. افتح موجزك لقراءتها.",
+/** The body when the Brief has no Item a push may name (only sensitive ones). */
+const NO_STORY: Record<Lang, string> = {
+  en: "Open your Brief to read it.",
+  ar: "افتح موجزك لقراءته.",
 };
 
 async function sendBriefReady(ctx: AppContext, editionId: string): Promise<number> {
@@ -75,12 +81,13 @@ async function sendBriefReady(ctx: AppContext, editionId: string): Promise<numbe
     const brief = composeBrief(ctx, reader);
     if (brief.edition?.id !== editionId || brief.items.length === 0) continue;
     const lang = reader.language ?? "en";
-    const top = brief.items.find((i) => i.top) ?? brief.items[0]!;
+    // Top stories are never sensitive; without one, the first Item that is not.
+    const named = brief.items.find((i) => i.top) ?? brief.items.find((i) => !i.sensitive);
     // Recorded first, so a second ingest of the same Edition running alongside never pushes twice.
     if (record.run(reader.id, editionId, Date.now()).changes === 0) continue;
     await pushToReader(ctx, reader.id, {
       title: BRIEF_READY_TITLE[brief.edition.kind][lang],
-      body: top.blurred ? SENSITIVE_TOP[lang] : itemTitle(top, lang),
+      body: named ? itemTitle(named, lang) : NO_STORY[lang],
       url: "/",
       tag: "brief-ready",
       ...language(lang),
@@ -119,15 +126,9 @@ function newThreadDevelopments(ctx: AppContext, editionId: string): Development[
   })();
 }
 
-const SENSITIVE_DEVELOPMENT: Record<Lang, string> = {
-  en: "A new development, with a content warning. Open the Thread to read it.",
-  ar: "تطور جديد عليه تحذير. افتح القصة لقراءته.",
-};
-
 interface VisibleDevelopment {
   title: string;
   title_ar: string | null;
-  blurred: number;
 }
 
 async function sendThreadUpdates(ctx: AppContext, developments: Development[]): Promise<number> {
@@ -151,7 +152,7 @@ async function sendThreadUpdates(ctx: AppContext, developments: Development[]): 
       const lang = reader.language ?? "en";
       const newest = visible[0]!;
       const more = visible.length - 1;
-      let body = newest.blurred ? SENSITIVE_DEVELOPMENT[lang] : itemTitle(newest, lang);
+      let body = itemTitle(newest, lang);
       if (more > 0) body += lang === "ar" ? ` (+${more.toLocaleString("ar-SA")} أخرى)` : ` (+${more} more)`;
       await pushToReader(ctx, reader.id, {
         title: (lang === "ar" && title_ar) || title,
@@ -166,12 +167,15 @@ async function sendThreadUpdates(ctx: AppContext, developments: Development[]): 
   return sent;
 }
 
-/** Of `itemIds`, the ones the Reader may see (as their Brief and Threads would show them), newest first. */
+/**
+ * Of `itemIds`, the ones the Reader may see (as their Brief and Threads would show them) and a push may name
+ * (never a sensitive Item), newest first.
+ */
 function visibleItems(ctx: AppContext, readerId: number, itemIds: string[]): VisibleDevelopment[] {
   return ctx.db
     .prepare(
-      `SELECT i.title, i.title_ar, ${sensitiveItemSql("i.id")} AS blurred FROM items i
-        WHERE i.id IN (SELECT value FROM json_each(?))
+      `SELECT i.title, i.title_ar FROM items i
+        WHERE i.id IN (SELECT value FROM json_each(?)) AND NOT ${sensitiveItemSql("i.id")}
           AND EXISTS (SELECT 1 FROM item_topics t JOIN topic_follows f ON f.topic_id = t.topic_id AND f.reader_id = ?
                        WHERE t.item_id = i.id)
           AND ${sensitiveItemVisibleSql("i.id")}

@@ -40,4 +40,18 @@ describe("the v3 procedure", () => {
     expect(v3).toMatch(/`INGEST_TOKEN` \(secret\)/);
     expect(v3).not.toMatch(/--token/);
   });
+
+  it("describes Adult Trending from Reddit RSS, its fixed limits, image grading and sentence case (rework ticket 10)", () => {
+    const v3 = read("PIPELINE-v3.md");
+    expect(v3).toMatch(/Reddit only/);
+    expect(v3).toMatch(/RSS/);
+    expect(v3).toMatch(/nsfw_media/);
+    expect(v3).toMatch(/minors/);
+    expect(v3).toMatch(/non-consensual/);
+    expect(v3).toMatch(/leaked/);
+    expect(v3).toMatch(/claim_subject/);
+    expect(v3).toMatch(/image_kind/);
+    expect(v3).toMatch(/sentence case/);
+    expect(v3).not.toMatch(/mainstream outlets only/);
+  });
 });
