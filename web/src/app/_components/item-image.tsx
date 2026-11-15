@@ -3,7 +3,13 @@
 // would need every host allow-listed). `onFail` is called when it cannot be
 // shown, including when it failed while the page was loading, before React was
 // running to hear the error event. Callers fall back to the plain gradient.
+//
+// <MediaVeil> is NSFW media's own veil (rework ticket 10): an Item marked
+// `media_blurred` keeps its picture blurred under it until tapped, even when
+// the Reader turned the blur off for its Topic and its text shows.
 import { useEffect, useRef } from "react";
+import { Icon } from "./icons";
+import { useLanguage } from "./language";
 
 export function ItemImage({ src, className, onFail }: { src: string; className?: string; onFail(): void }) {
   const img = useRef<HTMLImageElement>(null);
@@ -15,4 +21,19 @@ export function ItemImage({ src, className, onFail }: { src: string; className?:
     if (el?.complete && el.naturalWidth === 0) fail.current();
   }, [src]);
   return <img ref={img} className={className} src={src} alt="" loading="lazy" decoding="async" onError={() => fail.current()} />;
+}
+
+/**
+ * The button over a `media_blurred` Item's blurred picture: an eye, "Explicit media" and "Tap to view".
+ * The caller blurs the picture itself and styles the button (`className`).
+ */
+export function MediaVeil({ className, onReveal }: { className?: string; onReveal(): void }) {
+  const { t } = useLanguage();
+  return (
+    <button type="button" className={className} data-testid="media-veil" onClick={onReveal}>
+      <Icon name="hide" size={26} />
+      <span>{t("Explicit media", "وسائط صريحة")}</span>
+      <em>{t("Tap to view", "اضغط للعرض")}</em>
+    </button>
+  );
 }

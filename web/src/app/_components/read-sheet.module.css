@@ -1,9 +1,46 @@
 /* The read sheet (rework ticket 08), in chrome colours. */
+.picture {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 4px 0 14px;
+}
+.picture:has(.photo) {
+  width: 100%;
+}
+/* NSFW media: blurred under its own veil until tapped (rework ticket 10). */
+.picture[data-media-locked] img {
+  filter: blur(28px) saturate(0.8);
+}
+.picture[data-media-locked] {
+  overflow: hidden;
+  border-radius: var(--r-row);
+}
+.mediaVeil {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 4px;
+  width: 100%;
+  border: 0;
+  border-radius: var(--r-row);
+  /* Over a picture in either theme: its own shade, so the white text always reads. */
+  background: rgb(0 0 0 / 55%);
+  color: #fff;
+  font: inherit;
+  font-size: var(--fs-s);
+  cursor: pointer;
+}
+.mediaVeil em {
+  font-style: normal;
+  font-weight: 600;
+}
 .photo {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  margin: 4px 0 14px;
   border-radius: var(--r-row);
   object-fit: cover;
   background: var(--surf);
@@ -13,7 +50,6 @@
   height: 56px;
   width: auto;
   max-width: 140px;
-  margin: 4px 0 14px;
   border: 1px solid var(--line);
   border-radius: var(--r-row);
   object-fit: contain;

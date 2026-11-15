@@ -78,6 +78,14 @@
   color: var(--mute);
   font-size: var(--fs-base);
 }
+/* A Brief of only Sensitive Items opens on this note (rework ticket 10). */
+.nothing {
+  max-width: 34ch;
+  margin: -12px 0 26px;
+  color: var(--fg);
+  font-size: var(--fs-base);
+  line-height: 1.45;
+}
 .hint {
   display: flex;
   align-items: center;
