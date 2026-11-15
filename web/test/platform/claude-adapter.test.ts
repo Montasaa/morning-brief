@@ -139,6 +139,35 @@ describe("Claude adapter", () => {
     await expect(sending).rejects.not.toThrow(/sk-ant-secret/);
   });
 
+  it("on an Anthropic-compatible endpoint, sends a plain call with its model, user agent and session id", async () => {
+    const { calls, fetch } = scriptedFetch({ body: message([{ type: "text", text: "Four.", citations: null }]) });
+    const claude = claudeService({ apiKey: "go-key", baseURL: "https://opencode.ai/inference/go/anthropic", model: "claude-haiku-5-5", fetch });
+
+    const reply = await claude.complete({ purpose: "ask", system: "S", messages: [{ role: "user", content: "2+2?" }], webSearch: true });
+
+    expect(reply).toEqual({ text: "Four.", citations: [] });
+    expect(calls[0]!.url).toMatch(/^https:\/\/opencode\.ai\/inference\/go\/anthropic\/v1\/messages/);
+    const headers = new Headers(calls[0]!.init.headers);
+    expect(headers.get("x-api-key") ?? headers.get("authorization")).toContain("go-key");
+    expect(headers.get("user-agent")).toBe("morning-brief/3.0");
+    expect(headers.get("x-opencode-session")).toMatch(/^[0-9a-f-]{36}$/);
+    expect(headers.get("anthropic-beta")).toBeNull();
+    const body = JSON.parse(String(calls[0]!.init.body));
+    expect(body).toMatchObject({ model: "claude-haiku-5-5", system: "S", messages: [{ role: "user", content: "2+2?" }] });
+    expect(body.tools).toBeUndefined();
+    expect(body.thinking).toBeUndefined();
+    expect(body.fallbacks).toBeUndefined();
+  });
+
+  it("prefers LLM_BASE_URL + LLM_API_KEY over ANTHROPIC_API_KEY", async () => {
+    const request = { purpose: "ask", messages: [{ role: "user" as const, content: "?" }] };
+    // Only the base URL or only the key is not enough.
+    await expect(realOutsideServices({ LLM_BASE_URL: "https://x.test/anthropic" }).claude.complete(request)).rejects.toThrow(/not connected/);
+    await expect(
+      realOutsideServices({ LLM_BASE_URL: "https://x.test/anthropic", LLM_API_KEY: "k", ANTHROPIC_API_KEY: "sk-ant-x" }).claude.complete(request),
+    ).rejects.toMatchObject({ cause: expect.objectContaining({ message: expect.stringMatching(/Real network call.*x\.test/s) }) });
+  });
+
   it("is used only when ANTHROPIC_API_KEY is set", async () => {
     const request = { purpose: "ask", messages: [{ role: "user" as const, content: "?" }] };
 

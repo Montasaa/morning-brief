@@ -9,16 +9,30 @@
 // - Server-side refusal fallbacks are on ("default"): if the model declines for
 //   policy reasons, the API retries on its default fallback model. A request
 //   the whole chain declines throws.
+//
+// With `baseURL` set (LLM_BASE_URL, e.g. OpenCode Go's Anthropic-compatible
+// endpoint), it sends a plain Messages API call instead: the chosen model, no
+// web search or fetch, no adaptive thinking, no fallbacks, and no citations.
+import { randomUUID } from "node:crypto";
 import Anthropic from "@anthropic-ai/sdk";
 import type { ClaudeReply, ClaudeService } from "./index";
 
 export const CLAUDE_MODEL = "claude-opus-5-5";
+/** The model on an Anthropic-compatible endpoint when ASK_MODEL is not set (OpenCode Go). */
+export const COMPATIBLE_MODEL = "claude-haiku-5-5";
+/** OpenCode Go asks clients to name themselves rather than send a generic SDK user agent. */
+export const USER_AGENT = "morning-brief/3.0";
 /** How many times to resume a turn the server paused (long server-tool runs). */
 const MAX_CONTINUATIONS = 3;
 
 export interface ClaudeOptions {
   apiKey: string;
   model?: string;
+  /**
+   * An Anthropic-compatible endpoint (e.g. https://opencode.ai/inference/go/anthropic).
+   * Set, the adapter uses only the plain Messages API; unset, it talks to Anthropic.
+   */
+  baseURL?: string;
   /** Injected for adapter tests; defaults to the global fetch. */
   fetch?: typeof fetch;
   /** SDK retries for 408/409/429/5xx and connection errors. Default 2. */
@@ -31,9 +45,11 @@ type Block = Anthropic.Beta.Messages.BetaContentBlock;
 export function claudeService(options: ClaudeOptions): ClaudeService {
   const client = new Anthropic({
     apiKey: options.apiKey,
+    ...(options.baseURL ? { baseURL: options.baseURL } : {}),
     ...(options.fetch ? { fetch: options.fetch } : {}),
     maxRetries: options.maxRetries ?? 2,
   });
+  if (options.baseURL) return compatibleService(client, options.model ?? COMPATIBLE_MODEL);
   const model = options.model ?? CLAUDE_MODEL;
 
   return {
@@ -65,6 +81,30 @@ export function claudeService(options: ClaudeOptions): ClaudeService {
         messages = [...messages, { role: "assistant", content: response.content as Anthropic.Beta.Messages.BetaContentBlockParam[] }];
       }
       return replyFrom(blocks);
+    },
+  };
+}
+
+/**
+ * The plain Messages API on an Anthropic-compatible endpoint. Each call is its
+ * own conversation, so it gets its own session id (x-opencode-session).
+ */
+function compatibleService(client: Anthropic, model: string): ClaudeService {
+  return {
+    async complete(request) {
+      const response = await client.messages.create(
+        {
+          model,
+          max_tokens: request.maxTokens ?? 16000,
+          ...(request.system ? { system: request.system } : {}),
+          messages: request.messages.map((m) => ({ role: m.role, content: m.content })),
+        },
+        { headers: { "user-agent": USER_AGENT, "x-opencode-session": randomUUID() } },
+      );
+      if (response.stop_reason === "refusal") throw new Error(`The model declined to answer (${request.purpose})`);
+      let text = "";
+      for (const block of response.content) if (block.type === "text") text += block.text;
+      return { text: text.trim(), citations: [] };
     },
   };
 }
