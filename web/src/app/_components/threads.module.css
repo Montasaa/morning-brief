@@ -129,7 +129,7 @@
   color: var(--mute);
 }
 /* The Topic and "Updated": plain bold text in the meta line, never a badge. */
-.badge {
+.metaStrong {
   font-weight: 600;
   color: var(--fg);
 }

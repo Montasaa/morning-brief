@@ -70,8 +70,8 @@ function LimitRow({
         <span dir="ltr" style={{ flex: "1 1 160px", minWidth: 0, overflow: "hidden", textOverflow: "ellipsis" }}>
           {reader.email}
         </span>
-        <span style={{ color: "var(--mute)", fontSize: 14 }}>{t(`${used} asked today`, `${used} اليوم`)}</span>
-        <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14 }}>
+        <span style={{ color: "var(--mute)", fontSize: "var(--fs-s)" }}>{t(`${used} asked today`, `${used} اليوم`)}</span>
+        <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: "var(--fs-s)" }}>
           {t("Daily limit", "الحد اليومي")}
           <input
             type="number"
@@ -89,7 +89,7 @@ function LimitRow({
           {t("Save", "حفظ")}
         </button>
         {message && (
-          <span role="status" style={{ fontSize: 14 }}>
+          <span role="status" style={{ fontSize: "var(--fs-s)" }}>
             {message}
           </span>
         )}

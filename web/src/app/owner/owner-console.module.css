@@ -11,7 +11,7 @@
 
 .back {
   margin: 0 0 8px;
-  font-size: 14px;
+  font-size: var(--fs-s);
 }
 
 .section {
@@ -19,12 +19,12 @@
 }
 
 .section h2 {
-  font-size: 18px;
+  font-size: var(--fs-l);
   margin: 0 0 8px;
 }
 
 .section h3 {
-  font-size: 15px;
+  font-size: var(--fs-base);
   margin: 20px 0 4px;
 }
 
@@ -32,7 +32,7 @@
 .empty,
 .meta {
   color: var(--mute);
-  font-size: 14px;
+  font-size: var(--fs-s);
   margin: 0;
 }
 
@@ -45,7 +45,7 @@
   grid-template-columns: max-content 1fr;
   gap: 4px 16px;
   margin: 0;
-  font-size: 15px;
+  font-size: var(--fs-base);
 }
 
 .facts dt {
@@ -79,7 +79,7 @@
 .sources {
   margin: 6px 0 0;
   padding-inline-start: 20px;
-  font-size: 14px;
+  font-size: var(--fs-s);
   overflow-wrap: anywhere;
 }
 

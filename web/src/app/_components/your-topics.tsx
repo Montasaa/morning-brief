@@ -93,13 +93,13 @@ export function YourTopics({
               </span>
               {topic.private ? (
                 <>
-                  <span style={{ color: "var(--mute)", fontSize: 13 }}>{t("Private", "خاص")}</span>
+                  <span style={{ color: "var(--mute)", fontSize: "var(--fs-s)" }}>{t("Private", "خاص")}</span>
                   <button type="button" style={quietButtonStyle} disabled={!ready} onClick={() => share(topic)}>
                     {t("Share to Catalog", "شاركه في الفهرس")}
                   </button>
                 </>
               ) : (
-                <span style={{ color: "var(--mute)", fontSize: 13 }}>{t("In the Catalog", "في الفهرس")}</span>
+                <span style={{ color: "var(--mute)", fontSize: "var(--fs-s)" }}>{t("In the Catalog", "في الفهرس")}</span>
               )}
             </li>
           ))}

@@ -162,13 +162,13 @@ function TimelineEntry({ item, timeline }: { item: TimelineItem; timeline: Threa
     <li className={s.entry} data-testid="timeline-item">
       {/* One meta line (spec #6): Topic · time, plus "Updated" as plain text. No "New" badge. */}
       <p className={s.meta}>
-        <b className={s.badge}>{topic}</b>
+        <b className={s.metaStrong}>{topic}</b>
         <span aria-hidden>·</span>
         <time dateTime={item.time}>{clock(item.time, lang)}</time>
         {item.status === "updated" && (
           <>
             <span aria-hidden>·</span>
-            <span className={s.badge}>{t("Updated", "محدَّث")}</span>
+            <span className={s.metaStrong}>{t("Updated", "محدَّث")}</span>
           </>
         )}
       </p>

@@ -17,7 +17,7 @@ import {
 } from "@/server/display/shape";
 import c from "./chrome.module.css";
 import { useDisplay } from "./display";
-import s from "./display-settings.module.css";
+import s from "./display-controls.module.css";
 import { useLanguage } from "./language";
 
 type Label = readonly [en: string, ar: string];
@@ -46,7 +46,7 @@ const DENSITY_LABELS: Record<Density, Label> = {
   comfortable: ["Comfortable", "مريح"],
 };
 
-export function DisplaySettings() {
+export function DisplayControls() {
   const { display, update } = useDisplay();
   const { t } = useLanguage();
   const [status, setStatus] = useState<"idle" | "saved" | "failed">("idle");

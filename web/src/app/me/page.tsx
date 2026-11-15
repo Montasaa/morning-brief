@@ -10,6 +10,7 @@ import { listCatalog } from "@/server/topics/catalog";
 import { CREATED_TOPICS_LIMIT, createdTopicCount } from "@/server/topics/reader-topics";
 import Link from "next/link";
 import { AccountBar } from "../_components/account-bar";
+import { Chevron } from "../_components/chevron";
 import c from "../_components/chrome.module.css";
 import { ProfileSettings } from "../_components/interest-profile";
 import s from "../_components/interest-profile.module.css";
@@ -36,7 +37,7 @@ export default async function MePage() {
           ar="ما يغطيه موجزك. تسري التغييرات على موجزك التالي."
         />
       </p>
-      <ul className={c.rows} style={{ marginTop: 16, borderTop: "1px solid var(--line)" }}>
+      <ul className={`${c.rows} ${c.rowsRuled}`}>
         <li>
           <Link href="/me/display" className={c.row}>
             <span className={c.rowText}>
@@ -47,9 +48,7 @@ export default async function MePage() {
                 <T en="Theme, accent, text size and density" ar="السمة ولون التمييز وحجم النص والكثافة" />
               </span>
             </span>
-            <svg className={c.chevron} viewBox="0 0 24 24" width="20" height="20" aria-hidden>
-              <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <Chevron to="forward" />
           </Link>
         </li>
       </ul>

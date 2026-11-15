@@ -4,8 +4,8 @@ import type { ReactNode } from "react";
 import { getAppContext } from "@/server/app";
 import { configFromEnv } from "@/server/config";
 import { currentReader } from "@/server/readers/page-session";
-import { DEFAULT_DISPLAY, type Display } from "@/server/display/shape";
-import { getProfile } from "@/server/readers/profile";
+import { DEFAULT_DISPLAY } from "@/server/display/shape";
+import { getProfile, type InterestProfile } from "@/server/readers/profile";
 import { DisplayProvider } from "./_components/display";
 import { displayAttributes } from "./_components/display-attributes";
 import { LANG_COOKIE, dirOf, languageFrom } from "./_components/i18n";
@@ -24,7 +24,8 @@ export const metadata: Metadata = {
 
 /** The browser's bar colour follows the chrome's background for the Reader's theme. */
 export async function generateViewport(): Promise<Viewport> {
-  const { theme } = await readerDisplay();
+  const { theme } = (await readerProfile())?.display ?? DEFAULT_DISPLAY;
+  // Meta theme-color cannot read CSS variables: these are the chrome --bg values in globals.css.
   const bars = { light: "#ffffff", dark: "#000000" };
   return {
     width: "device-width",
@@ -40,10 +41,10 @@ export async function generateViewport(): Promise<Viewport> {
   };
 }
 
-/** The signed-in Reader's Display (rework ticket 07), or the defaults when signed out. */
-async function readerDisplay(): Promise<Display> {
+/** The signed-in Reader's Interest Profile (with their Display), or null when signed out. */
+async function readerProfile(): Promise<InterestProfile | null> {
   const reader = await currentReader();
-  return reader ? getProfile(getAppContext(), reader).display : DEFAULT_DISPLAY;
+  return reader ? getProfile(getAppContext(), reader) : null;
 }
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
@@ -52,16 +53,16 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   //   have chosen one (ticket 07), else this device's cookie;
   // - their Display (rework ticket 07): theme, accent, text size and density as data attributes,
   //   which globals.css styles from. Auto follows the device's colour-scheme preference in CSS.
-  const reader = await currentReader();
-  const profile = reader ? getProfile(getAppContext(), reader) : null;
+  const profile = await readerProfile();
+  const signedIn = profile !== null;
   const lang = profile?.language ?? languageFrom((await cookies()).get(LANG_COOKIE)?.value);
   const display = profile?.display ?? DEFAULT_DISPLAY;
   const { basePath } = configFromEnv();
   return (
     <html lang={lang} dir={dirOf(lang)} className={`${inter.variable} ${plexArabic.variable}`} {...displayAttributes(display)}>
       <body>
-        <LanguageProvider initial={lang} cookiePath={basePath} saveToProfile={reader !== null}>
-          <DisplayProvider initial={display} basePath={basePath} signedIn={reader !== null}>
+        <LanguageProvider initial={lang} cookiePath={basePath} saveToProfile={signedIn}>
+          <DisplayProvider initial={display} basePath={basePath} signedIn={signedIn}>
             {children}
             <TabBar />
             <ServiceWorkerRegistration basePath={basePath} />

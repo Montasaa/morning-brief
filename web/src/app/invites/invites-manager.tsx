@@ -103,7 +103,7 @@ export function InvitesManager({ basePath, initial }: { basePath: string; initia
               <span dir="ltr" style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis" }}>
                 {item.email}
               </span>
-              <span style={{ color: "var(--mute)", fontSize: 14 }}>{t(...STATUS_LABEL[item.status])}</span>
+              <span style={{ color: "var(--mute)", fontSize: "var(--fs-s)" }}>{t(...STATUS_LABEL[item.status])}</span>
               {item.status !== "revoked" && (
                 <button type="button" disabled={!ready} onClick={() => revoke(item)} style={quietButtonStyle}>
                   {t("Revoke", "إلغاء")}

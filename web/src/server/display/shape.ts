@@ -82,5 +82,15 @@ export const DISPLAY_KEYS = Object.keys(DEFAULT_DISPLAY) as (keyof Display)[];
  * takes back the pick for that screen class and the other picks are kept.
  */
 export type DisplayPatch = {
-  [K in keyof Display]?: (K extends "layouts" ? Partial<Record<ScreenClass, Layout | null>> : Display[K]) | null;
+  [K in keyof Display]?: (K extends "layouts" ? LayoutPicks : Display[K]) | null;
 };
+
+/** New Layout picks as a change sends them: null takes back the pick for that screen class. */
+export type LayoutPicks = Partial<Record<ScreenClass, Layout | null>>;
+
+/** The Layout picks once `picks` are applied: picks sent replace, null ones are taken back, the rest are kept. */
+export function mergeLayouts(layouts: Display["layouts"] | undefined, picks: LayoutPicks): Display["layouts"] {
+  const merged: LayoutPicks = { ...layouts, ...picks };
+  for (const screen of SCREEN_CLASSES) if (merged[screen] === null) delete merged[screen];
+  return merged as Display["layouts"];
+}

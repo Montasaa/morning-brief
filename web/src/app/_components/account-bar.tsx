@@ -17,7 +17,7 @@ export function AccountBar({ reader, basePath }: { reader: Reader; basePath: str
         alignItems: "center",
         justifyContent: "flex-end",
         margin: "0 0 16px",
-        fontSize: 14,
+        fontSize: "var(--fs-s)",
         color: "var(--mute)",
       }}
     >

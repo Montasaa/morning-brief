@@ -4,8 +4,9 @@
 // arranging controls (Topics, Widgets, dock) to this same screen.
 import Link from "next/link";
 import { requireReaderPage } from "@/server/readers/page-session";
+import { Chevron } from "../../_components/chevron";
 import c from "../../_components/chrome.module.css";
-import { DisplaySettings } from "../../_components/display-settings";
+import { DisplayControls } from "../../_components/display-controls";
 import { T } from "../../_components/language";
 
 export const dynamic = "force-dynamic";
@@ -15,9 +16,7 @@ export default async function DisplayPage() {
   return (
     <main className={c.screen}>
       <Link href="/me" className={c.back}>
-        <svg className={c.chevron} viewBox="0 0 24 24" width="18" height="18" aria-hidden>
-          <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <Chevron to="back" size={18} />
         <span>
           <T en="Back to Me" ar="العودة إلى «أنا»" />
         </span>
@@ -31,7 +30,7 @@ export default async function DisplayPage() {
           ar="شكل موجزك على كل جهاز تسجّل الدخول منه. لا يغيّر شيئًا من محتواه."
         />
       </p>
-      <DisplaySettings />
+      <DisplayControls />
     </main>
   );
 }

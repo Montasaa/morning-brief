@@ -10,6 +10,8 @@
 // must not read it. It only decides where groups sit and how they look.
 import type { AppContext } from "../app";
 import { unknownTopicIds } from "../topics/catalog";
+import { isSensitiveTopic } from "../topics/sensitive";
+import type { Widget } from "../widgets";
 import {
   ACCENTS,
   DEFAULT_DISPLAY,
@@ -18,14 +20,22 @@ import {
   DOCK_BUTTONS,
   DOCK_MAX,
   LAYOUTS,
+  mergeLayouts,
   SCREEN_CLASSES,
   TEXT_SIZES,
   THEMES,
   WIDGET_KEYS,
   type Display,
   type Layout,
+  type LayoutPicks,
   type ScreenClass,
+  type WidgetKey,
 } from "./shape";
+
+// WIDGET_KEYS must name exactly the Widget kinds: a new kind fails the typecheck here until it is added.
+type SameKinds<A, B> = [A] extends [B] ? ([B] extends [A] ? true : false) : false;
+const widgetKeysMatchWidgetKinds: SameKinds<WidgetKey, Widget["kind"]> = true;
+void widgetKeysMatchWidgetKinds;
 
 type Stored = Partial<Display>;
 
@@ -51,7 +61,7 @@ function withDefaults(stored: Stored): Display {
 export interface CheckedDisplayPatch {
   set: Stored;
   reset: (keyof Display)[];
-  layouts: Partial<Record<ScreenClass, Layout | null>> | null;
+  layouts: LayoutPicks | null;
 }
 
 /**
@@ -83,6 +93,12 @@ export function checkDisplayPatch(
       return null;
     }
     return [...new Set(value as string[])];
+  };
+  /** Set `key` to the list if every entry is allowed; otherwise one reason per entry that is not. */
+  const allowedList = (key: keyof Display, ids: string[], allowed: (id: string) => boolean, why: (id: string) => string) => {
+    const bad = ids.filter((id) => !allowed(id));
+    for (const id of bad) reasons.push(`display.${key}: "${id}" ${why(id)}.`);
+    if (bad.length === 0) set[key] = ids;
   };
   const topics = (key: keyof Display, value: unknown) => {
     const ids = list(key, value, "Topic ids");
@@ -125,10 +141,9 @@ export function checkDisplayPatch(
         break;
       case "widgets": {
         const keys = list(k, value, "Widget kinds");
-        if (!keys) break;
-        const bad = keys.filter((w) => !(WIDGET_KEYS as readonly string[]).includes(w));
-        for (const w of bad) reasons.push(`display.widgets: "${w}" is not a Widget (${WIDGET_KEYS.join(", ")}).`);
-        if (bad.length === 0) set.widgets = keys;
+        if (keys) {
+          allowedList(k, keys, (w) => (WIDGET_KEYS as readonly string[]).includes(w), () => `is not a Widget (${WIDGET_KEYS.join(", ")})`);
+        }
         break;
       }
       case "dock": {
@@ -137,19 +152,17 @@ export function checkDisplayPatch(
           break;
         }
         const buttons = list(k, value, "dock buttons");
-        if (!buttons) break;
-        const bad = buttons.filter((b) => !(DOCK_BUTTONS as readonly string[]).includes(b));
-        for (const b of bad) reasons.push(`display.dock: "${b}" is not a dock button (${DOCK_BUTTONS.join(", ")}).`);
-        if (bad.length === 0) set.dock = buttons;
+        if (buttons) {
+          allowedList(k, buttons, (b) => (DOCK_BUTTONS as readonly string[]).includes(b), () => `is not a dock button (${DOCK_BUTTONS.join(", ")})`);
+        }
         break;
       }
       case "unblurred": {
         const ids = list(k, value, "Topic ids");
-        if (!ids) break;
-        const optedIn = new Set(sensitiveAmong(ctx, followedAfter));
-        const bad = ids.filter((id) => !optedIn.has(id));
-        for (const id of bad) reasons.push(`display.unblurred: "${id}" is not a Sensitive Topic you opted into.`);
-        if (bad.length === 0) set.unblurred = ids;
+        if (ids) {
+          const optedIn = new Set(followedAfter.filter((id) => isSensitiveTopic(ctx, id)));
+          allowedList(k, ids, (id) => optedIn.has(id), () => "is not a Sensitive Topic you opted into");
+        }
         break;
       }
     }
@@ -162,7 +175,7 @@ function checkLayouts(value: unknown, reasons: string[]): CheckedDisplayPatch["l
     reasons.push('display.layouts must be an object such as {"pc": "list"}.');
     return null;
   }
-  const picks: Partial<Record<ScreenClass, Layout | null>> = {};
+  const picks: LayoutPicks = {};
   for (const [screen, layout] of Object.entries(value)) {
     if (!(SCREEN_CLASSES as readonly string[]).includes(screen)) {
       reasons.push(`Unknown screen class "${screen}" in display.layouts (${SCREEN_CLASSES.join(", ")}).`);
@@ -175,20 +188,11 @@ function checkLayouts(value: unknown, reasons: string[]): CheckedDisplayPatch["l
   return picks;
 }
 
-function sensitiveAmong(ctx: AppContext, topicIds: readonly string[]): string[] {
-  const sensitive = ctx.db.prepare("SELECT 1 FROM topics WHERE id = ? AND sensitive = 1").pluck();
-  return topicIds.filter((id) => sensitive.get(id) !== undefined);
-}
-
 /** Apply a checked change to the Reader's stored Display. Call inside the caller's transaction. */
 export function writeDisplay(ctx: AppContext, readerId: number, patch: CheckedDisplayPatch): void {
   const stored: Stored = { ...readStored(ctx, readerId), ...patch.set };
   for (const key of patch.reset) delete stored[key];
-  if (patch.layouts) {
-    const layouts = { ...stored.layouts, ...patch.layouts };
-    for (const screen of SCREEN_CLASSES) if (layouts[screen] === null) delete layouts[screen];
-    stored.layouts = layouts as Display["layouts"];
-  }
+  if (patch.layouts) stored.layouts = mergeLayouts(stored.layouts, patch.layouts);
   ctx.db
     .prepare(
       `INSERT INTO displays (reader_id, doc, updated_at_ms) VALUES (?, ?, ?)

@@ -52,6 +52,11 @@
   padding: 0;
   list-style: none;
 }
+/* A short list right under a lede: spaced from it, with a hairline on top too. */
+.rowsRuled {
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
+}
 .row {
   display: flex;
   align-items: center;

@@ -1,6 +1,6 @@
 // Plain helpers for the Display that server and client components both import
 // (the React side is display.tsx).
-import { DEFAULT_DISPLAY, SCREEN_CLASSES, type Display, type DisplayPatch } from "@/server/display/shape";
+import { DEFAULT_DISPLAY, mergeLayouts, type Display, type DisplayPatch, type LayoutPicks } from "@/server/display/shape";
 
 /**
  * The attributes the Display puts on <html>; globals.css styles from them.
@@ -21,9 +21,7 @@ export function applyPatch(display: Display, patch: DisplayPatch): Display {
   const next = { ...display } as Record<string, unknown>;
   for (const [key, value] of Object.entries(patch)) {
     if (key === "layouts" && value) {
-      const layouts = { ...display.layouts, ...(value as object) } as Record<string, unknown>;
-      for (const screen of SCREEN_CLASSES) if (layouts[screen] === null) delete layouts[screen];
-      next.layouts = layouts;
+      next.layouts = mergeLayouts(display.layouts, value as LayoutPicks);
     } else {
       next[key] = value === null ? DEFAULT_DISPLAY[key as keyof Display] : value;
     }
