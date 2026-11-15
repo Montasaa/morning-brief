@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-11-14T05:30:00+03:00",
+  "region": "SA",
+  "period_days": 7,
+  "items": [
+    {
+      "name": "#samplehashtag",
+      "kind": "hashtag",
+      "rank": 1,
+      "metric": "12K posts, 3M views",
+      "url": "https://www.tiktok.com/tag/samplehashtag",
+      "image": "https://example.com/img/tt-sample.jpg",
+      "creator": null
+    }
+  ],
+  "notes": [
+    "sample file for the dry run; the real one is scripts/tiktok_trends.json"
+  ]
+}
