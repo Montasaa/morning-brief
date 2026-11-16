@@ -43,7 +43,7 @@ Route handlers stay thin: they check access, parse the request, call one module 
 
 ## Configuration and secrets
 
-All configuration comes from environment variables. `.env.example` lists them. Secrets (`INGEST_TOKEN`, `ANTHROPIC_API_KEY`, `RESEND_API_KEY`, VAPID keys) are never committed, defaulted or logged.
+All configuration comes from environment variables. `.env.example` lists them. Secrets (`INGEST_TOKEN`, `ANTHROPIC_API_KEY`, `LLM_API_KEY`, `RESEND_API_KEY`, VAPID keys) are never committed, defaulted or logged.
 
 - `BASE_PATH`: the path the app is served under (default `/brief`). It is read at build time, so links and assets must go through Next.js (`<Link>`, `next/image`, `basePath`-aware fetches) and never hard-code `/brief`.
 - `DATABASE_PATH`: the SQLite file (default `data/brief.db`).
@@ -83,6 +83,7 @@ Claude, Resend (email), Open-Meteo (weather), Aladhan (prayer times) and Web Pus
 - Resend is connected (ticket 06, `src/server/outside/resend.ts`). Real adapters take an injected `fetch` so `test/platform/` can check the requests they make without the network.
 - Web Push is connected (ticket 18, `src/server/outside/web-push.ts`): RFC 8291 encryption and RFC 8292 VAPID signing with `node:crypto`, no library. `services.push.publicKey` is the key browsers subscribe with (null when not connected). The fake records `push.sent`, and its `gone` and `failing` sets of endpoints make the push service report a device expired or fail.
 - Claude is connected (ticket 16, `src/server/outside/claude.ts`, `ANTHROPIC_API_KEY`): the official `@anthropic-ai/sdk` on Claude Opus 5.5 with adaptive thinking and server-side refusal fallbacks. `webSearch: true` turns on web search and web fetch, and the reply's `citations` are the cited search results plus the pages Claude fetched. Later Claude features call `services.claude.complete` with their own `purpose`; they do not need a second adapter.
+- Instead of Anthropic, the same adapter can talk to an Anthropic-compatible endpoint such as OpenCode Go: set `LLM_BASE_URL` (`https://opencode.ai/inference/go/anthropic`), `LLM_API_KEY` and optionally `ASK_MODEL` (default `claude-haiku-5-5`). Then every Claude feature (Ask, top picks, Topic suggestions, gathering rules) sends a plain Messages call with that model, a `morning-brief/3.0` user agent and a fresh `x-opencode-session` id per call. No web search or fetch, adaptive thinking or fallbacks, so Ask answers have no citations.
 - Tests make no real network calls. `test/support/setup.ts` replaces `fetch` with one that fails the test.
 
 ## Tests

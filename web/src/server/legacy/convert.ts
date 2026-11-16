@@ -86,7 +86,7 @@ function convertItem(raw: Json, topics: string[], section: string, body: Json): 
     if (!V3_ITEM_FIELDS.has(key) || DERIVED_FIELDS.has(key)) continue;
     // v3 text fields must be non-empty; an empty optional v2 field carries nothing.
     if (key !== "status" && (value === null || value === "" || (Array.isArray(value) && !value.length))) continue;
-    item[key] = withAsciiUrls(key, value);
+    item[key] = withAsciiUrls(key, joinedText(key, value));
   }
   if (SENSITIVE_SECTIONS.has(section)) {
     if (item.warning === undefined && nonEmpty(body.warning)) item.warning = body.warning;
@@ -136,6 +136,18 @@ function capitaliseFirstLetter(title: string): string {
 }
 
 const URL_FIELDS = new Set(["image", "try_url", "store_url"]);
+const SUMMARY_FIELDS = new Set(["summary", "summary_ar"]);
+
+/**
+ * The old pipeline has written a summary as a list of sentences (2026-11-15
+ * morning). v3 wants one text, so a list of strings is joined with spaces.
+ */
+function joinedText(key: string, value: unknown): unknown {
+  if (SUMMARY_FIELDS.has(key) && Array.isArray(value) && value.every((v) => typeof v === "string")) {
+    return value.map((v) => v.trim()).filter(Boolean).join(" ");
+  }
+  return value;
+}
 
 /**
  * v2 links may hold raw non-ASCII text (a TikTok tag such as /tag/مطر), which

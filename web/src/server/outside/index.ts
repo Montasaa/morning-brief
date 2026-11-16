@@ -9,7 +9,7 @@
 // (add methods or optional fields; do not rename), updating the fake with it.
 
 import { aladhanPrayerTimesService } from "./aladhan";
-import { claudeService } from "./claude";
+import { claudeService, COMPATIBLE_MODEL } from "./claude";
 import { openMeteoWeatherService } from "./open-meteo";
 import { resendEmailService } from "./resend";
 import { webPushService } from "./web-push";
@@ -150,8 +150,14 @@ function notConnected(service: string): () => Promise<never> {
  */
 export function realOutsideServices(env: Record<string, string | undefined> = process.env): OutsideServices {
   return {
-    // Claude (ticket 16): ANTHROPIC_API_KEY.
-    claude: env.ANTHROPIC_API_KEY ? claudeService({ apiKey: env.ANTHROPIC_API_KEY }) : { complete: notConnected("Claude") },
+    // Claude (ticket 16): ANTHROPIC_API_KEY. Or an Anthropic-compatible endpoint
+    // (OpenCode Go): LLM_BASE_URL + LLM_API_KEY, model ASK_MODEL; this wins when set.
+    claude:
+      env.LLM_BASE_URL && env.LLM_API_KEY
+        ? claudeService({ apiKey: env.LLM_API_KEY, baseURL: env.LLM_BASE_URL, model: env.ASK_MODEL || COMPATIBLE_MODEL })
+        : env.ANTHROPIC_API_KEY
+          ? claudeService({ apiKey: env.ANTHROPIC_API_KEY })
+          : { complete: notConnected("Claude") },
     // Resend (ticket 06): RESEND_API_KEY + EMAIL_FROM.
     email:
       env.RESEND_API_KEY && env.EMAIL_FROM
