@@ -18,23 +18,28 @@
 //   opens Ask inside it, Esc goes from Ask to the card and then closes it. On
 //   wide the pane is always open, starting on the first top story.
 // - A sensitive Item keeps its picture and headline blurred until tapped.
+//   Explicit media (`media_blurred`, rework ticket 10) keeps its own veil on
+//   a card's picture until tapped (<MediaVeil>); a row's thumbnail never shows
+//   it (`previewKind`). A Brief of only Sensitive Items shows the
+//   nothing-to-show note in the Cover header (<NothingToShow>), as Swipe's
+//   Cover does, and its Items follow, veiled.
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Layout } from "@/server/display/shape";
 import type { Brief, BriefItem } from "@/server/brief/compose";
 import { Chevron } from "./chevron";
 import { prefersReducedMotion, useNow } from "./client-time";
-import { useCoverLines } from "./cover";
+import { NothingToShow, useCoverLines } from "./cover";
 import { WidgetRows } from "./cover-widgets";
 import { formatNextEdition, timeSince } from "./format";
 import { formatNumber, localized, topicName } from "./i18n";
 import { Icon } from "./icons";
-import { ItemImage } from "./item-image";
+import { ItemImage, MediaVeil, useMediaVeil } from "./item-image";
 import { LanguageToggle, useLanguage } from "./language";
 import { LayoutSwitch } from "./layout-switch";
 import { UndoToast, type ReactionsState } from "./reactions";
 import { ReadSheet } from "./read-sheet";
 import { ReaderPane } from "./reader-pane";
-import { pictureKind, type PictureKind } from "./reels-card";
+import { pictureKind, previewKind, type PictureKind } from "./reels-card";
 import { hasSidebar, type Screen } from "./screen-class";
 import { isShortcut, itemShortcut, runItemShortcut, useShortcuts } from "./shortcuts";
 import { sheetOpen } from "./sheet";
@@ -219,6 +224,7 @@ export function FrontPage({
                 <p className={s.greeting}>{lines.greeting}</p>
                 <h1 className={s.date}>{lines.date}</h1>
                 <p className={s.edition}>{lines.edition}</p>
+                <NothingToShow brief={brief} className={s.nothing} />
               </div>
               <div className={s.coverTools}>
                 <LayoutSwitch />
@@ -363,11 +369,16 @@ function Group({
   );
 }
 
-/** What a card or row shows for an Item: its picture kind, names and lines, in the Reader's language. */
-function useItemLines(item: BriefItem, brief: Brief, now: number | null) {
+/**
+ * What a card or row shows for an Item: its picture kind, names and lines, in the Reader's language. `preview`:
+ * a small picture with no veil of its own (a row's thumbnail), so none for explicit media, or for a sensitive
+ * Item the Reader has not tapped open.
+ */
+function useItemLines(item: BriefItem, brief: Brief, now: number | null, preview?: { revealed: boolean }) {
   const { lang, t } = useLanguage();
   const [broken, setBroken] = useState(false);
-  const kind: PictureKind = broken ? "none" : pictureKind(item);
+  const shown = !preview ? pictureKind(item) : preview.revealed ? previewKind({ ...item, blurred: false }) : previewKind(item);
+  const kind: PictureKind = broken ? "none" : shown;
   const name = topicName(brief, item.topic, lang);
   const meta = (
     <>
@@ -393,13 +404,14 @@ function useItemLines(item: BriefItem, brief: Brief, now: number | null) {
 }
 
 /** What a card and a row both say about their Item, as data attributes the CSS (and tests) read. */
-function itemAttrs(item: BriefItem, kind: PictureKind, selected: boolean, locked: boolean) {
+function itemAttrs(item: BriefItem, kind: PictureKind, selected: boolean, locked: boolean, mediaLocked = false) {
   return {
     "data-item": item.id,
     "data-picture": kind,
     "data-selected": selected || undefined,
     "data-dimmed": item.dimmed && !selected,
     "data-locked": locked || undefined,
+    "data-media-locked": mediaLocked || undefined,
   };
 }
 
@@ -408,8 +420,9 @@ function Tile({ item, brief, now, selected, revealed, onOpen, onReveal, big }: T
   const { t } = useLanguage();
   const { kind, name, meta, title, why, warning, onFail } = useItemLines(item, brief, now);
   const locked = item.blurred && !revealed;
+  const media = useMediaVeil(item, kind !== "none");
   return (
-    <article className={s.tile} data-big={big || undefined} {...itemAttrs(item, kind, selected, locked)}>
+    <article className={s.tile} data-big={big || undefined} {...itemAttrs(item, kind, selected, locked, media.locked)}>
       <div className={s.tilePicture}>
         {kind === "photo" ? <ItemImage className={s.photo} src={item.image!} onFail={onFail} /> : <div className={s.plain} />}
       </div>
@@ -432,6 +445,7 @@ function Tile({ item, brief, now, selected, revealed, onOpen, onReveal, big }: T
           </button>
         </h3>
       </div>
+      {!locked && media.locked && <MediaVeil className={`${s.reveal} ${s.mediaReveal}`} onReveal={media.reveal} />}
       {locked && (
         <button type="button" className={s.reveal} onClick={onReveal}>
           <Icon name="hide" size={24} />
@@ -447,7 +461,7 @@ function Tile({ item, brief, now, selected, revealed, onOpen, onReveal, big }: T
 /** A List row: a square thumbnail, the meta line and a one-line headline. */
 function Row({ item, brief, now, selected, revealed, onOpen, onReveal }: TileProps) {
   const { t } = useLanguage();
-  const { kind, name, meta, title, onFail } = useItemLines(item, brief, now);
+  const { kind, name, meta, title, onFail } = useItemLines(item, brief, now, { revealed });
   const locked = item.blurred && !revealed;
   return (
     <article className={s.row} {...itemAttrs(item, kind, selected, locked)}>
