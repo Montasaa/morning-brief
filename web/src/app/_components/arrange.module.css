@@ -166,3 +166,24 @@
   font-weight: 700;
   cursor: pointer;
 }
+
+/* The Edit button on the Brief: outlined in the accent while Edit mode is on. */
+.edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap);
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: none;
+  color: var(--fg);
+  font: inherit;
+  font-size: var(--fs-s);
+  font-weight: 600;
+  cursor: pointer;
+}
+.edit[aria-pressed="true"] {
+  border-color: var(--acc);
+  color: var(--acc);
+}

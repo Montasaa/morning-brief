@@ -6,12 +6,11 @@
 // the same as Edit mode's on the Brief (arrange.tsx): the Topics in Brief order
 // with move up and down, pin, collapse and blur for Sensitive ones; the Cover's
 // Widgets; and the dock, 1 to 5 buttons in order.
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { arrangeGroups } from "@/server/brief/arrange";
 import type { BriefGroup } from "@/server/brief/compose";
 import {
   DOCK_BUTTONS,
-  DOCK_MAX,
   WIDGET_KEYS,
   ACCENTS,
   DENSITIES,
@@ -86,30 +85,28 @@ const SCREEN_HINTS: Record<ScreenClass, Label> = {
 };
 
 export function DisplayControls({
-  topicGroups,
+  groups,
+  sensitiveItemIds,
   topicNames,
 }: {
-  /** The Reader's Topic groups, as the Brief ranks them. */
-  topicGroups: BriefGroup[];
+  /** The Reader's groups as the Brief ranks them (top stories included), and every other followed Topic. */
+  groups: BriefGroup[];
+  /** The Brief's Sensitive Items, so the order here keeps one off the top exactly as the Brief does. */
+  sensitiveItemIds: string[];
   topicNames: Record<string, { en: string; ar: string }>;
 }) {
-  const { display, update } = useDisplay();
+  const { display } = useDisplay();
   const { lang, t } = useLanguage();
+  // Every change here, arranging or not, saves through it, so the status line speaks of the latest one.
   const arrange = useArrange();
+  const { status } = arrange;
+  const choose = (patch: DisplayPatch) => void arrange.save(patch);
   const { pinned, topic_order, collapsed } = display;
-  const order = useMemo(
-    () =>
-      arrangedTopics(arrangeGroups(topicGroups, { pinned, topic_order, collapsed }, () => undefined), (id) =>
-        lang === "ar" ? topicNames[id]?.ar ?? id : topicNames[id]?.en ?? id,
-      ),
-    [topicGroups, topicNames, pinned, topic_order, collapsed, lang],
-  );
-  const [status, setStatus] = useState<"idle" | "saved" | "failed">("idle");
-
-  const choose = async (patch: DisplayPatch) => {
-    setStatus("idle");
-    setStatus((await update(patch)) ? "saved" : "failed");
-  };
+  const order = useMemo(() => {
+    const sensitive = new Set(sensitiveItemIds);
+    const arranged = arrangeGroups(groups, { pinned, topic_order, collapsed }, (id) => ({ sensitive: sensitive.has(id) }));
+    return arrangedTopics(arranged, (id) => (lang === "ar" ? topicNames[id]?.ar ?? id : topicNames[id]?.en ?? id));
+  }, [groups, sensitiveItemIds, topicNames, pinned, topic_order, collapsed, lang]);
 
   return (
     <>
@@ -189,14 +186,14 @@ export function DisplayControls({
         chosen={display.dock}
         labels={DOCK_BUTTON_LABELS}
         min={1}
-        onChange={(dock) => void arrange.dock(dock.slice(0, DOCK_MAX))}
+        onChange={(dock) => void arrange.dock(dock)}
       />
       <p className={s.hint}>
         {t("The buttons beside each story, in this order: 1 to 5.", "الأزرار بجانب كل خبر بهذا الترتيب: من 1 إلى 5.")}
       </p>
-      <p className={`${c.status} ${status === "failed" || arrange.status === "failed" ? c.error : ""}`} role="status" data-testid="display-status">
-        {(status === "saved" || arrange.status === "saved") && status !== "failed" && arrange.status !== "failed" && t("Saved.", "تم الحفظ.")}
-        {(status === "failed" || arrange.status === "failed") && t("Couldn't save. Check your connection and try again.", "تعذّر الحفظ. تحقّق من اتصالك وحاول مجددًا.")}
+      <p className={`${c.status} ${status === "failed" ? c.error : ""}`} role="status" data-testid="display-status">
+        {status === "saved" && t("Saved.", "تم الحفظ.")}
+        {status === "failed" && t("Couldn't save. Check your connection and try again.", "تعذّر الحفظ. تحقّق من اتصالك وحاول مجددًا.")}
       </p>
     </>
   );

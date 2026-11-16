@@ -16,7 +16,7 @@
 //   the chosen ones in order with move and remove, then the rest to add back.
 // - <EditSheet>: Swipe's Edit mode, a sheet with the Topics and the Widgets.
 import { useRouter } from "next/navigation";
-import { useState, type DragEvent } from "react";
+import { useEffect, useState, type DragEvent } from "react";
 import type { BriefGroup, BriefWidget } from "@/server/brief/compose";
 import type { DisplayPatch, WidgetKey } from "@/server/display/shape";
 import c from "./chrome.module.css";
@@ -24,6 +24,7 @@ import { useDisplay } from "./display";
 import { Icon } from "./icons";
 import { useLanguage } from "./language";
 import { Sheet } from "./sheet";
+import { isTyping } from "./shortcuts";
 import s from "./arrange.module.css";
 
 /** A Topic as the arranging controls see it: its group's place and marks, and its name in the Reader's language. */
@@ -61,6 +62,8 @@ export function useArrange() {
     return ok;
   };
   const without = (list: readonly string[], id: string) => list.filter((x) => x !== id);
+  /** `list` with `id` added at the end (on) or taken out (off). */
+  const toggled = (list: readonly string[], id: string, on: boolean) => (on ? [...without(list, id), id] : without(list, id));
 
   /** `topic` moved to place `to` among the Topics of its section (pinned or not), as shown in `order`. */
   const moveTo = (order: readonly ArrangedTopic[], topic: string, to: number) => {
@@ -80,6 +83,8 @@ export function useArrange() {
   return {
     display,
     status,
+    /** Save any Display change, with the same status line. */
+    save,
     moveTo,
     /** One place up (-1) or down (1) within its section. */
     move(order: readonly ArrangedTopic[], topic: string, by: -1 | 1) {
@@ -88,12 +93,13 @@ export function useArrange() {
       const section = order.filter((x) => x.pinned === t.pinned);
       moveTo(order, topic, section.indexOf(t) + by);
     },
-    pin: (topic: string, on: boolean) => save({ pinned: on ? [...without(display.pinned, topic), topic] : without(display.pinned, topic) }),
-    collapse: (topic: string, on: boolean) =>
-      save({ collapsed: on ? [...without(display.collapsed, topic), topic] : without(display.collapsed, topic) }),
+    /** Pinning adds it after the other pins; unpinning puts it first among the others, so it stays near the top. */
+    pin: (topic: string, on: boolean) =>
+      save(on ? { pinned: toggled(display.pinned, topic, true) } : { pinned: without(display.pinned, topic), topic_order: [topic, ...without(display.topic_order, topic)] }),
+    collapse: (topic: string, on: boolean) => save({ collapsed: toggled(display.collapsed, topic, on) }),
     /** The blur switch: on blurs the Topic's Items until tapped. The Brief is fetched again to show it. */
     async blur(topic: string, on: boolean) {
-      if (await save({ unblurred: on ? without(display.unblurred, topic) : [...without(display.unblurred, topic), topic] })) router.refresh();
+      if (await save({ unblurred: toggled(display.unblurred, topic, !on) })) router.refresh();
     },
     widgets: (widgets: WidgetKey[]) => save({ widgets }),
     dock: (dock: typeof display.dock) => save({ dock }),
@@ -315,6 +321,17 @@ export function WidgetPicks({ shown, more, arrange }: { shown: BriefWidget[]; mo
   );
 }
 
+/** The Edit button on the Brief (the Swipe Cover, the Cover header of Front Page and List); `e` does the same. */
+export function EditButton({ editing = false, onToggle }: { editing?: boolean; onToggle(): void }) {
+  const { t } = useLanguage();
+  return (
+    <button type="button" className={s.edit} aria-pressed={editing} onClick={onToggle}>
+      <Icon name="edit" size={16} />
+      {t("Edit", "تحرير")}
+    </button>
+  );
+}
+
 /** "Saved." or the error, after a change. */
 export function SaveStatus({ status }: { status: Arrange["status"] }) {
   const { t } = useLanguage();
@@ -340,6 +357,16 @@ export function EditSheet({
 }) {
   const { t } = useLanguage();
   const arrange = useArrange();
+  // `e` closes it, as it opened it (the Brief's own shortcuts are off while a sheet is open).
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key !== "e" || e.shiftKey || e.altKey || e.ctrlKey || e.metaKey || e.defaultPrevented || isTyping(e.target)) return;
+      e.preventDefault();
+      onDone();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onDone]);
   return (
     <Sheet label={t("Arrange your Brief", "ترتيب موجزك")} title={t("Arrange your Brief", "ترتيب موجزك")} onClose={onDone}>
       <p className={s.lede}>{t("Changes save as you make them.", "تُحفظ التغييرات فور إجرائها.")}</p>

@@ -6,9 +6,9 @@
 // dock.
 import Link from "next/link";
 import { getAppContext } from "@/server/app";
-import { composeBrief, type BriefGroup } from "@/server/brief/compose";
+import { arrangeableGroups } from "@/server/brief/compose";
 import { requireReaderPage } from "@/server/readers/page-session";
-import { followedTopicIds, listCatalog } from "@/server/topics/catalog";
+import { listCatalog } from "@/server/topics/catalog";
 import { Chevron } from "../../_components/chevron";
 import c from "../../_components/chrome.module.css";
 import { DisplayControls } from "../../_components/display-controls";
@@ -20,22 +20,9 @@ export default async function DisplayPage() {
   const reader = await requireReaderPage();
   const ctx = getAppContext();
   const catalog = listCatalog(ctx, reader.id);
-  // The Topics as the Brief ranks them (the controls arrange them by the Display on screen). Before the first
-  // Edition there is no ranking: the followed Topics in Catalog order.
-  const brief = composeBrief(ctx, reader);
-  const groups: BriefGroup[] = brief.edition
-    ? brief.groups.filter((g) => g.kind === "topic")
-    : followedTopicIds(ctx, reader.id).map((topic, i) => ({
-        kind: "topic",
-        topic,
-        pinned: false,
-        collapsed: false,
-        item_ids: [],
-        nothing_qualified: true,
-        note: null,
-        sensitive: catalog.find((t) => t.id === topic)?.sensitive ?? false,
-        rank: i + 1,
-      }));
+  // The Topics as the Brief ranks them, plus any followed Topic with no group of its own (the controls
+  // arrange them by the Display on screen).
+  const { groups, sensitive_item_ids } = arrangeableGroups(ctx, reader);
   const names = Object.fromEntries(catalog.map((t) => [t.id, { en: t.name, ar: t.name_ar }]));
   return (
     <main className={c.screen}>
@@ -54,7 +41,7 @@ export default async function DisplayPage() {
           ar="شكل موجزك وترتيبه على كل جهاز تسجّل الدخول منه. لا يغيّر شيئًا من محتواه ولا من ترتيب أهميته."
         />
       </p>
-      <DisplayControls topicGroups={groups} topicNames={names} />
+      <DisplayControls groups={groups} sensitiveItemIds={sensitive_item_ids} topicNames={names} />
     </main>
   );
 }

@@ -75,6 +75,25 @@ export function SwipeBrief({ reactions, basePath, edit }: { reactions: Reactions
   const shown = active >= 1 && active <= content.length ? content[active - 1]! : null;
   const current = shown?.kind === "item" ? shown.item : null;
 
+  // When the slides change under the Reader (an Edit mode change re-arranges them), stay on the same one.
+  const onScreen = useRef<string | null>(null);
+  const slideId = (sl: Slide) => (sl.kind === "item" ? sl.item.id : `digest:${sl.key}`);
+  useEffect(() => {
+    const was = onScreen.current;
+    if (was && shown && slideId(shown) !== was) {
+      const at = content.findIndex((sl) => slideId(sl) === was);
+      if (at >= 0) {
+        go(at + 1);
+        return;
+      }
+    }
+    onScreen.current = shown ? slideId(shown) : null;
+    // Only when the slides themselves change; moving between them updates `onScreen` below.
+  }, [content]);
+  useEffect(() => {
+    onScreen.current = shown ? slideId(shown) : null;
+  }, [active]);
+
   // Sheets hold an Item id, so they show its latest Reactions.
   const [reading, setReading] = useState<string | null>(null);
   const [asking, setAsking] = useState<string | null>(null);
@@ -103,14 +122,15 @@ export function SwipeBrief({ reactions, basePath, edit }: { reactions: Reactions
       { key: FOR_YOU, label: t("For you", "لك") },
       ...brief.groups
         .filter((g) => g.kind === "topic" && !g.nothing_qualified)
-        .map((g) => ({ key: g.topic!, label: topicName(brief, g.topic!, lang) })),
+        .map((g) => ({ key: g.topic!, label: topicName(brief, g.topic!, lang), pinned: g.pinned })),
     ],
     [brief, lang, t],
   );
   const currentTab = active === 0 ? FOR_YOU : shown ? shown.key : content.at(-1)?.key ?? FOR_YOU;
   const jumpTo = (key: string) => {
     const first = content.findIndex((sl) => sl.key === key);
-    if (first >= 0) go(first + 1);
+    // A Topic with nothing in this Edition (from the sidebar) has no slide: the end names it.
+    go(first >= 0 ? first + 1 : last);
   };
   const topics = useMemo(() => arrangedTopics(brief.groups, (id) => topicName(brief, id, lang)), [brief, lang]);
 

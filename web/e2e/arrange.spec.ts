@@ -60,6 +60,11 @@ test("Edit on the Cover opens a sheet that pins and collapses Topics; the Brief 
   await saved(page, () => sheet.getByRole("button", { name: "Move Graphic up" }).tap());
   await sheet.getByRole("button", { name: "Done" }).tap();
   await expect(sheet).toHaveCount(0);
+  // `e` opens and closes it too.
+  await page.keyboard.press("e");
+  await expect(sheet).toBeVisible();
+  await page.keyboard.press("e");
+  await expect(sheet).toHaveCount(0);
 
   await expect(tabs.nth(1)).toHaveText("GitHub Trending");
   await page.reload();

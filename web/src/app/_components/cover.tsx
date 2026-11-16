@@ -13,6 +13,7 @@
 // Sensitive Items (`brief.nothing_to_show`, rework ticket 10): they are never
 // the first thing after the Cover. Every Layout's Cover shows it.
 import type { Brief } from "@/server/brief/compose";
+import { EditButton } from "./arrange";
 import { topicName } from "./i18n";
 import { WidgetRows } from "./cover-widgets";
 import { formatCoverDate, formatNextEdition, itemCount } from "./format";
@@ -46,12 +47,7 @@ export function Cover({ brief, onEdit }: { brief: Brief; onEdit?(): void }) {
           <p className={s.greeting}>{lines.greeting}</p>
           <span className={s.tools}>
             <LayoutSwitch />
-            {onEdit && (
-              <button type="button" className={s.edit} onClick={onEdit}>
-                <Icon name="edit" size={16} />
-                {t("Edit", "تحرير")}
-              </button>
-            )}
+            {onEdit && <EditButton onToggle={onEdit} />}
             <LanguageToggle className={s.lang} />
           </span>
         </div>

@@ -52,15 +52,23 @@ export function arrangeGroups(
     pinned: pinned.has(topic),
     collapsed: collapsed.has(topic),
   }));
+  return placeSensitive([...tops.map((g) => ({ ...g, pinned: false, collapsed: false })), ...topicGroups], item);
+}
+
+/**
+ * `groups` with no Sensitive Item first: when the first group with Items is led by one (there are no top
+ * stories, which never are), the first group led by a non-Sensitive Item moves in front of it. Run again
+ * whenever groups change in the browser (hiding an Item can empty the group that led).
+ */
+export function placeSensitive(groups: readonly BriefGroup[], item: (id: string) => Pick<BriefItem, "sensitive"> | undefined): BriefGroup[] {
+  const placed = [...groups];
   const leadSensitive = (g: BriefGroup) => item(g.item_ids[0]!)?.sensitive === true;
-  if (tops.every((g) => g.item_ids.length === 0)) {
-    const first = topicGroups.findIndex((g) => g.item_ids.length > 0);
-    if (first >= 0 && leadSensitive(topicGroups[first]!)) {
-      const lead = topicGroups.findIndex((g, i) => i > first && g.item_ids.length > 0 && !leadSensitive(g));
-      if (lead > 0) topicGroups.splice(first, 0, ...topicGroups.splice(lead, 1));
-    }
+  const first = placed.findIndex((g) => g.item_ids.length > 0);
+  if (first >= 0 && leadSensitive(placed[first]!)) {
+    const lead = placed.findIndex((g, i) => i > first && g.item_ids.length > 0 && !leadSensitive(g));
+    if (lead > 0) placed.splice(first, 0, ...placed.splice(lead, 1));
   }
-  return [...tops.map((g) => ({ ...g, pinned: false, collapsed: false })), ...topicGroups];
+  return placed;
 }
 
 /**

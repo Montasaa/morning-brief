@@ -11,6 +11,7 @@
 // A hidden Item leaves this Brief at once (the composer leaves it out of the
 // next one), and Undo brings it back where it was.
 import { useEffect, useMemo, useRef, useState } from "react";
+import { placeSensitive } from "@/server/brief/arrange";
 import type { DockButton } from "@/server/display/shape";
 import { useDisplay } from "./display";
 import type { Brief, BriefItem } from "@/server/brief/compose";
@@ -49,11 +50,16 @@ export function useReactions(initial: Brief, basePath: string): ReactionsState {
         const m = marks[i.id];
         return m ? { ...i, reactions: { like: m.like, save: m.save }, dimmed: m.dimmed } : i;
       });
-    const groups = initial.groups
-      .map((g) => ({ ...g, item_ids: g.item_ids.filter((id) => !hidden.has(id)) }))
-      // A group emptied by hiding goes; a Topic with nothing in the Edition stays, to say so.
-      .filter((g) => g.item_ids.length > 0 || g.nothing_qualified);
-    return { ...initial, items, groups };
+    const byId = new Map(items.map((i) => [i.id, i]));
+    const groups = placeSensitive(
+      initial.groups
+        .map((g) => ({ ...g, item_ids: g.item_ids.filter((id) => !hidden.has(id)) }))
+        // A group emptied by hiding goes; a Topic with nothing in the Edition stays, to say so.
+        .filter((g) => g.item_ids.length > 0 || g.nothing_qualified),
+      // Hiding the group that led can leave a Sensitive Item first: never.
+      (id) => byId.get(id),
+    );
+    return { ...initial, items: groups.flatMap((g) => g.item_ids.flatMap((id) => byId.get(id) ?? [])), groups };
   }, [initial, marks, hidden]);
 
   const current = (item: BriefItem) => brief.items.find((i) => i.id === item.id) ?? item;

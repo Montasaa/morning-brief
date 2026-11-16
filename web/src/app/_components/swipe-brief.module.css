@@ -195,7 +195,7 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: radial-gradient(120% 70% at 85% 0%, #1d2733 0, var(--canvas) 60%);
+  background: radial-gradient(110% 70% at 85% 0%, #22303f 0, var(--canvas) 62%); /* the plain card's (no picture) */
 }
 /* Over the tap thirds, at the bottom like a card's text: the thirds above and around it still move on. */
 .digest .digestText {

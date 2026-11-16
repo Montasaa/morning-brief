@@ -303,25 +303,14 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
     }
   }
 
-  const followed = followedTopicIds(ctx, reader.id);
-  const hidden = hiddenTopicIds(ctx, reader.id);
   const carried = new Set(ranked.flatMap((i) => i.topics));
   const groups: BriefGroup[] = [];
-  const group = (kind: BriefGroup["kind"], topic: string | null, items: BriefItem[]): BriefGroup => ({
-    kind,
-    topic,
-    pinned: false,
-    collapsed: false,
-    item_ids: items.map((i) => i.id),
-    nothing_qualified: kind === "topic" && items.length === 0,
-    note: null,
-    sensitive: topic !== null && isSensitiveTopic(ctx, topic),
-    rank: kind === "top" ? 0 : groups.filter((g) => g.kind === "topic").length + 1,
-  });
-  if (tops.length) groups.push(group("top", null, tops));
-  for (const items of topicItems) groups.push(group("topic", items[0]!.topic, items));
-  for (const topic of followed) {
-    if (!carried.has(topic) && !hidden.has(topic)) groups.push(group("topic", topic, []));
+  if (tops.length) groups.push(newGroup(ctx, null, tops, 0));
+  // Ranks: 0 for the top stories, then 1, 2, ... for the Topic groups.
+  const nextRank = () => groups.filter((g) => g.kind === "topic").length + 1;
+  for (const items of topicItems) groups.push(newGroup(ctx, items[0]!.topic, items, nextRank()));
+  for (const topic of visibleFollowedTopics(ctx, reader.id)) {
+    if (!carried.has(topic)) groups.push(newGroup(ctx, topic, [], nextRank(), { nothingQualified: true }));
   }
 
   const items = [...tops, ...topicItems.flat()];
@@ -351,6 +340,50 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
   );
   // Only when the Brief holds nothing but Sensitive Items: it opens on the Cover and this note.
   return { ...brief, nothing_to_show: brief.items[0]?.sensitive === true };
+}
+
+/** A group before arranging: the top stories (`topic` null) or a Topic's Items, at ranked place `rank`. */
+function newGroup(
+  ctx: AppContext,
+  topic: string | null,
+  items: BriefItem[],
+  rank: number,
+  { nothingQualified = false } = {},
+): BriefGroup {
+  return {
+    kind: topic === null ? "top" : "topic",
+    topic,
+    pinned: false,
+    collapsed: false,
+    item_ids: items.map((i) => i.id),
+    nothing_qualified: nothingQualified,
+    note: null,
+    sensitive: topic !== null && isSensitiveTopic(ctx, topic),
+    rank,
+  };
+}
+
+/** The Topics the Reader follows and may see, in Catalog order. */
+function visibleFollowedTopics(ctx: AppContext, readerId: number): string[] {
+  const hidden = hiddenTopicIds(ctx, readerId);
+  return followedTopicIds(ctx, readerId).filter((t) => !hidden.has(t));
+}
+
+/**
+ * Every followed Topic as a group, for Me › Display's arranging controls: the Brief's groups (top stories
+ * included, arranged by the stored Display), then a group for each followed Topic that has none in the Brief
+ * (its Items are all top stories or filed under another Topic, or there is no Edition yet), so it can still be
+ * pinned, ordered and collapsed. `sensitive_item_ids` lets the browser keep a Sensitive Item off the top.
+ */
+export function arrangeableGroups(ctx: AppContext, reader: { id: number }): { groups: BriefGroup[]; sensitive_item_ids: string[] } {
+  const brief = composeBrief(ctx, reader);
+  const grouped = new Set(brief.groups.map((g) => g.topic));
+  const extra = visibleFollowedTopics(ctx, reader.id).filter((t) => !grouped.has(t));
+  const last = brief.groups.reduce((max, g) => Math.max(max, g.rank), 0);
+  return {
+    groups: [...brief.groups, ...extra.map((topic, i) => newGroup(ctx, topic, [], last + i + 1))],
+    sensitive_item_ids: brief.items.filter((i) => i.sensitive).map((i) => i.id),
+  };
 }
 
 /** The Topics and Story Thread of each Item the Reader reacted to, for the Scorer. */

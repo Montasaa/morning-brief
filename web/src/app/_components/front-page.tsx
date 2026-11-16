@@ -34,7 +34,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } from "react";
 import type { Layout } from "@/server/display/shape";
 import type { Brief, BriefGroup, BriefItem } from "@/server/brief/compose";
-import { arrangedTopics, TopicControls, useArrange, WidgetPicks, type Arrange, type ArrangedTopic } from "./arrange";
+import { arrangedTopics, EditButton, TopicControls, useArrange, WidgetPicks, type Arrange, type ArrangedTopic } from "./arrange";
 import type { EditMode } from "./brief-layouts";
 import { Chevron } from "./chevron";
 import { prefersReducedMotion, useNow } from "./client-time";
@@ -151,7 +151,8 @@ export function FrontPage({
     const root = scroller.current;
     if (!root) return;
     const seen = new Set<Element>();
-    const sections = [...root.querySelectorAll<HTMLElement>("[data-group]")];
+    // Only groups with a Topic tab: a Topic with nothing in this Edition has none.
+    const sections = [...root.querySelectorAll<HTMLElement>("[data-group]:not([data-no-tab])")];
     const spy = new IntersectionObserver(
       (entries) => {
         for (const e of entries) (e.isIntersecting ? seen.add(e.target) : seen.delete(e.target));
@@ -241,7 +242,7 @@ export function FrontPage({
       <div ref={page} className={s.page}>
         <TopicTabs
           className={s.tabs}
-          tabs={groups.filter((g) => !g.group.nothing_qualified).map(({ key, label }) => ({ key, label }))}
+          tabs={groups.filter((g) => !g.group.nothing_qualified).map(({ key, label, group }) => ({ key, label, pinned: group.pinned }))}
           current={currentTab}
           onPick={jumpTo}
         />
@@ -374,17 +375,6 @@ type TileProps = {
   onReveal(): void;
 };
 
-/** The Edit button in the Cover header (the `e` key does the same). */
-function EditButton({ editing, onToggle }: { editing: boolean; onToggle(): void }) {
-  const { t } = useLanguage();
-  return (
-    <button type="button" className={s.edit} aria-pressed={editing} onClick={onToggle}>
-      <Icon name="edit" size={16} />
-      {t("Edit", "تحرير")}
-    </button>
-  );
-}
-
 /** Dragging a Topic heading by its handle (Edit mode). */
 type GroupDrag = { start(e: DragEvent): void; accepts(): boolean; drop(): void; end(): void };
 
@@ -426,6 +416,7 @@ function Group({
     <section
       className={s.group}
       data-group={group.key}
+      data-no-tab={empty || undefined}
       data-drop={over || undefined}
       aria-labelledby={id}
       onDragOver={(e) => {

@@ -346,14 +346,15 @@ Topics in the lists that the Reader no longer follows are skipped (they stay in 
 
 - **Front Page and List** (`front-page.tsx`): each Topic heading gets quiet controls (`<TopicControls>`): a drag handle (HTML drag and drop onto another heading of the same section), "Move X up" / "Move X down" (so keyboards and screen readers never need to drag), "Pin X" and "Collapse X" (`aria-pressed`), and "Blur X" (a switch) for a Sensitive Topic. The cards stay still. A bar under the tabs says Edit mode is on and holds Done. The Cover's Widgets are edited in place (`<WidgetPicks>`: move, remove, "Add X" for `more_widgets`; on wide in the Widgets column).
 - **Swipe** (`swipe-brief.tsx`): Edit opens `<EditSheet>`, the dialog "Arrange your Brief": every Topic as a row with the same controls (`<TopicList>`), the Cover's Widgets and Done.
-- **Me › Display** has the same Topic list and Widgets (every Widget kind, since eligibility depends on the day) plus the dock (`<PickList>`, 1 to 5 buttons). The page composes the Reader's Brief on the server for the ranked Topic order.
-- Reordering works inside a section: Pinned Topics among themselves (writes `pinned`), the rest among themselves (writes the whole on-screen order as `topic_order`). Pinning adds the Topic at the end of `pinned`.
+- **Me › Display** has the same Topic list and Widgets (every Widget kind, since eligibility depends on the day) plus the dock (`<PickList>`, 1 to 5 buttons). `arrangeableGroups` (compose.ts) gives it the Brief's groups plus a group for every followed Topic that has none in the Brief (its Items are all top stories or filed under another Topic, or there is no Edition yet), so every followed Topic can be arranged; the Brief's Sensitive Item ids keep its order identical to the Brief's.
+- Reordering works inside a section: Pinned Topics among themselves (writes `pinned`), the rest among themselves (writes the whole on-screen order as `topic_order`). Pinning adds the Topic at the end of `pinned`; unpinning puts it first in `topic_order`, so it stays near the top. Swipe stays on the slide it was on when a change re-arranges the slides, and `e` closes the Edit sheet as it opened it.
+- In the browser, `useReactions` keeps a Sensitive Item off the top after a hide too (`placeSensitive`), since hiding can empty the group that led.
 
 ### How each Layout shows it
 
-- **Pinned**: first after the top stories, with a pin (`pushpin` icon, the accent) by the name in headings, the sidebar and the digest card. Topic tabs and the sidebar follow the group order.
+- **Pinned**: first after the top stories, with a pin (`pushpin` icon, the accent) by the name in headings, Topic tabs, the sidebar and the digest card. Topic tabs and the sidebar follow the group order.
 - **Collapsed**: Front Page and List show a one-row strip of headlines (a sensitive one says "Sensitive Item: Topic · Tap to view" until tapped) with an Expand button; hovering an expanded Topic's heading offers "Collapse X". Swipe shows one digest card (the article "X: headlines") listing the headlines; "Open X" or a headline puts its Items in its place for this visit only.
-- **Nothing qualified**: Front Page and List show the heading and "Nothing qualified in this Edition." (no Topic tab). Swipe has no slide for them; "You're caught up" names them (`data-testid="nothing-qualified"`).
+- **Nothing qualified**: Front Page and List show the heading and "Nothing qualified in this Edition." (no Topic tab; the scroll spy skips them, `data-no-tab`). Swipe has no slide for them; "You're caught up" names them (`data-testid="nothing-qualified"`), and the sidebar's entry jumps there.
 - **Dock**: the rail on the Swipe card and in the reader pane.
 
 ### Testing it
