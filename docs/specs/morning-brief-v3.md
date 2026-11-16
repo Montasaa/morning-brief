@@ -69,7 +69,14 @@ A private web app on the Owner's existing domain. It turns each shared Edition i
 46. As a Reader, I want Graphic and Adult Trending off until I opt in from my profile, so that I'm never shown them by surprise.
 47. As a Reader, I want opting into Adult Trending to require confirming I'm 18 or over, so that the Topic stays adults-only.
 48. As a Reader who opted in, I want sensitive Items blurred with a short warning until I tap, so that I decide each time whether to look.
-49. As the Owner, I want Adult Trending to stay limited to mainstream-outlet news with no explicit images or adult-site links, so that the site stays safe to share with family.
+49. ~~As the Owner, I want Adult Trending to stay limited to mainstream-outlet news with no explicit images or adult-site links, so that the site stays safe to share with family.~~ **Superseded** by [spec #6](https://github.com/Montasaa/morning-brief/issues/6) (rework ticket 10, issue #10); see "Adult Trending (rework)" below.
+
+#### Adult Trending (rework, spec #6)
+- **Owner only.** Adult Trending is visible to the Owner alone: it is not in any other Reader's Catalog, they get `404` on follow and share, it is stripped from Items' `topics` for them, and it is never counted for them in the gathering list's followers. The Owner still opts in with the 18+ confirmation.
+- **Reddit only.** It is gathered only from the public subreddit RSS feeds listed in its Gathering Rules (the Owner edits that list). It takes every new post from those feeds, NSFW included, and marks explicit media `nsfw_media: true`.
+- **Fixed limits, not settings:** never anything involving minors, nothing non-consensual and nothing leaked, in this or any Topic. The gathering agent drops such posts; the procedure and the house rules say so.
+- **Claims about real people.** A post making a claim about a named person carries `claim_subject` and needs a non-Reddit outlet report as its second source; the gathering tool drops it otherwise (in any Topic). The tool also drops an Adult Trending Item whose sources are not Reddit, apart from that one outlet.
+- **In the app:** NSFW media stays blurred until tapped even when the Reader turned the blur off for the Topic (Display `unblurred`), and like every Sensitive Item it is never a top story, never the first Item after the Cover and never in a push.
 
 ### Story Threads
 50. As a Reader, I want a card that belongs to a Story Thread to show a chip like "Iran war & Hormuz · 6", so that I know it's part of a bigger story.
@@ -183,7 +190,7 @@ A private web app on the Owner's existing domain. It turns each shared Edition i
 - A market quotes widget (dropped on purpose; US Markets is news only), and live match scores (only the next-match card).
 - A separate gathering run per Reader, or personal extras gathered for one Reader ([ADR 0002](../adr/0002-one-shared-edition-ranked-per-reader.md)).
 - Public or anonymous access. Readers join only by Invite.
-- Any explicit or pornographic content, links to adult sites, or gathering from adult sites for Adult Trending. It stays mainstream-outlet news only.
+- ~~Any explicit or pornographic content, links to adult sites, or gathering from adult sites for Adult Trending. It stays mainstream-outlet news only.~~ Superseded by spec #6 (rework ticket 10): Adult Trending is the Owner's alone and gathered from Reddit RSS feeds, NSFW included, under the fixed limits in "Adult Trending (rework)". Anything involving minors, non-consensual or leaked material stays out of scope in every Topic, ever.
 - Reactions that affect other Readers (except "bad source" reports to the Owner), and shared or public Ask answers.
 - Native iOS/Android apps (installable web app only).
 - Hand-editing Items in the app. Items come only from Editions.

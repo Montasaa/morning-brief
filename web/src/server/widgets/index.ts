@@ -1,5 +1,6 @@
 // Widgets: the small panels on the cover card (GET /api/widgets, and the
-// Brief's cover.widgets).
+// Brief's cover.widgets, in the Reader's Display order, with the ones they
+// removed in cover.more_widgets).
 //
 // - Weather (Open-Meteo) and prayer times (Aladhan, Umm al-Qura method) are
 //   fetched live for the Reader's city and cached for about 30 minutes, shared
@@ -13,7 +14,9 @@
 //
 // A failing outside service drops only its own Widget; it never fails the cover.
 import type { AppContext } from "../app";
+import { arrangeWidgets } from "../brief/arrange";
 import type { Brief } from "../brief/compose";
+import { getDisplay } from "../display/display";
 import type { EditionWidgets } from "../editions/types";
 import type { Place } from "../outside";
 import { getProfile } from "../readers/profile";
@@ -157,7 +160,8 @@ export async function readerWidgets(ctx: AppContext, reader: Reader): Promise<Re
 export async function withWidgets(ctx: AppContext, reader: Reader, brief: Brief): Promise<Brief> {
   if (!brief.cover) return brief;
   const { widgets } = await readerWidgets(ctx, reader);
-  return { ...brief, cover: { ...brief.cover, widgets } };
+  // In the Reader's order; the ones they removed wait in more_widgets (rework ticket 11).
+  return { ...brief, cover: { ...brief.cover, ...arrangeWidgets(widgets, getDisplay(ctx, reader.id).widgets) } };
 }
 
 function minutesUntil(at: string, now: number): number {

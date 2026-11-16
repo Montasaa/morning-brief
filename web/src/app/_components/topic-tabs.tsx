@@ -9,6 +9,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import type { BriefGroup } from "@/server/brief/compose";
 import { prefersReducedMotion } from "./client-time";
+import { Icon } from "./icons";
 import { useLanguage } from "./language";
 import s from "./topic-tabs.module.css";
 
@@ -23,6 +24,8 @@ export function groupKey(group: BriefGroup): string {
 export interface TopicTab {
   key: string;
   label: string;
+  /** A Pinned Topic (rework ticket 11): a small pin before its name. */
+  pinned?: boolean;
 }
 
 export function TopicTabs({
@@ -72,6 +75,7 @@ export function TopicTabs({
             aria-current={tab.key === current ? "true" : undefined}
             onClick={() => onPick(tab.key)}
           >
+            {tab.pinned && <Icon name="pushpin" size={13} filled className={s.pin} />}
             {tab.label}
           </button>
         ))}

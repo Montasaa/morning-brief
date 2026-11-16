@@ -19,6 +19,7 @@
         }
       ],
       "image": "https://example.com/img/open-model.png",
+      "image_kind": "photo",
       "kind": "MODEL",
       "try_url": "https://example.com/demo",
       "pricing": "Open weights"
@@ -47,6 +48,7 @@
         }
       ],
       "image": "https://example.com/img/deal.jpg",
+      "image_kind": "photo",
       "thread_id": "sample-yemen-truce-talks"
     },
     {
@@ -72,6 +74,7 @@
         }
       ],
       "image": "https://example.com/img/press.jpg",
+      "image_kind": "photo",
       "reliability": "Official"
     }
   ],

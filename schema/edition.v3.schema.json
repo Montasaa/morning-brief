@@ -114,7 +114,20 @@
           "maxItems": 3,
           "items": { "$ref": "#/$defs/source" }
         },
-        "image": { "$ref": "#/$defs/url", "description": "Card picture (article og:image, or a YouTube thumbnail). Never gore or explicit imagery." },
+        "image": { "$ref": "#/$defs/url", "description": "Card picture (article og:image, or a YouTube thumbnail). Never gore. Explicit media only on an Adult Trending Item marked nsfw_media." },
+        "image_kind": {
+          "type": "string",
+          "enum": ["photo", "card", "none"],
+          "description": "What the picture is: photo fills the card; card (a logo, an Open Graph card, a screenshot of text) is shown as a badge on a white plate; none is no usable picture (a plain card). Optional: a missing value reads as photo when there is an image, else none. The gathering tool requires it in drafts."
+        },
+        "nsfw_media": {
+          "type": "boolean",
+          "description": "Adult Trending only: the Item's media is explicit. The app keeps it blurred until tapped, whatever the Reader's blur switch says."
+        },
+        "claim_subject": {
+          "$ref": "#/$defs/text",
+          "description": "The named person a claim in the Item is about. The gathering tool drops the Item unless a non-Reddit outlet report is among its sources; the app ignores it."
+        },
         "warning": { "$ref": "#/$defs/text", "description": "Short content note for Items in a Sensitive Topic (Graphic, Adult Trending)." },
         "warning_ar": { "$ref": "#/$defs/text" },
         "voices": {

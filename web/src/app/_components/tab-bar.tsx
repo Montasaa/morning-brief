@@ -58,7 +58,10 @@ export function TabBar() {
   );
 }
 
-/** The Brief's Topics in the sidebar, in Brief order, each with its Item count; picking one calls `onPick` with the Topic. */
+/**
+ * The Brief's Topics in the sidebar, in Brief (Display) order, each with its Item count (0 for one with nothing
+ * in this Edition) and a pin when pinned; picking one calls `onPick` with the Topic.
+ */
 export function SidebarTopics({ brief, onPick }: { brief: Brief; onPick(topic: string): void }) {
   const { lang, t } = useLanguage();
   const [slot, setSlot] = useState<HTMLElement | null>(null);
@@ -69,11 +72,14 @@ export function SidebarTopics({ brief, onPick }: { brief: Brief; onPick(topic: s
       <h2 className={s.sideTitle}>{t("Topics", "المواضيع")}</h2>
       <ul className={s.sideTopics}>
         {brief.groups.flatMap((g) =>
-          g.kind === "topic" ? [{ topic: g.topic!, count: g.item_ids.length }] : [],
-        ).map(({ topic, count }) => (
+          g.kind === "topic" ? [{ topic: g.topic!, count: g.item_ids.length, pinned: g.pinned }] : [],
+        ).map(({ topic, count, pinned }) => (
           <li key={topic}>
             <button type="button" className={s.sideTopic} onClick={() => onPick(topic)}>
-              <span>{topicName(brief, topic, lang)}</span>
+              <span className={s.sideName}>
+                {pinned && <Icon name="pushpin" size={14} filled className={s.sidePin} />}
+                {topicName(brief, topic, lang)}
+              </span>
               <span className={s.count}>{formatNumber(count, lang)}</span>
             </button>
           </li>

@@ -7,8 +7,10 @@
 //   /   Saved & Search, with the search box focused
 //   ?   the list of shortcuts
 //
+//   e   Edit mode (rework ticket 11; kept in brief-layouts.tsx, so it survives a Layout switch)
+//
 // They are ignored while typing, with a modifier held, or while a sheet is
-// open. `e` (Edit mode) comes with ticket 11.
+// open.
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import type { BriefItem } from "@/server/brief/compose";
@@ -37,7 +39,8 @@ export function isTyping(target: EventTarget | null): boolean {
 /**
  * Do what an Item shortcut says to `item`, the Reels card on screen inside
  * `card` (the reader pane, or Swipe's slides). Nothing while that card is
- * veiled. Hide presses the rail's Hide button, so it asks why as a tap would.
+ * veiled. Hide presses the rail's Hide button, so it asks why as a tap would
+ * (with no Hide on the Reader's dock, it just hides the Item).
  */
 export function runItemShortcut(
   action: ItemShortcut,
@@ -48,7 +51,12 @@ export function runItemShortcut(
   if (!shown || shown.hasAttribute("data-locked")) return;
   if (action === "like" || action === "save") reactions.toggle(item, action);
   else if (action === "ask") onAsk();
-  else shown.querySelector<HTMLButtonElement>('[data-kind="hide"]')?.click();
+  else {
+    const hide = shown.querySelector<HTMLButtonElement>('[data-kind="hide"]');
+    // Without Hide on the Reader's dock there is no sheet to ask why: just hide it (Undo is offered).
+    if (hide) hide.click();
+    else reactions.hide(item, null);
+  }
 }
 
 /** A key, drawn as a keycap. */
@@ -88,6 +96,7 @@ function ShortcutList({ onClose }: { onClose(): void }) {
     [["h"], "Hide", "إخفاء"],
     [["a"], "Ask Claude", "اسأل Claude"],
     [["/"], "Search", "البحث"],
+    [["e"], "Arrange your Brief (Edit mode)", "ترتيب موجزك (وضع التحرير)"],
     [["Esc"], "Back, or close", "رجوع أو إغلاق"],
     [["?"], "This list", "هذه القائمة"],
   ];

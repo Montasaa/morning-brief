@@ -7,6 +7,9 @@
 //   Reader sees it, so an Item tagged only with other Readers' private Topics
 //   never reaches them.
 // - Sensitive (ticket 08): every Sensitive Topic it carries is one they opted into.
+//   That rule also keeps an Owner-only Topic's Items (Adult Trending, rework
+//   ticket 10) from everyone else: it is sensitive, and nobody but the Owner can
+//   follow it.
 import type { AppContext } from "../app";
 import { sensitiveItemVisibleSql } from "./sensitive";
 

@@ -47,10 +47,22 @@ The tool is `pipeline/v3/edition_v3.py` (`--help` on any command). Every command
 3. **Gather each Topic under its Gathering Rules.** The `house_rules` in the gathering list always apply on top of a Topic's own rules, whatever those say:
    - Independent outlets first. Government or state media is only ever a second source, typed `official`. (The tool also moves independent and wire sources ahead of official ones, because the first source is the card link.)
    - Never invent facts, quotes, links or numbers.
-   - Every Item has a real image, checked sources (1 to 3), and English **and** Arabic text (`title`/`title_ar`, `summary`/`summary_ar`). The tool refuses an Item without them.
+   - **Fixed limit, in every Topic, never a setting:** nothing involving minors, nothing non-consensual, nothing leaked. Drop any such post or story, whatever a Topic's rules say, and never gather from sources that carry them.
+   - Every Item has checked sources (1 to 3) and English **and** Arabic text (`title`/`title_ar`, `summary`/`summary_ar`). The tool refuses an Item without them.
+   - **Headlines in sentence case:** capitalise the first word and proper nouns only ("Liverpool sign a new midfielder", not "liverpool sign a new midfielder" or "Liverpool Sign A New Midfielder"). The tool prints a `warning:` line for an all-lowercase title (a repository name such as `example/terminal-agent` may warn; that is fine).
+   - **Grade every picture** with `image_kind`; the tool refuses a draft without it:
+     - `photo`: a real photo or video thumbnail. It fills the card.
+     - `card`: a logo, an Open Graph card (GitHub, Hugging Face, a model card) or a screenshot of text. It is shown as a small badge on a white plate, never stretched.
+     - `none`: no usable picture. The card is a plain gradient with the headline. Only then may `image` be left out; otherwise every Item has a real `image`.
+   - **Claims about a named person:** an Item whose story is a claim about a named person carries `claim_subject` (the person's name) and needs a non-Reddit outlet report (an `independent` or `wire` source) among its sources. The tool leaves the Item out otherwise, in any Topic.
    - No cap on good Items. Give each the per-kind extras the card shows: AI `kind`, `try_url`, `pricing`; games `kind`, `genres`, `store_url`, `price`, `platforms`, `release_date`; GitHub Trending `rank`, `period`, `stars_gained`, `language`, `why_it_matters` (+ `_ar`), only repos on GitHub Trending; Liverpool `reliability` (`Official` is club or league only); US Markets `tag`; social `platform`, `creator`, `metric`; up to three real `voices`.
    - **Graphic**: war, crime and graphic news from established outlets. Each Item has `warning` and `warning_ar`; the image is an outlet logo or a neutral picture, never gore.
-   - **Adult Trending** (fixed limits, not a setting): adult-world stories from mainstream outlets only, with `warning` and `warning_ar`. No explicit or suggestive images, no links to porn or adult-content sites, no creator pages, nothing involving minors, non-consensual or leaked, and never gather from adult sites. When nothing qualifies, say so (step 5).
+   - **Adult Trending** is visible to the Owner only, and is gathered from **Reddit only**:
+     - Read the public subreddit **RSS** feeds listed in its Gathering Rules (for example `https://www.reddit.com/r/<subreddit>/new/.rss`); the Owner edits that list. Do not gather it from any other site, and do not add subreddits yourself.
+     - Take every new post since the last run, NSFW included. Each Item's first source is the Reddit post (type `social`), with `warning` and `warning_ar`. Mark a post whose picture or video is explicit `nsfw_media: true`: the app keeps that media blurred until tapped, whatever the Reader's blur switch says.
+     - At most one other source: a news outlet's report as the second source (required when the post makes a claim about a named person, with `claim_subject`). The tool leaves out an Adult Trending Item whose sources are not Reddit apart from that one outlet, and puts the Reddit post first.
+     - The fixed limit above applies with no exception: drop anything involving minors, anything non-consensual and anything leaked.
+     - When the feed list is empty or nothing is new, say so (step 5).
    - Watch videos (the v2 `watch` lists) have no place in the v3 Edition yet; that is an open decision in the spec. A video that is itself the story can be an Item.
 
 4. **Assign Items to Topics and Story Threads.**
@@ -63,14 +75,14 @@ The tool is `pipeline/v3/edition_v3.py` (`--help` on any command). Every command
 
    ```json
    {
-     "items": [ /* Edition v3 Items, without status */ ],
+     "items": [ /* Edition v3 Items with image_kind, without status */ ],
      "threads": [ { "id": "iran-hormuz", "title": "Iran war & Hormuz", "title_ar": "..." } ],
      "widgets": {
        "next_match": { "team": "Liverpool", "opponent": "...", "competition": "...", "kickoff": "2026-11-15T18:00:00+03:00", "venue": "..." },
        "countdowns": [ { "label": "...", "label_ar": "...", "at": "2026-11-19T23:00:00+03:00", "topic": "us-markets" } ]
      },
      "top_stories": [ "lead-item-id" ],
-     "nothing_found": { "adult-trending": "Nothing from mainstream outlets qualified." },
+     "nothing_found": { "adult-trending": "No new posts in the listed subreddit feeds." },
      "drop": [ "an-earlier-item-that-is-no-longer-current" ],
      "carry_over": [ "an-earlier-item-still-current" ]
    }
@@ -97,9 +109,9 @@ The tool is `pipeline/v3/edition_v3.py` (`--help` on any command). Every command
      --tiktok scripts/tiktok_trends.json --state-dir "$BRIEF_V3_STATE" --out "$RUN/edition.json"
    ```
 
-   It sets `edition_id`, `kind` (before noon is morning) and `generated_at` (now, `+03:00`); carries over Items; sets every status; keeps Story Thread ids; strips Topics nobody follows; checks coverage; **checks that every source, image, `try_url`, `store_url` and voice link loads**, removing broken sources and leaving out Items whose image or every source fails; validates against `schema/edition.v3.schema.json` (the same checks ingest runs) and the house rules; posts to `POST /api/editions`; and, once the app accepts it, keeps the Edition in `$BRIEF_V3_STATE`.
+   It sets `edition_id`, `kind` (before noon is morning) and `generated_at` (now, `+03:00`); carries over Items; sets every status; keeps Story Thread ids; strips Topics nobody follows; leaves out Adult Trending Items not from Reddit and claims about a named person with no outlet report (`left out ...` notes); checks coverage; **checks that every source, image, `try_url`, `store_url` and voice link loads**, removing broken sources and leaving out Items whose image or every source fails; validates against `schema/edition.v3.schema.json` (the same checks ingest runs) and the house rules; posts to `POST /api/editions`; and, once the app accepts it, keeps the Edition in `$BRIEF_V3_STATE`.
 
-   Read the `note:` lines. A link reported as **unverified** (the site refuses scripts with 401, 403 or 429) stays in: open it yourself and, if it does not load, drop the source and run again. Fix anything the run refused and run it again; re-posting the same Edition is idempotent.
+   Read the `note:` and `warning:` lines (a `warning:` names an all-lowercase headline: fix it in the drafts and run again). A link reported as **unverified** (the site refuses scripts with 401, 403 or 429) stays in: open it yourself and, if it does not load, drop the source and run again. Fix anything the run refused and run it again; re-posting the same Edition is idempotent.
 
 8. **Check the result.** The run ends with `accepted: <edition_id> (N Items, ...)`. Ingest is all-or-nothing, so a refused Edition changes nothing in the app. If the post failed after a valid assemble, post the written file again with `python3 pipeline/v3/edition_v3.py post "$RUN/edition.json" --app-url "$BRIEF_APP_URL" --state-dir "$BRIEF_V3_STATE"`.
 

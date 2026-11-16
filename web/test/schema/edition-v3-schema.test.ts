@@ -65,4 +65,23 @@ describe("Edition v3 JSON Schema", () => {
     expect(doc.items[1]!.title_ar).toBeUndefined();
     expect(reasons(doc)).toBe("");
   });
+
+  it("takes an optional image_kind, nsfw_media and claim_subject on an Item (rework ticket 10)", () => {
+    const doc = morningEdition();
+    doc.items[0]!.image_kind = "photo";
+    doc.items[1]!.image_kind = "card";
+    doc.items[2]!.image_kind = "none";
+    doc.items[4]!.nsfw_media = true;
+    doc.items[3]!.claim_subject = "A Placeholder Person";
+    expect(reasons(doc)).toBe("");
+
+    const bad = morningEdition();
+    bad.items[0]!.image_kind = "logo";
+    bad.items[1]!.nsfw_media = 1;
+    bad.items[2]!.claim_subject = "";
+    const found = reasons(bad);
+    expect(found).toMatch(/\/items\/0\/image_kind/);
+    expect(found).toMatch(/\/items\/1\/nsfw_media/);
+    expect(found).toMatch(/\/items\/2\/claim_subject/);
+  });
 });

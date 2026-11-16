@@ -34,7 +34,7 @@ describe("GET /api/topics", () => {
     expect(res.status).toBe(200);
     const followed = (res.body.topics as CatalogTopic[]).filter((t) => t.followed).map((t) => t.id);
     expect(followed).toEqual(["yemen", "ai"]); // Catalog order
-    expect(res.body.topics).toHaveLength(14);
+    expect(res.body.topics).toHaveLength(13); // the 14 starting Topics but Adult Trending, which is the Owner's alone
   });
 
   it("is refused when signed out", async () => {
@@ -88,7 +88,7 @@ describe("GET /api/brief covers only the Topics the Reader follows", () => {
 
     expect(ids(brief.items)).toEqual(["me-yemen-port-talks", "lfc-midfielder-fitness"]);
     expect(brief.items[0]).toMatchObject({ top: true, topic: "saudi", tags: [] });
-    expect(brief.groups).toEqual([
+    expect(brief.groups).toMatchObject([
       { kind: "top", topic: null, item_ids: ["me-yemen-port-talks"] },
       { kind: "topic", topic: "liverpool", item_ids: ["lfc-midfielder-fitness"] },
     ]);
@@ -138,7 +138,7 @@ describe("GET /api/brief covers only the Topics the Reader follows", () => {
     expect(shipping.topics).toEqual(["iran", "saudi", "us-markets", "yemen"]);
     const talks = brief.items.find((i) => i.id === "me-yemen-port-talks")!;
     expect(talks).toMatchObject({ topic: "yemen", tags: ["saudi"] });
-    expect(brief.groups).toEqual([
+    expect(brief.groups).toMatchObject([
       { kind: "topic", topic: "yemen", item_ids: ["me-yemen-port-talks"] },
       { kind: "topic", topic: "saudi", item_ids: ["gulf-shipping"] },
     ]);

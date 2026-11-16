@@ -74,6 +74,13 @@
   margin: 8px 0 0;
   color: var(--mute);
 }
+/* A Brief of only Sensitive Items: the nothing-to-show note under the Edition line (rework ticket 10). */
+.nothing {
+  max-width: 46ch;
+  margin: 10px 0 0;
+  color: var(--fg);
+  line-height: 1.45;
+}
 .coverTools {
   display: flex;
   align-items: center;
@@ -379,6 +386,16 @@
   text-align: center;
   cursor: pointer;
 }
+/* Explicit media (rework ticket 10): the picture (and a card badge) stays blurred under its own veil, over
+   the upper part of the card, so the headline below still opens the Item. */
+.tile[data-media-locked] .tilePicture,
+.tile[data-media-locked] .badge img {
+  filter: blur(24px) saturate(0.8);
+}
+.mediaReveal {
+  inset: 0 0 auto;
+  height: 58%;
+}
 .reveal span {
   font-size: var(--fs-xs);
   opacity: 0.8;
@@ -501,4 +518,118 @@
   margin: 2px 0 6px;
   font-size: var(--fs-base);
   font-weight: 700;
+}
+
+/* ---- arranging (rework ticket 11) ---- */
+/* Edit mode: one quiet line above the groups, with Done. */
+.editBar {
+  flex: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 6px var(--page-pad);
+  border-bottom: 1px solid var(--line);
+}
+.editBar p {
+  margin: 0;
+  color: var(--mute);
+  font-size: var(--fs-s);
+}
+.done {
+  min-height: var(--tap);
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--acc);
+  color: var(--on-acc);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+/* A Pinned Topic's small pin, by its name. */
+.title {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.pin {
+  flex: none;
+  color: var(--acc);
+}
+/* Edit mode's controls on a heading: the cards below stay where they are. */
+.editControls {
+  margin-inline-start: auto;
+}
+/* A heading the dragged Topic would land on. */
+.group[data-drop] .head {
+  box-shadow: inset 0 -2px 0 var(--acc);
+}
+.expand {
+  min-height: var(--tap);
+  margin-inline-start: auto;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: none;
+  color: var(--fg);
+  font: inherit;
+  font-size: var(--fs-s);
+  font-weight: 600;
+  cursor: pointer;
+}
+.expand:hover {
+  border-color: var(--acc);
+}
+/* A Collapsed Topic: its headlines in one row, scrolling sideways. */
+.strip {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  list-style: none;
+  border: 1px solid var(--line);
+  border-radius: var(--r-row);
+  scrollbar-width: none;
+}
+.strip li {
+  flex: none;
+  max-width: 300px;
+  border-inline-end: 1px solid var(--line);
+}
+.strip li:last-child {
+  border-inline-end: 0;
+}
+.stripItem {
+  display: block;
+  width: 100%;
+  min-height: var(--tap);
+  padding: 12px 16px;
+  overflow: hidden;
+  border: 0;
+  background: none;
+  color: var(--fg);
+  font: inherit;
+  font-size: var(--fs-s);
+  font-weight: 500;
+  text-align: start;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.stripItem:hover {
+  background: var(--surf);
+}
+.stripItem[data-dimmed="true"]:not(:hover) {
+  opacity: 0.45;
+}
+.stripItem[data-selected] {
+  box-shadow: inset 0 0 0 1.5px var(--acc);
+}
+/* A followed Topic with nothing in this Edition. */
+.nothingQualified {
+  margin: 0 0 6px;
+  color: var(--mute);
+  font-size: var(--fs-s);
 }

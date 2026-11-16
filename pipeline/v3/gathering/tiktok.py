@@ -52,6 +52,7 @@ def tiktok_drafts(trends: dict, known_items: dict[str, dict] | None = None) -> t
                 {"title": "TikTok Creative Center (SA, 7 days)", "url": CREATIVE_CENTER, "type": "social"},
             ],
             "image": trend["image"],
+            "image_kind": "photo",  # a TikTok video thumbnail
             "platform": "tiktok",
             "creator": trend.get("creator") or "TikTok Creative Center",
         }

@@ -47,10 +47,12 @@ test("a PC opens in Front Page: the Cover header, the top stories and a shelf pe
   expect(Math.abs(a.y - b.y)).toBeLessThan(2);
   expect(b.x).toBeGreaterThan(a.x + a.width);
 
-  // A shelf per Topic, in Brief order.
-  await expect(page.getByRole("region").filter({ has: page.getByRole("heading", { level: 2 }) })).toHaveText(
-    ["For you", ...TOPICS].map((name) => new RegExp(`^${name.replace(/[&]/g, "\\$&")}`)),
+  // A shelf per Topic, in Brief order; then the Owner's followed Topics with nothing in this Edition, which say so.
+  const groups = page.getByRole("region").filter({ has: page.getByRole("heading", { level: 2 }) });
+  await expect(groups.filter({ hasNot: page.getByTestId("nothing-qualified") }).getByRole("heading", { level: 2 })).toHaveText(
+    ["For you", ...TOPICS],
   );
+  await expect(frontPage.group(page, "Iran").getByTestId("nothing-qualified")).toBeVisible();
   await expect(frontPage.group(page, "Liverpool").getByRole("article")).toHaveCount(1);
   await expect(frontPage.open(page, TITLES[2]!)).toBeVisible();
 
@@ -202,6 +204,66 @@ test("a sensitive card keeps its headline blurred until tapped, then opens like 
   await frontPage.open(page, TITLES[4]!).click();
   await expect(frontPage.paneHeadline(page)).toHaveText(TITLES[4]!);
   await expect(frontPage.pane(page).getByRole("button", { name: /Tap to view/ })).toHaveCount(0);
+});
+
+// Rework ticket 10's veils and note, in ticket 09's Layouts.
+test("explicit media keeps its own veil on a card, in List and in the pane, even with the blur off", async ({ page, baseURL }) => {
+  const NSFW = "A placeholder post with explicit media";
+  // Newer than any Edition earlier specs posted (the widgets spec's is 06:20), so it is the one shown.
+  const edition = { ...swipeEdition(), edition_id: "2026-11-14-morning-nsfw", generated_at: "2026-11-14T06:30:00+03:00" };
+  edition.items.push({
+    id: "adult-placeholder-post",
+    topics: ["adult-trending"],
+    time: "2026-11-13T12:00:00+03:00",
+    title: NSFW,
+    summary: "Placeholder text.",
+    sources: [{ title: "r/placeholder", url: "https://www.reddit.com/r/placeholder/comments/x1/placeholder/", type: "social" }],
+    image: new URL(`${E2E_BASE_PATH}/icons/icon-512.png`, baseURL).href,
+    image_kind: "photo",
+    nsfw_media: true,
+    warning: "Adult content",
+  });
+  await postEdition(page.request, edition);
+  expect((await page.request.patch(`${E2E_BASE_PATH}/api/me`, { data: { display: { unblurred: ["adult-trending"] } } })).status()).toBe(200);
+  try {
+    await page.goto(E2E_BASE_PATH);
+    const card = frontPage.group(page, "Adult Trending").getByRole("article");
+    await expect(card).toHaveAttribute("data-media-locked", "true");
+    // The headline shows and still opens it; the pane keeps the picture veiled too.
+    await frontPage.open(page, NSFW).click();
+    await expect(frontPage.paneHeadline(page)).toHaveText(NSFW);
+    await expect(frontPage.pane(page).getByTestId("media-veil")).toBeVisible();
+    // Tapped open on the card, only the card's veil goes.
+    await card.getByTestId("media-veil").click();
+    await expect(card).not.toHaveAttribute("data-media-locked", "true");
+
+    // A List row's thumbnail never shows it.
+    await frontPage.layouts(page).getByRole("radio", { name: "List" }).check();
+    const row = frontPage.group(page, "Adult Trending").getByRole("article");
+    await expect(row).toHaveAttribute("data-picture", "none");
+    await expect(row.locator("img")).toHaveCount(0);
+  } finally {
+    await page.request.patch(`${E2E_BASE_PATH}/api/me`, { data: { display: { unblurred: null, layouts: { pc: null } } } });
+    // Later tests see the swipe Edition again: an even newer copy of it.
+    await postEdition(page.request, { ...swipeEdition(), edition_id: "2026-11-14-morning-after-nsfw", generated_at: "2026-11-14T06:31:00+03:00" });
+  }
+});
+
+test("a Brief of only Sensitive Items shows the nothing-to-show note in the Cover header of Front Page and List", async ({ page }) => {
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "only-graphic@example.com" } });
+  expect(invited.status(), await invited.text()).toBe(201);
+  await signIn(page, "only-graphic@example.com", { onboard: false });
+  expect((await page.request.patch(`${E2E_BASE_PATH}/api/me`, { data: { topics: ["ai"], onboarded: true } })).status()).toBe(200);
+  expect((await page.request.post(`${E2E_BASE_PATH}/api/topics/graphic/follow`)).status()).toBe(200);
+  expect((await page.request.post(`${E2E_BASE_PATH}/api/topics/ai/unfollow`)).status()).toBe(200);
+
+  await page.goto(E2E_BASE_PATH);
+  await expect(swipe.cover(page).getByTestId("nothing-to-show")).toBeVisible();
+  // Its Items follow, veiled.
+  await expect(frontPage.group(page, "Graphic").getByRole("button", { name: /Tap to view/ })).toBeVisible();
+  await frontPage.layouts(page).getByRole("radio", { name: "List" }).check();
+  await expect(swipe.cover(page).getByTestId("nothing-to-show")).toBeVisible();
+  await expect(frontPage.group(page, "Graphic").getByRole("button", { name: /Tap to view/ })).toBeVisible();
 });
 
 test("? lists the shortcuts, and / goes to Saved & Search with the search box focused", async ({ page }) => {

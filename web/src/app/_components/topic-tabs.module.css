@@ -42,3 +42,9 @@
     left 0.4s var(--ease),
     width 0.4s var(--ease);
 }
+/* A Pinned Topic's pin, in the accent (rework ticket 11). */
+.pin {
+  margin-inline-end: 4px;
+  vertical-align: -1px;
+  color: var(--acc);
+}

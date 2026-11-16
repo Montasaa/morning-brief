@@ -148,3 +148,23 @@
 .error {
   color: var(--danger);
 }
+
+/* The blur switch per Sensitive Topic (rework ticket 10). */
+.switches {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--tap);
+  cursor: pointer;
+}
+.switch input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--acc);
+}

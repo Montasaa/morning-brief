@@ -114,3 +114,14 @@
 .count {
   font-variant-numeric: tabular-nums;
 }
+/* A Pinned Topic's pin (rework ticket 11). */
+.sideName {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.sidePin {
+  flex: none;
+  color: var(--acc);
+}
