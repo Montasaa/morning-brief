@@ -3,7 +3,7 @@
 // manifest and service worker are scoped to the base path, and that the Me
 // tab's notification switches are saved. It never subscribes the browser: that
 // would reach a real push service.
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, postEdition, signIn, swipeEdition, test } from "./support";
 
 test("the Brief is installable: a manifest and a service worker scoped to the base path", async ({ page }) => {
   await postEdition(page.request, swipeEdition());
@@ -25,7 +25,9 @@ test("the Brief is installable: a manifest and a service worker scoped to the ba
 
 test("the Me tab turns each kind of notification on or off, and it sticks", async ({ page }) => {
   await signIn(page);
-  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "push-reader@example.com" } });
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, {
+    data: { email: "push-reader@example.com", password: E2E_PASSWORD },
+  });
   expect(invited.status(), await invited.text()).toBe(201);
   await signIn(page, "push-reader@example.com");
 

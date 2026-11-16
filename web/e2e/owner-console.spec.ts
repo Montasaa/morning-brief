@@ -3,7 +3,7 @@
 // Reader's "bad source" report. Other Readers cannot open it. What counts as a
 // report and how reports group is tested at the API seam.
 import { E2E_INGEST_TOKEN } from "../playwright.config";
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, postEdition, signIn, swipeEdition, test } from "./support";
 
 const READER = "noor@example.com";
 
@@ -16,7 +16,8 @@ test("the Owner sees ingest health and bad source reports; other Readers cannot 
   expect(broken.status()).toBe(422);
 
   await signIn(page);
-  await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: READER } }); // 201, or already invited
+  // 201, or 409: already a Reader.
+  await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: READER, password: E2E_PASSWORD } });
   await signIn(page, READER);
   const hidden = await page.request.post(`${E2E_BASE_PATH}/api/items/markets-fed-minutes/reactions`, {
     data: { kind: "hide", reason: "bad_source" },

@@ -4,7 +4,7 @@
 // Item opens the same Reels card in the reader pane, which j/k move through
 // the Brief. List and Swipe are a pick away.
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, frontPage, postEdition, signIn, swipe, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, frontPage, postEdition, signIn, swipe, swipeEdition, test } from "./support";
 
 /** The swipe Edition in Brief order: the 2 top stories, then one Item per Topic. */
 const TITLES = [
@@ -250,7 +250,9 @@ test("explicit media keeps its own veil on a card, in List and in the pane, even
 });
 
 test("a Brief of only Sensitive Items shows the nothing-to-show note in the Cover header of Front Page and List", async ({ page }) => {
-  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "only-graphic@example.com" } });
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, {
+    data: { email: "only-graphic@example.com", password: E2E_PASSWORD },
+  });
   expect(invited.status(), await invited.text()).toBe(201);
   await signIn(page, "only-graphic@example.com", { onboard: false });
   expect((await page.request.patch(`${E2E_BASE_PATH}/api/me`, { data: { topics: ["ai"], onboarded: true } })).status()).toBe(200);

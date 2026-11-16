@@ -85,7 +85,7 @@ const DEFAULT_CLAUDE_REPLIES: Record<string, ClaudeReply | ((req: ClaudeRequest)
 export interface FakeOptions {
   /**
    * Also append every email as one JSON line to this file (FAKE_OUTBOX_FILE),
-   * so browser tests can open the magic links the e2e server sent.
+   * so you can read what a local demo sent.
    */
   outboxFile?: string;
 }

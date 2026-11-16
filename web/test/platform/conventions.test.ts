@@ -30,6 +30,11 @@ describe("sign-in configuration", () => {
       publicOrigin: "https://example.com",
     });
   });
+
+  it("hashes passwords at full scrypt cost in production, which no environment variable can lower", () => {
+    expect(configFromEnv({}).passwordCost).toBe(2 ** 15);
+    expect(configFromEnv({ PASSWORD_COST: "2", SCRYPT_N: "2" }).passwordCost).toBe(2 ** 15);
+  });
 });
 
 describe("migrations", () => {

@@ -2,12 +2,14 @@
 // (ticket 11). Privacy, the cap and the gathering list are tested at the API
 // seam; this only checks that a Reader can create and share a Topic on the Me
 // tab, and that the Owner can edit its Gathering Rules.
-import { E2E_BASE_PATH, expect, signIn, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, signIn, test } from "./support";
 
 test("a Reader creates a private Topic on the Me tab and shares it; the Owner edits its rules", async ({ page }) => {
   // The Owner invites Lina, then this page signs in as Lina.
   await signIn(page);
-  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "lina@example.com" } });
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, {
+    data: { email: "lina@example.com", password: E2E_PASSWORD },
+  });
   expect(invited.status(), await invited.text()).toBe(201);
   await signIn(page, "lina@example.com");
 

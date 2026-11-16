@@ -39,6 +39,11 @@ export function endAllSessions(ctx: AppContext, readerId: number): void {
   ctx.db.prepare("DELETE FROM sessions WHERE reader_id = ?").run(readerId);
 }
 
+/** Sign a Reader out of every device but the one with `keepToken`. */
+export function endOtherSessions(ctx: AppContext, readerId: number, keepToken: string): void {
+  ctx.db.prepare("DELETE FROM sessions WHERE reader_id = ? AND token_hash != ?").run(readerId, hashToken(keepToken));
+}
+
 // --- the cookie ----------------------------------------------------------------
 
 /** The session token from a request's Cookie header, or null. */

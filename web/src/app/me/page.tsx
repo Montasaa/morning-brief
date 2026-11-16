@@ -2,7 +2,8 @@
 // the Owner's Invites, Sign out) sits on top (ticket 06); below it the Topics
 // they follow, their language (ticket 04) and their city (ticket 07), and the
 // home-screen install and notification settings (ticket 18). Changes are saved
-// as they are made. Display (rework ticket 07) has its own screen, Me › Display.
+// as they are made. Display (rework ticket 07) has its own screen, Me › Display,
+// and so does changing your password (issue #17), Me › Password.
 import { getAppContext } from "@/server/app";
 import { requireReaderPage } from "@/server/readers/page-session";
 import { getProfile } from "@/server/readers/profile";
@@ -46,6 +47,19 @@ export default async function MePage() {
               </span>
               <span className={c.rowSub}>
                 <T en="Theme, accent, text size and density" ar="السمة ولون التمييز وحجم النص والكثافة" />
+              </span>
+            </span>
+            <Chevron to="forward" />
+          </Link>
+        </li>
+        <li>
+          <Link href="/me/password" className={c.row}>
+            <span className={c.rowText}>
+              <span className={c.rowTitle}>
+                <T en="Password" ar="كلمة المرور" />
+              </span>
+              <span className={c.rowSub}>
+                <T en="Change the password you sign in with" ar="غيّر كلمة المرور التي تسجّل الدخول بها" />
               </span>
             </span>
             <Chevron to="forward" />

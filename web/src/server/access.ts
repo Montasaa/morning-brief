@@ -35,17 +35,6 @@ export function ownerAccess(ctx: AppContext, req: Request): Access {
   return access;
 }
 
-/**
- * Where links in emails point: PUBLIC_ORIGIN. Without it (local runs only) the
- * host the browser used, so a phone on the LAN gets a link it can open.
- */
-export function publicOrigin(ctx: AppContext, req: Request): string {
-  if (ctx.config.publicOrigin) return ctx.config.publicOrigin;
-  const url = new URL(req.url);
-  const host = req.headers.get("host");
-  return host && /^[\w.-]+(:\d+)?$|^\[[\da-f:]+\](:\d+)?$/i.test(host) ? `${url.protocol}//${host}` : url.origin;
-}
-
 /** A plain HTML form post (as opposed to a JSON API call). */
 export function isFormPost(req: Request): boolean {
   const type = req.headers.get("content-type") ?? "";
@@ -55,4 +44,22 @@ export function isFormPost(req: Request): boolean {
 /** 303 See Other to a path inside the app (already including the base path). */
 export function seeOther(location: string, headers: Record<string, string> = {}): Response {
   return new Response(null, { status: 303, headers: { location, "cache-control": "no-store", ...headers } });
+}
+
+/**
+ * The fields of a plain HTML form post or a JSON body, as one object, or null
+ * when a JSON body does not parse. Form values that are files are left out.
+ */
+export async function readFields(req: Request): Promise<Record<string, unknown> | null> {
+  try {
+    if (isFormPost(req)) {
+      const fields: Record<string, unknown> = {};
+      for (const [name, value] of await req.formData()) if (typeof value === "string") fields[name] = value;
+      return fields;
+    }
+    const body: unknown = await req.json();
+    return body && typeof body === "object" && !Array.isArray(body) ? (body as Record<string, unknown>) : {};
+  } catch {
+    return null;
+  }
 }

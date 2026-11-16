@@ -2,14 +2,14 @@
 // Widgets each Reader gets is tested at the API seam (test/api/widgets.test.ts);
 // this only checks that they are drawn. The weather and prayer times are the fakes'.
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
 
 const HOUR = 3_600_000;
 
 /** A Reader the Owner invites, signed in on `page`, following `topics` and living in `city`. */
 async function signInAs(page: Page, email: string, topics: string[], city: string | null) {
   await signIn(page);
-  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email } });
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email, password: E2E_PASSWORD } });
   expect([201, 409]).toContain(invited.status());
   await signIn(page, email);
   const res = await page.request.patch(`${E2E_BASE_PATH}/api/me`, { data: { topics, city } });

@@ -7,8 +7,11 @@ const port = Number(process.env.E2E_PORT ?? 3210);
 export const E2E_INGEST_TOKEN = "e2e-ingest-token";
 export const E2E_BASE_PATH = "/brief";
 export const E2E_OWNER_EMAIL = "owner@example.com";
-/** The fake Resend writes every email here; e2e/support/sign-in.ts reads magic links from it. */
-export const E2E_OUTBOX_FILE = ".e2e/outbox.jsonl";
+/**
+ * The password every e2e Reader signs in with: the Owner chooses it on the first
+ * visit (e2e/first-visit.setup.ts), and specs give it to the Readers they add.
+ */
+export const E2E_PASSWORD = "e2e password 123";
 
 export default defineConfig({
   testDir: "e2e",
@@ -21,11 +24,28 @@ export default defineConfig({
     trace: "retain-on-failure",
   },
   projects: [
-    { name: "phone", use: { ...devices["Pixel 7"] }, testIgnore: /(desktop|wide)-.*\.spec\.ts/ },
+    // Runs first, on the fresh database: the Owner chooses their password on the sign-in page.
+    { name: "first-visit", use: { ...devices["Pixel 7"] }, testMatch: /first-visit\.setup\.ts/ },
+    {
+      name: "phone",
+      use: { ...devices["Pixel 7"] },
+      testIgnore: /(desktop|wide)-.*\.spec\.ts/,
+      dependencies: ["first-visit"],
+    },
     // PC flows (Front Page, List, the reader pane; 1280×720) live in e2e/desktop-*.spec.ts.
-    { name: "desktop", use: { ...devices["Desktop Chrome"] }, testMatch: /desktop-.*\.spec\.ts/ },
+    {
+      name: "desktop",
+      use: { ...devices["Desktop Chrome"] },
+      testMatch: /desktop-.*\.spec\.ts/,
+      dependencies: ["first-visit"],
+    },
     // Wide screens (1600px and over: the pane always open, the Widgets column) in e2e/wide-*.spec.ts.
-    { name: "wide", use: { ...devices["Desktop Chrome"], viewport: { width: 1728, height: 1050 } }, testMatch: /wide-.*\.spec\.ts/ },
+    {
+      name: "wide",
+      use: { ...devices["Desktop Chrome"], viewport: { width: 1728, height: 1050 } },
+      testMatch: /wide-.*\.spec\.ts/,
+      dependencies: ["first-visit"],
+    },
   ],
   webServer: {
     // A fresh scratch database on every run.
@@ -40,7 +60,6 @@ export default defineConfig({
       BASE_PATH: E2E_BASE_PATH,
       OWNER_EMAIL: E2E_OWNER_EMAIL,
       PUBLIC_ORIGIN: `http://127.0.0.1:${port}`,
-      FAKE_OUTBOX_FILE: E2E_OUTBOX_FILE,
       NEXT_TELEMETRY_DISABLED: "1",
     },
   },
