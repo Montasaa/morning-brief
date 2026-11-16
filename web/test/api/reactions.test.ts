@@ -115,7 +115,7 @@ describe("Hide", () => {
       const brief = await briefOf(owner);
       expect(ids(brief)).not.toContain("me-yemen-port-talks");
       expect(brief.groups.flatMap((g) => g.item_ids)).not.toContain("me-yemen-port-talks");
-      expect(brief.groups[0]).toEqual({ kind: "top", topic: null, item_ids: ["ai-open-model-release"] });
+      expect(brief.groups[0]).toMatchObject({ kind: "top", topic: null, item_ids: ["ai-open-model-release"] });
     },
   );
 

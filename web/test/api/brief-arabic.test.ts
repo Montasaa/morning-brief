@@ -15,7 +15,7 @@ describe("GET /api/brief in both languages", () => {
 
     const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
-    expect(res.body.topic_names_ar).toEqual({
+    expect(res.body.topic_names_ar).toMatchObject({
       yemen: "اليمن",
       saudi: "السعودية",
       ai: "الذكاء الاصطناعي",

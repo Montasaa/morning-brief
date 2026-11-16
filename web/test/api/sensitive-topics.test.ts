@@ -72,7 +72,7 @@ describe("without opting in", () => {
 
     const res = await sara.request("GET", "/api/brief");
 
-    expect(res.body.groups).toEqual([{ kind: "top", topic: null, item_ids: ["me-yemen-port-talks"] }]);
+    expect(res.body.groups).toMatchObject([{ kind: "top", topic: null, item_ids: ["me-yemen-port-talks"] }]);
     expect(JSON.stringify(res.body)).not.toMatch(/Taiz|graphic/);
   });
 });

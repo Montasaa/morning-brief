@@ -6,6 +6,10 @@ import { morningEdition } from "../support/fixtures";
 import { startTestApp } from "../support/test-app";
 
 type BriefItem = { id: string; topic: string; top: boolean };
+type BriefGroup = { kind: string; topic: string | null; item_ids: string[]; nothing_qualified: boolean };
+/** The groups with Items, as {kind, topic, item_ids} (test/api/arrange-brief.test.ts covers the arranging fields). */
+const withItems = (groups: BriefGroup[]) =>
+  groups.filter((g) => !g.nothing_qualified).map(({ kind, topic, item_ids }) => ({ kind, topic, item_ids }));
 
 describe("GET /api/brief for the Swipe Brief", () => {
   it("puts the Edition's top stories first, then the rest grouped by Topic, newest first", async () => {
@@ -30,12 +34,15 @@ describe("GET /api/brief for the Swipe Brief", () => {
 
     const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
-    expect(res.body.groups).toEqual([
+    expect(withItems(res.body.groups)).toEqual([
       { kind: "top", topic: null, item_ids: ["me-yemen-port-talks", "ai-open-model-release"] },
       { kind: "topic", topic: "liverpool", item_ids: ["lfc-midfielder-fitness"] },
       { kind: "topic", topic: "graphic", item_ids: ["graphic-flood-aftermath"] },
       { kind: "topic", topic: "github-trending", item_ids: ["gh-terminal-agent"] },
     ]);
+    // The Owner's other followed Topics have nothing in this Edition: they come after, empty (rework ticket 11).
+    const groups = res.body.groups as BriefGroup[];
+    expect(groups.slice(4).every((g) => g.nothing_qualified && g.item_ids.length === 0)).toBe(true);
   });
 
   it("shows each Item once, under its first Topic, with the other Topics as tags", async () => {
@@ -64,7 +71,7 @@ describe("GET /api/brief for the Swipe Brief", () => {
       "graphic-flood-aftermath",
       "gh-terminal-agent",
     ]);
-    expect(res.body.groups[0]).toEqual({ kind: "topic", topic: "yemen", item_ids: ["me-yemen-port-talks"] });
+    expect(withItems(res.body.groups)[0]).toEqual({ kind: "topic", topic: "yemen", item_ids: ["me-yemen-port-talks"] });
     const talks = res.body.items[0];
     expect(talks).toMatchObject({ topic: "yemen", tags: ["saudi"], top: false });
   });
@@ -75,14 +82,16 @@ describe("GET /api/brief for the Swipe Brief", () => {
 
     const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
-    expect(res.body.topic_names).toEqual({
+    expect(res.body.topic_names).toMatchObject({
       yemen: "Yemen",
       saudi: "Saudi",
       ai: "AI",
       liverpool: "Liverpool",
       graphic: "Graphic",
       "github-trending": "GitHub Trending",
+      "us-markets": "US Markets", // a group with nothing in it is named too
     });
+    for (const g of res.body.groups as BriefGroup[]) if (g.topic) expect(res.body.topic_names[g.topic]).toBeTruthy();
   });
 
   it("opens on a cover card with the Edition's date and the Reader's Widgets", async () => {
@@ -91,7 +100,8 @@ describe("GET /api/brief for the Swipe Brief", () => {
 
     const res = await (await app.signInAsOwner()).request("GET", "/api/brief");
 
-    expect(res.body.cover).toEqual({ date: "2026-11-14", widgets: expect.any(Array) }); // test/api/widgets.test.ts covers the Widgets
+    // test/api/widgets.test.ts covers the Widgets, test/api/arrange-brief.test.ts their order.
+    expect(res.body.cover).toEqual({ date: "2026-11-14", widgets: expect.any(Array), more_widgets: [] });
   });
 
   it("gives the evening Edition as next after a morning one, and the next morning after an evening one", async () => {

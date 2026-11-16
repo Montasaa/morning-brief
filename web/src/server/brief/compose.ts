@@ -9,19 +9,28 @@
 // their why-lines (ticket 13, ./top-picker.ts), as long as they are still in
 // the Reader's Brief; with none picked, the Edition's own `top_stories`. Each Item appears once, under its best-matching followed Topic (for now
 // the first of its Topics, in the Edition's order, that the Reader follows),
-// with the Reader's other followed Topics as tags. `groups` drive the progress
-// bars. Sensitive Items reach only Readers who opted into their Sensitive
-// Topics, and are marked blurred (ticket 08) unless the Reader turned the blur
-// off for all of them (rework ticket 10). A sensitive Item is never a top story
-// and never the first Item after the Cover (see `placeSensitiveGroups`). Later
-// tickets add Widgets here, keeping this one entry point.
+// with the Reader's other followed Topics as tags. Sensitive Items reach only
+// Readers who opted into their Sensitive Topics, and are marked blurred
+// (ticket 08) unless the Reader turned the blur off for all of them (rework
+// ticket 10). A sensitive Item is never a top story and never the first Item
+// after the Cover.
+//
+// `groups` (rework ticket 11) are arranged by the Reader's Display
+// (./arrange.ts): the top stories, then Pinned Topics, then `topic_order`,
+// then the rest by `rank`. A followed Topic with nothing in the Brief is still
+// a group, `nothing_qualified`. Display never changes the ranking: the top
+// stories and the Items inside each group are the same whatever it says.
+// Widgets are added by `withWidgets` (src/server/widgets), keeping this one
+// entry point.
 import type { AppContext } from "../app";
+import { getDisplay } from "../display/display";
 import { imageKindOf, type ImageKind, type ItemStatus, type Source } from "../editions/types";
 import { readerReactions, toItemReactions, type Reaction } from "../reactions";
 import { threadSummaries, type ThreadSummary } from "../threads/threads";
 import { followedTopicIds, hiddenTopicIds } from "../topics/catalog";
-import { blurredItemSql, sensitiveItemSql, sensitiveItemVisibleSql } from "../topics/sensitive";
+import { blurredItemSql, isSensitiveTopic, sensitiveItemSql, sensitiveItemVisibleSql } from "../topics/sensitive";
 import { topicName } from "../topics/names";
+import { arrangeBrief } from "./arrange";
 import { scoreItems, type ScoredReaction } from "./score";
 import { scoredTopStories, storedTopStories } from "./top-stories";
 
@@ -74,11 +83,28 @@ export interface BriefItem {
   dimmed: boolean;
 }
 
-/** One progress bar: the top stories, or the Items shown under one Topic, in Brief order. */
+/** The top stories, or the Items shown under one followed Topic, in Display order (rework ticket 11). */
 export interface BriefGroup {
   kind: "top" | "topic";
+  /** The Topic; null for the top stories. */
   topic: string | null;
+  /** A Pinned Topic (Display `pinned`): first after the top stories, with a pin mark. */
+  pinned: boolean;
+  /** A Collapsed Topic (Display `collapsed`): shown as its headlines only. Its Items are still listed. */
+  collapsed: boolean;
+  /** The group's Items, by score. Display never changes them or their order. */
   item_ids: string[];
+  /** A followed Topic that no Item in this Brief carries: an empty group, shown as a "nothing qualified" note. */
+  nothing_qualified: boolean;
+  /** The Edition's own note on why nothing qualified, when it carries one (Edition v3 carries none yet: null). */
+  note: string | null;
+  /** The Topic is a Sensitive Topic: Edit mode shows its blur switch. */
+  sensitive: boolean;
+  /**
+   * Its ranked place, which Display never changes: 0 for the top stories, then the Topic groups by their
+   * best Item, then the nothing-qualified ones in Catalog order. Arranging puts unlisted Topics in this order.
+   */
+  rank: number;
 }
 
 /** A Widget on the cover card. Ticket 17 fills these in; until then the slots are empty. */
@@ -90,7 +116,10 @@ export interface BriefWidget {
 export interface BriefCover {
   /** The Edition's date in Asia/Riyadh, YYYY-MM-DD. */
   date: string;
+  /** The Widgets the Reader is eligible for, in their Display `widgets` order (rework ticket 11). */
   widgets: BriefWidget[];
+  /** Widgets the Reader is eligible for but removed from their Cover: Edit mode offers to add them back. */
+  more_widgets: BriefWidget[];
 }
 
 export interface Brief {
@@ -221,7 +250,17 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
   const { db } = ctx;
   const rankedBrief = rankBrief(ctx, reader);
   if (!rankedBrief) {
-    return { edition: null, cover: null, items: [], groups: [], topic_names: {}, topic_names_ar: {}, next_edition_at: null, threads: {}, nothing_to_show: false };
+    return {
+      edition: null,
+      cover: null,
+      items: [],
+      groups: [],
+      topic_names: {},
+      topic_names_ar: {},
+      next_edition_at: null,
+      threads: {},
+      nothing_to_show: false,
+    };
   }
   const { edition, ranked, editionTopIds } = rankedBrief;
 
@@ -244,54 +283,74 @@ export function composeBrief(ctx: AppContext, reader: { id: number }): Brief {
   if (tops.length === 0) tops = editionTopIds.flatMap((id) => top(id));
 
   // Groups in order of their best-scored Item; Items by score within each.
-  const byTopic = new Map<string, BriefItem[]>();
-  for (const item of ranked) {
-    if (tops.some((t) => t.id === item.id)) continue;
-    const group = byTopic.get(item.topic) ?? [];
-    group.push(item);
-    byTopic.set(item.topic, group);
+  const groupOf = (items: BriefItem[]) => {
+    const byTopic = new Map<string, BriefItem[]>();
+    for (const item of items) {
+      if (tops.some((t) => t.id === item.id)) continue;
+      byTopic.set(item.topic, [...(byTopic.get(item.topic) ?? []), item]);
+    }
+    return [...byTopic.values()];
+  };
+  let topicItems = groupOf(ranked);
+  // A Sensitive Item never opens the Brief. With no top stories, arranging moves a group led by a
+  // non-Sensitive Item to the front; when every group is led by a Sensitive Item, the best non-Sensitive
+  // Item leads instead, as the top story. Neither depends on the Display.
+  if (tops.length === 0 && topicItems.every((g) => g[0]!.sensitive)) {
+    const lead = ranked.find((i) => !i.sensitive);
+    if (lead) {
+      tops = top(lead.id);
+      topicItems = groupOf(ranked);
+    }
   }
 
-  const topicGroups = placeSensitiveGroups([...byTopic.values()]);
+  const followed = followedTopicIds(ctx, reader.id);
+  const hidden = hiddenTopicIds(ctx, reader.id);
+  const carried = new Set(ranked.flatMap((i) => i.topics));
   const groups: BriefGroup[] = [];
-  if (tops.length) groups.push({ kind: "top", topic: null, item_ids: tops.map((i) => i.id) });
-  for (const items of topicGroups) groups.push({ kind: "topic", topic: items[0]!.topic, item_ids: items.map((i) => i.id) });
+  const group = (kind: BriefGroup["kind"], topic: string | null, items: BriefItem[]): BriefGroup => ({
+    kind,
+    topic,
+    pinned: false,
+    collapsed: false,
+    item_ids: items.map((i) => i.id),
+    nothing_qualified: kind === "topic" && items.length === 0,
+    note: null,
+    sensitive: topic !== null && isSensitiveTopic(ctx, topic),
+    rank: kind === "top" ? 0 : groups.filter((g) => g.kind === "topic").length + 1,
+  });
+  if (tops.length) groups.push(group("top", null, tops));
+  for (const items of topicItems) groups.push(group("topic", items[0]!.topic, items));
+  for (const topic of followed) {
+    if (!carried.has(topic) && !hidden.has(topic)) groups.push(group("topic", topic, []));
+  }
 
-  const items = [...tops, ...topicGroups.flat()];
+  const items = [...tops, ...topicItems.flat()];
   const catalogName = db.prepare("SELECT name FROM topics WHERE id = ?").pluck();
+  const named = [...items.flatMap((i) => i.topics), ...groups.flatMap((g) => (g.topic ? [g.topic] : []))];
   const topic_names = Object.fromEntries(
-    items.flatMap((i) => i.topics).map((id) => [id, (catalogName.get(id) as string | undefined) || topicName(id)]),
+    named.map((id) => [id, (catalogName.get(id) as string | undefined) || topicName(id)]),
   );
   const arabicName = db.prepare("SELECT name_ar FROM topics WHERE id = ?").pluck();
   const topic_names_ar = Object.fromEntries(
     Object.entries(topic_names).map(([id, name]) => [id, (arabicName.get(id) as string | undefined) || name]),
   );
 
-  return {
-    edition,
-    cover: { date: riyadhDate(edition.generated_at), widgets: [] },
-    items,
-    groups,
-    topic_names,
-    topic_names_ar,
-    next_edition_at: nextEditionAt(edition),
-    threads: threadSummaries(ctx, reader.id, items.flatMap((i) => (i.thread_id ? [i.thread_id] : []))),
-    nothing_to_show: items.length > 0 && items[0]!.sensitive,
-  };
-}
-
-/**
- * Sensitive Items never open the Brief (rework ticket 10): a group led by a
- * sensitive Item (every group of a Sensitive Topic, and any group whose best
- * Item is sensitive) moves after the first group led by one that is not.
- * Groups keep their order otherwise, and Items their order inside a group.
- * When no group is led by a non-sensitive Item, nothing moves: the Brief
- * opens on its nothing-to-show note (`nothing_to_show`).
- */
-function placeSensitiveGroups(groups: BriefItem[][]): BriefItem[][] {
-  const first = groups.findIndex((g) => !g[0]!.sensitive);
-  if (first <= 0) return groups;
-  return [groups[first]!, ...groups.slice(0, first), ...groups.slice(first + 1)];
+  const brief = arrangeBrief(
+    {
+      edition,
+      cover: { date: riyadhDate(edition.generated_at), widgets: [], more_widgets: [] },
+      items,
+      groups,
+      topic_names,
+      topic_names_ar,
+      next_edition_at: nextEditionAt(edition),
+      threads: threadSummaries(ctx, reader.id, items.flatMap((i) => (i.thread_id ? [i.thread_id] : []))),
+      nothing_to_show: false,
+    },
+    getDisplay(ctx, reader.id),
+  );
+  // Only when the Brief holds nothing but Sensitive Items: it opens on the Cover and this note.
+  return { ...brief, nothing_to_show: brief.items[0]?.sensitive === true };
 }
 
 /** The Topics and Story Thread of each Item the Reader reacted to, for the Scorer. */

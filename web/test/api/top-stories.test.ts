@@ -74,7 +74,7 @@ describe("after an Edition is ingested", () => {
       why_for_you_ar: "تتابع الذكاء الاصطناعي عن قرب.",
     });
     expect(brief.items.slice(2).every((i) => !i.top && i.why_for_you === null && i.why_for_you_ar === null)).toBe(true);
-    expect(brief.groups[0]).toEqual({
+    expect(brief.groups[0]).toMatchObject({
       kind: "top",
       topic: null,
       item_ids: ["lfc-midfielder-fitness", "ai-open-model-release"],
