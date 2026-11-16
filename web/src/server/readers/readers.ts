@@ -15,12 +15,12 @@ export function normalizeEmail(email: string): string {
   return email.trim().toLowerCase();
 }
 
-/** A plain shape check; Resend has the final say on deliverability. */
+/** A plain shape check. */
 export function looksLikeEmail(email: string): boolean {
   return email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-/** A fresh random token for a magic link or a session, and the hash that is stored. */
+/** A fresh random session token, and the hash that is stored. */
 export function newToken(): { token: string; hash: string } {
   const token = randomBytes(32).toString("base64url");
   return { token, hash: hashToken(token) };

@@ -11,12 +11,20 @@ export interface Config {
   /** OWNER_EMAIL: the Owner, created at setup (first start) if no Owner exists yet. "" creates none. */
   ownerEmail: string;
   /**
-   * PUBLIC_ORIGIN: the site's public origin, e.g. https://example.com, used to build
-   * magic links and decide on Secure cookies. "" falls back to the request's origin
-   * (local runs only: behind a proxy the Host header must not decide where links point).
+   * PUBLIC_ORIGIN: the site's public origin, e.g. https://example.com, which decides
+   * on Secure cookies. "" falls back to the request's origin (local runs only).
    */
   publicOrigin: string;
+  /**
+   * The scrypt cost (N) new password hashes use. Not read from the environment:
+   * always PASSWORD_COST in production. The test app lowers it so the suite stays
+   * fast. Each hash records its own N, so checking a password never depends on it.
+   */
+  passwordCost: number;
 }
+
+/** scrypt N for password hashes: 2^15 (with r=8, p=1: 32 MiB and about 80 ms a hash). */
+export const PASSWORD_COST = 2 ** 15;
 
 type Env = Record<string, string | undefined>;
 
@@ -37,5 +45,6 @@ export function configFromEnv(env: Env = process.env): Config {
     basePath: basePathFrom(env),
     ownerEmail: (env.OWNER_EMAIL ?? "").trim().toLowerCase(),
     publicOrigin: (env.PUBLIC_ORIGIN ?? "").trim().replace(/\/+$/, ""),
+    passwordCost: PASSWORD_COST,
   };
 }

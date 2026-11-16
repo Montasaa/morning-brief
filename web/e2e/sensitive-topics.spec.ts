@@ -4,7 +4,7 @@
 // Owner's alone) only after the 18+ confirmation. Rework ticket 10: with the
 // blur off an Item shows straight away, and NSFW media keeps its own veil. Who sees which Items is tested at the API seam
 // (test/api/sensitive-topics.test.ts).
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
 
 const FLOOD = "Flood aftermath leaves villages cut off";
 
@@ -48,7 +48,9 @@ test("the Me tab opts into Graphic straight away; Adult Trending is the Owner's,
 }) => {
   await postEdition(page.request, swipeEdition());
   await signIn(page);
-  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "layla@example.com" } });
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, {
+    data: { email: "layla@example.com", password: E2E_PASSWORD },
+  });
   expect(invited.status(), await invited.text()).toBe(201);
   await signIn(page, "layla@example.com", { onboard: false });
   const onboarded = await page.request.patch(`${E2E_BASE_PATH}/api/me`, { data: { topics: ["ai"], onboarded: true } });
@@ -99,7 +101,9 @@ test("the Me tab opts into Graphic straight away; Adult Trending is the Owner's,
 test("with the blur off for Graphic, its Items show straight away", async ({ page }) => {
   await postEdition(page.request, swipeEdition());
   await signIn(page);
-  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "blur-off@example.com" } });
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, {
+    data: { email: "blur-off@example.com", password: E2E_PASSWORD },
+  });
   expect(invited.status(), await invited.text()).toBe(201);
   await signIn(page, "blur-off@example.com", { onboard: false });
   expect((await page.request.patch(`${E2E_BASE_PATH}/api/me`, { data: { topics: ["ai"], onboarded: true } })).status()).toBe(200);

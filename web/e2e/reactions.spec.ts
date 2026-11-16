@@ -5,7 +5,7 @@
 // at the API seam. Uses its own invited Reader, so the Owner's Brief (and its
 // order) stays whole for other specs.
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
 
 const READER = "rania@example.com";
 const TALKS = "me-yemen-port-talks";
@@ -19,7 +19,8 @@ const firstItem = async (page: Page) =>
 test.beforeEach(async ({ page }) => {
   await postEdition(page.request, swipeEdition());
   await signIn(page);
-  await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: READER } }); // 201, or already invited
+  // 201, or 409: already a Reader.
+  await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: READER, password: E2E_PASSWORD } });
   await signIn(page, READER);
   // The database lasts the whole run: start from no Reactions on the first Item.
   for (const kind of ["like", "save", "hide"]) {

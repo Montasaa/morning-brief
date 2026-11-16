@@ -3,14 +3,15 @@
 // and search finds Items in English and in Arabic. What search matches and in
 // what order is tested at the API seam (test/api/saved-search.test.ts).
 // Uses its own invited Reader, so the Owner's Reactions stay untouched.
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, postEdition, signIn, swipeEdition, test } from "./support";
 
 const READER = "samira@example.com";
 
 test.beforeEach(async ({ page }) => {
   await postEdition(page.request, swipeEdition());
   await signIn(page);
-  await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: READER } }); // 201, or already invited
+  // 201, or 409: already a Reader.
+  await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: READER, password: E2E_PASSWORD } });
   await signIn(page, READER);
   // The database lasts the whole run: start from exactly two saved Items.
   for (const id of ["me-yemen-port-talks", "lfc-midfielder-fitness", "ai-open-model-release"]) {

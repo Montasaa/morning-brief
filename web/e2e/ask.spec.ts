@@ -1,7 +1,7 @@
 // Smoke tests for the Ask sheet at phone size (ticket 16), opened from the rail (rework ticket 08). Limits, privacy and
 // reset are tested at the API seam (test/api/ask.test.ts).
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
 
 async function openFirstItem(page: Page) {
   await page.goto(E2E_BASE_PATH);
@@ -41,7 +41,9 @@ test("the Owner asks Claude about an Item and finds the answer again later", asy
 
 test("a Reader sees how many questions are left today", async ({ page }) => {
   await signIn(page);
-  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "asker@example.com" } });
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, {
+    data: { email: "asker@example.com", password: E2E_PASSWORD },
+  });
   expect([201, 409]).toContain(invited.status());
   // The same phone signs in as the invited Reader (the new session cookie replaces the Owner's).
   await signIn(page, "asker@example.com");
@@ -61,7 +63,9 @@ test("a Reader sees how many questions are left today", async ({ page }) => {
 
 test("the Owner changes a Reader's daily limit on the Invites page", async ({ page }) => {
   await signIn(page);
-  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "limited@example.com" } });
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, {
+    data: { email: "limited@example.com", password: E2E_PASSWORD },
+  });
   expect([201, 409]).toContain(invited.status());
   await signIn(page, "limited@example.com"); // becomes a Reader
   await signIn(page);
