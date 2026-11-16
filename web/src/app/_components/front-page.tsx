@@ -17,15 +17,25 @@
 //   accent. j/k (and the arrows) move the pane through the Brief's order, `a`
 //   opens Ask inside it, Esc goes from Ask to the card and then closes it. On
 //   wide the pane is always open, starting on the first top story.
+// - Arranging (rework ticket 11): groups come in the Reader's Display order,
+//   a Pinned Topic with a pin by its name. A Collapsed Topic is a one-row
+//   strip of its headlines with an Expand button; hovering a heading offers
+//   to collapse it. A followed Topic with nothing in this Edition says
+//   "nothing qualified". Edit mode (the Edit button or `e`; Done leaves) puts
+//   quiet controls on each Topic heading: a drag handle, move up and down, pin,
+//   collapse and, for a Sensitive Topic, the blur switch. The cards stay still,
+//   and the Cover's Widgets are edited in place. Every change saves at once.
 // - A sensitive Item keeps its picture and headline blurred until tapped.
 //   Explicit media (`media_blurred`, rework ticket 10) keeps its own veil on
 //   a card's picture until tapped (<MediaVeil>); a row's thumbnail never shows
 //   it (`previewKind`). A Brief of only Sensitive Items shows the
 //   nothing-to-show note in the Cover header (<NothingToShow>), as Swipe's
 //   Cover does, and its Items follow, veiled.
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } from "react";
 import type { Layout } from "@/server/display/shape";
-import type { Brief, BriefItem } from "@/server/brief/compose";
+import type { Brief, BriefGroup, BriefItem } from "@/server/brief/compose";
+import { arrangedTopics, TopicControls, useArrange, WidgetPicks, type Arrange, type ArrangedTopic } from "./arrange";
+import type { EditMode } from "./brief-layouts";
 import { Chevron } from "./chevron";
 import { prefersReducedMotion, useNow } from "./client-time";
 import { NothingToShow, useCoverLines } from "./cover";
@@ -52,13 +62,17 @@ export function FrontPage({
   screen,
   reactions,
   basePath,
+  edit,
 }: {
   layout: Exclude<Layout, "swipe">;
   screen: Screen;
   reactions: ReactionsState;
   basePath: string;
+  edit: EditMode;
 }) {
   const { brief } = reactions;
+  const { editing, setEditing } = edit;
+  const arrange = useArrange();
   const { lang, t } = useLanguage();
   const now = useNow();
   const wide = screen.class === "wide";
@@ -72,10 +86,15 @@ export function FrontPage({
       brief.groups.map((g) => ({
         key: groupKey(g),
         label: g.kind === "top" ? t("For you", "لك") : topicName(brief, g.topic!, lang),
+        group: g,
         items: g.item_ids.map((id) => byId.get(id)!),
       })),
     [brief, byId, lang, t],
   );
+  // The Topics in order, for the arranging controls.
+  const topics = useMemo(() => arrangedTopics(brief.groups, (id) => topicName(brief, id, lang)), [brief, lang]);
+  // The Topic being dragged by its handle, in Edit mode.
+  const [dragging, setDragging] = useState<string | null>(null);
 
   // The reader pane: the Item the Reader opened in it, how it arrived, and whether Ask is open.
   const [picked, setPicked] = useState<string | null>(null);
@@ -159,15 +178,17 @@ export function FrontPage({
   };
 
   // The keys: j/k and the arrows move the pane, Enter opens (or reads), s/l/h/a act on the open Item, Esc backs out.
-  const latest = useRef({ order, paneId, paneItem, asking, wide, show, reactions });
-  latest.current = { order, paneId, paneItem, asking, wide, show, reactions };
+  const latest = useRef({ order, paneId, paneItem, asking, wide, show, reactions, editing, setEditing });
+  latest.current = { order, paneId, paneItem, asking, wide, show, reactions, editing, setEditing };
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      const { order, paneId, paneItem, asking, wide, show, reactions } = latest.current;
-      // Esc backs out of Ask even from its question box; a sheet open over the page takes it first.
+      const { order, paneId, paneItem, asking, wide, show, reactions, editing, setEditing } = latest.current;
+      // Esc backs out of Ask even from its question box, then closes the pane, then leaves Edit mode;
+      // a sheet open over the page takes it first.
       if (e.key === "Escape" && !e.defaultPrevented && !sheetOpen()) {
         if (asking) setAsking(false);
         else if (paneId && !wide) close();
+        else if (editing) setEditing(false);
         else return;
         e.preventDefault();
         return;
@@ -202,6 +223,8 @@ export function FrontPage({
 
   const readItem = reading ? byId.get(reading) : undefined;
   const lines = useCoverLines(brief);
+  const cover = brief.cover!;
+  const widgetEditor = <WidgetPicks shown={cover.widgets} more={cover.more_widgets} arrange={arrange} />;
   const tileProps = (item: BriefItem) => ({
     item,
     brief,
@@ -216,7 +239,21 @@ export function FrontPage({
     // The Brief canvas: dark in every theme. `data-pane` gives the pane its column where the sidebar shows.
     <div className={`${s.root} brief-canvas`} data-layout={layout} data-pane={paneItem ? "" : undefined}>
       <div ref={page} className={s.page}>
-        <TopicTabs className={s.tabs} tabs={groups.map(({ key, label }) => ({ key, label }))} current={currentTab} onPick={jumpTo} />
+        <TopicTabs
+          className={s.tabs}
+          tabs={groups.filter((g) => !g.group.nothing_qualified).map(({ key, label }) => ({ key, label }))}
+          current={currentTab}
+          onPick={jumpTo}
+        />
+        {/* Edit mode: one quiet line under the tabs, outside the scrolling, so Done is always in reach. */}
+        {editing && (
+          <div className={s.editBar}>
+            <p>{t("Arrange your Topics and Widgets. Changes save as you go.", "رتّب مواضيعك وأدواتك. تُحفظ التغييرات أولًا بأول.")}</p>
+            <button type="button" className={s.done} onClick={() => setEditing(false)}>
+              {t("Done", "تم")}
+            </button>
+          </div>
+        )}
         <div ref={scroller} className={s.scroll}>
           <div className={s.inner}>
             <section className={s.cover} aria-label={t("Cover", "الغلاف")}>
@@ -228,20 +265,46 @@ export function FrontPage({
               </div>
               <div className={s.coverTools}>
                 <LayoutSwitch />
+                <EditButton editing={editing} onToggle={() => setEditing(!editing)} />
                 <LanguageToggle className={s.lang} />
               </div>
-              {!wide && <WidgetRows widgets={brief.cover!.widgets} className={s.coverWidgets} />}
+              {!wide && (editing ? <div className={s.coverWidgets}>{widgetEditor}</div> : <WidgetRows widgets={cover.widgets} className={s.coverWidgets} />)}
             </section>
 
-            {groups.map((group) => (
-              <Group
-                key={group.key}
-                group={group}
-                top={group.key === FOR_YOU}
-                list={list}
-                tile={tileProps}
-              />
-            ))}
+            {groups.map((group) => {
+              const topic = topics.find((x) => x.topic === group.group.topic);
+              return (
+                <Group
+                  key={group.key}
+                  group={group}
+                  top={group.key === FOR_YOU}
+                  list={list}
+                  tile={tileProps}
+                  arranging={topic && { topic, order: topics, arrange, editing }}
+                  drag={
+                    topic && editing
+                      ? {
+                          start: (e) => {
+                            e.dataTransfer.setData("text/plain", topic.topic);
+                            e.dataTransfer.effectAllowed = "move";
+                            setDragging(topic.topic);
+                          },
+                          // Drops land within the dragged Topic's section: pinned among pinned, the others among the others.
+                          accepts: () => {
+                            const from = topics.find((x) => x.topic === dragging);
+                            return !!from && from.pinned === topic.pinned && from !== topic;
+                          },
+                          drop: () => {
+                            if (dragging) arrange.moveTo(topics, dragging, topics.filter((x) => x.pinned === topic.pinned).indexOf(topic));
+                            setDragging(null);
+                          },
+                          end: () => setDragging(null),
+                        }
+                      : undefined
+                  }
+                />
+              );
+            })}
 
             <p className={s.end}>
               <Icon name="up" size={22} />
@@ -277,7 +340,7 @@ export function FrontPage({
       {wide && (
         <aside className={s.widgets} aria-label={t("Today", "اليوم")}>
           <h2 className={s.widgetsTitle}>{t("Today", "اليوم")}</h2>
-          <WidgetRows widgets={brief.cover!.widgets} />
+          {editing ? widgetEditor : <WidgetRows widgets={cover.widgets} />}
         </aside>
       )}
 
@@ -311,19 +374,43 @@ type TileProps = {
   onReveal(): void;
 };
 
-/** One group: its heading, then a shelf of cards (Front Page; a row of big ones for "For you") or rows (List). */
+/** The Edit button in the Cover header (the `e` key does the same). */
+function EditButton({ editing, onToggle }: { editing: boolean; onToggle(): void }) {
+  const { t } = useLanguage();
+  return (
+    <button type="button" className={s.edit} aria-pressed={editing} onClick={onToggle}>
+      <Icon name="edit" size={16} />
+      {t("Edit", "تحرير")}
+    </button>
+  );
+}
+
+/** Dragging a Topic heading by its handle (Edit mode). */
+type GroupDrag = { start(e: DragEvent): void; accepts(): boolean; drop(): void; end(): void };
+
+/**
+ * One group: its heading, then a shelf of cards (Front Page; a row of big ones for "For you") or rows
+ * (List); a Collapsed Topic's strip of headlines; or a nothing-qualified note. `arranging` is set for a
+ * Topic: its place and marks, and the controls (on hover: collapse; in Edit mode: all of them).
+ */
 function Group({
   group,
   top,
   list,
   tile,
+  arranging,
+  drag,
 }: {
-  group: { key: string; label: string; items: BriefItem[] };
+  group: { key: string; label: string; group: BriefGroup; items: BriefItem[] };
   top: boolean;
   list: boolean;
   tile(item: BriefItem): TileProps;
+  arranging?: { topic: ArrangedTopic; order: readonly ArrangedTopic[]; arrange: Arrange; editing: boolean };
+  drag?: GroupDrag;
 }) {
   const { lang, t } = useLanguage();
+  const { pinned, collapsed, nothing_qualified: empty, note } = group.group;
+  const [over, setOver] = useState(false);
   const shelf = useRef<HTMLDivElement>(null);
   const id = `group-${group.key}`;
   const scroll = (by: 1 | -1) => {
@@ -333,26 +420,81 @@ function Group({
     const sign = getComputedStyle(el).direction === "rtl" ? -1 : 1;
     el.scrollBy({ left: by * sign * el.clientWidth * 0.8, behavior: prefersReducedMotion() ? "auto" : "smooth" });
   };
-  const shelved = !list && !top;
+  const shelved = !list && !top && !collapsed && !empty;
+  const editing = !!arranging?.editing;
   return (
-    <section className={s.group} data-group={group.key} aria-labelledby={id}>
+    <section
+      className={s.group}
+      data-group={group.key}
+      data-drop={over || undefined}
+      aria-labelledby={id}
+      onDragOver={(e) => {
+        if (!drag?.accepts()) return;
+        e.preventDefault();
+        setOver(true);
+      }}
+      onDragLeave={() => setOver(false)}
+      onDrop={(e) => {
+        e.preventDefault();
+        setOver(false);
+        drag?.drop();
+      }}
+    >
       <div className={list ? `${s.head} ${s.sticky}` : s.head}>
         <h2 id={id} className={s.title}>
+          {pinned && <Icon name="pushpin" size={16} filled className={s.pin} />}
           {group.label}
         </h2>
-        <span className={s.count}>{formatNumber(group.items.length, lang)}</span>
-        {shelved && (
-          <span className={s.shelfNav}>
-            <button type="button" className={s.shelfButton} aria-label={t(`Scroll ${group.label} back`, `تمرير ${group.label} للخلف`)} onClick={() => scroll(-1)}>
-              <Chevron to="back" size={18} />
-            </button>
-            <button type="button" className={s.shelfButton} aria-label={t(`Scroll ${group.label} forward`, `تمرير ${group.label} للأمام`)} onClick={() => scroll(1)}>
-              <Chevron to="forward" size={18} />
-            </button>
+        {!empty && <span className={s.count}>{formatNumber(group.items.length, lang)}</span>}
+        {editing && arranging ? (
+          <span className={s.editControls} onDragEnd={drag?.end}>
+            <TopicControls topic={arranging.topic} order={arranging.order} arrange={arranging.arrange} onDragStart={drag?.start} />
           </span>
+        ) : arranging && collapsed ? (
+          <button type="button" className={s.expand} aria-label={t(`Expand ${group.label}`, `توسيع ${group.label}`)} onClick={() => void arranging.arrange.collapse(arranging.topic.topic, false)}>
+            {t("Expand", "توسيع")}
+          </button>
+        ) : (
+          arranging &&
+          !empty && (
+            <span className={s.shelfNav}>
+              <button
+                type="button"
+                className={s.shelfButton}
+                aria-label={t(`Collapse ${group.label}`, `طيّ ${group.label}`)}
+                title={t("Collapse to headlines", "طيّ إلى العناوين")}
+                onClick={() => void arranging.arrange.collapse(arranging.topic.topic, true)}
+              >
+                <Icon name="minus" size={18} />
+              </button>
+              {shelved && (
+                <>
+                  <button type="button" className={s.shelfButton} aria-label={t(`Scroll ${group.label} back`, `تمرير ${group.label} للخلف`)} onClick={() => scroll(-1)}>
+                    <Chevron to="back" size={18} />
+                  </button>
+                  <button type="button" className={s.shelfButton} aria-label={t(`Scroll ${group.label} forward`, `تمرير ${group.label} للأمام`)} onClick={() => scroll(1)}>
+                    <Chevron to="forward" size={18} />
+                  </button>
+                </>
+              )}
+            </span>
+          )
         )}
       </div>
-      {list ? (
+      {empty ? (
+        <p className={s.nothingQualified} data-testid="nothing-qualified">
+          {t("Nothing qualified in this Edition.", "لم يتأهل شيء في هذه الطبعة.")}
+          {note && ` ${note}`}
+        </p>
+      ) : collapsed ? (
+        <ul className={s.strip}>
+          {group.items.map((item) => (
+            <li key={item.id}>
+              <StripHeadline {...tile(item)} />
+            </li>
+          ))}
+        </ul>
+      ) : list ? (
         <div className={s.rows}>
           {group.items.map((item) => (
             <Row key={item.id} {...tile(item)} />
@@ -455,6 +597,29 @@ function Tile({ item, brief, now, selected, revealed, onOpen, onReveal, big }: T
         </button>
       )}
     </article>
+  );
+}
+
+/** A headline in a Collapsed Topic's strip. A sensitive one is named by its Topic until tapped, then opens. */
+function StripHeadline({ item, brief, selected, revealed, onOpen, onReveal }: TileProps) {
+  const { lang, t } = useLanguage();
+  const locked = item.blurred && !revealed;
+  const name = topicName(brief, item.topic, lang);
+  return (
+    <button
+      type="button"
+      className={s.stripItem}
+      dir="auto"
+      data-item={item.id}
+      data-selected={selected || undefined}
+      data-dimmed={item.dimmed && !selected}
+      onClick={() => {
+        if (locked) onReveal();
+        onOpen();
+      }}
+    >
+      {locked ? t(`Sensitive Item: ${name} · Tap to view`, `عنصر حساس: ${name} · اضغط للعرض`) : localized(item, "title", lang)}
+    </button>
   );
 }
 

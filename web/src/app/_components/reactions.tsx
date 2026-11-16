@@ -1,6 +1,7 @@
 "use client";
 // Reactions on the Brief (ticket 09; the Reels look, rework ticket 08): the
-// action rail (Like, Save, Ask, Hide) on the Reels card, the hide-reason sheet
+// action rail on the Reels card (the Reader's dock buttons, Display `dock`,
+// rework ticket 11: Like, Save, Ask and Hide by default, and Share), the hide-reason sheet
 // (not interested · already seen · bad source · just hide), and the
 // "Hidden · Undo" toast. Opening an Item (its read sheet, or one of its links)
 // records an open, so it comes back dimmed.
@@ -9,7 +10,9 @@
 // DELETE /api/items/{id}/reactions/{kind}; a failed call puts things back.
 // A hidden Item leaves this Brief at once (the composer leaves it out of the
 // next one), and Undo brings it back where it was.
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import type { DockButton } from "@/server/display/shape";
+import { useDisplay } from "./display";
 import type { Brief, BriefItem } from "@/server/brief/compose";
 import { Icon, type IconName } from "./icons";
 import { localized } from "./i18n";
@@ -48,7 +51,8 @@ export function useReactions(initial: Brief, basePath: string): ReactionsState {
       });
     const groups = initial.groups
       .map((g) => ({ ...g, item_ids: g.item_ids.filter((id) => !hidden.has(id)) }))
-      .filter((g) => g.item_ids.length > 0);
+      // A group emptied by hiding goes; a Topic with nothing in the Edition stays, to say so.
+      .filter((g) => g.item_ids.length > 0 || g.nothing_qualified);
     return { ...initial, items, groups };
   }, [initial, marks, hidden]);
 
@@ -117,27 +121,51 @@ export function useReactions(initial: Brief, basePath: string): ReactionsState {
   };
 }
 
-/** The rail's buttons, in order (ticket 11 lets the Reader choose them through Display `dock`). */
-const RAIL: { kind: "like" | "save" | "ask" | "hide"; icon: IconName; en: string; ar: string }[] = [
-  { kind: "like", icon: "heart", en: "Like", ar: "أعجبني" },
-  { kind: "save", icon: "save", en: "Save", ar: "حفظ" },
-  { kind: "ask", icon: "sparkle", en: "Ask", ar: "اسأل" },
-  { kind: "hide", icon: "hide", en: "Hide", ar: "إخفاء" },
-];
+/** Every dock button: its icon and its name. The Reader picks which show, and in what order (Display `dock`). */
+export const DOCK_LABELS: Record<DockButton, { icon: IconName; en: string; ar: string }> = {
+  like: { icon: "heart", en: "Like", ar: "أعجبني" },
+  save: { icon: "save", en: "Save", ar: "حفظ" },
+  ask: { icon: "sparkle", en: "Ask", ar: "اسأل" },
+  hide: { icon: "hide", en: "Hide", ar: "إخفاء" },
+  share: { icon: "share", en: "Share", ar: "مشاركة" },
+};
 
 /**
- * The action rail on a Reels card: Like and Save toggle (and pop), Ask calls
- * `onAsk`, Hide asks why in the hide-reason sheet and then offers Undo.
+ * The action rail on a Reels card, with the Reader's dock buttons in their order: Like and Save toggle (and
+ * pop), Ask calls `onAsk`, Hide asks why in the hide-reason sheet and then offers Undo, Share hands the
+ * story's link to the device's share sheet (or copies it).
  */
 export function Rail({ item, reactions, onAsk }: { item: BriefItem; reactions: ReactionsState; onAsk(): void }) {
   const { lang, t } = useLanguage();
+  const { display } = useDisplay();
   const [hiding, setHiding] = useState(false);
   // Which button last turned on, so it pops once.
   const [popped, setPopped] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+  const copiedTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  useEffect(() => () => clearTimeout(copiedTimer.current), []);
+  const share = async () => {
+    const url = item.sources[0]?.url;
+    if (!url) return;
+    const title = localized(item, "title", lang)!;
+    if (navigator.share) {
+      await navigator.share({ title, url }).catch(() => undefined); // the Reader closed the share sheet
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      clearTimeout(copiedTimer.current);
+      copiedTimer.current = setTimeout(() => setCopied(false), 2_000);
+    } catch {
+      // No clipboard here: nothing to do.
+    }
+  };
   return (
     <>
       <div className={s.rail} role="toolbar" aria-orientation="vertical" aria-label={t("Actions", "الإجراءات")}>
-        {RAIL.map((b) => {
+        {display.dock.map((kind) => {
+          const b = { kind, ...DOCK_LABELS[kind] };
           const toggle = b.kind === "like" || b.kind === "save" ? b.kind : null;
           const pressed = toggle ? item.reactions[toggle] : undefined;
           return (
@@ -153,13 +181,14 @@ export function Rail({ item, reactions, onAsk }: { item: BriefItem; reactions: R
                   if (!pressed) setPopped(toggle);
                   reactions.toggle(item, toggle);
                 } else if (b.kind === "ask") onAsk();
+                else if (b.kind === "share") void share();
                 else setHiding(true);
               }}
             >
               <span className={s.railIcon}>
                 <Icon name={b.icon} size={27} filled={pressed} />
               </span>
-              <small>{t(b.en, b.ar)}</small>
+              <small>{b.kind === "share" && copied ? t("Copied", "نُسخ") : t(b.en, b.ar)}</small>
             </button>
           );
         })}

@@ -17,6 +17,14 @@ const PATHS = {
   ball: "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0zM12 7.5l3.8 2.8-1.4 4.5H9.6L8.2 10.3zM12 3v4.5M20.6 9.5l-4.8.8M17.5 19.5l-3.1-4.7M6.5 19.5l3.1-4.7M3.4 9.5l4.8.8",
   clock: "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0zM12 7v5l3 2",
   pin: "M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11zM14.5 10a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z",
+  // Rework ticket 11: arranging the Brief, and the dock's Share.
+  pushpin: "M9 3.5h6l-1 5.5 3.5 3v2h-11v-2L10 9zM12 14v6.5",
+  minus: "M5 12h14",
+  plus: "M12 5v14M5 12h14",
+  down: "m6 9 6 6 6-6",
+  grip: "M8 9h8M8 15h8",
+  edit: "M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4",
+  share: "M12 3.5v11M7.5 8 12 3.5 16.5 8M5 13v6.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V13",
 } as const;
 
 export type IconName = keyof typeof PATHS;

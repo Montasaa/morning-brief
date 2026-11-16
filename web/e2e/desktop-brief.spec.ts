@@ -47,10 +47,12 @@ test("a PC opens in Front Page: the Cover header, the top stories and a shelf pe
   expect(Math.abs(a.y - b.y)).toBeLessThan(2);
   expect(b.x).toBeGreaterThan(a.x + a.width);
 
-  // A shelf per Topic, in Brief order.
-  await expect(page.getByRole("region").filter({ has: page.getByRole("heading", { level: 2 }) })).toHaveText(
-    ["For you", ...TOPICS].map((name) => new RegExp(`^${name.replace(/[&]/g, "\\$&")}`)),
+  // A shelf per Topic, in Brief order; then the Owner's followed Topics with nothing in this Edition, which say so.
+  const groups = page.getByRole("region").filter({ has: page.getByRole("heading", { level: 2 }) });
+  await expect(groups.filter({ hasNot: page.getByTestId("nothing-qualified") }).getByRole("heading", { level: 2 })).toHaveText(
+    ["For you", ...TOPICS],
   );
+  await expect(frontPage.group(page, "Iran").getByTestId("nothing-qualified")).toBeVisible();
   await expect(frontPage.group(page, "Liverpool").getByRole("article")).toHaveCount(1);
   await expect(frontPage.open(page, TITLES[2]!)).toBeVisible();
 

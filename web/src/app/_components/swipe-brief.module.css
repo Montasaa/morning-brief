@@ -189,3 +189,82 @@
     border-inline-start: 1px solid var(--line);
   }
 }
+
+/* ---- a Collapsed Topic's digest card (rework ticket 11) ---- */
+.digest {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: radial-gradient(120% 70% at 85% 0%, #1d2733 0, var(--canvas) 60%);
+}
+/* Over the tap thirds, at the bottom like a card's text: the thirds above and around it still move on. */
+.digest .digestText {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 4;
+  max-height: 82%;
+  overflow-y: auto;
+  padding: 0 var(--page-pad) calc(28px + var(--tabbar-h));
+}
+@media (min-width: 1024px) {
+  .digest .digestText {
+    max-width: 560px;
+    margin-inline: auto;
+  }
+}
+.digestMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 6px;
+  color: var(--mute);
+  font-size: var(--fs-s);
+}
+.digestPin {
+  color: var(--acc);
+}
+.digestTitle {
+  margin: 0 0 12px;
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-tight);
+}
+.digestList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.digestItem {
+  display: block;
+  width: 100%;
+  min-height: var(--tap);
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  color: var(--fg);
+  font: inherit;
+  font-size: var(--fs-m);
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: start;
+  cursor: pointer;
+}
+.digestItem[data-dimmed="true"] {
+  opacity: 0.45;
+}
+.digestOpen {
+  min-height: var(--tap);
+  margin-top: 16px;
+  padding: 0 20px;
+  border: 1px solid var(--acc);
+  border-radius: var(--r-pill);
+  background: none;
+  color: var(--acc);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}

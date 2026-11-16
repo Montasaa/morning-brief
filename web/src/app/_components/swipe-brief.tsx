@@ -20,14 +20,24 @@
 // 1280px an "Up next" list and the Widgets ("Today") sit at the end side.
 // Where the sidebar shows (rework ticket 09) it lists the Topics, which jump
 // like the tabs, and the PC shortcuts (shortcuts.tsx) work on the Item on screen.
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { Brief, BriefItem } from "@/server/brief/compose";
+//
+// Arranging (rework ticket 11): the groups come in the Reader's Display order.
+// A Collapsed Topic is one digest card listing its headlines; opening it (or
+// one of its headlines) puts its Items in its place for this visit. A
+// followed Topic with nothing in this Edition is named on the closing screen.
+// Edit mode (Edit on the Cover, or `e`) opens a sheet with the Topic and
+// Widget controls (<EditSheet>); changes save at once, Done closes it.
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import type { Brief, BriefGroup, BriefItem } from "@/server/brief/compose";
+import { arrangedTopics, EditSheet } from "./arrange";
 import { AskSheet } from "./ask-sheet";
+import type { EditMode } from "./brief-layouts";
 import { CaughtUp, Cover } from "./cover";
 import { WidgetRows } from "./cover-widgets";
 import { prefersReducedMotion, useNow } from "./client-time";
-import { timeSince } from "./format";
+import { itemCount, timeSince } from "./format";
 import { localized, topicName } from "./i18n";
+import { Icon } from "./icons";
 import { ItemImage } from "./item-image";
 import { useLanguage } from "./language";
 import { UndoToast, type ReactionsState } from "./reactions";
@@ -39,62 +49,70 @@ import { SidebarTopics } from "./tab-bar";
 import { FOR_YOU, groupKey, TopicTabs } from "./topic-tabs";
 import s from "./swipe-brief.module.css";
 
-export function SwipeBrief({ reactions, basePath }: { reactions: ReactionsState; basePath: string }) {
+export function SwipeBrief({ reactions, basePath, edit }: { reactions: ReactionsState; basePath: string; edit: EditMode }) {
   const { brief } = reactions;
   const { lang, t } = useLanguage();
   const now = useNow();
-  const items = brief.items;
-  // Slides: 0 is the Cover, 1..n the Items, n + 1 "You're caught up".
-  const last = items.length + 1;
+  const byId = useMemo(() => new Map(brief.items.map((i) => [i.id, i])), [brief.items]);
+
+  // The slides between the Cover and the end: each Item, or a Collapsed Topic's digest card (until opened
+  // here). Topics with nothing in this Edition have no slide; the end names them.
+  const [opened, setOpened] = useState<ReadonlySet<string>>(new Set());
+  const content = useMemo<Slide[]>(
+    () =>
+      brief.groups.flatMap((g): Slide[] => {
+        if (g.nothing_qualified) return [];
+        const key = groupKey(g);
+        const items = g.item_ids.flatMap((id) => byId.get(id) ?? []);
+        if (g.collapsed && !opened.has(key)) return [{ kind: "digest", key, group: g, items }];
+        return items.map((item) => ({ kind: "item", key, item }));
+      }),
+    [brief.groups, byId, opened],
+  );
+  // Slides: 0 is the Cover, 1..n the content, n + 1 "You're caught up".
+  const last = content.length + 1;
   const { slides, active, go, step } = useSnapSlides(last);
-  const current = active >= 1 && active <= items.length ? items[active - 1]! : null;
+  const shown = active >= 1 && active <= content.length ? content[active - 1]! : null;
+  const current = shown?.kind === "item" ? shown.item : null;
 
   // Sheets hold an Item id, so they show its latest Reactions.
   const [reading, setReading] = useState<string | null>(null);
   const [asking, setAsking] = useState<string | null>(null);
-  const byId = useMemo(() => new Map(items.map((i) => [i.id, i])), [items]);
   const readItem = reading ? byId.get(reading) : undefined;
 
-  // Undo puts a hidden Item back in its place, above the one now on screen; the
-  // browser would keep that one in view, so go back to the Item that returned.
+  // Go to an Item once it has a slide: after Undo puts a hidden Item back in its place (the browser would
+  // keep the one now on screen in view), and after a digest card opens into its Items.
   const [returning, setReturning] = useState<string | null>(null);
   useEffect(() => {
     if (!returning) return;
-    const at = items.findIndex((i) => i.id === returning);
+    const at = content.findIndex((sl) => sl.kind === "item" && sl.item.id === returning);
     if (at >= 0) {
       setReturning(null);
       go(at + 1);
     }
-  }, [returning, items, go]);
+  }, [returning, content, go]);
   const askItem = asking ? byId.get(asking) : undefined;
+  const openDigest = (key: string, itemId: string) => {
+    setOpened((all) => new Set(all).add(key));
+    setReturning(itemId);
+  };
 
-  // Topic tabs: "For you" (the Cover and the top stories), then each Topic group.
-  const groupOf = useMemo(() => {
-    const map = new Map<string, string>();
-    for (const g of brief.groups) for (const id of g.item_ids) map.set(id, groupKey(g));
-    return map;
-  }, [brief.groups]);
+  // Topic tabs: "For you" (the Cover and the top stories), then each Topic group with something in it.
   const tabs = useMemo(
     () => [
       { key: FOR_YOU, label: t("For you", "لك") },
-      ...brief.groups.filter((g) => g.kind === "topic").map((g) => ({ key: g.topic!, label: topicName(brief, g.topic!, lang) })),
+      ...brief.groups
+        .filter((g) => g.kind === "topic" && !g.nothing_qualified)
+        .map((g) => ({ key: g.topic!, label: topicName(brief, g.topic!, lang) })),
     ],
     [brief, lang, t],
   );
-  const lastGroup = brief.groups.at(-1);
-  const currentTab =
-    active === 0
-      ? FOR_YOU
-      : current
-        ? groupOf.get(current.id) ?? FOR_YOU
-        : lastGroup?.kind === "topic"
-          ? lastGroup.topic!
-          : FOR_YOU;
+  const currentTab = active === 0 ? FOR_YOU : shown ? shown.key : content.at(-1)?.key ?? FOR_YOU;
   const jumpTo = (key: string) => {
-    const group = brief.groups.find((g) => groupKey(g) === key);
-    const first = group ? items.findIndex((i) => i.id === group.item_ids[0]) : -1;
-    go(first + 1);
+    const first = content.findIndex((sl) => sl.key === key);
+    if (first >= 0) go(first + 1);
   };
+  const topics = useMemo(() => arrangedTopics(brief.groups, (id) => topicName(brief, id, lang)), [brief, lang]);
 
   // The keys, unless a sheet is open or the Reader is typing.
   const keys = useRef({ step, current, reactions });
@@ -147,26 +165,39 @@ export function SwipeBrief({ reactions, basePath }: { reactions: ReactionsState;
         <div ref={slides} className={s.slides} data-testid="swipe-slides">
           <div {...slide(0)}>
             <div className={s.frame}>
-              <Cover brief={brief} />
+              <Cover brief={brief} onEdit={() => edit.setEditing(true)} />
               <TapThirds onNext={() => step(1)} />
             </div>
           </div>
-          {items.map((item, i) => (
-            <div key={item.id} {...slide(i + 1)}>
-              <ReelsCard
-                item={item}
-                brief={brief}
-                now={now}
-                active={i + 1 === active}
-                reactions={reactions}
-                basePath={basePath}
-                onRead={(it) => setReading(it.id)}
-                onAsk={(it) => setAsking(it.id)}
-              >
-                <TapThirds onBack={() => step(-1)} onNext={() => step(1)} />
-              </ReelsCard>
-            </div>
-          ))}
+          {content.map((sl, i) =>
+            sl.kind === "item" ? (
+              <div key={sl.item.id} {...slide(i + 1)}>
+                <ReelsCard
+                  item={sl.item}
+                  brief={brief}
+                  now={now}
+                  active={i + 1 === active}
+                  reactions={reactions}
+                  basePath={basePath}
+                  onRead={(it) => setReading(it.id)}
+                  onAsk={(it) => setAsking(it.id)}
+                >
+                  <TapThirds onBack={() => step(-1)} onNext={() => step(1)} />
+                </ReelsCard>
+              </div>
+            ) : (
+              <div key={`digest-${sl.key}`} {...slide(i + 1)}>
+                <DigestCard
+                  group={sl.group}
+                  items={sl.items}
+                  brief={brief}
+                  onOpen={(itemId) => openDigest(sl.key, itemId ?? sl.items[0]!.id)}
+                >
+                  <TapThirds onBack={() => step(-1)} onNext={() => step(1)} />
+                </DigestCard>
+              </div>
+            ),
+          )}
           <div {...slide(last)}>
             <div className={s.frame}>
               <CaughtUp brief={brief} onTop={() => go(0)} />
@@ -179,7 +210,12 @@ export function SwipeBrief({ reactions, basePath }: { reactions: ReactionsState;
 
       <aside className={s.aside} aria-label={t("Up next", "التالي")}>
         <h2 className={s.asideTitle}>{t("Up next", "التالي")}</h2>
-        <UpNext items={items.slice(active, active + 5)} from={active + 1} brief={brief} now={now} onJump={(i) => go(i)} />
+        <UpNext
+          upcoming={content.flatMap((sl, i) => (sl.kind === "item" && i + 1 > active ? [{ item: sl.item, slide: i + 1 }] : [])).slice(0, 5)}
+          brief={brief}
+          now={now}
+          onJump={(i) => go(i)}
+        />
         <h2 className={s.asideTitle}>{t("Today", "اليوم")}</h2>
         <WidgetRows widgets={brief.cover!.widgets} />
       </aside>
@@ -198,6 +234,9 @@ export function SwipeBrief({ reactions, basePath }: { reactions: ReactionsState;
         />
       )}
       {askItem && <AskSheet key={askItem.id} item={askItem} basePath={basePath} onClose={() => setAsking(null)} />}
+      {edit.editing && (
+        <EditSheet order={topics} widgets={brief.cover!.widgets} moreWidgets={brief.cover!.more_widgets} onDone={() => edit.setEditing(false)} />
+      )}
       {screen && hasSidebar(screen) && <SidebarTopics brief={brief} onPick={jumpTo} />}
       {shortcuts}
     </div>
@@ -215,16 +254,66 @@ function TapThirds({ onBack, onNext }: { onBack?: () => void; onNext?: () => voi
   );
 }
 
+/** A slide between the Cover and the end: an Item, or a Collapsed Topic's digest card. `key` is its tab. */
+type Slide = { kind: "item"; key: string; item: BriefItem } | { kind: "digest"; key: string; group: BriefGroup; items: BriefItem[] };
+
+/**
+ * A Collapsed Topic in Swipe: one card listing its headlines (a sensitive one by its warning, never its
+ * title). Opening it, or tapping a headline, calls `onOpen` (with that headline's Item). `children` go
+ * under the text: the tap thirds.
+ */
+function DigestCard({
+  group,
+  items,
+  brief,
+  onOpen,
+  children,
+}: {
+  group: BriefGroup;
+  items: BriefItem[];
+  brief: Brief;
+  onOpen(itemId: string | null): void;
+  children?: ReactNode;
+}) {
+  const { lang, t } = useLanguage();
+  const name = topicName(brief, group.topic!, lang);
+  return (
+    <article className={s.digest} aria-label={t(`${name}: headlines`, `${name}: العناوين`)}>
+      {children}
+      <div className={s.digestText}>
+        <p className={s.digestMeta}>
+          {group.pinned && <Icon name="pushpin" size={14} filled className={s.digestPin} />}
+          {t("Headlines only", "العناوين فقط")} · {itemCount(items.length, lang)}
+        </p>
+        <h2 className={s.digestTitle}>{name}</h2>
+        <ol className={s.digestList}>
+          {items.map((item) => {
+            const warning = localized(item, "warning", lang);
+            return (
+              <li key={item.id}>
+                <button type="button" className={s.digestItem} data-dimmed={item.dimmed} dir="auto" onClick={() => onOpen(item.id)}>
+                  {item.blurred ? `${t("Sensitive Item", "عنصر حساس")}${warning ? `: ${warning}` : ""}` : localized(item, "title", lang)}
+                </button>
+              </li>
+            );
+          })}
+        </ol>
+        <button type="button" className={s.digestOpen} onClick={() => onOpen(null)}>
+          {t(`Open ${name}`, `فتح ${name}`)}
+        </button>
+      </div>
+    </article>
+  );
+}
+
 /** PC: the next few Items, each jumping to its slide. A sensitive one is named by its warning, never its title. */
 function UpNext({
-  items,
-  from,
+  upcoming,
   brief,
   now,
   onJump,
 }: {
-  items: BriefItem[];
-  from: number;
+  upcoming: { item: BriefItem; slide: number }[];
   brief: Brief;
   now: number | null;
   onJump(slide: number): void;
@@ -232,11 +321,11 @@ function UpNext({
   const { lang, t } = useLanguage();
   return (
     <ol className={s.upNext}>
-      {items.map((item, i) => {
+      {upcoming.map(({ item, slide }) => {
         const warning = localized(item, "warning", lang);
         return (
           <li key={item.id}>
-            <button type="button" className={s.upRow} data-dimmed={item.dimmed} onClick={() => onJump(from + i)}>
+            <button type="button" className={s.upRow} data-dimmed={item.dimmed} onClick={() => onJump(slide)}>
               <span className={s.thumb}>
                 {previewKind(item) === "photo" && <Thumb src={item.image!} />}
               </span>

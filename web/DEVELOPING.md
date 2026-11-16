@@ -179,7 +179,7 @@ Rework ticket 07 (issue #7, [spec #6](https://github.com/Montasaa/morning-brief/
 - `PATCH /api/me {display: {...}}` changes only the keys sent, inside the profile's all-or-nothing update: any bad value gets `422 {error, reasons}` (every reason at once) and nothing is stored. A key sent as `null` goes back to its default. `layouts` merges per screen class (`phone`, `tablet`, `pc`; "wide" uses `pc`), and `{layouts: {tablet: null}}` takes back just that pick.
 - Validation: enums for `theme`, `accent`, `text_size`, `density` and each Layout; Topic lists (`topic_order`, `pinned`, `collapsed`) take only ids in the Reader's Catalog (`unknownTopicIds`), followed or not, and keep them after an unfollow; `widgets` takes Widget kinds; `dock` takes 1 to 5 of `like, save, ask, hide, share`; `unblurred` takes only Sensitive Topics the Reader has opted into (as of the end of the same request, so a request that drops one cannot unblur it). Lists are de-duplicated, keeping the first.
 - Opting out of a Sensitive Topic, by any route, removes it from `unblurred` (a trigger on `topic_follows`), so opting in again starts blurred.
-- Later tickets add only UI and behaviour: `layouts` (ticket 09, done: see [Layouts](#layouts-screen-classes-and-the-reader-pane)), `topic_order`, `pinned`, `collapsed`, `widgets`, `dock` (ticket 11), `unblurred` (ticket 10; its switches are in the Me tab's Sensitive Topics section, see [Sensitive Topics](#sensitive-topics)). Add their controls to Me › Display (`src/app/me/display/page.tsx`, `_components/display-controls.tsx`).
+- Later tickets add only UI and behaviour: `layouts` (ticket 09, see [Layouts](#layouts-screen-classes-and-the-reader-pane)), `topic_order`, `pinned`, `collapsed`, `widgets`, `dock` (ticket 11, see [Arranging the Brief](#arranging-the-brief-groups-and-edit-mode)), `unblurred` (ticket 10; its switches are in the Me tab's Sensitive Topics section, see [Sensitive Topics](#sensitive-topics), and in Edit mode and Me › Display since ticket 11). Every key has its controls in Me › Display (`src/app/me/display/page.tsx`, `_components/display-controls.tsx`).
 - Tests: `test/api/display.test.ts` (defaults, partial updates, every validation reason, syncing between two sessions, another Reader untouched); `e2e/display.spec.ts` (changing theme and accent survives a reload and reaches another device; Arabic).
 
 ### In the browser
@@ -228,7 +228,7 @@ Rework ticket 08 (issue #8, [spec #6](https://github.com/Montasaa/morning-brief/
   - **Pictures**: `pictureKind(item)` is `item.image_kind` (graded by the pipeline and the legacy importer, ticket 10), else `photo` when there is an image, else `none`. `previewKind(item)` is the kind a small preview with no "Tap to view" may show (Up next, and the Front Page tiles and List rows): `none` for a blurred Item or explicit media. `photo` fills the frame (cover crop); `card` is a badge up to 88px tall on a white plate (`object-fit: contain`) over a plain card with a bigger headline; `none`, and any picture that fails to load, is a plain dark gradient. The card says which in `data-picture`.
   - **The veil**: a `blurred` Item has its picture and text blurred and `inert`, a light scrim under the tap thirds, and a centred button (eye, Topic name, warning, "Tap to view"). No red. Leaving the card veils it again; double-tap does nothing while veiled.
   - **The media veil** (ticket 10): a `media_blurred` Item keeps its picture (or card badge) blurred under `<MediaVeil>` (`item-image.tsx`: eye, "Explicit media", "Tap to view"; `data-testid="media-veil"`) even when it is not `blurred` and its text shows, and after the Item veil is tapped open. The card says so in `data-media-locked`. Leaving the card closes it again; the read sheet has the same veil. Any other place that shows an Item's picture must either use `<MediaVeil>` or `previewKind`.
-- `reactions.tsx`: `useReactions` (the Brief with this page's Reactions applied), `<Rail>` (Like, Save, Ask, Hide; Like and Save pop and give a light haptic tick through `navigator.vibrate`), the hide-reason sheet and `<UndoToast>`. Ticket 11 drives the rail's buttons from Display `dock`.
+- `reactions.tsx`: `useReactions` (the Brief with this page's Reactions applied), `<Rail>` (the Reader's Display `dock` buttons in order, from Like, Save, Ask, Hide and Share; Like and Save pop and give a light haptic tick through `navigator.vibrate`; Share hands the first source's link to `navigator.share`, else copies it), the hide-reason sheet and `<UndoToast>`. `DOCK_LABELS` names every dock button.
 - `sheet.tsx`: `<Sheet>`, the bottom sheet every sheet uses. It renders into `<body>`, outside the canvas, so it is in chrome colours; it rises, closes by its Close button, Esc, the scrim or a drag down (by its handle, or anywhere that is not a control), and is a centred dialog from 1024px. While one is open the Swipe Brief ignores keys (`sheetOpen()`).
 - `read-sheet.tsx` (tap the card's text, or Enter): the picture, meta, headline, why-line, full summary, extras (`card-extras.tsx`), "Also in", Like / Save / Ask and the sources. Opening it records an `open`, so the Item comes back dimmed (`data-dimmed`). `ask-sheet.tsx` is the Ask sheet.
 - `topic-tabs.tsx`: `FOR_YOU` and `groupKey(group)` (a group's tab key), and `<TopicTabs>` ("For you", then the Topics in Brief order) with a sliding indicator; the caller says which is `current` (Swipe: the Item on screen; Front Page: its scroll spy). It scrolls its own strip, never the page.
@@ -299,13 +299,68 @@ Rework ticket 09 (issue #9, [spec #6](https://github.com/Montasaa/morning-brief/
 Ignored while typing, with a modifier, or while a sheet is open (`isShortcut` in `shortcuts.tsx`).
 
 - Front Page and List: j / ArrowDown and k / ArrowUp move the pane through the Brief's order (opening it on the first Item if closed); Enter opens the first Item, or the read sheet for the open one; Esc goes from Ask to the card, then closes the pane (it works from the question box too).
-- Every Layout: s save, l like, h hide (asks why, as the rail does), a Ask (in the pane, or the Ask sheet in Swipe), on the Item being read; `/` goes to Saved & Search with the search box focused (`/saved#search`); `?` lists the shortcuts. `e` (Edit mode) is ticket 11's.
+- Every Layout: s save, l like, h hide (asks why, as the rail does; with no Hide on the Reader's dock it just hides, with Undo), a Ask (in the pane, or the Ask sheet in Swipe), on the Item being read; `/` goes to Saved & Search with the search box focused (`/saved#search`); `?` lists the shortcuts; `e` turns Edit mode on and off (see [Edit mode](#edit-mode)). In Front Page and List, Esc also leaves Edit mode once the pane is closed.
 
 ### Testing it (browser seam)
 
 - `e2e/support.ts` has `frontPage`: `group(page, name)` (the region for "For you" or a Topic), `open(page, title)` (the button that opens an Item), `pane`, `paneHeadline`, `sidebar` and `layouts` (the radiogroup "Layout"). The pane's position is `data-testid="pane-position"`.
 - The e2e server keeps one database for the run, so a spec that picks a Layout resets it first (`PATCH /api/me {display: {layouts: …null}}`), or uses its own Reader.
 - Specs: `desktop-brief.spec.ts` (Front Page, the pane and j/k, Ask in the pane, the sidebar and tabs, List and the switch surviving a reload, a sensitive card, `?` and `/`, Arabic, a tablet turned both ways, and "Swipe on a PC"), `wide-brief.spec.ts` (the pane open on the first top story, the Widgets column), `front-page.spec.ts` (phone: picking Front Page, the full-screen pane, Me › Display's Layout picks).
+
+## Arranging the Brief (groups and Edit mode)
+
+Rework ticket 11 (issue #11, [spec #6](https://github.com/Montasaa/morning-brief/issues/6)). The Reader arranges their Brief with their Display: Topic order, pins, collapse, the Cover's Widgets and the dock. **Display never changes what is in the Brief or how it ranks**: the Scorer and the top picker never read it; it only decides where groups sit and how they look.
+
+### `groups`
+
+`GET /api/brief` (and the Brief page) returns `groups` in Display order, and `items` in that same order (Swipe's order):
+
+1. the top stories (`kind: "top"`, `topic: null`), when there are any;
+2. Pinned Topics, in `pinned` order;
+3. then `topic_order`;
+4. then the remaining followed Topics by `rank`: groups by their best Item, then the followed Topics with nothing in this Edition, in Catalog order.
+
+Topics in the lists that the Reader no longer follows are skipped (they stay in the Display and count again when followed). Each group is:
+
+```ts
+{
+  kind: "top" | "topic";
+  topic: string | null;
+  pinned: boolean;           // in Display `pinned`: a small pin by its name
+  collapsed: boolean;        // in Display `collapsed`: headlines only; its Items are still in item_ids
+  item_ids: string[];        // by score, never changed by Display
+  nothing_qualified: boolean; // a followed Topic no Item in this Brief carries: item_ids is empty
+  note: string | null;       // the Edition's note on why nothing qualified (Edition v3 carries none yet: null)
+  sensitive: boolean;        // a Sensitive Topic: Edit mode shows its blur switch
+  rank: number;              // ranked place (0 = top stories), which Display never changes
+}
+```
+
+- `src/server/brief/arrange.ts` does the arranging, with no server imports: `composeBrief` arranges with the stored Display, and `<BriefLayouts>` arranges the same Brief again with the Display on screen, so a change shows at once (before it is saved) and a change made on another device shows when the page comes back into view. `arrangeWidgets` orders `cover.widgets` by Display `widgets` (the server's `withWidgets` uses it too) and puts the eligible Widgets the Reader removed in `cover.more_widgets`, so Edit mode can add them back.
+- **Nothing qualified** is a Topic that no Item in the Reader's Brief carries (an Item shown under another Topic, or as a top story, counts). The app adds these; the pipeline doesn't have to.
+- **Never Sensitive first**, whatever the arrangement: with no top stories, if the first group with Items is led by a Sensitive Item, the first group led by a non-Sensitive one moves in front of it (pins included). When every group is led by a Sensitive Item but a lower Item is not, the composer makes the best non-Sensitive Item the top story first (this does not read the Display). Only a Brief of nothing but Sensitive Items opens on the nothing-to-show note.
+
+### Edit mode
+
+`<BriefLayouts>` keeps Edit mode (so it survives a Layout switch): the Edit button (on the Swipe Cover; in the Cover header of Front Page and List, `aria-pressed`) or `e` turns it on; Done (or `e`, or Esc in Front Page and List) leaves. Every change is a Display change through `useArrange()` (`_components/arrange.tsx`), shown at once and saved straight away; a failed save puts it back. The blur switch also refreshes the page's data, because `blurred` is decided on the server.
+
+- **Front Page and List** (`front-page.tsx`): each Topic heading gets quiet controls (`<TopicControls>`): a drag handle (HTML drag and drop onto another heading of the same section), "Move X up" / "Move X down" (so keyboards and screen readers never need to drag), "Pin X" and "Collapse X" (`aria-pressed`), and "Blur X" (a switch) for a Sensitive Topic. The cards stay still. A bar under the tabs says Edit mode is on and holds Done. The Cover's Widgets are edited in place (`<WidgetPicks>`: move, remove, "Add X" for `more_widgets`; on wide in the Widgets column).
+- **Swipe** (`swipe-brief.tsx`): Edit opens `<EditSheet>`, the dialog "Arrange your Brief": every Topic as a row with the same controls (`<TopicList>`), the Cover's Widgets and Done.
+- **Me › Display** has the same Topic list and Widgets (every Widget kind, since eligibility depends on the day) plus the dock (`<PickList>`, 1 to 5 buttons). The page composes the Reader's Brief on the server for the ranked Topic order.
+- Reordering works inside a section: Pinned Topics among themselves (writes `pinned`), the rest among themselves (writes the whole on-screen order as `topic_order`). Pinning adds the Topic at the end of `pinned`.
+
+### How each Layout shows it
+
+- **Pinned**: first after the top stories, with a pin (`pushpin` icon, the accent) by the name in headings, the sidebar and the digest card. Topic tabs and the sidebar follow the group order.
+- **Collapsed**: Front Page and List show a one-row strip of headlines (a sensitive one says "Sensitive Item: Topic · Tap to view" until tapped) with an Expand button; hovering an expanded Topic's heading offers "Collapse X". Swipe shows one digest card (the article "X: headlines") listing the headlines; "Open X" or a headline puts its Items in its place for this visit only.
+- **Nothing qualified**: Front Page and List show the heading and "Nothing qualified in this Edition." (no Topic tab). Swipe has no slide for them; "You're caught up" names them (`data-testid="nothing-qualified"`).
+- **Dock**: the rail on the Swipe card and in the reader pane.
+
+### Testing it
+
+- API seam: `test/api/arrange-brief.test.ts` (group order with pins and `topic_order`, collapse, unfollowed Topics skipped, the never-ranking check across every kind of Display change, nothing qualified, never Sensitive first under any arrangement, Widgets order and `more_widgets`, validation of the arranging keys).
+- Browser: `e2e/desktop-arrange.spec.ts` (Edit mode pinning and collapsing, surviving a reload; move up/down from the keyboard and dragging a handle, in List where both headings fit on screen; Widgets in place; nothing qualified; hover collapse; the dock in the pane) and `e2e/arrange.spec.ts` (phone: the digest card, the Edit sheet, Me › Display in English and Arabic, the dock on the rail, nothing qualified at the end). Playwright's `dragTo` does not start an HTML drag here; the spec's `drag` helper moves the mouse in steps instead.
+- Specs that arrange things reset the arranging keys first (`PATCH /api/me {display: {pinned: null, ...}}`): the e2e database lasts the whole run.
 
 ## Sensitive Topics
 

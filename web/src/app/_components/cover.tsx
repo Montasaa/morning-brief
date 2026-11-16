@@ -5,12 +5,15 @@
 // Front Page and List show the header form (front-page.tsx) from the same
 // pieces (`useCoverLines`, <WidgetRows>). Both carry the Layout switch.
 //
-// The same look closes the Brief: <CaughtUp> ("You're caught up").
+// The same look closes the Brief: <CaughtUp> ("You're caught up"), which in
+// Swipe also names the followed Topics with nothing in this Edition (rework
+// ticket 11). The full-screen form carries the Edit button too (`onEdit`).
 //
 // <NothingToShow> is the note a Brief opens with when it holds nothing but
 // Sensitive Items (`brief.nothing_to_show`, rework ticket 10): they are never
 // the first thing after the Cover. Every Layout's Cover shows it.
 import type { Brief } from "@/server/brief/compose";
+import { topicName } from "./i18n";
 import { WidgetRows } from "./cover-widgets";
 import { formatCoverDate, formatNextEdition, itemCount } from "./format";
 import { Icon } from "./icons";
@@ -32,7 +35,7 @@ export function useCoverLines(brief: Brief): { greeting: string; date: string; e
   };
 }
 
-export function Cover({ brief }: { brief: Brief }) {
+export function Cover({ brief, onEdit }: { brief: Brief; onEdit?(): void }) {
   const { t } = useLanguage();
   const lines = useCoverLines(brief);
   return (
@@ -43,6 +46,12 @@ export function Cover({ brief }: { brief: Brief }) {
           <p className={s.greeting}>{lines.greeting}</p>
           <span className={s.tools}>
             <LayoutSwitch />
+            {onEdit && (
+              <button type="button" className={s.edit} onClick={onEdit}>
+                <Icon name="edit" size={16} />
+                {t("Edit", "تحرير")}
+              </button>
+            )}
             <LanguageToggle className={s.lang} />
           </span>
         </div>
@@ -75,12 +84,19 @@ export function NothingToShow({ brief, className }: { brief: Brief; className?: 
 
 export function CaughtUp({ brief, onTop }: { brief: Brief; onTop(): void }) {
   const { lang, t } = useLanguage();
+  const empty = brief.groups.filter((g) => g.nothing_qualified).map((g) => topicName(brief, g.topic!, lang));
+  const list = new Intl.ListFormat(lang === "ar" ? "ar" : "en", { type: "conjunction" }).format(empty);
   return (
     <section className={`${s.screen} ${s.end}`} aria-label={t("End of the Brief", "نهاية الموجز")}>
       <div className={s.glow} aria-hidden />
       <div className={s.content}>
         <h2 className={s.date}>{t("You're caught up", "انتهيت من الموجز")}</h2>
         <p className={s.edition}>{formatNextEdition(brief, lang)}</p>
+        {empty.length > 0 && (
+          <p className={s.nothing} data-testid="nothing-qualified">
+            {t(`Nothing qualified in this Edition for ${list}.`, `لم يتأهل شيء في هذه الطبعة لـ${list}.`)}
+          </p>
+        )}
         <button type="button" className={s.toTop} onClick={onTop}>
           <Icon name="up" size={20} />
           {t("Back to the top", "العودة إلى البداية")}

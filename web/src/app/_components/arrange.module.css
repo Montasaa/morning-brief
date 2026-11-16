@@ -1,0 +1,168 @@
+/* The arranging controls (rework ticket 11): quiet icon buttons, outlined in
+   the accent when on, in whichever scope they sit (the dark Brief canvas on
+   Front Page and List headings; chrome in sheets and Me › Display). Every
+   target is at least --tap (44px). Logical properties only, for Arabic. */
+.controls {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+}
+.icon {
+  display: inline-grid;
+  place-items: center;
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--r-pill);
+  background: none;
+  color: var(--mute);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.icon:hover:not(:disabled) {
+  color: var(--fg);
+}
+.icon[aria-pressed="true"] {
+  border-color: var(--acc);
+  color: var(--acc);
+}
+.icon:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.grip {
+  display: inline-grid;
+  place-items: center;
+  min-width: var(--tap);
+  min-height: var(--tap);
+  color: var(--mute);
+  cursor: grab;
+  touch-action: none;
+}
+.grip:active {
+  cursor: grabbing;
+}
+
+/* The blur switch: a checkbox drawn as a small track. */
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--tap);
+  padding-inline: 6px 4px;
+  color: var(--mute);
+  font-size: var(--fs-s);
+  cursor: pointer;
+}
+.switch input {
+  appearance: none;
+  position: relative;
+  flex: none;
+  width: 34px;
+  height: 20px;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surf);
+  cursor: pointer;
+}
+.switch input::after {
+  content: "";
+  position: absolute;
+  inset-block: 2px;
+  inset-inline-start: 2px;
+  width: 14px;
+  border-radius: 50%;
+  background: var(--mute);
+  transition: inset-inline-start 0.15s var(--ease);
+}
+.switch input:checked {
+  border-color: var(--acc);
+}
+.switch input:checked::after {
+  inset-inline-start: 16px;
+  background: var(--acc);
+}
+
+/* A list of rows (the Topics, the chosen Widgets or dock buttons). */
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px var(--gap);
+  padding: 4px 0;
+  border-bottom: 1px solid var(--line);
+}
+.name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.name small {
+  color: var(--mute);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+}
+.pinMark {
+  flex: none;
+  color: var(--acc);
+}
+.more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.add {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap);
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: none;
+  color: var(--fg);
+  font: inherit;
+  font-size: var(--fs-s);
+  cursor: pointer;
+}
+.add:hover {
+  border-color: var(--acc);
+}
+.pick + .pick {
+  margin-top: 8px;
+}
+.empty,
+.lede {
+  margin: 4px 0 0;
+  color: var(--mute);
+  font-size: var(--fs-s);
+}
+.done {
+  display: block;
+  width: 100%;
+  min-height: var(--tap);
+  margin-top: 16px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--acc);
+  color: var(--on-acc);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
