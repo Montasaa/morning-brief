@@ -20,7 +20,7 @@ Run them from `web/`. Node 22.12 or newer.
 | Full suite | `npm test` |
 | Browser smoke (phone size) | `npm run test:e2e` |
 | All of the above | `npm run check` |
-| Dev server | `INGEST_TOKEN=dev OWNER_EMAIL=you@example.com OUTSIDE_SERVICES=fake FAKE_OUTBOX_FILE=data/outbox.jsonl npm run dev`, then open http://localhost:3000/brief, ask for a sign-in link and open the one written to `data/outbox.jsonl` |
+| Dev server | `INGEST_TOKEN=dev OWNER_EMAIL=you@example.com OUTSIDE_SERVICES=fake npm run dev`, then open http://localhost:3000/brief and, on the first visit, choose the Owner's password on the sign-in page |
 
 Typecheck, the full suite and the browser smoke must pass before a ticket is done.
 
@@ -48,10 +48,10 @@ All configuration comes from environment variables. `.env.example` lists them. S
 - `BASE_PATH`: the path the app is served under (default `/brief`). It is read at build time, so links and assets must go through Next.js (`<Link>`, `next/image`, `basePath`-aware fetches) and never hard-code `/brief`.
 - `DATABASE_PATH`: the SQLite file (default `data/brief.db`).
 - `INGEST_TOKEN`: the bearer token for pipeline routes. Unset means every pipeline call is refused.
-- `OUTSIDE_SERVICES=fake`: use the fakes instead of the real services (e2e server and local demos only). `FAKE_OUTBOX_FILE` makes the fake Resend also append each email to a file, so you can open magic links locally.
-- `OWNER_EMAIL`: the Owner, created at setup (when the database opens and no Owner exists yet). Never through an Invite.
-- `PUBLIC_ORIGIN`: the origin magic links point at (e.g. `https://example.com`). Set it in production; without it, links use the request's Host header. An `https` origin makes the session cookie `Secure`.
-- `RESEND_API_KEY` and `EMAIL_FROM`: the Resend adapter (sign-in and Invite emails). Unset means email is not connected.
+- `OUTSIDE_SERVICES=fake`: use the fakes instead of the real services (e2e server and local demos only). `FAKE_OUTBOX_FILE` makes the fake Resend also append each email to a file.
+- `OWNER_EMAIL`: the Owner, created at setup (when the database opens and no Owner exists yet). Never through an Invite. The Owner chooses their password on the sign-in page on the first visit.
+- `PUBLIC_ORIGIN`: the site's public origin (e.g. `https://example.com`). Set it in production: an `https` origin makes the session cookie `Secure`; without it, the request's origin decides.
+- `RESEND_API_KEY` and `EMAIL_FROM`: the Resend adapter. Optional: sign-in does not use email (issue #17), and nothing else sends email yet. Unset means email is not connected.
 - `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY` and `VAPID_SUBJECT`: Web Push (ticket 18). `.env.example` has the one-liner that makes a key pair.
 
 ## Access: who may call what
@@ -64,6 +64,16 @@ Every route handler checks access first, with the helpers in `src/server/access.
 - **Pages** call `requireReaderPage()` (`src/server/readers/page-session.ts`), which redirects signed-out visitors to `/sign-in`.
 
 Sessions are an HttpOnly `mb_session` cookie (one per device, a year long, scoped to the base path); only token hashes are stored. Plain HTML forms posting to the auth routes get a `303` redirect back, JSON callers get JSON.
+
+### Signing in with a password (issue #17)
+
+Readers sign in with their email and a password; no email is ever sent to sign in. The code is in `src/server/readers/sign-in.ts` (sign-in, the Owner's first password, changing your own), `passwords.ts` (hashing) and `invites.ts` (the Owner adding Readers and resetting their passwords).
+
+- **Sign in**: `POST /api/auth/sign-in {email, password}` → `200 {reader}` with the session cookie. A wrong password, an unknown email, a revoked Reader and a Reader with no password all get the same `401 {error: "Wrong email or password."}` (an unknown email is still hashed against a dummy, so the timing is the same). The form post redirects to the Brief, or to `/sign-in?error=wrong|limit`.
+- **The Owner's first password**: while the Owner has no password, the sign-in page shows a "First visit: choose the Owner's password" form (Owner's email, New password, Type it again, "Set password and sign in") posting to `POST /api/auth/first-password {email, password, confirm_password}`. Only the Owner's email, and only while the Owner has no password: it sets it and signs in. Anything else is `403` (form: `/sign-in?first=refused`), and once it is set the form is gone. Until then, anyone who knows `OWNER_EMAIL` could claim it, so choose it as soon as the site is deployed.
+- **Readers**: on the Invites page the Owner adds a Reader with an email and a password they choose (`POST /api/invites {email, password}` → `201 {invite}`, already `accepted` with its `reader_id`) and tells the person. "Reset password" on a Reader's row (`POST /api/invites/{id}/password {password}`) sets a new one and signs that Reader out everywhere. Revoke (`DELETE /api/invites/{id}`) signs them out, wipes the password and blocks sign-in; adding the same email again brings the Reader back (same id and history) with a new password. Readers from before issue #17 have no password until the Owner resets it.
+- **Change your own**: Me › Password (`/me/password`), a plain form posting `{current_password, new_password, confirm_password}` to `POST /api/auth/password`. This device stays signed in; the Reader's other devices are signed out.
+- **Rules**: at least 8 characters (at most 200). Stored only as `scrypt$N$r$p$salt$hash` in `readers.password_hash` (random 16-byte salt, N = 2^15, r = 8, p = 1, compared with `timingSafeEqual`). Each hash records its own parameters, so `PASSWORD_COST` (`src/server/config.ts`) can be raised later; the test app lowers it to keep the suite fast. Failed tries are limited per email: after 10 in 15 minutes the next ones get `429` (form: `?error=limit`), even with the right password. They are counted in `sign_in_failures` under a hash of the email, so a restart does not reset them; a good sign-in or a reset by the Owner clears them. Emails and passwords are never logged.
 
 ## The database and migrations
 
@@ -111,8 +121,8 @@ it("returns the latest Edition's Items newest first", async () => {
 - `startTestApp()` creates a scratch database in a temp folder, applies the migrations, installs the fakes and returns the app. It is closed and deleted after each test.
 - `app.request(method, path, { body, token, headers, rawBody, cookie })` calls the route handler under `src/app/api` that matches the path, in-process, just as Next.js would (dynamic `[id]` segments and route groups work). A new route file needs no registration.
 - Set up state only through public endpoints: post Editions to the ingest endpoint, act as Readers through signed-in sessions. `app.request` is signed out.
-- Signed-in Readers: `app.signInAsOwner()` (the test app's Owner is `TEST_OWNER_EMAIL`), `app.addReader(email)` (the Owner invites them, then they sign in) and `app.signIn(email)` each go through the real magic-link flow and return a session whose `request(...)` sends its cookie. Each call is a new device. `app.lastMagicLink(email)` and `app.openLink(url)` drive the flow by hand.
-- Time: magic links and sessions read `Date.now()`, so `vi.useFakeTimers({ toFake: ["Date"] })` and `vi.setSystemTime()` move the clock (restore with `vi.useRealTimers()`).
+- Signed-in Readers: `app.signInAsOwner()` (the test app's Owner is `TEST_OWNER_EMAIL`), `app.addReader(email)` (the Owner adds them with a password on the Invites API, then they sign in) and `app.signIn(email)` each sign in through `POST /api/auth/sign-in` with `TEST_PASSWORD` and return a session whose `request(...)` sends its cookie. The Owner's first sign-in chooses `TEST_PASSWORD` through `POST /api/auth/first-password` on the way. Pass `{ password }` to use (or, for `addReader`, give) another. Each call is a new device.
+- Time: sessions and the sign-in rate limit read `Date.now()`, so `vi.useFakeTimers({ toFake: ["Date"] })` and `vi.setSystemTime()` move the clock (restore with `vi.useRealTimers()`).
 - Onboarding: `signIn`, `signInAsOwner` and `addReader` finish a first-time Reader's onboarding through `PATCH /api/me`, following **every Catalog Topic**, then opt into the Sensitive ones the way the Me tab does (`POST /api/topics/{id}/follow`, with the 18+ confirmation), so their Brief is the whole Edition. A Reader already onboarded is left alone. Pass `{ onboarded: false }` for a Reader on their first visit (no Topics, an empty Brief), then set exactly what they follow with `PATCH /api/me {topics, onboarded: true}` or `POST /api/topics/{id}/follow|unfollow`. Items whose Topics are not in the Catalog never reach a Brief, because nobody can follow them.
 - Fixtures: `test/fixtures/edition.morning.json` is a valid hand-written Edition (5 Items across 6 Topics, 1 Story Thread). Tests copy it with `morningEdition()` and change what they need.
 
@@ -121,7 +131,7 @@ it("returns the latest Edition's Items newest first", async () => {
 Playwright at phone size (Pixel 7, Chromium) in `e2e/`, against `next dev` with a fresh `.e2e/` database and `OUTSIDE_SERVICES=fake`. Tests set up data through the API, sign in, then use the page. Only smoke flows go here, never ranking.
 
 - Import `test`, `expect`, `E2E_BASE_PATH`, `signIn` and the helpers from `e2e/support.ts`, not from `@playwright/test`. Its `test` aborts every request that is not to the app itself (Item images on example.com and so on), so the browser makes no real network calls.
-- Every screen but `/sign-in` needs a session: call `await signIn(page)` first (from `e2e/support/sign-in.ts`, re-exported by `e2e/support.ts`). It signs in as the Owner by default by opening the magic link the fake Resend wrote to `.e2e/outbox.jsonl`, and leaves the page on the Brief. Because the database lasts the whole run, it also resets the Reader's language to English and, on their first sign-in, finishes onboarding following (and opted into) every Catalog Topic; `signIn(page, email, { onboard: false })` leaves a new Reader on `/onboarding`. Tests that change an Interest Profile (follows, city) use their own invited Reader, not the Owner. The Owner's account bar (email, Invites, Sign out) is on the Me tab.
+- Every screen but `/sign-in` needs a session: call `await signIn(page)` first (from `e2e/support/sign-in.ts`, re-exported by `e2e/support.ts`). It signs in as the Owner by default with `E2E_PASSWORD` (which the Owner chose on the first visit, in `e2e/first-visit.setup.ts`: the `first-visit` project runs before every other project on the fresh database), and leaves the page on the Brief. Readers a spec adds get `E2E_PASSWORD` too (`POST /api/invites {email, password: E2E_PASSWORD}`); `signIn(page, email, { password })` uses another. Because the database lasts the whole run, it also resets the Reader's language to English and, on their first sign-in, finishes onboarding following (and opted into) every Catalog Topic; `signIn(page, email, { onboard: false })` leaves a new Reader on `/onboarding`. Tests that change an Interest Profile (follows, city) use their own invited Reader, not the Owner. The Owner's account bar (email, Invites, Sign out) is on the Me tab.
 - `postEdition(request, edition)` posts with the e2e token. `swipeEdition()` is the morning fixture plus a US Markets and a game Item (7 Items, every kind of card extra). The database is fresh per run, not per test, so post the Edition your test needs in the test or a `beforeEach`.
 - Drive the Swipe Brief with the `swipe` helpers in `e2e/support.ts` (see [The Swipe Brief](#the-swipe-brief-the-reels-look)), not by hand: `swipe.next(page)` / `swipe.back(page)` tap a third of the picture and wait for the move to land, `swipe.drag(page, px, { steps, pause })` drags a finger. Match buttons with `exact: true`.
 - Fix the clock with `page.clock.setFixedTime(...)` before `page.goto` when a test reads relative times ("50m ago"). They are filled in after the page loads.

@@ -1,13 +1,13 @@
 // Front Page on a phone (rework ticket 09). A phone opens in Swipe; a Reader
 // can pick Front Page (or List) for their phone from the Cover or in
 // Me › Display, and then the reader pane opens full screen.
-import { E2E_BASE_PATH, expect, frontPage, postEdition, signIn, swipe, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, frontPage, postEdition, signIn, swipe, swipeEdition, test } from "./support";
 
 const READER = "fp-phone@example.com";
 
 test.beforeEach(async ({ page }) => {
   await signIn(page);
-  await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: READER } });
+  await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: READER, password: E2E_PASSWORD } });
   await signIn(page, READER);
   await postEdition(page.request, swipeEdition());
   const reset = await page.request.patch(`${E2E_BASE_PATH}/api/me`, { data: { display: { layouts: null } } });

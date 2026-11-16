@@ -4,7 +4,7 @@
 // once, survive a reload (rendered on the document by the server, so there is
 // no flash) and reach the Reader's other devices, in English and Arabic.
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, postEdition, signIn, swipeEdition, test } from "./support";
 
 const READER = "dina@example.com";
 const html = (page: Page) => page.locator("html");
@@ -13,7 +13,7 @@ test.beforeEach(async ({ page, request }) => {
   await postEdition(request, swipeEdition());
   // The Owner invites Dina, then this page signs in as Dina, with the default Display.
   await signIn(page);
-  await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: READER } });
+  await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: READER, password: E2E_PASSWORD } });
   await signIn(page, READER);
   const reset = await page.request.patch(`${E2E_BASE_PATH}/api/me`, {
     data: { display: { theme: null, accent: null, text_size: null, density: null } },

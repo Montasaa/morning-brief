@@ -22,6 +22,11 @@ export const TEST_INGEST_TOKEN = "test-ingest-token";
 export const TEST_BASE_PATH = "/brief";
 /** The Owner every test app is set up with (OWNER_EMAIL). */
 export const TEST_OWNER_EMAIL = "owner@example.com";
+/**
+ * The password the helpers use: the Owner chooses it on their first sign-in,
+ * and addReader() gives it to every Reader it adds.
+ */
+export const TEST_PASSWORD = "correct horse battery";
 
 export interface TestResponse {
   status: number;
@@ -60,9 +65,11 @@ export interface TestApp {
   /** Post an Edition to the ingest endpoint with the pipeline's bearer token. */
   postEdition(edition: unknown): Promise<TestResponse>;
   /**
-   * Sign in the way a Reader does: request a magic link for `email`, open the
-   * newest link the fake Resend outbox holds for it, and keep the session cookie.
-   * Throws if no link arrives (the email is not invited) or the link is refused.
+   * Sign in the way a Reader does: POST /api/auth/sign-in with `email` and its
+   * password (TEST_PASSWORD unless `options.password` says otherwise), and keep
+   * the session cookie. The Owner's first sign-in chooses their password on the
+   * way (POST /api/auth/first-password), as the sign-in page offers. Throws if
+   * the sign-in is refused.
    *
    * A Reader who has not been through onboarding yet finishes it straight away
    * (through PATCH /api/me), following every Catalog Topic (opted into the
@@ -73,18 +80,19 @@ export interface TestApp {
   signIn(email: string, options?: SignInOptions): Promise<TestSession>;
   /** signIn() as the Owner (TEST_OWNER_EMAIL). */
   signInAsOwner(options?: SignInOptions): Promise<TestSession>;
-  /** The Owner invites `email`, then that Reader signs in. The usual way to get a second Reader. */
+  /**
+   * The Owner adds `email` as a Reader with TEST_PASSWORD (or `options.password`) on the
+   * Invites API, then that Reader signs in. The usual way to get a second Reader.
+   */
   addReader(email: string, options?: SignInOptions): Promise<TestSession>;
-  /** The newest magic link (full URL) the fake Resend outbox holds for `email`, or null. */
-  lastMagicLink(email: string): string | null;
-  /** Open a magic link (or any URL under the app) as a fresh browser would: GET, no cookie. */
-  openLink(url: string): Promise<TestResponse>;
   close(): void;
 }
 
 export interface SignInOptions {
   /** Finish onboarding (following every Catalog Topic) if this Reader has not yet. Default true. */
   onboarded?: boolean;
+  /** The password to sign in with (and, for addReader, to give them). Default TEST_PASSWORD. */
+  password?: string;
 }
 
 export interface TestAppOptions {
@@ -92,7 +100,7 @@ export interface TestAppOptions {
   ingestToken?: string;
   /** Defaults to TEST_OWNER_EMAIL. Pass "" to start with no Owner. */
   ownerEmail?: string;
-  /** PUBLIC_ORIGIN. Defaults to "" (links use the request's host, http://brief.test). */
+  /** PUBLIC_ORIGIN. Defaults to "" (the request's origin, http://brief.test, decides on Secure cookies). */
   publicOrigin?: string;
 }
 
@@ -109,34 +117,29 @@ export async function startTestApp(options: TestAppOptions = {}): Promise<TestAp
       basePath: TEST_BASE_PATH,
       ownerEmail: options.ownerEmail ?? TEST_OWNER_EMAIL,
       publicOrigin: options.publicOrigin ?? "",
+      // Cheap hashes keep the suite fast; production uses PASSWORD_COST (2^15).
+      passwordCost: 2 ** 10,
     },
     services,
   });
   setAppContext(ctx);
 
-  const lastMagicLink = (email: string): string | null => {
-    const to = email.trim().toLowerCase();
-    for (const message of [...services.email.outbox].reverse()) {
-      if (message.to !== to) continue;
-      const link = /https?:\/\/\S+\/api\/auth\/callback\?token=[\w-]+/.exec(message.text);
-      if (link) return link[0];
+  const ownerEmail = options.ownerEmail ?? TEST_OWNER_EMAIL;
+  let ownerHasPassword = false;
+  const signIn = async (email: string, { onboarded = true, password = TEST_PASSWORD }: SignInOptions = {}): Promise<TestSession> => {
+    const isOwner = !!ownerEmail && email.trim().toLowerCase() === ownerEmail;
+    let res: TestResponse | null = null;
+    if (isOwner && !ownerHasPassword) {
+      // The Owner's first visit: choose the password on the sign-in page.
+      const first = await callRoute("POST", "/api/auth/first-password", {
+        body: { email, password, confirm_password: password },
+      });
+      if (first.status === 200) res = first;
     }
-    return null;
-  };
-  const openLink = (url: string): Promise<TestResponse> => {
-    const u = new URL(url);
-    if (!u.pathname.startsWith(TEST_BASE_PATH + "/")) throw new Error(`Link is not under the app: ${url}`);
-    return callRoute("GET", u.pathname.slice(TEST_BASE_PATH.length) + u.search);
-  };
-  const signIn = async (email: string, { onboarded = true }: SignInOptions = {}): Promise<TestSession> => {
-    const before = lastMagicLink(email);
-    const asked = await callRoute("POST", "/api/auth/magic-link", { body: { email } });
-    if (asked.status !== 200) throw new Error(`Magic link request for ${email} failed: ${asked.status} ${asked.text}`);
-    const link = lastMagicLink(email);
-    if (!link || link === before) throw new Error(`No magic link was emailed to ${email}`);
-    const opened = await openLink(link);
-    const cookie = sessionCookie(opened);
-    if (!cookie) throw new Error(`The magic link for ${email} did not sign in (${opened.status} ${opened.headers.get("location")})`);
+    res ??= await callRoute("POST", "/api/auth/sign-in", { body: { email, password } });
+    if (isOwner && res.status === 200) ownerHasPassword = true;
+    const cookie = sessionCookie(res);
+    if (res.status !== 200 || !cookie) throw new Error(`Signing in ${email} failed: ${res.status} ${res.text}`);
     const session: TestSession = {
       email,
       cookie,
@@ -154,15 +157,14 @@ export async function startTestApp(options: TestAppOptions = {}): Promise<TestAp
     request: (method, p, opts) => callRoute(method, p, opts),
     postEdition: (edition) => callRoute("POST", "/api/editions", { body: edition, token: ingestToken }),
     signIn,
-    signInAsOwner: (opts) => signIn(options.ownerEmail || TEST_OWNER_EMAIL, opts),
+    signInAsOwner: (opts) => signIn(ownerEmail || TEST_OWNER_EMAIL, opts),
     async addReader(email, opts) {
-      const owner = await signIn(options.ownerEmail || TEST_OWNER_EMAIL);
-      const invited = await owner.request("POST", "/api/invites", { body: { email } });
-      if (invited.status !== 201) throw new Error(`Inviting ${email} failed: ${invited.status} ${invited.text}`);
+      const owner = await signIn(ownerEmail || TEST_OWNER_EMAIL);
+      const password = opts?.password ?? TEST_PASSWORD;
+      const added = await owner.request("POST", "/api/invites", { body: { email, password } });
+      if (added.status !== 201) throw new Error(`Adding ${email} failed: ${added.status} ${added.text}`);
       return signIn(email, opts);
     },
-    lastMagicLink,
-    openLink,
     close() {
       if (closed) return;
       closed = true;

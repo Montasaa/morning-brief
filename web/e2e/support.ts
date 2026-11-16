@@ -16,10 +16,10 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { test as base, expect, type APIRequestContext, type Page } from "@playwright/test";
-import { E2E_BASE_PATH, E2E_INGEST_TOKEN } from "../playwright.config";
+import { E2E_BASE_PATH, E2E_INGEST_TOKEN, E2E_PASSWORD } from "../playwright.config";
 
-export { expect, E2E_BASE_PATH };
-export { lastMagicLink, signIn } from "./support/sign-in";
+export { expect, E2E_BASE_PATH, E2E_PASSWORD };
+export { signIn } from "./support/sign-in";
 
 export const test = base.extend<{ onlyTheApp: void }>({
   onlyTheApp: [

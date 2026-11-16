@@ -1,5 +1,6 @@
-// The Owner's Invites: invite someone by email, see who is pending, accepted
-// or revoked, and revoke access.
+// The Owner's Invites: add a Reader with an email and a password the Owner
+// chooses (and tells them), see every Reader and revoked Invite, reset a
+// Reader's password, and revoke access.
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getAppContext } from "@/server/app";
@@ -29,8 +30,8 @@ export default async function InvitesPage() {
       </h1>
       <p style={{ margin: "0 0 20px", color: "var(--mute)", fontSize: "var(--fs-s)" }}>
         <T
-          en="Only people you invite can read. They get an email with a sign-in link."
-          ar="لا يقرأ إلا من تدعوهم. يصلهم بريد فيه رابط تسجيل الدخول."
+          en="Only people you add can read. Choose a password for each one and tell it to them: they sign in with their email and that password, and can change it on their Me tab."
+          ar="لا يقرأ إلا من تضيفهم. اختر كلمة مرور لكل شخص وأخبره بها: يسجّل الدخول ببريده وكلمة المرور هذه، ويستطيع تغييرها من تبويب «أنا»."
         />
       </p>
       <InvitesManager basePath={ctx.config.basePath} initial={listInvites(ctx)} />

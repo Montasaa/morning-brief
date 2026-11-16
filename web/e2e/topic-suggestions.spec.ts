@@ -4,7 +4,7 @@
 // themselves, follow one suggestion and skip another, and do the same later
 // from the Me tab. The e2e server's fake Claude suggests Liverpool and AI.
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, postEdition, signIn, swipeEdition, test } from "./support";
 
 const topic = (page: Page, name: string) => page.getByRole("checkbox", { name, exact: true });
 const suggested = (page: Page) => page.getByRole("list", { name: "Suggested Topics" });
@@ -14,7 +14,9 @@ test("a new Reader follows a Topic Claude suggests from their note, skips anothe
 }) => {
   await postEdition(page.request, swipeEdition());
   await signIn(page);
-  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "rana@example.com" } });
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, {
+    data: { email: "rana@example.com", password: E2E_PASSWORD },
+  });
   expect(invited.status(), await invited.text()).toBe(201);
   await signIn(page, "rana@example.com", { onboard: false });
 

@@ -3,7 +3,7 @@
 // Reader can get through onboarding to a Brief of their Topics, and change
 // their Interest Profile on the Me tab.
 import type { Page } from "@playwright/test";
-import { E2E_BASE_PATH, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, postEdition, signIn, swipe, swipeEdition, test } from "./support";
 
 
 const topic = (page: Page, name: string) => page.getByRole("checkbox", { name, exact: true });
@@ -14,7 +14,9 @@ test("a new Reader picks Topics on their first visit, gets a Brief of just those
   await postEdition(page.request, swipeEdition());
   // The Owner invites Noor; then this page signs in as Noor, a first-time Reader.
   await signIn(page);
-  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "noor@example.com" } });
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, {
+    data: { email: "noor@example.com", password: E2E_PASSWORD },
+  });
   expect(invited.status(), await invited.text()).toBe(201);
   await signIn(page, "noor@example.com", { onboard: false });
 

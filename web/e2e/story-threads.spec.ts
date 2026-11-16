@@ -1,7 +1,7 @@
 // Smoke test for Story Threads at phone size (ticket 14). What a Thread holds,
 // and for whom, is tested at the API seam (test/api/threads.test.ts); this only
 // checks the Thread chip and Follow on a card, the timeline, and the Threads tab.
-import { E2E_BASE_PATH, expect, morningEdition, postEdition, signIn, swipe, swipeEdition, test } from "./support";
+import { E2E_BASE_PATH, E2E_PASSWORD, expect, morningEdition, postEdition, signIn, swipe, swipeEdition, test } from "./support";
 
 /** An older Edition with an earlier development on the Yemen truce Thread (posted first, so it never becomes the latest). */
 function earlierEdition() {
@@ -33,7 +33,9 @@ test("a card on a Story Thread shows its chip; Follow sticks, the chip opens the
   await postEdition(page.request, swipeEdition());
   // Following a Thread changes this Reader's profile, so use a Reader of the test's own.
   await signIn(page);
-  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "hana@example.com" } });
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, {
+    data: { email: "hana@example.com", password: E2E_PASSWORD },
+  });
   expect(invited.status(), await invited.text()).toBe(201);
   await signIn(page, "hana@example.com");
 
@@ -89,7 +91,9 @@ test("the Threads tab keeps a sensitive newest development behind its warning un
   ];
   await postEdition(page.request, edition);
   await signIn(page);
-  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, { data: { email: "thread-blur@example.com" } });
+  const invited = await page.request.post(`${E2E_BASE_PATH}/api/invites`, {
+    data: { email: "thread-blur@example.com", password: E2E_PASSWORD },
+  });
   expect(invited.status(), await invited.text()).toBe(201);
   await signIn(page, "thread-blur@example.com"); // opted into every Sensitive Topic on first sign-in
   const followed = await page.request.post(`${E2E_BASE_PATH}/api/threads/flood-recovery-e2e/follow`);
