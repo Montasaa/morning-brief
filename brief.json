@@ -2,7 +2,7 @@
  "version": 2,
  "schema_rev": "2.3",
  "sample": false,
- "generated_at": "2026-11-16T19:15:28+03:00",
+ "generated_at": "2026-11-17T06:43:05+03:00",
  "timezone": "Asia/Riyadh",
  "top_stories": [
   {
@@ -20,49 +20,144 @@
  ],
  "sections": {
   "middle_east": {
-   "what_changed": "the houthis pushed to within 80km of aden, iran's revolutionary guard said two tankers hit mines in hormuz, and a bahraini court jailed 64 shia muslims for life.",
-   "what_changed_ar": "اقترب الحوثيون إلى 80 كيلومتراً من عدن، وقال الحرس الثوري الإيراني إن ناقلتي نفط أصابتهما ألغام في هرمز، وحكمت محكمة بحرينية بالسجن المؤبد على 64 شيعياً.",
+   "what_changed": "houthi fighters closed to about 60km west of aden, two more tankers were attacked in hormuz, and israel's opposition accused netanyahu of an attempted coup.",
+   "what_changed_ar": "اقترب مقاتلو الحوثي إلى نحو 60 كيلومتراً غرب عدن، وتعرّضت ناقلتان أخريان لهجوم في هرمز، واتهمت المعارضة الإسرائيلية نتنياهو بمحاولة انقلاب.",
    "items": [
     {
      "id": "me-yemen-mandab",
-     "title": "houthis push to within 80km of aden after yemen's bab al-mandab pullout",
-     "title_ar": "الحوثيون على بعد 80 كيلومتراً من عدن بعد انسحاب القوات اليمنية من باب المندب",
-     "summary": "Yemen's Saudi-backed forces gave up Dhubab airport and the Bab al-Mandab area on Sunday to defend Aden, and Al Jazeera reports Houthi fighters have since reached Tor al-Baha, about 80km (50 miles) from the city. The government's Operation Yemen Dawn says it carried out 661 operations and 'neutralised' 173 Houthi fighters in Taiz, Marib and al-Jawf, while the Saudi-led coalition says it intercepted two Houthi drones over the Mecca and Riyadh regions.",
-     "summary_ar": "تخلّت القوات اليمنية المدعومة من السعودية عن مطار ذباب ومنطقة باب المندب الأحد للدفاع عن عدن، وتقول الجزيرة إن مقاتلي الحوثي وصلوا منذ ذلك الحين إلى طور الباحة على بعد نحو 80 كيلومتراً (50 ميلاً) من المدينة. وتقول عملية «فجر اليمن» الحكومية إنها نفّذت 661 عملية و«حيّدت» 173 من مقاتلي الحوثي في تعز ومأرب والجوف، بينما يقول التحالف بقيادة السعودية إنه اعترض مسيّرتين حوثيتين فوق منطقتي مكة والرياض.",
+     "section": "middle_east",
+     "status": "updated",
+     "title": "houthis hold ground 60km from aden as the army claims 661 attacks",
+     "title_ar": "الحوثيون يتمركزون على بعد 60 كيلومتراً من عدن والجيش يعلن 661 هجوماً",
+     "summary": "Yemen's Saudi-backed forces pulled out of the Bab al-Mandab area on Sunday to defend Aden, and military sources told AFP on Monday that Houthi fighters were holding positions as close as 60km (37 miles) west of the city. Yemen's army says it carried out 661 operations and killed or wounded 173 Houthi fighters in Taiz, Marib and al-Jawf, claims the Houthis have not confirmed; ABC reports Aden airport was targeted again.",
+     "summary_ar": "انسحبت القوات اليمنية المدعومة من السعودية من منطقة باب المندب الأحد للدفاع عن عدن، ونقلت وكالة فرانس برس عن مصادر عسكرية الاثنين أن مقاتلي الحوثي يتمركزون على مسافة 60 كيلومتراً (37 ميلاً) غرب المدينة. ويقول الجيش اليمني إنه نفّذ 661 عملية وقتل أو جرح 173 من مقاتلي الحوثي في تعز ومأرب والجوف، وهي مزاعم لم يؤكدها الحوثيون؛ وتفيد ABC بأن مطار عدن تعرّض للاستهداف مجدداً.",
      "sources": [
       {
        "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/2026/11/16/houthis-edge-closer-to-aden-as-yemeni-forces-pull-out-of-bab-al-mandeb",
+       "url": "https://www.aljazeera.com/news/2026/11/17/yemen-army-reports-661-attacks-on-houthis-amid-houthi-push-towards-aden",
        "type": "independent"
       },
       {
-       "title": "BBC News",
-       "url": "https://www.bbc.co.uk/news/articles/cqvg2xgyvnjpo",
+       "title": "ABC News",
+       "url": "https://www.abc.net.au/news/2026-11-17/yemen-government-forces-retreat-bab-el-mandeb-strait/107392710",
        "type": "independent"
       }
      ],
-     "time": "2026-11-16T16:45:00+03:00",
-     "section": "middle_east",
-     "status": "updated",
-     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e0bf/live/84ae2db0-e165-11f1-9e72-69608c7a1547.jpg"
+     "time": "2026-11-17T03:00:00+03:00",
+     "image": "https://live-production.wcms.abc-cdn.net.au/ae30053f33cb21a1e96de45d2c485d5e?impolicy=wcms_watermark_news&cropH=2813&cropW=5000&xPos=0&yPos=260&width=862&height=485&imformat=generic"
     },
     {
-     "id": "me-iran-carrier",
-     "title": "a third US carrier arrives as iran warns it could strike first",
-     "title_ar": "وصول حاملة طائرات أميركية ثالثة وإيران تحذّر من أنها قد تبادر بالهجوم",
-     "summary": "The USS Theodore Roosevelt has joined two other US carriers in Central Command's area, a US official told Al Jazeera. Deputy foreign minister Kazem Gharibabadi said Tehran 'will not wait for the US to attack first' and suggested Washington might be using diplomacy to buy time for another strike.",
-     "summary_ar": "انضمت حاملة الطائرات الأميركية ثيودور روزفلت إلى حاملتين أخريين في منطقة القيادة المركزية، بحسب مسؤول أميركي تحدث إلى الجزيرة. وقال نائب وزير الخارجية كاظم غريب آبادي إن طهران «لن تنتظر أن تهاجمها الولايات المتحدة أولاً»، واقترح أن واشنطن قد تستغل الدبلوماسية لكسب الوقت لضربة أخرى.",
+     "id": "me-hormuz-mines",
+     "section": "middle_east",
+     "status": "updated",
+     "title": "two more tankers attacked in hormuz as iran reports mine strikes",
+     "title_ar": "هجومان جديدان على ناقلتين في هرمز وإيران تتحدث عن ألغام",
+     "summary": "The UK Maritime Trade Operations agency reported two tanker attacks in the Strait of Hormuz on Monday: a ship was disabled and an engine-room fire broke out 13km north of Khasab, Oman, after an earlier projectile strike on a tanker leaving the strait. Iran's Revolutionary Guard said two tankers hit naval mines on what it called an unauthorised route; the claims could not be independently verified and no casualties were reported. A drone flew over Iraq's Khor Mor gas field, where production was halted last week after a suspected attack.",
+     "summary_ar": "أبلغت هيئة «عمليات التجارة البحرية» البريطانية عن هجومين على ناقلتين في مضيق هرمز الاثنين: تعطّلت سفينة واندلع حريق في غرفة المحركات على بعد 13 كيلومتراً شمال خصب في عُمان، بعد إصابة ناقلة سابقة بصاروخ مجهول أثناء خروجها من المضيق. وقال الحرس الثوري الإيراني إن ناقلتي نفط أصابتهما ألغام بحرية في مسار وصفه بأنه غير مصرح به؛ ولم يتم التحقق من هذه المزاعم بشكل مستقل ولم تُبلغ عن إصابات. وحلّقت مسيّرة فوق حقل خور مور للغاز في العراق الذي توقّف إنتاجه الأسبوع الماضي بعد هجوم مشتبه به.",
      "sources": [
       {
        "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/liveblog/2026/11/16/iran-war-live-tehran-warns-it-may-strike-first-before-another-us-attack",
+       "url": "https://www.aljazeera.com/news/2026/11/17/tankers-hit-in-strait-of-hormuz-as-drone-raises-alarm-at-iraq-gas-field",
        "type": "independent"
       }
      ],
-     "time": "2026-11-16T03:00:00+03:00",
+     "time": "2026-11-17T03:12:00+03:00",
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/getty_6af466ae1a-1794401966.jpg?resize=1920%2C1440"
+    },
+    {
+     "id": "me-iran-carrier",
+     "section": "middle_east",
+     "status": "updated",
+     "title": "a third US carrier arrives as trump keeps strike options open",
+     "title_ar": "وصول حاملة أميركية ثالثة وترامب يبقي خيار الضربة مفتوحاً",
+     "summary": "US Central Command confirmed on Monday that the USS Theodore Roosevelt has joined the USS George HW Bush and USS George Washington in its area, giving it three carriers plus 13 destroyers, two cruisers and a littoral combat ship in the Arabian Sea. Trump has alternated between threatening more large-scale strikes on Iran and saying the war is 'militarily effectively over', while talks remain stalled over Tehran's nuclear programme and the US naval blockade.",
+     "summary_ar": "أكدت القيادة المركزية الأميركية الاثنين انضمام حاملة الطائرات ثيودور روزفلت إلى جورج بوش الأب وجورج واشنطن في منطقة عملياتها، لتصبح لديها ثلاث حاملات إضافة إلى 13 مدمرة وطرادين وسفينة قتال ساحلي في بحر العرب. وتراوح ترامب بين التهديد بضربات أوسع على إيران والقول إن الحرب «انتهت عسكرياً فعلياً»، فيما لا تزال المحادثات متعثرة حول برنامج طهران النووي والحصار البحري الأميركي.",
+     "sources": [
+      {
+       "title": "The Guardian",
+       "url": "https://www.theguardian.com/us-news/2026/nov/16/aircraft-middle-east-trump-military",
+       "type": "independent"
+      },
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/16/uss-roosevelt-arrives-in-middle-east-is-the-us-iran-war-about-to-resume",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-17T02:30:00+03:00",
+     "image": "https://i.guim.co.uk/img/media/f8920d7c62e46771a24c52857d1e30a2b7a5ef2d/494_0_4935_3948/master/4935.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=aace62b104c172f1b16bd8be6eea9430"
+    },
+    {
+     "id": "me-eisenkot",
+     "section": "middle_east",
+     "status": "updated",
+     "title": "israeli opposition accuses netanyahu of an attempted 'coup'",
+     "title_ar": "المعارضة الإسرائيلية تتهم نتنياهو بمحاولة «انقلاب»",
+     "summary": "Yair Lapid and Joint List leader Yousef Jabareen said reports that Netanyahu's office tried to frame Ra'am members before last month's election amounted to an attempted coup, after Channel 12 reported his chief of staff pointed police to an unfounded tip that led to three arrests. Haaretz reported the Shin Bet chief sought to wiretap Joint List leaders and the attorney general refused; police say they will review the process and Likud denies the reports.",
+     "summary_ar": "قال يائير لابيد ورئيس القائمة المشتركة يوسف جبارين إن تقارير تحدثت عن محاولة مكتب نتنياهو تلفيق تهم لأعضاء في حزب راعم قبل انتخابات الشهر الماضي تشكّل محاولة انقلاب، بعد أن أفادت القناة 12 بأن رئيس مكتبه وجّه الشرطة إلى معلومة لا أساس لها أدت إلى توقيف ثلاثة. ونقلت «هآرتس» أن رئيس الشاباك سعى للتنصّت على قادة القائمة المشتركة ورفض المستشار القانوني ذلك؛ وتقول الشرطة إنها ستراجع العملية وينفي الليكود التقارير.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/16/israeli-opposition-accuses-netanyahu-of-attempted-coup",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-16T23:00:00+03:00",
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/ap_6af9a12272f26-1794744610.jpg?resize=1200%2C675"
+    },
+    {
+     "id": "me-bahrain-sentences",
      "section": "middle_east",
      "status": "",
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/getty_6afa600bf2-1794793484.jpg?resize=1920%2C1440"
+     "title": "bahrain jails 64 shia muslims for life over 'iran-linked' group",
+     "title_ar": "البحرين تحكم بالسجن المؤبد على 64 شيعياً في قضية «جماعة مرتبطة بإيران»",
+     "summary": "The High Criminal Court in Manama sentenced 64 Shia Muslims, most of them clerics, to life in prison for forming a group linked to Iran's Revolutionary Guard and calling for a change of government, the advocate general said; five others received 15 years. The Bahrain Institute for Rights and Democracy condemned the verdicts, citing credible allegations of torture and coerced confessions, while the prosecutor said the defendants' rights were guaranteed and the trial was fair.",
+     "summary_ar": "حكمت المحكمة الجنائية الكبرى في المنامة على 64 شيعياً، معظمهم رجال دين، بالسجن المؤبد بتهمة تشكيل جماعة مرتبطة بالحرس الثوري الإيراني والدعوة إلى تغيير نظام الحكم، بحسب النائب العام، كما حُكم على خمسة آخرين بالسجن 15 عاماً. وأدانت منظمة «معهد البحرين للحقوق والديمقراطية» الأحكام مستشهدة بمزاعم موثوقة بالتعذيب والإكراه على الاعتراف، بينما قال المدعي العام إن حقوق المتهمين كُفلت وإن المحاكمة كانت عادلة.",
+     "sources": [
+      {
+       "title": "BBC News",
+       "url": "https://www.bbc.co.uk/news/articles/cmx20pyew3zxo",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-16T18:46:00+03:00",
+     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/84f2/live/aa54a570-e1cf-11f1-99a1-253766e7ad8b.jpg"
+    },
+    {
+     "id": "me-israel-amazon",
+     "section": "middle_east",
+     "status": "",
+     "title": "israel put 3.5m palestinian photos into amazon facial recognition",
+     "title_ar": "إسرائيل رفعت 3.5 مليون صورة لفلسطينيين إلى نظام أمازون للتعرف على الوجوه",
+     "summary": "Leaked documents show a department of the Israeli military moved 3.5m photos of Palestinians in Gaza and the West Bank into an Amazon datacentre near Tel Aviv in early 2024 so it could use Rekognition, the company's facial recognition service. The Guardian, which obtained the files, says Israel has moved sensitive intelligence and data on Palestinians into Amazon's cloud as the military leaned more heavily on it for its bombardment of Gaza.",
+     "summary_ar": "تُظهر وثائق مسربة أن إحدى دوائر الجيش الإسرائيلي نقلت 3.5 مليون صورة لفلسطينيين في غزة والضفة الغربية إلى مركز بيانات لأمازون قرب تل أبيب في أوائل 2024 لتستخدم Rekognition، خدمة التعرف على الوجوه التابعة للشركة. وتقول صحيفة الغارديان التي حصلت على الملفات إن إسرائيل نقلت معلومات استخبارية وبيانات حساسة عن الفلسطينيين إلى سحابة أمازون مع زيادة اعتماد الجيش عليها في قصف غزة.",
+     "sources": [
+      {
+       "title": "The Guardian",
+       "url": "https://www.theguardian.com/world/2026/nov/16/israel-amazon-facial-recognition-palestinians",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-16T14:00:00+03:00",
+     "image": "https://i.guim.co.uk/img/media/bc01b369b562e3e2bf256cd5482bab9f368d5175/1_0_2999_2400/master/2999.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=a63344bc26503b55f076b5d1ddff6183"
+    },
+    {
+     "id": "me-gaza-aid",
+     "title": "uk, canada, italy and australia urge israel to let 150,000 tents into gaza",
+     "title_ar": "بريطانيا وكندا وإيطاليا وأستراليا تدعو إسرائيل للسماح بدخول 150 ألف خيمة إلى غزة",
+     "summary": "The four countries' foreign ministers said Gaza's humanitarian situation is 'dire' after the first winter storm flooded tents and called Israel's hold-ups 'entirely reversible'. They asked for the crossings to open and dual-use supplies to be let in before winter sets in.",
+     "summary_ar": "قال وزراء خارجية الدول الأربع إن الوضع الإنساني في غزة «متردٍ» بعد أن أغرق أول عاصفة شتوية الخيام، ووصفوا تأخير إسرائيل بأنه «قابل للتصحيح بالكامل». ودعوا إلى فتح المعابر والسماح بدخول الإمدادات ذات الاستخدام المزدوج قبل حلول الشتاء.",
+     "sources": [
+      {
+       "title": "The Guardian",
+       "url": "https://www.theguardian.com/australia-news/2026/nov/16/australia-uk-canada-italy-urge-israel-critical-aid-gaza-winter-ntwnfb",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-16T06:00:00+03:00",
+     "section": "middle_east",
+     "status": "",
+     "image": "https://i.guim.co.uk/img/media/682a0487f17cbff2735306182cdbb7ec07b2d56c/785_0_3912_3131/master/3912.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=4cc0de160bea529b9c114b4421bb53a7"
     },
     {
      "id": "me-bahrain-strike",
@@ -86,169 +181,140 @@
      "section": "middle_east",
      "status": "",
      "image": "https://i.guim.co.uk/img/media/90f87dd962175485473368db89ae4da6cfcd0981/425_0_4577_3662/master/4577.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=b647cb8a1f3731bf092eb86f8287b2fc"
-    },
-    {
-     "id": "me-hormuz-mines",
-     "section": "middle_east",
-     "status": "new",
-     "title": "iran says two tankers struck mines in hormuz and exploded",
-     "title_ar": "إيران تقول إن ناقلتي نفط أصابتهما ألغام في هرمز مع وقوع انفجارات",
-     "summary": "Iran's Revolutionary Guard said two oil tankers on an unauthorised route struck naval mines and exploded in the Strait of Hormuz, after six tankers caught fire in similar incidents on Sunday and Monday. Reuters said it could not independently verify the claims, and shipping through the strait has largely recovered to pre-war levels even as tanker rates stay high.",
-     "summary_ar": "قال الحرس الثوري الإيراني إن ناقلتي نفط في مسار غير مصرح به أصابتهما ألغام بحرية وانفجرتا في مضيق هرمز، بعد اندلاع حريق في ست ناقلات في حوادث مشابهة الأحد والاثنين. وقالت رويترز إنها لم تتمكن من التحقق من هذه المزاعم بشكل مستقل، فيما عادت حركة الشحن عبر المضيق إلى مستويات ما قبل الحرب إلى حد كبير رغم بقاء أجور الناقلات مرتفعة.",
-     "sources": [
-      {
-       "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/video/newsfeed/2026/11/16/oil-tankers-hit-sea-mines-in-the-strait-of-hormuz",
-       "type": "independent"
-      },
-      {
-       "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/16/oil-prices-brent-wti-latest.html",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-16T18:37:00+03:00",
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/image-1794843461.jpg?resize=1920%2C1080&quality=80"
-    },
-    {
-     "id": "me-gaza-aid",
-     "title": "uk, canada, italy and australia urge israel to let 150,000 tents into gaza",
-     "title_ar": "بريطانيا وكندا وإيطاليا وأستراليا تدعو إسرائيل للسماح بدخول 150 ألف خيمة إلى غزة",
-     "summary": "The four countries' foreign ministers said Gaza's humanitarian situation is 'dire' after the first winter storm flooded tents and called Israel's hold-ups 'entirely reversible'. They asked for the crossings to open and dual-use supplies to be let in before winter sets in.",
-     "summary_ar": "قال وزراء خارجية الدول الأربع إن الوضع الإنساني في غزة «متردٍ» بعد أن أغرق أول عاصفة شتوية الخيام، ووصفوا تأخير إسرائيل بأنه «قابل للتصحيح بالكامل». ودعوا إلى فتح المعابر والسماح بدخول الإمدادات ذات الاستخدام المزدوج قبل حلول الشتاء.",
-     "sources": [
-      {
-       "title": "The Guardian",
-       "url": "https://www.theguardian.com/australia-news/2026/nov/16/australia-uk-canada-italy-urge-israel-critical-aid-gaza-winter-ntwnfb",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-16T06:00:00+03:00",
-     "section": "middle_east",
-     "status": "",
-     "image": "https://i.guim.co.uk/img/media/682a0487f17cbff2735306182cdbb7ec07b2d56c/785_0_3912_3131/master/3912.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=4cc0de160bea529b9c114b4421bb53a7"
-    },
-    {
-     "id": "me-eisenkot",
-     "title": "eisenkot says netanyahu cannot stay in office 'one more minute'",
-     "title_ar": "آيزنكوت: نتنياهو لا يستطيع البقاء في منصبه «دقيقة واحدة أخرى»",
-     "summary": "Israel's opposition leader, who has the first chance to form a government, cited a Channel 12 report that Netanyahu's chief of staff pushed police to arrest three Ra'am members on unfounded evidence on the eve of the 27 October election. Likud called his statement 'outrageous incitement'.",
-     "summary_ar": "استشهد زعيم المعارضة الإسرائيلية، المكلّف أولاً بتشكيل الحكومة، بتقرير للقناة 12 أفاد بأن رئيس مكتب نتنياهو دفع الشرطة لاعتقال ثلاثة من أعضاء حزب راعم استناداً إلى معلومات لا أساس لها عشية انتخابات 27 أكتوبر. ووصف حزب الليكود تصريحه بأنه «تحريض فاضح».",
-     "sources": [
-      {
-       "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/2026/11/16/eisenkot-says-netanyahu-cant-remain-israel-pm-amid-alleged-vote-meddling",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-16T03:01:00+03:00",
-     "section": "middle_east",
-     "status": "",
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/afp_6afa3343e7b0-1794782019.jpg?resize=1920%2C1440"
-    },
-    {
-     "id": "me-bahrain-sentences",
-     "section": "middle_east",
-     "status": "new",
-     "title": "bahrain jails 64 shia muslims for life over 'iran-linked' group",
-     "title_ar": "البحرين تحكم بالسجن المؤبد على 64 شيعياً في قضية «جماعة مرتبطة بإيران»",
-     "summary": "The High Criminal Court in Manama sentenced 64 Shia Muslims, most of them clerics, to life in prison for forming a group linked to Iran's Revolutionary Guard and calling for a change of government, the advocate general said; five others received 15 years. The Bahrain Institute for Rights and Democracy condemned the verdicts, citing credible allegations of torture and coerced confessions, while the prosecutor said the defendants' rights were guaranteed and the trial was fair.",
-     "summary_ar": "حكمت المحكمة الجنائية الكبرى في المنامة على 64 شيعياً، معظمهم رجال دين، بالسجن المؤبد بتهمة تشكيل جماعة مرتبطة بالحرس الثوري الإيراني والدعوة إلى تغيير نظام الحكم، بحسب النائب العام، كما حُكم على خمسة آخرين بالسجن 15 عاماً. وأدانت منظمة «معهد البحرين للحقوق والديمقراطية» الأحكام مستشهدة بمزاعم موثوقة بالتعذيب والإكراه على الاعتراف، بينما قال المدعي العام إن حقوق المتهمين كُفلت وإن المحاكمة كانت عادلة.",
-     "sources": [
-      {
-       "title": "BBC News",
-       "url": "https://www.bbc.co.uk/news/articles/cmx20pyew3zxo",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-16T18:46:00+03:00",
-     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/84f2/live/aa54a570-e1cf-11f1-99a1-253766e7ad8b.jpg"
-    },
-    {
-     "id": "me-israel-amazon",
-     "section": "middle_east",
-     "status": "new",
-     "title": "israel put 3.5m palestinian photos into amazon facial recognition",
-     "title_ar": "إسرائيل رفعت 3.5 مليون صورة لفلسطينيين إلى نظام أمازون للتعرف على الوجوه",
-     "summary": "Leaked documents show a department of the Israeli military moved 3.5m photos of Palestinians in Gaza and the West Bank into an Amazon datacentre near Tel Aviv in early 2024 so it could use Rekognition, the company's facial recognition service. The Guardian, which obtained the files, says Israel has moved sensitive intelligence and data on Palestinians into Amazon's cloud as the military leaned more heavily on it for its bombardment of Gaza.",
-     "summary_ar": "تُظهر وثائق مسربة أن إحدى دوائر الجيش الإسرائيلي نقلت 3.5 مليون صورة لفلسطينيين في غزة والضفة الغربية إلى مركز بيانات لأمازون قرب تل أبيب في أوائل 2024 لتستخدم Rekognition، خدمة التعرف على الوجوه التابعة للشركة. وتقول صحيفة الغارديان التي حصلت على الملفات إن إسرائيل نقلت معلومات استخبارية وبيانات حساسة عن الفلسطينيين إلى سحابة أمازون مع زيادة اعتماد الجيش عليها في قصف غزة.",
-     "sources": [
-      {
-       "title": "The Guardian",
-       "url": "https://www.theguardian.com/world/2026/nov/16/israel-amazon-facial-recognition-palestinians",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-16T14:00:00+03:00",
-     "image": "https://i.guim.co.uk/img/media/bc01b369b562e3e2bf256cd5482bab9f368d5175/1_0_2999_2400/master/2999.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=a63344bc26503b55f076b5d1ddff6183"
     }
    ],
    "watch": [
     {
-     "title": "Iran claims drone attack on US military base in Bahrain • FRANCE 24 English",
-     "url": "https://www.youtube.com/watch?v=c26mlkSnxhs",
-     "channel": "FRANCE 24 English"
+     "title": "Houthi push toward Aden could reshape Yemen's war | DW News",
+     "url": "https://www.youtube.com/watch?v=9Dx3D9EZ308",
+     "channel": "DW News",
+     "thumbnail": "https://i.ytimg.com/vi/9Dx3D9EZ308/hqdefault.jpg"
     },
     {
-     "title": "Bab al-Mandab Faces Continued Maritime Threat Amidst Yemen's Changing Frontlines | APT",
-     "url": "https://www.youtube.com/watch?v=su4TENsHPCo",
-     "channel": "APT"
+     "title": "Yemen’s Houthis push closer to Aden as government forces reposition",
+     "url": "https://www.youtube.com/watch?v=BNeju9F1n-A",
+     "channel": "Al Jazeera English",
+     "thumbnail": "https://i.ytimg.com/vi/BNeju9F1n-A/hqdefault.jpg"
     }
    ]
   },
   "us_markets": {
-   "what_changed": "the selloff deepened, with the s&p 500 down 1% and the nasdaq 1.5%, while brent fell 2.3% to $93.62 and trump said he would not mind a huang comeback.",
-   "what_changed_ar": "تعمّق التراجع، إذ هبط ستاندرد آند بورز 500 بنسبة 1% وناسداك 1.5%، فيما تراجع برنت 2.3% إلى 93.62 دولاراً وقال ترامب إنه لا يمانع عودة هوانغ.",
+   "what_changed": "the s&p 500 fell 1.9% and the nasdaq 2.5% as nvidia lost 4.1% into tonight's earnings, with futures flat before the open.",
+   "what_changed_ar": "هبط S&P 500 بنسبة 1.9% وناسداك 2.5% مع خسارة إنفيديا 4.1% قبل نتائجها الليلة، واستقرت العقود الآجلة قبل الافتتاح.",
    "items": [
     {
      "id": "us-intraday",
      "section": "us_markets",
-     "status": "new",
-     "title": "stocks slide as nvidia drags ai names lower before earnings",
-     "title_ar": "الأسهم تتراجع مع هبوط إنفيديا وشركات الذكاء الاصطناعي قبل النتائج",
-     "summary": "At 11:08 a.m. ET the S&P 500 was down 1.02% at 7,484.89, the Nasdaq Composite 1.51% at 24,756.56 and the Dow 0.55% at 52,062.05, while the VIX rose 8.13% to 20.87 and Nvidia fell 2.2% to $159.28. The Commerce Department moved to close a loophole that let Chinese firms rent Nvidia computing power in third countries, and Treasury Secretary Scott Bessent has called for the board to look outside the company for its next CEO.",
-     "summary_ar": "عند الساعة 11:08 صباحاً بتوقيت نيويورك، هبط ستاندرد آند بورز 500 بنسبة 1.02% إلى 7,484.89، وناسداك المركب 1.51% إلى 24,756.56، وداو جونز 0.55% إلى 52,062.05، بينما صعد مؤشر التقلب VIX بنسبة 8.13% إلى 20.87 وانخفضت إنفيديا 2.2% إلى 159.28 دولاراً. واتجهت وزارة التجارة إلى إغلاق ثغرة كانت تتيح لشركات صينية استئجار قدرات إنفيديا الحاسوبية في دول ثالثة، ودعا وزير الخزانة سكوت بيسنت مجلس الإدارة إلى اختيار رئيس تنفيذي من خارج الشركة.",
+     "status": "updated",
+     "title": "s&p 500 closes down 1.9% as nvidia drags the ai trade into earnings",
+     "title_ar": "S&P 500 يغلق منخفضاً 1.9% وإنفيديا تسحب أسهم الذكاء الاصطناعي إلى موسم النتائج",
+     "summary": "The S&P 500 closed at 7,416.59, down 1.92%, the Nasdaq Composite fell 2.49% to 24,509.76 and the Dow dropped 739 points to 51,608.17 on Monday, while the VIX jumped 18.7% to 22.91. Nvidia fell 4.1% and has lost almost 24% this month ahead of its results after Tuesday's close; S&P 500 futures were up 0.04% and Nasdaq-100 futures 0.53% at 10:22pm ET.",
+     "summary_ar": "أغلق S&P 500 عند 7,416.59 منخفضاً 1.92%، وهبط ناسداك المركب 2.49% إلى 24,509.76، وتراجع داو جونز 739 نقطة إلى 51,608.17 الاثنين، بينما قفز مؤشر التقلب VIX بنسبة 18.7% إلى 22.91. وانخفضت إنفيديا 4.1% وفقدت نحو 24% هذا الشهر قبل نتائجها بعد إغلاق الثلاثاء؛ وكانت العقود الآجلة لـS&P 500 مرتفعة 0.04% ولناسداك 100 بنسبة 0.53% عند الساعة 10:22 مساءً بتوقيت نيويورك.",
      "sources": [
       {
        "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/15/stock-market-today-live-updates.html",
+       "url": "https://www.cnbc.com/2026/11/16/stock-market-today-live-updates.html",
        "type": "independent"
       }
      ],
-     "time": "2026-11-16T19:08:00+03:00",
-     "image": "https://image.cnbcfm.com/api/v1/image/108548216-1794329432695-Traders-Photo-20261110-KK-PRESS-006.jpg?v=1794329596&w=1920&h=1080",
+     "time": "2026-11-17T06:22:00+03:00",
+     "image": "https://image.cnbcfm.com/api/v1/image/108548243-17943307042026-11-10t171000z_665024736_rc21loachi3x_rtrmadp_0_usa-stocks.jpeg?v=1794330798&w=1858&h=1045&vtcrop=y",
      "tag": "MOVERS"
     },
     {
-     "id": "us-nvidia-earnings",
-     "title": "nvidia reports tuesday after two more price target cuts",
-     "title_ar": "إنفيديا تعلن نتائجها الثلاثاء بعد خفضين جديدين للسعر المستهدف",
-     "summary": "Nvidia reports after the bell on Tuesday with analysts still expecting close to 100% year-over-year growth but focused on how interim CEO Colette Kress steadies the company. Mizuho cut its target to $220 from $250 and UBS to $240 from $300; the stock closed at $162.85 on Friday, about 32% below its October peak, after its worst week since April 2025.",
-     "summary_ar": "تعلن إنفيديا نتائجها بعد إغلاق جلسة الثلاثاء، ولا يزال المحللون يتوقعون نمواً يقترب من 100% على أساس سنوي لكنهم يركزون على كيف ستستعيد الرئيسة التنفيذية المؤقتة كوليت كريس استقرار الشركة. وخفضت ميزوهو سعرها المستهدف إلى 220 دولاراً من 250، ويو بي إس إلى 240 من 300؛ وأغلق السهم عند 162.85 دولاراً الجمعة، أي نحو 32% دون ذروته في أكتوبر، بعد أسوأ أسبوع له منذ أبريل 2025.",
+     "id": "us-oil",
+     "section": "us_markets",
+     "status": "updated",
+     "title": "brent near $91.60 after sliding 3.6% as hormuz flows recover",
+     "title_ar": "برنت قرب 91.60 دولاراً بعد هبوط 3.6% مع تعافي التدفقات في هرمز",
+     "summary": "Brent for January was at $91.63 a barrel, down 0.88%, at 6:22am Riyadh on Tuesday, after settling Monday at $92.44, a 3.6% fall; WTI was at $84.98 after dropping 3.2% to $85.72. Prices slid even as tankers hit mines in Hormuz, with flows through the strait recovering and the IEA projecting a global surplus in the fourth quarter.",
+     "summary_ar": "بلغ سعر خام برنت لتسليم يناير 91.63 دولاراً للبرميل بانخفاض 0.88% عند الساعة 6:22 صباحاً بتوقيت الرياض الثلاثاء، بعد أن أغلق الاثنين عند 92.44 دولاراً بهبوط 3.6%؛ وسجل غرب تكساس الوسيط 84.98 دولاراً بعد تراجعه 3.2% إلى 85.72 دولاراً. وهبطت الأسعار رغم إصابة ناقلات بألغام في هرمز، مع تعافي التدفقات عبر المضيق وتوقّع وكالة الطاقة الدولية فائضاً عالمياً في الربع الرابع.",
      "sources": [
       {
        "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/15/stock-market-today-live-updates.html",
+       "url": "https://www.cnbc.com/2026/11/16/oil-prices-brent-wti-latest.html",
        "type": "independent"
       },
       {
-       "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/13/stock-market-next-week-outlook-for-nov-16-20-2026.html",
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/16/live-houthis-advance-in-yemen-as-tankers-hit-sea-mines-in-strait-of-hormuz",
        "type": "independent"
       }
      ],
-     "time": "2026-11-16T18:10:00+03:00",
+     "time": "2026-11-17T06:22:00+03:00",
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6afba6a9-1794877097.jpg?w=770&resize=770%2C513&quality=80",
+     "tag": "GLOBAL"
+    },
+    {
+     "id": "us-nvidia-earnings",
      "section": "us_markets",
      "status": "updated",
+     "title": "nvidia reports tonight with $109bn expected and no jensen huang",
+     "title_ar": "إنفيديا تعلن نتائجها الليلة بتوقعات 109 مليارات دولار ودون جنسن هوانغ",
+     "summary": "Nvidia reports fiscal third-quarter results after Tuesday's close, with analysts expecting revenue of about $109bn, roughly 91% higher than a year earlier, and adjusted earnings of $2.47 a share. It is the chipmaker's first report in 33 years without Huang, with CFO Colette Kress leading the company; the stock has fallen almost 24% this month.",
+     "summary_ar": "تعلن إنفيديا نتائج الربع الثالث من سنتها المالية بعد إغلاق الثلاثاء، ويتوقع المحللون إيرادات بنحو 109 مليارات دولار بزيادة تقارب 91% عن العام الماضي وأرباحاً معدّلة بـ2.47 دولار للسهم. وهو أول تقرير للشركة منذ 33 عاماً بدون هوانغ، وتقودها الآن المديرة المالية كوليت كريس؛ وفقد السهم نحو 24% من قيمته هذا الشهر.",
+     "sources": [
+      {
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/16/nvidia-ceo-jensen-huang.html",
+       "type": "independent"
+      },
+      {
+       "title": "Yahoo Finance",
+       "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-earnings-live-updates-commentary-213634774.html",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-17T06:00:00+03:00",
      "image": "https://image.cnbcfm.com/api/v1/image/108533501-17939834002026-11-06t164219z_465084115_rc2dioa48l9e_rtrmadp_0_usa-stocks.jpeg?v=1793983455&w=1920&h=1080",
      "tag": "EARNINGS"
     },
     {
+     "id": "us-week-ahead",
+     "section": "us_markets",
+     "status": "updated",
+     "title": "retail sales and disney, home depot before nvidia tonight",
+     "title_ar": "مبيعات التجزئة وديزني وهوم ديبوت قبل نتائج إنفيديا الليلة",
+     "summary": "Tuesday's US calendar has October retail sales and import prices at 8:30am ET, with Disney and Home Depot reporting before the open and Nvidia after the close; Anthropic prices its IPO on Wednesday. Asia opened lower first, with the Nikkei down 0.76%, the Kospi 1.57% and Australia's ASX 200 1.37%.",
+     "summary_ar": "يتضمن جدول الثلاثاء في الولايات المتحدة مبيعات التجزئة وأسعار الاستيراد لشهر أكتوبر عند الساعة 8:30 صباحاً بتوقيت نيويورك، مع نتائج ديزني وهوم ديبوت قبل الافتتاح وإنفيديا بعد الإغلاق؛ وتسعّر أنثروبيك طرحها الأربعاء. وافتتحت آسيا منخفضة أولاً، إذ هبط نيكاي 0.76% وكوسبي 1.57% وASX 200 الأسترالي 1.37%.",
+     "sources": [
+      {
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/16/stock-market-today-live-updates.html",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-17T06:00:00+03:00",
+     "image": "https://image.cnbcfm.com/api/v1/image/108533501-17939834002026-11-06t164219z_465084115_rc2dioa48l9e_rtrmadp_0_usa-stocks.jpeg?v=1793983455&w=1920&h=1080",
+     "tag": "EARNINGS"
+    },
+    {
+     "id": "us-chips-china",
+     "section": "us_markets",
+     "status": "new",
+     "title": "us requires licences for ai chips sent to five more countries",
+     "title_ar": "واشنطن تشترط تراخيص لتصدير شرائح الذكاء الاصطناعي إلى خمس دول",
+     "summary": "The Commerce Department's Bureau of Industry and Security designated Indonesia, Malaysia, Singapore, Thailand and Brazil as countries with an 'unacceptable risk of diversion' and will require export licences for advanced chips sent there, closing a route for Chinese developers to rent compute abroad. Beijing denied the spying allegations behind the Nvidia scrutiny, calling them 'entirely groundless'.",
+     "summary_ar": "صنّفت دائرة صناعة وأمن الصناعة في وزارة التجارة الأميركية إندونيسيا وماليزيا وسنغافورة وتايلاند والبرازيل دولاً «ذات خطر غير مقبول لتحويل الوجهة»، وستشترط تراخيص لتصدير الشرائح المتقدمة إليها، ما يغلق مساراً أمام مطوري الذكاء الاصطناعي الصينيين لاستئجار قدرات حاسوبية في الخارج. ونفت بكين مزاعم التجسس وراء التدقيق في إنفيديا ووصفتها بأنها «لا أساس لها إطلاقاً».",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/economy/2026/11/17/us-moves-to-block-chinas-remote-access-to-ai-chips-amid-nvidia-scandal",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-17T05:52:00+03:00",
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/2026-03-17T231408Z_1912828925_RC2M6KA5I6G3_RTRMADP_3_NVIDIA-CHINA-1794876521_9866d0-1794880024.jpg?resize=1200%2C630&quality=80",
+     "tag": "GLOBAL"
+    },
+    {
      "id": "us-huang-return",
-     "title": "trump warms to a huang return as 175,000 sign 'bring jensen back'",
-     "title_ar": "ترامب يرحّب بعودة هوانغ و175 ألف شخص يوقّعون على «أعيدوا جنسن»",
-     "summary": "More than 175,000 people, including Elon Musk and Epic's Tim Sweeney, have signed an open letter urging Nvidia's board to reinstate Jensen Huang while an independent investigation runs. Trump said on Monday he 'wouldn't mind seeing' Huang return, the BBC reported, while the FT says Huang is discussing a comeback with confidants; the BBC understands a reinstatement is unlikely while Nvidia's internal probes continue.",
-     "summary_ar": "وقّع أكثر من 175 ألف شخص، بينهم إيلون ماسك وتيم سويني من إيبك، على رسالة مفتوحة تحث مجلس إدارة إنفيديا على إعادة جنسن هوانغ أثناء سير تحقيق مستقل. وقال ترامب الاثنين إنه «لا يمانع» عودة هوانغ، بحسب بي بي سي، فيما تقول فايننشال تايمز إن هوانغ يناقش عودة محتملة مع مقربين؛ وتفهم بي بي سي أن العودة غير مرجحة ما دامت التحقيقات الداخلية مستمرة.",
+     "section": "us_markets",
+     "status": "updated",
+     "title": "nvidia dismisses the 'bring jensen back' push as 175,000 sign",
+     "title_ar": "إنفيديا تتجاهل حملة «أعيدوا جنسن» مع توقيع 175 ألفاً",
+     "summary": "An open letter from a campaign called Stand with Jensen, signed by Elon Musk, Tim Sweeney and more than 175,000 others, asks Nvidia's board to reinstate Huang while an independent investigation runs. Nvidia is dismissing the campaign, the BBC reports, and its board is not considering a return; CFO Colette Kress leads the company and presents Tuesday's results. Trump has spoken warmly about Huang, while Treasury Secretary Scott Bessent wants an outside CEO.",
+     "summary_ar": "تطالب رسالة مفتوحة من حملة «قف مع جنسن»، وقّعها إيلون ماسك وتيم سويني وأكثر من 175 ألفاً غيرهم، مجلس إدارة إنفيديا بإعادة هوانغ أثناء تحقيق مستقل. وتقول BBC إن إنفيديا تتجاهل الحملة وإن مجلس الإدارة لا ينظر في عودته؛ وتقود المديرة المالية كوليت كريس الشركة وتقدّم نتائج الثلاثاء. وأشاد ترامب بهوانغ، بينما يريد وزير الخزانة سكوت بيسنت رئيساً تنفيذياً من خارج الشركة.",
      "sources": [
       {
        "title": "BBC News",
@@ -257,38 +323,31 @@
       },
       {
        "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/16/nvidia-jensen-huang-return-tech.html",
+       "url": "https://www.cnbc.com/2026/11/16/nvidia-ceo-jensen-huang.html",
        "type": "independent"
       }
      ],
-     "time": "2026-11-16T18:31:00+03:00",
-     "section": "us_markets",
-     "status": "updated",
-     "image": "https://image.cnbcfm.com/api/v1/image/108551698-1794796174224-gettyimages-2301014104-invest_in_germany-6_gqyfggvf.jpeg?v=1794796184&w=1920&h=1080",
+     "time": "2026-11-17T05:37:00+03:00",
+     "image": "https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/119c/live/eaafa8b0-e1a5-11f1-8433-4325183b3814.jpg",
      "tag": "MOVERS"
     },
     {
      "id": "us-anthropic-ipo",
-     "title": "anthropic prices on tuesday at $70-78 a share in a $1.4tn IPO",
-     "title_ar": "أنثروبيك تسعّر الثلاثاء بين 70 و78 دولاراً للسهم في طرح بتقييم 1.4 تريليون دولار",
-     "summary": "The AI lab is eyeing a valuation of roughly $1.4 trillion with shares expected to be priced between $70 and $78. CNBC says the debut is make-or-break for a tech industry that is heavily invested in the lab and short of positive momentum.",
-     "summary_ar": "تستهدف شركة الذكاء الاصطناعي تقييماً يقارب 1.4 تريليون دولار مع توقعات بتسعير السهم بين 70 و78 دولاراً. وتقول CNBC إن الطرح مصيري لقطاع تقني يستثمر بكثافة في الشركة ويحتاج إلى زخم إيجابي.",
+     "section": "us_markets",
+     "status": "updated",
+     "title": "anthropic prices on wednesday at $70-78 a share for a $1.4tn debut",
+     "title_ar": "أنثروبيك تسعّر الأربعاء بسعر 70-78 دولاراً للسهم بقيمة 1.4 تريليون دولار",
+     "summary": "Anthropic plans to price its IPO on 18 November and start trading on the Nasdaq on 19 November under the ticker ANT, offering 825m shares at $70-78 each, CNBC reported this month, citing people familiar with the plans. At the top of the range it would raise $64.35bn and be valued at up to $1.405tn on a fully diluted basis, with about 20% of the deal earmarked for retail investors.",
+     "summary_ar": "تعتزم أنثروبيك تسعير طرحها العام الأولي في 18 نوفمبر وبدء التداول في ناسداك في 19 نوفمبر تحت الرمز ANT، بطرح 825 مليون سهم بسعر 70 إلى 78 دولاراً للسهم، بحسب ما نقلته CNBC هذا الشهر عن مصادر مطلعة. وعند أعلى النطاق ستجمع 64.35 مليار دولار وتبلغ قيمتها 1.405 تريليون دولار على أساس مخفف بالكامل، مع تخصيص نحو 20% من الطرح لمستثمري التجزئة.",
      "sources": [
       {
        "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/15/anthropic-ipo-is-make-or-break-for-the-technology-industry.html",
-       "type": "independent"
-      },
-      {
-       "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/15/stock-market-today-live-updates.html",
+       "url": "https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html",
        "type": "independent"
       }
      ],
-     "time": "2026-11-15T19:00:00+03:00",
-     "section": "us_markets",
-     "status": "",
-     "image": "https://image.cnbcfm.com/api/v1/image/108551525-1794626973698-gettyimages-2297195304-AFP_C9PF6JT.jpeg?v=1794627031&w=1920&h=1080",
+     "time": "2026-11-17T04:00:00+03:00",
+     "image": "https://image.cnbcfm.com/api/v1/image/108257482-1793040483934-108257482-1769516882258-gettyimages-2235057548-yeh_8167_n0lplzwh_xmzisqlh_vtemfgh3.jpeg?v=1793040494&w=1920&h=1080",
      "tag": "DEALS"
     },
     {
@@ -309,91 +368,31 @@
      "status": "",
      "image": "https://image.cnbcfm.com/api/v1/image/108551661-1794785886757-gettyimages-2288262163-Stanislaw-Kogiku-1440900.jpeg?v=1794787901&w=1920&h=1080",
      "tag": "MACRO"
-    },
-    {
-     "id": "us-china-data",
-     "title": "china's october retail sales, investment and output all miss",
-     "title_ar": "مبيعات التجزئة والاستثمار والإنتاج في الصين تخيب التوقعات في أكتوبر",
-     "summary": "Retail sales, industrial output and fixed-asset investment came in below forecasts, with the investment slump deepening and youth unemployment at 18% in September. The CSI 300 fell 0.99% ahead of the data.",
-     "summary_ar": "جاءت مبيعات التجزئة والإنتاج الصناعي والاستثمار الثابت أقل من التوقعات، مع تعمّق تراجع الاستثمار وبلوغ بطالة الشباب 18% في سبتمبر. وهبط مؤشر سي إس آي 300 بنسبة 0.99% قبل صدور البيانات.",
-     "sources": [
-      {
-       "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/16/china-retail-sales-october-industrial-output-investment.html",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-16T05:52:00+03:00",
-     "section": "us_markets",
-     "status": "",
-     "image": "https://image.cnbcfm.com/api/v1/image/108551664-1794786973563-gettyimages-2299353111-img_6622.jpeg?v=1794787492&w=1920&h=1080",
-     "tag": "MACRO"
-    },
-    {
-     "id": "us-oil",
-     "title": "brent falls 2.3% to $93.62 as traders look past hormuz risk",
-     "title_ar": "برنت يهبط 2.3% إلى 93.62 دولاراً مع تجاهل المخاطر في هرمز",
-     "summary": "Brent fell to $93.62 a barrel on Monday, down 2.32%, and WTI to $86.69, down 2.11%, as the IEA's forecast of a return to a global surplus in the fourth quarter outweighed reports of tanker explosions in Hormuz. China's refinery throughput also fell in October, adding to demand concerns.",
-     "summary_ar": "هبط خام برنت إلى 93.62 دولاراً للبرميل الاثنين بتراجع 2.32%، وخام غرب تكساس إلى 86.69 دولاراً بتراجع 2.11%، بعد أن رجّحت توقعات وكالة الطاقة الدولية لعودة فائض عالمي في الربع الرابع على تقارير انفجارات ناقلات في هرمز. كما تراجعت طاقة التكرير في الصين خلال أكتوبر، ما عزز المخاوف بشأن الطلب.",
-     "sources": [
-      {
-       "title": "Trading Economics",
-       "url": "https://tradingeconomics.com/commodity/brent-crude-oil",
-       "type": "independent"
-      },
-      {
-       "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/16/oil-prices-brent-wti-latest.html",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-16T19:05:00+03:00",
-     "section": "us_markets",
-     "status": "updated",
-     "image": "https://image.cnbcfm.com/api/v1/image/108548216-1794329432695-Traders-Photo-20261110-KK-PRESS-006.jpg?v=1794329596&w=1920&h=1080",
-     "tag": "GLOBAL"
-    },
-    {
-     "id": "us-week-ahead",
-     "title": "retail earnings and the AI trade's two big tests",
-     "title_ar": "نتائج تجار التجزئة واختباران كبيران لتداولات الذكاء الاصطناعي",
-     "summary": "Home Depot and Walmart headline this week's retail results, with Nvidia's report on Tuesday and Anthropic's IPO on Wednesday the two catalysts CNBC says could revive or snuff out the tech recovery.",
-     "summary_ar": "تتصدر هوم ديبوت ووول مارت نتائج تجار التجزئة هذا الأسبوع، فيما يمثل تقرير إنفيديا الثلاثاء وطرح أنثروبيك الأربعاء المحفزين اللذين تقول CNBC إنهما قد ينعشان تعافي التقنية أو يخمدانه.",
-     "sources": [
-      {
-       "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/13/stock-market-next-week-outlook-for-nov-16-20-2026.html",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-14T06:05:00+03:00",
-     "section": "us_markets",
-     "status": "",
-     "image": "https://image.cnbcfm.com/api/v1/image/108533501-17939834002026-11-06t164219z_465084115_rc2dioa48l9e_rtrmadp_0_usa-stocks.jpeg?v=1793983455&w=1920&h=1080",
-     "tag": "EARNINGS"
     }
    ],
    "watch": [
     {
-     "title": "The Investment Committee reacts to Nvidia's stock after Jensen Huang's resignation",
-     "url": "https://www.youtube.com/watch?v=knn1GWs35CE",
-     "channel": "CNBC Television"
+     "title": "What to Watch for in Nvidia Earnings",
+     "url": "https://www.youtube.com/watch?v=Bfqtb43iAKw",
+     "channel": "Bloomberg Television",
+     "thumbnail": "https://i.ytimg.com/vi/Bfqtb43iAKw/hqdefault.jpg"
     },
     {
-     "title": "Jensen Huang Saga Tests AI Trade Ahead of Anthropic IPO",
-     "url": "https://www.youtube.com/watch?v=DVdNUnbHPBk",
-     "channel": "Bloomberg Television"
+     "title": "Market Midday: Stocks Sell Off, Chip Sale Fears, Nvidia CEO Return Questions • 11/16/26",
+     "url": "https://www.youtube.com/watch?v=Bw76rR3jofc",
+     "channel": "CNBC Television",
+     "thumbnail": "https://i.ytimg.com/vi/Bw76rR3jofc/hqdefault.jpg"
     }
    ]
   },
   "ai": {
-   "what_changed": "haru-4b entered the top eight at #7 while the uncensored deepseek distill held #1 with 7,915 likes.",
-   "what_changed_ar": "دخل haru-4b إلى المراكز الثمانية الأولى في السابعة، بينما حافظ نموذج deepseek غير المقيد على المركز الأول بـ7,915 إعجاباً.",
+   "what_changed": "the uncensored deepseek distill widened its lead to 9,013 likes while the top eight held their order.",
+   "what_changed_ar": "وسّعت نسخة deepseek غير المقيدة تقدمها إلى 9,013 إعجاباً مع بقاء ترتيب الثمانية الأوائل.",
    "items": [
     {
      "id": "ai-heretic-distill",
-     "title": "#1: the uncensored deepseek distill leads on 7,915 likes",
-     "title_ar": "#1: نسخة deepseek غير المقيدة تتصدر بـ7,915 إعجاباً",
+     "title": "#1: the uncensored deepseek distill leads on 9,013 likes",
+     "title_ar": "#1: نسخة deepseek غير المقيدة تتصدر بـ9,013 إعجاباً",
      "summary": "A 9B heretic fine-tune of DeepSeek-V4-Pro on the Qwen3.5 base holds the top spot with 29,567 downloads this month.",
      "summary_ar": "يحافظ نموذج بحجم 9B معدّل من DeepSeek-V4-Pro على قاعدة Qwen3.5 على المركز الأول بـ29,567 تنزيلاً هذا الشهر.",
      "sources": [
@@ -403,19 +402,19 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:02:00+03:00",
+     "time": "2026-11-17T06:10:00+03:00",
      "section": "ai",
      "status": "updated",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
      "pricing": "Open weights",
-     "metric": "#1 trending · 7,915 likes"
+     "metric": "#1 trending · 9,013 likes"
     },
     {
      "id": "ai-minimax-h3-image",
-     "title": "#2: minimax's h3 image model holds second on 1,264 likes",
-     "title_ar": "#2: نموذج h3 الصوري من minimax يحافظ على المركز الثاني بـ1,264 إعجاباً",
+     "title": "#2: minimax's h3 image model holds second on 1,327 likes",
+     "title_ar": "#2: نموذج h3 الصوري من minimax يحافظ على المركز الثاني بـ1,327 إعجاباً",
      "summary": "The text-to-image model has 609,130 downloads and sits behind only the top distill in Hugging Face's trending list.",
      "summary_ar": "يبلغ عدد تنزيلات نموذج تحويل النص إلى صورة 609,130 تنزيلاً، ولا يتقدمه في قائمة Hugging Face سوى النموذج المقطّر الأول.",
      "sources": [
@@ -425,19 +424,19 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:02:00+03:00",
+     "time": "2026-11-17T06:10:00+03:00",
      "section": "ai",
      "status": "updated",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/MiniMaxAI/MiniMax-H3-Image.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image",
      "pricing": "Free tier",
-     "metric": "#2 trending · 1,264 likes"
+     "metric": "#2 trending · 1,327 likes"
     },
     {
      "id": "ai-qwen38-27b",
-     "title": "#3: qwen's 3.8-27b holds third at 20,203 likes",
-     "title_ar": "#3: نموذج qwen 3.8-27b في المركز الثالث بـ20,203 إعجاباً",
+     "title": "#3: qwen's 3.8-27b holds third at 20,285 likes",
+     "title_ar": "#3: نموذج qwen 3.8-27b في المركز الثالث بـ20,285 إعجاباً",
      "summary": "Qwen's 27B multimodal model is the most-liked in the top three and has 6.76m downloads under Apache 2.0.",
      "summary_ar": "نموذج Qwen متعدد الوسائط بحجم 27B هو الأكثر إعجاباً ضمن المراكز الثلاثة الأولى، وله 6.76 مليون تنزيل بترخيص Apache 2.0.",
      "sources": [
@@ -447,19 +446,19 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:02:00+03:00",
+     "time": "2026-11-17T06:10:00+03:00",
      "section": "ai",
      "status": "updated",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Qwen/Qwen3.8-27B.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
      "pricing": "Open weights",
-     "metric": "#3 trending · 20,203 likes"
+     "metric": "#3 trending · 20,285 likes"
     },
     {
      "id": "ai-ltx-2-5",
-     "title": "#4: ltx-2.5 holds fourth on 12,171 likes",
-     "title_ar": "#4: ltx-2.5 في المركز الرابع بـ12,171 إعجاباً",
+     "title": "#4: ltx-2.5 holds fourth on 12,264 likes",
+     "title_ar": "#4: ltx-2.5 في المركز الرابع بـ12,264 إعجاباً",
      "summary": "Lightricks' image-to-video model has 2.79m downloads and also handles audio, per its model card.",
      "summary_ar": "نموذج Lightricks لتحويل الصورة إلى فيديو له 2.79 مليون تنزيل، ويتعامل أيضاً مع الصوت بحسب بطاقة النموذج.",
      "sources": [
@@ -469,14 +468,14 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:02:00+03:00",
+     "time": "2026-11-17T06:10:00+03:00",
      "section": "ai",
      "status": "updated",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Lightricks/LTX-2.5.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/Lightricks/LTX-2.5",
      "pricing": "Open weights",
-     "metric": "#4 trending · 12,171 likes"
+     "metric": "#4 trending · 12,264 likes"
     },
     {
      "id": "ai-comfy-h3",
@@ -491,14 +490,14 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:02:00+03:00",
+     "time": "2026-11-17T06:10:00+03:00",
      "section": "ai",
      "status": "updated",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Comfy-Org/MiniMax-H3-Image.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image",
      "pricing": "Open weights",
-     "metric": "#5 trending · 449 likes"
+     "metric": "#5 trending · 496 likes"
     },
     {
      "id": "ai-zyphra-zonos3",
@@ -513,19 +512,19 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:02:00+03:00",
+     "time": "2026-11-17T06:10:00+03:00",
      "section": "ai",
      "status": "updated",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Zyphra/ZONOS3-Mini.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/Zyphra/ZONOS3-Mini",
      "pricing": "Open weights",
-     "metric": "#6 trending · 431 likes"
+     "metric": "#6 trending · 479 likes"
     },
     {
      "id": "ai-haru-4b",
      "section": "ai",
-     "status": "new",
+     "status": "updated",
      "title": "#7: higurashi's haru-4b does full-duplex speech in nine languages",
      "title_ar": "#7: haru-4b من higurashi يتحدث بصوت كامل duplex بتسع لغات",
      "summary": "An Apache-2.0 speech-to-speech model built for full-duplex conversation, with model-card support for English, Spanish, Portuguese, German, French, Chinese, Japanese, Russian and Korean; it has 3,372 downloads since appearing on Hugging Face last week.",
@@ -537,17 +536,17 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:02:00+03:00",
+     "time": "2026-11-17T06:10:00+03:00",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/higurashi-ai/Haru-4B.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/higurashi-ai/Haru-4B",
      "pricing": "Open weights",
-     "metric": "#7 trending · 385 likes"
+     "metric": "#7 trending · 436 likes"
     },
     {
      "id": "ai-inkling-2",
-     "title": "thinkingmachines' inkling-2-small holds eighth at 381 likes",
-     "title_ar": "#8: inkling-2-small من thinkingmachines في المركز الثامن بـ381 إعجاباً",
+     "title": "thinkingmachines' inkling-2-small holds eighth at 417 likes",
+     "title_ar": "#8: inkling-2-small من thinkingmachines في المركز الثامن بـ417 إعجاباً",
      "summary": "A general-purpose multimodal MoE with open weights under Apache 2.0 that takes text and images; Thinking Machines points users to its Tinker playground plus SGLang and vLLM recipes. It has 16,918 downloads.",
      "summary_ar": "نموذج MoE متعدد الوسائط للأغراض العامة بأوزان مفتوحة تحت Apache 2.0 يستقبل النصوص والصور؛ وتوجه Thinking Machines المستخدمين إلى منصة Tinker ووصفات SGLang وvLLM. وله 16,918 تنزيلاً.",
      "sources": [
@@ -557,14 +556,14 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:02:00+03:00",
+     "time": "2026-11-17T06:10:00+03:00",
      "section": "ai",
      "status": "updated",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/thinkingmachines/Inkling-2-Small.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/thinkingmachines/Inkling-2-Small",
      "pricing": "Open weights",
-     "metric": "#8 trending · 381 likes"
+     "metric": "#8 trending · 417 likes"
     }
    ],
    "watch": [
@@ -581,15 +580,15 @@
    ]
   },
   "trending": {
-   "what_changed": "univer jumped to #3 with 1,878 stars today, ag-ui took #1 and three new repos entered the daily list.",
-   "what_changed_ar": "قفز univer إلى المرتبة 3 بـ1,878 نجمة اليوم، وتصدّر ag-ui القائمة، ودخلت ثلاثة مستودعات جديدة القائمة اليومية.",
+   "what_changed": "claude-bughunter and google's modern-web-guidance-src entered as univer slipped to 1,828 stars today.",
+   "what_changed_ar": "دخل claude-bughunter وmodern-web-guidance-src من غوغل القائمة مع تراجع univer إلى 1,828 نجمة اليوم.",
    "items": [
     {
      "id": "ag-ui-protocol-ag-ui",
      "section": "trending",
      "status": "updated",
-     "title": "ag-ui is #1 today with 790 stars",
-     "title_ar": "ag-ui في المرتبة 1 اليوم بـ790 نجمة",
+     "title": "ag-ui is #1 today with 791 stars",
+     "title_ar": "ag-ui في المرتبة 1 اليوم بـ791 نجمة",
      "summary": "An open protocol for wiring agents into front-end applications.",
      "summary_ar": "بروتوكول مفتوح لربط الوكلاء بواجهات التطبيقات الأمامية.",
      "sources": [
@@ -599,12 +598,12 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:00:00+03:00",
+     "time": "2026-11-17T06:15:00+03:00",
      "image": "https://opengraph.githubassets.com/1/ag-ui-protocol/ag-ui",
      "rank": 1,
      "period": "today",
-     "stars_gained": 790,
-     "stars_total": 18585,
+     "stars_gained": 791,
+     "stars_total": 19215,
      "language": "TypeScript",
      "why_it_matters": "An open protocol for wiring agents into front-end applications.",
      "why_it_matters_ar": "بروتوكول مفتوح لربط الوكلاء بواجهات التطبيقات الأمامية."
@@ -613,8 +612,8 @@
      "id": "backnotprop-plannotator",
      "section": "trending",
      "status": "updated",
-     "title": "plannotator is #2 today with 689 stars",
-     "title_ar": "plannotator في المرتبة 2 اليوم بـ689 نجمة",
+     "title": "plannotator is #2 today with 696 stars",
+     "title_ar": "plannotator في المرتبة 2 اليوم بـ696 نجمة",
      "summary": "A workspace for shaping plans and reviewing agent code without losing the thread.",
      "summary_ar": "مساحة عمل لصياغة الخطط ومراجعة كود الوكلاء دون فقدان السياق.",
      "sources": [
@@ -624,12 +623,12 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:00:00+03:00",
+     "time": "2026-11-17T06:15:00+03:00",
      "image": "https://opengraph.githubassets.com/1/backnotprop/plannotator",
      "rank": 2,
      "period": "today",
-     "stars_gained": 689,
-     "stars_total": 12339,
+     "stars_gained": 696,
+     "stars_total": 12669,
      "language": "TypeScript",
      "why_it_matters": "A workspace for shaping plans and reviewing agent code without losing the thread.",
      "why_it_matters_ar": "مساحة عمل لصياغة الخطط ومراجعة كود الوكلاء دون فقدان السياق."
@@ -638,8 +637,8 @@
      "id": "dream-num-univer",
      "section": "trending",
      "status": "updated",
-     "title": "univer is #3 today with 1,878 stars",
-     "title_ar": "univer في المرتبة 3 اليوم بـ1,878 نجمة",
+     "title": "univer is #3 today with 1,828 stars",
+     "title_ar": "univer في المرتبة 3 اليوم بـ1,828 نجمة",
      "summary": "An Apache-2.0 office SDK that lets agents edit, calculate and collaborate on documents.",
      "summary_ar": "حزمة تطوير مكتبية بترخيص Apache 2.0 تتيح للوكلاء تحرير المستندات وحسابها والتعاون عليها.",
      "sources": [
@@ -649,12 +648,12 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:00:00+03:00",
+     "time": "2026-11-17T06:15:00+03:00",
      "image": "https://opengraph.githubassets.com/1/dream-num/univer",
      "rank": 3,
      "period": "today",
-     "stars_gained": 1878,
-     "stars_total": 27562,
+     "stars_gained": 1828,
+     "stars_total": 27903,
      "language": "TypeScript",
      "why_it_matters": "An Apache-2.0 office SDK that lets agents edit, calculate and collaborate on documents.",
      "why_it_matters_ar": "حزمة تطوير مكتبية بترخيص Apache 2.0 تتيح للوكلاء تحرير المستندات وحسابها والتعاون عليها."
@@ -662,9 +661,9 @@
     {
      "id": "tradermonty-claude-trading-skills",
      "section": "trending",
-     "status": "new",
-     "title": "claude-trading-skills is #4 today with 841 stars",
-     "title_ar": "claude-trading-skills في المرتبة 4 اليوم بـ841 نجمة",
+     "status": "updated",
+     "title": "claude-trading-skills is #4 today with 837 stars",
+     "title_ar": "claude-trading-skills في المرتبة 4 اليوم بـ837 نجمة",
      "summary": "Claude Code skills for equity investors: market analysis, charting, economic calendars, screeners and strategy development.",
      "summary_ar": "مهارات Claude Code لمستثمري الأسهم: تحليل السوق والرسوم البيانية والتقويم الاقتصادي والفرز وتطوير الاستراتيجيات.",
      "sources": [
@@ -674,22 +673,47 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:00:00+03:00",
+     "time": "2026-11-17T06:15:00+03:00",
      "image": "https://opengraph.githubassets.com/1/tradermonty/claude-trading-skills",
      "rank": 4,
      "period": "today",
-     "stars_gained": 841,
-     "stars_total": 6099,
+     "stars_gained": 837,
+     "stars_total": 6427,
      "language": "Python",
      "why_it_matters": "Claude Code skills for equity investors: market analysis, charting, economic calendars, screeners and strategy development.",
      "why_it_matters_ar": "مهارات Claude Code لمستثمري الأسهم: تحليل السوق والرسوم البيانية والتقويم الاقتصادي والفرز وتطوير الاستراتيجيات."
     },
     {
-     "id": "getarcaneapp-arcane",
+     "id": "elementalsouls-claude-bughunter",
      "section": "trending",
      "status": "new",
-     "title": "arcane is #5 today with 31 stars",
-     "title_ar": "arcane في المرتبة 5 اليوم بـ31 نجمة",
+     "title": "claude-bughunter is #5 today with 1,094 stars",
+     "title_ar": "Claude-BugHunter في المرتبة 5 اليوم بـ1,094 نجمة",
+     "summary": "A Claude Code skill bundle for bug hunting and external red-team work, with 82 skills and 681 disclosed-report patterns.",
+     "summary_ar": "حزمة مهارات لـClaude Code في مجال صيد الثغرات والعمل الأحمر الخارجي، تضم 82 مهارة و681 نمطاً من تقارير كشف منشورة.",
+     "sources": [
+      {
+       "title": "elementalsouls/Claude-BugHunter",
+       "url": "https://github.com/elementalsouls/Claude-BugHunter",
+       "type": "official"
+      }
+     ],
+     "time": "2026-11-17T06:15:00+03:00",
+     "image": "https://opengraph.githubassets.com/1/elementalsouls/Claude-BugHunter",
+     "rank": 5,
+     "period": "today",
+     "stars_gained": 1094,
+     "stars_total": 7541,
+     "language": "Python",
+     "why_it_matters": "A Claude Code skill bundle for bug hunting and external red-team work, with 82 skills and 681 disclosed-report patterns.",
+     "why_it_matters_ar": "حزمة مهارات لـClaude Code في مجال صيد الثغرات والعمل الأحمر الخارجي، تضم 82 مهارة و681 نمطاً من تقارير كشف منشورة."
+    },
+    {
+     "id": "getarcaneapp-arcane",
+     "section": "trending",
+     "status": "updated",
+     "title": "arcane is #6 today with 46 stars",
+     "title_ar": "arcane في المرتبة 6 اليوم بـ46 نجمة",
      "summary": "A modern Docker management web UI for self-hosted containers and compose stacks.",
      "summary_ar": "واجهة ويب حديثة لإدارة حاويات دوكر ومكدسات compose على الخوادم الذاتية.",
      "sources": [
@@ -699,72 +723,47 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:00:00+03:00",
+     "time": "2026-11-17T06:15:00+03:00",
      "image": "https://opengraph.githubassets.com/1/getarcaneapp/arcane",
-     "rank": 5,
+     "rank": 6,
      "period": "today",
-     "stars_gained": 31,
-     "stars_total": 8512,
+     "stars_gained": 46,
+     "stars_total": 8833,
      "language": "Go",
      "why_it_matters": "A modern Docker management web UI for self-hosted containers and compose stacks.",
      "why_it_matters_ar": "واجهة ويب حديثة لإدارة حاويات دوكر ومكدسات compose على الخوادم الذاتية."
     },
     {
-     "id": "deanchensj-jiangshan-map",
+     "id": "googlechrome-modern-web-guidance-src",
      "section": "trending",
      "status": "new",
-     "title": "jiangshan-map is #6 today with 285 stars",
-     "title_ar": "jiangshan-map في المرتبة 6 اليوم بـ285 نجمة",
-     "summary": "An interactive historical atlas of China spanning 18 dynasties and 198 territory snapshots from 403 BCE to today.",
-     "summary_ar": "أطلس تاريخي تفاعلي للصين يغطي 18 سلالة و198 لقطة إقليمية من 403 قبل الميلاد حتى اليوم.",
+     "title": "modern-web-guidance-src is #1 this week with 6,542 stars",
+     "title_ar": "modern-web-guidance-src في المرتبة 1 هذا الأسبوع بـ6,542 نجمة",
+     "summary": "Google Chrome's source for keeping coding agents up to date with current web best practices.",
+     "summary_ar": "مصدر من Google Chrome لإبقاء وكلاء البرمجة محدّثين بأفضل ممارسات الويب الحالية.",
      "sources": [
       {
-       "title": "DeanChensj/jiangshan-map",
-       "url": "https://github.com/DeanChensj/jiangshan-map",
+       "title": "GoogleChrome/modern-web-guidance-src",
+       "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:00:00+03:00",
-     "image": "https://opengraph.githubassets.com/1/DeanChensj/jiangshan-map",
-     "rank": 6,
-     "period": "today",
-     "stars_gained": 285,
-     "stars_total": 6605,
-     "language": "JavaScript",
-     "why_it_matters": "An interactive historical atlas of China spanning 18 dynasties and 198 territory snapshots from 403 BCE to today.",
-     "why_it_matters_ar": "أطلس تاريخي تفاعلي للصين يغطي 18 سلالة و198 لقطة إقليمية من 403 قبل الميلاد حتى اليوم."
-    },
-    {
-     "id": "google-labs-code-stitch-skills",
-     "section": "trending",
-     "status": "updated",
-     "title": "stitch-skills is #7 today with 540 stars",
-     "title_ar": "stitch-skills في المرتبة 7 اليوم بـ540 نجمة",
-     "summary": "Google's library of agent skills built for its Stitch MCP server.",
-     "summary_ar": "مكتبة مهارات من غوغل لخادم Stitch MCP.",
-     "sources": [
-      {
-       "title": "google-labs-code/stitch-skills",
-       "url": "https://github.com/google-labs-code/stitch-skills",
-       "type": "official"
-      }
-     ],
-     "time": "2026-11-16T19:00:00+03:00",
-     "image": "https://opengraph.githubassets.com/1/google-labs-code/stitch-skills",
-     "rank": 7,
-     "period": "today",
-     "stars_gained": 540,
-     "stars_total": 9643,
+     "time": "2026-11-17T06:15:00+03:00",
+     "image": "https://opengraph.githubassets.com/1/GoogleChrome/modern-web-guidance-src",
+     "rank": 1,
+     "period": "week",
+     "stars_gained": 6542,
+     "stars_total": 8059,
      "language": "TypeScript",
-     "why_it_matters": "Google's library of agent skills built for its Stitch MCP server.",
-     "why_it_matters_ar": "مكتبة مهارات من غوغل لخادم Stitch MCP."
+     "why_it_matters": "Google Chrome's source for keeping coding agents up to date with current web best practices.",
+     "why_it_matters_ar": "مصدر من Google Chrome لإبقاء وكلاء البرمجة محدّثين بأفضل ممارسات الويب الحالية."
     },
     {
      "id": "meta-astryx",
      "section": "trending",
      "status": "updated",
-     "title": "astryx is #1 this week with 13,501 stars",
-     "title_ar": "astryx في المرتبة 1 هذا الأسبوع بـ13,501 نجمة",
+     "title": "astryx is #2 this week with 10,939 stars",
+     "title_ar": "astryx في المرتبة 2 هذا الأسبوع بـ10,939 نجمة",
      "summary": "Meta's agent-ready design system leads the weekly list.",
      "summary_ar": "نظام تصميم من ميتا جاهز للوكلاء ويتصدر القائمة الأسبوعية.",
      "sources": [
@@ -774,12 +773,12 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-16T19:00:00+03:00",
+     "time": "2026-11-17T06:15:00+03:00",
      "image": "https://opengraph.githubassets.com/1/meta/astryx",
-     "rank": 1,
+     "rank": 2,
      "period": "week",
-     "stars_gained": 13501,
-     "stars_total": 29419,
+     "stars_gained": 10939,
+     "stars_total": 29694,
      "language": "TypeScript",
      "why_it_matters": "Meta's agent-ready design system leads the weekly list.",
      "why_it_matters_ar": "نظام تصميم من ميتا جاهز للوكلاء ويتصدر القائمة الأسبوعية."
@@ -799,27 +798,65 @@
    ]
   },
   "liverpool": {
-   "what_changed": "france beat turkiye 2-1 with barcola and jacquet starting, and the next game is man utd at anfield on sunday.",
-   "what_changed_ar": "فازت فرنسا على تركيا 2-1 بمشاركة باركولا وجاكيه أساسيين، والمباراة المقبلة أمام مانشستر يونايتد في أنفيلد الأحد.",
+   "what_changed": "wirtz scored twice in germany's 5-0 win over the netherlands, and hungary say szoboszlai is fit for tuesday.",
+   "what_changed_ar": "سجل فيرتس هدفين في فوز ألمانيا 5-0 على هولندا، وتقول المجر إن سوبوسلاي جاهز للثلاثاء.",
    "items": [
     {
-     "id": "liverpool-france",
+     "id": "liverpool-szoboszlai",
      "section": "liverpool",
      "status": "new",
-     "title": "barcola and jacquet help france top their group and reach the quarters",
-     "title_ar": "باركولا وجاكيه يقودان فرنسا إلى صدارة مجموعتها وربع النهائي",
-     "summary": "The Liverpool pair started for France in a 2-1 Nations League win over Turkiye in Bordeaux on Sunday; Barcola played just over an hour and Jacquet completed the game in central defence. The win put France top of Group A1 and into the quarter-finals.",
-     "summary_ar": "شارك الثنائي في ليفربول أساسيين مع فرنسا في فوز 2-1 على تركيا في دوري الأمم في بوردو مساء الأحد؛ لعب باركولا ما يزيد قليلاً على ساعة وأكمل جاكيه المباراة في قلب الدفاع. وضع الفوز فرنسا في صدارة المجموعة A1 وبلغ ربع النهائي.",
+     "title": "szoboszlai is fit to face northern ireland, hungary's coach says",
+     "title_ar": "سوبوسلاي جاهز لمواجهة إيرلندا الشمالية بحسب مدرب المجر",
+     "summary": "Hungary coach Marco Rossi said Dominik Szoboszlai is available for Tuesday's Nations League game against Northern Ireland at the Puskas Arena, after the midfielder was forced off with a minor knee issue in Liverpool's 3-1 win over Crystal Palace. Szoboszlai played in Georgia on Friday and said his leg 'felt good'.",
+     "summary_ar": "قال مدرب المجر ماركو روسي إن دومينيك سوبوسلاي جاهز لمباراة الثلاثاء في دوري الأمم ضد إيرلندا الشمالية على ملعب بوشكاش، بعد أن خرج من مباراة ليفربول أمام كريستال بالاس (3-1) بسبب مشكلة طفيفة في الركبة. وخاض سوبوسلاي مباراة جورجيا الجمعة وقال إن ساقه «شعرت بحال جيدة».",
+     "sources": [
+      {
+       "title": "Sports Mole",
+       "url": "https://www.sportsmole.co.uk/football/liverpool/injury-news/news/liverpool-receive-fresh-szoboszlai-injury-update-ahead-of-man-united-clash_609237.html",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-17T03:33:00+03:00",
+     "image": "https://sportsmole.co.uk/thumbor/TOV1VaUlXIaFDtc9ft0npAEYPOs=/1200x630/smart/filters:format(webp)/https%3A%2F%2Fsportsmole-media-prod.s3.gra.io.cloud.ovh.net%2Fuploads%2F2026%2F11%2Fdominik-szoboszlai-3-6af12d13d0561335857641.jpg",
+     "reliability": "Tier 2"
+    },
+    {
+     "id": "liverpool-wirtz",
+     "section": "liverpool",
+     "status": "new",
+     "title": "wirtz scores twice as germany thrash the netherlands 5-0",
+     "title_ar": "فيرتس يسجل هدفين وألمانيا تسحق هولندا 5-0",
+     "summary": "Florian Wirtz scored twice, both in the second half, as Germany beat the Netherlands 5-0 in Berlin in the UEFA Nations League, Liverpool's official match report says.",
+     "summary_ar": "سجل فلوريان فيرتس هدفين، كلاهما في الشوط الثاني، لتفوز ألمانيا على هولندا 5-0 في برلين في دوري الأمم الأوروبية، بحسب تقرير ليفربول الرسمي.",
      "sources": [
       {
        "title": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/internationals-barcola-jacquet-france-nations-league-win-turkiye",
+       "url": "https://www.liverpoolfc.com/news/internationals-florian-wirtz-scores-twice-germany-beat-netherlands",
        "type": "official"
       }
      ],
-     "time": "2026-11-16T11:55:00+03:00",
-     "image": "https://images.ctfassets.net/rm6ms1yxue4m/29kQZUJXqEG6yhu3mlBzhk/49854e8b4a4f5d6d26ecad3f579446cb/Bradley_Barcola_France.jpg?w=1200&h=630&fit=crop&f=face",
+     "time": "2026-11-17T01:15:00+03:00",
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/Y0qmsmuBjIXnz7sl6bI2q/20519105db0dab0c160a64b5b6e07bc6/1f8a4a66-9794-4ab4-bf93-3c69717e5763.jpg?w=1200&h=630&fit=crop&f=face",
      "reliability": "Official"
+    },
+    {
+     "id": "liverpool-camara",
+     "section": "liverpool",
+     "status": "new",
+     "title": "liverpool backed to repeat a £50m move for lamine camara",
+     "title_ar": "تقارير تتحدث عن تكرار ليفربول صفقة بـ50 مليون جنيه لضم لامين كامارا",
+     "summary": "Liverpool's media watch rounds up reports that the club could repeat a £50m transfer for Lamine Camara, and that interest in another target is frustrating a Premier League rival. The club notes that media-watch stories do not necessarily represent its position.",
+     "summary_ar": "يجمع رصد الصحف في ليفربول تقارير تفيد بأن النادي قد يكرر صفقة انتقال بقيمة 50 مليون جنيه لضم لامين كامارا، وأن الاهتمام بهدف آخر يزعج منافساً في الدوري الإنجليزي الممتاز. ويشير النادي إلى أن قصص رصد الصحف لا تعبّر بالضرورة عن موقفه.",
+     "sources": [
+      {
+       "title": "Liverpool FC",
+       "url": "https://www.liverpoolfc.com/news/liverpool-to-repeat-50m-masterstroke-lamine-camara",
+       "type": "official"
+      }
+     ],
+     "time": "2026-11-16T14:09:00+03:00",
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/4v0IeQufuwXTFvrFXjdGHY/bd1dece83bff2bf1ef1128cb3389f4e8/new-media-watch-teamtalk_34f03d7bfe1bd94b5e1e3c54a34667c3.jpg?w=1200&h=630&fit=crop&f=face",
+     "reliability": "Rumour"
     },
     {
      "id": "liverpool-bele",
@@ -835,25 +872,6 @@
       }
      ],
      "time": "2026-11-16T06:19:00+03:00",
-     "section": "liverpool",
-     "status": "",
-     "image": "https://images.ctfassets.net/rm6ms1yxue4m/2xRQGqqOfZ3Pl9pgrDKtjJ/08d45c4e82342c575ab365b584ab850d/media-watch-caughtoffside.jpg?w=1200&h=630&fit=crop&f=face",
-     "reliability": "Rumour"
-    },
-    {
-     "id": "liverpool-ganiou",
-     "title": "liverpool join the race for lens defender ismaelo ganiou",
-     "title_ar": "ليفربول يدخل سباق التعاقد مع مدافع لانس إسماعيلو غانيو",
-     "summary": "Football Insider says Liverpool have entered the chase for the 21-year-old Lens centre-back, who has drawn comparisons with Raphael Varane, as they look to strengthen at the back. The club carries it as a media report, not its own position.",
-     "summary_ar": "ذكر Football Insider أن ليفربول دخل سباق التعاقد مع مدافع لانس البالغ 21 عاماً، الذي تُقارن مسيرته برافاييل فاران، في مسعى لتقوية خط الدفاع. وينشر النادي القصة كمتابعة إعلامية لا كموقف رسمي.",
-     "sources": [
-      {
-       "title": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/liverpool-target-ismaelo-ganiou",
-       "type": "official"
-      }
-     ],
-     "time": "2026-11-15T12:00:00+03:00",
      "section": "liverpool",
      "status": "",
      "image": "https://images.ctfassets.net/rm6ms1yxue4m/2xRQGqqOfZ3Pl9pgrDKtjJ/08d45c4e82342c575ab365b584ab850d/media-watch-caughtoffside.jpg?w=1200&h=630&fit=crop&f=face",
@@ -879,31 +897,31 @@
      "reliability": "Official"
     },
     {
-     "id": "liverpool-alisson",
-     "title": "alisson wants to sign a new liverpool contract",
-     "title_ar": "أليسون يريد توقيع عقد جديد مع ليفربول",
-     "summary": "The goalkeeper, whose current deal expires at the end of the season, says he wants to stay at Liverpool beyond it, BBC Sport reported.",
-     "summary_ar": "قال حارس المرمى، الذي ينتهي عقده بنهاية الموسم، إنه يريد البقاء في ليفربول بعد نهاية عقده، بحسب BBC Sport.",
+     "id": "liverpool-ganiou",
+     "title": "liverpool join the race for lens defender ismaelo ganiou",
+     "title_ar": "ليفربول يدخل سباق التعاقد مع مدافع لانس إسماعيلو غانيو",
+     "summary": "Football Insider says Liverpool have entered the chase for the 21-year-old Lens centre-back, who has drawn comparisons with Raphael Varane, as they look to strengthen at the back. The club carries it as a media report, not its own position.",
+     "summary_ar": "ذكر Football Insider أن ليفربول دخل سباق التعاقد مع مدافع لانس البالغ 21 عاماً، الذي تُقارن مسيرته برافاييل فاران، في مسعى لتقوية خط الدفاع. وينشر النادي القصة كمتابعة إعلامية لا كموقف رسمي.",
      "sources": [
       {
-       "title": "BBC Sport",
-       "url": "https://www.bbc.co.uk/sport/football/articles/cw62ypepq2m7o",
-       "type": "independent"
+       "title": "Liverpool FC",
+       "url": "https://www.liverpoolfc.com/news/liverpool-target-ismaelo-ganiou",
+       "type": "official"
       }
      ],
-     "time": "2026-11-09T15:00:00+03:00",
+     "time": "2026-11-15T12:00:00+03:00",
      "section": "liverpool",
      "status": "",
-     "image": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/b046/live/a4de1f60-dbb5-11f1-b35d-8ff000e4934a.jpg",
-     "reliability": "Tier 1"
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/2xRQGqqOfZ3Pl9pgrDKtjJ/08d45c4e82342c575ab365b584ab850d/media-watch-caughtoffside.jpg?w=1200&h=630&fit=crop&f=face",
+     "reliability": "Rumour"
     },
     {
      "id": "liverpool-next-fixtures",
      "section": "liverpool",
-     "status": "",
-     "time": "2026-11-13T06:30:00+03:00",
-     "title": "next up: man utd at anfield on sunday 22 november",
-     "summary": "Liverpool host Manchester United at 19:30 Riyadh (16:30 GMT) on Sunday 22 November, then travel to Club Brugge in the Champions League on 25 November and to Everton on 29 November.",
+     "status": "updated",
+     "time": "2026-11-17T05:00:00+03:00",
+     "title": "next up: man utd at anfield on sunday, now under pochettino",
+     "summary": "Liverpool host Manchester United at 19:30 Riyadh (16:30 GMT) on Sunday 22 November, with United starting life under new head coach Mauricio Pochettino; Liverpool then go to Club Brugge in the Champions League on 25 November and to Everton on 29 November.",
      "sources": [
       {
        "title": "Liverpool FC fixtures",
@@ -918,27 +936,8 @@
      ],
      "image": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/ade6/live/fc1381f0-db8b-11f1-ab1c-6b6075dcdfe1.jpg",
      "reliability": "Official",
-     "title_ar": "التالي: مانشستر يونايتد في أنفيلد الأحد 22 نوفمبر",
-     "summary_ar": "يستضيف ليفربول مانشستر يونايتد في 19:30 بتوقيت الرياض (16:30 بتوقيت غرينتش) الأحد 22 نوفمبر، ثم يحل ضيفاً على كلوب بروج في دوري أبطال أوروبا في 25 نوفمبر وعلى إيفرتون في 29 نوفمبر."
-    },
-    {
-     "id": "liverpool-vandijk-contract",
-     "section": "liverpool",
-     "title": "van dijk says he is in no panic as his contract runs down",
-     "summary": "The 35-year-old captain, whose deal expires next summer, said this week he is in no panic and that 'if that will be extended, that's the case. If not, then I will go somewhere else.' He signed a two-year extension in April 2025 after a similar stand-off, and BBC Sport reports both sides still have a decision to make.",
-     "sources": [
-      {
-       "title": "BBC Sport",
-       "url": "https://www.bbc.co.uk/sport/football/articles/ck4gnd2pgd06o",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-13T13:00:00+03:00",
-     "image": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/87f4/live/e4ed5c50-ddeb-11f1-9204-cdcddf7d901c.jpg",
-     "title_ar": "فان دايك: لا استعجال لديّ مع اقتراب انتهاء عقدي",
-     "summary_ar": "قال القائد البالغ 35 عاماً، وعقده ينتهي الصيف المقبل، هذا الأسبوع إنه لا يستعجل وإنه «إذا مُدّد العقد فسيكون ذلك، وإن لم يُمَدّ فسأذهب إلى مكان آخر». وكان قد وقّع تمديداً لسنتين في أبريل 2025 بعد موقف مشابه، وتقول BBC Sport إن على الطرفين اتخاذ قرار مهم.",
-     "status": "",
-     "reliability": "Tier 1"
+     "title_ar": "التالي: مانشستر يونايتد في أنفيلد الأحد وبقيادة بوكتينو",
+     "summary_ar": "يستضيف ليفربول مانشستر يونايتد في 19:30 بتوقيت الرياض (16:30 بتوقيت غرينتش) الأحد 22 نوفمبر، ويبدأ يونايتد مسيرته مع مدربه الجديد ماوريسيو بوكتينو؛ ثم يحل ليفربول ضيفاً على كلوب بروج في دوري أبطال أوروبا في 25 نوفمبر وعلى إيفرتون في 29 نوفمبر."
     },
     {
      "id": "liverpool-salah-record",
@@ -962,27 +961,29 @@
    ],
    "watch": [
     {
-     "title": "Virgil Van Dijk Contract Talks ‘Expected’  | Liverpool News Update",
-     "url": "https://www.youtube.com/watch?v=Je6vWvSz9Go",
-     "channel": "The Redmen TV"
+     "title": "Szoboszlai Injury Admission A Worry for Liverpool! | Liverpool News Update",
+     "url": "https://www.youtube.com/watch?v=8JlvvXODcRY",
+     "channel": "The Redmen TV",
+     "thumbnail": "https://i.ytimg.com/vi/8JlvvXODcRY/hqdefault.jpg"
     },
     {
      "title": "HAALAND TO LEAVE CITY? ENDRICK TO QUIT MADRID? + LENS DEFENDER RAID? Liverpool Latest Transfer News",
      "url": "https://www.youtube.com/watch?v=c15PR5DKD20",
-     "channel": "Anfield Agenda"
+     "channel": "Anfield Agenda",
+     "thumbnail": "https://i.ytimg.com/vi/c15PR5DKD20/hqdefault.jpg"
     }
    ]
   },
   "games": {
-   "what_changed": "a hacker pleaded guilty to the 2022 rockstar breach four days before gta 6 launches, with take-two shares up more than 3% in premarket.",
-   "what_changed_ar": "أقر قرصان بالذنب في اختراق روكستار 2022 قبل أربعة أيام من إطلاق GTA 6، فيما ارتفعت أسهم Take-Two أكثر من 3% قبل الافتتاح.",
+   "what_changed": "gta 6 is two days from launch with rockstar still silent on an online mode, and 9 kings is half price after launch.",
+   "what_changed_ar": "يفصل يومان عن إطلاق GTA 6 مع صمت روكستار عن وضع اللعب الجماعي، و9 Kings بنصف السعر بعد إطلاقها.",
    "items": [
     {
      "id": "game-gta6-hacker",
      "section": "games",
-     "status": "new",
-     "title": "gta 6 hacker pleads guilty four days before the game launches",
-     "title_ar": "قرصان GTA 6 يعترف بالذنب قبل أربعة أيام من إطلاق اللعبة",
+     "status": "",
+     "title": "gta 6 hacker pleads guilty two days before the game launches",
+     "title_ar": "قرصان GTA 6 يقرّ بالذنب قبل يومين من إطلاق اللعبة",
      "summary": "Arion Kurtaj, 21, pleaded guilty at Woolwich Crown Court on Monday to the 2022 Rockstar breach that leaked 90 clips of unfinished GTA 6, along with other Lapsus$ hacks; Rockstar says the breach cost it $5m and thousands of staff hours. He will be sentenced later, and GTA 6 reaches consoles on Thursday.",
      "summary_ar": "أقر أريون كورتاي (21 عاماً) أمام محكمة ووليتش كراون الاثنين بالذنب في اختراق روكستار عام 2022 الذي سرب 90 مقطعاً من GTA 6 غير المكتملة، إلى جانب اختراقات أخرى مع مجموعة Lapsus$؛ وتقول روكستار إن الاختراق كلفها 5 ملايين دولار وآلاف ساعات العمل. وسيصدر الحكم لاحقاً، وتصل GTA 6 إلى الأجهزة الخميس.",
      "sources": [
@@ -998,6 +999,33 @@
      "genres": [
       "Action",
       "Open world"
+     ],
+     "platforms": [
+      "PS5",
+      "Xbox"
+     ]
+    },
+    {
+     "id": "game-gta6-online",
+     "section": "games",
+     "status": "new",
+     "title": "gta 6 online: rockstar still hasn't said a word",
+     "title_ar": "GTA 6 أونلاين: روكستار لم تنطق بكلمة حتى الآن",
+     "summary": "PC Gamer says it is not buying that there will be no GTA 6 online mode, and looks at when a multiplayer launch might follow Thursday's single-player release. Rockstar has announced nothing about online.",
+     "summary_ar": "تقول PC Gamer إنها لا تقتنع بأن لعبة GTA 6 ستخلو من وضع اللعب الجماعي، وتتناول موعد إطلاق محتمل له بعد إصدار اللعب الفردي الخميس. ولم تعلن روكستار شيئاً عن الوضع الجماعي.",
+     "sources": [
+      {
+       "title": "PC Gamer",
+       "url": "https://www.pcgamer.com/games/grand-theft-auto/gta-6-online-multiplayer/",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-16T23:57:00+03:00",
+     "image": "https://cdn.mos.cms.futurecdn.net/9SieU3JpSSPX34eMduXqsW-2560-80.jpg",
+     "kind": "PREVIEW",
+     "genres": [
+      "Open world",
+      "Action"
      ],
      "platforms": [
       "PS5",
@@ -1033,33 +1061,36 @@
      "release_date": "19 Nov, 2026"
     },
     {
-     "id": "game-gta6-soundtrack",
+     "id": "game-nine-kings",
      "section": "games",
-     "status": "",
-     "kind": "NEWS",
-     "title": "gta 6's leaked soundtrack is real: lana del rey, playboi carti, keith richards",
-     "title_ar": "موسيقى GTA 6 المسرّبة حقيقية: Lana Del Rey وPlayboi Carti وKeith Richards",
-     "summary": "A video of someone handling advance vinyl copies showed the tracklist, and sources at Rolling Stone and Billboard confirmed it. The soundtrack is new songs recorded for the game, with Justice on the score and two tracks on side A; GTA 6 launches on consoles on 19 November.",
-     "summary_ar": "أظهر مقطع فيديو لشخص يتفحص نسخ فينيل مسبقة قائمة الأغاني، وأكدت مصادر في Rolling Stone وBillboard صحتها. والألبوم أغانٍ جديدة سُجلت للعبة، مع Justice في الموسيقى التصويرية وأغنيتين في الوجه الأول؛ وتصدر GTA 6 على الأجهزة المنزلية في 19 نوفمبر.",
+     "status": "new",
+     "title": "9 kings is half price a week after launch as a turn-based pick",
+     "title_ar": "9 Kings بنصف السعر بعد أسبوع من إطلاقها كخيار تكتيكي",
+     "summary": "9 Kings, a turn-based strategy RPG, is 29.97 SR in Saudi Arabia, 50% off, a week after its 12 November release on Windows, Mac and Linux.",
+     "summary_ar": "لعبة 9 Kings، وهي لعبة تقمص أدوار استراتيجية بالأدوار، بسعر 29.97 ريال في السعودية بخصم 50%، بعد أسبوع من إطلاقها في 12 نوفمبر على ويندوز وماك ولينكس.",
      "sources": [
       {
-       "title": "PC Gamer",
-       "url": "https://www.pcgamer.com/games/grand-theft-auto/gta-6-soundtrack-leak-confirmed-accurate-with-new-songs-from-lana-del-rey-playboi-carti-and-keith-richards/",
-       "type": "independent"
+       "title": "Steam",
+       "url": "https://store.steampowered.com/app/2784470/",
+       "type": "official"
       }
      ],
-     "time": "2026-11-15T07:52:00+03:00",
-     "image": "https://cdn.mos.cms.futurecdn.net/AkvZgaawSvDoiAwX5qbvvY-2560-80.jpg",
+     "time": "2026-11-17T06:00:00+03:00",
+     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2784470/065aca6f45f0f997b35c815b43bcb63c1cb5ff8e/header_alt_assets_0.jpg?t=1794803229",
+     "kind": "DEAL",
      "genres": [
-      "Action",
-      "Open world"
+      "Turn-based strategy",
+      "RPG"
      ],
      "platforms": [
-      "PS5",
-      "Xbox"
+      "Windows",
+      "Mac",
+      "Linux"
      ],
-     "release_date": "19 Nov, 2026",
-     "store_url": "https://www.rockstargames.com/VI"
+     "price": "29.97 SR",
+     "discount": 50,
+     "release_date": "12 Nov, 2026",
+     "store_url": "https://store.steampowered.com/app/2784470/"
     },
     {
      "id": "game-sts2-fool",
@@ -1094,6 +1125,33 @@
      "price": "47.20 SR",
      "discount": 20,
      "store_url": "https://store.steampowered.com/app/2868840/"
+    },
+    {
+     "id": "game-ff14-evercold",
+     "section": "games",
+     "status": "new",
+     "title": "final fantasy 14 gives 30 days free to lapsed players before evercold",
+     "title_ar": "Final Fantasy 14 تمنح 30 يوماً مجاناً للاعبين المنقطعين قبل Evercold",
+     "summary": "Final Fantasy 14 is offering 30 days of free game time to players who have been away long enough, as the MMO tries to bring people back for the Evercold expansion, PC Gamer reports.",
+     "summary_ar": "تقدم Final Fantasy 14 ثلاثين يوماً من وقت اللعب المجاني للاعبين الذين انقطعوا مدة كافية، في محاولة لإعادة اللاعبين مع توسعة Evercold، بحسب PC Gamer.",
+     "sources": [
+      {
+       "title": "PC Gamer",
+       "url": "https://www.pcgamer.com/games/final-fantasy/final-fantasy-14-really-wants-evercold-to-be-the-expansion-everyone-comes-back-to-so-much-so-its-giving-you-30-days-free-gametime-if-youve-been-gone-long-enough/",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-16T18:53:00+03:00",
+     "image": "https://cdn.mos.cms.futurecdn.net/byi8pPpAtL5YpqFdqnHY23-2051-80.jpg",
+     "kind": "DEAL",
+     "genres": [
+      "MMORPG"
+     ],
+     "platforms": [
+      "Windows",
+      "PS5",
+      "Xbox"
+     ]
     },
     {
      "id": "game-lol-new-dawn",
@@ -1153,29 +1211,6 @@
      "price": "52.99 SR",
      "release_date": "30 Oct, 2026",
      "store_url": "https://store.steampowered.com/app/1799840/"
-    },
-    {
-     "id": "game-chronicles-medieval",
-     "section": "games",
-     "status": "",
-     "kind": "NEWS",
-     "title": "chronicles: medieval's studio went bankrupt, then coffee stain put in $5m",
-     "title_ar": "استوديو Chronicles: Medieval يفلس ثم يضخ Coffee Stain خمسة ملايين دولار",
-     "summary": "The developer of the strategy RPG filed for bankruptcy on the same day it announced it was in trouble, but a $5m reprieve from Coffee Stain means development continues.",
-     "summary_ar": "تقدّم مطوّر لعبة الأدوار التكتيكية بطلب إفلاس في اليوم نفسه الذي أعلن فيه تعثره، لكن مهلة بقيمة 5 ملايين دولار من Coffee Stain تعني أن التطوير مستمر.",
-     "sources": [
-      {
-       "title": "PC Gamer",
-       "url": "https://www.pcgamer.com/games/strategy/chronicles-medieval-developer-declared-bankruptcy-on-the-day-it-announced-it-was-in-trouble-but-development-will-continue-after-a-usd5-million-reprieve-from-coffee-stain/",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-15T14:27:00+03:00",
-     "image": "https://cdn.mos.cms.futurecdn.net/XKegTpWNWNwSysdkzRKN3o-1770-80.jpg",
-     "genres": [
-      "Strategy",
-      "RPG"
-     ]
     }
    ],
    "watch": [
@@ -1192,15 +1227,15 @@
    ]
   },
   "social": {
-   "what_changed": "mrbeast's hunger games passed 57m views in two days and the sidemen's murder mystery dinner 2.8m in one.",
-   "what_changed_ar": "تجاوز فيديو «ألعاب الجوع» من MrBeast 57 مليون مشاهدة في يومين، وتجاوز فيديو Sidemen «حفل عشاء الغموض» 2.8 مليون في يوم.",
+   "what_changed": "mrbeast's hunger games passed 64.2m views in three days and the sidemen's murder mystery dinner 4.1m in two.",
+   "what_changed_ar": "تجاوز فيديو «ألعاب الجوع» من MrBeast 64.2 مليون مشاهدة في ثلاثة أيام، و«عشاء لغز الجريمة» من سايدمن 4.1 مليون في يومين.",
    "items": [
     {
      "id": "social-mrbeast",
-     "title": "mrbeast's '$250,000 hunger games' passes 57.1m views in two days",
-     "title_ar": "«ألعاب الجوع» من MrBeast تتجاوز 57.1 مليون مشاهدة في يومين",
-     "summary": "MrBeast's real-life Hunger Games, posted on 14 November, is at 57,092,201 views.",
-     "summary_ar": "تجاوز فيديو MrBeast المستوحى من «ألعاب الجوع»، المنشور في 14 نوفمبر، 57,092,201 مشاهدة.",
+     "title": "mrbeast's '$250,000 hunger games' passes 64.2m views in three days",
+     "title_ar": "«ألعاب الجوع» من MrBeast تتجاوز 64.2 مليون مشاهدة في ثلاثة أيام",
+     "summary": "MrBeast's real-life Hunger Games, posted on 14 November, is at 64,202,118 views.",
+     "summary_ar": "تجاوز فيديو MrBeast المستوحى من «ألعاب الجوع»، المنشور في 14 نوفمبر، 64,202,118 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · MrBeast",
@@ -1208,20 +1243,20 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-16T19:03:00+03:00",
+     "time": "2026-11-17T06:20:00+03:00",
      "section": "social",
      "status": "updated",
      "image": "https://i.ytimg.com/vi/q6fgVVmdpgY/hqdefault.jpg",
      "platform": "youtube",
      "creator": "MrBeast",
-     "metric": "57.1M views"
+     "metric": "64.2M views"
     },
     {
      "id": "social-sidemen-murder",
-     "title": "sidemen's murder mystery dinner passes 2.8m views in a day",
-     "title_ar": "«حفل عشاء الغموض» من Sidemen يتجاوز 2.8 مليون مشاهدة في يوم",
-     "summary": "The Sidemen's murder mystery dinner, published on 15 November, has 2,821,483 views.",
-     "summary_ar": "تجاوز فيديو Sidemen «حفل عشاء الغموض»، المنشور في 15 نوفمبر، 2,821,483 مشاهدة.",
+     "title": "sidemen's murder mystery dinner passes 4.2m views in two days",
+     "title_ar": "«عشاء لغز الجريمة» من سايدمن يتجاوز 4.2 مليون مشاهدة في يومين",
+     "summary": "The Sidemen's murder mystery dinner, published on 15 November, has 4,170,291 views.",
+     "summary_ar": "تجاوز فيديو Sidemen «حفل عشاء الغموض»، المنشور في 15 نوفمبر، 4,170,291 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Sidemen",
@@ -1229,20 +1264,20 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-16T19:03:00+03:00",
+     "time": "2026-11-17T06:20:00+03:00",
      "section": "social",
      "status": "updated",
      "image": "https://i.ytimg.com/vi/fwqEB2HdY88/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Sidemen",
-     "metric": "2.82M views"
+     "metric": "4.2M views"
     },
     {
      "id": "social-sidemen-quiz",
-     "title": "sidemen's youtuber pub quiz passes 4.5m views",
-     "title_ar": "اختبار الحانة من Sidemen يتجاوز 4.5 مليون مشاهدة",
-     "summary": "The Sidemen's YouTuber pub quiz, posted on 8 November, is at 4,564,544 views.",
-     "summary_ar": "تجاوز فيديو اختبار الحانة من Sidemen، المنشور في 8 نوفمبر، 4,564,544 مشاهدة.",
+     "title": "sidemen's youtuber pub quiz passes 4.6m views",
+     "title_ar": "اختبار الحانة من سايدمن يتجاوز 4.6 مليون مشاهدة",
+     "summary": "The Sidemen's YouTuber pub quiz, posted on 8 November, is at 4,615,925 views.",
+     "summary_ar": "تجاوز فيديو اختبار الحانة من Sidemen، المنشور في 8 نوفمبر، 4,615,925 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Sidemen",
@@ -1250,20 +1285,20 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-16T19:03:00+03:00",
+     "time": "2026-11-17T06:20:00+03:00",
      "section": "social",
      "status": "updated",
      "image": "https://i.ytimg.com/vi/BcOP1ZEOTo0/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Sidemen",
-     "metric": "4.56M views"
+     "metric": "4.6M views"
     },
     {
      "id": "social-badshah-mahiya",
-     "title": "badshah's 'mahiya' climbs to 76.2m views",
-     "title_ar": "أغنية «mahiya» لـBadshah ترتفع إلى 76.2 مليون مشاهدة",
-     "summary": "Badshah's Mahiya with Shreya Ghoshal, released on 3 November, is at 76,223,205 views.",
-     "summary_ar": "تجاوزت أغنية Mahiya لـBadshah مع شريا غوشال، الصادرة في 3 نوفمبر، 76,223,205 مشاهدة.",
+     "title": "badshah's 'mahiya' climbs to 76.5m views",
+     "title_ar": "أغنية «ماهية» لبادشاه ترتفع إلى 76.5 مليون مشاهدة",
+     "summary": "Badshah's Mahiya with Shreya Ghoshal, released on 3 November, is at 76,471,141 views.",
+     "summary_ar": "تجاوزت أغنية Mahiya لـBadshah مع شريا غوشال، الصادرة في 3 نوفمبر، 76,471,141 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Badshah",
@@ -1271,20 +1306,20 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-16T19:03:00+03:00",
+     "time": "2026-11-17T06:20:00+03:00",
      "section": "social",
      "status": "updated",
      "image": "https://i.ytimg.com/vi/EgXkduRe9ZU/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Badshah",
-     "metric": "76.2M views"
+     "metric": "76.5M views"
     },
     {
      "id": "social-kimmel-rigged",
-     "title": "kimmel's midterm monologue passes 5.9m views",
-     "title_ar": "مونولوج كيميل عن انتخابات التجديد النصفي يتجاوز 5.9 مليون مشاهدة",
-     "summary": "Jimmy Kimmel's monologue on the midterm result and the Nvidia scandal, posted on 12 November, has 5,952,397 views.",
-     "summary_ar": "تجاوز مونولوج جيمي كيميل عن نتائج انتخابات التجديد النصفي وفضيحة إنفيديا، المنشور في 12 نوفمبر، 5,952,397 مشاهدة.",
+     "title": "kimmel's midterm monologue passes 6.1m views",
+     "title_ar": "مونولوج كيميل عن الانتخابات يتجاوز 6.1 مليون مشاهدة",
+     "summary": "Jimmy Kimmel's monologue on the midterm result and the Nvidia scandal, posted on 12 November, has 6,089,062 views.",
+     "summary_ar": "تجاوز مونولوج جيمي كيميل عن نتائج انتخابات التجديد النصفي وفضيحة إنفيديا، المنشور في 12 نوفمبر، 6,089,062 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Jimmy Kimmel Live",
@@ -1292,20 +1327,20 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-16T19:03:00+03:00",
+     "time": "2026-11-17T06:20:00+03:00",
      "section": "social",
      "status": "updated",
      "image": "https://i.ytimg.com/vi/yiprvoKiXAQ/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Jimmy Kimmel Live",
-     "metric": "5.95M views"
+     "metric": "6.1M views"
     },
     {
      "id": "social-kimmel-veterans",
-     "title": "kimmel's veterans day monologue passes 5.4m views",
-     "title_ar": "مونولوج كيميل في يوم المحاربين القدامى يتجاوز 5.4 مليون مشاهدة",
-     "summary": "Jimmy Kimmel's Veterans Day monologue from 11 November has 5,461,437 views.",
-     "summary_ar": "تجاوز مونولوج جيمي كيميل في يوم المحاربين القدامى من 11 نوفمبر 5,461,437 مشاهدة.",
+     "title": "kimmel's veterans day monologue passes 5.5m views",
+     "title_ar": "مونولوج كيميل في يوم المحاربين القدامى يتجاوز 5.5 مليون مشاهدة",
+     "summary": "Jimmy Kimmel's Veterans Day monologue from 11 November has 5,502,628 views.",
+     "summary_ar": "تجاوز مونولوج جيمي كيميل في يوم المحاربين القدامى من 11 نوفمبر 5,502,628 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Jimmy Kimmel Live",
@@ -1313,20 +1348,20 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-16T19:03:00+03:00",
+     "time": "2026-11-17T06:20:00+03:00",
      "section": "social",
      "status": "updated",
      "image": "https://i.ytimg.com/vi/6-wBsmF74N8/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Jimmy Kimmel Live",
-     "metric": "5.46M views"
+     "metric": "5.5M views"
     },
     {
      "id": "social-fireship-huang",
-     "title": "fireship's jensen huang video passes 2.3m views",
-     "title_ar": "فيديو Fireship عن جنسن هوانغ يتجاوز 2.3 مليون مشاهدة",
-     "summary": "Fireship's explainer on Huang leaving Nvidia, posted on 12 November, has 2,362,666 views.",
-     "summary_ar": "تجاوز فيديو Fireship الذي يشرح رحيل هوانغ عن إنفيديا، المنشور في 12 نوفمبر، 2,362,666 مشاهدة.",
+     "title": "fireship's jensen huang video passes 2.4m views",
+     "title_ar": "فيديو Fireship عن هوانغ يتجاوز 2.4 مليون مشاهدة",
+     "summary": "Fireship's explainer on Huang leaving Nvidia, posted on 12 November, has 2,381,352 views.",
+     "summary_ar": "تجاوز فيديو Fireship الذي يشرح رحيل هوانغ عن إنفيديا، المنشور في 12 نوفمبر، 2,381,352 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Fireship",
@@ -1334,20 +1369,20 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-16T19:03:00+03:00",
+     "time": "2026-11-17T06:20:00+03:00",
      "section": "social",
      "status": "updated",
      "image": "https://i.ytimg.com/vi/SOwUWPtXQ9I/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Fireship",
-     "metric": "2.36M views"
+     "metric": "2.4M views"
     },
     {
      "id": "social-fireship-anthropic",
-     "title": "fireship's anthropic IPO video passes 1.6m views",
-     "title_ar": "فيديو Fireship عن طرح أنثروبيك يتجاوز 1.6 مليون مشاهدة",
-     "summary": "Fireship's video on Anthropic's $1tn IPO, posted on 10 November, has 1,678,044 views.",
-     "summary_ar": "تجاوز فيديو Fireship عن طرح أنثروبيك بقيمة تريليون دولار، المنشور في 10 نوفمبر، 1,678,044 مشاهدة.",
+     "title": "fireship's anthropic IPO video passes 1.7m views",
+     "title_ar": "فيديو Fireship عن طرح أنثروبيك يتجاوز 1.7 مليون مشاهدة",
+     "summary": "Fireship's video on Anthropic's $1tn IPO, posted on 10 November, has 1,690,822 views.",
+     "summary_ar": "تجاوز فيديو Fireship عن طرح أنثروبيك بقيمة تريليون دولار، المنشور في 10 نوفمبر، 1,690,822 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Fireship",
@@ -1355,13 +1390,13 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-16T19:03:00+03:00",
+     "time": "2026-11-17T06:20:00+03:00",
      "section": "social",
      "status": "updated",
      "image": "https://i.ytimg.com/vi/1FurWDiK9A4/hqdefault.jpg",
      "platform": "youtube",
      "creator": "Fireship",
-     "metric": "1.68M views"
+     "metric": "1.7M views"
     }
    ],
    "watch": [
@@ -1378,28 +1413,73 @@
    ]
   },
   "graphic": {
-   "what_changed": "ukraine hit the kerch bridge in its biggest drone attack of the war, and russian strikes killed seven and cut power to 50,000 people.",
-   "what_changed_ar": "ضربت أوكرانيا جسر كيرتش في أكبر هجوم مسيّرات في الحرب، وقتلت الضربات الروسية سبعة أشخاص وقطعت الكهرباء عن 50 ألفاً.",
+   "what_changed": "russia hit two dnipro bridges in kyiv overnight and ukraine struck the kerch bridge for a second time in 24 hours.",
+   "what_changed_ar": "استهدفت روسيا جسرين على الدنيبر في كييف ليلاً وضربت أوكرانيا جسر كيرتش مرة ثانية خلال 24 ساعة.",
    "items": [
+    {
+     "id": "graphic-kyiv-bridges",
+     "section": "graphic",
+     "status": "new",
+     "title": "russian strikes hit two dnipro bridges in kyiv and cut water and heat",
+     "title_ar": "ضربات روسية تصيب جسرين على الدنيبر في كييف وتقطع المياه والتدفئة",
+     "summary": "Kyiv mayor Vitali Klitschko said two major bridges over the Dnipro were struck in an overnight Russian attack that damaged critical infrastructure and disrupted water and heating in parts of the city. The strikes came after Ukraine's biggest drone attack of the war on Russia, which hit the Kerch Bridge on Monday.",
+     "summary_ar": "قال رئيس بلدية كييف فيتالي كليتشكو إن جسرين رئيسيين على نهر الدنيبر أصيبا في هجوم روسي ليلي ألحق أضراراً ببنية تحتية حيوية وعطّل المياه والتدفئة في أجزاء من المدينة. وجاءت الضربات بعد أكبر هجوم مسيّرات أوكراني على روسيا في الحرب، والذي أصاب جسر كيرتش الاثنين.",
+     "sources": [
+      {
+       "title": "DW",
+       "url": "https://www.dw.com/en/ukraine-russian-strikes-hit-bridges-in-kyiv-mayor-says/live-79964446",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-17T04:30:00+03:00",
+     "image": "https://static.dw.com/image/79529157_6.jpg",
+     "warning": "war, infrastructure strikes",
+     "warning_ar": "حرب وضربات على البنية التحتية"
+    },
     {
      "id": "graphic-crimea-bridge",
      "section": "graphic",
-     "status": "new",
-     "title": "ukraine hits the kerch bridge in its biggest drone attack of the war",
-     "title_ar": "أوكرانيا تضرب جسر كيرتش في أكبر هجوم مسيّرات في الحرب",
-     "summary": "Russia says it destroyed 2,049 Ukrainian drones and four Flamingo missiles in 24 hours, its biggest drone attack of the war; the Moscow-installed head of Crimea confirmed drones struck the Kerch Bridge, causing minor damage and traffic restrictions. Kyiv came under a record 17 air-raid alerts in a day, at least seven people were killed by Russian strikes and blackouts hit 50,000 people, while drone debris set an Ilsky refinery fire that injured six, including children.",
-     "summary_ar": "تقول روسيا إنها أسقطت 2,049 مسيّرة أوكرانية وأربعة صواريخ Flamingo خلال 24 ساعة، وهو أكبر هجوم مسيّرات في الحرب؛ وأكد المسؤول الروسي المعين في القرم أن مسيّرات أصابت جسر كيرتش وألحقت به أضراراً طفيفة وقيوداً على الحركة. وتعرّضت كييف لـ17 إنذاراً جوياً في يوم واحد، وهو رقم قياسي، وقتل سبعة على الأقل بضربات روسية وانقطعت الكهرباء عن 50 ألفاً، فيما أشعل حطام مسيّرة حريقاً في مصفاة إيلسكي وأصاب ستة بينهم أطفال.",
+     "status": "updated",
+     "title": "ukraine strikes the kerch bridge a second time in 24 hours",
+     "title_ar": "أوكرانيا تضرب جسر كيرتش مرة ثانية خلال 24 ساعة",
+     "summary": "The Moscow-installed head of Crimea, Sergei Aksyonov, said the bridge was attacked again overnight and that traffic was suspended, a day after Monday's strike closed it for hours. No casualties or damage assessment were reported; Monday's attack was part of Ukraine's biggest drone strike of the war, in which Russia says it destroyed 2,049 drones.",
+     "summary_ar": "قال المسؤول الروسي المعين في القرم سيرغي أكسيونوف إن الجسر تعرّض لهجوم جديد ليلاً وإن الحركة توقفت، بعد يوم من إغلاقه لساعات بضربة الاثنين. ولم تُبلغ عن إصابات أو تقييم للأضرار؛ وكانت ضربة الاثنين جزءاً من أكبر هجوم مسيّرات أوكراني في الحرب تقول روسيا إنها أسقطت فيه 2,049 مسيّرة.",
      "sources": [
+      {
+       "title": "DW",
+       "url": "https://www.dw.com/en/ukraine-russian-strikes-hit-bridges-in-kyiv-mayor-says/live-79964446",
+       "type": "independent"
+      },
       {
        "title": "BBC News",
        "url": "https://www.bbc.co.uk/news/articles/ckx27v6dpjz0o",
        "type": "independent"
       }
      ],
-     "time": "2026-11-16T17:58:00+03:00",
+     "time": "2026-11-17T03:00:00+03:00",
      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f174/live/bc6fa8f0-e1c4-11f1-a094-5fdc692f3e33.jpg",
      "warning": "war, infrastructure strikes",
      "warning_ar": "حرب وضربات على البنية التحتية"
+    },
+    {
+     "id": "graphic-sudan-airstrike",
+     "section": "graphic",
+     "status": "new",
+     "title": "sudanese army air strike kills 13 civilians in west kordofan",
+     "title_ar": "ضربة جوية للجيش السوداني تقتل 13 مدنياً في غرب كردفان",
+     "summary": "Emergency Lawyers said an air strike on the Abu Qalb area of Abu Zabad locality in West Kordofan killed at least 13 civilians, including women and children, and destroyed several homes; Al Jazeera could not immediately verify the report. The army-aligned Special Operations Forces said its troops had moved through Abu Zabad and 'eliminated' RSF positions.",
+     "summary_ar": "قالت هيئة «المحامين الطوارئ» إن ضربة جوية على منطقة أبو قلب في محلية أبو زباد بغرب كردفان قتلت 13 مدنياً على الأقل بينهم نساء وأطفال ودمرت عدة منازل؛ ولم تتمكن الجزيرة من التحقق من التقرير فوراً. وقالت «القوات الخاصة» المتحالفة مع الجيش إن قواتها تحركت عبر أبو زباد و«قضت» على مواقع الدعم السريع.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/16/sudanese-army-air-attack-kills-13-in-western-sudan-rights-group",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-17T00:06:00+03:00",
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/ap_6afb596b6410f-1794857323.jpg?resize=1920%2C1440",
+     "warning": "mass casualties, air strike",
+     "warning_ar": "سقوط ضحايا، ضربة جوية"
     },
     {
      "id": "graphic-kyiv-hospital",
@@ -1510,31 +1590,9 @@
      "summary_ar": "فقد سائق شاحنة السيطرة على مركبته واصطدم بعدة سيارات في الفجيرة قبيل منتصف الليل، وامتد الحريق الناتج في حركة المرور فأودى بحياة 14 شخصاً وأصاب 30، بحسب وزارة الداخلية الإماراتية. وكانت خمس من المركبات الـ23 شاحنات، وتُستخدم اختبارات الحمض النووي لتحديد هوية الضحايا.",
      "warning_ar": "سقوط ضحايا وحادث مروري",
      "status": ""
-    },
-    {
-     "id": "graphic-zelena-dolyna",
-     "section": "graphic",
-     "status": "",
-     "time": "2026-11-12T06:20:00+03:00",
-     "title": "hacked database shows 1,600 russians died taking one village",
-     "summary": "A hacked Russian database indicates about 1,600 Russian troops died capturing and then retreating from Zelena Dolyna, a small settlement in northern Donetsk, Euromaidan Press reported. The figure would make the village one of the costliest small fights of the war.",
-     "sources": [
-      {
-       "title": "Euromaidan Press",
-       "url": "https://euromaidanpress.com/2026/11/11/zelena-dolyna/",
-       "type": "independent"
-      }
-     ],
-     "image": "https://euromaidanpress.com/wp-content/uploads/2026/01/3rd-Army-Corps-drone-operator.jpg",
-     "title_ar": "قاعدة بيانات مخترقة تظهر مقتل 1,600 روسي في قرية واحدة",
-     "summary_ar": "تشير قاعدة بيانات روسية مخترقة إلى مقتل نحو 1,600 عسكري روسي خلال الاستيلاء على قرية زيلينا دولينا شمال دونيتسك ثم الانسحاب منها، بحسب Euromaidan Press. وستجعل هذه الحصيلة القرية من أكثر المعارك الصغيرة كلفة في الحرب.",
-     "warning": "mass casualties",
-     "warning_ar": "ضحايا بالجملة"
     }
    ],
-   "watch": [],
-   "warning": "graphic war and crime footage",
-   "warning_ar": "مشاهد حرب وجرائم عنيفة"
+   "watch": []
   }
  }
 }
