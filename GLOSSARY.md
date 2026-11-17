@@ -23,7 +23,7 @@ The shared set of checked Items produced by one gathering run, covering every To
 _Avoid_: Pool, issue, feed, brief.json
 
 **Brief**:
-One Reader's view of the latest Edition: only the Topics they follow, ranked for them.
+One Reader's view of the latest Edition, plus the Adult Trending posts the app gathers from Reddit between Editions: only the Topics they follow, ranked for them.
 _Avoid_: Feed, dashboard, page
 
 **Item**:

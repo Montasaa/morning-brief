@@ -57,20 +57,7 @@ function store(ctx: AppContext, edition: EditionDocument): void {
   const updateThread = db.prepare("UPDATE threads SET title = @title, title_ar = @title_ar WHERE id = @id");
   const itemVersionMs = db.prepare(`
     SELECT e.generated_at_ms FROM items i JOIN editions e ON e.id = i.edition_id WHERE i.id = ?`).pluck();
-  const upsertItem = db.prepare(`
-    INSERT INTO items (id, edition_id, thread_id, status, time, time_ms, title, title_ar, summary,
-                       summary_ar, sources, image, image_kind, nsfw_media, warning, warning_ar, extras)
-    VALUES (@id, @edition_id, @thread_id, @status, @time, @time_ms, @title, @title_ar, @summary,
-            @summary_ar, @sources, @image, @image_kind, @nsfw_media, @warning, @warning_ar, @extras)
-    ON CONFLICT (id) DO UPDATE SET
-      edition_id = excluded.edition_id, thread_id = excluded.thread_id, status = excluded.status,
-      time = excluded.time, time_ms = excluded.time_ms, title = excluded.title,
-      title_ar = excluded.title_ar, summary = excluded.summary, summary_ar = excluded.summary_ar,
-      sources = excluded.sources, image = excluded.image, image_kind = excluded.image_kind,
-      nsfw_media = excluded.nsfw_media, warning = excluded.warning,
-      warning_ar = excluded.warning_ar, extras = excluded.extras`);
-  const clearTopics = db.prepare("DELETE FROM item_topics WHERE item_id = ?");
-  const insertTopic = db.prepare("INSERT INTO item_topics (item_id, topic_id, position) VALUES (?, ?, ?)");
+  const writeItem = itemWriter(db);
   const clearEditionItems = db.prepare("DELETE FROM edition_items WHERE edition_id = ?");
   const insertEditionItem = db.prepare(
     "INSERT INTO edition_items (edition_id, item_id, position) VALUES (?, ?, ?)",
@@ -94,14 +81,37 @@ function store(ctx: AppContext, edition: EditionDocument): void {
     clearEditionItems.run(edition.edition_id);
     edition.items.forEach((item, position) => {
       const storedMs = itemVersionMs.get(item.id) as number | undefined;
-      if (storedMs === undefined || generatedMs >= storedMs) {
-        upsertItem.run(itemRow(item, edition.edition_id));
-        clearTopics.run(item.id);
-        item.topics.forEach((topic, i) => insertTopic.run(item.id, topic, i));
-      }
+      if (storedMs === undefined || generatedMs >= storedMs) writeItem(item, edition.edition_id);
       insertEditionItem.run(edition.edition_id, item.id, position);
     });
   })();
+}
+
+/**
+ * Stores Items: each one replaces the stored Item with its id (and its Topics), as the version from
+ * `editionId`. Ingest uses it, and so does the app's own Adult Trending gathering (issue #19), which
+ * files its Reddit Items under the latest Edition. Run it inside a transaction.
+ */
+export function itemWriter(db: AppContext["db"]): (item: EditionItem, editionId: string) => void {
+  const upsertItem = db.prepare(`
+    INSERT INTO items (id, edition_id, thread_id, status, time, time_ms, title, title_ar, summary,
+                       summary_ar, sources, image, image_kind, nsfw_media, warning, warning_ar, extras)
+    VALUES (@id, @edition_id, @thread_id, @status, @time, @time_ms, @title, @title_ar, @summary,
+            @summary_ar, @sources, @image, @image_kind, @nsfw_media, @warning, @warning_ar, @extras)
+    ON CONFLICT (id) DO UPDATE SET
+      edition_id = excluded.edition_id, thread_id = excluded.thread_id, status = excluded.status,
+      time = excluded.time, time_ms = excluded.time_ms, title = excluded.title,
+      title_ar = excluded.title_ar, summary = excluded.summary, summary_ar = excluded.summary_ar,
+      sources = excluded.sources, image = excluded.image, image_kind = excluded.image_kind,
+      nsfw_media = excluded.nsfw_media, warning = excluded.warning,
+      warning_ar = excluded.warning_ar, extras = excluded.extras`);
+  const clearTopics = db.prepare("DELETE FROM item_topics WHERE item_id = ?");
+  const insertTopic = db.prepare("INSERT INTO item_topics (item_id, topic_id, position) VALUES (?, ?, ?)");
+  return (item, editionId) => {
+    upsertItem.run(itemRow(item, editionId));
+    clearTopics.run(item.id);
+    item.topics.forEach((topic, i) => insertTopic.run(item.id, topic, i));
+  };
 }
 
 function itemRow(item: EditionItem, editionId: string) {

@@ -127,7 +127,7 @@ function imageKind(image: unknown): ImageKind | undefined {
  * The title with its first letter in capitals: the first letter or digit after any opening quotes or
  * brackets ("4 killed" stays as it is). A first word that already has a capital inside ("iPhone") is left alone.
  */
-function capitaliseFirstLetter(title: string): string {
+export function capitaliseFirstLetter(title: string): string {
   const at = title.search(/[\p{L}\p{N}]/u);
   if (at < 0 || !/\p{L}/u.test(title.charAt(at))) return title;
   const word = title.slice(at).split(/\s/u)[0]!;

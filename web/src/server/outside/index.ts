@@ -11,6 +11,7 @@
 import { aladhanPrayerTimesService } from "./aladhan";
 import { claudeService, COMPATIBLE_MODEL } from "./claude";
 import { openMeteoWeatherService } from "./open-meteo";
+import { redditFeedService } from "./reddit";
 import { resendEmailService } from "./resend";
 import { webPushService } from "./web-push";
 
@@ -121,6 +122,33 @@ export interface PushService {
   send(subscription: PushSubscription, message: PushMessage): Promise<"sent" | "gone">;
 }
 
+// --- Reddit (subreddit RSS feeds, issue #19) -------------------------------------
+
+/** One post from a subreddit's Atom feed. */
+export interface RedditPost {
+  /** Reddit's post id, without the t3_ prefix, lower case (e.g. "1xyh2c3"). */
+  id: string;
+  subreddit: string;
+  title: string;
+  /** The post's page on Reddit. */
+  url: string;
+  /** The poster's user name, without u/; null when the feed does not say. */
+  author: string | null;
+  /** When it was posted, RFC 3339 (UTC). */
+  published: string;
+  /** A self-post's text, plain; empty for a link post. */
+  text: string;
+  /** Its picture (the feed's thumbnail), https only; null when it has none. */
+  image: string | null;
+  /** It has a picture, video or gallery. */
+  media: boolean;
+}
+
+export interface RedditService {
+  /** The posts in one public subreddit RSS feed, newest first as Reddit lists them. Throws when Reddit refuses. */
+  feed(url: string): Promise<RedditPost[]>;
+}
+
 // --- The boundary ----------------------------------------------------------------
 
 export interface OutsideServices {
@@ -129,6 +157,7 @@ export interface OutsideServices {
   weather: WeatherService;
   prayerTimes: PrayerTimesService;
   push: PushService;
+  reddit: RedditService;
 }
 
 export class OutsideServiceNotConnected extends Error {
@@ -171,5 +200,7 @@ export function realOutsideServices(env: Record<string, string | undefined> = pr
       env.VAPID_PUBLIC_KEY && env.VAPID_PRIVATE_KEY && env.VAPID_SUBJECT
         ? webPushService({ publicKey: env.VAPID_PUBLIC_KEY, privateKey: env.VAPID_PRIVATE_KEY, subject: env.VAPID_SUBJECT })
         : { publicKey: null, send: notConnected("Web Push") },
+    // Reddit (issue #19): public subreddit RSS feeds, no key.
+    reddit: redditFeedService(),
   };
 }
