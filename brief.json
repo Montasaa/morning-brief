@@ -2,7 +2,7 @@
  "version": 2,
  "schema_rev": "2.3",
  "sample": false,
- "generated_at": "2026-11-17T19:11:27+03:00",
+ "generated_at": "2026-11-17T22:02:26+03:00",
  "timezone": "Asia/Riyadh",
  "top_stories": [
   {
@@ -20,9 +20,43 @@
  ],
  "sections": {
   "middle_east": {
-   "what_changed": "Reports citing US intelligence described an iranian plan to hit washington with a dirty bomb, the UK sanctioned eight settlement builders and a palestinian woman was shot dead near jericho; in yemen the houthi push has revived the southern transitional council's role.",
-   "what_changed_ar": "أفادت تقارير استخبارية أميركية بأن إيران تخطط لاستهداف واشنطن بقنبلة قذرة، وفرضت بريطانيا عقوبات على ثماني شركات تبني مستوطنات، وقُتلت فلسطينية برصاص مستوطنين قرب أريحا؛ وفي اليمن أعاد تقدم الحوثي دور المجلس الانتقالي الجنوبي إلى الواجهة.",
+   "what_changed": "israeli forces raided a village in daraa and iraq's premier flew to lebanon to look for oil routes that bypass hormuz.",
+   "what_changed_ar": "قوات إسرائيلية اقتحمت قرية في درعا، ورئيس الوزراء العراقي زار لبنان لبحث مسارات نفطية تتجاوز هرمز.",
    "items": [
+    {
+     "id": "me-syria-daraa-raid",
+     "section": "middle_east",
+     "status": "new",
+     "title": "israeli forces raid a village in daraa and leave homes damaged",
+     "title_ar": "قوات إسرائيلية تقتحم قرية في درعا وتترك منازل متضررة",
+     "summary": "Israeli forces raided a village in Syria's southern Daraa province on Tuesday; footage showed bullet-riddled walls and charred belongings inside residents' homes. It is the latest in a series of Israeli incursions into southern Syria since the fall of the Assad government.",
+     "summary_ar": "اقتحمت قوات إسرائيلية قرية في ريف درعا جنوب سوريا الثلاثاء، وأظهرت المشاهد جدراناً مثقوبة بالرصاص وأغراضاً محترقة داخل منازل السكان. وهو أحدث توغل في سلسلة توغلات إسرائيلية في جنوب سوريا منذ سقوط حكومة الأسد.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/video/newsfeed/2026/11/17/israeli-forces-invade-syrian-village-leaving-homes-damaged",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-17T20:57:00+03:00"
+    },
+    {
+     "id": "me-iraq-oil-routes",
+     "section": "middle_east",
+     "status": "new",
+     "title": "iraq's premier flies to lebanon to explore oil routes beyond hormuz",
+     "title_ar": "رئيس الوزراء العراقي يزور لبنان لبحث مسارات نفطية تتجاوز هرمز",
+     "summary": "Iraq's prime minister travelled to Lebanon on Tuesday as Baghdad explores oil export routes that avoid the Strait of Hormuz, where shipping has been disrupted through the Iran war. Iraq's exports have run through the Gulf terminals at Basra.",
+     "summary_ar": "توجّه رئيس الوزراء العراقي إلى لبنان الثلاثاء في إطار بحث بغداد عن مسارات تصدير نفطية تتجاوز مضيق هرمز الذي تعطّلت الملاحة فيه خلال الحرب مع إيران. وكانت الصادرات العراقية تمر عبر موانئ البصرة في الخليج.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/economy/2026/11/17/iraq-pm-heads-to-lebanon-amid-push-to-explore-oil-routes-beyond-hormuz",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-17T20:34:00+03:00"
+    },
     {
      "id": "me-iran-dirtybomb",
      "section": "middle_east",
@@ -253,11 +287,11 @@
     {
      "id": "us-nvidia-earnings",
      "section": "us_markets",
-     "status": "",
-     "title": "nvidia reports tonight with $109bn expected and no jensen huang",
-     "title_ar": "إنفيديا تعلن نتائجها الليلة بتوقعات 109 مليارات دولار ودون جنسن هوانغ",
-     "summary": "Nvidia reports fiscal third-quarter results after Tuesday's close, with analysts expecting revenue of about $109bn, roughly 91% higher than a year earlier, and adjusted earnings of $2.47 a share. It is the chipmaker's first report in 33 years without Huang, with CFO Colette Kress leading the company; the stock has fallen almost 24% this month.",
-     "summary_ar": "تعلن إنفيديا نتائج الربع الثالث من سنتها المالية بعد إغلاق الثلاثاء، ويتوقع المحللون إيرادات بنحو 109 مليارات دولار بزيادة تقارب 91% عن العام الماضي وأرباحاً معدّلة بـ2.47 دولار للسهم. وهو أول تقرير للشركة منذ 33 عاماً بدون هوانغ، وتقودها الآن المديرة المالية كوليت كريس؛ وفقد السهم نحو 24% من قيمته هذا الشهر.",
+     "status": "updated",
+     "title": "nvidia reports tonight as huang says he would return as ceo if the board asked",
+     "title_ar": "إنفيديا تعلن نتائجها الليلة وهوانغ يقول إنه سيعود رئيساً تنفيذياً إذا طلبه المجلس",
+     "summary": "Nvidia reports fiscal third-quarter results after Tuesday's close, with analysts expecting revenue of about $109bn, roughly 91% higher than a year earlier, and adjusted earnings of $2.47 a share. Colette Kress leads the company in its first report in 33 years without Jensen Huang, who said he would be \"honoured\" to return as CEO if the board asked him, after it rejected pressure to reinstate him, and agreed to testify before US House committees next month. The stock is down almost 24% this month.",
+     "summary_ar": "تعلن إنفيديا نتائج الربع الثالث من سنتها المالية بعد إغلاق الثلاثاء، ويتوقع المحللون إيرادات بنحو 109 مليارات دولار بزيادة تقارب 91% عن العام الماضي وأرباحاً معدّلة بـ2.47 دولار للسهم. وتقود كوليت كريس الشركة في أول تقرير منذ 33 عاماً بدون جنسن هوانغ، الذي قال إنه سيكون «مشرّفاً» له العودة رئيساً تنفيذياً إذا طلبه المجلس بعد رفضه ضغوطاً لإعادته، ووافق على الشهادة أمام لجان في مجلس النواب الأميركي الشهر المقبل. وفقد السهم نحو 24% من قيمته هذا الشهر.",
      "sources": [
       {
        "title": "CNBC",
@@ -268,9 +302,19 @@
        "title": "Yahoo Finance",
        "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-earnings-live-updates-commentary-213634774.html",
        "type": "independent"
+      },
+      {
+       "title": "BBC News",
+       "url": "https://www.bbc.co.uk/news/articles/cwx2en2vrxmdo",
+       "type": "independent"
+      },
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/economy/2026/11/17/jensen-huang-to-testify-before-us-house-committees-next-month",
+       "type": "independent"
       }
      ],
-     "time": "2026-11-17T06:00:00+03:00",
+     "time": "2026-11-17T21:24:00+03:00",
      "image": "https://image.cnbcfm.com/api/v1/image/108533501-17939834002026-11-06t164219z_465084115_rc2dioa48l9e_rtrmadp_0_usa-stocks.jpeg?v=1793983455&w=1920&h=1080",
      "tag": "EARNINGS"
     },
@@ -1449,11 +1493,11 @@
     {
      "id": "graphic-crimea-bridge",
      "section": "graphic",
-     "status": "",
-     "title": "ukraine strikes the kerch bridge a second time in 24 hours",
-     "title_ar": "أوكرانيا تضرب جسر كيرتش مرة ثانية خلال 24 ساعة",
-     "summary": "The Moscow-installed head of Crimea, Sergei Aksyonov, said the bridge was attacked again overnight and that traffic was suspended, a day after Monday's strike closed it for hours. No casualties or damage assessment were reported; Monday's attack was part of Ukraine's biggest drone strike of the war, in which Russia says it destroyed 2,049 drones.",
-     "summary_ar": "قال المسؤول الروسي المعين في القرم سيرغي أكسيونوف إن الجسر تعرّض لهجوم جديد ليلاً وإن الحركة توقفت، بعد يوم من إغلاقه لساعات بضربة الاثنين. ولم تُبلغ عن إصابات أو تقييم للأضرار؛ وكانت ضربة الاثنين جزءاً من أكبر هجوم مسيّرات أوكراني في الحرب تقول روسيا إنها أسقطت فيه 2,049 مسيّرة.",
+     "status": "updated",
+     "title": "a section of the crimean bridge collapses after a night of ukrainian strikes",
+     "title_ar": "انهيار جزء من جسر القرم بعد ليلة من الضربات الأوكرانية",
+     "summary": "Ukrainian forces destroyed a large arched section of the Crimean Bridge overnight, with remnants of the span and road deck protruding from the water. Ukraine's military says the roadway is out of action while the parallel rail bridge is still standing with a damaged arch, and Russia's transport ministry says some rail services resumed. Zelensky called it a seven-stage \"unprecedented operation\" using drones and Flamingo and Neptune missiles; the Kremlin says the bridge will be rebuilt \"better than before\" and opened a terrorism case. Russia reported 2,256 drones downed in a second day of record attacks, and Kyiv closed two Dnipro crossings after Russian strikes, partially reopening the southern one.",
+     "summary_ar": "دمّرت القوات الأوكرانية جزءاً كبيراً من القوس الحجري لجسر القرم ليلاً، وظهرت بقايا القوس وجزء من سطح الطريق فوق الماء. ويقول الجيش الأوكراني إن الطريق خارج الخدمة بينما لا يزال جسر السكك الموازي قائماً بقوس متضرر، وتقول وزارة النقل الروسية إن بعض رحلات القطار استؤنفت. ووصف زيلينسكي العملية بأنها «غير مسبوقة» ونُفّذت على سبع مراحل بمسيّرات وصواريخ Flamingo وNeptune، ويقول الكرملين إن الجسر سيُعاد بناؤه «أفضل من قبل» وإنه فتح تحقيقاً بتهمة «الإرهاب». وأعلنت روسيا إسقاط 2,256 مسيّرة في يوم ثانٍ من الهجمات القياسية، وأغلقت كييف جسرين على الدنيبر بعد ضربات روسية وأعادت فتح الجنوبي جزئياً.",
      "sources": [
       {
        "title": "DW",
@@ -1464,9 +1508,14 @@
        "title": "BBC News",
        "url": "https://www.bbc.co.uk/news/articles/ckx27v6dpjz0o",
        "type": "independent"
+      },
+      {
+       "title": "BBC News",
+       "url": "https://www.bbc.co.uk/news/articles/cw772jk4rvmxo",
+       "type": "independent"
       }
      ],
-     "time": "2026-11-17T03:00:00+03:00",
+     "time": "2026-11-17T19:56:00+03:00",
      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f174/live/bc6fa8f0-e1c4-11f1-a094-5fdc692f3e33.jpg",
      "warning": "war, infrastructure strikes",
      "warning_ar": "حرب وضربات على البنية التحتية"
