@@ -1,7 +1,8 @@
 // Brief composer: turns the latest Edition into a Reader's Brief.
 //
-// The Items of the latest Edition that carry a Topic the Reader follows (ticket
-// 07), in Swipe order: the cover card, then the top stories (for now the
+// The Items of the latest Edition (plus the Adult Trending Items the app gathers
+// itself from Reddit between Editions, issue #19) that carry a Topic the Reader
+// follows (ticket 07), in Swipe order: the cover card, then the top stories (for now the
 // Edition's fallback `top_stories`), then the rest grouped by Topic, ordered
 // by the Scorer (./score.ts) within a group and groups ordered by their best
 // Item. Items the Reader hid are left out and opened ones are dimmed (ticket
@@ -24,6 +25,7 @@
 // entry point.
 import type { AppContext } from "../app";
 import { getDisplay } from "../display/display";
+import { GATHERED_ITEMS_SQL, gatheredSince } from "../gathering/adult-trending";
 import { imageKindOf, type ImageKind, type ItemStatus, type Source } from "../editions/types";
 import { readerReactions, toItemReactions, type Reaction } from "../reactions";
 import { threadSummaries, type ThreadSummary } from "../threads/threads";
@@ -169,7 +171,13 @@ export interface RankedBrief {
   editionTopIds: string[];
 }
 
-/** The ranked Items of the Reader with id `reader.id`; null before the first Edition. */
+/** Gathered Items come after the Edition's own when two are equally new. */
+const GATHERED_POSITION = 1_000_000;
+
+/**
+ * The ranked Items of the Reader with id `reader.id`; null before the first Edition. They are the latest
+ * Edition's Items plus the Adult Trending Items the app gathered from Reddit in the last 24 hours (issue #19).
+ */
 export function rankBrief(ctx: AppContext, reader: { id: number }): RankedBrief | null {
   const { db } = ctx;
   const edition = db
@@ -192,12 +200,16 @@ export function rankBrief(ctx: AppContext, reader: { id: number }): RankedBrief 
               ) AS topics,
               ${sensitiveItemSql("i.id")} AS sensitive,
               ${blurredItemSql("i.id")} AS blurred
-         FROM edition_items ei
+         FROM (SELECT item_id, position FROM edition_items WHERE edition_id = ?
+               UNION ALL
+               -- Adult Trending Items the app gathered itself (issue #19): no Edition carries them.
+               SELECT item_id, ${GATHERED_POSITION} FROM (${GATHERED_ITEMS_SQL})
+                WHERE item_id NOT IN (SELECT item_id FROM edition_items WHERE edition_id = ?)) ei
          JOIN items i ON i.id = ei.item_id
-        WHERE ei.edition_id = ? AND ${sensitiveItemVisibleSql("i.id")}
+        WHERE ${sensitiveItemVisibleSql("i.id")}
         ORDER BY i.time_ms DESC, ei.position`,
     )
-    .all(reader.id, edition.id, reader.id) as ItemRow[];
+    .all(reader.id, edition.id, gatheredSince(), edition.id, reader.id) as ItemRow[];
 
   const followed = new Set(followedTopicIds(ctx, reader.id));
   const hidden = hiddenTopicIds(ctx, reader.id); // other Readers' private Topics (ticket 11)
