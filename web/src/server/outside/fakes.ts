@@ -12,6 +12,7 @@ import type {
   PrayerTimes,
   PushMessage,
   PushSubscription,
+  RedditPost,
   WeatherToday,
 } from "./index";
 
@@ -46,6 +47,14 @@ export interface FakeOutsideServices extends OutsideServices {
     /** Endpoints the fake reports as expired. */
     gone: Set<string>;
     /** Endpoints the fake fails for (a push service error). */
+    failing: Set<string>;
+  };
+  reddit: OutsideServices["reddit"] & {
+    /** The posts each feed URL serves; a feed not listed here is empty. */
+    feeds: Map<string, RedditPost[]>;
+    /** Every feed URL asked for, in order. */
+    calls: string[];
+    /** Feed URLs the fake refuses (a Reddit 429 or outage). */
     failing: Set<string>;
   };
 }
@@ -114,6 +123,9 @@ export function fakeOutsideServices(options: FakeOptions = {}): FakeOutsideServi
   const sent: FakeOutsideServices["push"]["sent"] = [];
   const gone = new Set<string>();
   const failingPush = new Set<string>();
+  const feeds = new Map<string, RedditPost[]>();
+  const feedCalls: string[] = [];
+  const failingFeeds = new Set<string>();
 
   const placeCalls: string[] = [];
   const places = new Map<string, Place>(
@@ -186,6 +198,16 @@ export function fakeOutsideServices(options: FakeOptions = {}): FakeOutsideServi
         if (gone.has(subscription.endpoint)) return "gone";
         sent.push({ subscription, message });
         return "sent";
+      },
+    },
+    reddit: {
+      feeds,
+      calls: feedCalls,
+      failing: failingFeeds,
+      async feed(url) {
+        feedCalls.push(url);
+        if (failingFeeds.has(url)) throw new Error("Fake Reddit refused the feed (429)");
+        return (feeds.get(url) ?? []).map((post) => ({ ...post }));
       },
     },
   };
