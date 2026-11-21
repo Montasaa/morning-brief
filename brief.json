@@ -1,7 +1,7 @@
 {
  "version": 2,
  "sample": false,
- "generated_at": "2026-11-21T06:42:00+03:00",
+ "generated_at": "2026-11-21T19:08:00+03:00",
  "timezone": "Asia/Riyadh",
  "schema_rev": "2.3",
  "top_stories": [
@@ -10,8 +10,8 @@
    "id": "me-riyadh-three-missiles"
   },
   {
-   "section": "us_markets",
-   "id": "us-close-fri"
+   "section": "middle_east",
+   "id": "me-hormuz-tankers"
   },
   {
    "section": "ai",
@@ -20,8 +20,8 @@
  ],
  "sections": {
   "middle_east": {
-   "what_changed": "saudi air defences downed three ballistic missiles aimed at riyadh before dawn, the second attack on the capital in days, while the coalition kept striking hodeidah and the houthis kept threatening jeddah and the kingdom's red sea ports.",
-   "what_changed_ar": "أسقطت الدفاعات الجوية السعودية ثلاثة صواريخ باليستية متجهة إلى الرياض قبل الفجر، وهو الهجوم الثاني على العاصمة خلال أيام، فيما واصل التحالف ضرب الحديدة وواصل الحوثيون تهديد جدة والموانئ السعودية على البحر الأحمر.",
+   "what_changed": "saudi air defences downed three missiles aimed at riyadh before dawn, the second attack on the capital in days, while iran said it shot down two US drones over hormuz, two tankers were hit near oman and israeli strikes killed four in gaza.",
+   "what_changed_ar": "أسقطت الدفاعات الجوية السعودية ثلاثة صواريخ متجهة إلى الرياض قبل الفجر، وهو الهجوم الثاني على العاصمة خلال أيام، فيما قالت إيران إنها أسقطت طائرتين أمريكيتين دون طيار فوق هرمز، وأصيبت ناقلتان قرب عُمان، وقتلت الضربات الإسرائيلية أربعة فلسطينيين في غزة.",
    "items": [
     {
      "id": "me-riyadh-three-missiles",
@@ -43,8 +43,72 @@
      ],
      "time": "2026-11-21T06:00:00+03:00",
      "section": "middle_east",
-     "status": "new",
+     "status": "",
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/afp_6b00dbc90b00-1795218377.jpg?resize=1920%2C1440"
+    },
+    {
+     "id": "me-hormuz-tankers",
+     "title": "two tankers hit near oman as iran tightens its grip on hormuz",
+     "title_ar": "أصيبت ناقلتان قرب عُمان مع تشديد إيران قبضتها على هرمز",
+     "summary": "The UK Maritime Trade Operations centre said one tanker was hit at its rear about 20km north of Khasab and another in its engine room about 31km east of the port; no casualties were reported and it was unclear whether the incidents involved separate vessels. Iran's navy said an oil tanker caught fire after hitting a naval mine east of the strait and accused it of sailing with its identification off, a claim that could not be verified; Al Jazeera's Tehran correspondent cited Iranian armed-forces statements for about 25 incidents since last Saturday.",
+     "summary_ar": "قال مركز عمليات التجارة البحرية البريطاني إن ناقلة أصيبت في مؤخرتها على نحو 20 كيلومترا شمال خصب وأخرى في غرفة محركاتها على نحو 31 كيلومترا شرق الميناء؛ ولم ترد أنباء عن ضحايا ولم يتضح ما إذا كانت الحادثتان لناقلتين مختلفتين. وقالت البحرية الإيرانية إن ناقلة نفط اشتعلت بعد اصطدامها بلغم بحري شرق المضيق واتهمتها بالإبحار مع إطفاء أجهزة التعريف، وهو ادعاء لم يتسن التحقق منه؛ ونقل مراسل الجزيرة في طهران عن بيانات القوات المسلحة الإيرانية نحو 25 حادثة منذ السبت الماضي.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/21/tankers-hit-in-strait-of-hormuz-as-iran-tightens-grip-on-shipping",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-21T18:01:00+03:00",
+     "section": "middle_east",
+     "status": "updated",
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/AFP__20261013__D3722EZ__v1__HighRes__UaeIranUsIsraelWarHormuzShipping-1795270231.jpg?resize=1920%2C1440"
+    },
+    {
+     "id": "me-iran-blockade",
+     "title": "iran says it downed two US drones as the hormuz standoff hardens",
+     "title_ar": "إيران تقول إنها أسقطت طائرتين أمريكيتين دون طيار مع تصلب موقف هرمز",
+     "summary": "The IRGC said a new air-defence system shot down an MQ-9 over the Strait of Hormuz, the 58th such drone it says it has brought down in the war, and later claimed an MQ-1 over Qeshm; the US military did not comment. Foreign Minister Abbas Araghchi said Iran's seven conditions, including an end to the war and the naval blockade, must be met before Hormuz reopens, while the US Treasury sanctioned four Iranians it called 'oil trustees'.",
+     "summary_ar": "قال الحرس الثوري إن منظومة دفاع جوي جديدة أسقطت طائرة MQ-9 فوق مضيق هرمز، وهي الطائرة الثامنة والخمسون التي يقول إن قواته أسقطتها في الحرب، ثم أعلن لاحقا إسقاط طائرة MQ-1 فوق جزيرة قشم؛ ولم يعلق الجيش الأمريكي. وقال وزير الخارجية عباس عراقجي إن شروط إيران السبعة، ومنها إنهاء الحرب ورفع الحصار البحري، يجب تنفيذها قبل إعادة فتح هرمز، فيما فرضت وزارة الخزانة الأمريكية عقوبات على أربعة إيرانيين وصفتهم بـ«أمناء النفط».",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/21/irans-irgc-downs-us-drone-over-hormuz-as-efforts-to-end-war-remain-stalled",
+       "type": "independent"
+      },
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/20/us-targets-irans-ship-to-ship-transfers-can-tehran-break-the-blockade",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-21T12:30:00+03:00",
+     "section": "middle_east",
+     "status": "updated",
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6b0023dc-1795171292.jpg?resize=1920%2C1440"
+    },
+    {
+     "id": "me-gaza-ceasefire",
+     "title": "israeli strikes kill four in gaza as winter floods deepen the crisis",
+     "title_ar": "الضربات الإسرائيلية تقتل أربعة في غزة مع تفاقم الأزمة بفيضانات الشتاء",
+     "summary": "Israeli forces killed at least four Palestinians on Saturday: three in a drone strike on a car in Tel al-Hawa and one by gunfire in the Halawa camp near Jabalia, Al Jazeera reported. Gaza's health ministry put the toll since the October 2025 ceasefire at 1,671 and the total since the war began at 74,736, with more than 100,000 tents stuck in Egypt over Israeli entry conditions.",
+     "summary_ar": "قتلت القوات الإسرائيلية أربعة فلسطينيين على الأقل السبت: ثلاثة في ضربة بمسيرة على سيارة في تل الهوا وواحدا بنيران في مخيم الحلاوة قرب جباليا، بحسب الجزيرة. وقالت وزارة الصحة في غزة إن حصيلة القتلى منذ وقف إطلاق النار في تشرين الأول/أكتوبر 2025 بلغت 1,671 وإن الإجمالي منذ بدء الحرب بلغ 74,736، فيما علقت أكثر من 100 ألف خيمة في مصر بسبب شروط الدخول الإسرائيلية.",
+     "sources": [
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/news/2026/11/21/at-least-four-palestinians-killed-in-israeli-attacks-on-gaza",
+       "type": "independent"
+      },
+      {
+       "title": "BBC News",
+       "url": "https://www.bbc.co.uk/news/articles/cw8r7510degno",
+       "type": "independent"
+      }
+     ],
+     "time": "2026-11-21T15:29:00+03:00",
+     "section": "middle_east",
+     "status": "updated",
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/afp_6b018e5c201e-1795264092.jpg?resize=1920%2C1440"
     },
     {
      "id": "me-port-threats",
@@ -70,47 +134,6 @@
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/epa_6b003d8ba895-1795177867.jpg?resize=1200%2C675"
     },
     {
-     "id": "me-iran-blockade",
-     "title": "us tightens iran blockade with a warning on ship-to-ship transfers",
-     "title_ar": "واشنطن تشدد الحصار على إيران بتحذير بشأن النقل من سفينة إلى سفينة",
-     "summary": "US Central Command said in an advisory that any vessel taking cargo from a ship loaded at an Iranian port or along the coastline may be treated as evading the blockade and can be stopped, boarded, diverted or seized, even if it never enters Iranian waters. Analysts told Al Jazeera that Iran can bypass parts of the blockade but cannot break it militarily.",
-     "summary_ar": "قالت القيادة المركزية الأمريكية في تعميم إن أي سفينة تتلقى شحنة من سفينة حُمّلت في ميناء إيراني أو على الساحل الإيراني قد تُعدّ متحايلة على الحصار، ويمكن إيقافها أو تفتيشها أو تحويل مسارها أو احتجازها حتى إن لم تدخل المياه الإيرانية. وقال محللون للجزيرة إن إيران تستطيع تجاوز أجزاء من الحصار لكنها لا تستطيع كسره عسكريا.",
-     "sources": [
-      {
-       "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/2026/11/20/us-targets-irans-ship-to-ship-transfers-can-tehran-break-the-blockade",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-20T15:19:00+03:00",
-     "section": "middle_east",
-     "status": "new",
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6b0023dc-1795171292.jpg?resize=1920%2C1440"
-    },
-    {
-     "id": "me-gaza-ceasefire",
-     "title": "israeli fire kills six in gaza a day after the yellow line raid ends",
-     "title_ar": "مقتل ستة فلسطينيين في غزة بعد يوم من إنهاء العملية عند الخط الأصفر",
-     "summary": "Israeli forces killed at least six Palestinians across Gaza on Friday, a day after the military announced the end of its ground operation beyond the Yellow Line, Al Jazeera reported. A UN Development Programme official said attacks have continued despite the ceasefire and that more than 90% of Gaza's population depends on humanitarian aid.",
-     "summary_ar": "قتلت القوات الإسرائيلية ستة فلسطينيين على الأقل في أنحاء غزة الجمعة، بعد يوم من إعلان الجيش إنهاء عمليته البرية خارج الخط الأصفر، بحسب الجزيرة. وقال مسؤول في برنامج الأمم المتحدة الإنمائي إن الهجمات مستمرة رغم وقف إطلاق النار وإن أكثر من 90 في المئة من سكان غزة يعتمدون على المساعدات الإنسانية.",
-     "sources": [
-      {
-       "title": "Al Jazeera live blog",
-       "url": "https://www.aljazeera.com/news/liveblog/2026/11/21/iran-war-live-saudi-led-coalition-repels-houthi-missiles",
-       "type": "independent"
-      },
-      {
-       "title": "BBC News",
-       "url": "https://www.bbc.co.uk/news/articles/cw8r7510degno",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-21T04:30:00+03:00",
-     "section": "middle_east",
-     "status": "updated",
-     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ee79/live/56061990-e382-11f1-a094-5fdc692f3e33.jpg"
-    },
-    {
      "id": "me-iraq-jurf",
      "title": "iraq's PM sends forces into a kataib hezbollah stronghold",
      "title_ar": "رئيس الوزراء العراقي يدفع قواته إلى معقل لكتائب حزب الله",
@@ -125,7 +148,7 @@
      ],
      "time": "2026-11-21T00:28:00+03:00",
      "section": "middle_east",
-     "status": "new",
+     "status": "",
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/image-1795210097.jpg?resize=1920%2C1080&quality=80"
     },
     {
@@ -143,7 +166,7 @@
      ],
      "time": "2026-11-21T05:00:00+03:00",
      "section": "middle_east",
-     "status": "updated",
+     "status": "",
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/2026-11-18T101104Z_1871363908_RC2QGNAAWSCL_RTRMADP_3_YEAR-END-2026-PHOTOS-BEST-1795119785.jpg?resize=1920%2C1440"
     },
     {
@@ -163,29 +186,6 @@
      "section": "middle_east",
      "status": "",
      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f02b/live/b8c81f90-e447-11f1-9192-3924a59e54c7.jpg"
-    },
-    {
-     "id": "me-hormuz-tankers",
-     "title": "irgc says two supertankers are ablaze in hormuz after hitting mines",
-     "title_ar": "الحرس الثوري يقول إن ناقلتي نفط عملاقتين تشتعلان في هرمز بعد اصطدامهما بألغام",
-     "summary": "Iran's Revolutionary Guard navy said the two vessels, carrying more than 4 million barrels and escorted by US jets, hit mines on an unauthorised route and were burning off the strait's southern shore, ISNA reported. Iran's army said three tankers had hit mines since the morning; the claims could not be independently verified and no casualties were reported.",
-     "summary_ar": "قالت البحرية التابعة للحرس الثوري الإيراني إن الناقلتين، وهما تحملان أكثر من 4 ملايين برميل وكانت ترافقهما طائرات أميركية، اصطدمتا بألغام في مسار غير مصرح به وتشتعلان قبالة الساحل الجنوبي للمضيق، وفق وكالة إيسنا. وقال الجيش الإيراني إن ثلاث ناقلات اصطدمت بألغام منذ الصباح؛ ولم يتسن التحقق من هذه المزاعم بشكل مستقل ولم ترد أنباء عن سقوط ضحايا.",
-     "sources": [
-      {
-       "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/liveblog/2026/11/19/iran-war-live-houthis-escalate-attacks-on-saudi-capital",
-       "type": "independent"
-      },
-      {
-       "title": "Anadolu Agency",
-       "url": "https://u.aa.com.tr/en/middle-east/irans-irgc-navy-says-2-oil-supertankers-strike-naval-mines-in-strait-of-hormuz/4130580",
-       "type": "wire"
-      }
-     ],
-     "time": "2026-11-20T04:45:00+03:00",
-     "section": "middle_east",
-     "status": "",
-     "image": "https://i.guim.co.uk/img/media/7ac7eb4c22d2585e711481761223008925e95cb8/63_0_1138_910/master/1138.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=9ca067234a9ecf77fe3fdb0efe29130f"
     }
    ],
    "watch": [
@@ -223,7 +223,7 @@
      ],
      "time": "2026-11-21T00:05:00+03:00",
      "section": "us_markets",
-     "status": "new",
+     "status": "",
      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/03d5/live/7b6fe9b0-e4ed-11f1-8781-bf15c9202663.jpg",
      "tag": "MOVERS"
     },
@@ -247,7 +247,7 @@
      ],
      "time": "2026-11-20T22:13:00+03:00",
      "section": "us_markets",
-     "status": "updated",
+     "status": "",
      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/2b75/live/e227dc20-e46c-11f1-950d-9b3226707024.jpg",
      "tag": "MOVERS"
     },
@@ -266,7 +266,7 @@
      ],
      "time": "2026-11-21T00:05:00+03:00",
      "section": "us_markets",
-     "status": "updated",
+     "status": "",
      "image": "https://image.cnbcfm.com/api/v1/image/108550682-1794526893883-gettyimages-2304315109-ANTHROPIC_IPO.jpeg",
      "tag": "MOVERS"
     },
@@ -285,7 +285,7 @@
      ],
      "time": "2026-11-20T23:23:00+03:00",
      "section": "us_markets",
-     "status": "new",
+     "status": "",
      "image": "https://image.cnbcfm.com/api/v1/image/108556581-1795192669225-gettyimages-2305487800-US_STOCKS.jpeg?v=1795192710&w=1920&h=1080",
      "tag": "MACRO"
     },
@@ -309,7 +309,7 @@
      ],
      "time": "2026-11-20T22:30:00+03:00",
      "section": "us_markets",
-     "status": "updated",
+     "status": "",
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6afba6a9-1794877097.jpg?w=770&resize=770%2C513&quality=80",
      "tag": "GLOBAL"
     },
@@ -328,7 +328,7 @@
      ],
      "time": "2026-11-21T01:42:00+03:00",
      "section": "us_markets",
-     "status": "updated",
+     "status": "",
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/AP26230077681365-1795137729_4d634f-1795140801.jpg?resize=1200%2C630&quality=80",
      "tag": "GLOBAL"
     },
@@ -401,7 +401,7 @@
      ],
      "time": "2026-11-21T02:08:00+03:00",
      "section": "ai",
-     "status": "new",
+     "status": "",
      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/78a0/live/a0688a80-e531-11f1-99b6-a35a62fa4264.jpg",
      "kind": "PAPER",
      "try_url": "https://www.bbc.co.uk/news/articles/c6pqr2g7w059o",
@@ -412,10 +412,10 @@
     },
     {
      "id": "ai-inkling-2-mini",
-     "title": "#1: thinking machines' inkling-2-mini takes the top spot",
-     "title_ar": "الأول: inkling-2-mini من thinking machines يتصدر القائمة",
-     "summary": "Inkling-2-Mini is Thinking Machines' Apache-2.0 multimodal mixture-of-experts model, tagged for image-text-to-text and built on the inkling2_loop architecture; it enters the trending list first with 775 likes and 136 downloads.",
-     "summary_ar": "نموذج Inkling-2-Mini من Thinking Machines مرخص Apache-2.0 ومتعدد الوسائط من فئة Mixture-of-Experts، موسوم لمعالجة الصور والنصوص ومبني على معمارية inkling2_loop؛ ويدخل قائمة الأكثر تداولا في المركز الأول بـ775 إعجابا و136 تنزيلا.",
+     "title": "#1: inkling-2-mini stays first on 1,512 likes",
+     "title_ar": "الأول: inkling-2-mini يحافظ على المركز الأول بـ1,512 إعجابا",
+     "summary": "Inkling-2-Mini, Thinking Machines' Apache-2.0 multimodal mixture-of-experts model, is first with 1,512 likes and 7,944 downloads.",
+     "summary_ar": "نموذج Inkling-2-Mini من Thinking Machines، متعدد الوسائط بترخيص Apache-2.0 من فئة Mixture-of-Experts، في المركز الأول بـ1,512 إعجابا و7,944 تنزيلا.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -423,47 +423,23 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "ai",
-     "status": "new",
+     "status": "updated",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/thinkingmachines/Inkling-2-Mini.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
      "pricing": "Open weights",
-     "metric": "#1 trending, 775 likes",
+     "metric": "#1 trending, 1,512 likes",
      "why_it_matters": "A small multimodal MoE from a well-funded lab is the kind of checkpoint you can download and test the same morning.",
      "why_it_matters_ar": "نموذج MoE صغير متعدد الوسائط من مختبر ممول جيدا هو من النماذج التي يمكن تنزيلها واختبارها في الصباح نفسه."
     },
     {
-     "id": "ai-haru-4b",
-     "title": "#2: haru-4b holds second on 5,697 likes",
-     "title_ar": "الثاني: haru-4b يحافظ على المركز الثاني بـ5,697 إعجابا",
-     "summary": "Haru-4B, an audio-to-audio model from higurashi-ai, stays second with 5,697 likes and 7,323 downloads.",
-     "summary_ar": "نموذج Haru-4B من higurashi-ai لتحويل الصوت إلى صوت يبقى ثانيا بـ5,697 إعجابا و7,323 تنزيلا.",
-     "sources": [
-      {
-       "title": "Hugging Face",
-       "url": "https://huggingface.co/higurashi-ai/Haru-4B",
-       "type": "official"
-      }
-     ],
-     "time": "2026-11-21T06:30:00+03:00",
-     "section": "ai",
-     "status": "updated",
-     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/higurashi-ai/Haru-4B.png",
-     "kind": "MODEL",
-     "try_url": "https://huggingface.co/higurashi-ai/Haru-4B",
-     "pricing": "Open weights",
-     "metric": "#2 trending, 5,697 likes",
-     "why_it_matters": "Real-time spoken dialogue is the step that makes voice agents feel like a call rather than a walkie-talkie.",
-     "why_it_matters_ar": "الحوار الصوتي الفوري هو الخطوة التي تجعل وكلاء الصوت أشبه بمكالمة هاتفية لا بجهاز لاسلكي."
-    },
-    {
      "id": "ai-qwen38-pi-adapted",
-     "title": "#3: qwen3.8-27b coding adapter holds third on 866 likes",
-     "title_ar": "الثالث: محول qwen3.8-27b للبرمجة يحافظ على المركز الثالث بـ866 إعجابا",
-     "summary": "harness-hub's Qwen3.8-27B-pi-adapted, a fine-tune of Qwen's 27B model for coding-agent work, holds third with 866 likes and 1,874 downloads.",
-     "summary_ar": "نموذج Qwen3.8-27B-pi-adapted من harness-hub، وهو ضبط دقيق لنموذج Qwen بحجم 27 مليار معامل لعمل وكلاء البرمجة، يحافظ على المركز الثالث بـ866 إعجابا و1,874 تنزيلا.",
+     "title": "#2: qwen3.8-27b coding adapter climbs to second on 821 likes",
+     "title_ar": "الثاني: محول qwen3.8-27b للبرمجة يصعد إلى المركز الثاني بـ821 إعجابا",
+     "summary": "harness-hub's Qwen3.8-27B-pi-adapted, a fine-tune of Qwen's 27B model for coding-agent work, is second with 821 likes and 2,383 downloads.",
+     "summary_ar": "نموذج Qwen3.8-27B-pi-adapted من harness-hub، وهو ضبط دقيق لنموذج Qwen بحجم 27 مليار معامل لعمل وكلاء البرمجة، في المركز الثاني بـ821 إعجابا و2,383 تنزيلا.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -471,47 +447,23 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "ai",
      "status": "updated",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/harness-hub/Qwen3.8-27B-pi-adapted.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted",
      "pricing": "Open weights",
-     "metric": "#3 trending, 866 likes",
+     "metric": "#2 trending, 821 likes",
      "why_it_matters": "Coding agents that think at a quarter of the token cost are cheaper to run all day.",
      "why_it_matters_ar": "وكلاء البرمجة الذين يفكرون بربع كلفة الرموز أرخص للتشغيل طوال اليوم."
     },
     {
-     "id": "ai-qwen38-27b",
-     "title": "#5: qwen's 3.8-27b sits fifth despite 20,815 likes",
-     "title_ar": "الخامس: qwen 3.8-27b في المركز الخامس رغم 20,815 إعجابا",
-     "summary": "Qwen's open 27B flagship has 20,815 likes and 6.45m downloads, still the most-downloaded checkpoint on the list, but ranks fifth on the trending score.",
-     "summary_ar": "نموذج Qwen المفتوح الرائد بحجم 27 مليار معامل لديه 20,815 إعجابا و6.45 مليون تنزيل، وهو لا يزال الأكثر تنزيلا في القائمة، لكنه يأتي خامسا في درجة التداول.",
-     "sources": [
-      {
-       "title": "Hugging Face",
-       "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-       "type": "official"
-      }
-     ],
-     "time": "2026-11-21T06:30:00+03:00",
-     "section": "ai",
-     "status": "updated",
-     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Qwen/Qwen3.8-27B.png",
-     "kind": "MODEL",
-     "try_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-     "pricing": "Open weights",
-     "metric": "#5 trending, 20,815 likes",
-     "why_it_matters": "It is the default open base many of this week's fine-tunes are building on.",
-     "why_it_matters_ar": "إنه القاعدة المفتوحة الافتراضية التي تُبنى عليها كثير من نسخ هذا الأسبوع."
-    },
-    {
      "id": "ai-unsloth-inkling-gguf",
-     "title": "#6: unsloth's quantised inkling-2-mini enters sixth",
-     "title_ar": "السادس: نسخة inkling-2-mini المكممة من unsloth تدخل القائمة",
-     "summary": "Unsloth's GGUF build of Inkling-2-Mini lands sixth a day after the base model, with 250 likes and no downloads recorded yet; it is the quantised version meant for local inference.",
-     "summary_ar": "نسخة GGUF من Inkling-2-Mini أعدتها Unsloth تدخل السادس بعد يوم من ظهور النموذج الأصلي، بـ250 إعجابا ولا تنزيلات مسجلة بعد؛ وهي النسخة المكممة المخصصة للتشغيل المحلي.",
+     "title": "#3: unsloth's inkling-2-mini gguf jumps to third on 238k downloads",
+     "title_ar": "الثالث: نسخة inkling-2-mini المكممة من unsloth تقفز إلى المركز الثالث بـ238 ألف تنزيل",
+     "summary": "Unsloth's GGUF build of Inkling-2-Mini climbs to third with 460 likes and 238,152 downloads, the most-downloaded new entry on the list.",
+     "summary_ar": "نسخة GGUF من Inkling-2-Mini أعدتها Unsloth تصعد إلى المركز الثالث بـ460 إعجابا و238,152 تنزيلا، وهي الأكثر تنزيلا بين الوافدين الجدد في القائمة.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -519,47 +471,23 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "ai",
-     "status": "new",
+     "status": "updated",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/unsloth/Inkling-2-Mini-GGUF.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF",
      "pricing": "Open weights",
-     "metric": "#6 trending, 250 likes",
+     "metric": "#3 trending, 460 likes",
      "why_it_matters": "The GGUF is the version that runs on a workstation instead of a cluster.",
      "why_it_matters_ar": "نسخة GGUF هي التي تعمل على محطة عمل بدل عنقود خوادم."
     },
     {
-     "id": "ai-ltx-25",
-     "title": "#7: lightricks' ltx-2.5 video model slips to seventh",
-     "title_ar": "السابع: نموذج الفيديو ltx-2.5 من lightricks يتراجع إلى المركز السابع",
-     "summary": "LTX-2.5, Lightricks' image-to-video model, is seventh with 12,912 likes and 2.96m downloads after sitting in the top five yesterday.",
-     "summary_ar": "نموذج LTX-2.5 من Lightricks لتحويل الصور إلى فيديو في المركز السابع بـ12,912 إعجابا و2.96 مليون تنزيل بعد أن كان ضمن الخمسة الأوائل أمس.",
-     "sources": [
-      {
-       "title": "Hugging Face",
-       "url": "https://huggingface.co/Lightricks/LTX-2.5",
-       "type": "official"
-      }
-     ],
-     "time": "2026-11-21T06:30:00+03:00",
-     "section": "ai",
-     "status": "updated",
-     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Lightricks/LTX-2.5.png",
-     "kind": "MODEL",
-     "try_url": "https://huggingface.co/Lightricks/LTX-2.5",
-     "pricing": "Open weights",
-     "metric": "#7 trending, 12,912 likes",
-     "why_it_matters": "A downloadable video model that also handles audio is where generated clips stop being a demo and start being a workflow.",
-     "why_it_matters_ar": "نموذج فيديو قابل للتنزيل يتعامل مع الصوت أيضا هو النقطة التي يتحول فيها توليد المقاطع من عرض إلى سير عمل."
-    },
-    {
      "id": "ai-hy4-flash",
-     "title": "#8: tencent's hy4-flash holds eighth on 552 likes",
-     "title_ar": "الثامن: hy4-flash من تينسنت يحافظ على المركز الثامن بـ552 إعجابا",
-     "summary": "Tencent's Hy4-flash, an image-text-to-text model, is eighth with 552 likes and 3,949 downloads.",
-     "summary_ar": "نموذج Hy4-flash من تينسنت لمعالجة الصور والنصوص في المركز الثامن بـ552 إعجابا و3,949 تنزيلا.",
+     "title": "#4: tencent's hy4-flash climbs to fourth on 505 likes",
+     "title_ar": "الرابع: hy4-flash من تينسنت يصعد إلى المركز الرابع بـ505 إعجابا",
+     "summary": "Tencent's Hy4-flash, an image-text-to-text model, is fourth with 505 likes and 5,588 downloads.",
+     "summary_ar": "نموذج Hy4-flash من تينسنت لمعالجة الصور والنصوص في المركز الرابع بـ505 إعجابا و5,588 تنزيلا.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -567,16 +495,63 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "ai",
      "status": "updated",
      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/tencent/Hy4-flash.png",
      "kind": "MODEL",
      "try_url": "https://huggingface.co/tencent/Hy4-flash",
      "pricing": "Open weights",
-     "metric": "#8 trending, 552 likes",
+     "metric": "#4 trending, 505 likes",
      "why_it_matters": "A 1M-token context at 12B active parameters is aimed squarely at long-document work.",
      "why_it_matters_ar": "سياق مليون رمز بـ12 مليار معامل نشط موجه مباشرة إلى معالجة المستندات الطويلة."
+    },
+    {
+     "id": "ai-ltx-25",
+     "title": "#5: lightricks' ltx-2.5 holds fifth on 12,880 likes",
+     "title_ar": "الخامس: نموذج الفيديو ltx-2.5 من lightricks يحافظ على المركز الخامس بـ12,880 إعجابا",
+     "summary": "LTX-2.5, Lightricks' image-to-video model, is fifth with 12,880 likes and 3.0m downloads.",
+     "summary_ar": "نموذج LTX-2.5 من Lightricks لتحويل الصور إلى فيديو في المركز الخامس بـ12,880 إعجابا و3.0 مليون تنزيل.",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/Lightricks/LTX-2.5",
+       "type": "official"
+      }
+     ],
+     "time": "2026-11-21T19:10:00+03:00",
+     "section": "ai",
+     "status": "updated",
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Lightricks/LTX-2.5.png",
+     "kind": "MODEL",
+     "try_url": "https://huggingface.co/Lightricks/LTX-2.5",
+     "pricing": "Open weights",
+     "metric": "#5 trending, 12,880 likes",
+     "why_it_matters": "A downloadable video model that also handles audio is where generated clips stop being a demo and start being a workflow.",
+     "why_it_matters_ar": "نموذج فيديو قابل للتنزيل يتعامل مع الصوت أيضا هو النقطة التي يتحول فيها توليد المقاطع من عرض إلى سير عمل."
+    },
+    {
+     "id": "ai-voice-isolator",
+     "title": "#6: inworld's voice isolator enters sixth",
+     "summary": "Inworld's voice-isolator, a streaming audio-to-audio model that runs at 48kHz and is built for speech enhancement and noise suppression, enters sixth with 464 likes and no downloads recorded yet.",
+     "title_ar": "السادس: عازل الصوت voice-isolator من inworld يدخل المركز السادس",
+     "summary_ar": "نموذج voice-isolator من Inworld لتحويل الصوت إلى صوت، يعمل ببث حي وتردد 48 كيلوهرتز ومبني لتحسين الكلام وكتم الضوضاء، يدخل المركز السادس بـ464 إعجابا ولا تنزيلات مسجلة بعد.",
+     "why_it_matters": "Clean audio in real time is the unglamorous half of any voice agent.",
+     "why_it_matters_ar": "الصوت النقي في الزمن الحقيقي هو النصف غير اللامع من أي وكيل صوتي.",
+     "metric": "#6 trending, 464 likes",
+     "kind": "MODEL",
+     "try_url": "https://huggingface.co/inworld/voice-isolator",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/inworld/voice-isolator",
+       "type": "official"
+      }
+     ],
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/inworld/voice-isolator.png",
+     "time": "2026-11-21T19:10:00+03:00",
+     "section": "ai",
+     "status": "new"
     }
    ],
    "watch": [
@@ -596,10 +571,10 @@
    "items": [
     {
      "id": "claude-bughunter",
-     "title": "#1: claude-bughunter leads again with 1,622 stars",
-     "title_ar": "الأول: claude-bughunter يتصدر مجددا بـ1,622 نجمة",
-     "summary": "A Claude Code skill bundle for bug hunting and external red-team work: 82 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes. It stays first with 1,622 stars today and 14,466 in total.",
-     "summary_ar": "حزمة مهارات لـClaude Code للبحث عن الثغرات والعمل الأحمر الخارجي: 82 مهارة و15 أمرا مختصرا و681 نمطا من تقارير كشف منشورة عبر 24 فئة ثغرات. ويبقى أولا بـ1,622 نجمة اليوم و14,466 نجمة إجمالا.",
+     "title": "#1: claude-bughunter leads again with 1,794 stars",
+     "title_ar": "الأول: claude-bughunter يتصدر مجددا بـ1,794 نجمة",
+     "summary": "A Claude Code skill bundle for bug hunting and external red-team work: 82 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes. It stays first with 1,794 stars today and 15,466 in total.",
+     "summary_ar": "حزمة مهارات لـClaude Code للبحث عن الثغرات والعمل الأحمر الخارجي: 82 مهارة و15 أمرا مختصرا و681 نمطا من تقارير كشف منشورة عبر 24 فئة ثغرات. ويبقى أولا بـ1,794 نجمة اليوم و15,466 نجمة إجمالا.",
      "sources": [
       {
        "title": "GitHub",
@@ -607,13 +582,13 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "trending",
      "status": "",
      "image": "https://opengraph.githubassets.com/1/elementalsouls/Claude-BugHunter",
      "rank": 1,
      "period": "today",
-     "stars_gained": 1622,
+     "stars_gained": 1794,
      "stars_total": 14466,
      "language": "Python",
      "why_it_matters": "Security know-how packaged as agent skills is how a small red team scales one reviewer.",
@@ -621,10 +596,10 @@
     },
     {
      "id": "obra-superpowers",
-     "title": "#2: superpowers holds second with 890 stars",
-     "title_ar": "الثاني: superpowers يحافظ على المركز الثاني بـ890 نجمة",
-     "summary": "An agentic skills framework and software-development methodology for coding agents, now at 322,914 stars in total; it gains 890 today.",
-     "summary_ar": "إطار مهارات للوكلاء ومنهجية لتطوير البرمجيات لوكلاء البرمجة، بإجمالي 322,914 نجمة؛ ويكسب 890 نجمة اليوم.",
+     "title": "#2: superpowers holds second with 884 stars",
+     "title_ar": "الثاني: superpowers يحافظ على المركز الثاني بـ884 نجمة",
+     "summary": "An agentic skills framework and software-development methodology for coding agents, now at 323,460 stars in total; it gains 884 today.",
+     "summary_ar": "إطار مهارات للوكلاء ومنهجية لتطوير البرمجيات لوكلاء البرمجة، بإجمالي 323,460 نجمة؛ ويكسب 884 نجمة اليوم.",
      "sources": [
       {
        "title": "GitHub",
@@ -632,13 +607,13 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "trending",
      "status": "",
      "image": "https://opengraph.githubassets.com/1/obra/superpowers",
      "rank": 2,
      "period": "today",
-     "stars_gained": 890,
+     "stars_gained": 884,
      "stars_total": 322914,
      "language": "Shell",
      "why_it_matters": "Methodology is the difference between an agent that types and one that ships.",
@@ -646,10 +621,10 @@
     },
     {
      "id": "hkuds-cli-anything",
-     "title": "#3: cli-anything holds third with 773 stars",
-     "title_ar": "الثالث: cli-anything يحافظ على المركز الثالث بـ773 نجمة",
-     "summary": "\"Making all software agent-native\": a CLI hub that wraps command-line tools so agents can drive them; 61,463 stars in total and 773 gained today.",
-     "summary_ar": "«جعل كل البرمجيات صديقة للوكلاء»: مركز لأدوات سطر الأوامر يغلّف الأدوات كي يستخدمها الوكلاء؛ 61,463 نجمة إجمالا و773 نجمة اليوم.",
+     "title": "#3: cli-anything holds third with 767 stars",
+     "title_ar": "الثالث: cli-anything يحافظ على المركز الثالث بـ767 نجمة",
+     "summary": "\"Making all software agent-native\": a CLI hub that wraps command-line tools so agents can drive them; 61,865 stars in total and 767 gained today.",
+     "summary_ar": "«جعل كل البرمجيات صديقة للوكلاء»: مركز لأدوات سطر الأوامر يغلّف الأدوات كي يستخدمها الوكلاء؛ 61,865 نجمة إجمالا و767 نجمة اليوم.",
      "sources": [
       {
        "title": "GitHub",
@@ -657,13 +632,13 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "trending",
      "status": "",
      "image": "https://opengraph.githubassets.com/1/HKUDS/CLI-Anything",
      "rank": 3,
      "period": "today",
-     "stars_gained": 773,
+     "stars_gained": 767,
      "stars_total": 61463,
      "language": "Python",
      "why_it_matters": "Every CLI tool you already trust becomes a callable agent skill without a rewrite.",
@@ -671,10 +646,10 @@
     },
     {
      "id": "jingyaogong-minimind",
-     "title": "#4: minimind holds fourth with 847 stars",
-     "title_ar": "الرابع: minimind يحافظ على المركز الرابع بـ847 نجمة",
-     "summary": "Train your own 64M-parameter LLM from scratch in about two hours; the teaching repo now has 67,741 stars and gained 847 today.",
-     "summary_ar": "درّب نموذجك اللغوي بـ64 مليون معامل من الصفر في نحو ساعتين؛ المستودع التعليمي لديه الآن 67,741 نجمة وكسب 847 اليوم.",
+     "title": "#4: minimind holds fourth with 488 stars",
+     "title_ar": "الرابع: minimind يحافظ على المركز الرابع بـ488 نجمة",
+     "summary": "Train your own 64M-parameter LLM from scratch in about two hours; the teaching repo now has 68,032 stars and gained 488 today.",
+     "summary_ar": "درّب نموذجك اللغوي بـ64 مليون معامل من الصفر في نحو ساعتين؛ المستودع التعليمي لديه الآن 68,032 نجمة وكسب 488 اليوم.",
      "sources": [
       {
        "title": "GitHub",
@@ -682,13 +657,13 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "trending",
      "status": "",
      "image": "https://opengraph.githubassets.com/1/jingyaogong/minimind",
      "rank": 4,
      "period": "today",
-     "stars_gained": 847,
+     "stars_gained": 488,
      "stars_total": 67741,
      "language": "Python",
      "why_it_matters": "You do not understand a training stack until you have run a small one yourself.",
@@ -696,10 +671,10 @@
     },
     {
      "id": "cursor-plugins",
-     "title": "#5: cursor's plugin spec holds fifth with 299 stars",
-     "title_ar": "الخامس: مواصفة إضافات cursor تحافظ على المركز الخامس بـ299 نجمة",
-     "summary": "The plugin specification and official plugins for Cursor's editor, at 17,880 stars in total; 299 gained today.",
-     "summary_ar": "مواصفة الإضافات والإضافات الرسمية لمحرر Cursor، بإجمالي 17,880 نجمة؛ و299 نجمة اليوم.",
+     "title": "#5: cursor's plugin spec holds fifth with 261 stars",
+     "title_ar": "الخامس: مواصفة إضافات cursor تحافظ على المركز الخامس بـ261 نجمة",
+     "summary": "The plugin specification and official plugins for Cursor's editor, at 18,016 stars in total; 261 gained today.",
+     "summary_ar": "مواصفة الإضافات والإضافات الرسمية لمحرر Cursor، بإجمالي 18,016 نجمة؛ و261 نجمة اليوم.",
      "sources": [
       {
        "title": "GitHub",
@@ -707,13 +682,13 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "trending",
      "status": "",
      "image": "https://opengraph.githubassets.com/1/cursor/plugins",
      "rank": 5,
      "period": "today",
-     "stars_gained": 299,
+     "stars_gained": 261,
      "stars_total": 17880,
      "language": "TypeScript",
      "why_it_matters": "An open plugin spec decides whether an editor becomes a platform or stays a product.",
@@ -721,10 +696,10 @@
     },
     {
      "id": "firecrawl-firecrawl",
-     "title": "#6: firecrawl is sixth with 1,241 stars today",
-     "title_ar": "السادس: firecrawl في المركز السادس بـ1,241 نجمة اليوم",
-     "summary": "Search, scrape and reach more than 550 data providers for agents, now at 205,386 stars; it gains 1,241 today.",
-     "summary_ar": "بحث وكشط ووصول إلى أكثر من 550 مزود بيانات للوكلاء، الآن بـ205,386 نجمة؛ ويكسب 1,241 نجمة اليوم.",
+     "title": "#6: firecrawl is sixth with 999 stars today",
+     "title_ar": "السادس: firecrawl في المركز السادس بـ999 نجمة اليوم",
+     "summary": "Search, scrape and reach more than 550 data providers for agents, now at 205,874 stars; it gains 999 today.",
+     "summary_ar": "بحث وكشط ووصول إلى أكثر من 550 مزود بيانات للوكلاء، الآن بـ205,874 نجمة؛ ويكسب 999 نجمة اليوم.",
      "sources": [
       {
        "title": "GitHub",
@@ -732,13 +707,13 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "trending",
      "status": "",
      "image": "https://opengraph.githubassets.com/1/firecrawl/firecrawl",
      "rank": 6,
      "period": "today",
-     "stars_gained": 1241,
+     "stars_gained": 999,
      "stars_total": 205386,
      "language": "TypeScript",
      "why_it_matters": "Retrieval quality, not model size, is where most agent demos quietly fail.",
@@ -746,10 +721,10 @@
     },
     {
      "id": "nginx-nginx",
-     "title": "#7: nginx's source repo is seventh with 246 stars",
-     "title_ar": "السابع: مستودع nginx في المركز السابع بـ246 نجمة",
-     "summary": "The official NGINX open-source repository, 32,595 stars in total and 246 gained today.",
-     "summary_ar": "المستودع الرسمي لمصدر NGINX مفتوح المصدر، 32,595 نجمة إجمالا و246 نجمة اليوم.",
+     "title": "#7: nginx's source repo is seventh with 195 stars",
+     "title_ar": "السابع: مستودع nginx في المركز السابع بـ195 نجمة",
+     "summary": "The official NGINX open-source repository, 32,676 stars in total and 195 gained today.",
+     "summary_ar": "المستودع الرسمي لمصدر NGINX مفتوح المصدر، 32,676 نجمة إجمالا و195 نجمة اليوم.",
      "sources": [
       {
        "title": "GitHub",
@@ -757,13 +732,13 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "trending",
      "status": "",
      "image": "https://opengraph.githubassets.com/1/nginx/nginx",
      "rank": 7,
      "period": "today",
-     "stars_gained": 246,
+     "stars_gained": 195,
      "stars_total": 32595,
      "language": "C",
      "why_it_matters": "Nothing in the agent stack works if the socket layer underneath it does not.",
@@ -771,10 +746,10 @@
     },
     {
      "id": "openvinotoolkit-openvino",
-     "title": "#8: openvino holds eighth with 217 stars",
-     "title_ar": "الثامن: openvino يحافظ على المركز الثامن بـ217 نجمة",
-     "summary": "Intel's open-source toolkit for optimising and deploying AI inference, at 11,809 stars; 217 gained today.",
-     "summary_ar": "مجموعة أدوات إنتل مفتوحة المصدر لتحسين نشر استدلال الذكاء الاصطناعي، بـ11,809 نجمة؛ و217 نجمة اليوم.",
+     "title": "#8: openvino holds eighth with 202 stars",
+     "title_ar": "الثامن: openvino يحافظ على المركز الثامن بـ202 نجمة",
+     "summary": "Intel's open-source toolkit for optimising and deploying AI inference, at 11,881 stars; 202 gained today.",
+     "summary_ar": "مجموعة أدوات إنتل مفتوحة المصدر لتحسين نشر استدلال الذكاء الاصطناعي، بـ11,881 نجمة؛ و202 نجمة اليوم.",
      "sources": [
       {
        "title": "GitHub",
@@ -782,13 +757,13 @@
        "type": "official"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "trending",
      "status": "",
      "image": "https://opengraph.githubassets.com/1/openvinotoolkit/openvino",
      "rank": 8,
      "period": "today",
-     "stars_gained": 217,
+     "stars_gained": 202,
      "stars_total": 11809,
      "language": "C++",
      "why_it_matters": "Cheap local inference is what makes an always-on assistant affordable.",
@@ -797,12 +772,12 @@
    ],
    "watch": [
     {
-     "title": "5 GitHub Repos Blowing Up This Week (I Installed All 5)",
+     "title": "8,700 Stars in One Week: The GitHub Repos Blowing Up",
      "url": "https://www.youtube.com/watch?v=0E_b626WuwI",
      "channel": "Beau Johnson"
     },
     {
-     "title": "Free Repos That Make Claude So Good You Can’t Go Back",
+     "title": "9 Insane Github Repos to 10X Claude Code",
      "url": "https://www.youtube.com/watch?v=UE9rL6S8Je0",
      "channel": "Jack Roberts"
     }
@@ -835,25 +810,6 @@
      "reliability": "Official"
     },
     {
-     "id": "liverpool-kerkez",
-     "title": "kerkez: 'the biggest game in england' is why you come here",
-     "title_ar": "كيركيز: «أكبر مباراة في إنكلترا» هي سبب المجيء إلى هنا",
-     "summary": "Milos Kerkez said Liverpool's meeting with Manchester United at Anfield on Sunday is \"the biggest game in England\" and that he feels \"blessed\" to play in it, adding that the squad wants to put right last season's home and away defeats by United.",
-     "summary_ar": "قال ميلوش كيركيز إن مواجهة ليفربول ومانشستر يونايتد على أنفيلد الأحد هي «أكبر مباراة في إنكلترا»، وإنه يشعر بأنه «محظوظ» للمشاركة فيها، مضيفا أن الفريق يريد تعويض خسارتيه ذهابا وإيابا أمام يونايتد الموسم الماضي.",
-     "sources": [
-      {
-       "title": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/milos-kerkez-on-liverpool-v-man-utd-blessing-to-be-involved-biggest-game-in-england",
-       "type": "official"
-      }
-     ],
-     "time": "2026-11-20T21:00:00+03:00",
-     "section": "liverpool",
-     "status": "new",
-     "image": "https://images.ctfassets.net/rm6ms1yxue4m/3FOHbte0etGeDFQlQtMiOz/5224c7de7e5c7faf1328fe32f7b7a39e/milos-kerkez-20112026.jpg?w=1200&h=630&fit=crop&f=face",
-     "reliability": "Official"
-    },
-    {
      "id": "liverpool-fitness-boost",
      "title": "frimpong, gravenberch and van dijk all set to face united",
      "title_ar": "فرينبونغ وغرافينبيرخ وفان دايك جاهزون لمواجهة يونايتد",
@@ -870,6 +826,25 @@
      "section": "liverpool",
      "status": "",
      "image": "https://images.ctfassets.net/rm6ms1yxue4m/74qO1g3xlz11qDzAWtjGlB/dc4a7b0387339b8c1aa62129b1c5f594/virgil-van-dijk-20112026.jpg?w=1200&h=630&fit=crop&f=face",
+     "reliability": "Official"
+    },
+    {
+     "id": "liverpool-kerkez",
+     "title": "kerkez: 'the biggest game in england' is why you come here",
+     "title_ar": "كيركيز: «أكبر مباراة في إنكلترا» هي سبب المجيء إلى هنا",
+     "summary": "Milos Kerkez said Liverpool's meeting with Manchester United at Anfield on Sunday is \"the biggest game in England\" and that he feels \"blessed\" to play in it, adding that the squad wants to put right last season's home and away defeats by United.",
+     "summary_ar": "قال ميلوش كيركيز إن مواجهة ليفربول ومانشستر يونايتد على أنفيلد الأحد هي «أكبر مباراة في إنكلترا»، وإنه يشعر بأنه «محظوظ» للمشاركة فيها، مضيفا أن الفريق يريد تعويض خسارتيه ذهابا وإيابا أمام يونايتد الموسم الماضي.",
+     "sources": [
+      {
+       "title": "Liverpool FC",
+       "url": "https://www.liverpoolfc.com/news/milos-kerkez-on-liverpool-v-man-utd-blessing-to-be-involved-biggest-game-in-england",
+       "type": "official"
+      }
+     ],
+     "time": "2026-11-20T21:00:00+03:00",
+     "section": "liverpool",
+     "status": "",
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/3FOHbte0etGeDFQlQtMiOz/5224c7de7e5c7faf1328fe32f7b7a39e/milos-kerkez-20112026.jpg?w=1200&h=630&fit=crop&f=face",
      "reliability": "Official"
     },
     {
@@ -911,6 +886,25 @@
      "reliability": "Tier 1"
     },
     {
+     "id": "liverpool-ekitike-january",
+     "title": "ekitike's return is still set for january, iraola says",
+     "summary": "Andoni Iraola said the plan for Hugo Ekitike, out since April with an Achilles rupture, has always been January and has not changed, though an earlier return is possible if his rehabilitation goes \"incredibly well\". The forward is behind Conor Bradley and Giovanni Leoni, who are back in training but not yet in contention.",
+     "title_ar": "إيراولا: عودة إيكيتيكي ما زالت مقررة في كانون الثاني",
+     "summary_ar": "قال أندوني إيراولا إن خطة هوغو إيكيتيكي، الغائب منذ نيسان/أبريل بسبب تمزق في وتر أخيل، كانت دائما في كانون الثاني/يناير ولم تتغير، مع إمكانية عودة أبكر إذا سار تأهيله «بشكل استثنائي». وأضاف أن المهاجم يأتي بعد كونور برادلي وجوفاني ليوني، وهما عادا إلى التدريب لكنهما ليسا في الحسابات بعد.",
+     "reliability": "Official",
+     "time": "2026-11-21T11:06:00+03:00",
+     "sources": [
+      {
+       "title": "Liverpool FC",
+       "url": "https://www.liverpoolfc.com/news/hugo-ekitike-injury-update-21112026",
+       "type": "official"
+      }
+     ],
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/1v0eXOhgkOin7SFuHq2KVP/b8d5060754307df598165c3089924b4c/hugo-ekitike-21112026.jpg?w=1200&h=630&fit=crop&f=face",
+     "section": "liverpool",
+     "status": "new"
+    },
+    {
      "id": "liverpool-scalvini",
      "title": "united and liverpool monitor atalanta's scalvini, TEAMtalk says",
      "title_ar": "يونايتد وليفربول يراقبان سكالفيني من أتالانتا، بحسب TEAMtalk",
@@ -925,27 +919,8 @@
      ],
      "time": "2026-11-20T22:21:00+03:00",
      "section": "liverpool",
-     "status": "new",
-     "image": "https://images.ctfassets.net/rm6ms1yxue4m/2xRQGqqOfZ3Pl9pgrDKtjJ/08d45c4e82342c575ab365b584ab850d/media-watch-caughtoffside.jpg?w=1200&h=630&fit=crop&f=face",
-     "reliability": "Rumour"
-    },
-    {
-     "id": "liverpool-varela",
-     "title": "tottenham join the race for monza's varela as liverpool scout serie a",
-     "title_ar": "توتنهام ينضم إلى سباق ضم فاريلا من مونزا وليفربول يراقب هداف الدوري الإيطالي",
-     "summary": "Liverpool's media watch rounds up reports that Tottenham have joined the race for Monza forward Gustavo Varela, the Serie A top scorer, with Liverpool scouts tracking him. The club notes the story does not necessarily represent its position.",
-     "summary_ar": "يجمع رصد الصحف في ليفربول تقارير تفيد بانضمام توتنهام إلى سباق ضم مهاجم مونزا غوستافو فاريلا، هداف الدوري الإيطالي، مع متابعة كشافي ليفربول له. وينوّه النادي إلى أن القصة لا تعكس بالضرورة موقفه.",
-     "sources": [
-      {
-       "title": "Liverpool FC media watch",
-       "url": "https://www.liverpoolfc.com/news/tottenham-join-transfer-race-for-monza-star-gustavo-varela-as-liverpool-scouts-track-serie-a-top-scorer",
-       "type": "official"
-      }
-     ],
-     "time": "2026-11-20T05:20:00+03:00",
-     "section": "liverpool",
      "status": "",
-     "image": "https://images.ctfassets.net/rm6ms1yxue4m/2b7rdHEF0JILdEym5BG6Pj/d128a789299f8214710c0d888e46e377/media-watch-goal.jpg?w=1200&h=630&fit=crop&f=face",
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/2xRQGqqOfZ3Pl9pgrDKtjJ/08d45c4e82342c575ab365b584ab850d/media-watch-caughtoffside.jpg?w=1200&h=630&fit=crop&f=face",
      "reliability": "Rumour"
     },
     {
@@ -998,7 +973,7 @@
      ],
      "time": "2026-11-20T22:51:00+03:00",
      "section": "games",
-     "status": "new",
+     "status": "",
      "image": "https://cdn.mos.cms.futurecdn.net/LKBnVpRq3heeVoNhrBEiUK-1920-80.jpg",
      "kind": "NEWS",
      "genres": [
@@ -1010,33 +985,6 @@
       "Xbox"
      ],
      "release_date": "19 Nov, 2026"
-    },
-    {
-     "id": "game-gta6-playlists",
-     "title": "gta 6 hides secret radio playlists behind a few posters",
-     "title_ar": "GTA 6 يخفي قوائم تشغيل سرية خلف عدد من الملصقات",
-     "summary": "GTA 6 ships secret playlists that unlock when you scan a handful of posters around Vice City, PC Gamer reported, one of several easter eggs found since launch.",
-     "summary_ar": "قال PC Gamer إن GTA 6 يضم قوائم تشغيل سرية تُفتح عند مسح عدد من الملصقات في أنحاء فايس سيتي، وهو واحد من عدة أسرار اكتُشفت منذ الإطلاق.",
-     "sources": [
-      {
-       "title": "PC Gamer",
-       "url": "https://www.pcgamer.com/games/grand-theft-auto/gta-6-unique-playlists/",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-21T03:46:00+03:00",
-     "section": "games",
-     "status": "new",
-     "image": "https://cdn.mos.cms.futurecdn.net/rZZ6qHyxFodPwYQ2VrUqT9-2000-80.jpg",
-     "kind": "UPDATE",
-     "genres": [
-      "Open world",
-      "Action"
-     ],
-     "platforms": [
-      "PS5",
-      "Xbox"
-     ]
     },
     {
      "id": "game-steam-machine",
@@ -1053,7 +1001,7 @@
      ],
      "time": "2026-11-20T13:05:00+03:00",
      "section": "games",
-     "status": "new",
+     "status": "",
      "image": "https://assetsio.gnwcdn.com/Steam-Machine-review-header.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp",
      "kind": "NEWS",
      "genres": [
@@ -1109,6 +1057,29 @@
      "genres": [
       "Industry"
      ]
+    },
+    {
+     "id": "game-deltarune-ch6",
+     "title": "deltarune chapter 6 is playable from start to finish, toby fox says",
+     "summary": "Toby Fox said in his newsletter that chapter 6 is now \"a structurally complete draft that can be played from the beginning to the end\", with all maps, events and battles in place except one optional event, and that localisation and preliminary testing have begun. Work on chapter 7 has \"only just started\", he said.",
+     "title_ar": "توبي فوكس: الفصل السادس من Deltarune قابل للعب من البداية إلى النهاية",
+     "summary_ar": "قال توبي فوكس في نشرته إن الفصل السادس أصبح «مسودة مكتملة بنيويا يمكن لعبها من البداية إلى النهاية»، مع وجود كل الخرائط والأحداث والمعارك باستثناء حدث اختياري واحد، وإن أعمال الترجمة والاختبارات الأولية بدأت. وقال إن العمل على الفصل السابع «بدأ للتو».",
+     "kind": "UPDATE",
+     "genres": [
+      "Turn-based RPG"
+     ],
+     "release_date": "To be announced",
+     "time": "2026-11-21T16:09:00+03:00",
+     "sources": [
+      {
+       "title": "PC Gamer",
+       "url": "https://www.pcgamer.com/games/rpg/deltarune-chapter-6-is-structurally-complete-while-development-has-begun-on-chapter-7-according-to-toby-fox/",
+       "type": "independent"
+      }
+     ],
+     "image": "https://cdn.mos.cms.futurecdn.net/9mtBLYoPocDpbS5srRdg5-1920-80.png",
+     "section": "games",
+     "status": "new"
     },
     {
      "id": "game-ck3-florin",
@@ -1227,10 +1198,10 @@
     {
      "id": "social-mrbeast",
      "section": "social",
-     "title": "mrbeast's '$250,000 hunger games' passes 90.4m views",
-     "title_ar": "فيديو mrbeast بألعاب الجوع مقابل 250 ألف دولار يتجاوز 90.4 مليون مشاهدة",
-     "summary": "MrBeast's real-life Hunger Games, posted on 14 November, is at 90,438,681 views.",
-     "summary_ar": "فيديو MrBeast لألعاب الجوع في الواقع، المنشور في 14 تشرين الثاني/نوفمبر، بلغ 90,438,681 مشاهدة.",
+     "title": "mrbeast's '$250,000 hunger games' passes 92.3m views",
+     "title_ar": "فيديو mrbeast بألعاب الجوع مقابل 250 ألف دولار يتجاوز 92.3 مليون مشاهدة",
+     "summary": "MrBeast's real-life Hunger Games, posted on 14 November, is at 92,361,398 views.",
+     "summary_ar": "فيديو MrBeast لألعاب الجوع في الواقع، المنشور في 14 تشرين الثاني/نوفمبر، بلغ 92,361,398 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · MrBeast",
@@ -1238,20 +1209,20 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "image": "https://i.ytimg.com/vi/q6fgVVmdpgY/hqdefault.jpg",
      "status": "",
      "platform": "youtube",
      "creator": "MrBeast",
-     "metric": "90.4M views"
+     "metric": "92.3M views"
     },
     {
      "id": "social-badshah-mahiya",
      "section": "social",
-     "title": "badshah's 'mahiya' passes 79.0m views",
-     "title_ar": "أغنية «ماهيا» لبادشاه تتجاوز 79.0 مليون مشاهدة",
-     "summary": "Badshah's Mahiya with Shreya Ghoshal, released on 3 November, is at 79,031,829 views.",
-     "summary_ar": "أغنية Mahiya لبادشاه مع شريا غوشال، الصادرة في 3 تشرين الثاني/نوفمبر، بلغت 79,031,829 مشاهدة.",
+     "title": "badshah's 'mahiya' passes 79.3m views",
+     "title_ar": "أغنية «ماهيا» لبادشاه تتجاوز 79.3 مليون مشاهدة",
+     "summary": "Badshah's Mahiya with Shreya Ghoshal, released on 3 November, is at 79,398,662 views.",
+     "summary_ar": "أغنية Mahiya لبادشاه مع شريا غوشال، الصادرة في 3 تشرين الثاني/نوفمبر، بلغت 79,398,662 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Badshah",
@@ -1259,19 +1230,19 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "image": "https://i.ytimg.com/vi/EgXkduRe9ZU/hqdefault.jpg",
      "status": "",
      "platform": "youtube",
      "creator": "Badshah",
-     "metric": "79.0M views"
+     "metric": "79.3M views"
     },
     {
      "id": "social-mrbeast-gta6",
-     "title": "mrbeast gaming's '100 hours in gta 6' hits 36.1m views in a day",
-     "title_ar": "«100 ساعة في GTA 6» من mrbeast gaming يبلغ 36.1 مليون مشاهدة في يوم",
-     "summary": "MrBeast Gaming's \"I Survived 100 Hours In GTA 6\", posted on 19 November, is at 36,130,757 views after one day.",
-     "summary_ar": "فيديو «I Survived 100 Hours In GTA 6» من MrBeast Gaming، المنشور في 19 تشرين الثاني/نوفمبر، بلغ 36,130,757 مشاهدة بعد يوم واحد.",
+     "title": "mrbeast gaming's '100 hours in gta 6' passes 43.1m views",
+     "title_ar": "«100 ساعة في GTA 6» من mrbeast gaming يتجاوز 43.1 مليون مشاهدة",
+     "summary": "MrBeast Gaming's \"I Survived 100 Hours In GTA 6\", posted on 19 November, is at 43,137,644 views.",
+     "summary_ar": "فيديو «I Survived 100 Hours In GTA 6» من MrBeast Gaming، المنشور في 19 تشرين الثاني/نوفمبر، بلغ 43,137,644 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · MrBeast Gaming",
@@ -1279,21 +1250,21 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "social",
-     "status": "new",
+     "status": "",
      "image": "https://i.ytimg.com/vi/ymCHX_Dcc-U/hqdefault.jpg",
      "platform": "youtube",
      "creator": "MrBeast Gaming",
-     "metric": "36.1M views"
+     "metric": "43.1M views"
     },
     {
      "id": "social-gta6-walkthrough",
      "section": "social",
-     "title": "gta 6 walkthrough passes 10.3m views in three days",
-     "title_ar": "جولة لعب GTA 6 تتجاوز 10.3 مليون مشاهدة في ثلاثة أيام",
-     "summary": "MKIceAndFire's full-game GTA 6 walkthrough, posted on 18 November, is at 10,378,525 views.",
-     "summary_ar": "جولة اللعب الكاملة لـGTA 6 من MKIceAndFire، المنشورة في 18 تشرين الثاني/نوفمبر، بلغت 10,378,525 مشاهدة.",
+     "title": "gta 6 walkthrough passes 11.0m views",
+     "title_ar": "جولة لعب GTA 6 تتجاوز 11.0 مليون مشاهدة",
+     "summary": "MKIceAndFire's full-game GTA 6 walkthrough, posted on 18 November, is at 11,096,260 views.",
+     "summary_ar": "جولة اللعب الكاملة لـGTA 6 من MKIceAndFire، المنشورة في 18 تشرين الثاني/نوفمبر، بلغت 11,096,260 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · MKIceAndFire",
@@ -1301,20 +1272,20 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "image": "https://i.ytimg.com/vi/YDNs_sPEcJc/hqdefault.jpg",
      "status": "",
      "platform": "youtube",
      "creator": "MKIceAndFire",
-     "metric": "10.3M views"
+     "metric": "11.0M views"
     },
     {
      "id": "social-sidemen-murder",
      "section": "social",
-     "title": "sidemen's murder mystery dinner passes 7.2m views",
-     "title_ar": "عشاء غامض جريمة من سايدمن يتجاوز 7.2 مليون مشاهدة",
-     "summary": "The Sidemen's Murder Mystery Dinner, posted on 15 November, is at 7,259,017 views.",
-     "summary_ar": "فيديو SIDEMEN MURDER MYSTERY DINNER، المنشور في 15 تشرين الثاني/نوفمبر، بلغ 7,259,017 مشاهدة.",
+     "title": "sidemen's murder mystery dinner passes 7.4m views",
+     "title_ar": "عشاء غامض جريمة من سايدمن يتجاوز 7.4 مليون مشاهدة",
+     "summary": "The Sidemen's Murder Mystery Dinner, posted on 15 November, is at 7,416,816 views.",
+     "summary_ar": "فيديو SIDEMEN MURDER MYSTERY DINNER، المنشور في 15 تشرين الثاني/نوفمبر، بلغ 7,416,816 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Sidemen",
@@ -1322,19 +1293,19 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "image": "https://i.ytimg.com/vi/fwqEB2HdY88/hqdefault.jpg",
      "status": "",
      "platform": "youtube",
      "creator": "Sidemen",
-     "metric": "7.2M views"
+     "metric": "7.4M views"
     },
     {
      "id": "social-mrbeast-steal",
-     "title": "mrbeast gaming's gta 6 heist video passes 7.0m views in six hours",
-     "title_ar": "فيديو السرقة في GTA 6 من mrbeast gaming يتجاوز 7.0 مليون مشاهدة في ست ساعات",
-     "summary": "MrBeast Gaming's \"Whatever You Steal in GTA 6, You Keep!\", posted on 20 November, is at 7,017,038 views six hours after release.",
-     "summary_ar": "فيديو «Whatever You Steal in GTA 6, You Keep!» من MrBeast Gaming، المنشور في 20 تشرين الثاني/نوفمبر، بلغ 7,017,038 مشاهدة بعد ست ساعات من نشره.",
+     "title": "mrbeast gaming's gta 6 heist passes 21.2m views",
+     "title_ar": "فيديو السرقة في GTA 6 من mrbeast gaming يتجاوز 21.2 مليون مشاهدة",
+     "summary": "MrBeast Gaming's \"Whatever You Steal in GTA 6, You Keep!\", posted on 20 November, is at 21,291,949 views.",
+     "summary_ar": "فيديو «Whatever You Steal in GTA 6, You Keep!» من MrBeast Gaming، المنشور في 20 تشرين الثاني/نوفمبر، بلغ 21,291,949 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · MrBeast Gaming",
@@ -1342,21 +1313,21 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "section": "social",
-     "status": "new",
+     "status": "",
      "image": "https://i.ytimg.com/vi/QQV-0OUGxGs/hqdefault.jpg",
      "platform": "youtube",
      "creator": "MrBeast Gaming",
-     "metric": "7.0M views"
+     "metric": "21.2M views"
     },
     {
      "id": "social-kimmel-airport",
      "section": "social",
      "title": "kimmel's airport monologue passes 5.1m views",
      "title_ar": "مونولوج كيميل عن المطار يتجاوز 5.1 مليون مشاهدة",
-     "summary": "Jimmy Kimmel's monologue on Trump and the airport shutdown, posted on 16 November, is at 5,106,947 views.",
-     "summary_ar": "مونولوج جيمي كيميل عن ترامب وإغلاق المطارات، المنشور في 16 تشرين الثاني/نوفمبر، بلغ 5,106,947 مشاهدة.",
+     "summary": "Jimmy Kimmel's monologue on Trump and the airport shutdown, posted on 16 November, is at 5,131,684 views.",
+     "summary_ar": "مونولوج جيمي كيميل عن ترامب وإغلاق المطارات، المنشور في 16 تشرين الثاني/نوفمبر، بلغ 5,131,684 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Jimmy Kimmel Live",
@@ -1364,7 +1335,7 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "image": "https://i.ytimg.com/vi/AzKVdh032qU/hqdefault.jpg",
      "status": "",
      "platform": "youtube",
@@ -1376,8 +1347,8 @@
      "section": "social",
      "title": "fireship's jensen huang video passes 2.4m views",
      "title_ar": "فيديو فايرشيب عن جنسن هوانغ يتجاوز 2.4 مليون مشاهدة",
-     "summary": "Fireship's \"Jensen Huang just pulled out of Nvidia...\", posted on 12 November, is at 2,412,683 views.",
-     "summary_ar": "فيديو «Jensen Huang just pulled out of Nvidia...» من فايرشيب، المنشور في 12 تشرين الثاني/نوفمبر، بلغ 2,412,683 مشاهدة.",
+     "summary": "Fireship's \"Jensen Huang just pulled out of Nvidia...\", posted on 12 November, is at 2,413,720 views.",
+     "summary_ar": "فيديو «Jensen Huang just pulled out of Nvidia...» من فايرشيب، المنشور في 12 تشرين الثاني/نوفمبر، بلغ 2,413,720 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Fireship",
@@ -1385,7 +1356,7 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-21T06:30:00+03:00",
+     "time": "2026-11-21T19:10:00+03:00",
      "image": "https://i.ytimg.com/vi/SOwUWPtXQ9I/hqdefault.jpg",
      "status": "",
      "platform": "youtube",
@@ -1407,8 +1378,6 @@
    ]
   },
   "graphic": {
-   "warning": "Graphic war and crime footage from established outlets. Not suitable for all readers.",
-   "warning_ar": "لقطات حرب وجريمة من مؤسسات إعلامية معروفة. غير مناسبة لجميع القراء.",
    "items": [
     {
      "id": "graphic-poland-missile",
@@ -1450,7 +1419,7 @@
       }
      ],
      "time": "2026-11-20T15:30:00+03:00",
-     "status": "updated",
+     "status": "",
      "image": "https://static.dw.com/image/79529157_6.jpg",
      "warning": "war, infrastructure strikes",
      "warning_ar": "حرب وضربات على البنية التحتية"
@@ -1573,7 +1542,7 @@
    ],
    "watch": [
     {
-     "title": "Putin strikes back: Russia targets Kyiv bridges after Crimea attack | DW News",
+     "title": "Battle of the bridges: Is Russia's retaliation a military success? | DW News",
      "url": "https://www.youtube.com/watch?v=N3A8bEykBWk",
      "channel": "DW News"
     },
@@ -1582,7 +1551,9 @@
      "url": "https://www.youtube.com/watch?v=2xKD1lxZQfk",
      "channel": "FRANCE 24 English"
     }
-   ]
+   ],
+   "warning": "Graphic war and crime footage from established outlets. Not suitable for all readers.",
+   "warning_ar": "لقطات حرب وجريمة من مؤسسات إعلامية معروفة. غير مناسبة لجميع القراء."
   }
  }
 }
