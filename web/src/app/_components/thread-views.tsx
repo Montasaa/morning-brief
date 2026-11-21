@@ -160,11 +160,17 @@ function TimelineEntry({ item, timeline }: { item: TimelineItem; timeline: Threa
   const summary = localized(item, "summary", lang);
   return (
     <li className={s.entry} data-testid="timeline-item">
+      {/* One meta line (spec #6): Topic · time, plus "Updated" as plain text. No "New" badge. */}
       <p className={s.meta}>
+        <b className={s.metaStrong}>{topic}</b>
+        <span aria-hidden>·</span>
         <time dateTime={item.time}>{clock(item.time, lang)}</time>
-        <span>{topic}</span>
-        {item.status === "new" && <span className={s.badge}>{t("New", "جديد")}</span>}
-        {item.status === "updated" && <span className={s.badge}>{t("Updated", "محدَّث")}</span>}
+        {item.status === "updated" && (
+          <>
+            <span aria-hidden>·</span>
+            <span className={s.metaStrong}>{t("Updated", "محدَّث")}</span>
+          </>
+        )}
       </p>
       {item.blurred && !revealed && (
         <button type="button" className={s.reveal} onClick={() => setRevealed(true)}>

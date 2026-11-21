@@ -1,27 +1,28 @@
 /* The language setting on the Me tab. */
 .setting {
-  margin: 24px 0 0;
+  margin: 28px 0 0;
   padding: 0;
   border: 0;
 }
 .setting legend {
   margin-bottom: 8px;
   padding: 0;
-  font-size: 13px;
+  font-size: var(--fs-s);
   font-weight: 600;
-  color: var(--muted);
+  color: var(--mute);
 }
 .option {
   display: flex;
   align-items: center;
   gap: 10px;
-  min-height: 44px;
-  padding: 0 4px;
-  border-bottom: 1px solid var(--rule);
-  font-size: 16px;
+  min-height: var(--tap);
+  padding: var(--row-pad) 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-base);
 }
 .option input {
   width: 18px;
   height: 18px;
   margin: 0;
+  accent-color: var(--acc);
 }

@@ -23,6 +23,7 @@ describe("GET /api/me", () => {
       topics: [],
       age_confirmed_at: null,
       notifications: { brief_ready: false, thread_updates: false },
+      display: expect.objectContaining({ theme: "auto", accent: "amber" }), // test/api/display.test.ts covers the Display
     });
     const brief = await sara.request("GET", "/api/brief");
     expect(brief.body.edition).toMatchObject({ id: "2026-11-14-morning" });

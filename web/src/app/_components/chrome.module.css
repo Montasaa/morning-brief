@@ -1,0 +1,103 @@
+/*
+ * Chrome screens in the Reels look (spec #6): Threads, Saved & Search, Me and
+ * Me › Display are plain lists in the Reader's theme. Hairlines only, colour
+ * only on actions and highlights, hierarchy from size and weight. Later screens
+ * (sheets, the sidebar) reuse these pieces.
+ */
+.screen {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: calc(24px + env(safe-area-inset-top)) var(--page-pad) calc(24px + var(--tabbar-h));
+}
+.screen h1 {
+  margin: 0;
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-tight);
+  overflow-wrap: anywhere;
+}
+.lede {
+  margin: 8px 0 0;
+  color: var(--mute);
+}
+
+/* A quiet link back up, e.g. "‹ Me". */
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: var(--tap);
+  margin: -10px 0 4px;
+  color: var(--mute);
+  font-size: var(--fs-s);
+  font-weight: 600;
+  text-decoration: none;
+}
+.back:hover {
+  color: var(--fg);
+}
+
+/* A section's small title. Plain text: no capitals, no letter-spacing. */
+.sectionTitle {
+  margin: 28px 0 4px;
+  font-size: var(--fs-s);
+  font-weight: 600;
+  color: var(--mute);
+}
+
+/* A plain list of rows separated by hairlines. */
+.rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* A short list right under a lede: spaced from it, with a hairline on top too. */
+.rowsRuled {
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  min-height: var(--tap);
+  padding: var(--row-pad) 0;
+  border-bottom: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
+}
+.rowText {
+  display: grid;
+  gap: 2px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.rowTitle {
+  font-weight: 600;
+}
+.rowSub {
+  font-size: var(--fs-s);
+  color: var(--mute);
+}
+.chevron {
+  flex: none;
+  color: var(--faint);
+}
+:global([dir="rtl"]) .chevron {
+  transform: scaleX(-1);
+}
+a.row:hover .rowTitle {
+  color: var(--acc);
+}
+
+/* A save status line under a group of settings. */
+.status {
+  margin: 12px 0 0;
+  min-height: 1.45em;
+  font-size: var(--fs-s);
+  color: var(--mute);
+}
+.error {
+  color: var(--danger);
+}

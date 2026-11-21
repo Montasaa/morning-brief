@@ -1,6 +1,6 @@
 // GET /api/me: the signed-in Reader's Interest Profile (followed Topics,
-// language, city) and whether they have finished onboarding.
-// PATCH /api/me {topics?, language?, city?, onboarded?}: change it; all or
+// language, city), their Display, and whether they have finished onboarding.
+// PATCH /api/me {topics?, language?, city?, onboarded?, notifications?, display?}: change it; all or
 // nothing, 422 with reasons for bad values.
 import { readerAccess } from "@/server/access";
 import { getAppContext } from "@/server/app";

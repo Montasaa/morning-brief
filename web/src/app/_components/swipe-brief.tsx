@@ -46,7 +46,8 @@ export function SwipeBrief({ brief: initial, basePath }: { brief: Brief; basePat
   useArrowKeys(() => !asking && next(), () => !asking && back());
 
   return (
-    <div className={s.layout}>
+    // The Brief canvas: dark in every theme (globals.css, .brief-canvas).
+    <div className={`${s.layout} brief-canvas`}>
       <div className={s.stage}>
         <ProgressBars brief={brief} pos={pos} />
 

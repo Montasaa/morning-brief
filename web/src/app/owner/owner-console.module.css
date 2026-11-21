@@ -11,7 +11,7 @@
 
 .back {
   margin: 0 0 8px;
-  font-size: 14px;
+  font-size: var(--fs-s);
 }
 
 .section {
@@ -19,20 +19,20 @@
 }
 
 .section h2 {
-  font-size: 18px;
+  font-size: var(--fs-l);
   margin: 0 0 8px;
 }
 
 .section h3 {
-  font-size: 15px;
+  font-size: var(--fs-base);
   margin: 20px 0 4px;
 }
 
 .lede,
 .empty,
 .meta {
-  color: var(--muted);
-  font-size: 14px;
+  color: var(--mute);
+  font-size: var(--fs-s);
   margin: 0;
 }
 
@@ -45,11 +45,11 @@
   grid-template-columns: max-content 1fr;
   gap: 4px 16px;
   margin: 0;
-  font-size: 15px;
+  font-size: var(--fs-base);
 }
 
 .facts dt {
-  color: var(--muted);
+  color: var(--mute);
 }
 
 .facts dd {
@@ -66,7 +66,7 @@
 
 .list > li {
   padding: 12px 0;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line);
   min-width: 0;
 }
 
@@ -79,7 +79,7 @@
 .sources {
   margin: 6px 0 0;
   padding-inline-start: 20px;
-  font-size: 14px;
+  font-size: var(--fs-s);
   overflow-wrap: anywhere;
 }
 

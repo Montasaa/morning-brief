@@ -62,13 +62,13 @@ function TopicRules({ basePath, topic: initial }: { basePath: string; topic: Own
   ].filter(Boolean);
 
   return (
-    <li style={{ padding: "16px 0", borderBottom: "1px solid var(--rule)" }} aria-label={name}>
-      <h2 dir="auto" style={{ fontSize: 17, margin: "0 0 4px" }}>
+    <li style={{ padding: "16px 0", borderBottom: "1px solid var(--line)" }} aria-label={name}>
+      <h2 dir="auto" style={{ fontSize: "var(--fs-m)", margin: "0 0 4px" }}>
         {name}
       </h2>
-      <p style={{ margin: "0 0 8px", fontSize: 13, color: "var(--muted)" }}>{meta.join(" · ")}</p>
+      <p style={{ margin: "0 0 8px", fontSize: "var(--fs-s)", color: "var(--mute)" }}>{meta.join(" · ")}</p>
       {topic.note && (
-        <p dir="auto" style={{ margin: "0 0 8px", fontSize: 14 }}>
+        <p dir="auto" style={{ margin: "0 0 8px", fontSize: "var(--fs-s)" }}>
           {t("Note: ", "الملاحظة: ")}
           {topic.note}
         </p>
@@ -84,7 +84,7 @@ function TopicRules({ basePath, topic: initial }: { basePath: string; topic: Own
           value={rules}
           disabled={!ready || busy}
           onChange={(e) => setRules(e.target.value)}
-          style={{ ...inputStyle, resize: "vertical", fontSize: 14, lineHeight: 1.45 }}
+          style={{ ...inputStyle, resize: "vertical", fontSize: "var(--fs-s)", lineHeight: 1.45 }}
         />
       </label>
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 8 }}>
@@ -96,7 +96,7 @@ function TopicRules({ basePath, topic: initial }: { basePath: string; topic: Own
         >
           {t("Save rules", "احفظ القواعد")}
         </button>
-        <span aria-live="polite" style={{ fontSize: 13, color: "var(--muted)" }}>
+        <span aria-live="polite" style={{ fontSize: "var(--fs-s)", color: "var(--mute)" }}>
           {message ?? ""}
         </span>
       </div>

@@ -34,7 +34,7 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
         </>
       ) : (
         <>
-          <p style={{ margin: "0 0 24px", color: "var(--muted)" }}>
+          <p style={{ margin: "0 0 24px", color: "var(--mute)" }}>
             <T
               en="Sign in with your email. We'll send you a link, no password needed."
               ar="سجّل الدخول ببريدك. سنرسل إليك رابطًا، دون حاجة إلى كلمة مرور."

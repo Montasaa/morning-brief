@@ -19,7 +19,8 @@ export function TabBar() {
   if (pathname === "/sign-in" || pathname === "/onboarding") return null;
   const current = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
   return (
-    <nav className={`${s.tabs} ${pathname === "/" ? s.onBrief : ""}`} aria-label={t("Tabs", "التبويبات")}>
+    // On the Brief the tabs sit on the dark Brief canvas, whatever the theme.
+    <nav className={`${s.tabs} ${pathname === "/" ? "brief-canvas" : ""}`} aria-label={t("Tabs", "التبويبات")}>
       {TABS.map((tab) => (
         <Link key={tab.href} href={tab.href} className={s.tab} aria-current={current(tab.href) ? "page" : undefined}>
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden>

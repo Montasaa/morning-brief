@@ -3,12 +3,16 @@
 // onboarding. GET/PATCH /api/me. Sensitive Topic opt-ins (ticket 08) are the
 // Sensitive Topics among `topics`, opted into only through
 // POST /api/topics/{id}/follow. Notification preferences (ticket 18) are the
-// two kinds of push, each off until the Reader turns it on.
+// two kinds of push, each off until the Reader turns it on. The Display
+// (rework ticket 07, src/server/display/) is how their Brief looks and is
+// arranged; `display` changes only the keys it sends.
 //
 // Onboarding is finished by a PATCH with `onboarded: true`, which needs at
 // least one followed Topic. Until then the Reader's Brief is empty and the
 // Brief page sends them to /onboarding.
 import type { AppContext } from "../app";
+import { checkDisplayPatch, getDisplay, writeDisplay, type CheckedDisplayPatch } from "../display/display";
+import type { Display } from "../display/shape";
 import { followedTopicIds, setFollowedTopics, unknownTopicIds } from "../topics/catalog";
 import { isSensitiveTopic, lastAgeConfirmation } from "../topics/sensitive";
 import type { Reader } from "./readers";
@@ -28,6 +32,8 @@ export interface InterestProfile {
   age_confirmed_at: string | null;
   /** Which pushes they opted into (ticket 18). Each also needs a subscribed device. */
   notifications: NotificationPreferences;
+  /** How their Brief looks and is arranged (rework ticket 07); defaults for whatever they never set. */
+  display: Display;
 }
 
 export interface NotificationPreferences {
@@ -64,6 +70,7 @@ export function getProfile(ctx: AppContext, reader: Reader): InterestProfile {
     topics: followedTopicIds(ctx, reader.id),
     age_confirmed_at: lastAgeConfirmation(ctx, reader.id),
     notifications: { brief_ready: row?.push_brief_ready === 1, thread_updates: row?.push_thread_updates === 1 },
+    display: getDisplay(ctx, reader.id),
   };
 }
 
@@ -77,14 +84,15 @@ export function isOnboarded(ctx: AppContext, readerId: number): boolean {
 
 export type ProfileUpdate = { ok: true; profile: InterestProfile } | { ok: false; error: string; reasons: string[] };
 
-const FIELDS = new Set(["topics", "language", "city", "onboarded", "notifications"]);
+const FIELDS = new Set(["topics", "language", "city", "onboarded", "notifications", "display"]);
 
 /**
  * PATCH /api/me. Each field is optional: `topics` replaces the followed Topics
  * (Catalog ids), `language` is "en" or "ar", `city` a name (null clears it),
  * `onboarded: true` finishes onboarding, and `notifications` turns either kind
- * of push on or off ({brief_ready?, thread_updates?}). All or nothing: any bad field and
- * nothing changes.
+ * of push on or off ({brief_ready?, thread_updates?}), and `display` changes
+ * the keys of the Display it sends (src/server/display/). All or nothing: any
+ * bad field and nothing changes.
  */
 export function updateProfile(ctx: AppContext, reader: Reader, patch: unknown): ProfileUpdate {
   const reasons: string[] = [];
@@ -143,6 +151,14 @@ export function updateProfile(ctx: AppContext, reader: Reader, patch: unknown): 
     }
   }
 
+  let display: CheckedDisplayPatch | undefined;
+  if ("display" in body) {
+    // `unblurred` is checked against what the Reader will follow once this request is applied.
+    const checked = checkDisplayPatch(ctx, reader.id, body.display, topics ?? followedTopicIds(ctx, reader.id));
+    if (checked.ok) display = checked.patch;
+    else reasons.push(...checked.reasons);
+  }
+
   let finish = false;
   if ("onboarded" in body) {
     if (body.onboarded === true) finish = true;
@@ -168,6 +184,7 @@ export function updateProfile(ctx: AppContext, reader: Reader, patch: unknown): 
       if (on === undefined) continue;
       db.prepare(`UPDATE interest_profiles SET ${NOTIFICATION_COLUMNS[kind]} = ? WHERE reader_id = ?`).run(on ? 1 : 0, reader.id);
     }
+    if (display) writeDisplay(ctx, reader.id, display);
     if (finish) {
       db.prepare(
         "UPDATE interest_profiles SET onboarded_at_ms = COALESCE(onboarded_at_ms, ?) WHERE reader_id = ?",
