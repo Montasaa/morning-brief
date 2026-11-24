@@ -2,7 +2,7 @@
   "version": 2,
   "schema_rev": "2.3",
   "sample": false,
-  "generated_at": "2026-11-25T00:52:16+03:00",
+  "generated_at": "2026-11-25T01:03:01+03:00",
   "timezone": "Asia/Riyadh",
   "top_stories": [
     {
@@ -20,8 +20,8 @@
   ],
   "sections": {
     "middle_east": {
-      "what_changed": "A projectile hit a tower in Riyadh's financial district, injuring 11 in the second strike there in a week; Iran's navy reported six tankers mined in Hormuz in 24 hours, and Israel killed Hamas's internal security chief in Gaza City.",
-      "what_changed_ar": "أصاب مقذوف برجاً في الحي المالي بالرياض وجرح 11 شخصاً في ثاني ضربة خلال أسبوع؛ وأعلنت البحرية الإيرانية عن ست ناقلات أصابتها ألغام في هرمز خلال 24 ساعة، وقتلت إسرائيل رئيس الأمن الداخلي في حماس بمدينة غزة.",
+      "what_changed": "The Houthis say they hit Saudi Arabia's Rabigh refinery (damage unconfirmed) and are massing reinforcements toward Abyan, east of Aden; a projectile also hit a Riyadh tower, injuring 11, Iran's navy reported six tankers mined in Hormuz, and Israel killed Hamas's internal security chief in Gaza City.",
+      "what_changed_ar": "قال الحوثيون إنهم أصابوا مصفاة رابغ السعودية (والأضرار غير مؤكدة) ويحشدون تعزيزات باتجاه أبين شرق عدن؛ كما أصاب مقذوف برجاً في الرياض وجرح 11 شخصاً، وأعلنت البحرية الإيرانية عن ست ناقلات أصابتها ألغام في هرمز، وقتلت إسرائيل رئيس الأمن الداخلي في حماس بمدينة غزة.",
       "items": [
         {
           "id": "me-riyadh-tower",
@@ -443,6 +443,28 @@
           "image": "https://opengraph.githubassets.com/1/shirudo-dev/shirudo"
         },
         {
+          "id": "ai-apple-harbor",
+          "section": "ai",
+          "status": "new",
+          "kind": "APP",
+          "title": "apple is building 'harbor', a mac app for running local ai models, leaker says",
+          "title_ar": "أبل تعمل على تطبيق «Harbor» لتشغيل نماذج الذكاء الاصطناعي محلياً على ماك، بحسب مسرّب",
+          "summary": "Leaker Aaron Perris says he found evidence of an unreleased Apple app called Harbor, described as turning a Mac into a private AI inference server that runs open-weight models locally on Apple silicon, with no data sent to the cloud. 9to5Mac reported it on 10 November; Apple has not announced it, and the Hacker News thread on it drew about 580 points.",
+          "summary_ar": "يقول المسرّب Aaron Perris إنه عثر على أدلة على تطبيق غير مُعلن من أبل باسم Harbor، يوصف بأنه يحوّل جهاز ماك إلى خادم استدلال خاص يشغّل نماذج مفتوحة الأوزان محلياً على شرائح أبل دون إرسال بيانات إلى السحابة. نشر موقع 9to5Mac الخبر في 10 نوفمبر، ولم تعلن أبل عنه، وجمع النقاش حوله على Hacker News نحو 580 نقطة.",
+          "sources": [
+            {
+              "title": "9to5Mac",
+              "url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+              "type": "independent"
+            }
+          ],
+          "try_url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+          "pricing": "Unreleased",
+          "metric": "leak, not announced",
+          "time": "2026-11-10T22:15:00+03:00",
+          "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/10/Mac-mini.jpg?quality=82&strip=all&resize=1200,628"
+        },
+        {
           "id": "ai-inkling-2-mini",
           "sources": [
             {
@@ -584,30 +606,6 @@
           "summary": "harness-hub's Qwen3.8-27B-pi-adapted, a reinforcement-learning LoRA for the pi coding agent, fell one place to sixth with 1,052 likes and 3,529 downloads.",
           "summary_ar": "محوّل Qwen3.8-27B-pi-adapted من harness-hub، وهو LoRA للتعلم المعزز لوكيل البرمجة pi، هبط مركزاً إلى السادس بـ1,052 إعجاباً و3,529 تنزيلاً.",
           "metric": "#6 trending, 1,052 likes",
-          "status": ""
-        },
-        {
-          "id": "ai-haru-4b",
-          "sources": [
-            {
-              "title": "Hugging Face",
-              "url": "https://huggingface.co/higurashi-ai/Haru-4B",
-              "type": "independent"
-            }
-          ],
-          "time": "2026-11-24T19:10:00+03:00",
-          "section": "ai",
-          "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/higurashi-ai/Haru-4B.png",
-          "kind": "MODEL",
-          "pricing": "Open weights",
-          "try_url": "https://huggingface.co/higurashi-ai/Haru-4B",
-          "why_it_matters": "Full-duplex speech is what makes a voice agent feel like a phone call instead of a walkie-talkie.",
-          "why_it_matters_ar": "الكلام ثنائي الاتجاه الكامل هو ما يجعل الوكيل الصوتي يبدو كمكالمة هاتفية لا كجهاز لاسلكي.",
-          "title": "#7: haru-4b drops to seventh on 952 likes",
-          "title_ar": "#7: haru-4b يهبط إلى المركز السابع بـ952 إعجاباً",
-          "summary": "Haru-4B, higurashi-ai's low-latency multilingual speech-to-speech model under Apache-2.0, fell one place to seventh with 952 likes and 9,575 downloads.",
-          "summary_ar": "نموذج Haru-4B الصوتي منخفض الكمون متعدد اللغات من higurashi-ai بترخيص Apache-2.0 هبط مركزاً إلى السابع بـ952 إعجاباً و9,575 تنزيلاً.",
-          "metric": "#7 trending, 952 likes",
           "status": ""
         }
       ],
@@ -1031,6 +1029,41 @@
     "games": {
       "items": [
         {
+          "id": "game-food-devils",
+          "section": "games",
+          "status": "new",
+          "kind": "RELEASE",
+          "title": "food devils, a fire emblem-style tactics roguelite, hits steam early access",
+          "title_ar": "لعبة Food Devils التكتيكية الشبيهة بـFire Emblem تصل إلى Steam بالوصول المبكر",
+          "summary": "Studio Daimon's Food Devils launched on Steam in Early Access on 24 November after a delay from 3 November that the developer blamed on a roughly month-long Steam build approval. You play the last chef in a post-apocalyptic world, signing adventurers to contracts and sending them on tactical expeditions for ingredients; Noisy Pixel notes the game includes suggestive romance content. Steam lists it at 47.69 SR (10% off).",
+          "summary_ar": "أطلق استوديو Daimon لعبة Food Devils على Steam بالوصول المبكر في 24 نوفمبر بعد تأجيلها من 3 نوفمبر، وعزا المطوّر ذلك إلى موافقة Steam على النسخة التي استغرقت نحو شهر. تؤدي دور آخر طاهٍ في عالم ما بعد الكارثة، توقّع عقوداً مع المغامرين وترسلهم في رحلات تكتيكية لجمع المكونات؛ وتشير Noisy Pixel إلى أن اللعبة تتضمن محتوى رومانسياً إيحائياً. سعرها على Steam 47.69 SR (خصم 10%).",
+          "genres": [
+            "Tactics RPG",
+            "Roguelite"
+          ],
+          "platforms": [
+            "Windows"
+          ],
+          "price": "47.69 SR",
+          "discount": 10,
+          "release_date": "24 Nov, 2026",
+          "store_url": "https://store.steampowered.com/app/2861730",
+          "sources": [
+            {
+              "title": "Noisy Pixel",
+              "url": "https://noisypixel.net/food-devils-november-24-steam-approval-delay/",
+              "type": "independent"
+            },
+            {
+              "title": "Steam",
+              "url": "https://store.steampowered.com/app/2861730",
+              "type": "official"
+            }
+          ],
+          "time": "2026-11-24T20:00:00+03:00",
+          "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2861730/047b5361528274bedb4b427ae70d26cfff624671/header.jpg?t=1795534478"
+        },
+        {
           "id": "game-symphony-war-2",
           "section": "games",
           "status": "new",
@@ -1202,36 +1235,6 @@
           ],
           "time": "2026-11-23T20:30:00+03:00",
           "image": "https://assetsio.gnwcdn.com/rise-of-furax.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp"
-        },
-        {
-          "id": "game-isaac-ai-music",
-          "title": "binding of isaac dlc pulls the ai music after steam reviews collapse",
-          "title_ar": "حزمة «بندينغ أوف إيزاك» تسحب موسيقى مولدة بالذكاء الاصطناعي بعد انهيار التقييمات",
-          "summary": "Nicalis removed the AI-generated music files from The Binding of Isaac: Repentance+ Crime Mode update on 21 November after players found Suno metadata in them, Rock Paper Shotgun reported; the update shipped on 19 November with no AI disclosure on its Steam page and recent reviews fell to 8% positive. Edmund McMillen said he had no idea the daily run featured generated music.",
-          "summary_ar": "أزالت شركة Nicalis ملفات الموسيقى المولدة بالذكاء الاصطناعي من تحديث Crime Mode للعبة «ذا بندينغ أوف إيزاك: ريبنتنس+» في 21 نوفمبر بعد أن اكتشف اللاعبون بيانات Suno داخلها، وفق Rock Paper Shotgun؛ وصدر التحديث في 19 نوفمبر من دون إفصاح عن الذكاء الاصطناعي على صفحته في ستيم وهبطت التقييمات الحديثة إلى 8% إيجابية. وقال إدموند ماكميلن إنه لم يكن يعلم أن الجولة اليومية تتضمن موسيقى مولدة.",
-          "sources": [
-            {
-              "title": "Rock Paper Shotgun",
-              "url": "https://www.rockpapershotgun.com/undisclosed-ai-generated-music-pulled-from-the-binding-of-isaac-repentance-update-as-attempt-to-get-satirical-on-gta-6-launch-day-goes-awry",
-              "type": "independent"
-            },
-            {
-              "title": "PC Gamer",
-              "url": "https://www.pcgamer.com/games/roguelike/binding-of-isaac-dlc-adds-ai-music-in-gta-6-parodying-update-despite-not-having-an-ai-disclosure-steam-reviews-drop-to-overwhelmingly-negative-music-gets-pulled/",
-              "type": "independent"
-            }
-          ],
-          "time": "2026-11-23T14:45:00+03:00",
-          "section": "games",
-          "kind": "NEWS",
-          "genres": [
-            "Roguelike"
-          ],
-          "platforms": [
-            "Windows"
-          ],
-          "image": "https://cdn.mos.cms.futurecdn.net/HNtA6QWZH23oHdCY8geRZU-1920-80.jpg",
-          "status": ""
         },
         {
           "section": "games",
