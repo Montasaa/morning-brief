@@ -2,7 +2,7 @@
  "version": 2,
  "schema_rev": "2.3",
  "sample": false,
- "generated_at": "2026-11-24T19:27:32+03:00",
+ "generated_at": "2026-11-24T19:31:28+03:00",
  "timezone": "Asia/Riyadh",
  "top_stories": [
   {
@@ -212,12 +212,17 @@
      "tag": "MOVERS",
      "title": "nasdaq drops 2.4% as nvidia gives back monday's rally",
      "title_ar": "ناسداك يهبط 2.4% وإنفيديا تتراجع عن مكاسب الاثنين",
-     "summary": "At 11:03 a.m. ET the Nasdaq Composite was down 2.4% at 23,511.88 and the S&P 500 1.21% at 7,149.83, while the Dow slipped 0.14% to 49,524.94 and the VIX jumped 9.3% to 29.09. Nvidia fell about 7% after Monday's 31% surge, AMD dropped more than 10%, Micron 8% and Broadcom 4.2%, and Anthropic traded at $76.24, below its $83 IPO price.",
-     "summary_ar": "في الساعة 11:03 صباحاً بتوقيت نيويورك، هبط ناسداك المركب 2.4% إلى 23,511.88 وإس آند بي 500 بنسبة 1.21% إلى 7,149.83، فيما تراجع داو جونز 0.14% إلى 49,524.94 وقفز مؤشر التقلب VIX بنسبة 9.3% إلى 29.09. وهبطت إنفيديا نحو 7% بعد ارتفاعها 31% الاثنين، وتراجعت AMD أكثر من 10% وميكرون 8% وبرودكوم 4.2%، وتداولت أنثروبيك عند 76.24 دولاراً، دون سعر طرحها البالغ 83 دولاراً.",
+     "summary": "At 11:03 a.m. ET the Nasdaq Composite was down 2.4% at 23,511.88 and the S&P 500 1.21% at 7,149.83, while the Dow slipped 0.14% to 49,524.94 and the VIX jumped 9.3% to 29.09. Nvidia fell more than 5% after Monday's 31% surge, AMD dropped more than 10%, Micron 8% and Broadcom 4.2%, and Anthropic fell below its $83 IPO price.",
+     "summary_ar": "في الساعة 11:03 صباحاً بتوقيت نيويورك، هبط ناسداك المركب 2.4% إلى 23,511.88 وإس آند بي 500 بنسبة 1.21% إلى 7,149.83، فيما تراجع داو جونز 0.14% إلى 49,524.94 وقفز مؤشر التقلب VIX بنسبة 9.3% إلى 29.09. وهبطت إنفيديا أكثر من 5% بعد ارتفاعها 31% الاثنين، وتراجعت AMD أكثر من 10% وميكرون 8% وبرودكوم 4.2%، وهبطت أنثروبيك دون سعر طرحها البالغ 83 دولاراً.",
      "sources": [
       {
        "title": "CNBC live blog",
        "url": "https://www.cnbc.com/2026/11/23/stock-market-today-live-updates.html",
+       "type": "independent"
+      },
+      {
+       "title": "Al Jazeera",
+       "url": "https://www.aljazeera.com/economy/2026/11/24/nvidia-stock-cools-after-huangs-return-driven-surge",
        "type": "independent"
       },
       {
@@ -330,6 +335,11 @@
       {
        "title": "CNBC",
        "url": "https://www.cnbc.com/2026/11/24/anthropic-wedbush-outperform-price-target.html",
+       "type": "independent"
+      },
+      {
+       "title": "CNBC · ANT quote",
+       "url": "https://www.cnbc.com/quotes/ANT",
        "type": "independent"
       }
      ],
