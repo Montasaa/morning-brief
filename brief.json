@@ -2,40 +2,109 @@
   "version": 2,
   "schema_rev": "2.3",
   "sample": false,
-  "generated_at": "2026-11-26T15:26:12+03:00",
+  "generated_at": "2026-11-26T19:10:44+03:00",
   "timezone": "Asia/Riyadh",
   "top_stories": [
     {
       "section": "middle_east",
-      "id": "me-jazan-port"
-    },
-    {
-      "section": "us_markets",
-      "id": "us-close-wed"
+      "id": "me-kuwait-drone"
     },
     {
       "section": "middle_east",
-      "id": "me-netanyahu"
+      "id": "me-hormuz-mines"
+    },
+    {
+      "section": "us_markets",
+      "id": "us-oil"
     }
   ],
   "sections": {
     "middle_east": {
-      "what_changed": "The Houthis hit Jazan port with a projectile and fired two ballistic missiles at Riyadh, both intercepted, after threatening Saudi ports over Hodeidah; a blast shook Sanaa and a tanker reported an explosion west of Dubai.",
-      "what_changed_ar": "استهدف الحوثيون ميناء جازان بمقذوف وأطلقوا صاروخين باليستيين نحو الرياض اعترضتهما الدفاعات، بعد تهديدهم الموانئ السعودية ردًا على الحديدة؛ وهزّ انفجار صنعاء وأبلغت ناقلة عن انفجار غرب دبي.",
+      "what_changed": "Iranian drones hit a Kuwaiti air-defence site, killing two Italian Rheinmetall technicians, and the IRGC said mines set two tankers ablaze near Oman's Khasab port; the Saudi-led coalition said the Houthis targeted the Jazan refinery.",
+      "what_changed_ar": "استهدفت مسيّرات إيرانية موقعًا للدفاع الجوي في الكويت فقتلت فنيَّين إيطاليين من Rheinmetall، وقال الحرس الثوري إن ألغامًا أشعلت النار في ناقلتَين قرب ميناء خصب العماني؛ وقال التحالف بقيادة السعودية إن الحوثيين استهدفوا مصفاة جازان.",
       "items": [
+        {
+          "id": "me-kuwait-drone",
+          "section": "middle_east",
+          "status": "new",
+          "time": "2026-11-26T17:21:00+03:00",
+          "title": "iranian drones hit kuwait site, killing two italian defence workers",
+          "title_ar": "مسيّرات إيرانية تستهدف موقعًا في الكويت وتقتل فنيَّين إيطاليين دفاعيين",
+          "summary": "Kuwait's defence ministry said its forces intercepted several Iranian drones over a 'vital site' and that falling shrapnel killed two Italian technicians from Rheinmetall Italia who were maintaining air-defence detection antennas, and wounded a Kuwaiti officer and a Pakistani national. Italy's foreign minister and PM Giorgia Meloni condemned the attack, the GCC called it 'brutal', and Iran had no immediate comment.",
+          "summary_ar": "قالت وزارة الدفاع الكويتية إن قواتها اعترضت عدة مسيّرات إيرانية فوق «موقع حيوي»، وإن شظايا ساقطة قتلت فنيَّين إيطاليين من شركة Rheinmetall Italia كانا يعملان على صيانة هوائيات كشف للدفاع الجوي، وأصابت ضابطًا كويتيًا ومواطنًا باكستانيًا. وأدانت إيطاليا الهجوم عبر وزير خارجيتها ورئيسة الوزراء جورجا ميلوني، ووصفه مجلس التعاون الخليجي بـ«الوحشي»، فيما لم تعلّق إيران فورًا.",
+          "sources": [
+            {
+              "title": "CNN",
+              "url": "https://www.cnn.com/2026/11/26/middleeast/italians-killed-iranian-attack-kuwait-intl",
+              "type": "independent"
+            },
+            {
+              "title": "ANSA",
+              "url": "https://www.ansa.it/english/newswire/english_service/2026/11/26/two-italians-killed-in-drone-attack-on-kuwait-2_8746cc74-0116-4ebd-bb13-df5250970aae.html",
+              "type": "wire"
+            }
+          ],
+          "image": "https://media.cnn.com/api/v1/images/stellar/prod/kuwait-iran-attack-november-26-map.jpg?c=16x9&q=w_800,c_fill"
+        },
+        {
+          "id": "me-hormuz-mines",
+          "section": "middle_east",
+          "status": "new",
+          "time": "2026-11-26T16:45:00+03:00",
+          "title": "irgc says mines set two tankers ablaze near oman's khasab port",
+          "title_ar": "الحرس الثوري يقول إن ألغامًا أشعلت النار في ناقلتَين قرب ميناء خصب العماني",
+          "summary": "Iran's Revolutionary Guard said two tankers that tried to cross the Strait of Hormuz 'without permission' hit sea mines north of Oman's Khasab port and caught fire, one a supertanker carrying more than 2 million barrels that was left burning. The UK Maritime Trade Operations agency separately reported an explosion from an unknown projectile near a tanker 50 nautical miles west of Dubai.",
+          "summary_ar": "قال الحرس الثوري الإيراني إن ناقلتَين حاولتا عبور مضيق هرمز «دون إذن» أصابتا ألغامًا بحرية شمال ميناء خصب العماني واشتعلت فيهما النار، إحداهما ناقلة عملاقة تحمل أكثر من مليوني برميل تُركت تحترق. وأفادت هيئة التجارة البحرية البريطانية (UKMTO) بشكل منفصل بانفجار ناجم عن مقذوف مجهول قرب ناقلة على بعد 50 ميلًا بحريًا غرب دبي.",
+          "sources": [
+            {
+              "title": "Reuters via The Straits Times",
+              "url": "https://www.straitstimes.com/world/middle-east/irans-revolutionary-guards-say-two-oil-tankers-hit-sea-mines-near-omans-khasab",
+              "type": "wire"
+            },
+            {
+              "title": "Al Jazeera live blog",
+              "url": "https://www.aljazeera.com/news/liveblog/2026/11/26/iran-war-live-explosion-rocks-sanaa-missiles-intercepted-over-riyadh",
+              "type": "independent"
+            }
+          ],
+          "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/AFP__20260928__C9JJ9XN__v3__HighRes__IranUsIsraelWar-1794903144.jpg?resize=1920%2C1440"
+        },
         {
           "id": "me-jazan-port",
           "section": "middle_east",
-          "status": "new",
-          "time": "2026-11-26T02:33:00+03:00",
-          "title": "houthi projectile hits jazan port as missiles are downed over riyadh",
-          "title_ar": "مقذوف حوثي يصيب ميناء جازان وإسقاط صاروخين باليستيين فوق الرياض",
-          "summary": "The Saudi-led coalition said a Houthi attack on Jazan caused only minor damage and no civilian casualties, and that it was still working out the type of projectile. It later said air defences intercepted two ballistic missiles fired at Riyadh and a drone over Jeddah's port, and an explosion was heard in Sanaa.",
-          "summary_ar": "قال التحالف بقيادة السعودية إن هجومًا حوثيًا على جازان أسفر عن أضرار طفيفة فقط دون إصابات مدنية، وإنه لا يزال يحاول تحديد نوع المقذوف. وأعلن لاحقًا أن دفاعاته الجوية اعترضت صاروخين باليستيين أُطلقا نحو الرياض ومسيّرة فوق ميناء جدة، فيما سُمع انفجار في صنعاء.",
+          "status": "updated",
+          "time": "2026-11-26T18:02:00+03:00",
+          "title": "coalition says houthis targeted jazan refinery as alert is lifted",
+          "title_ar": "التحالف يقول إن الحوثيين استهدفوا مصفاة جازان مع رفع حالة الإنذار",
+          "summary": "The Saudi-led coalition said a Houthi attack targeted the Jazan refinery in southwestern Saudi Arabia, and spokesman Turki al-Maliki warned on X that targeting civilians and civilian infrastructure would meet a 'firm military response'. Saudi civil defence had issued a danger alert for Jazan province at 16:18 Riyadh and lifted it 11 minutes later; the coalition said the earlier projectile caused only minor damage and no civilian casualties.",
+          "summary_ar": "قال التحالف بقيادة السعودية إن هجومًا حوثيًا استهدف مصفاة جازان في جنوب غرب السعودية، وحذر المتحدث تركي المالكي على منصة X من أن استهداف المدنيين والبنية التحتية المدنية سيلقى «ردًا عسكريًا حازمًا». وكان الدفاع المدني السعودي قد أصدر إنذار خطر لمحافظة جازان عند الساعة 16:18 بتوقيت الرياض ورفعه بعد 11 دقيقة؛ وقال التحالف إن المقذوف السابق أسفر عن أضرار طفيفة فقط دون إصابات مدنية.",
           "sources": [
+            {
+              "title": "Al Jazeera live blog",
+              "url": "https://www.aljazeera.com/news/liveblog/2026/11/26/iran-war-live-explosion-rocks-sanaa-missiles-intercepted-over-riyadh",
+              "type": "independent"
+            },
             {
               "title": "Al Jazeera",
               "url": "https://www.aljazeera.com/news/2026/11/25/houthis-target-saudi-arabias-red-sea-ports-as-strikes-escalate",
+              "type": "independent"
+            }
+          ],
+          "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/afp_6b075e56efe1-1795645014.jpg?resize=1920%2C1440"
+        },
+        {
+          "id": "me-gaza-toll",
+          "section": "middle_east",
+          "status": "updated",
+          "time": "2026-11-26T13:14:00+03:00",
+          "title": "israeli strikes kill eight in gaza, including a hamas deputy minister",
+          "title_ar": "غارات إسرائيلية تقتل ثمانية في غزة بينهم نائب وزير التعليم في حماس",
+          "summary": "Three Israeli strikes across Gaza on Thursday killed eight Palestinians, including Khaled Abu Nada, the Hamas-run education ministry's deputy minister, and his wife Abeer, who died in a dawn strike on their apartment in Deir al-Balah. Netanyahu said about 80 Hamas officials have been killed in the past month; Gaza's health ministry says at least 1,705 people have been killed in the territory over the past 13 months.",
+          "summary_ar": "قتلت ثلاث غارات إسرائيلية في أنحاء غزة الخميس ثمانية فلسطينيين، بينهم خالد أبو ندى نائب وزير التعليم في حكومة حماس وزوجته عبير، في ضربة فجرية على شقتهما في دير البلح. وقال نتنياهو إن نحو 80 من مسؤولي حماس قُتلوا خلال الشهر الماضي؛ وتقول وزارة الصحة في غزة إن ما لا يقل عن 1,705 أشخاص قُتلوا في القطاع خلال الأشهر الـ13 الماضية.",
+          "sources": [
+            {
+              "title": "BBC News",
+              "url": "https://www.bbc.co.uk/news/articles/cqvg2n4mzl1jo",
               "type": "independent"
             },
             {
@@ -44,35 +113,35 @@
               "type": "independent"
             }
           ],
-          "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/afp_6b075e56efe1-1795645014.jpg?resize=1920%2C1440"
+          "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/b703/live/54fa7870-e981-11f1-99a1-253766e7ad8b.jpg"
         },
         {
           "id": "me-ras-tanura-claim",
           "section": "middle_east",
-          "status": "new",
+          "status": "updated",
           "time": "2026-11-25T13:35:00+03:00",
-          "title": "houthis say they hit ras tanura refinery and riyadh financial district",
-          "title_ar": "الحوثيون يقولون إنهم استهدفوا مصفاة رأس تنورة والمنطقة المالية في الرياض",
-          "summary": "Houthi spokesman Yahya Saree said the group hit Saudi Arabia's Ras Tanura refinery, causing fires, and attacked Riyadh's financial district in three phases. The Saudi-led coalition said air defences destroyed four drones at Ras Tanura, and Saudi civil defence said 11 people were wounded on Tuesday when a tower in the district was struck for the second time in less than a week.",
-          "summary_ar": "قال المتحدث العسكري باسم الحوثيين يحيى سريع إن الجماعة استهدفت مصفاة رأس تنورة السعودية وتسبب الهجوم في اندلاع حرائق، وإنها هاجمت المنطقة المالية في الرياض على ثلاث مراحل. وقال التحالف بقيادة السعودية إن الدفاعات الجوية دمّرت أربع طائرات مسيّرة في رأس تنورة، وقال الدفاع المدني السعودي إن 11 شخصًا أصيبوا الثلاثاء في ضربة على برج بالمنطقة، وهي الضربة الثانية على البرج خلال أقل من أسبوع.",
+          "title": "satellite shows huge smoke plume over ras tanura after houthi claim",
+          "title_ar": "صورة بالأقمار الاصطناعية تظهر سحابة دخان هائلة فوق رأس تنورة بعد إعلان الحوثيين",
+          "summary": "Satellite imagery taken on Wednesday showed a large plume of black smoke over Saudi Aramco's Ras Tanura refinery and export complex, after Houthi spokesman Yahya Saree claimed 'accurate and direct' strikes that caused fires. A shipping source told CNN on Thursday that oil loadings at the terminal were suspended after the attack; the Saudi-led coalition said its air defences destroyed four drones at Ras Tanura and reported no injuries.",
+          "summary_ar": "أظهرت صور بالأقمار الاصطناعية التُقطت الأربعاء سحابة دخان سوداء كبيرة فوق مصفاة رأس تنورة ومجمع التصدير التابع لشركة أرامكو السعودية، بعد أن أعلن المتحدث باسم الحوثيين يحيى سريع عن ضربات «دقيقة ومباشرة» تسببت في حرائق. وقال مصدر ملاحي لشبكة CNN الخميس إن تحميل النفط في المرفأ توقف بعد الهجوم؛ وقال التحالف بقيادة السعودية إن دفاعاته الجوية دمرت أربع مسيّرات في رأس تنورة دون إصابات.",
           "sources": [
+            {
+              "title": "CNN",
+              "url": "https://edition.cnn.com/2026/11/26/middleeast/houthi-saudi-oil-refinery-strike-satellite-imagery-intl",
+              "type": "independent"
+            },
             {
               "title": "DW",
               "url": "https://dw.com/en/houthis-claim-attacks-on-saudi-refinery-financial-district/a-80043632",
               "type": "independent"
-            },
-            {
-              "title": "Reuters via The Star",
-              "url": "https://thestar.com.my/news/world/2026/11/25/yemen039s-houthis-say-they-attacked-saudi-oil-refinery-and-riyadh-financial-district",
-              "type": "wire"
             }
           ],
-          "image": "https://static.dw.com/image/80043573_6.jpg"
+          "image": "https://media.cnn.com/api/v1/images/stellar/prod/2026-11-25t142116z-1374332128-rc22voaez5qy-rtrmadp-3-iran-crisis-saudi-houthi.JPG?c=16x9&q=w_800,c_fill"
         },
         {
           "id": "me-netanyahu",
           "section": "middle_east",
-          "status": "new",
+          "status": "",
           "time": "2026-11-25T22:47:00+03:00",
           "title": "israeli judges suggest dropping bribery charges against netanyahu",
           "title_ar": "قضاة إسرائيليون يقترحون إسقاط تهم الرشوة بحق نتنياهو",
@@ -93,32 +162,9 @@
           "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d91d/live/f0a5ecf0-e8fa-11f1-99b6-a35a62fa4264.jpg"
         },
         {
-          "id": "me-gaza-toll",
-          "section": "middle_east",
-          "status": "updated",
-          "time": "2026-11-26T06:00:00+03:00",
-          "title": "israeli strikes kill at least 16 palestinians across gaza in 24 hours",
-          "title_ar": "الغارات الإسرائيلية تقتل 16 فلسطينيًا على الأقل في غزة خلال 24 ساعة",
-          "summary": "Al Jazeera's correspondent reported at least 16 killed in the past 24 hours, including two in an Apache helicopter strike on an apartment west of Deir el-Balah and three in a drone attack on the Shati camp. Gaza's interior ministry said two internal security commanders were killed in Khan Younis.",
-          "summary_ar": "أفاد مراسل الجزيرة بمقتل 16 فلسطينيًا على الأقل خلال الساعات الـ24 الماضية، بينهم اثنان في ضربة بمروحيات أباتشي على شقة غرب دير البلح وثلاثة في هجوم مسيّرة على مخيم الشاطئ. وأعلنت وزارة الداخلية في غزة مقتل قائدين في جهاز الأمن الداخلي في خان يونس.",
-          "sources": [
-            {
-              "title": "Al Jazeera live blog",
-              "url": "https://www.aljazeera.com/news/liveblog/2026/11/26/iran-war-live-explosion-rocks-sanaa-missiles-intercepted-over-riyadh",
-              "type": "independent"
-            },
-            {
-              "title": "BBC News",
-              "url": "https://www.bbc.co.uk/news/articles/cmd718zydz9qo",
-              "type": "independent"
-            }
-          ],
-          "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/90a4/live/02d1fbb0-e8d5-11f1-99b6-a35a62fa4264.jpg"
-        },
-        {
           "id": "me-kushner-iran",
           "section": "middle_east",
-          "status": "new",
+          "status": "",
           "time": "2026-11-26T03:20:00+03:00",
           "title": "kushner confirms talks with iranian officials, says all options open",
           "title_ar": "كوشنر يؤكد محادثات مع مسؤولين إيرانيين ويقول إن كل الخيارات مطروحة",
@@ -136,7 +182,7 @@
         {
           "id": "me-taiz-shelling",
           "section": "middle_east",
-          "status": "new",
+          "status": "",
           "time": "2026-11-26T05:40:00+03:00",
           "title": "houthi shelling kills a woman and wounds seven near taiz",
           "title_ar": "قصف حوثي يقتل امرأة ويصيب سبعة قرب تعز",
@@ -150,42 +196,6 @@
             }
           ],
           "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/2026-11-25T142119Z_494453788_RC22VOAYEVVA_RTRMADP_3_IRAN-CRISIS-SAUDI-HOUTHI-1795644562.jpg?resize=1920%2C1440"
-        },
-        {
-          "id": "me-tanker-dubai",
-          "section": "middle_east",
-          "status": "new",
-          "time": "2026-11-26T03:05:00+03:00",
-          "title": "tanker reports blast from unknown projectile west of dubai",
-          "title_ar": "ناقلة تبلغ عن انفجار مقذوف مجهول غرب دبي",
-          "summary": "The tanker's master reported an explosion from an unknown projectile close to the vessel 50 nautical miles (93km) west of Dubai in the UAE, UKMTO said, with no injuries and no damage to the ship.",
-          "summary_ar": "قالت هيئة عمليات التجارة البحرية البريطانية (UKMTO) إن ربان ناقلة أبلغ عن انفجار ناجم عن مقذوف مجهول قرب السفينة على بعد 50 ميلًا بحريًا (93 كم) غرب دبي في الإمارات، دون إصابات أو أضرار بالسفينة.",
-          "sources": [
-            {
-              "title": "Al Jazeera live blog (UKMTO)",
-              "url": "https://www.aljazeera.com/news/liveblog/2026/11/26/iran-war-live-explosion-rocks-sanaa-missiles-intercepted-over-riyadh",
-              "type": "independent"
-            }
-          ],
-          "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/AFP__20261123__D8BZ7G9__v2__HighRes__IranUsIsraelWar-1795471267.jpg?resize=1920%2C1440"
-        },
-        {
-          "id": "me-irgc-claim",
-          "section": "middle_east",
-          "status": "new",
-          "time": "2026-11-26T06:20:00+03:00",
-          "title": "irgc chief says his forces can push 'enemy forces' back deep",
-          "title_ar": "قائد الحرس الثوري يقول إن قواته قادرة على دحر «قوات العدو» مسافة كبيرة",
-          "summary": "The head of Iran's Revolutionary Guard said his forces are ready to drive 'enemy forces a considerable depth' back and argued that the US and Israel have suffered a 'major strategic setback' in the war. The assessment is the IRGC's own and has not been independently verified.",
-          "summary_ar": "قال قائد الحرس الثوري الإيراني إن قواته مستعدة لدحر «قوات العدو مسافة كبيرة» إلى الخلف، ورأى أن الولايات المتحدة وإسرائيل مُنيتا بـ«نكسة استراتيجية كبرى» في الحرب. والتقييم موقف يخص الحرس الثوري ولم يُتحقق منه بشكل مستقل.",
-          "sources": [
-            {
-              "title": "Al Jazeera live blog",
-              "url": "https://www.aljazeera.com/news/liveblog/2026/11/26/iran-war-live-explosion-rocks-sanaa-missiles-intercepted-over-riyadh",
-              "type": "independent"
-            }
-          ],
-          "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/2025-08-30T074128Z_279192352_RC24HGAAKIRL_RTRMADP_3_SAUDI-CITY-FINANCE-1795102039.jpg?resize=1200%2C630"
         }
       ],
       "watch": [
@@ -202,13 +212,13 @@
       ]
     },
     "us_markets": {
-      "what_changed": "The Dow erased a 1,100-point plunge to close up 0.33% while the Nasdaq fell 0.62% and the S&P 500 0.25%; US markets are shut today for Thanksgiving. Asia rebounded overnight, the Kospi up 1.73%, and Brent held above $95.",
-      "what_changed_ar": "محا مؤشر داو جونز هبوطًا بلغ 1,100 نقطة ليغلق مرتفعًا 0.33%، بينما تراجع ناسداك 0.62% وستاندرد آند بورز 0.25%؛ والأسواق الأميركية مغلقة اليوم لعطلة عيد الشكر. وارتفعت آسيا خلال الليل مع صعود كوسبي 1.73%، وظل برنت فوق 95 دولارًا.",
+      "what_changed": "US cash markets were closed for Thanksgiving; oil was the live mover, with Brent up 1.84% at $96.35 after the Hormuz mining reports.",
+      "what_changed_ar": "أُغلقت الأسواق الأميركية لعطلة عيد الشكر؛ وكان النفط المتحرك الوحيد، إذ ارتفع برنت 1.84% إلى 96.35 دولارًا بعد تقارير ألغام هرمز.",
       "items": [
         {
           "id": "us-close-wed",
           "section": "us_markets",
-          "status": "new",
+          "status": "",
           "time": "2026-11-26T00:00:00+03:00",
           "tag": "MOVERS",
           "title": "dow erases 1,100-point plunge to close higher, nasdaq falls 0.62%",
@@ -232,7 +242,7 @@
         {
           "id": "us-asia-rebound",
           "section": "us_markets",
-          "status": "new",
+          "status": "",
           "time": "2026-11-26T04:30:00+03:00",
           "tag": "GLOBAL",
           "title": "kospi leads asia rebound as softbank jumps 11% after ai rout",
@@ -251,7 +261,7 @@
         {
           "id": "us-tariffs",
           "section": "us_markets",
-          "status": "updated",
+          "status": "",
           "time": "2026-11-25T16:45:00+03:00",
           "tag": "MACRO",
           "title": "white house proposes tariffs on 14 partners, rates mostly 15-20%",
@@ -294,7 +304,7 @@
         {
           "id": "us-nvidia-sp",
           "section": "us_markets",
-          "status": "new",
+          "status": "",
           "time": "2026-11-26T06:20:00+03:00",
           "tag": "MOVERS",
           "title": "s&p puts nvidia on creditwatch and warns of a one-notch cut",
@@ -314,12 +324,12 @@
           "id": "us-oil",
           "section": "us_markets",
           "status": "updated",
-          "time": "2026-11-26T06:21:00+03:00",
+          "time": "2026-11-26T18:51:00+03:00",
           "tag": "GLOBAL",
-          "title": "brent edges above $95 after houthi attacks on saudi ports",
-          "title_ar": "برنت يتجاوز 95 دولارًا بعد هجمات حوثية على موانئ سعودية",
-          "summary": "Brent's front-month contract traded at $95.01 a barrel, up 0.42%, and WTI at $84.23, up 0.66%, early on Thursday in Riyadh, after Houthi attacks on Jazan and threats against Saudi Red Sea ports.",
-          "summary_ar": "تداول عقد برنت القياسي عند 95.01 دولار للبرميل بارتفاع 0.42%، وخام غرب تكساس عند 84.23 دولار بارتفاع 0.66% صباح الخميس بتوقيت الرياض، بعد هجمات حوثية على جازان وتهديدات لموانئ سعودية على البحر الأحمر.",
+          "title": "brent climbs to $96.35 as hormuz mining adds to supply risk",
+          "title_ar": "برنت يصعد إلى 96.35 دولارًا مع تفاقم مخاطر الإمداد في هرمز",
+          "summary": "Brent's front-month contract traded at $96.35 a barrel, up 1.84%, and WTI at $85.11, up 1.71%, at 18:51 Riyadh on Thursday, after the IRGC said mines hit two tankers near Oman's Khasab port. US cash markets were shut for Thanksgiving and trade a half session on Friday.",
+          "summary_ar": "تداول عقد برنت القياسي عند 96.35 دولارًا للبرميل بارتفاع 1.84%، وخام غرب تكساس عند 85.11 دولارًا بارتفاع 1.71% عند الساعة 18:51 بتوقيت الرياض الخميس، بعد أن قال الحرس الثوري إن ألغامًا أصابت ناقلتَين قرب ميناء خصب العماني. وكانت الأسواق الأميركية مغلقة لعطلة عيد الشكر وتتداول نصف جلسة الجمعة.",
           "sources": [
             {
               "title": "CNBC quote: Brent",
@@ -327,8 +337,8 @@
               "type": "independent"
             },
             {
-              "title": "Al Jazeera live blog",
-              "url": "https://www.aljazeera.com/news/liveblog/2026/11/26/iran-war-live-explosion-rocks-sanaa-missiles-intercepted-over-riyadh",
+              "title": "CNBC quote: WTI",
+              "url": "https://www.cnbc.com/quotes/@CL.1",
               "type": "independent"
             }
           ],
@@ -337,7 +347,7 @@
         {
           "id": "us-spacex-fcc",
           "section": "us_markets",
-          "status": "new",
+          "status": "",
           "time": "2026-11-26T05:30:00+03:00",
           "tag": "GLOBAL",
           "title": "fcc clears spacex to launch 1m ai data-centre satellites",
@@ -372,7 +382,7 @@
         {
           "id": "ai-unreleased-models-axios",
           "section": "ai",
-          "status": "new",
+          "status": "",
           "kind": "NEWS",
           "time": "2026-11-24T13:45:00+03:00",
           "title": "anthropic, openai staff fear unreleased models too unsafe to release",
@@ -405,11 +415,11 @@
           "try_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
           "why_it_matters": "A small multimodal MoE from a well-funded lab is the kind of checkpoint you can download and test the same morning.",
           "why_it_matters_ar": "نموذج خليط خبراء صغير متعدد الوسائط من مختبر جيد التمويل هو نوع الأوزان التي يمكن تنزيلها وتجربتها في الصباح نفسه.",
-          "title": "#1: inkling-2-mini holds first on 6,054 likes",
-          "title_ar": "#1: inkling-2-mini يحافظ على الأول بـ6,054 إعجاباً",
-          "summary": "Inkling-2-Mini, Thinking Machines' Apache-2.0 multimodal mixture-of-experts model, is first with 6,054 likes and 96,527 downloads.",
-          "summary_ar": "«إنكلينغ-2-ميني»، النموذج متعدد الوسائط من نوع خليط الخبراء من Thinking Machines بترخيص Apache-2.0، في المركز الأول بـ6,054 إعجاباً و96,527 تنزيلاً.",
-          "metric": "#1 trending, 6,054 likes",
+          "title": "#1: inkling-2-mini holds first on 6,165 likes",
+          "title_ar": "#1: inkling-2-mini يحافظ على الأول بـ6,165 إعجاباً",
+          "summary": "Inkling-2-Mini, Thinking Machines' Apache-2.0 multimodal mixture-of-experts model, is first with 6,165 likes and 96,527 downloads.",
+          "summary_ar": "«إنكلينغ-2-ميني»، النموذج متعدد الوسائط من نوع خليط الخبراء من Thinking Machines بترخيص Apache-2.0، في المركز الأول بـ6,165 إعجاباً و96,527 تنزيلاً.",
+          "metric": "#1 trending, 6,165 likes",
           "status": "",
           "rank": 1
         },
@@ -432,9 +442,9 @@
           "why_it_matters_ar": "نسخة GGUF هي التي تعمل على محطة عمل بدل عنقود خوادم.",
           "title": "#2: unsloth's inkling gguf holds second on 2.44m downloads",
           "title_ar": "#2: نسخة unsloth من inkling في المركز الثاني بـ2.44 مليون تنزيل",
-          "summary": "Unsloth's GGUF build of Inkling-2-Mini is second with 1,382 likes and 2,445,633 downloads, still the most-downloaded entry on the list.",
-          "summary_ar": "نسخة GGUF من Inkling-2-Mini من Unsloth في المركز الثاني بـ1,382 إعجاباً و2,445,633 تنزيلاً، وهي لا تزال الأكثر تنزيلاً في القائمة.",
-          "metric": "#2 trending, 1,382 likes",
+          "summary": "Unsloth's GGUF build of Inkling-2-Mini is second with 1,434 likes and 2,445,633 downloads, still the most-downloaded entry on the list.",
+          "summary_ar": "نسخة GGUF من Inkling-2-Mini من Unsloth في المركز الثاني بـ1,434 إعجاباً و2,445,633 تنزيلاً، وهي لا تزال الأكثر تنزيلاً في القائمة.",
+          "metric": "#2 trending, 1,434 likes",
           "status": "",
           "rank": 2
         },
@@ -455,11 +465,11 @@
           "try_url": "https://huggingface.co/inworld/voice-isolator",
           "why_it_matters": "Clean audio in real time is the unglamorous half of any voice agent.",
           "why_it_matters_ar": "الصوت النقي في الزمن الحقيقي هو النصف غير اللافت من أي وكيل صوتي.",
-          "title": "#3: inworld's voice isolator holds third on 900 likes",
-          "title_ar": "#3: عازل الصوت من inworld في المركز الثالث بـ900 إعجاب",
-          "summary": "Inworld's voice-isolator, a streaming audio-to-audio model that runs at 48kHz for speech enhancement and noise suppression, holds third with 900 likes and 15,244 downloads.",
-          "summary_ar": "نموذج voice-isolator من Inworld، وهو نموذج صوت إلى صوت يعمل بـ48 كيلوهرتز لتحسين الكلام وكتم الضوضاء، في المركز الثالث بـ900 إعجاب و15,244 تنزيلاً.",
-          "metric": "#3 trending, 900 likes",
+          "title": "#3: inworld's voice isolator holds third on 932 likes",
+          "title_ar": "#3: عازل الصوت من inworld في المركز الثالث بـ932 إعجاب",
+          "summary": "Inworld's voice-isolator, a streaming audio-to-audio model that runs at 48kHz for speech enhancement and noise suppression, holds third with 932 likes and 15,244 downloads.",
+          "summary_ar": "نموذج voice-isolator من Inworld، وهو نموذج صوت إلى صوت يعمل بـ48 كيلوهرتز لتحسين الكلام وكتم الضوضاء، في المركز الثالث بـ932 إعجاب و15,244 تنزيلاً.",
+          "metric": "#3 trending, 932 likes",
           "status": "",
           "rank": 3
         },
@@ -480,20 +490,20 @@
               "type": "independent"
             }
           ],
-          "title": "#4: an uncensored inkling gguf holds fourth on 846 likes",
-          "title_ar": "#4: نسخة inkling غير المقيدة تحافظ على الرابع بـ846 إعجاباً",
-          "summary": "AtomicChat's Inkling-2-Mini-Uncensored-GGUF, a de-restricted quantised build of Thinking Machines' model, holds fourth with 846 likes and 762,491 downloads.",
-          "summary_ar": "نسخة غير مقيدة ومكمّمة من نموذج Thinking Machines من AtomicChat تحافظ على المركز الرابع بـ846 إعجاباً و762,491 تنزيلاً.",
-          "metric": "#4 trending, 846 likes",
+          "title": "#4: an uncensored inkling gguf holds fourth on 883 likes",
+          "title_ar": "#4: نسخة inkling غير المقيدة تحافظ على الرابع بـ883 إعجاباً",
+          "summary": "AtomicChat's Inkling-2-Mini-Uncensored-GGUF, a de-restricted quantised build of Thinking Machines' model, holds fourth with 883 likes and 762,491 downloads.",
+          "summary_ar": "نسخة غير مقيدة ومكمّمة من نموذج Thinking Machines من AtomicChat تحافظ على المركز الرابع بـ883 إعجاباً و762,491 تنزيلاً.",
+          "metric": "#4 trending, 883 likes",
           "status": "",
           "rank": 4
         },
         {
           "id": "ai-sulphur-3",
-          "title": "#5: sulphur-3 holds fifth on 1,096 likes",
-          "summary": "Sulphur-3 is an uncensored video-generation model built on MiniMax H3, published under the MiniMax H3 community licence with lower-VRAM quantisations and an optional ComfyUI corrector. It is fifth with 1,096 likes and 189,735 downloads.",
-          "title_ar": "#5: sulphur-3 يحافظ على الخامس بـ1,096 إعجاباً",
-          "summary_ar": "«سلفر-3» نموذج لتوليد الفيديو غير مقيّد مبني على MiniMax H3، منشور بموجب رخصة مجتمع MiniMax H3 مع نسخ مكمّمة لأقل ذاكرة وأداة تصحيح اختيارية لـComfyUI. وهو في المركز الخامس بـ1,096 إعجاباً و189,735 تنزيلاً.",
+          "title": "#5: sulphur-3 holds fifth on 1,178 likes",
+          "summary": "Sulphur-3 is an uncensored video-generation model built on MiniMax H3, published under the MiniMax H3 community licence with lower-VRAM quantisations and an optional ComfyUI corrector. It is fifth with 1,178 likes and 189,735 downloads.",
+          "title_ar": "#5: sulphur-3 يحافظ على الخامس بـ1,178 إعجاباً",
+          "summary_ar": "«سلفر-3» نموذج لتوليد الفيديو غير مقيّد مبني على MiniMax H3، منشور بموجب رخصة مجتمع MiniMax H3 مع نسخ مكمّمة لأقل ذاكرة وأداة تصحيح اختيارية لـComfyUI. وهو في المركز الخامس بـ1,178 إعجاباً و189,735 تنزيلاً.",
           "sources": [
             {
               "title": "Hugging Face",
@@ -508,7 +518,7 @@
           "kind": "MODEL",
           "try_url": "https://huggingface.co/SulphurAI/Sulphur-3",
           "pricing": "Community licence",
-          "metric": "#5 trending, 1,096 likes",
+          "metric": "#5 trending, 1,178 likes",
           "why_it_matters": "An uncensored video model on a frontier base changes what a small studio can shoot without a licence negotiation.",
           "why_it_matters_ar": "نموذج فيديو غير مقيّد مبني على أساس متقدم يغيّر ما يستطيع استوديو صغير تصويره دون التفاوض على ترخيص.",
           "rank": 5
@@ -517,10 +527,10 @@
           "id": "ai-ternary-bonsai",
           "section": "ai",
           "kind": "MODEL",
-          "title": "#6: ternary-bonsai holds sixth on 354 likes",
-          "title_ar": "#6: ternary-bonsai يحافظ على السادس بـ354 إعجاباً",
-          "summary": "prism-ml's Ternary-Bonsai-2.5-27B-GGUF is a ternary (2-bit) llama.cpp quant of Qwen3.8-27B with tool-calling and speculative decoding, published under Apache-2.0 for on-device agents. It is sixth with 354 likes and 59,366 downloads.",
-          "summary_ar": "«تيرناري-بونساي 2.5-27B» من prism-ml نسخة مكمّمة ثلاثية القيم (2 بت) من Qwen3.8-27B مبنية على llama.cpp وتدعم استدعاء الأدوات وفك الترميز التخميني، منشورة برخصة Apache-2.0 للوكلاء على الأجهزة. وهو في المركز السادس بـ354 إعجاباً و59,366 تنزيلاً.",
+          "title": "#6: ternary-bonsai holds sixth on 460 likes",
+          "title_ar": "#6: ternary-bonsai يحافظ على السادس بـ460 إعجاباً",
+          "summary": "prism-ml's Ternary-Bonsai-2.5-27B-GGUF is a ternary (2-bit) llama.cpp quant of Qwen3.8-27B with tool-calling and speculative decoding, published under Apache-2.0 for on-device agents. It is sixth with 460 likes and 59,366 downloads.",
+          "summary_ar": "«تيرناري-بونساي 2.5-27B» من prism-ml نسخة مكمّمة ثلاثية القيم (2 بت) من Qwen3.8-27B مبنية على llama.cpp وتدعم استدعاء الأدوات وفك الترميز التخميني، منشورة برخصة Apache-2.0 للوكلاء على الأجهزة. وهو في المركز السادس بـ460 إعجاباً و59,366 تنزيلاً.",
           "sources": [
             {
               "title": "Hugging Face",
@@ -532,36 +542,36 @@
           "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/prism-ml/Ternary-Bonsai-2.5-27B-GGUF.png",
           "try_url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
           "pricing": "Open weights",
-          "metric": "#6 trending, 354 likes",
+          "metric": "#6 trending, 460 likes",
           "why_it_matters": "A 2-bit ternary build of Qwen3.8 puts a 27B agent model on a laptop.",
           "why_it_matters_ar": "نسخة ثلاثية القيم بدقة 2 بت من Qwen3.8 تضع نموذج وكيل بحجم 27 مليار معامل على حاسوب محمول.",
           "status": "",
           "rank": 6
         },
         {
-          "id": "ai-depthpro2",
+          "id": "ai-ltx-2-5",
           "section": "ai",
           "status": "new",
           "kind": "MODEL",
-          "time": "2026-11-26T06:40:00+03:00",
-          "title": "#7: apple's depthpro2 enters the top ten on 1,256 likes",
-          "title_ar": "#7: DepthPro2 من Apple يدخل العشرة الأوائل بـ1,256 إعجاباً",
-          "summary": "Apple's DepthPro2 is a metric-depth model for monocular images and video, tagged for depth estimation and temporal consistency and published under Apple's own licence; it enters the trending top ten at seventh with 1,256 likes.",
-          "summary_ar": "«DepthPro2» من Apple نموذج لتقدير العمق المتري من الصور الأحادية والفيديو، موسوم بتقدير العمق والاتساق الزمني ومنشور بترخيص خاص بـApple؛ ويدخل قائمة الأكثر رواجاً في المركز السابع بـ1,256 إعجاباً.",
-          "why_it_matters": "Reliable depth from ordinary video is the input layer for AR, robotics and 3D capture.",
-          "why_it_matters_ar": "العمق الموثوق من فيديو عادي هو طبقة الإدخال للواقع المعزز والروبوتات والتصوير ثلاثي الأبعاد.",
-          "try_url": "https://huggingface.co/apple/DepthPro2",
+          "time": "2026-11-26T19:10:44+03:00",
+          "title": "#7: lightricks' ltx-2.5 enters the top ten on 13,516 likes",
+          "title_ar": "#7: LTX-2.5 من Lightricks يدخل العشرة الأوائل بـ13,516 إعجاباً",
+          "summary": "Lightricks' LTX-2.5, an image-to-video model published in July, enters the trending top ten at seventh with 13,516 likes and 3,041,405 downloads.",
+          "summary_ar": "«LTX-2.5» من Lightricks، نموذج تحويل الصور إلى فيديو صدر في يوليو، يدخل قائمة الأكثر رواجاً في المركز السابع بـ13,516 إعجاباً و3,041,405 تنزيلات.",
+          "why_it_matters": "A video model still pulling millions of downloads is the one creators actually use for production, not just for demos.",
+          "why_it_matters_ar": "نموذج فيديو يواصل جذب ملايين التنزيلات هو ما يستخدمه المبدعون فعلاً في الإنتاج لا في العروض التجريبية فقط.",
+          "try_url": "https://huggingface.co/Lightricks/LTX-2.5",
           "pricing": "Open weights",
-          "metric": "#7 trending, 1,256 likes",
+          "metric": "#7 trending, 13,516 likes",
           "rank": 7,
           "sources": [
             {
               "title": "Hugging Face",
-              "url": "https://huggingface.co/apple/DepthPro2",
+              "url": "https://huggingface.co/Lightricks/LTX-2.5",
               "type": "independent"
             }
           ],
-          "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/apple/DepthPro2.png"
+          "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Lightricks/LTX-2.5.png"
         }
       ],
       "watch": [
@@ -581,10 +591,10 @@
       "items": [
         {
           "id": "claude-bughunter",
-          "title": "#1: claude-bughunter leads again with 1,652 stars",
-          "title_ar": "#1: claude-bughunter يتصدر مجدداً بـ1,652 نجمة",
-          "summary": "A Claude Code skill bundle for bug hunting and external red-team work: 85 skills and 16 slash commands. It is #1 today with 1,652 stars gained and 23,190 in total.",
-          "summary_ar": "حزمة مهارات لـClaude Code للبحث عن الثغرات والعمل الأمني الهجومي: 85 مهارة و16 أمراً. وهو الأول اليوم بـ1,652 نجمة مكتسبة و23,190 نجمة إجمالاً.",
+          "title": "#1: claude-bughunter leads again with 1,600 stars",
+          "title_ar": "#1: claude-bughunter يتصدر مجدداً بـ1,600 نجمة",
+          "summary": "A Claude Code skill bundle for bug hunting and external red-team work: 85 skills and 16 slash commands. It is #1 today with 1,600 stars gained and 24,086 in total.",
+          "summary_ar": "حزمة مهارات لـClaude Code للبحث عن الثغرات والعمل الأمني الهجومي: 85 مهارة و16 أمراً. وهو #1 اليوم بـ1,600 نجمة مكتسبة و24,086 نجمة إجمالاً.",
           "sources": [
             {
               "title": "GitHub",
@@ -598,18 +608,18 @@
           "image": "https://opengraph.githubassets.com/1/elementalsouls/Claude-BugHunter",
           "rank": 1,
           "period": "today",
-          "stars_gained": 1652,
-          "stars_total": 23190,
+          "stars_gained": 1600,
+          "stars_total": 24086,
           "language": "Python",
           "why_it_matters": "Security know-how packaged as agent skills is how a small red team scales one reviewer.",
           "why_it_matters_ar": "المعرفة الأمنية المغلفة كمهارات وكيل هي كيف يوسّع فريق هجومي صغير مراجعاً واحداً."
         },
         {
           "id": "obra-superpowers",
-          "title": "#2: superpowers holds second with 903 stars",
-          "title_ar": "#2: superpowers يحافظ على الثاني بـ903 نجمة",
-          "summary": "An agentic skills framework and software-development methodology for coding agents. It is #2 today with 903 stars gained and 326,721 in total.",
-          "summary_ar": "إطار مهارات ووكيل ومنهجية تطوير برمجيات لوكلاء البرمجة. وهو الثاني اليوم بـ903 نجمة مكتسبة و326,721 نجمة إجمالاً.",
+          "title": "#2: superpowers holds second with 853 stars",
+          "title_ar": "#2: superpowers يحافظ على الثاني بـ853 نجمة",
+          "summary": "An agentic skills framework and software-development methodology for coding agents. It is #2 today with 853 stars gained and 327,196 in total.",
+          "summary_ar": "إطار مهارات ووكيل ومنهجية تطوير برمجيات لوكلاء البرمجة. وهو #2 اليوم بـ853 نجمة مكتسبة و327,196 نجمة إجمالاً.",
           "sources": [
             {
               "title": "GitHub",
@@ -623,18 +633,18 @@
           "image": "https://opengraph.githubassets.com/1/obra/superpowers",
           "rank": 2,
           "period": "today",
-          "stars_gained": 903,
-          "stars_total": 326721,
+          "stars_gained": 853,
+          "stars_total": 327196,
           "language": "Shell",
           "why_it_matters": "Methodology is the difference between an agent that types and one that ships.",
           "why_it_matters_ar": "المنهجية هي الفرق بين وكيل يكتب وآخر يُسلّم."
         },
         {
           "id": "hkuds-cli-anything",
-          "title": "#3: cli-anything holds third with 1,106 stars",
-          "title_ar": "#3: cli-anything يحافظ على الثالث بـ1,106 نجمة",
-          "summary": "\"Making all software agent-native\": a hub that wraps command-line tools so agents can drive them. It is #3 today with 1,106 stars gained and 65,773 in total.",
-          "summary_ar": "«جعل كل البرمجيات صديقة للوكلاء»: مركز يغلّف أدوات سطر الأوامر كي يستطيع الوكلاء تشغيلها. وهو الثالث اليوم بـ1,106 نجمة مكتسبة و65,773 نجمة إجمالاً.",
+          "title": "#3: cli-anything holds third with 744 stars",
+          "title_ar": "#3: cli-anything يحافظ على الثالث بـ744 نجمة",
+          "summary": "\"Making all software agent-native\": a hub that wraps command-line tools so agents can drive them. It is #3 today with 744 stars gained and 66,167 in total.",
+          "summary_ar": "«جعل كل البرمجيات صديقة للوكلاء»: مركز يغلّف أدوات سطر الأوامر كي يستطيع الوكلاء تشغيلها. وهو #3 اليوم بـ744 نجمة مكتسبة و66,167 نجمة إجمالاً.",
           "sources": [
             {
               "title": "GitHub",
@@ -648,18 +658,18 @@
           "image": "https://opengraph.githubassets.com/1/HKUDS/CLI-Anything",
           "rank": 3,
           "period": "today",
-          "stars_gained": 1106,
-          "stars_total": 65773,
+          "stars_gained": 744,
+          "stars_total": 66167,
           "language": "Python",
           "why_it_matters": "Every CLI tool you already trust becomes a callable agent skill without a rewrite.",
           "why_it_matters_ar": "كل أداة سطر أوامر تثق بها تصبح مهارة قابلة للاستدعاء من الوكيل من دون إعادة كتابة."
         },
         {
           "id": "jingyaogong-minimind",
-          "title": "#4: minimind holds fourth with 826 stars",
-          "title_ar": "#4: minimind يحافظ على الرابع بـ826 نجمة",
-          "summary": "Train your own 64M-parameter LLM from scratch in about two hours. It is #4 today with 826 stars gained and 71,100 in total.",
-          "summary_ar": "درّب نموذجك اللغوي الكبير بـ64 مليون معامل من الصفر في نحو ساعتين. وهو الرابع اليوم بـ826 نجمة مكتسبة و71,100 نجمة إجمالاً.",
+          "title": "#4: minimind holds fourth with 701 stars",
+          "title_ar": "#4: minimind يحافظ على الرابع بـ701 نجمة",
+          "summary": "Train your own 64M-parameter LLM from scratch in about two hours. It is #4 today with 701 stars gained and 71,508 in total.",
+          "summary_ar": "درّب نموذجك اللغوي الكبير بـ64 مليون معامل من الصفر في نحو ساعتين. وهو #4 اليوم بـ701 نجمة مكتسبة و71,508 نجمة إجمالاً.",
           "sources": [
             {
               "title": "GitHub",
@@ -673,18 +683,18 @@
           "image": "https://opengraph.githubassets.com/1/jingyaogong/minimind",
           "rank": 4,
           "period": "today",
-          "stars_gained": 826,
-          "stars_total": 71100,
+          "stars_gained": 701,
+          "stars_total": 71508,
           "language": "Python",
           "why_it_matters": "You do not understand a training stack until you have run a small one yourself.",
           "why_it_matters_ar": "لا تفهم منظومة التدريب حقاً حتى تشغّل واحدة صغيرة بنفسك."
         },
         {
           "id": "cursor-plugins",
-          "title": "#5: cursor's plugin spec holds fifth with 416 stars",
-          "title_ar": "#5: مواصفات إضافات cursor في الخامس بـ416 نجمة",
-          "summary": "The plugin specification and official plugins for Cursor's editor. It is #5 today with 416 stars gained and 19,574 in total.",
-          "summary_ar": "مواصفات الإضافات والإضافات الرسمية لمحرر Cursor. وهي الخامسة اليوم بـ416 نجمة مكتسبة و19,574 نجمة إجمالاً.",
+          "title": "#5: cursor's plugin spec holds fifth with 268 stars",
+          "title_ar": "#5: مواصفات إضافات cursor في الخامس بـ268 نجمة",
+          "summary": "The plugin specification and official plugins for Cursor's editor. It is #5 today with 268 stars gained and 19,709 in total.",
+          "summary_ar": "مواصفات الإضافات والإضافات الرسمية لمحرر Cursor. وهي #5 اليوم بـ268 نجمة مكتسبة و19,709 نجمة إجمالاً.",
           "sources": [
             {
               "title": "GitHub",
@@ -698,18 +708,18 @@
           "image": "https://opengraph.githubassets.com/1/cursor/plugins",
           "rank": 5,
           "period": "today",
-          "stars_gained": 416,
-          "stars_total": 19574,
+          "stars_gained": 268,
+          "stars_total": 19709,
           "language": "TypeScript",
           "why_it_matters": "An open plugin spec decides whether an editor becomes a platform or stays a product.",
           "why_it_matters_ar": "مواصفات إضافات مفتوحة هي ما يحدد إن كان المحرر سيتحول إلى منصة أم يبقى منتجاً."
         },
         {
           "id": "firecrawl-firecrawl",
-          "title": "#6: firecrawl is sixth with 1,135 stars",
-          "title_ar": "#6: firecrawl في السادس بـ1,135 نجمة",
-          "summary": "Search, scrape and reach more than 550 data providers for agents. It is #6 today with 1,135 stars gained and 210,163 in total.",
-          "summary_ar": "بحث وكشط بيانات والوصول إلى أكثر من 550 مزوّد بيانات للوكلاء. وهو السادس اليوم بـ1,135 نجمة مكتسبة و210,163 نجمة إجمالاً.",
+          "title": "#6: firecrawl is sixth with 1,042 stars",
+          "title_ar": "#6: firecrawl في السادس بـ1,042 نجمة",
+          "summary": "Search, scrape and reach more than 550 data providers for agents. It is #6 today with 1,042 stars gained and 210,670 in total.",
+          "summary_ar": "بحث وكشط بيانات والوصول إلى أكثر من 550 مزوّد بيانات للوكلاء. وهو #6 اليوم بـ1,042 نجمة مكتسبة و210,670 نجمة إجمالاً.",
           "sources": [
             {
               "title": "GitHub",
@@ -723,18 +733,18 @@
           "image": "https://opengraph.githubassets.com/1/firecrawl/firecrawl",
           "rank": 6,
           "period": "today",
-          "stars_gained": 1135,
-          "stars_total": 210163,
+          "stars_gained": 1042,
+          "stars_total": 210670,
           "language": "TypeScript",
           "why_it_matters": "Retrieval quality, not model size, is where most agent demos quietly fail.",
           "why_it_matters_ar": "جودة الاسترجاع، لا حجم النموذج، هي حيث تفشل معظم عروض الوكلاء بهدوء."
         },
         {
           "id": "nginx-nginx",
-          "title": "#7: nginx's source repo is seventh with 176 stars",
-          "title_ar": "#7: مستودع nginx المصدري في السابع بـ176 نجمة",
-          "summary": "The official NGINX open-source repository. It is #7 today with 176 stars gained and 33,395 in total.",
-          "summary_ar": "مستودع NGINX الرسمي مفتوح المصدر. وهو السابع اليوم بـ176 نجمة مكتسبة و33,395 نجمة إجمالاً.",
+          "title": "#7: nginx's source repo is seventh with 150 stars",
+          "title_ar": "#7: مستودع nginx المصدري في السابع بـ150 نجمة",
+          "summary": "The official NGINX open-source repository. It is #7 today with 150 stars gained and 33,475 in total.",
+          "summary_ar": "مستودع NGINX الرسمي مفتوح المصدر. وهو #7 اليوم بـ150 نجمة مكتسبة و33,475 نجمة إجمالاً.",
           "sources": [
             {
               "title": "GitHub",
@@ -748,18 +758,18 @@
           "image": "https://opengraph.githubassets.com/1/nginx/nginx",
           "rank": 7,
           "period": "today",
-          "stars_gained": 176,
-          "stars_total": 33395,
+          "stars_gained": 150,
+          "stars_total": 33475,
           "language": "C",
           "why_it_matters": "Nothing in the agent stack works if the socket layer underneath it does not.",
           "why_it_matters_ar": "لا شيء في منظومة الوكلاء يعمل إذا لم تعمل طبقة المقابس تحتها."
         },
         {
           "id": "openvinotoolkit-openvino",
-          "title": "#8: openvino holds eighth with 191 stars",
-          "title_ar": "#8: openvino يحافظ على الثامن بـ191 نجمة",
-          "summary": "Intel's open-source toolkit for optimising and deploying AI inference. It is #8 today with 191 stars gained and 12,675 in total.",
-          "summary_ar": "مجموعة أدوات إنتل مفتوحة المصدر لتحسين استدلال الذكاء الاصطناعي ونشره. وهي الثامنة اليوم بـ191 نجمة مكتسبة و12,675 نجمة إجمالاً.",
+          "title": "#8: openvino holds eighth with 176 stars",
+          "title_ar": "#8: openvino يحافظ على الثامن بـ176 نجمة",
+          "summary": "Intel's open-source toolkit for optimising and deploying AI inference. It is #8 today with 176 stars gained and 12,765 in total.",
+          "summary_ar": "مجموعة أدوات إنتل مفتوحة المصدر لتحسين استدلال الذكاء الاصطناعي ونشره. وهي #8 اليوم بـ176 نجمة مكتسبة و12,765 نجمة إجمالاً.",
           "sources": [
             {
               "title": "GitHub",
@@ -773,8 +783,8 @@
           "image": "https://opengraph.githubassets.com/1/openvinotoolkit/openvino",
           "rank": 8,
           "period": "today",
-          "stars_gained": 191,
-          "stars_total": 12675,
+          "stars_gained": 176,
+          "stars_total": 12765,
           "language": "C++",
           "why_it_matters": "Cheap local inference is what makes an always-on assistant affordable.",
           "why_it_matters_ar": "الاستدلال المحلي الرخيص هو ما يجعل المساعد الدائم التفعيل ميسور التكلفة."
@@ -798,7 +808,7 @@
         {
           "id": "liverpool-brugge-result",
           "section": "liverpool",
-          "status": "new",
+          "status": "",
           "reliability": "Tier 1",
           "time": "2026-11-26T01:04:00+03:00",
           "title": "isak double and wirtz strike give liverpool a 3-0 win at brugge",
@@ -822,7 +832,7 @@
         {
           "id": "liverpool-munoz-injury",
           "section": "liverpool",
-          "status": "new",
+          "status": "",
           "reliability": "Tier 1",
           "time": "2026-11-26T01:04:00+03:00",
           "title": "munoz leaves the brugge win with a knee knock and awaits tests",
@@ -841,7 +851,7 @@
         {
           "id": "liverpool-isak-form",
           "section": "liverpool",
-          "status": "new",
+          "status": "",
           "reliability": "Tier 1",
           "time": "2026-11-26T02:38:00+03:00",
           "title": "isak takes his season tally to 10 with four goals in four games",
@@ -860,7 +870,7 @@
         {
           "id": "liverpool-everton-derby",
           "section": "liverpool",
-          "status": "new",
+          "status": "",
           "reliability": "Official",
           "time": "2026-11-26T06:30:00+03:00",
           "title": "everton away next: sunday's merseyside derby at 15:00 riyadh",
@@ -981,7 +991,7 @@
         {
           "id": "game-coh3-torch",
           "section": "games",
-          "status": "new",
+          "status": "",
           "kind": "RELEASE",
           "time": "2026-11-25T20:00:00+03:00",
           "title": "company of heroes 3: operation torch adds a 15-mission africa campaign",
@@ -1015,7 +1025,7 @@
         {
           "id": "game-afterworld",
           "section": "games",
-          "status": "new",
+          "status": "",
           "kind": "NEWS",
           "time": "2026-11-25T19:42:00+03:00",
           "title": "paradox's afterworld builds a tribe out of wasteland bands with needs",
@@ -1237,10 +1247,10 @@
         {
           "id": "social-mrbeast",
           "section": "social",
-          "title": "mrbeast's '$250,000 hunger games' passes 103.8m views",
-          "title_ar": "«ألعاب الجوع» من MrBeast تتجاوز 103.8 مليون مشاهدة",
-          "summary": "MrBeast's real-life Hunger Games, posted on 14 November, is at 103,858,099 views.",
-          "summary_ar": "تجاوز فيديو ألعاب الجوع الواقعية من MrBeast، المنشور في 14 نوفمبر، 103,858,099 مشاهدة.",
+          "title": "mrbeast's '$250,000 hunger games' passes 104.9m views",
+          "title_ar": "«ألعاب الجوع» من MrBeast تتجاوز 104.9 مليون مشاهدة",
+          "summary": "MrBeast's real-life Hunger Games, posted on 14 November, is at 104,926,635 views.",
+          "summary_ar": "تجاوز فيديو ألعاب الجوع الواقعية من MrBeast، المنشور في 14 نوفمبر، 104,926,635 مشاهدة.",
           "sources": [
             {
               "title": "YouTube · MrBeast",
@@ -1253,15 +1263,15 @@
           "status": "",
           "platform": "youtube",
           "creator": "MrBeast",
-          "metric": "103.8M views"
+          "metric": "104.9M views"
         },
         {
           "id": "social-badshah-mahiya",
           "section": "social",
-          "title": "badshah's 'mahiya' passes 82.2m views",
-          "title_ar": "أغنية «ماهيا» لبادشاه تتجاوز 82.2 مليون مشاهدة",
-          "summary": "Badshah's Mahiya with Shreya Ghoshal, released on 3 November, is at 82,208,151 views.",
-          "summary_ar": "تجاوز فيديو أغنية ماهيا لبادشاه مع شريا غوشال، الصادر في 3 نوفمبر، 82,208,151 مشاهدة.",
+          "title": "badshah's 'mahiya' passes 82.5m views",
+          "title_ar": "أغنية «ماهيا» لبادشاه تتجاوز 82.5 مليون مشاهدة",
+          "summary": "Badshah's Mahiya with Shreya Ghoshal, released on 3 November, is at 82,579,038 views.",
+          "summary_ar": "تجاوز فيديو أغنية ماهيا لبادشاه مع شريا غوشال، الصادر في 3 نوفمبر، 82,579,038 مشاهدة.",
           "sources": [
             {
               "title": "YouTube · Badshah",
@@ -1274,14 +1284,14 @@
           "status": "",
           "platform": "youtube",
           "creator": "Badshah",
-          "metric": "82.2M views"
+          "metric": "82.5M views"
         },
         {
           "id": "social-mrbeast-gta6",
-          "title": "mrbeast gaming's '100 hours in gta 6' passes 73.4m views",
-          "title_ar": "«100 ساعة في GTA 6» من MrBeast Gaming يتجاوز 73.4 مليون مشاهدة",
-          "summary": "MrBeast Gaming's \"I Survived 100 Hours In GTA 6\", posted on 19 November, is at 73,481,538 views.",
-          "summary_ar": "تجاوز فيديو «100 ساعة في GTA 6» من MrBeast Gaming، المنشور في 19 نوفمبر، 73,481,538 مشاهدة.",
+          "title": "mrbeast gaming's '100 hours in gta 6' passes 74.6m views",
+          "title_ar": "«100 ساعة في GTA 6» من MrBeast Gaming يتجاوز 74.6 مليون مشاهدة",
+          "summary": "MrBeast Gaming's \"I Survived 100 Hours In GTA 6\", posted on 19 November, is at 74,694,925 views.",
+          "summary_ar": "تجاوز فيديو «100 ساعة في GTA 6» من MrBeast Gaming، المنشور في 19 نوفمبر، 74,694,925 مشاهدة.",
           "sources": [
             {
               "title": "YouTube · MrBeast Gaming",
@@ -1295,14 +1305,14 @@
           "image": "https://i.ytimg.com/vi/ymCHX_Dcc-U/hqdefault.jpg",
           "platform": "youtube",
           "creator": "MrBeast Gaming",
-          "metric": "73.4M views"
+          "metric": "74.6M views"
         },
         {
           "id": "social-mrbeast-steal",
-          "title": "mrbeast gaming's gta 6 heist passes 56.4m views",
-          "title_ar": "سرقة GTA 6 من MrBeast Gaming تتجاوز 56.4 مليون مشاهدة",
-          "summary": "MrBeast Gaming's \"Whatever You Steal in GTA 6, You Keep!\", posted on 20 November, is at 56,465,093 views.",
-          "summary_ar": "تجاوز فيديو «كل ما تسرقه في GTA 6 تحتفظ به» من MrBeast Gaming، المنشور في 20 نوفمبر، 56,465,093 مشاهدة.",
+          "title": "mrbeast gaming's gta 6 heist passes 57.9m views",
+          "title_ar": "سرقة GTA 6 من MrBeast Gaming تتجاوز 57.9 مليون مشاهدة",
+          "summary": "MrBeast Gaming's \"Whatever You Steal in GTA 6, You Keep!\", posted on 20 November, is at 57,947,402 views.",
+          "summary_ar": "تجاوز فيديو «كل ما تسرقه في GTA 6 تحتفظ به» من MrBeast Gaming، المنشور في 20 نوفمبر، 57,947,402 مشاهدة.",
           "sources": [
             {
               "title": "YouTube · MrBeast Gaming",
@@ -1316,15 +1326,15 @@
           "image": "https://i.ytimg.com/vi/QQV-0OUGxGs/hqdefault.jpg",
           "platform": "youtube",
           "creator": "MrBeast Gaming",
-          "metric": "56.4M views"
+          "metric": "57.9M views"
         },
         {
           "id": "social-gta6-walkthrough",
           "section": "social",
           "title": "gta 6 walkthrough passes 12.8m views",
           "title_ar": "جولة GTA 6 الكاملة تتجاوز 12.8 مليون مشاهدة",
-          "summary": "MKIceAndFire's full-game GTA 6 walkthrough, posted on 18 November, is at 12,800,438 views.",
-          "summary_ar": "تجاوز فيديو الجولة الكاملة للعبة GTA 6 من MKIceAndFire، المنشور في 18 نوفمبر، 12,800,438 مشاهدة.",
+          "summary": "MKIceAndFire's full-game GTA 6 walkthrough, posted on 18 November, is at 12,891,071 views.",
+          "summary_ar": "تجاوز فيديو الجولة الكاملة للعبة GTA 6 من MKIceAndFire، المنشور في 18 نوفمبر، 12,891,071 مشاهدة.",
           "sources": [
             {
               "title": "YouTube · MKIceAndFire",
@@ -1344,8 +1354,8 @@
           "section": "social",
           "title": "sidemen's murder mystery dinner passes 8.3m views",
           "title_ar": "عشاء لغز الجريمة من سايدمِن يتجاوز 8.3 مليون مشاهدة",
-          "summary": "The Sidemen's Murder Mystery Dinner, posted on 15 November, is at 8,319,430 views.",
-          "summary_ar": "تجاوز فيديو «عشاء لغز الجريمة» من سايدمِن، المنشور في 15 نوفمبر، 8,319,430 مشاهدة.",
+          "summary": "The Sidemen's Murder Mystery Dinner, posted on 15 November, is at 8,370,119 views.",
+          "summary_ar": "تجاوز فيديو «عشاء لغز الجريمة» من سايدمِن، المنشور في 15 نوفمبر، 8,370,119 مشاهدة.",
           "sources": [
             {
               "title": "YouTube · Sidemen",
@@ -1362,10 +1372,10 @@
         },
         {
           "id": "social-sidemen-birthday",
-          "title": "sidemen's surprise birthday party for harry passes 4.3m views",
-          "summary": "The Sidemen's \"Surprise Harry With Secret Birthday Party\", posted on 22 November, is at 4,343,288 views.",
-          "title_ar": "سايدمِن يفاجئ هاري بحفلة عيد ميلاد ويتجاوز 4.3 مليون مشاهدة",
-          "summary_ar": "تجاوز فيديو «مفاجأة هاري بحفلة عيد ميلاد سرية» من سايدمِن، المنشور في 22 نوفمبر، 4,343,288 مشاهدة.",
+          "title": "sidemen's surprise birthday party for harry passes 4.4m views",
+          "summary": "The Sidemen's \"Surprise Harry With Secret Birthday Party\", posted on 22 November, is at 4,495,074 views.",
+          "title_ar": "سايدمِن يفاجئ هاري بحفلة عيد ميلاد ويتجاوز 4.4 مليون مشاهدة",
+          "summary_ar": "تجاوز فيديو «مفاجأة هاري بحفلة عيد ميلاد سرية» من سايدمِن، المنشور في 22 نوفمبر، 4,495,074 مشاهدة.",
           "sources": [
             {
               "title": "YouTube · Sidemen",
@@ -1377,7 +1387,7 @@
           "section": "social",
           "status": "",
           "image": "https://i.ytimg.com/vi/xFrlRL3D-LQ/hqdefault.jpg",
-          "metric": "4.3M views",
+          "metric": "4.4M views",
           "platform": "youtube",
           "creator": "Sidemen"
         },
@@ -1386,8 +1396,8 @@
           "section": "social",
           "title": "kimmel's airport monologue passes 5.2m views",
           "title_ar": "مونولوج كيمل عن المطار يتجاوز 5.2 مليون مشاهدة",
-          "summary": "Jimmy Kimmel's monologue on Trump and the airport shutdown, posted on 16 November, is at 5,251,607 views.",
-          "summary_ar": "تجاوز مونولوج جيمي كيمل عن ترامب وإغلاق المطارات، المنشور في 16 نوفمبر، 5,251,607 مشاهدة.",
+          "summary": "Jimmy Kimmel's monologue on Trump and the airport shutdown, posted on 16 November, is at 5,254,152 views.",
+          "summary_ar": "تجاوز مونولوج جيمي كيمل عن ترامب وإغلاق المطارات، المنشور في 16 نوفمبر، 5,254,152 مشاهدة.",
           "sources": [
             {
               "title": "YouTube · Jimmy Kimmel Live",
@@ -1423,7 +1433,7 @@
         {
           "id": "graphic-cairo-tanker",
           "section": "graphic",
-          "status": "new",
+          "status": "",
           "time": "2026-11-26T03:39:00+03:00",
           "title": "cairo ring-road tanker fire kills at least 31 and injures 21",
           "title_ar": "حريق صهريج على الطريق الدائري بالقاهرة يقتل 31 على الأقل ويصيب 21",
@@ -1448,7 +1458,7 @@
         {
           "id": "graphic-ukraine-base",
           "section": "graphic",
-          "status": "new",
+          "status": "",
           "time": "2026-11-26T04:30:00+03:00",
           "title": "ukraine says it hit a russian airbase and damaged five aircraft",
           "title_ar": "أوكرانيا تقول إنها ضربت قاعدة جوية روسية وألحقت أضرارًا بخمس طائرات",
@@ -1468,7 +1478,7 @@
         {
           "id": "graphic-syria-isil",
           "section": "graphic",
-          "status": "new",
+          "status": "",
           "time": "2026-11-26T04:30:00+03:00",
           "title": "isil suicide attack kills two syrian security staff in hasakah",
           "title_ar": "هجوم انتحاري لتنظيم داعش يقتل اثنين من عناصر الأمن في الحسكة",
