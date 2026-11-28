@@ -1,17 +1,17 @@
 {
  "version": 2,
  "sample": false,
- "generated_at": "2026-11-27T19:23:12+03:00",
+ "generated_at": "2026-11-28T06:42:14+03:00",
  "timezone": "Asia/Riyadh",
  "schema_rev": "2.3",
  "top_stories": [
   {
    "section": "middle_east",
-   "id": "me-yemen-taiz-strikes"
+   "id": "me-riyadh-intercepts"
   },
   {
    "section": "middle_east",
-   "id": "me-hormuz-mines"
+   "id": "me-kuwait-drone"
   },
   {
    "section": "us_markets",
@@ -20,11 +20,110 @@
  ],
  "sections": {
   "middle_east": {
+   "what_changed": "A Houthi cruise missile aimed at Riyadh was intercepted early on Saturday, Italy said Kuwaiti investigators found the drone that killed two Italians was made in Iran, and an Israeli strike killed two MSF guards at a Gaza clinic.",
+   "what_changed_ar": "اعتُرض صاروخ كروز حوثي كان يستهدف الرياض في ساعة مبكرة من السبت، وقالت إيطاليا إن المحققين الكويتيين وجدوا أن المسيّرة التي قتلت إيطاليين صنعت في إيران، وقتلت غارة إسرائيلية حارسين من أطباء بلا حدود في عيادة بغزة.",
    "items": [
+    {
+     "id": "me-riyadh-intercepts",
+     "section": "middle_east",
+     "status": "updated",
+     "time": "2026-11-28T06:17:00+03:00",
+     "title": "coalition says it downed a houthi cruise missile aimed at riyadh",
+     "title_ar": "التحالف يقول إنه أسقط صاروخ كروز حوثيًا كان يستهدف الرياض",
+     "summary": "Saudi air defences intercepted and destroyed a Houthi cruise missile launched towards Riyadh, the Saudi-led coalition's spokesman, Major General Turki al-Maliki, said early on Saturday; the coalition gave no detail on where it was brought down or on damage. BBC analysis of Acled data counted 274 attacks on Saudi Arabia between 1 July and 25 November, of which at least 41 were not intercepted, and two skyscrapers in Riyadh's financial district have been hit this month.",
+     "summary_ar": "قال المتحدث باسم التحالف بقيادة السعودية اللواء تركي المالكي في ساعة مبكرة من السبت إن الدفاعات الجوية السعودية اعترضت ودمرت صاروخ كروز أطلقه الحوثيون باتجاه الرياض، ولم يقدم التحالف تفاصيل عن مكان إسقاطه أو عن الأضرار. وأحصى تحليل لبي بي سي يستند إلى بيانات «أكليد» 274 هجومًا على السعودية بين 1 يوليو و25 نوفمبر لم يُعترض منها 41 على الأقل، كما أصيبت ناطحتان في الحي المالي بالرياض هذا الشهر.",
+     "sources": [
+      {
+       "title": "Al Jazeera live blog",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/28/iran-war-live-italy-says-drone-in-deadly-kuwait-attack-was-made-in-iran",
+       "type": "independent"
+      },
+      {
+       "title": "BBC News",
+       "url": "https://www.bbc.co.uk/news/articles/c6ly7jgv7jzdo",
+       "type": "independent"
+      }
+     ],
+     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/56c4/live/551558a0-e96f-11f1-99a1-253766e7ad8b.jpg"
+    },
+    {
+     "id": "me-kuwait-drone",
+     "section": "middle_east",
+     "status": "updated",
+     "time": "2026-11-28T06:00:00+03:00",
+     "title": "italy says the drone that killed two of its citizens in kuwait was made in iran",
+     "title_ar": "إيطاليا تقول إن المسيّرة التي قتلت مواطنين إيطاليين في الكويت صنعت في إيران",
+     "summary": "Italian Foreign Minister Antonio Tajani said Kuwaiti investigations confirmed that the drone used in the strike that killed two Italian Rheinmetall technicians was made in Iran, adding that Tehran denied launching it from its territory and offered to join a commission of inquiry with Italy and Kuwait. Canada's foreign minister, Anita Anand, condemned the attack and urged all parties to exercise restraint; Iran denies responsibility.",
+     "summary_ar": "قال وزير الخارجية الإيطالي أنطونيو تاياني إن التحقيقات الكويتية أكدت أن المسيّرة المستخدمة في الهجوم الذي قتل تقنيين إيطاليين يعملان لشركة راينميتال صنعت في إيران، مضيفًا أن طهران نفت إطلاقها من أراضيها وعرضت الانضمام إلى لجنة تحقيق مع إيطاليا والكويت. وأدانت وزيرة الخارجية الكندية أنيتا أناند الهجوم ودعت جميع الأطراف إلى ضبط النفس، وتنفي إيران مسؤوليتها.",
+     "sources": [
+      {
+       "title": "Al Jazeera live blog",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/28/iran-war-live-italy-says-drone-in-deadly-kuwait-attack-was-made-in-iran",
+       "type": "independent"
+      },
+      {
+       "title": "BBC News",
+       "url": "https://www.bbc.co.uk/news/articles/c39w9y5dx4k5o",
+       "type": "independent"
+      }
+     ],
+     "image": "https://media.cnn.com/api/v1/images/stellar/prod/kuwait-iran-attack-november-26-map.jpg?c=16x9&q=w_800,c_fill"
+    },
+    {
+     "id": "me-msf-clinic",
+     "section": "middle_east",
+     "status": "new",
+     "time": "2026-11-28T03:20:00+03:00",
+     "title": "israeli strike on a gaza clinic kills two msf guards",
+     "title_ar": "غارة إسرائيلية على عيادة في غزة تقتل حارسين من أطباء بلا حدود",
+     "summary": "Doctors Without Borders said an Israeli strike hit one of its clinics in Gaza City late on Friday and killed two of its staff, both guards, bringing to 17 the number of its colleagues killed in Gaza; the group said the facility was marked with its logo and that its coordinates had been shared with the Israeli military. The Israeli military said the two men were Hamas members planning attacks and that it did not target a hospital, without providing evidence; WHO chief Tedros Adhanom Ghebreyesus called the strike 'outrageous and unacceptable'.",
+     "summary_ar": "قالت منظمة أطباء بلا حدود إن غارة إسرائيلية أصابت إحدى عياداتها في مدينة غزة مساء الجمعة وقتلت اثنين من موظفيها وكلاهما حارس، ليرتفع إلى 17 عدد زملائها الذين قتلوا في غزة؛ وأكدت المنظمة أن المنشأة تحمل شعارها وأن إحداثياتها كانت مشاركة مع الجيش الإسرائيلي. وقال الجيش الإسرائيلي إن الرجلين من عناصر حماس وكانا يخططان لهجمات وإنه لم يستهدف مستشفى، من دون أن يقدم أدلة؛ ووصف مدير منظمة الصحة العالمية تيدروس أدهانوم غيبريسوس الغارة بأنها «شائنة وغير مقبولة».",
+     "sources": [
+      {
+       "title": "Anadolu Agency",
+       "url": "https://www.aa.com.tr/en/middle-east/doctors-without-borders-denounces-israeli-strike-on-gaza-clinic/4141089",
+       "type": "wire"
+      },
+      {
+       "title": "Al Jazeera live blog",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/28/iran-war-live-italy-says-drone-in-deadly-kuwait-attack-was-made-in-iran",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/image-1795823699.jpg?resize=1200%2C630&quality=80"
+    },
+    {
+     "id": "me-hormuz-mines",
+     "section": "middle_east",
+     "status": "updated",
+     "time": "2026-11-28T05:40:00+03:00",
+     "title": "irgc says two tankers hit mines near hormuz as the us disables a ship",
+     "title_ar": "الحرس الثوري يقول إن ناقلتي نفط أصابتا ألغامًا قرب هرمز بينما يعطّل الجيش الأمريكي سفينة",
+     "summary": "The IRGC said two oil tankers caught fire and exploded after hitting naval mines near Oman's Khasab port and in the eastern Strait of Hormuz this week, without naming the vessels. US Central Command said it disabled the Palau-flagged M/V Pacific Archer in the Gulf of Oman on Thursday, firing precision munitions at the ship's stern from a military aircraft after it tried to breach the blockade of Iranian ports; AP reported the crew was unharmed and that the US says it has redirected 158 ships and disabled at least 15 since the blockade began. Iran's navy commander, Shahram Irani, said his forces boarded and recovered two Iranian tankers he said the US had seized, and CENTCOM rejected what it called Iranian 'false claims'.",
+     "summary_ar": "قال الحرس الثوري إن ناقلتي نفط اندلعت فيهما النيران وانفجرتا بعد إصابتهما بألغام بحرية قرب ميناء خصب العماني وفي شرق مضيق هرمز هذا الأسبوع، من دون تسمية السفينتين. وقالت القيادة المركزية الأمريكية إنها عطّلت السفينة «باسيفيك آرتشر» التي ترفع علم بالاو في خليج عمان الخميس بإطلاق ذخائر دقيقة على مؤخرة السفينة من طائرة عسكرية بعد محاولتها اختراق الحصار المفروض على الموانئ الإيرانية؛ ونقلت أسوشيتد برس أن الطاقم لم يُصب وأن الجيش الأمريكي يقول إنه أعاد توجيه 158 سفينة وعطّل 15 على الأقل منذ بدء الحصار. وقال قائد البحرية الإيرانية شهرام إيراني إن قواته صعدت إلى ناقلتي نفط إيرانيتين واستعادتهما بعد أن قال إن الجيش الأمريكي استولى عليهما، ورفضت القيادة المركزية ما وصفته بـ«مزاعم إيرانية كاذبة».",
+     "sources": [
+      {
+       "title": "AP News",
+       "url": "https://apnews.com/article/saudi-iran-yemen-israel-november-27-2026-dbb2c950f5cd991a52f3a065b6325535",
+       "type": "wire"
+      },
+      {
+       "title": "Anadolu Agency",
+       "url": "https://www.aa.com.tr/en/middle-east/iran-claims-it-recovered-2-oil-tankers-seized-by-us-military/4140200",
+       "type": "wire"
+      },
+      {
+       "title": "Al Jazeera live blog",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/28/iran-war-live-italy-says-drone-in-deadly-kuwait-attack-was-made-in-iran",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/AFP__20260928__C9JJ9XN__v3__HighRes__IranUsIsraelWar-1794903144.jpg?resize=1920%2C1440"
+    },
     {
      "id": "me-yemen-taiz-strikes",
      "section": "middle_east",
-     "status": "updated",
+     "status": "",
      "time": "2026-11-27T15:00:00+03:00",
      "title": "strike on taiz town kills 11, mostly children, houthi media say",
      "title_ar": "مقتل 11 معظمهم أطفال في غارة على بلدة في تعز بحسب إعلام الحوثيين",
@@ -45,55 +144,9 @@
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/afp_6b00e8ee5b77-1795221742.jpg?resize=1920%2C1440"
     },
     {
-     "id": "me-hormuz-mines",
-     "section": "middle_east",
-     "status": "updated",
-     "time": "2026-11-27T15:40:00+03:00",
-     "title": "irgc says a tanker exploded on a mine in the strait of hormuz",
-     "title_ar": "الحرس الثوري يقول إن ناقلة انفجرت بعد اصطدامها بلغم في مضيق هرمز",
-     "summary": "The IRGC navy said two tankers tried to pass 'secretly' through an unauthorised route north of Ghavam Island on Friday morning, and one exploded after hitting a naval mine while the other turned back, Fars reported; it named no vessel and gave no details on crew, casualties or damage. Iran's navy commander Shahram Irani said separately that his forces recovered two Iranian tankers he said were 'stolen by the US military' and that Hormuz will stay closed. Al Jazeera's Tehran correspondent said more than 126 incidents have been recorded in the strait since the start of 2026.",
-     "summary_ar": "قالت البحرية التابعة للحرس الثوري إن ناقلتَين حاولتا العبور «خلسة» عبر مسار غير مصرح به شمال جزيرة قوام صباح الجمعة، وإن إحداهما انفجرت بعد اصطدامها بلغم بحري فيما عادت الأخرى، وفق وكالة فارس؛ ولم تسمِّ أي ناقلة ولم تعطِ تفاصيل عن الطاقم أو الإصابات أو الأضرار. وقال قائد البحرية الإيرانية شهرام إيراني بشكل منفصل إن قواته استعادت ناقلتَين إيرانيتَين قال إن «الجيش الأمريكي سرقهما»، وإن هرمز سيبقى مغلقًا. وقال مراسل الجزيرة في طهران إن أكثر من 126 حادثًا سُجّل في المضيق منذ بداية 2026.",
-     "sources": [
-      {
-       "title": "Anadolu Agency",
-       "url": "https://www.aa.com.tr/en/middle-east/iran-says-oil-tanker-explodes-after-hitting-naval-mine-in-strait-of-hormuz/4140346",
-       "type": "wire"
-      },
-      {
-       "title": "Al Jazeera live blog",
-       "url": "https://www.aljazeera.com/news/liveblog/2026/11/27/iran-war-live-irans-araghchi-calls-deadly-kuwait-attack-suspicious",
-       "type": "independent"
-      }
-     ],
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/AFP__20260928__C9JJ9XN__v3__HighRes__IranUsIsraelWar-1794903144.jpg?resize=1920%2C1440"
-    },
-    {
-     "id": "me-riyadh-intercepts",
-     "section": "middle_east",
-     "status": "updated",
-     "time": "2026-11-27T17:49:00+03:00",
-     "title": "coalition downs another houthi drone aimed at riyadh",
-     "title_ar": "التحالف يسقط مسيّرة حوثية أخرى استهدفت منطقة الرياض",
-     "summary": "The Saudi-led coalition said it intercepted and destroyed a drone the Houthis launched towards the Riyadh region on Friday, giving no details on casualties or damage. BBC analysis of Acled data counted 274 attacks on Saudi Arabia between 1 July and 25 November; most were intercepted but at least 41 were not, and two skyscrapers in Riyadh's financial district have been hit this month as airlines reroute passengers through other airports.",
-     "summary_ar": "قال التحالف بقيادة السعودية إنه اعترض ودمّر مسيّرة أطلقها الحوثيون باتجاه منطقة الرياض الجمعة، دون تفاصيل عن الإصابات أو الأضرار. وأحصى تحليل لبي بي سي لبيانات مشروع بيانات النزاعات المسلحة والموقع (ACLED) 274 هجومًا على السعودية بين 1 يوليو و25 نوفمبر؛ واعتُرض معظمها لكن 41 على الأقل لم تُعترض، وضُرب برجان في الحي المالي بالرياض هذا الشهر فيما تعيد شركات الطيران توجيه المسافرين عبر مطارات أخرى.",
-     "sources": [
-      {
-       "title": "Anadolu Agency",
-       "url": "https://www.aa.com.tr/en/middle-east/saudi-led-coalition-intercepts-houthi-drone-targeting-riyadh-region/4140370",
-       "type": "wire"
-      },
-      {
-       "title": "BBC News",
-       "url": "https://www.bbc.co.uk/news/articles/c6ly7jgv7jzdo",
-       "type": "independent"
-      }
-     ],
-     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/56c4/live/551558a0-e96f-11f1-99a1-253766e7ad8b.jpg"
-    },
-    {
      "id": "me-jazan-port",
      "section": "middle_east",
-     "status": "updated",
+     "status": "",
      "time": "2026-11-27T18:50:00+03:00",
      "title": "gcc chief calls the jazan refinery strike a 'dangerous escalation'",
      "title_ar": "أمين عام مجلس التعاون يصف هجوم مصفاة جازان بـ«التصعيد الخطير»",
@@ -114,47 +167,24 @@
      "image": "https://aljazeera.com/wp-content/uploads/2026/11/ap_6b088d6e8cd57-1795722606.jpg?resize=770%2C513&quality=80"
     },
     {
-     "id": "me-kuwait-drone",
-     "section": "middle_east",
-     "status": "updated",
-     "time": "2026-11-27T18:00:00+03:00",
-     "title": "kuwait summons iran's envoy as europe condemns the drone strike",
-     "title_ar": "الكويت تستدعي السفير الإيراني وأوروبا تدين الهجوم المسيّر",
-     "summary": "Kuwait's foreign ministry summoned Iran's ambassador Mohammad Toutounji and handed him a formal protest over what it called continued Iranian aggression, including Thursday's drone strike on a vital facility that killed two Italian Rheinmetall technicians and wounded a Kuwaiti and a Pakistani national. Austria, Belgium, Cyprus, Greece and Britain condemned the attack and blamed Iran, which denies involvement and has offered a joint investigation; Kuwait's defence minister visited the wounded on Friday.",
-     "summary_ar": "استدعت وزارة الخارجية الكويتية السفير الإيراني محمد توتونجي وسلّمته مذكرة احتجاج رسمية على ما وصفته باستمرار العدوان الإيراني، ومنه هجوم مسيّر الخميس على منشأة حيوية قتل فنيَّين إيطاليَّين من شركة Rheinmetall وأصاب مواطنًا كويتيًا وآخر باكستانيًا. وأدانت النمسا وبلجيكا وقبرص واليونان وبريطانيا الهجوم وحمّلت إيران المسؤولية، فيما تنفي طهران الضلوع فيه وتعرض تحقيقًا مشتركًا؛ وزار وزير الدفاع الكويتي المصابين الجمعة.",
-     "sources": [
-      {
-       "title": "Anadolu Agency",
-       "url": "https://aa.com.tr/en/middle-east/kuwait-summons-iranian-ambassador-over-deadly-drone-attack/4140652",
-       "type": "wire"
-      },
-      {
-       "title": "Al Jazeera live blog",
-       "url": "https://www.aljazeera.com/news/liveblog/2026/11/27/iran-war-live-irans-araghchi-calls-deadly-kuwait-attack-suspicious",
-       "type": "independent"
-      }
-     ],
-     "image": "https://media.cnn.com/api/v1/images/stellar/prod/kuwait-iran-attack-november-26-map.jpg?c=16x9&q=w_800,c_fill"
-    },
-    {
      "id": "me-mecca-pact",
      "section": "middle_east",
-     "status": "new",
-     "time": "2026-11-27T17:16:00+03:00",
-     "title": "turkiye ratifies the mecca pact as the three allies meet in islamabad",
-     "title_ar": "تركيا تصادق على ميثاق مكة مع اجتماع الحلفاء الثلاثة في إسلام آباد",
-     "summary": "President Erdogan signed off on Türkiye's ratification of the Mecca joint defence agreement on Friday, the Official Gazette said, after parliament approved it 279-119 this month. Senior foreign, defence and military officials from Türkiye, Saudi Arabia and Pakistan met in Islamabad for the third time since the 7 August pact, which treats an attack on one as an attack on all; Pakistan's defence minister Khawaja Asif said the war in Yemen is on the agenda, while Islamabad has ruled out attacking the Houthis inside Yemen.",
-     "summary_ar": "وقّع الرئيس أردوغان الجمعة على مصادقة تركيا على اتفاق مكة للدفاع المشترك، وفق الجريدة الرسمية، بعد أن أقرّه البرلمان هذا الشهر بـ279 صوتًا مقابل 119. واجتمع كبار مسؤولي الخارجية والدفاع والعسكريين من تركيا والسعودية وباكستان في إسلام آباد للمرة الثالثة منذ توقيع الميثاق في 7 أغسطس، الذي يعتبر الهجوم على أي عضو هجومًا على الجميع؛ وقال وزير الدفاع الباكستاني خواجة آصف إن حرب اليمن على جدول الأعمال، فيما استبعدت إسلام آباد مهاجمة الحوثيين داخل اليمن.",
+     "status": "updated",
+     "time": "2026-11-28T03:15:00+03:00",
+     "title": "mecca pact allies meet again as saudi defence minister cites a 'unified position'",
+     "title_ar": "حلفاء ميثاق مكة يجتمعون مجددًا ووزير الدفاع السعودي يتحدث عن «موقف موحد»",
+     "summary": "Saudi Defence Minister Khalid bin Salman said the second meeting of the strategic political and defence committee of the Makkah Alliance for Defence showed a 'unified position' and stressed continued joint action; a joint statement said Saudi Arabia, Türkiye and Pakistan reviewed progress on the pact and focused on implementing collective defence commitments. Türkiye ratified the agreement this month, with President Erdogan signing off after parliament approved it 279-119.",
+     "summary_ar": "قال وزير الدفاع السعودي خالد بن سلمان إن الاجتماع الثاني للجنة السياسية والدفاعية الاستراتيجية في تحالف مكة للدفاع عبّر عن «موقف موحد» وشدد على استمرار العمل المشترك؛ وقال بيان مشترك إن السعودية وتركيا وباكستان استعرضت تقدم الميثاق وركزت على تنفيذ التزامات الدفاع الجماعي. وصادقت تركيا على الاتفاق هذا الشهر بتوقيع الرئيس أردوغان بعد موافقة البرلمان عليه بـ279 صوتًا مقابل 119.",
      "sources": [
       {
-       "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news-analysis/2026/11/27/can-the-mecca-pact-turn-its-collective-defence-promise-into-real-support",
+       "title": "Al Jazeera live blog",
+       "url": "https://www.aljazeera.com/news/liveblog/2026/11/28/iran-war-live-italy-says-drone-in-deadly-kuwait-attack-was-made-in-iran",
        "type": "independent"
       },
       {
-       "title": "Shafaq News",
-       "url": "http://shafaq.com/en/World/Erdogan-approves-Mecca-defense-pact-with-Riyadh-and-Islamabad",
-       "type": "independent"
+       "title": "AP News",
+       "url": "https://apnews.com/article/saudi-iran-yemen-israel-november-27-2026-dbb2c950f5cd991a52f3a065b6325535",
+       "type": "wire"
       }
      ],
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/2026-10-05T180138Z_991373647_RC26XNAKWGVB_RTRMADP_3_IRAN-CRISIS-SAUDI-TURKEY-PAKISTAN-1791224096.jpg?resize=1920%2C1440"
@@ -162,7 +192,7 @@
     {
      "id": "me-netanyahu-trial",
      "section": "middle_east",
-     "status": "new",
+     "status": "",
      "time": "2026-11-27T13:48:00+03:00",
      "title": "judges urge israeli prosecutors to end netanyahu's trial",
      "title_ar": "قضاة يحثّون الادعاء الإسرائيلي على إنهاء محاكمة نتنياهو",
@@ -181,29 +211,6 @@
       }
      ],
      "image": "https://i.guim.co.uk/img/media/4b6175712949d01a8b832dc4670e3721e65a6c17/221_138_2799_2239/master/2799.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=7aec79a48c15abf3a3199789df22f274"
-    },
-    {
-     "id": "me-gaza-toll",
-     "section": "middle_east",
-     "status": "",
-     "time": "2026-11-26T23:20:00+03:00",
-     "title": "gaza ministry says 19 killed in 48 hours as war toll passes 74,700",
-     "title_ar": "وزارة الصحة في غزة: مقتل 19 في 48 ساعة والحصيلة تتجاوز 74,700",
-     "summary": "Gaza's health ministry said Israeli attacks killed 19 Palestinians and wounded 48 in the past 48 hours, and that 74,772 people have been confirmed killed and 176,298 wounded since October 2023. The ministry says 1,705 have been killed since the ceasefire took effect in October 2025; the Associated Press reported 10 killed in strikes and shooting on Thursday, including Hamas official Khaled Abu Nada and his wife.",
-     "summary_ar": "قالت وزارة الصحة في غزة إن الهجمات الإسرائيلية قتلت 19 فلسطينيًا وأصابت 48 خلال الساعات الـ48 الماضية، وإن 74,772 شخصًا تأكد مقتلهم و176,298 جُرحوا منذ أكتوبر 2023. وتقول الوزارة إن 1,705 قُتلوا منذ سريان وقف إطلاق النار في أكتوبر 2025؛ وأفادت وكالة أسوشيتد برس بمقتل 10 في غارات وإطلاق نار الخميس، بينهم مسؤول حماس خالد أبو ندى وزوجته.",
-     "sources": [
-      {
-       "title": "Middle East Eye",
-       "url": "https://www.middleeasteye.net/live-blog/live-blog-update/gazas-health-ministry-says-19-palestinians-killed-israeli-attacks-48",
-       "type": "independent"
-      },
-      {
-       "title": "AP",
-       "url": "https://apnews.com/article/gaza-iran-israel-uae-hormuz-november-26-2026-522676f17532b878878ff7a4347d0e31",
-       "type": "wire"
-      }
-     ],
-     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/b703/live/54fa7870-e981-11f1-99a1-253766e7ad8b.jpg"
     }
    ],
    "watch": [
@@ -217,40 +224,83 @@
      "url": "https://www.youtube.com/watch?v=xqO3S8xyiEc",
      "channel": "Al Jazeera English"
     }
-   ],
-   "what_changed": "A strike on al-Turbah in Taiz killed 11 people, mostly children, Houthi media said, while the IRGC reported a tanker hit a mine in Hormuz and the coalition downed another drone aimed at Riyadh. Turkiye ratified the Mecca pact as the three allies met in Islamabad.",
-   "what_changed_ar": "قال إعلام الحوثيين إن غارة على التربة في تعز قتلت 11 شخصًا معظمهم أطفال، فيما أفاد الحرس الثوري بأن ناقلة اصطدمت بلغم في هرمز وأسقط التحالف مسيّرة أخرى باتجاه الرياض. وصادقت تركيا على ميثاق مكة مع اجتماع الحلفاء الثلاثة في إسلام آباد."
+   ]
   },
   "us_markets": {
+   "what_changed": "Wall Street closed its best week since 2022 for the Dow, with the S&P 500 up 1.6% on Friday, while Brent ended the week nearly 2% higher despite a 2% drop on the day.",
+   "what_changed_ar": "أنهت وول ستريت أفضل أسبوع لداو منذ 2022، إذ ارتفع ستاندرد آند بورز 1.6% الجمعة، فيما أنهى برنت الأسبوع مرتفعًا نحو 2% رغم تراجعه 2% خلال الجلسة.",
    "items": [
     {
      "id": "us-thanksgiving-half-session",
      "section": "us_markets",
      "status": "updated",
-     "time": "2026-11-27T19:00:00+03:00",
+     "time": "2026-11-27T21:05:00+03:00",
      "tag": "MACRO",
-     "title": "wall street rallies in its half session as ai shares bounce",
-     "title_ar": "وول ستريت ترتفع في جلستها القصيرة مع تعافي أسهم الذكاء الاصطناعي",
-     "summary": "By 11:21 a.m. ET the S&P 500 was up 1.12% at 7,263.18, the Nasdaq Composite 1.49% at 23,937.69, the Dow 0.94% at 50,655.57 and the VIX 5.34% lower at 25.37 in the Thanksgiving half session, which closes at 1 p.m. ET. Reuters said the S&P 500 and Nasdaq are heading for their best week since April and August while still set for their worst November since 2008, and that traders almost fully price a December Fed rate hike; Nvidia, AMD and Broadcom led the rebound.",
-     "summary_ar": "بحلول الساعة 11:21 صباحًا بتوقيت نيويورك ارتفع S&P 500 بنسبة 1.12% إلى 7,263.18 وناسداك المركب 1.49% إلى 23,937.69 وداو جونز 0.94% إلى 50,655.57، وتراجع مؤشر التقلب VIX بنسبة 5.34% إلى 25.37 في جلسة عيد الشكر القصيرة التي تنتهي عند الساعة 1 بعد الظهر بتوقيت نيويورك. وقالت رويترز إن S&P 500 وناسداك يتجهان لتسجيل أفضل أسبوع لهما منذ أبريل وأغسطس مع بقائهما على مسار أسوأ نوفمبر منذ 2008، وإن المتداولين يسعّرون تقريبًا بالكامل رفعًا لأسعار الفائدة في ديسمبر؛ وقاد إنفيديا وAMD وبرودكوم الارتداد.",
+     "title": "dow adds 592 points to close its best week since 2022",
+     "title_ar": "داو يضيف 592 نقطة ويغلق أفضل أسبوع له منذ 2022",
+     "summary": "The Dow rose 591.99 points, or 1.18%, to 50,774.94 in Friday's holiday-shortened session, the S&P 500 added 1.6% to 7,297.49 and the Nasdaq gained 2.31% to 24,129.50. The Dow and S&P 500 were both up more than 5% on the week, the Dow's best since October 2022 and the S&P's best since April 2025, while the Nasdaq rose more than 6%; Meta and Amazon gained more than 3% and about 4%, and the VIX ended at 23.81, down about 30% on the week.",
+     "summary_ar": "ارتفع مؤشر داو جونز 591.99 نقطة، أي 1.18%، إلى 50,774.94 في جلسة الجمعة المختصرة بسبب عطلة عيد الشكر، وأضاف ستاندرد آند بورز 500 نسبة 1.6% إلى 7,297.49، وربح ناسداك المركب 2.31% إلى 24,129.50. وارتفع داو وستاندرد آند بورز أكثر من 5% خلال الأسبوع، وهو أفضل أداء لداو منذ أكتوبر 2022 وللمؤشر الآخر منذ أبريل 2025، فيما صعد ناسداك أكثر من 6%؛ وربح ميتا وأمازون أكثر من 3% ونحو 4%، وأغلق مؤشر التقلب VIX عند 23.81 بتراجع نحو 30% خلال الأسبوع.",
      "sources": [
       {
-       "title": "CNBC quote: S&P 500",
-       "url": "https://www.cnbc.com/quotes/.SPX",
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/26/stock-market-today-live-updates.html",
        "type": "independent"
       },
       {
-       "title": "Reuters via Yahoo Finance",
-       "url": "https://finance.yahoo.com/markets/stocks/articles/wall-st-futures-surge-investors-073405748.html",
-       "type": "wire"
+       "title": "CNBC quotes",
+       "url": "https://www.cnbc.com/quotes/.SPX",
+       "type": "independent"
       }
      ],
-     "image": "https://s.yimg.com/lo/mysterio/api/da60ae517505212f619864f0e2e71fd473df81112bddb21498a7339b270cdfbc/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Freuters.com%2F9bef0362cf0b3975b68edc4b08376477.jpg_up.jpg"
+     "image": "https://image.cnbcfm.com/api/v1/image/108557498-1795801365160-108557498-17954511872026-11-23t162257z_1912766465_rc2ptoakjgym_rtrmadp_0_usa-stocks.jpeg?v=1795801380&w=1920&h=1080"
+    },
+    {
+     "id": "us-oil",
+     "section": "us_markets",
+     "status": "updated",
+     "time": "2026-11-27T23:20:00+03:00",
+     "tag": "GLOBAL",
+     "title": "brent slips 2% on the day but ends the week up nearly 2%",
+     "title_ar": "برنت يتراجع 2% خلال الجلسة لكنه ينهي الأسبوع مرتفعًا نحو 2%",
+     "summary": "Brent crude fell more than 2% to trade just above $94 a barrel during Friday's session but was on track for a weekly gain of nearly 2% as Houthi attacks on Saudi energy infrastructure kept supply risk in the price; US West Texas Intermediate fell 1% to above $82 and lost more than 1% on the week. Saudi Arabia's energy ministry said a strike on the Jazan refinery killed a Nepali worker and injured several people.",
+     "summary_ar": "تراجع خام برنت أكثر من 2% ليجري تداوله فوق 94 دولارًا للبرميل بقليل خلال جلسة الجمعة، لكنه كان في طريقه لربح أسبوعي يقارب 2% مع إبقاء هجمات الحوثيين على منشآت الطاقة السعودية لمخاطر الإمداد في السعر؛ وتراجع خام غرب تكساس الوسيط الأمريكي 1% إلى ما فوق 82 دولارًا وخسر أكثر من 1% خلال الأسبوع. وقالت وزارة الطاقة السعودية إن هجومًا على مصفاة جازان قتل عاملًا نيباليًا وأصاب عدة أشخاص.",
+     "sources": [
+      {
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/26/stock-market-today-live-updates.html",
+       "type": "independent"
+      }
+     ],
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6afba6a9-1794877097.jpg?w=770&resize=770%2C513&quality=80"
+    },
+    {
+     "id": "us-week-ahead",
+     "section": "us_markets",
+     "status": "new",
+     "time": "2026-11-28T06:00:00+03:00",
+     "title": "the week ahead: fed hike bets and amazon's re:invent",
+     "title_ar": "الأسبوع المقبل: رهانات رفع الفائدة ومؤتمر أمازون re:Invent",
+     "summary": "Markets are pricing a 95% chance that the Federal Reserve raises rates in December, Anadolu reported, after October's PCE inflation came in at 3.8% and the Middle East energy shock pushed Brent up 45% year on year. Evercore ISI told clients that Amazon could unveil a frontier AI model at its re:Invent conference in Las Vegas next week, where it is also watching for Bedrock developments.",
+     "summary_ar": "تسعّر الأسواق احتمالًا بنسبة 95% أن يرفع مجلس الاحتياطي الفيدرالي أسعار الفائدة في ديسمبر، بحسب وكالة الأناضول، بعدما بلغ التضخم بمقياس PCE في أكتوبر 3.8% ودفعت صدمة الطاقة في الشرق الأوسط برنت للارتفاع 45% على أساس سنوي. وقالت إيفركور آي إس آي لعملائها إن أمازون قد تكشف عن نموذج ذكاء اصطناعي متقدم في مؤتمرها re:Invent في لاس فيغاس الأسبوع المقبل، حيث تتابع أيضًا تطورات منصة Bedrock.",
+     "sources": [
+      {
+       "title": "Anadolu Agency",
+       "url": "https://www.aa.com.tr/en/middle-east/middle-east-energy-shock-pushes-global-central-banks-back-into-rate-hike-cycle/4140321",
+       "type": "wire"
+      },
+      {
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/26/stock-market-today-live-updates.html",
+       "type": "independent"
+      }
+     ],
+     "tag": "MACRO",
+     "image": "https://web-cdnprod.aa.com.tr/uploads/Contents/2026/11/27/thumbs_b_c_314d6fa02415fbe0a0a8cd14ccf36118.jpg"
     },
     {
      "id": "us-nvidia-huang",
      "section": "us_markets",
-     "status": "new",
+     "status": "",
      "tag": "MOVERS",
      "time": "2026-11-27T18:12:00+03:00",
      "title": "republicans turn on trump over nvidia's huang reinstatement",
@@ -272,144 +322,91 @@
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/afp_6b0729fce3fe-1795631612.jpg?resize=1920%2C1440"
     },
     {
-     "id": "us-oil",
+     "id": "us-anthropic-ipo",
      "section": "us_markets",
-     "status": "updated",
-     "time": "2026-11-27T18:50:00+03:00",
-     "tag": "GLOBAL",
-     "title": "brent falls 2.2% to $94.45, down from the month's high",
-     "title_ar": "برنت يهبط 2.2% إلى 94.45 دولارًا دون أعلى مستوى الشهر",
-     "summary": "Brent crude traded at $94.45 a barrel at 16:11 GMT, down $2.12 or 2.20% from Thursday's close of $96.57, and WTI was 0.36% lower at $83.38, according to CNBC quote pages. Prices traded near the month's high earlier in the week after attacks on the Jazan and Ras Tanura refineries, and the IRGC's latest Hormuz claim kept shipping risk in focus.",
-     "summary_ar": "تداول خام برنت عند 94.45 دولارًا للبرميل عند الساعة 16:11 بتوقيت غرينتش، بانخفاض 2.12 دولار أي 2.20% عن إغلاق الخميس عند 96.57 دولارًا، وتراجع غرب تكساس الوسيط 0.36% إلى 83.38 دولارًا، وفق صفحات الأسعار في CNBC. وكانت الأسعار قريبة من أعلى مستوى لها هذا الشهر في وقت سابق من الأسبوع بعد الهجمات على مصفاتي جازان ورأس تنورة، وأبقى إعلان الحرس الثوري الأخير عن هرمز مخاطر الشحن في دائرة الضوء.",
+     "status": "new",
+     "time": "2026-11-27T22:00:00+03:00",
+     "title": "anthropic shares jump more than 8% in the tech-led rally",
+     "title_ar": "أسهم أنثروبيك تقفز أكثر من 8% في موجة صعود تقودها التكنولوجيا",
+     "summary": "Anthropic shares jumped more than 8% on Friday as technology stocks led the half-session rally, CNBC reported; the AI lab went public on 19 November at $83 a share and closed 17% higher on its first day. Nvidia, the other main gauge of AI appetite, is up 31% since Monday, when Jensen Huang was reinstated as chief executive.",
+     "summary_ar": "قفزت أسهم أنثروبيك أكثر من 8% الجمعة مع قيادة أسهم التكنولوجيا لموجة الصعود في الجلسة المختصرة، بحسب سي إن بي سي؛ وطرحت الشركة أسهمها للاكتتاب في 19 نوفمبر بسعر 83 دولارًا للسهم وأغلقت مرتفعة 17% في أول يوم تداول. أما إنفيديا، المقياس الآخر لشهية الذكاء الاصطناعي، فارتفعت 31% منذ الاثنين حين أُعيد جنسن هوانغ إلى منصب الرئيس التنفيذي.",
      "sources": [
       {
-       "title": "CNBC quote: Brent",
-       "url": "https://www.cnbc.com/quotes/@LCO.1",
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/26/stock-market-today-live-updates.html",
        "type": "independent"
       },
       {
-       "title": "CNBC quote: WTI",
-       "url": "https://www.cnbc.com/quotes/@CL.1",
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/19/anthropic-ipo-ant-live-updates.html",
        "type": "independent"
       }
      ],
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6afba6a9-1794877097.jpg?w=770&resize=770%2C513&quality=80"
-    },
-    {
-     "id": "us-close-wed",
-     "section": "us_markets",
-     "status": "",
-     "time": "2026-11-26T00:00:00+03:00",
      "tag": "MOVERS",
-     "title": "dow erases 1,100-point plunge to close higher, nasdaq falls 0.62%",
-     "title_ar": "داو جونز يمحو هبوطًا بـ1,100 نقطة ويغلق مرتفعًا وناسداك يتراجع 0.62%",
-     "summary": "The Dow closed up 164.25 points, or 0.33%, at 50,182.95 after falling about 1,100 points during the session; the Nasdaq dropped 0.62% to 23,585.80 and the S&P 500 0.25% to 7,182.78. The VIX ended at 28.29, up 7.3%, and Nvidia closed 3.4% lower as the AI sell-off ran a third session.",
-     "summary_ar": "أغلق داو جونز مرتفعًا 164.25 نقطة، أي 0.33%، عند 50,182.95 بعد هبوط بلغ نحو 1,100 نقطة خلال الجلسة؛ وتراجع ناسداك 0.62% إلى 23,585.80 وستاندرد آند بورز 0.25% إلى 7,182.78. وأنهى مؤشر التقلب VIX الجلسة عند 28.29 بارتفاع 7.3%، وأغلق سهم إنفيديا منخفضًا 3.4% مع استمرار موجة بيع أسهم الذكاء الاصطناعي لليوم الثالث.",
+     "image": "https://image.cnbcfm.com/api/v1/image/108557498-1795801365160-108557498-17954511872026-11-23t162257z_1912766465_rc2ptoakjgym_rtrmadp_0_usa-stocks.jpeg?v=1795801380&w=1920&h=1080"
+    },
+    {
+     "id": "us-norse-bankruptcy",
+     "section": "us_markets",
+     "status": "new",
+     "time": "2026-11-27T20:30:00+03:00",
+     "title": "norse atlantic files for bankruptcy after failing to raise funding",
+     "title_ar": "نورس أتلانتيك تقدم طلب إفلاس بعد فشلها في جمع تمويل",
+     "summary": "Budget carrier Norse Atlantic filed for bankruptcy in Europe on Friday, saying it failed to secure funding after soaring fuel costs strained its operations, CNBC reported. The airline had said it would file for bankruptcy without a financial lifeline.",
+     "summary_ar": "قدمت شركة الطيران منخفض التكلفة نورس أتلانتيك طلب إفلاس في أوروبا الجمعة، قائلة إنها فشلت في تأمين تمويل بعدما ضغطت تكاليف الوقود المرتفعة على عملياتها، بحسب سي إن بي سي. وكانت الشركة قد قالت إنها ستقدم طلب الإفلاس إذا لم تحصل على دعم مالي.",
      "sources": [
       {
        "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/26/stock-markets-today-.html",
-       "type": "independent"
-      },
-      {
-       "title": "CNBC quote: Nasdaq",
-       "url": "https://www.cnbc.com/quotes/.IXIC",
+       "url": "https://www.cnbc.com/2026/11/27/norse-atlantic-bankruptcy-fuel-costs.html",
        "type": "independent"
       }
      ],
-     "image": "https://image.cnbcfm.com/api/v1/image/108556540-17951897842026-11-20t154510z_724308925_rc2proaof0e8_rtrmadp_0_usa-stocks.jpeg?v=1795189801&w=1200&h=675"
-    },
-    {
-     "id": "us-asia-rebound",
-     "section": "us_markets",
-     "status": "",
-     "time": "2026-11-27T05:30:00+03:00",
-     "tag": "GLOBAL",
-     "title": "asia extends its rebound as nikkei and kospi lead, tokyo inflation at 2.9%",
-     "title_ar": "آسيا تواصل التعافي بقيادة نيكاي وكوسبي والتضخم في طوكيو عند 2.9%",
-     "summary": "Asia-Pacific shares rose for a second day, with Japan's Nikkei 225 up 1.2% at 58,172.04, South Korea's Kospi up 1.9% at 4,798.76, the Hang Seng up 0.6% and Shanghai 0.3% around 02:30 GMT, according to AFP. Tokyo's core inflation rose to 2.9% in November, the highest in 16 months, keeping Bank of Japan rate-hike expectations alive; chipmakers SK Hynix, Samsung and Kioxia led the gains.",
-     "summary_ar": "ارتفعت أسهم آسيا والمحيط الهادئ لليوم الثاني، إذ صعد نيكاي 225 الياباني 1.2% إلى 58,172.04 وكوسبي الكوري الجنوبي 1.9% إلى 4,798.76 وهانغ سينغ 0.6% وشنغهاي 0.3% قرابة الساعة 02:30 بتوقيت غرينتش، وفق وكالة فرانس برس. وارتفع التضخم الأساسي في طوكيو إلى 2.9% في نوفمبر، وهو أعلى مستوى في 16 شهرًا، ما يبقي توقعات رفع الفائدة من بنك اليابان قائمة؛ وقادت أسهم شركات الرقائق SK Hynix وسامسونغ وكيوكسيا المكاسب.",
-     "sources": [
-      {
-       "title": "CNBC-TV18",
-       "url": "https://cnbctv18.com/market/asian-markets-share-price-nikkei-kospi-ai-stocks-rebound-tokyo-inflation-bank-of-japan-rate-hike-20042538.htm",
-       "type": "independent"
-      },
-      {
-       "title": "Bloomberg via SWI",
-       "url": "https://swissinfo.ch/eng/stocks-rise-with-nasdaq-futures%2C-treasuries-fall%3A-markets-wrap/92446051",
-       "type": "wire"
-      }
-     ],
-     "image": "https://image.cnbcfm.com/api/v1/image/108094148-1738167165694-gettyimages-2195902460-JAPAN_STOCKS.jpeg?v=1758691768&w=1920&h=1080"
-    },
-    {
-     "id": "us-pce",
-     "title": "october core pce runs hot at 3.3% as headline holds at 3.8%",
-     "summary": "October headline PCE rose 3.8% from a year earlier, in line with forecasts, while core PCE came in at 3.3% against a 3.2% consensus, the Bureau of Economic Analysis said; monthly core was 0.3%. A revised third-quarter GDP print showed 4.3% annualised growth and jobless claims fell 13,000 to 189,000, keeping a December Fed hike fully priced.",
-     "title_ar": "PCE الأساسي لأكتوبر يسجل 3.3% والعام 3.8%",
-     "summary_ar": "ارتفع مؤشر PCE العام في أكتوبر 3.8% على أساس سنوي بما يوافق التوقعات، فيما جاء المؤشر الأساسي عند 3.3% مقابل توقعات 3.2%، بحسب مكتب التحليل الاقتصادي؛ وسجل الأساسي الشهري 0.3%. وأظهر تقدير معدّل للناتج المحلي في الربع الثالث نمواً سنوياً 4.3%، وتراجعت طلبات إعانة البطالة 13 ألفاً إلى 189 ألفاً، مع استمرار تسعير رفع الفائدة في ديسمبر بالكامل.",
-     "sources": [
-      {
-       "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/25/pce-inflation-report-october-2026.html",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-25T16:31:00+03:00",
-     "section": "us_markets",
-     "status": "",
-     "image": "https://image.cnbcfm.com/api/v1/image/108557498-17954511872026-11-23t162257z_1912766465_rc2ptoakjgym_rtrmadp_0_usa-stocks.jpeg?v=1795451239",
-     "tag": "MACRO"
-    },
-    {
-     "id": "us-tariffs",
-     "section": "us_markets",
-     "status": "",
-     "time": "2026-11-25T16:45:00+03:00",
-     "tag": "MACRO",
-     "title": "white house proposes tariffs on 14 partners, rates mostly 15-20%",
-     "title_ar": "واشنطن تقترح رسومًا على 14 شريكًا تجاريًا بنسب تتراوح غالبًا بين 15 و20%",
-     "summary": "The Section 301 duties cover China, the EU, Japan and India among 14 economies and are 'targeted' rather than blanket, with many no higher than rates already agreed in trade deals. USTR Jamieson Greer said they are 'not really additive' and likely will not take effect for months.",
-     "summary_ar": "تشمل الرسوم المقترحة بموجب المادة 301 الصين والاتحاد الأوروبي واليابان والهند ضمن 14 اقتصادًا، وهي «موجهة» وليست شاملة، وكثير منها لا يتجاوز نسبًا متفقًا عليها في اتفاقات تجارية سابقة. وقال الممثل التجاري الأميركي جيمسون غرير إنها «ليست تراكمية فعليًا» وإنه من غير المرجح أن تدخل حيز التنفيذ قبل أشهر.",
-     "sources": [
-      {
-       "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/25/us-tariffs-trump-section-301.html",
-       "type": "independent"
-      },
-      {
-       "title": "BBC News",
-       "url": "https://www.bbc.co.uk/news/articles/c893r9ke5p97o",
-       "type": "independent"
-      }
-     ],
-     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/511d/live/da29c130-e860-11f1-a330-6153c8fb2fad.jpg"
-    },
-    {
-     "id": "us-nvidia-sp",
-     "section": "us_markets",
-     "status": "",
-     "time": "2026-11-26T06:20:00+03:00",
      "tag": "MOVERS",
-     "title": "s&p puts nvidia on creditwatch and warns of a one-notch cut",
-     "title_ar": "ستاندرد آند بورز تضع إنفيديا تحت المراقبة وتحذر من خفض تصنيفها درجة",
-     "summary": "S&P Global Ratings placed Nvidia's AA rating on CreditWatch negative, saying it could cut the chipmaker to AA- within 90 days over 'deficiencies' in management and governance after Jensen Huang's ouster and reinstatement and questions about export-control violations. Moody's had already cut its outlook to stable on 18 November.",
-     "summary_ar": "وضعت ستاندرد آند بورز غلوبال تصنيف إنفيديا عند AA تحت المراقبة مع توقعات سلبية، وقالت إنها قد تخفضه إلى AA- خلال 90 يومًا بسبب «قصور» في الإدارة والحوكمة بعد إقصاء جنسن هوانغ وإعادته، وبسبب تساؤلات حول انتهاكات محتملة لضوابط التصدير. وكانت موديز قد خفضت نظرتها إلى مستقرة في 18 نوفمبر.",
+     "image": "https://image.cnbcfm.com/api/v1/image/108559107-1795599475604-gettyimages-1636812756-230831b6_lax_planes_b-gr_13.jpeg?v=1795802433&w=1920&h=1080"
+    },
+    {
+     "id": "us-sap-cuts",
+     "section": "us_markets",
+     "status": "new",
+     "time": "2026-11-27T16:40:00+03:00",
+     "title": "sap reportedly plans to cut at least 10,000 jobs in its ai push",
+     "title_ar": "ساب تعتزم تسريح 10 آلاف وظيفة على الأقل في إطار تحولها إلى الذكاء الاصطناعي",
+     "summary": "German software maker SAP is reportedly considering cutting at least 10,000 jobs as it reshapes its software business around artificial intelligence, CNBC reported. The company has not confirmed the figure.",
+     "summary_ar": "تدرس شركة البرمجيات الألمانية ساب تسريح 10 آلاف وظيفة على الأقل وهي تعيد تشكيل أعمالها البرمجية حول الذكاء الاصطناعي، بحسب ما نقلته سي إن بي سي. ولم تؤكد الشركة الرقم.",
      "sources": [
       {
        "title": "CNBC",
-       "url": "https://www.cnbc.com/2026/11/26/nvidia-market-governance-risk.html",
+       "url": "https://www.cnbc.com/2026/11/27/sap-job-cuts-ai-restructuring.html",
        "type": "independent"
       }
      ],
-     "image": "https://image.cnbcfm.com/api/v1/image/108559274-1795616819098-gettyimages-2306584360-vcg111684383907.jpeg?v=1795616838&w=1920&h=1080"
+     "tag": "MOVERS",
+     "image": "https://image.cnbcfm.com/api/v1/image/108120789-1742904573651-gettyimages-159129388-72801932.jpeg?v=1758797166&w=1920&h=1080"
+    },
+    {
+     "id": "us-china-profits",
+     "section": "us_markets",
+     "status": "new",
+     "time": "2026-11-27T12:30:00+03:00",
+     "title": "china's factory profits grow again, with ai manufacturing leading",
+     "title_ar": "أرباح المصانع الصينية تنمو مجددًا وتصنيع الذكاء الاصطناعي في الصدارة",
+     "summary": "China's industrial profits returned to growth in October, with AI-related manufacturing and exports powering gains while consumption and real-estate investment lagged, CNBC reported. The data points to a two-speed economy as Beijing's stimulus struggles to revive domestic demand.",
+     "summary_ar": "عادت أرباح القطاع الصناعي في الصين إلى النمو في أكتوبر، إذ قاد التصنيع المرتبط بالذكاء الاصطناعي والصادرات المكاسب فيما تأخر الاستهلاك والاستثمار العقاري، بحسب سي إن بي سي. وتشير البيانات إلى اقتصاد بسرعتين مع كفاح حوافز بكين لإحياء الطلب المحلي.",
+     "sources": [
+      {
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/27/china-industrial-profits-october.html",
+       "type": "independent"
+      }
+     ],
+     "tag": "GLOBAL",
+     "image": "https://image.cnbcfm.com/api/v1/image/108559955-1795759767963-gettyimages-2306745585-vcg111684572850.jpeg?v=1795759777&w=1920&h=1080"
     }
    ],
    "watch": [
     {
-     "title": "Market Close: Stocks Mixed, Dow Erases 1,100-Point Loss, Flyers Balk at Fares • 11/25/26",
-     "url": "https://www.youtube.com/watch?v=6TwjW5k0OnQ",
+     "title": "Market Close: Stocks Higher, S&P’s Best Week Since April 25, Blackwell Chips Found in China 11/27/26",
+     "url": "https://www.youtube.com/watch?v=ndUcQhxCuAA",
      "channel": "CNBC Television"
     },
     {
@@ -417,69 +414,33 @@
      "url": "https://www.youtube.com/watch?v=hQiUMK-QDjU",
      "channel": "CNN"
     }
-   ],
-   "what_changed": "US markets reopened for a half session and rallied into the late morning, with the S&P 500 up 1.1%, as battered AI shares bounced; Brent fell 2.2% to $94.45.",
-   "what_changed_ar": "أعادت الأسواق الأمريكية فتح أبوابها بجلسة قصيرة وارتفعت حتى قبل الظهر، إذ صعد S&P 500 بنسبة 1.1% مع ارتداد أسهم الذكاء الاصطناعي المتعثرة؛ وتراجع برنت 2.2% إلى 94.45 دولارًا."
+   ]
   },
   "ai": {
    "items": [
     {
-     "id": "ai-protein-design",
-     "section": "ai",
-     "status": "",
-     "time": "2026-11-25T09:00:00+03:00",
-     "kind": "PAPER",
-     "title": "openai says gpt-6.2 designed proteins that bound five drug targets",
-     "title_ar": "OpenAI تقول إن GPT-6.2 صمّم بروتينات ارتبطت بخمسة أهداف دوائية",
-     "summary": "OpenAI published a preprint on 24 November saying its GPT-6 family can design protein shapes and sequences itself: with partner Onava, 35 of 322 designed proteins showed evidence of binding across five targets, and 128 of 182 redesigned small antibodies retained binding. Nature reported that Claude models also beat specialised protein language models on sequence prediction, while some scientists cautioned the models may be reproducing training data. OpenAI says the lab work is a proof of concept, not a medicine.",
-     "summary_ar": "نشرت OpenAI ورقة بحثية أولية في 24 نوفمبر تقول إن عائلة GPT-6 تستطيع تصميم أشكال البروتينات وتسلسلاتها بنفسها: مع شريكتها Onava، أظهر 35 من 322 بروتينًا مصممًا دليلًا على الارتباط بخمسة أهداف، واحتفظ 128 من 182 جسمًا مضادًا صغيرًا أعيد تصميمه بقدرة الارتباط. وذكرت مجلة Nature أن نماذج Claude تفوقت أيضًا على نماذج لغة متخصصة في البروتينات في توقع التسلسلات، بينما حذر بعض العلماء من أن النماذج قد تعيد إنتاج بيانات التدريب. وتقول OpenAI إن العمل المختبري إثبات للمفهوم وليس دواءً.",
-     "why_it_matters": "General-purpose models are starting to do specialised protein-design work, a step toward designing medicines by prompt.",
-     "why_it_matters_ar": "النماذج العامة بدأت تؤدي عمل تصميم البروتينات المتخصص، وهي خطوة نحو تصميم الأدوية بالأوامر النصية.",
-     "try_url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/",
-     "pricing": "Free to read",
-     "metric": "35/322 lab binders",
-     "sources": [
-      {
-       "title": "Nature",
-       "url": "https://www.nature.com/articles/d41586-026-03836-z",
-       "type": "independent"
-      },
-      {
-       "title": "OpenAI",
-       "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/",
-       "type": "official"
-      }
-     ],
-     "image": "https://media.nature.com/lw1200/magazine-assets/d41586-026-03836-z/d41586-026-03836-z_54015654.jpg"
-    },
-    {
-     "id": "ai-nvidia-image",
+     "id": "ai-openai-apple",
      "section": "ai",
      "status": "new",
-     "kind": "MODEL",
-     "time": "2026-11-27T17:53:00+03:00",
-     "title": "nvidia opens a free image model that beats gpt image 2 at text",
-     "title_ar": "إنفيديا تتيح نموذج صور مجانيًا يتفوق على GPT Image 2 في كتابة النصوص",
-     "summary": "Nvidia published Nemotron-Labs-Image-30B-A3B on Hugging Face, an autoregressive image model built on Nemotron 3 Nano with 30 billion parameters and about 3 billion active. Nvidia's own numbers put it at 97.98 on LongTextBench against 96 for GPT Image 2 and 97.60 for Google's Nano Banana Pro, and its full agent-linked system scored 92.86 on GenEval against 89 for GPT Image 2; the weights are free but limited to non-commercial research, and Nvidia's example runs on four H100 80GB GPUs.",
-     "summary_ar": "نشرت إنفيديا نموذج Nemotron-Labs-Image-30B-A3B على Hugging Face، وهو نموذج صور تلقائي الانحدار مبني على Nemotron 3 Nano بـ30 مليار معامل ونحو 3 مليارات نشطة. وتشير أرقام إنفيديا إلى تسجيله 97.98 في LongTextBench مقابل 96 لـGPT Image 2 و97.60 لـNano Banana Pro من غوغل، وسجّل نظامها الكامل المرتبط بوكلاء 92.86 في GenEval مقابل 89 لـGPT Image 2؛ الأوزان مجانية لكنها مقصورة على البحث غير التجاري، ومثال التشغيل لدى إنفيديا يستخدم أربع وحدات H100 بسعة 80GB.",
-     "why_it_matters": "An open image model from the chipmaker that wins on in-image text is the part most design tools still fail at.",
-     "why_it_matters_ar": "نموذج صور مفتوح من صانع الرقائق يتفوق في كتابة النص داخل الصورة، وهي النقطة التي تفشل فيها معظم أدوات التصميم.",
-     "try_url": "https://huggingface.co/nvidia/Nemotron-Labs-Image-30B-A3B",
-     "pricing": "Free, non-commercial",
-     "metric": "30B MoE · 3B active",
+     "time": "2026-11-27T23:00:00+03:00",
+     "title": "openai countersues apple, accusing it of stealing trade secrets",
+     "title_ar": "OpenAI تقاضي آبل بالمثل وتتهمها بسرقة أسرار تجارية",
+     "summary": "OpenAI countersued Apple, alleging the iPhone maker stole trade secrets, the Financial Times reported and CNBC confirmed; Apple sued OpenAI and two former employees in July, saying it misappropriated secrets for the ChatGPT owner's consumer-hardware push. OpenAI's filing disputes that account.",
+     "summary_ar": "رفعت OpenAI دعوى مضادة على آبل متهمة صانعة آيفون بسرقة أسرار تجارية، بحسب ما نقلته فايننشال تايمز وأكدته سي إن بي سي؛ وكانت آبل قد قاضت OpenAI وموظفين سابقين اثنين في يوليو متهمة إياهما بإساءة استخدام أسرار لصالح مشروع الشركة في الأجهزة الاستهلاكية. وتنفي مذكرة OpenAI هذا السرد.",
      "sources": [
       {
-       "title": "DigitalToday",
-       "url": "https://www.digitaltoday.co.kr/en/view/131818/nvidia-releases-free-image-generation-ai-challenging-openai-google",
+       "title": "CNBC",
+       "url": "https://www.cnbc.com/2026/11/27/openai-countersues-apple-for-stealing-trade-secrets-ft-reports.html",
        "type": "independent"
-      },
-      {
-       "title": "Hugging Face",
-       "url": "https://huggingface.co/nvidia/Nemotron-Labs-Image-30B-A3B",
-       "type": "official"
       }
      ],
-     "image": "https://cdn.digitaltoday.co.kr/news/photo/202611/718780_666022_4541.jpg"
+     "why_it_matters": "The two most valuable consumer-tech brands are now suing each other over the talent and know-how behind AI hardware.",
+     "why_it_matters_ar": "أثمن علامتين في تقنية المستهلك تتقاضيان الآن حول المواهب والخبرة التي تقف خلف أجهزة الذكاء الاصطناعي.",
+     "kind": "NEWS",
+     "try_url": "https://www.cnbc.com/2026/11/27/openai-countersues-apple-for-stealing-trade-secrets-ft-reports.html",
+     "pricing": "Free to read",
+     "metric": "counterclaim filed",
+     "image": "https://image.cnbcfm.com/api/v1/image/108074673-1733945784385-gettyimages-2160933099-AA_11072024_1770830.jpeg?v=1733945863&w=1920&h=1080"
     },
     {
      "id": "ai-inkling-2-mini",
@@ -498,11 +459,11 @@
      "try_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
      "why_it_matters": "A small multimodal MoE from a well-funded lab is the kind of checkpoint you can download and test the same morning.",
      "why_it_matters_ar": "نموذج خليط خبراء صغير متعدد الوسائط من مختبر جيد التمويل هو نوع الأوزان التي يمكن تنزيلها وتجربتها في الصباح نفسه.",
-     "title": "#1: inkling-2-mini still first on 6,386 likes",
-     "title_ar": "#1: inkling-2-mini يحافظ على الصدارة بـ6,386 إعجابًا",
-     "summary": "Inkling-2-Mini, Thinking Machines' Apache-2.0 multimodal mixture-of-experts model, is first with 6,386 likes and 155,741 downloads.",
-     "summary_ar": "«إنكلينغ-2-ميني»، النموذج متعدد الوسائط من نوع خليط الخبراء من Thinking Machines بترخيص Apache-2.0، في المركز الأول بـ6,386 إعجابًا و155,741 تنزيلًا.",
-     "metric": "#1 trending · 6,386 likes",
+     "title": "#1: inkling-2-mini still first on 6,477 likes",
+     "title_ar": "#1: inkling-2-mini لا يزال الأول بـ6,477 إعجابًا",
+     "summary": "Inkling-2-Mini, Thinking Machines' Apache-2.0 multimodal mixture-of-experts model, is first with 6,477 likes and 155,741 downloads.",
+     "summary_ar": "«إنكلينغ-2-ميني»، النموذج متعدد الوسائط من نوع خليط الخبراء من Thinking Machines بترخيص Apache-2.0، في المركز الأول بـ6,477 إعجابًا و155,741 تنزيلًا.",
+     "metric": "#1 trending · 6,477 likes",
      "status": "",
      "rank": 1
     },
@@ -525,18 +486,18 @@
      "why_it_matters_ar": "نسخة GGUF هي التي تعمل على محطة عمل بدل عنقود خوادم.",
      "title": "#2: unsloth's inkling gguf holds second on 3.3m downloads",
      "title_ar": "#2: نسخة unsloth من inkling في المركز الثاني بـ3.3 مليون تنزيل",
-     "summary": "Unsloth's GGUF build of Inkling-2-Mini is second with 1,549 likes and 3,302,340 downloads, still the most-downloaded entry on the list.",
-     "summary_ar": "نسخة GGUF من Inkling-2-Mini من Unsloth في المركز الثاني بـ1,549 إعجابًا و3,302,340 تنزيلًا، وهي لا تزال الأكثر تنزيلًا في القائمة.",
+     "summary": "Unsloth's GGUF build of Inkling-2-Mini is second with 1,617 likes and 3,302,340 downloads, still the most-downloaded entry on the list.",
+     "summary_ar": "نسخة GGUF من Inkling-2-Mini من Unsloth في المركز الثاني بـ1,617 إعجابًا و3,302,340 تنزيلًا، وهي لا تزال الأكثر تنزيلًا في القائمة.",
      "metric": "#2 trending · 3.3M downloads",
      "status": "",
      "rank": 2
     },
     {
      "id": "ai-sulphur-3",
-     "title": "#3: sulphur-3 moves up to third on 1,322 likes",
-     "summary": "Sulphur-3 is an uncensored video-generation model built on MiniMax H3, published under the MiniMax H3 community licence with lower-VRAM quantisations and an optional ComfyUI corrector. It is third with 1,322 likes and 539,421 downloads.",
-     "title_ar": "#3: sulphur-3 يرتفع إلى الثالث بـ1,322 إعجابًا",
-     "summary_ar": "«سلفر-3» نموذج لتوليد الفيديو غير مقيّد مبني على MiniMax H3، منشور بموجب رخصة مجتمع MiniMax H3 مع نسخ مكمّمة لأقل ذاكرة وأداة تصحيح اختيارية لـComfyUI. وهو في المركز الثالث بـ1,322 إعجابًا و539,421 تنزيلًا.",
+     "title": "#3: sulphur-3 holds third on 1,373 likes",
+     "summary": "Sulphur-3 is an uncensored video-generation model built on MiniMax H3, published under the MiniMax H3 community licence with lower-VRAM quantisations and an optional ComfyUI corrector. It is third with 1,373 likes and 539,421 downloads.",
+     "title_ar": "#3: sulphur-3 يحافظ على الثالث بـ1,373 إعجابًا",
+     "summary_ar": "«سلفر-3» نموذج لتوليد الفيديو غير مقيّد مبني على MiniMax H3، منشور بموجب رخصة مجتمع MiniMax H3 مع نسخ مكمّمة لأقل ذاكرة وأداة تصحيح اختيارية لـComfyUI. وهو في المركز الثالث بـ1,373 إعجابًا و539,421 تنزيلًا.",
      "sources": [
       {
        "title": "Hugging Face",
@@ -551,7 +512,7 @@
      "kind": "MODEL",
      "try_url": "https://huggingface.co/SulphurAI/Sulphur-3",
      "pricing": "Community licence",
-     "metric": "#3 trending · 1,322 likes",
+     "metric": "#3 trending · 1,373 likes",
      "why_it_matters": "An uncensored video model on a frontier base changes what a small studio can shoot without a licence negotiation.",
      "why_it_matters_ar": "نموذج فيديو غير مقيّد مبني على أساس متقدم يغيّر ما يستطيع استوديو صغير تصويره دون التفاوض على ترخيص.",
      "rank": 3
@@ -573,13 +534,37 @@
        "type": "independent"
       }
      ],
-     "title": "#4: the uncensored inkling gguf slips to fourth on 987 likes",
-     "title_ar": "#4: نسخة inkling غير المقيدة تتراجع إلى الرابع بـ987 إعجابًا",
-     "summary": "AtomicChat's Inkling-2-Mini-Uncensored-GGUF, a de-restricted quantised build of Thinking Machines' model, slips to fourth with 987 likes and 1,059,763 downloads.",
-     "summary_ar": "نسخة غير مقيدة ومكمّمة من نموذج Thinking Machines من AtomicChat تتراجع إلى المركز الرابع بـ987 إعجابًا و1,059,763 تنزيلًا.",
-     "metric": "#4 trending · 987 likes",
+     "title": "#4: the uncensored inkling gguf holds fourth on 1,045 likes",
+     "title_ar": "#4: نسخة inkling غير المقيدة تحافظ على الرابع بـ1,045 إعجابًا",
+     "summary": "AtomicChat's Inkling-2-Mini-Uncensored-GGUF, a de-restricted quantised build of Thinking Machines' model, is fourth with 1,045 likes and 1,059,763 downloads.",
+     "summary_ar": "نسخة غير مقيدة ومكمّمة من نموذج Thinking Machines من AtomicChat في المركز الرابع بـ1,045 إعجابًا و1,059,763 تنزيلًا.",
+     "metric": "#4 trending · 1,045 likes",
      "status": "",
      "rank": 4
+    },
+    {
+     "id": "ai-bonsai-ternary",
+     "section": "ai",
+     "status": "new",
+     "time": "2026-11-28T06:30:00+03:00",
+     "title": "#5: ternary-bonsai squeezes qwen3.8-27b into 2-bit weights",
+     "title_ar": "#5: ternary-bonsai يضغط qwen3.8-27b في أوزان بسعة 2 بت",
+     "summary": "Prism ML's Ternary-Bonsai-2.5-27B-GGUF takes Qwen3.8-27B and republishes it as a ternary 2-bit GGUF for llama.cpp, with CUDA and Metal builds, hybrid attention, speculative decoding and tool calling, under Apache-2.0. It enters the trending list fifth with 642 likes and 382,546 downloads.",
+     "summary_ar": "تعيد Prism ML نشر Qwen3.8-27B في صيغة Ternary-Bonsai-2.5-27B-GGUF بأوزان ثلاثية بسعة 2 بت لـllama.cpp، مع دعم CUDA وMetal واهتمام هجين وفك تشفير تخميني واستدعاء أدوات، بترخيص Apache-2.0. ويدخل قائمة الأكثر رواجًا في المركز الخامس بـ642 إعجابًا و382,546 تنزيلًا.",
+     "sources": [
+      {
+       "title": "Hugging Face",
+       "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+       "type": "official"
+      }
+     ],
+     "why_it_matters": "A 27B model at 2 bits is the difference between needing a workstation and running on a laptop.",
+     "why_it_matters_ar": "نموذج بـ27 مليار معامل و2 بت هو الفرق بين الحاجة إلى محطة عمل والتشغيل على حاسوب محمول.",
+     "kind": "MODEL",
+     "try_url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+     "pricing": "Open weights",
+     "metric": "#5 trending · 642 likes",
+     "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/prism-ml/Ternary-Bonsai-2.5-27B-GGUF.png"
     },
     {
      "id": "ai-voice-isolator",
@@ -598,11 +583,11 @@
      "try_url": "https://huggingface.co/inworld/voice-isolator",
      "why_it_matters": "Clean audio in real time is the unglamorous half of any voice agent.",
      "why_it_matters_ar": "الصوت النقي في الزمن الحقيقي هو النصف غير اللافت من أي وكيل صوتي.",
-     "title": "#6: inworld's voice isolator holds sixth on 981 likes",
-     "title_ar": "#6: عازل الصوت من inworld يحافظ على السادس بـ981 إعجابًا",
-     "summary": "Inworld's voice-isolator, a streaming audio-to-audio model that runs at 48kHz for speech enhancement and noise suppression, is sixth with 981 likes and 20,510 downloads.",
-     "summary_ar": "نموذج voice-isolator من Inworld، وهو نموذج صوت إلى صوت يعمل بـ48 كيلوهرتز لتحسين الكلام وكتم الضوضاء، في المركز السادس بـ981 إعجابًا و20,510 تنزيلًا.",
-     "metric": "#6 trending · 981 likes",
+     "title": "#6: inworld's voice isolator holds sixth on 1,015 likes",
+     "title_ar": "#6: عازل الصوت من inworld يحافظ على السادس بـ1,015 إعجابًا",
+     "summary": "Inworld's voice-isolator, a streaming audio-to-audio model that runs at 48kHz for speech enhancement and noise suppression, is sixth with 1,015 likes and 20,510 downloads.",
+     "summary_ar": "نموذج voice-isolator من Inworld، وهو نموذج صوت إلى صوت يعمل بـ48 كيلوهرتز لتحسين الكلام وكتم الضوضاء، في المركز السادس بـ1,015 إعجابًا و20,510 تنزيلًا.",
+     "metric": "#6 trending · 1,015 likes",
      "status": "",
      "rank": 6
     },
@@ -612,15 +597,15 @@
      "status": "",
      "kind": "MODEL",
      "time": "2026-11-27T06:40:00+03:00",
-     "title": "#7: lightricks' ltx-2.5 holds seventh on 13,670 likes",
-     "title_ar": "#7: LTX-2.5 من Lightricks يحافظ على السابع بـ13,670 إعجابًا",
-     "summary": "Lightricks' LTX-2.5, an image-to-video model published in July, is seventh in the trending top ten with 13,670 likes and 3,080,701 downloads.",
-     "summary_ar": "«LTX-2.5» من Lightricks، نموذج تحويل الصور إلى فيديو صدر في يوليو، في المركز السابع بقائمة الأكثر رواجًا بـ13,670 إعجابًا و3,080,701 تنزيل.",
+     "title": "#7: lightricks' ltx-2.5 holds seventh on 13,732 likes",
+     "title_ar": "#7: LTX-2.5 من Lightricks يحافظ على السابع بـ13,732 إعجابًا",
+     "summary": "Lightricks' LTX-2.5, an image-to-video model published in July, is seventh in the trending top ten with 13,732 likes and 3,080,701 downloads.",
+     "summary_ar": "«LTX-2.5» من Lightricks، نموذج تحويل الصور إلى فيديو صدر في يوليو، في المركز السابع بقائمة الأكثر رواجًا بـ13,732 إعجابًا و3,080,701 تنزيل.",
      "why_it_matters": "A video model still pulling millions of downloads is the one creators actually use for production, not just for demos.",
      "why_it_matters_ar": "نموذج فيديو يواصل جذب ملايين التنزيلات هو ما يستخدمه المبدعون فعلاً في الإنتاج لا في العروض التجريبية فقط.",
      "try_url": "https://huggingface.co/Lightricks/LTX-2.5",
      "pricing": "Open weights",
-     "metric": "#7 trending · 13,670 likes",
+     "metric": "#7 trending · 13,732 likes",
      "rank": 7,
      "sources": [
       {
@@ -649,10 +634,10 @@
    "items": [
     {
      "id": "claude-bughunter",
-     "title": "#1: claude-bughunter leads again with 1,615 stars",
-     "title_ar": "#1: claude-bughunter يتصدر مجدداً بـ1,615 نجمة",
-     "summary": "A Claude Code skill bundle for bug hunting and external red-team work: 85 skills and 16 slash commands. It is #1 today with 1,615 stars gained and 25,612 in total.",
-     "summary_ar": "حزمة مهارات لـClaude Code للبحث عن الثغرات والعمل الأمني الهجومي: 85 مهارة و16 أمراً. وهو #1 اليوم بـ1,615 نجمة مكتسبة و25,612 نجمة إجمالاً.",
+     "title": "#1: claude-bughunter leads again with 1,608 stars",
+     "title_ar": "#1: claude-bughunter في المركز الأول بـ1,608 نجمة",
+     "summary": "A Claude Code skill bundle for bug hunting and external red-team work: 85 skills and 16 slash commands. It is #1 today with 1,608 stars gained and 26,245 in total.",
+     "summary_ar": "حزمة مهارات لـClaude Code للبحث عن الثغرات والعمل الأمني الهجومي: 85 مهارة و16 أمرًا. وهو #1 اليوم بـ1,608 نجمة مكتسبة و26,245 نجمة إجمالاً.",
      "sources": [
       {
        "title": "GitHub",
@@ -666,18 +651,18 @@
      "image": "https://opengraph.githubassets.com/1/elementalsouls/Claude-BugHunter",
      "rank": 1,
      "period": "today",
-     "stars_gained": 1615,
-     "stars_total": 25612,
+     "stars_gained": 1608,
+     "stars_total": 26245,
      "language": "Python",
      "why_it_matters": "Security know-how packaged as agent skills is how a small red team scales one reviewer.",
      "why_it_matters_ar": "المعرفة الأمنية المغلفة كمهارات وكيل هي كيف يوسّع فريق هجومي صغير مراجعاً واحداً."
     },
     {
      "id": "obra-superpowers",
-     "title": "#2: superpowers holds second with 916 stars",
-     "title_ar": "#2: superpowers يحافظ على الثاني بـ916 نجمة",
-     "summary": "An agentic skills framework and software-development methodology for coding agents. It is #2 today with 916 stars gained and 328,077 in total.",
-     "summary_ar": "إطار مهارات ووكيل ومنهجية تطوير برمجيات لوكلاء البرمجة. وهو #2 اليوم بـ916 نجمة مكتسبة و328,077 نجمة إجمالاً.",
+     "title": "#2: superpowers holds second with 922 stars",
+     "title_ar": "#2: superpowers في المركز الثاني بـ922 نجمة",
+     "summary": "An agentic skills framework and software-development methodology for coding agents. It is #2 today with 922 stars gained and 328,393 in total.",
+     "summary_ar": "إطار مهارات ووكيل ومنهجية تطوير برمجيات لوكلاء البرمجة. وهو #2 اليوم بـ922 نجمة مكتسبة و328,393 نجمة إجمالاً.",
      "sources": [
       {
        "title": "GitHub",
@@ -691,18 +676,18 @@
      "image": "https://opengraph.githubassets.com/1/obra/superpowers",
      "rank": 2,
      "period": "today",
-     "stars_gained": 916,
-     "stars_total": 328077,
+     "stars_gained": 922,
+     "stars_total": 328393,
      "language": "Shell",
      "why_it_matters": "Methodology is the difference between an agent that types and one that ships.",
      "why_it_matters_ar": "المنهجية هي الفرق بين وكيل يكتب وآخر يُسلّم."
     },
     {
      "id": "hkuds-cli-anything",
-     "title": "#3: cli-anything holds third with 668 stars",
-     "title_ar": "#3: cli-anything يحافظ على الثالث بـ668 نجمة",
-     "summary": "\"Making all software agent-native\": a hub that wraps command-line tools so agents can drive them. It is #3 today with 668 stars gained and 66,817 in total.",
-     "summary_ar": "«جعل كل البرمجيات صديقة للوكلاء»: مركز يغلّف أدوات سطر الأوامر كي يستطيع الوكلاء تشغيلها. وهو #3 اليوم بـ668 نجمة مكتسبة و66,817 نجمة إجمالاً.",
+     "title": "#3: cli-anything holds third with 666 stars",
+     "title_ar": "#3: cli-anything في المركز الثالث بـ666 نجمة",
+     "summary": "\"Making all software agent-native\": a hub that wraps command-line tools so agents can drive them. It is #3 today with 666 stars gained and 67,064 in total.",
+     "summary_ar": "«جعل كل البرمجيات صديقة للوكلاء»: مركز يغلّف أدوات سطر الأوامر كي يستطيع الوكلاء تشغيلها. وهو #3 اليوم بـ666 نجمة مكتسبة و67,064 نجمة إجمالاً.",
      "sources": [
       {
        "title": "GitHub",
@@ -716,18 +701,18 @@
      "image": "https://opengraph.githubassets.com/1/HKUDS/CLI-Anything",
      "rank": 3,
      "period": "today",
-     "stars_gained": 668,
-     "stars_total": 66817,
+     "stars_gained": 666,
+     "stars_total": 67064,
      "language": "Python",
      "why_it_matters": "Every CLI tool you already trust becomes a callable agent skill without a rewrite.",
      "why_it_matters_ar": "كل أداة سطر أوامر تثق بها تصبح مهارة قابلة للاستدعاء من الوكيل من دون إعادة كتابة."
     },
     {
      "id": "jingyaogong-minimind",
-     "title": "#4: minimind holds fourth with 667 stars",
-     "title_ar": "#4: minimind يحافظ على الرابع بـ667 نجمة",
-     "summary": "Train your own 64M-parameter LLM from scratch in about two hours. It is #4 today with 667 stars gained and 72,121 in total.",
-     "summary_ar": "درّب نموذجك اللغوي الكبير بـ64 مليون معامل من الصفر في نحو ساعتين. وهو #4 اليوم بـ667 نجمة مكتسبة و72,121 نجمة إجمالاً.",
+     "title": "#4: minimind holds fourth with 660 stars",
+     "title_ar": "#4: minimind في المركز الرابع بـ660 نجمة",
+     "summary": "Train your own 64M-parameter LLM from scratch in about two hours. It is #4 today with 660 stars gained and 72,261 in total.",
+     "summary_ar": "درّب نموذجك اللغوي الكبير بـ64 مليون معامل من الصفر في نحو ساعتين. وهو #4 اليوم بـ660 نجمة مكتسبة و72,261 نجمة إجمالاً.",
      "sources": [
       {
        "title": "GitHub",
@@ -741,18 +726,18 @@
      "image": "https://opengraph.githubassets.com/1/jingyaogong/minimind",
      "rank": 4,
      "period": "today",
-     "stars_gained": 667,
-     "stars_total": 72121,
+     "stars_gained": 660,
+     "stars_total": 72261,
      "language": "Python",
      "why_it_matters": "You do not understand a training stack until you have run a small one yourself.",
      "why_it_matters_ar": "لا تفهم منظومة التدريب حقاً حتى تشغّل واحدة صغيرة بنفسك."
     },
     {
      "id": "cursor-plugins",
-     "title": "#5: cursor's plugin spec holds fifth with 242 stars",
-     "title_ar": "#5: مواصفات إضافات cursor في الخامس بـ242 نجمة",
-     "summary": "The plugin specification and official plugins for Cursor's editor. It is #5 today with 242 stars gained and 19,948 in total.",
-     "summary_ar": "مواصفات الإضافات والإضافات الرسمية لمحرر Cursor. وهي #5 اليوم بـ242 نجمة مكتسبة و19,948 نجمة إجمالاً.",
+     "title": "#5: cursor's plugin spec holds fifth with 243 stars",
+     "title_ar": "#5: cursor's plugin spec في المركز الخامس بـ243 نجمة",
+     "summary": "The plugin specification and official plugins for Cursor's editor. It is #5 today with 243 stars gained and 20,037 in total.",
+     "summary_ar": "مواصفات الإضافات والإضافات الرسمية لمحرر Cursor. وهو #5 اليوم بـ243 نجمة مكتسبة و20,037 نجمة إجمالاً.",
      "sources": [
       {
        "title": "GitHub",
@@ -766,18 +751,18 @@
      "image": "https://opengraph.githubassets.com/1/cursor/plugins",
      "rank": 5,
      "period": "today",
-     "stars_gained": 242,
-     "stars_total": 19948,
+     "stars_gained": 243,
+     "stars_total": 20037,
      "language": "TypeScript",
      "why_it_matters": "An open plugin spec decides whether an editor becomes a platform or stays a product.",
      "why_it_matters_ar": "مواصفات إضافات مفتوحة هي ما يحدد إن كان المحرر سيتحول إلى منصة أم يبقى منتجاً."
     },
     {
      "id": "firecrawl-firecrawl",
-     "title": "#6: firecrawl is sixth with 833 stars",
-     "title_ar": "#6: firecrawl في السادس بـ833 نجمة",
-     "summary": "Search, scrape and reach more than 550 data providers for agents. It is #6 today with 833 stars gained and 211,452 in total.",
-     "summary_ar": "بحث وكشط بيانات والوصول إلى أكثر من 550 مزوّد بيانات للوكلاء. وهو #6 اليوم بـ833 نجمة مكتسبة و211,452 نجمة إجمالاً.",
+     "title": "#6: firecrawl is sixth with 822 stars",
+     "title_ar": "#6: firecrawl في المركز السادس بـ822 نجمة",
+     "summary": "Search, scrape and reach more than 550 data providers for agents. It is #6 today with 822 stars gained and 211,752 in total.",
+     "summary_ar": "بحث وكشط بيانات والوصول إلى أكثر من 550 مزوّد بيانات للوكلاء. وهو #6 اليوم بـ822 نجمة مكتسبة و211,752 نجمة إجمالاً.",
      "sources": [
       {
        "title": "GitHub",
@@ -791,18 +776,18 @@
      "image": "https://opengraph.githubassets.com/1/firecrawl/firecrawl",
      "rank": 6,
      "period": "today",
-     "stars_gained": 833,
-     "stars_total": 211452,
+     "stars_gained": 822,
+     "stars_total": 211752,
      "language": "TypeScript",
      "why_it_matters": "Retrieval quality, not model size, is where most agent demos quietly fail.",
      "why_it_matters_ar": "جودة الاسترجاع، لا حجم النموذج، هي حيث تفشل معظم عروض الوكلاء بهدوء."
     },
     {
      "id": "nginx-nginx",
-     "title": "#7: nginx's source repo is seventh with 148 stars",
-     "title_ar": "#7: مستودع nginx المصدري في السابع بـ148 نجمة",
-     "summary": "The official NGINX open-source repository. It is #7 today with 148 stars gained and 33,626 in total.",
-     "summary_ar": "مستودع NGINX الرسمي مفتوح المصدر. وهو #7 اليوم بـ148 نجمة مكتسبة و33,626 نجمة إجمالاً.",
+     "title": "#7: nginx's source repo is seventh with 146 stars",
+     "title_ar": "#7: nginx's source repo في المركز السابع بـ146 نجمة",
+     "summary": "The official NGINX open-source repository. It is #7 today with 146 stars gained and 33,680 in total.",
+     "summary_ar": "مستودع NGINX الرسمي مفتوح المصدر. وهو #7 اليوم بـ146 نجمة مكتسبة و33,680 نجمة إجمالاً.",
      "sources": [
       {
        "title": "GitHub",
@@ -816,18 +801,18 @@
      "image": "https://opengraph.githubassets.com/1/nginx/nginx",
      "rank": 7,
      "period": "today",
-     "stars_gained": 148,
-     "stars_total": 33626,
+     "stars_gained": 146,
+     "stars_total": 33680,
      "language": "C",
      "why_it_matters": "Nothing in the agent stack works if the socket layer underneath it does not.",
      "why_it_matters_ar": "لا شيء في منظومة الوكلاء يعمل إذا لم تعمل طبقة المقابس تحتها."
     },
     {
      "id": "openvinotoolkit-openvino",
-     "title": "#8: openvino holds eighth with 152 stars",
-     "title_ar": "#8: openvino يحافظ على الثامن بـ152 نجمة",
-     "summary": "Intel's open-source toolkit for optimising and deploying AI inference. It is #8 today with 152 stars gained and 12,913 in total.",
-     "summary_ar": "مجموعة أدوات إنتل مفتوحة المصدر لتحسين استدلال الذكاء الاصطناعي ونشره. وهي #8 اليوم بـ152 نجمة مكتسبة و12,913 نجمة إجمالاً.",
+     "title": "#8: openvino holds eighth with 151 stars",
+     "title_ar": "#8: openvino في المركز الثامن بـ151 نجمة",
+     "summary": "Intel's open-source toolkit for optimising and deploying AI inference. It is #8 today with 151 stars gained and 12,967 in total.",
+     "summary_ar": "مجموعة أدوات إنتل مفتوحة المصدر لتحسين استدلال الذكاء الاصطناعي ونشره. وهو #8 اليوم بـ151 نجمة مكتسبة و12,967 نجمة إجمالاً.",
      "sources": [
       {
        "title": "GitHub",
@@ -841,8 +826,8 @@
      "image": "https://opengraph.githubassets.com/1/openvinotoolkit/openvino",
      "rank": 8,
      "period": "today",
-     "stars_gained": 152,
-     "stars_total": 12913,
+     "stars_gained": 151,
+     "stars_total": 12967,
      "language": "C++",
      "why_it_matters": "Cheap local inference is what makes an always-on assistant affordable.",
      "why_it_matters_ar": "الاستدلال المحلي الرخيص هو ما يجعل المساعد الدائم التفعيل ميسور التكلفة."
@@ -862,17 +847,19 @@
    ]
   },
   "liverpool": {
+   "what_changed": "Liverpool go to Everton on Sunday at 15:00 Riyadh time without Gakpo for two to three weeks and with Gravenberch still doubtful; Alisson is set for his 350th appearance.",
+   "what_changed_ar": "يحل ليفربول ضيفًا على إيفرتون الأحد الساعة 15:00 بتوقيت الرياض من دون خاكبو لمدة أسبوعين إلى ثلاثة، وبشكوك حول غرافينبيرخ؛ وأليسون على أعتاب مباراته الـ350.",
    "items": [
     {
      "id": "liverpool-everton-derby",
      "section": "liverpool",
      "status": "updated",
      "reliability": "Official",
-     "time": "2026-11-27T17:57:00+03:00",
-     "title": "iraola: there is only one way to enjoy the derby - win it",
-     "title_ar": "إيراولا: لا سبيل للاستمتاع بالديربي إلا بالفوز",
-     "summary": "Andoni Iraola said he has not lived the Merseyside derby before but 'to enjoy it there is only one way - that is to win the game', ahead of his first one as Liverpool head coach, the 249th meeting, at Everton on Sunday at 12:00 GMT. He said derbies are always different whatever the table and that his side must win their duels; Liverpool have lost two of their last 31 Premier League games against Everton.",
-     "summary_ar": "قال أندوني إيراولا إنه لم يعش ديربي ميرسيسايد من قبل، لكن «لا سبيل للاستمتاع به إلا بالفوز»، قبل أول ديربي له مدربًا لليفربول، وهو اللقاء 249، على ملعب إيفرتون الأحد عند الساعة 12:00 بتوقيت غرينتش. وقال إن الديربيات تختلف دائمًا مهما كان ترتيب الفريقين وإن فريقه يجب أن يفوز بمواجهاته الفردية؛ وخسر ليفربول مباراتين فقط من آخر 31 لقاءً له في الدوري الممتاز أمام إيفرتون.",
+     "time": "2026-11-28T06:20:00+03:00",
+     "title": "iraola takes liverpool to everton for the 249th merseyside derby",
+     "title_ar": "إيراولا يقود ليفربول إلى إيفرتون في ديربي ميرسيسايد الـ249",
+     "summary": "Liverpool visit Everton at Hill Dickinson Stadium on Sunday at 12:00 GMT, with Andoni Iraola saying there is 'only one way to enjoy a Merseyside derby - win it'. Everton go into it after a 4-0 defeat at Brentford on Monday and will be without captain James Tarkowski, sent off in that game, leaving Jake O'Brien likely to partner Jarrad Branthwaite; Liverpool won the first derby at the new stadium last season through a 100th-minute corner.",
+     "summary_ar": "يحل ليفربول ضيفًا على إيفرتون في ملعب هيل ديكنسون الأحد الساعة 12:00 بتوقيت غرينتش، وقال المدرب أندوني إيراولا إن «هناك طريقة واحدة للاستمتاع بديربي ميرسيسايد هي الفوز به». ويخوض إيفرتون المباراة بعد خسارة 4-0 أمام برينتفورد الاثنين وسيفتقد قائده جيمس تاركوفسكي الذي طُرد في تلك المباراة، ما يجعل جيك أوبراين الأقرب لمرافقة جاراد برانثويت؛ وقد فاز ليفربول بأول ديربي في الملعب الجديد الموسم الماضي عبر ركنية في الدقيقة 100.",
      "sources": [
       {
        "title": "Liverpool FC",
@@ -880,17 +867,36 @@
        "type": "official"
       },
       {
-       "title": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/pre-everton-injury-update-victor-munoz-cody-gakpo-and-ryan-gravenberch",
-       "type": "official"
+       "title": "The Guardian",
+       "url": "https://www.theguardian.com/football/2026/nov/27/premier-league-10-things-to-look-out-for-this-weekend",
+       "type": "independent"
       }
      ],
      "image": "https://images.ctfassets.net/rm6ms1yxue4m/2PQU1spqFDU4g3Qif5m2eq/618b92ee57fef508f96c4f17f6d43728/andoni-iraola-liverpool-fc-271126.jpg?w=1200&h=630&fit=crop&f=face"
     },
     {
-     "id": "liverpool-gakpo-blow",
+     "id": "liverpool-alisson-350",
      "section": "liverpool",
      "status": "new",
+     "time": "2026-11-28T05:00:00+03:00",
+     "title": "alisson set for his 350th liverpool appearance in the derby",
+     "title_ar": "أليسون على أعتاب مباراته الـ350 مع ليفربول في الديربي",
+     "summary": "Alisson Becker is in line to make his 350th Liverpool appearance at Everton on Sunday, becoming only the 50th man to reach the mark; Trent Alexander-Arnold was the most recent. 'It means a lot,' the goalkeeper told the club's website. 'Hopefully I can go for more and more and more, and keep getting closer to the legends.'",
+     "summary_ar": "يستعد أليسون بيكر لخوض مباراته الـ350 مع ليفربول أمام إيفرتون الأحد، ليكون الرجل الخمسين فقط الذي يبلغ هذا الرقم؛ وكان ترينت ألكسندر-أرنولد آخر من فعله. وقال الحارس لموقع النادي: «هذا يعني الكثير. آمل أن أواصل وأقترب أكثر من الأساطير».",
+     "sources": [
+      {
+       "title": "Liverpool FC",
+       "url": "https://www.liverpoolfc.com/news/alisson-becker-interview-350-games-for-liverpool-merseyside-derby-assisting-isak",
+       "type": "official"
+      }
+     ],
+     "reliability": "Official",
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/cmGlHe8MLyx8qz6wfPMcX/6280175a9549ca2ecfd3dfa84f041d50/alisson-becker-interview-27112026.jpg?w=1200&h=630&fit=crop&f=face"
+    },
+    {
+     "id": "liverpool-gakpo-blow",
+     "section": "liverpool",
+     "status": "",
      "reliability": "Official",
      "time": "2026-11-27T16:54:00+03:00",
      "title": "gakpo out for two to three weeks, gravenberch doubtful",
@@ -909,7 +915,7 @@
     {
      "id": "liverpool-munoz-injury",
      "section": "liverpool",
-     "status": "updated",
+     "status": "",
      "reliability": "Tier 1",
      "time": "2026-11-27T16:54:00+03:00",
      "title": "munoz has no knee damage and could still face everton",
@@ -926,20 +932,20 @@
      "image": "https://images.ctfassets.net/rm6ms1yxue4m/4FFTfvBIv9IuN7p4Hp2KMR/bab9296c32fbe5931f26d40ca6c637d7/victor-munoz-27112026.jpg?w=1200&h=630&fit=crop&f=face"
     },
     {
-     "id": "liverpool-brugge-result",
+     "id": "liverpool-isak-form",
      "section": "liverpool",
-     "status": "",
-     "reliability": "Tier 1",
-     "time": "2026-11-26T01:04:00+03:00",
-     "title": "isak double and wirtz strike give liverpool a 3-0 win at brugge",
-     "title_ar": "ثنائية إيزاك وهدف فيرتز تمنح ليفربول فوزًا 3-0 على بروج",
-     "summary": "Alexander Isak scored twice and Florian Wirtz scored for the third club game in a row as Liverpool won 3-0 at Club Brugge, with Dominik Szoboszlai captaining a side that rested Virgil van Dijk. Iraola said the clean sheet against a team that had won 10 of its previous 11 games was what he valued most.",
-     "summary_ar": "سجل ألكسندر إيزاك هدفين وأضاف فلوريان فيرتز هدفًا للمباراة الثالثة على التوالي مع الفريق، ليفوز ليفربول 3-0 على كلوب بروج، فيما حمل دومينيك سوبوسلاي شارة القيادة في تشكيل أراح فيرجيل فان دايك. وقال إيراولا إن الشباك النظيفة أمام فريق فاز في 10 من مبارياته الـ11 السابقة هي ما يقدّره أكثر.",
+     "status": "updated",
+     "reliability": "Official",
+     "time": "2026-11-27T17:35:00+03:00",
+     "title": "iraola says isak now matters to liverpool beyond his goals",
+     "title_ar": "إيراولا يقول إن إيساك أصبح مهمًا لليفربول بما يتجاوز أهدافه",
+     "summary": "Alexander Isak leads Liverpool's scoring with 10 goals in 16 appearances this season, but Andoni Iraola says the striker's link play and understanding of the press now matter as much as his finishing. 'He's definitely improved a lot on the ball and without the ball,' the head coach said. 'I think he can be very important in our build-up.'",
+     "summary_ar": "يتصدر ألكسندر إيساك هدافي ليفربول بعشرة أهداف في 16 مباراة هذا الموسم، لكن أندوني إيراولا يقول إن مشاركة المهاجم في بناء اللعب وفهمه للضغط أصبحت مهمة بقدر إنهائه. وقال المدرب: «تحسن كثيرًا على الكرة ومن دونها. أعتقد أنه يمكن أن يكون مهمًا جدًا في بناء هجماتنا».",
      "sources": [
       {
-       "title": "The Guardian",
-       "url": "https://www.theguardian.com/football/2026/nov/25/club-brugge-liverpool-champions-league-match-report",
-       "type": "independent"
+       "title": "Liverpool FC",
+       "url": "https://www.liverpoolfc.com/news/very-important-how-alexander-isak-is-contributing-more-than-just-goals-for-liverpool",
+       "type": "official"
       },
       {
        "title": "BBC Sport",
@@ -947,45 +953,7 @@
        "type": "independent"
       }
      ],
-     "image": "https://i.guim.co.uk/img/media/217f37b87ab0b8f2137224791cf4ae48697dcf9d/131_0_3251_2601/master/3251.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=0fa1414519f116e4b7a86ae66cec2841"
-    },
-    {
-     "id": "liverpool-isak-form",
-     "section": "liverpool",
-     "status": "",
-     "reliability": "Tier 1",
-     "time": "2026-11-26T02:38:00+03:00",
-     "title": "isak takes his season tally to 10 with four goals in four games",
-     "title_ar": "إيزاك يرفع رصيده إلى 10 أهداف بأربعة في أربع مباريات",
-     "summary": "Isak's double at Brugge took him to 10 goals for the season, more than double his first campaign, and four in his past four games. 'I feel good, I am in a good place and the team is in a good place,' he told TNT Sports.",
-     "summary_ar": "رفعت ثنائية إيزاك أمام بروج رصيده إلى 10 أهداف هذا الموسم، أي أكثر من ضعف موسمه الأول، وأربعة أهداف في مبارياته الأربع الأخيرة. وقال لقناة TNT Sports: «أشعر أنني بحال جيدة، وأنا في مكان جيد والفريق في مكان جيد».",
-     "sources": [
-      {
-       "title": "BBC Sport",
-       "url": "https://www.bbc.co.uk/sport/football/articles/cqm2l0gelkzxo",
-       "type": "independent"
-      }
-     ],
-     "image": "https://i.ytimg.com/vi/dAgOjUKgwEA/hqdefault.jpg"
-    },
-    {
-     "id": "liverpool-alisson-ucl-xi",
-     "section": "liverpool",
-     "status": "",
-     "time": "2026-11-26T21:44:00+03:00",
-     "reliability": "Official",
-     "title": "alisson named in the champions league team of the week",
-     "title_ar": "أليسون ضمن فريق الأسبوع في دوري أبطال أوروبا",
-     "summary": "Alisson was named in the Champions League Team of the Week for matchday five after a clean sheet and several saves in the 3-0 win at Club Brugge; his kick to the flank set up Alexander Isak's second goal, making him the first Liverpool goalkeeper to register a Champions League assist.",
-     "summary_ar": "اختير أليسون في فريق الأسبوع لدوري أبطال أوروبا عن الجولة الخامسة بعد شباك نظيفة وتصديات عدة في الفوز 3-0 على كلوب بروج؛ وتمريرته إلى الجهة صنعت الهدف الثاني لألكسندر إيزاك، ليكون أول حارس مرمى في ليفربول يصنع هدفًا في دوري الأبطال.",
-     "sources": [
-      {
-       "title": "Liverpool FC",
-       "url": "https://www.liverpoolfc.com/news/alisson-becker-named-in-champions-league-team-of-the-week",
-       "type": "official"
-      }
-     ],
-     "image": "https://images.ctfassets.net/rm6ms1yxue4m/3dyLwIbxxKlOuhZ86bt3q6/b93426f6fb00a05a517bb2e090f2159b/alisson-becker-26112026.jpg?w=1200&h=630&fit=crop&f=face"
+     "image": "https://images.ctfassets.net/rm6ms1yxue4m/QVdFoqgKMUFA7JgNGzHXa/2736c8139b20617df586391a43ecfebb/alexander-isak-brugge-goal.jpg?w=1200&h=630&fit=crop&f=face"
     },
     {
      "id": "liverpool-ucl-top-eight",
@@ -1024,6 +992,25 @@
       }
      ],
      "image": "https://images.ctfassets.net/rm6ms1yxue4m/2V9HWwmQR3YPpyM1LtiSoq/9a500ae7402541b160fe14a8c0762a0e/media-watch-inside-futbol.jpg?w=1200&h=630&fit=crop&f=face"
+    },
+    {
+     "id": "liverpool-camara-rumour",
+     "section": "liverpool",
+     "status": "new",
+     "time": "2026-11-28T06:10:00+03:00",
+     "title": "liverpool hopeful of a january move for monaco's lamine camara",
+     "title_ar": "ليفربول يأمل في ضم لامين كامارا من موناكو في يناير",
+     "summary": "Liverpool are hopeful of securing a January move for Monaco midfielder Lamine Camara, 22, with Chelsea likely out of contention after the Senegal international's failed move to Stamford Bridge in the summer, GiveMeSport reported via BBC Sport's gossip column. The club has not commented.",
+     "summary_ar": "يأمل ليفربول في إتمام انتقال لاعب وسط موناكو لامين كامارا (22 عامًا) في يناير، مع تراجع تشيلسي على الأرجح بعد فشل انتقال الدولي السنغالي إلى ستامفورد بريدج في الصيف، بحسب GiveMeSport عبر صفحة الشائعات في بي بي سي سبورت. ولم يعلّق النادي.",
+     "sources": [
+      {
+       "title": "BBC Sport gossip",
+       "url": "https://www.bbc.co.uk/sport/football/articles/cqvg23jg6x78o",
+       "type": "independent"
+      }
+     ],
+     "reliability": "Rumour",
+     "image": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/0f9b/live/13900680-eaa7-11f1-a094-5fdc692f3e33.png"
     }
    ],
    "watch": [
@@ -1037,16 +1024,82 @@
      "url": "https://www.youtube.com/watch?v=sRdx1S5Dewk",
      "channel": "CBS Sports Golazo"
     }
-   ],
-   "what_changed": "Iraola's first Merseyside derby is on Sunday at 12:00 GMT: Gakpo is out for two to three weeks, Gravenberch is likely out, and Munoz has no knee damage and may play.",
-   "what_changed_ar": "ديربي ميرسيسايد الأول لإيراولا يوم الأحد عند الساعة 12:00 بتوقيت غرينتش: غاكبو يغيب أسبوعين إلى ثلاثة، وغرافينبيرخ مرجّح غيابه، ومونيوز بلا إصابة في الرباط وقد يشارك."
+   ]
   },
   "games": {
    "items": [
     {
-     "id": "game-silksong-sea-of-sorrow",
+     "id": "game-exodus-pc-specs",
      "section": "games",
      "status": "new",
+     "time": "2026-11-27T20:30:00+03:00",
+     "title": "exodus pc specs ask for an rtx 2060 at 1080p and a 5080 for 4k",
+     "title_ar": "متطلبات تشغيل Exodus تطلب RTX 2060 بدقة 1080p و5080 لدقة 4K",
+     "summary": "The recommended PC specs for Exodus, the Mass Effect-like space RPG due on 7 April 2027, are 1080p/30 at an i5-10400, an RTX 2060 and 16GB of RAM, while 4K/60 asks for an RTX 5080, Rock Paper Shotgun reported. The game is not yet priced on Steam.",
+     "summary_ar": "تتطلب المواصفات الموصى بها لتشغيل Exodus، لعبة الخيال العلمي الشبيهة بـMass Effect والمقررة في 7 أبريل 2027، دقة 1080p بمعدل 30 إطارًا مع معالج i5-10400 وبطاقة RTX 2060 و16 غيغابايت من الذاكرة، فيما تطلب دقة 4K بمعدل 60 إطارًا بطاقة RTX 5080، بحسب روك بيبر شوتغن. ولم تُسعّر اللعبة بعد على ستيم.",
+     "sources": [
+      {
+       "title": "Rock Paper Shotgun",
+       "url": "https://www.rockpapershotgun.com/the-pc-specs-for-mass-effect-like-rpg-exodus-are-basically-bearable-for-a-blockbuster-space-opera-in-2026",
+       "type": "independent"
+      },
+      {
+       "title": "Steam",
+       "url": "https://store.steampowered.com/app/3230960/EXODUS/",
+       "type": "official"
+      }
+     ],
+     "kind": "PREVIEW",
+     "genres": [
+      "Action RPG",
+      "Sci-fi"
+     ],
+     "platforms": [
+      "Windows"
+     ],
+     "release_date": "7 Apr, 2027",
+     "store_url": "https://store.steampowered.com/app/3230960/EXODUS/",
+     "image": "https://assetsio.gnwcdn.com/exodus-headline-steam.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp"
+    },
+    {
+     "id": "game-dawn-of-war-4-painter",
+     "section": "games",
+     "status": "new",
+     "time": "2026-11-27T19:40:00+03:00",
+     "title": "dawn of war 4 gets a model painter demo a week before launch",
+     "title_ar": "Dawn of War 4 تحصل على نسخة تجريبية لطلاء النماذج قبل أسبوع من الإطلاق",
+     "summary": "King Art and Deep Silver released a demo model painter for Warhammer 40,000: Dawn of War 4, letting players paint units from the Orks, Adeptus Mechanicus, Necrons and Space Marines before the strategy game launches on 3 December. The game is 10% off at 206.10 SR on Steam.",
+     "summary_ar": "أصدرت King Art وDeep Silver أداة تجريبية لطلاء النماذج في Warhammer 40,000: Dawn of War 4 تتيح للاعبين طلاء وحدات من الأوركس والأدبتوس ميكانيكوس والنيكرون وسبيس مارينز قبل إطلاق اللعبة الاستراتيجية في 3 ديسمبر. واللعبة مخفضة 10% بسعر 206.10 ريال على ستيم.",
+     "sources": [
+      {
+       "title": "Rock Paper Shotgun",
+       "url": "https://www.rockpapershotgun.com/warhammer-40000-dawn-of-war-4-gets-a-model-painter-demo-so-you-can-make-a-mess-of-your-orks-necrons-space-marines-and-admech-before-they-even-hit-the-battlefield",
+       "type": "independent"
+      },
+      {
+       "title": "Steam",
+       "url": "https://store.steampowered.com/app/2272360/Warhammer_40000_Dawn_of_War_IV/",
+       "type": "official"
+      }
+     ],
+     "kind": "RELEASE",
+     "genres": [
+      "RTS",
+      "Strategy"
+     ],
+     "platforms": [
+      "Windows"
+     ],
+     "price": "206.10 SR",
+     "discount": 10,
+     "release_date": "3 Dec, 2026",
+     "store_url": "https://store.steampowered.com/app/2272360/Warhammer_40000_Dawn_of_War_IV/",
+     "image": "https://assetsio.gnwcdn.com/dow4-unit-painter-dreadnought.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp"
+    },
+    {
+     "id": "game-silksong-sea-of-sorrow",
+     "section": "games",
+     "status": "",
      "kind": "RELEASE",
      "time": "2026-11-27T18:58:00+03:00",
      "title": "silksong's sea of sorrow expansion lands on 11 december, free",
@@ -1080,7 +1133,7 @@
     {
      "id": "game-cyber-knights-drone-pilot",
      "section": "games",
-     "status": "new",
+     "status": "",
      "kind": "UPDATE",
      "time": "2026-11-27T15:00:00+03:00",
      "title": "cyber knights adds a drone pilot class and a pet system",
@@ -1175,120 +1228,65 @@
      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3105440/e2bef853b7cb19e3d5f019022309783609e8454f/header.jpg?t=1795529321"
     },
     {
-     "id": "game-dungoku",
+     "id": "game-glagstone",
      "section": "games",
-     "status": "",
-     "time": "2026-11-27T01:50:00+03:00",
-     "kind": "NEWS",
-     "title": "dungoku turns dungeon crawling into a sudoku puzzle",
-     "title_ar": "Dungoku يحوّل استكشاف القصور إلى لغز سودوكو",
-     "summary": "Dungoku, from MythicOwl, is a grid-based dungeon crawler where you place enemies and chests on the map to satisfy each creature's rules, rather than solving fixed sudoku digits. It has no release date yet but a Steam page is live for wishlisting.",
-     "summary_ar": "«Dungoku» من MythicOwl لعبة استكشاف قصور قائمة على شبكة، يضع فيها اللاعب الأعداء والصناديق على الخريطة لتحقيق قواعد كل مخلوق، بدلًا من حل أرقام سودوكو ثابتة. ولا يوجد موعد إصدار بعد، لكن صفحتها على Steam متاحة للإضافة إلى قائمة الرغبات.",
-     "genres": [
-      "Puzzle",
-      "Dungeon crawler"
-     ],
-     "platforms": [
-      "Windows"
-     ],
-     "store_url": "https://store.steampowered.com/search/?term=Dungoku",
+     "status": "new",
+     "time": "2026-11-27T18:20:00+03:00",
+     "title": "glagstone is a 1-bit island city-builder with a lighthouse to keep",
+     "title_ar": "Glagstone لعبة بناء مدن جزيرية بأسلوب 1-بت وعليك إبقاء المنارة مضاءة",
+     "summary": "Glagstone, a story-driven city-builder with a 1-bit Macintosh look, is coming to Steam after starting as a Playdate prototype; you govern a remote northern island contested by rival nations, keep the lighthouse on and the villagers obedient, and uncover the mystery at its heart. It is listed for 2027 with no price yet.",
+     "summary_ar": "تصل Glagstone، لعبة بناء مدن مدفوعة بالحكاية بمظهر ماكنتوش أحادي البت، إلى ستيم بعد أن بدأت كنموذج على جهاز Playdate؛ تحكم فيها جزيرة شمالية نائية تتنازعها دول، وعليك إبقاء المنارة مضاءة والسكان مطيعين وكشف السر في قلب الجزيرة. وهي مدرجة لعام 2027 من دون سعر بعد.",
      "sources": [
       {
        "title": "Rock Paper Shotgun",
-       "url": "https://www.rockpapershotgun.com/dark-fantasy-and-sudoku-fuse-together-in-unholy-matrimony-in-dungoku-a-dungeon-crawling-twist-on-the-classic-puzzle-game",
+       "url": "https://www.rockpapershotgun.com/keep-the-lighthouse-on-and-the-villagers-obedient-in-glagstone-an-eerie-island-city-builder-with-macintosh-style-graphics",
        "type": "independent"
-      }
-     ],
-     "image": "https://assetsio.gnwcdn.com/dungoku.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp"
-    },
-    {
-     "id": "game-hark-the-ghoul",
-     "section": "games",
-     "status": "",
-     "time": "2026-11-26T21:53:00+03:00",
-     "kind": "PREVIEW",
-     "title": "hark the ghoul is a victorian gothic dungeon crawler rpg",
-     "title_ar": "HARK THE GHOUL لعبة أدوار استكشاف قصور فيكتورية قوطية",
-     "summary": "HARK THE GHOUL is a first-person action-adventure RPG built around freeform exploration of a dark Victorian city, and it now has a Steam demo and a release date: 21 January 2027 on PC, Switch, Switch 2, PS5 and Xbox Series. RPS highlights its trench-coat-wearing rat man who sells you rats 'a la counterfeit watches'.",
-     "summary_ar": "«HARK THE GHOUL» لعبة أدوار ومغامرات أكشن بمنظور الشخص الأول تقوم على الاستكشاف الحر في مدينة فيكتورية مظلمة، وصار لها عرض تجريبي على Steam وموعد إصدار: 21 يناير 2027 على PC وSwitch وSwitch 2 وPS5 وXbox Series. وتلفت RPS إلى رجل الجرذان الذي يرتدي معطفًا طويلًا ويبيع لك الجرذان «مثل الساعات المقلدة».",
-     "genres": [
-      "Action RPG",
-      "Dungeon crawler"
-     ],
-     "platforms": [
-      "Windows",
-      "Switch",
-      "Switch 2",
-      "PS5",
-      "Xbox Series"
-     ],
-     "release_date": "21 Jan, 2027",
-     "store_url": "https://store.steampowered.com/search/?term=HARK+THE+GHOUL",
-     "sources": [
-      {
-       "title": "Rock Paper Shotgun",
-       "url": "https://www.rockpapershotgun.com/hark-the-ghoul-is-a-victorian-gothic-dungeon-crawler-rpg-that-features-a-trench-coat-wearing-rat-man-who-wants-to-sell-you-rats-a-la-counterfeit-watches",
-       "type": "independent"
-      }
-     ],
-     "image": "https://assetsio.gnwcdn.com/hark-the-ghoul.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp"
-    },
-    {
-     "id": "game-9-kings",
-     "section": "games",
-     "status": "",
-     "time": "2026-11-27T06:00:00+03:00",
-     "kind": "PICK",
-     "title": "9 kings mixes roguelike runs with kingdom building",
-     "title_ar": "9 Kings يمزج جولات الروغلايك ببناء الممالك",
-     "summary": "9 Kings is a fast roguelike kingdom builder in which you grow an empire and fight rival kings, stacking thousands of builds across runs; it costs 59.95 SR on Steam and is tagged RPG and strategy.",
-     "summary_ar": "«9 Kings» لعبة بناء ممالك سريعة بنمط الروغلايك، تنمّي فيها إمبراطورية وتحارب ملوكًا منافسين مع آلاف التركيبات المتراكمة بين الجولات؛ وسعرها 59.95 ر.س على Steam وتصنّف ضمن أدوار واستراتيجية.",
-     "genres": [
-      "Roguelike",
-      "Kingdom builder"
-     ],
-     "platforms": [
-      "Windows"
-     ],
-     "price": "59.95 SR",
-     "release_date": "12 Nov, 2026",
-     "store_url": "https://store.steampowered.com/app/2784470/9_Kings/",
-     "sources": [
+      },
       {
        "title": "Steam",
-       "url": "https://store.steampowered.com/app/2784470/9_Kings/",
+       "url": "https://store.steampowered.com/app/4198840/GlagStone/",
        "type": "official"
       }
      ],
-     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2784470/640a138fbc6918daa276a4653360eca9e4488b65/header.jpg?t=1795529164"
-    },
-    {
-     "id": "game-sm2-weekly-clash",
-     "section": "games",
-     "status": "",
-     "time": "2026-11-26T20:58:00+03:00",
-     "kind": "UPDATE",
-     "title": "space marine 2 adds a weekly clash pvp mode",
-     "title_ar": "Space Marine 2 يضيف نمط «Weekly Clash» للعب الجماعي",
-     "summary": "Saber's latest Space Marine 2 update adds Weekly Clash, a PvP mode that applies rotating rules to Eternal War such as a single class, a single weapon or near-unlimited grenades. It also adds a new Chaos Siege sector with a renewed challenge between waves 11 and 15, six heroic weapons and new armour pieces.",
-     "summary_ar": "تحديث Space Marine 2 من Saber يضيف «Weekly Clash»، نمط لعب جماعي يفرض قواعد متغيرة على Eternal War مثل فئة واحدة أو سلاح واحد أو قنابل شبه غير محدودة. ويضيف أيضًا قطاع Chaos Siege جديدًا بتحدٍّ متجدد بين الموجتين 11 و15، وستة أسلحة بطولية وقطع دروع جديدة.",
+     "kind": "PREVIEW",
      "genres": [
-      "Third-person shooter",
-      "Action"
+      "City builder",
+      "Strategy"
      ],
      "platforms": [
       "Windows",
-      "PS5",
-      "Xbox Series"
+      "Mac",
+      "Linux"
      ],
+     "release_date": "2027",
+     "store_url": "https://store.steampowered.com/app/4198840/GlagStone/",
+     "image": "https://assetsio.gnwcdn.com/glagstone.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp"
+    },
+    {
+     "id": "game-vermintide-2-modding",
+     "section": "games",
+     "status": "new",
+     "time": "2026-11-27T17:00:00+03:00",
+     "title": "fatshark opens its own level tools to vermintide 2 modders",
+     "title_ar": "Fatshark تتيح أدواتها الخاصة لبناء المستويات لمعدّلي Vermintide 2",
+     "summary": "Fatshark released public mod tools for Warhammer: Vermintide 2 built from the same internal tooling it uses to make official levels and characters, adding support for custom levels, models and animations that the old SDK and modding framework could not handle. The developers called it 'a new era' for the game's modding.",
+     "summary_ar": "أصدرت Fatshark أدوات تعديل عامة لـWarhammer: Vermintide 2 مبنية على الأدوات الداخلية نفسها التي تستخدمها لصنع المستويات والشخصيات الرسمية، مضيفة دعمًا لمستويات ونماذج ورسوم متحركة مخصصة لم تستطع مجموعة التطوير القديمة التعامل معها. ووصف المطورون ذلك بأنه «عهد جديد» لتعديل اللعبة.",
      "sources": [
       {
        "title": "Rock Paper Shotgun",
-       "url": "https://www.rockpapershotgun.com/warhammer-40000-space-marine-2s-latest-updates-introduces-a-weekly-clash-mode-that-shakes-up-pvp-with-some-constricting-modifiers",
+       "url": "https://www.rockpapershotgun.com/a-new-era-for-vermintide-2-modding-dawneth-as-fatshark-release-powerful-new-tools-for-custom-levels-models-and-animations",
        "type": "independent"
       }
      ],
-     "image": "https://assetsio.gnwcdn.com/warhammer-40k-space-marine-2-decimation.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp"
+     "kind": "UPDATE",
+     "genres": [
+      "Co-op action",
+      "Modding"
+     ],
+     "platforms": [
+      "Windows"
+     ],
+     "image": "https://assetsio.gnwcdn.com/vermintide-2.png?width=1200&height=630&fit=crop&enable=upscale&auto=webp"
     }
    ],
    "watch": [
@@ -1309,10 +1307,10 @@
     {
      "id": "social-mrbeast",
      "section": "social",
-     "title": "mrbeast's '$250,000 hunger games' passes 106.9m views",
-     "title_ar": "«ألعاب الجوع» من MrBeast تتجاوز 106.9 ملايين مشاهدة",
-     "summary": "MrBeast's real-life $250,000 Hunger Games video, published on 14 November, has passed 106,962,430 views.",
-     "summary_ar": "تجاوز فيديو ألعاب الجوع الواقعية من MrBeast، المنشور في 14 نوفمبر، 106,962,430 مشاهدة.",
+     "title": "mrbeast's '$250,000 hunger games' passes 108.0m views",
+     "title_ar": "«ألعاب الجوع» من MrBeast تتجاوز 108.0 ملايين مشاهدة",
+     "summary": "MrBeast's real-life $250,000 Hunger Games video, published on 14 November, has passed 108,027,068 views.",
+     "summary_ar": "تجاوز فيديو ألعاب الجوع الواقعية من MrBeast، المنشور في 14 نوفمبر، 108,027,068 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · MrBeast",
@@ -1320,20 +1318,20 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-27T19:00:00+03:00",
+     "time": "2026-11-28T06:00:00+03:00",
      "image": "https://i.ytimg.com/vi/q6fgVVmdpgY/hqdefault.jpg",
      "status": "",
      "platform": "youtube",
      "creator": "MrBeast",
-     "metric": "106.9M views"
+     "metric": "108.0M views"
     },
     {
      "id": "social-badshah-mahiya",
      "section": "social",
-     "title": "badshah's 'mahiya' passes 83.1m views",
-     "title_ar": "أغنية «ماهيا» لبادشاه تتجاوز 83.1 مليون مشاهدة",
-     "summary": "Badshah's 'Mahiya' with Shreya Ghoshal, published on 3 November, has passed 83,175,126 views.",
-     "summary_ar": "تجاوز فيديو «ماهيا» لبادشاه مع شريا غوشال، المنشور في 3 نوفمبر، 83,175,126 مشاهدة.",
+     "title": "badshah's 'mahiya' passes 83.4m views",
+     "title_ar": "أغنية «ماهيا» لبادشاه تتجاوز 83.4 مليون مشاهدة",
+     "summary": "Badshah's 'Mahiya' with Shreya Ghoshal, published on 3 November, has passed 83,428,756 views.",
+     "summary_ar": "تجاوز فيديو «ماهيا» لبادشاه مع شريا غوشال، المنشور في 3 نوفمبر، 83,428,756 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Badshah",
@@ -1341,19 +1339,19 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-27T19:00:00+03:00",
+     "time": "2026-11-28T06:00:00+03:00",
      "image": "https://i.ytimg.com/vi/EgXkduRe9ZU/hqdefault.jpg",
      "status": "",
      "platform": "youtube",
      "creator": "Badshah",
-     "metric": "83.1M views"
+     "metric": "83.4M views"
     },
     {
      "id": "social-mrbeast-gta6",
-     "title": "'100 hours in gta 6' from mrbeast gaming passes 76.5m views",
-     "title_ar": "«100 ساعة في GTA 6» من MrBeast Gaming يتجاوز 76.5 مليون مشاهدة",
-     "summary": "MrBeast Gaming's 'I Survived 100 Hours In GTA 6', published on 19 November, has passed 76,586,732 views.",
-     "summary_ar": "تجاوز فيديو «نجوت 100 ساعة في GTA 6» من MrBeast Gaming، المنشور في 19 نوفمبر، 76,586,732 مشاهدة.",
+     "title": "'100 hours in gta 6' from mrbeast gaming passes 77.4m views",
+     "title_ar": "«100 ساعة في GTA 6» من MrBeast Gaming يتجاوز 77.4 مليون مشاهدة",
+     "summary": "MrBeast Gaming's 'I Survived 100 Hours In GTA 6', published on 19 November, has passed 77,491,017 views.",
+     "summary_ar": "تجاوز فيديو «نجوت 100 ساعة في GTA 6» من MrBeast Gaming، المنشور في 19 نوفمبر، 77,491,017 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · MrBeast Gaming",
@@ -1361,20 +1359,20 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-27T19:00:00+03:00",
+     "time": "2026-11-28T06:00:00+03:00",
      "section": "social",
      "status": "",
      "image": "https://i.ytimg.com/vi/ymCHX_Dcc-U/hqdefault.jpg",
      "platform": "youtube",
      "creator": "MrBeast Gaming",
-     "metric": "76.5M views"
+     "metric": "77.4M views"
     },
     {
      "id": "social-mrbeast-steal",
-     "title": "mrbeast gaming's gta 6 heist passes 60.7m views",
-     "title_ar": "سرقة GTA 6 من MrBeast Gaming تتجاوز 60.7 مليون مشاهدة",
-     "summary": "MrBeast Gaming's 'Whatever You Steal in GTA 6, You Keep!', published on 20 November, has passed 60,741,222 views.",
-     "summary_ar": "تجاوز فيديو «كل ما تسرقه في GTA 6 يعود لك» من MrBeast Gaming، المنشور في 20 نوفمبر، 60,741,222 مشاهدة.",
+     "title": "mrbeast gaming's gta 6 heist passes 62.1m views",
+     "title_ar": "سرقة GTA 6 من MrBeast Gaming تتجاوز 62.1 مليون مشاهدة",
+     "summary": "MrBeast Gaming's 'Whatever You Steal in GTA 6, You Keep!', published on 20 November, has passed 62,135,057 views.",
+     "summary_ar": "تجاوز فيديو «كل ما تسرقه في GTA 6 يعود لك» من MrBeast Gaming، المنشور في 20 نوفمبر، 62,135,057 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · MrBeast Gaming",
@@ -1382,21 +1380,21 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-27T19:00:00+03:00",
+     "time": "2026-11-28T06:00:00+03:00",
      "section": "social",
      "status": "",
      "image": "https://i.ytimg.com/vi/QQV-0OUGxGs/hqdefault.jpg",
      "platform": "youtube",
      "creator": "MrBeast Gaming",
-     "metric": "60.7M views"
+     "metric": "62.1M views"
     },
     {
      "id": "social-gta6-walkthrough",
      "section": "social",
-     "title": "gta 6 walkthrough passes 13.0m views",
-     "title_ar": "عرض طريقة لعب GTA 6 يتجاوز 13.0 مليون مشاهدة",
-     "summary": "MKIceAndFire's GTA 6 gameplay walkthrough part one, published on 18 November, has passed 13,042,183 views.",
-     "summary_ar": "تجاوز الجزء الأول من عرض طريقة لعب GTA 6 من MKIceAndFire، المنشور في 18 نوفمبر، 13,042,183 مشاهدة.",
+     "title": "gta 6 walkthrough passes 13.1m views",
+     "title_ar": "عرض طريقة لعب GTA 6 يتجاوز 13.1 مليون مشاهدة",
+     "summary": "MKIceAndFire's GTA 6 gameplay walkthrough part one, published on 18 November, has passed 13,149,103 views.",
+     "summary_ar": "تجاوز الجزء الأول من عرض طريقة لعب GTA 6 من MKIceAndFire، المنشور في 18 نوفمبر، 13,149,103 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · MKIceAndFire",
@@ -1404,20 +1402,20 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-27T19:00:00+03:00",
+     "time": "2026-11-28T06:00:00+03:00",
      "image": "https://i.ytimg.com/vi/YDNs_sPEcJc/hqdefault.jpg",
      "status": "",
      "platform": "youtube",
      "creator": "MKIceAndFire",
-     "metric": "13.0M views"
+     "metric": "13.1M views"
     },
     {
      "id": "social-sidemen-murder",
      "section": "social",
-     "title": "sidemen's murder mystery dinner passes 8.4m views",
-     "title_ar": "«عشاء لغز الجريمة» من Sidemen يتجاوز 8.4 ملايين مشاهدة",
-     "summary": "The Sidemen's 'Murder Mystery Dinner' video, published on 15 November, has passed 8,476,850 views.",
-     "summary_ar": "تجاوز فيديو «عشاء لغز الجريمة» من Sidemen، المنشور في 15 نوفمبر، 8,476,850 مشاهدة.",
+     "title": "sidemen's murder mystery dinner passes 8.5m views",
+     "title_ar": "«عشاء لغز الجريمة» من Sidemen يتجاوز 8.5 ملايين مشاهدة",
+     "summary": "The Sidemen's 'Murder Mystery Dinner' video, published on 15 November, has passed 8,533,828 views.",
+     "summary_ar": "تجاوز فيديو «عشاء لغز الجريمة» من Sidemen، المنشور في 15 نوفمبر، 8,533,828 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Sidemen",
@@ -1425,19 +1423,19 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-27T19:00:00+03:00",
+     "time": "2026-11-28T06:00:00+03:00",
      "image": "https://i.ytimg.com/vi/fwqEB2HdY88/hqdefault.jpg",
      "status": "",
      "platform": "youtube",
      "creator": "Sidemen",
-     "metric": "8.4M views"
+     "metric": "8.5M views"
     },
     {
      "id": "social-sidemen-birthday",
-     "title": "sidemen's surprise birthday party for harry passes 4.7m views",
-     "summary": "The Sidemen's surprise birthday party for Harry, published on 22 November, has passed 4,786,207 views.",
-     "title_ar": "حفلة عيد ميلاد هاري المفاجئة من Sidemen تتجاوز 4.7 ملايين مشاهدة",
-     "summary_ar": "تجاوز فيديو حفلة عيد الميلاد المفاجئة لهاري من Sidemen، المنشور في 22 نوفمبر، 4,786,207 مشاهدة.",
+     "title": "sidemen's surprise birthday party for harry passes 4.9m views",
+     "summary": "The Sidemen's surprise birthday party for Harry, published on 22 November, has passed 4,937,425 views.",
+     "title_ar": "حفلة عيد ميلاد هاري المفاجئة من Sidemen تتجاوز 4.9 ملايين مشاهدة",
+     "summary_ar": "تجاوز فيديو حفلة عيد الميلاد المفاجئة لهاري من Sidemen، المنشور في 22 نوفمبر، 4,937,425 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Sidemen",
@@ -1445,11 +1443,11 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-27T19:00:00+03:00",
+     "time": "2026-11-28T06:00:00+03:00",
      "section": "social",
      "status": "",
      "image": "https://i.ytimg.com/vi/xFrlRL3D-LQ/hqdefault.jpg",
-     "metric": "4.7M views",
+     "metric": "4.9M views",
      "platform": "youtube",
      "creator": "Sidemen"
     },
@@ -1458,8 +1456,8 @@
      "section": "social",
      "title": "kimmel's airport monologue passes 5.2m views",
      "title_ar": "مونولوج كيمل عن المطارات يتجاوز 5.2 مليون مشاهدة",
-     "summary": "Jimmy Kimmel's monologue on Trump, airport chaos and the press conference, published on 16 November, has passed 5,259,173 views.",
-     "summary_ar": "تجاوز مونولوج جيمي كيمل عن ترامب وفوضى المطارات والمؤتمر الصحفي، المنشور في 16 نوفمبر، 5,259,173 مشاهدة.",
+     "summary": "Jimmy Kimmel's monologue on Trump, airport chaos and the press conference, published on 16 November, has passed 5,261,868 views.",
+     "summary_ar": "تجاوز مونولوج جيمي كيمل عن ترامب وفوضى المطارات والمؤتمر الصحفي، المنشور في 16 نوفمبر، 5,261,868 مشاهدة.",
      "sources": [
       {
        "title": "YouTube · Jimmy Kimmel Live",
@@ -1467,7 +1465,7 @@
        "type": "social"
       }
      ],
-     "time": "2026-11-27T19:00:00+03:00",
+     "time": "2026-11-28T06:00:00+03:00",
      "image": "https://i.ytimg.com/vi/AzKVdh032qU/hqdefault.jpg",
      "status": "",
      "platform": "youtube",
@@ -1489,11 +1487,53 @@
    ]
   },
   "graphic": {
+   "warning": "Graphic war and crime footage from established outlets. Not suitable for all readers.",
+   "warning_ar": "لقطات حرب وجريمة من مؤسسات إعلامية معروفة. غير مناسبة لجميع القراء.",
    "items": [
+    {
+     "id": "graphic-kyiv-shopping-centre",
+     "section": "graphic",
+     "status": "new",
+     "time": "2026-11-28T01:30:00+03:00",
+     "title": "russian ballistic missiles hit a kyiv shopping centre, injuring seven",
+     "title_ar": "صواريخ باليستية روسية تصيب مركز تسوق في كييف وتجرح سبعة",
+     "summary": "Russian ballistic missiles struck Kyiv, hitting a shopping centre and injuring seven people, while the Pivdennyi Bridge was closed to traffic after being damaged, Ukrainian officials said. The strikes came as Russia kept up its campaign against energy and transport infrastructure; Ukraine's air force reported 155 drones and multiple missiles overnight into Friday.",
+     "summary_ar": "أصابت صواريخ باليستية روسية العاصمة كييف مركز تسوق وجرحت سبعة أشخاص، فيما أُغلق جسر بيفديني أمام الحركة بعد تضرره، بحسب مسؤولين أوكرانيين. وجاءت الضربات في وقت تواصل روسيا حملتها على منشآت الطاقة والنقل؛ وأعلن سلاح الجو الأوكراني عن 155 مسيّرة وصواريخ عدة خلال الليل حتى الجمعة.",
+     "sources": [
+      {
+       "title": "Euromaidan Press",
+       "url": "https://euromaidanpress.com/2026/11/27/russo-ukrainian-war-day-1737/",
+       "type": "independent"
+      }
+     ],
+     "warning": "war, civilian casualties",
+     "warning_ar": "حرب، ضحايا مدنيون",
+     "image": "https://euromaidanpress.com/wp-content/uploads/2026/11/Russo-Ukrainian-war-daily-review-4.png"
+    },
+    {
+     "id": "graphic-sudan-rsf",
+     "section": "graphic",
+     "status": "new",
+     "time": "2026-11-27T15:40:00+03:00",
+     "title": "sudan rights group says rsf attacks killed 14 in darfur and kordofan",
+     "title_ar": "منظمة حقوقية سودانية تقول إن هجمات الدعم السريع قتلت 14 في دارفور وكردفان",
+     "summary": "At least 14 people were killed in attacks by the Rapid Support Forces in Sudan's East Darfur and West Kordofan states, the Sudan Human Rights Observatory said, with 12 deaths in East Darfur and two in West Kordofan. The group said villages in Yassin locality were subjected to 'systematic' attacks for three consecutive days and described 'retaliatory' campaigns in West Kordofan that also drove displacement.",
+     "summary_ar": "قُتل 14 شخصًا على الأقل في هجمات لقوات الدعم السريع في ولايتي شرق دارفور وغرب كردفان السودانيتين، بحسب المرصد السوداني لحقوق الإنسان، بينهم 12 في شرق دارفور واثنان في غرب كردفان. وقال المرصد إن قرى في محلية ياسين تعرضت لهجمات «منهجية» ثلاثة أيام متتالية، ووصف حملات «انتقامية» في غرب كردفان تسببت أيضًا في نزوح.",
+     "sources": [
+      {
+       "title": "Anadolu Agency",
+       "url": "https://www.aa.com.tr/en/middle-east/at-least-14-killed-in-rsf-attacks-on-east-darfur-west-kordofan-sudan-rights-group/4140138",
+       "type": "wire"
+      }
+     ],
+     "warning": "violence, mass casualties",
+     "warning_ar": "عنف، ضحايا بأعداد كبيرة",
+     "image": "https://web-cdnprod.aa.com.tr/uploads/Contents/2026/11/27/thumbs_b_c_31ff1e43787a4c0dd699b59a8fb43e53.jpg"
+    },
     {
      "id": "graphic-ukraine-drones",
      "section": "graphic",
-     "status": "new",
+     "status": "",
      "time": "2026-11-27T12:59:00+03:00",
      "title": "russian drone barrage kills six and cuts power across ukraine",
      "title_ar": "قصف روسي بالمسيّرات يقتل ستة ويقطع الكهرباء في أوكرانيا",
@@ -1541,6 +1581,26 @@
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/ap_6b08bc55aa9c5-1795734613.jpg?resize=1920%2C1440"
     },
     {
+     "id": "graphic-ibiza-tanker",
+     "section": "graphic",
+     "status": "updated",
+     "time": "2026-11-27T20:00:00+03:00",
+     "warning": "death, maritime accident",
+     "warning_ar": "وفاة، حادث بحري",
+     "title": "capsized diesel tanker to be towed away from ibiza",
+     "title_ar": "سحب ناقلة ديزل منقلبة بعيدًا عن إيبيزا",
+     "summary": "A tanker carrying 7,000 tonnes of diesel that capsized off Ibiza, killing one crew member, is to be towed away from the island, the BBC reported; its fuel tanks are so far intact and authorities fear a major oil spill. Spanish rescue services recovered the body of one crew member and took six people to hospital.",
+     "summary_ar": "تُسحب ناقلة تحمل 7000 طن من الديزل انقلبت قبالة إيبيزا وقتلت أحد أفراد طاقمها بعيدًا عن الجزيرة، بحسب بي بي سي؛ ولا تزال خزانات وقودها سليمة وتخشى السلطات تسربًا نفطيًا كبيرًا. وانتشلت خدمات الإنقاذ الإسبانية جثة أحد أفراد الطاقم ونقلت ستة إلى المستشفى.",
+     "sources": [
+      {
+       "title": "BBC News",
+       "url": "https://www.bbc.co.uk/news/articles/cvrlgz6g0ekgo",
+       "type": "independent"
+      }
+     ],
+     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/3e73/live/33d0e9f0-e99e-11f1-b880-15b494ba858d.jpg"
+    },
+    {
      "id": "graphic-cairo-tanker",
      "section": "graphic",
      "status": "",
@@ -1561,46 +1621,6 @@
      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e387/live/8aafd3d0-e98f-11f1-9d1c-4dcc8fcde666.jpg"
     },
     {
-     "id": "graphic-ibiza-tanker",
-     "section": "graphic",
-     "status": "",
-     "time": "2026-11-27T01:01:00+03:00",
-     "warning": "death, maritime accident",
-     "warning_ar": "وفاة، حادث بحري",
-     "title": "diesel tanker capsizes off ibiza, killing one crew member",
-     "title_ar": "ناقلة ديزل تنقلب قبالة إيبيزا وتقتل أحد أفراد الطاقم",
-     "summary": "A Malta-flagged tanker carrying up to 7,000 tonnes of diesel capsized off Ibiza in Spain's Balearic Islands, and one of its 17 crew members died after being taken to hospital, emergency services said. Seven crew were hospitalised, six with minor injuries such as hypothermia, and the rest were rescued.",
-     "summary_ar": "انقلبت ناقلة ترفع علم مالطا وتحمل ما يصل إلى 7,000 طن من الديزل قبالة إيبيزا في جزر البليار الإسبانية، وتوفي أحد أفراد طاقمها الـ17 بعد نقله إلى المستشفى، بحسب خدمات الطوارئ. وأُدخل سبعة من الطاقم إلى المستشفى، ستة منهم بإصابات طفيفة مثل انخفاض حرارة الجسم، وأُنقذ الباقون.",
-     "sources": [
-      {
-       "title": "BBC News",
-       "url": "https://www.bbc.co.uk/news/articles/c9gklryvj24do",
-       "type": "independent"
-      }
-     ],
-     "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/3e73/live/33d0e9f0-e99e-11f1-b880-15b494ba858d.jpg"
-    },
-    {
-     "id": "graphic-sudan",
-     "section": "graphic",
-     "title": "rsf drone attacks kill at least 19 in sudan's blue nile state",
-     "title_ar": "هجمات مسيّرات الدعم السريع تقتل 19 على الأقل في ولاية النيل الأزرق",
-     "summary": "Drone attacks by Sudan's RSF on Damazin, the capital of Blue Nile state, and the neighbouring town of Roseires killed at least 19 people and wounded more than 20 late on Tuesday, a Sudanese military source told Al Jazeera. Three families were killed in a residential area, and drones also hit electricity facilities and a dam, according to Emergency Lawyers.",
-     "summary_ar": "قتلت هجمات بمسيّرات شنّتها قوات الدعم السريع على مدينة الدمازين حاضرة ولاية النيل الأزرق وبلدة الروصيرص المجاورة 19 شخصاً على الأقل وأصابت أكثر من 20 مساء الثلاثاء، بحسب مصدر عسكري سوداني تحدث إلى الجزيرة. وقُتلت ثلاث أسر في منطقة سكنية، وأصابت المسيّرات منشآت كهرباء وسداً، وفق «محامو الطوارئ».",
-     "sources": [
-      {
-       "title": "Al Jazeera",
-       "url": "https://www.aljazeera.com/news/2026/11/25/overnight-rsf-drone-attacks-kill-19-in-sudan",
-       "type": "independent"
-      }
-     ],
-     "time": "2026-11-25T14:58:00+03:00",
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/afp_6b06b9bd3343-1795602877.jpg?resize=1920%2C1440",
-     "warning": "violence, mass casualties",
-     "warning_ar": "عنف، ضحايا بالجملة",
-     "status": ""
-    },
-    {
      "id": "graphic-syria-isil",
      "section": "graphic",
      "status": "",
@@ -1619,26 +1639,6 @@
       }
      ],
      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/image-1795648332.jpg?resize=1920%2C1061&quality=80"
-    },
-    {
-     "id": "graphic-ukraine-base",
-     "section": "graphic",
-     "status": "",
-     "time": "2026-11-26T04:30:00+03:00",
-     "title": "ukraine says it hit a russian airbase and damaged five aircraft",
-     "title_ar": "أوكرانيا تقول إنها ضربت قاعدة جوية روسية وألحقت أضرارًا بخمس طائرات",
-     "summary": "Ukraine's General Staff said its forces struck the Savasleyka airbase in the Nizhny Novgorod region east of Moscow, damaging three MiG-31 jets used to fire hypersonic missiles and two Su-34 fighter-bombers. Russia did not immediately comment.",
-     "summary_ar": "قالت هيئة الأركان الأوكرانية إن قواتها ضربت قاعدة سافاسليكا الجوية في منطقة نيجني نوفغورود شرق موسكو، وألحقت أضرارًا بثلاث طائرات ميغ-31 تُستخدم لإطلاق صواريخ فرط صوتية ومقنبلتين سو-34. ولم تعلق روسيا فورًا.",
-     "warning": "war, military strike",
-     "warning_ar": "حرب وضربة عسكرية",
-     "sources": [
-      {
-       "title": "Al Jazeera (Reuters)",
-       "url": "https://www.aljazeera.com/news/2026/11/26/ukraine-attacks-russian-military-base-says-five-planes-struck",
-       "type": "wire"
-      }
-     ],
-     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/2026-06-15T152617Z_1851412768_RC2CQ49SS6FD_RTRMADP_3_RUSSIA-AIRPLANE-CRASH-1795653630.jpg?resize=1920%2C1440"
     },
     {
      "id": "graphic-congo-plane",
@@ -1672,9 +1672,7 @@
      "url": "https://www.youtube.com/watch?v=KEKC6w5Ue5E",
      "channel": "Guardian News"
     }
-   ],
-   "warning": "Graphic war and crime footage from established outlets. Not suitable for all readers.",
-   "warning_ar": "لقطات حرب وجريمة من مؤسسات إعلامية معروفة. غير مناسبة لجميع القراء."
+   ]
   }
  }
 }
